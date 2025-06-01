@@ -1,0 +1,29 @@
+[
+    {
+        "uid": "magicoder:7b-s-cl"
+    },
+    {
+        "uid": "codellama:7b-instruct"
+    },
+    {
+        "uid": "codellama:13b-instruct"
+    },
+    {
+        "uid": "deepseek-coder:6.7b"
+    },
+    {
+        "uid": "codegemma:7b-instruct"
+    },
+    {
+        "uid": "qwen2.5:7b"
+    },
+    {
+        "uid": "qwen2.5-coder:7b"
+    },
+    {
+        "uid": "yi-coder:9b"
+    },
+    {
+        "uid": "hermes3:8b"
+    }
+]

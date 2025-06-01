@@ -1,0 +1,16 @@
+    public void transfer(int debitAccountId, int creditAccountId, String amount) {
+        Optional<Account> debitedAccountWrapper = accountRepository.findById(debitAccountId);
+        Optional<Account> creditedAccountWrapper = accountRepository.findById(creditAccountId);
+        
+        Account debitedAccount = debitedAccountWrapper.orElseThrow(NoSuchElementException::new);
+        Account creditedAccount = creditedAccountWrapper.orElseThrow(NoSuchElementException::new);
+        
+        BigDecimal debitedAccountBalance = calculateDebitedBalance(debitedAccount, amount);
+        BigDecimal creditedAccountBalance = calculateCreditedBalance(creditedAccount, amount);
+        
+        debitedAccount.setBalance(debitedAccountBalance);
+        creditedAccount.setBalance(creditedAccountBalance);
+        
+        accountRepository.save(debitedAccount);
+        accountRepository.save(creditedAccount);
+    }

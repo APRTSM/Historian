@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-30/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-30-fixed/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
+index e0e3b1e..b32b1f9 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-30/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-30-fixed/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
+@@ -165,6 +165,9 @@ public class BZip2CompressorInputStream extends CompressorInputStream implements
+         if (this.in == null) {
+             throw new IOException("stream closed");
+         }
++        if (len == 0) {
++            return 0;
++        }
+ 
+         final int hi = offs + len;
+         int destOffs = offs;

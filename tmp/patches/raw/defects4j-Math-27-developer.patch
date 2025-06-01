@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-27/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-27-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+index f84218e..f81ff0a 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-27/src/main/java/org/apache/commons/math3/fraction/Fraction.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-27-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+@@ -594,7 +594,7 @@ public class Fraction
+      * @return the fraction percentage as a <tt>double</tt>.
+      */
+     public double percentageValue() {
+-        return multiply(100).doubleValue();
++        return 100 * doubleValue();
+     }
+ 
+     /**

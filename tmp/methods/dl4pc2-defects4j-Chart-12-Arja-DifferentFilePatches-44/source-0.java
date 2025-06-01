@@ -1,0 +1,3 @@
+    public CategoryDataset getDataset() {
+        return this.dataset;
+    }

@@ -1,0 +1,4 @@
+    public double getUpperClip() {
+        // TODO:  this attribute should be transferred to the renderer state.
+        return this.upperClip;
+    }

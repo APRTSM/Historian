@@ -1,0 +1,12 @@
+  public ReverseAbstractInterpreter getReverseAbstractInterpreter() {
+    if (abstractInterpreter == null) {
+      ChainableReverseAbstractInterpreter interpreter =
+          new SemanticReverseAbstractInterpreter(
+              getCodingConvention(), getTypeRegistry());
+      if (options.closurePass) {
+        return null;
+      }
+      abstractInterpreter = interpreter;
+    }
+    return abstractInterpreter;
+  }

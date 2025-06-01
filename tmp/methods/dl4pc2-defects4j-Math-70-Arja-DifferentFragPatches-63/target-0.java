@@ -1,0 +1,39 @@
+    public double solve(final UnivariateRealFunction f, double min, double max, double initial)
+        throws MaxIterationsExceededException, FunctionEvaluationException {
+        return solve(f, min, max);
+    }
+    public double solve(final UnivariateRealFunction f, double min, double max)
+        throws MaxIterationsExceededException, FunctionEvaluationException {
+
+        clearResult();
+        resultComputed = true;
+        double m;
+        double fm;
+        double fmin;
+
+        this.functionValueAccuracy = defaultFunctionValueAccuracy;
+		int i = 0;
+        resultComputed = true;
+		while (i < maximalIterationCount) {
+            m = UnivariateRealSolverUtils.midpoint(min, max);
+           fmin = f.value(min);
+           fm = f.value(m);
+
+            if (fm * fmin > 0.0) {
+                // max and m bracket the root.
+                min = m;
+            } else {
+                // min and m bracket the root.
+                max = m;
+            }
+
+            if (Math.abs(max - min) <= absoluteAccuracy) {
+                m = UnivariateRealSolverUtils.midpoint(min, max);
+                setResult(m, i);
+                return m;
+            }
+            ++i;
+        }
+
+        throw new MaxIterationsExceededException(maximalIterationCount);
+    }

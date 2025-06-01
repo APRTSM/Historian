@@ -1,0 +1,69 @@
+  private SortedMap<String,String> makeRelative(Collection<String> candidates) {
+
+    SortedMap<String,String> ret = new TreeMap<String,String>();
+
+    for (String candidate : candidates) {
+      String relPath;
+      try {
+        relPath = makeRelative(candidate, 0);
+      } catch (IllegalArgumentException iae) {
+        log.warn("Ingoring invalid deletion candidate " + candidate);
+        continue;
+      }
+      ret.put(relPath, candidate);
+    }
+
+    return ret;
+  }
+  private String makeRelative(String path, int expectedLen) {
+    String relPath = path;
+
+    if (relPath.startsWith("../"))
+      relPath = relPath.substring(3);
+
+    while (relPath.endsWith("/"))
+      relPath = relPath.substring(0, relPath.length() - 1);
+
+    while (relPath.startsWith("/"))
+      relPath = relPath.substring(1);
+
+    String[] tokens = relPath.split("/");
+
+    // handle paths like a//b///c
+    boolean containsEmpty = false;
+    for (String token : tokens) {
+      if (token.equals("")) {
+        containsEmpty = true;
+        break;
+      }
+    }
+
+    if (containsEmpty) {
+      ArrayList<String> tmp = new ArrayList<String>();
+      for (String token : tokens) {
+        if (!token.equals("")) {
+          tmp.add(token);
+        }
+      }
+
+      tokens = tmp.toArray(new String[tmp.size()]);
+    }
+
+    if (tokens.length > 3 && path.contains(":")) {
+      if (tokens[tokens.length - 4].equals(ServerConstants.TABLE_DIR) && (expectedLen == 0 || expectedLen == 3)) {
+        relPath = tokens[tokens.length - 3] + "/" + tokens[tokens.length - 2] + "/" + tokens[tokens.length - 1];
+      } else if (tokens[tokens.length - 3].equals(ServerConstants.TABLE_DIR) && (expectedLen == 0 || expectedLen == 2)) {
+        relPath = tokens[tokens.length - 2] + "/" + tokens[tokens.length - 1];
+      } else {
+        throw new IllegalArgumentException(path);
+      }
+    } else if (tokens.length == 3 && (expectedLen == 0 || expectedLen == 3) && !path.contains(":")) {
+      relPath = tokens[0] + "/" + tokens[1] + "/" + tokens[2];
+    } else if (tokens.length == 2 && (expectedLen == 0 || expectedLen == 2) && !path.contains(":")) {
+      relPath = tokens[0] + "/" + tokens[1];
+    } else {
+      throw new IllegalArgumentException(path);
+    }
+
+    return relPath;
+  }

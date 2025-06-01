@@ -1,0 +1,7 @@
+,Processor,Prompt,Model,F1,Support,TP,FP,TN,FN
+0,defaultpatch,llm4cc-clone_type-patch,deepseek-coder:6.7b,0.6982543640897756,2392,420,0,1609,363
+1,defaultpatch,llm4cc-integrated-patch,deepseek-coder:6.7b,0.9085510688836105,3468,765,0,2549,154
+2,defaultpatch,llm4cc-clone_type-patch,qwen2.5-coder:7b,0.5433070866141733,1421,345,0,496,580
+3,defaultpatch,llm4cc-integrated-patch,qwen2.5-coder:7b,0.973384030418251,2954,896,0,2009,49
+4,defaultpatch,llm4cc-clone_type-patch,hermes3:8b,0.9705561613958561,2373,445,0,1901,27
+5,defaultpatch,llm4cc-integrated-patch,hermes3:8b,0.9123020706455542,2973,749,0,2080,144

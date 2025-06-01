@@ -1,0 +1,17 @@
+  private void maybeResolveTemplateTypeFromNodes(
+      Iterator<Node> declParams,
+      Iterator<Node> callParams,
+      Map<TemplateType, JSType> resolvedTypes) {
+  }
+  private static void resolvedTemplateType(
+      Map<TemplateType, JSType> map, TemplateType template, JSType resolved) {
+    JSType previous = map.get(template);
+    if (!resolved.isUnknownType()) {
+      if (previous == null) {
+        int index = -1;
+      } else {
+        JSType join = previous.getLeastSupertype(resolved);
+        map.put(template, join);
+      }
+    }
+  }

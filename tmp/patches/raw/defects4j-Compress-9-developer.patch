@@ -1,0 +1,29 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-9/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-9-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+index 15beec8..53d4450 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-9/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-9-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+@@ -105,7 +105,16 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
+     }
+ 
+ 
++    @Deprecated
++    @Override
++    public int getCount() {
++        return (int) getBytesWritten();
++    }
+ 
++    @Override
++    public long getBytesWritten() {
++        return ((CountingOutputStream) out).getBytesWritten();
++    }
+ 
+     /**
+      * Ends the TAR archive without closing the underlying OutputStream.
+@@ -327,7 +336,6 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
+             numToWrite -= num;
+             wOffset += num;
+         }
+-        count(numToWrite);
+     }
+ 
+     /**

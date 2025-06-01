@@ -1,0 +1,1 @@
+    void setMean(double p);

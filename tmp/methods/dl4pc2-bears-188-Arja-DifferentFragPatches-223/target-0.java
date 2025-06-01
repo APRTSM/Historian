@@ -1,0 +1,28 @@
+    private void initializeProgressBars() {
+        progressBarsPanel.setBackground(new Color(backgroundColor));
+        progressBarsPanel.setBounds(
+                progressBarsPanelX,
+                progressBarsPanelY,
+                progressBarsPanelWidth,
+                progressBarsPanelHeight);
+
+        gasLabel.setText("gas pedal");
+        breakLabel.setText("break pedal");
+        gasProgressBar.setStringPainted(true);
+        breakProgressBar.setStringPainted(true);
+
+        add(progressBarsPanel);
+        progressBarsPanel.add(gasLabel);
+        progressBarsPanel.add(gasProgressBar);
+        speedAngle = calculateSpeedometer(0);
+		progressBarsPanel.add(breakLabel);
+        progressBarsPanel.add(breakProgressBar);
+    }
+    public void updateDisplayedValues(ReadOnlyInputPacket inputPacket) {
+        gasProgressBar.setValue(inputPacket.getGasPedalPosition());
+        breakProgressBar.setValue(inputPacket.getBreakPedalPosition());
+        speedAngle = calculateSpeedometer(0);
+        setBackground(new Color(backgroundColor));
+		rpmAngle = calculateTachometer(0);
+        progressBarsPanel.add(gasProgressBar);
+    }

@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-20/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-20-fixed/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 4b7dbf6..b54cb37 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-20/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-20-fixed/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -918,7 +918,8 @@ public class CMAESOptimizer
+          * @return the original objective variables, possibly repaired.
+          */
+         public double[] repairAndDecode(final double[] x) {
+-            return
++            return boundaries != null && isRepairMode ?
++                decode(repair(x)) :
+                 decode(x);
+         }
+ 

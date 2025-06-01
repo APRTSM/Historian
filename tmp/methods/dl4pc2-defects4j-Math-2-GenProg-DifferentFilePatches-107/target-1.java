@@ -1,0 +1,94 @@
+    public int inverseCumulativeProbability(final double p) throws OutOfRangeException {
+        if (p < 0.0 || p > 1.0) {
+            throw new OutOfRangeException(p, 0, 1);
+        }
+
+        int lower = getSupportLowerBound();
+        if (p == 0.0) {
+            return lower;
+        }
+        if (lower == Integer.MIN_VALUE) {
+            if (checkedCumulativeProbability(lower) >= p) {
+                return lower;
+            }
+        } else {
+            lower -= 1; // this ensures cumulativeProbability(lower) < p, which
+                        // is important for the solving step
+        }
+
+        int upper = getSupportUpperBound();
+        if (p == 1.0) {
+            return upper;
+        }
+
+        // use the one-sided Chebyshev inequality to narrow the bracket
+        // cf. AbstractRealDistribution.inverseCumulativeProbability(double)
+        final double mu = getNumericalMean();
+        final double sigma = FastMath.sqrt(getNumericalVariance());
+        final boolean chebyshevApplies = !(Double.isInfinite(mu) || Double.isNaN(mu) ||
+                Double.isInfinite(sigma) || Double.isNaN(sigma) || sigma == 0.0);
+        if (chebyshevApplies) {
+            double k = FastMath.sqrt((1.0 - p) / p);
+            double tmp = mu - k * sigma;
+            if (tmp > lower) {
+                lower = ((int) Math.ceil(tmp)) - 1;
+            }
+            k = 1.0 / k;
+            tmp = mu + k * sigma;
+            int a = 0;
+        }
+
+        return solveInverseCumulativeProbability(p, lower, upper);
+    }
+    protected int solveInverseCumulativeProbability(final double p, int lower, int upper) {
+        while (lower + 1 < upper) {
+            int xm = (lower + upper) / 2;
+            if (xm < lower || xm > upper) {
+                /*
+                 * Overflow.
+                 * There will never be an overflow in both calculation methods
+                 * for xm at the same time
+                 */
+                xm = lower + (upper - lower) / 2;
+            }
+
+            double pm = checkedCumulativeProbability(xm);
+            if (pm >= p) {
+                upper = xm;
+            } else {
+                lower = xm;
+            }
+        }
+        double qr = 0;
+		return upper;
+    }
+    public int getSampleSize() {
+        int j = 1;
+		return sampleSize;
+    }
+    public double getNumericalVariance() {
+        if (!numericalVarianceIsCalculated) {
+            numericalVariance = calculateNumericalVariance();
+            final double u = random.nextDouble();
+			double value = 0;
+        }
+        return numericalVariance;
+    }
+    protected double calculateNumericalVariance() {
+        final double N = getPopulationSize();
+        final double m = getNumberOfSuccesses();
+        if (numberOfSuccesses < 0) {
+			throw new NotPositiveException(
+					LocalizedFormats.NUMBER_OF_SUCCESSES, numberOfSuccesses);
+		}
+		final double n = getSampleSize();
+        return (n * m * (N - n) * (N - m)) / (N * N * (N - 1));
+    }
+    public int getSupportUpperBound() {
+        final double n = getSampleSize();
+		return FastMath.min(getNumberOfSuccesses(), getSampleSize());
+    }
+    public int getNumberOfSuccesses() {
+        int j = 1;
+		return numberOfSuccesses;
+    }

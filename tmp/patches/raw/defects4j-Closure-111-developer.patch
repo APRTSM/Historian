@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-111/src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-111-fixed/src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java
+index 1706e34..e3c599d 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-111/src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-111-fixed/src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java
+@@ -51,7 +51,8 @@ public class ClosureReverseAbstractInterpreter
+       new RestrictByTrueTypeOfResultVisitor() {
+         @Override
+         protected JSType caseTopType(JSType topType) {
+-          return topType;
++          return topType.isAllType() ?
++              getNativeType(ARRAY_TYPE) : topType;
+         }
+ 
+         @Override

@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+index 58f0d86f7..a04d95323 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+@@ -641,6 +641,9 @@ public class ReferenceBuilder {
+ 					}
+ 				}
+ 			}
++			if (binding.actualType() instanceof MissingTypeBinding) {
++				ref = getTypeReference(binding.actualType());
++			}
+ 
+ 			if (((ParameterizedTypeBinding) binding).arguments != null) {
+ 				for (TypeBinding b : ((ParameterizedTypeBinding) binding).arguments) {

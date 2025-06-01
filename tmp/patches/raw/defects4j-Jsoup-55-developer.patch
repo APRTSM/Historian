@@ -1,0 +1,12 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-55/src/main/java/org/jsoup/parser/TokeniserState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-55-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+index 3a2ac1f..2e998d5 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-55/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-55-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+@@ -880,6 +880,7 @@ enum TokeniserState {
+                     break;
+                 default:
+                     t.error(this);
++                    r.unconsume();
+                     t.transition(BeforeAttributeName);
+             }
+         }

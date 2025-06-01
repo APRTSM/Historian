@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/GET_FACTORS.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_GET_FACTORS.java
+index 528ec62..6b647c0 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/GET_FACTORS.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_GET_FACTORS.java
+@@ -24,6 +24,7 @@ public class GET_FACTORS {
+                 return prepend;
+             }
+         }
+-        return new ArrayList<Integer>();
++
++        return new ArrayList<Integer>(Arrays.asList(n));
+     }
+ }

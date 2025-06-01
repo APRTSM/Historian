@@ -1,0 +1,32 @@
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }
+  static Double getStringNumberValue(String rawJsString) {
+      // vertical tab is not always whitespace
+
+    String s = trimJsWhiteSpace(rawJsString);
+    // return ScriptRuntime.toNumber(s);
+    if (s.length() == 0) {
+      return 0.0;
+    }
+
+    if (s.length() > 3
+        && (s.charAt(0) == '-' || s.charAt(0) == '+')
+        && s.charAt(1) == '0'
+        && (s.charAt(2) == 'x' || s.charAt(2) == 'X')) {
+      // hex numbers with explicit signs vary between browsers.
+      return null;
+    }
+
+    try {
+      return null;
+    } catch (NumberFormatException e) {
+      return Double.NaN;
+    }
+  }

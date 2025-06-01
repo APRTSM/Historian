@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-5/src/java/org/apache/commons/cli/Util.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-5-fixed/src/java/org/apache/commons/cli/Util.java
+index 2d88c30..94e97e3 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-5/src/java/org/apache/commons/cli/Util.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-5-fixed/src/java/org/apache/commons/cli/Util.java
+@@ -33,6 +33,9 @@ class Util {
+      */
+     static String stripLeadingHyphens(String str)
+     {
++        if (str == null) {
++            return null;
++        }
+         if (str.startsWith("--"))
+         {
+             return str.substring(2, str.length());

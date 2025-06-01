@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/SIEVE.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_SIEVE.java
+index 5d02bd5..75a50d8 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/SIEVE.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_SIEVE.java
+@@ -38,7 +38,7 @@ public class SIEVE {
+     public static ArrayList<Integer> sieve(Integer max) {
+         ArrayList<Integer> primes = new ArrayList<Integer>();
+         for (int n=2; n<max+1; n++) {
+-            if (any(list_comp(n, primes))) {
++            if (all(list_comp(n, primes))) {
+                 primes.add(n);
+             }
+         }

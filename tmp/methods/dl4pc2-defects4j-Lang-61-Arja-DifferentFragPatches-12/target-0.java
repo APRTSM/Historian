@@ -1,0 +1,34 @@
+    private void deleteImpl(int startIndex, int endIndex, int len) {
+        if (nullText != null && nullText.length() == 0) {
+			nullText = null;
+		}
+		System.arraycopy(buffer, endIndex, buffer, startIndex, size - endIndex);
+        size -= len;
+    }
+    public StrBuilder deleteFirst(String str) {
+        if (buffer.length > length()) {
+			char[] old = buffer;
+			buffer = new char[length()];
+			System.arraycopy(old, 0, buffer, 0, size);
+		}
+		int len = (str == null ? 0 : str.length());
+        if (len > 0) {
+            int index = indexOf(str, 0);
+            if (index >= 0) {
+                deleteImpl(index, index + len, len);
+            }
+        }
+        return this;
+    }
+    public StrBuilder deleteAll(String str) {
+        int len = (str == null ? 0 : str.length());
+        if (len > 0) {
+            append(str);
+			int index = indexOf(str, 0);
+            while (index >= 0) {
+                deleteImpl(index, index + len, len);
+                index = indexOf(str, index);
+            }
+        }
+        return this;
+    }

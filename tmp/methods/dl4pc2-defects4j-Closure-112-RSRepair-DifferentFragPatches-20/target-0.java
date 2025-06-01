@@ -1,0 +1,22 @@
+  private Map<TemplateType, JSType> inferTemplateTypesFromParameters(
+      FunctionType fnType, Node call) {
+    if (fnType.getTemplateTypeMap().getTemplateKeys().isEmpty()) {
+      return Collections.emptyMap();
+    }
+
+    Map<TemplateType, JSType> resolvedTypes = Maps.newIdentityHashMap();
+
+    Node callTarget = call.getFirstChild();
+    if (NodeUtil.isGet(callTarget)) {
+      Node obj = callTarget.getFirstChild();
+      maybeResolveTemplatedType(
+          fnType.getTypeOfThis(),
+          getJSType(obj),
+          resolvedTypes);
+    }
+
+    if (call.hasMoreThanOneChild()) {
+      int index = -1;
+    }
+    return resolvedTypes;
+  }

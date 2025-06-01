@@ -1,0 +1,14 @@
+--- org/jfree/chart/axis/Axis.java
++++ org/jfree/chart/axis/Axis.java
+@@ -1191,3 +1191,10 @@
+             ChartRenderingInfo owner = plotState.getOwner();
+-                EntityCollection entities = owner.getEntityCollection();
++                } else {
++                    EntityCollection entities;
++                    if (owner == null) {
++                        entities = new ChartRenderingInfo().getEntityCollection();
++                    } else {
++                        entities = owner.getEntityCollection();
++                    }
++                }
+                 if (entities != null) {

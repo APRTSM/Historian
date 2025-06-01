@@ -1,0 +1,39 @@
+    private Position decodePosition(DeviceSession deviceSession, Parser parser, Date time) {
+
+        Position position = new Position();
+        position.setProtocol(getProtocolName());
+        position.setDeviceId(deviceSession.getDeviceId());
+
+        if (time != null) {
+            position.setTime(time);
+        }
+
+        position.set(Position.KEY_EVENT, parser.next());
+
+        position.setValid(parser.next().equals("A"));
+        position.set(Position.KEY_SATELLITES, parser.next());
+
+        position.setLatitude(parser.nextCoordinate(Parser.CoordinateFormat.HEM_DEG));
+        position.setLongitude(parser.nextCoordinate(Parser.CoordinateFormat.HEM_DEG));
+        position.setSpeed(UnitsConverter.knotsFromKph(parser.nextDouble()));
+        position.setCourse(parser.nextDouble());
+        position.setAltitude(parser.nextDouble());
+
+        position.set(Position.KEY_HDOP, parser.next());
+
+        if (parser.hasNext(4)) {
+            position.setNetwork(new Network(CellTower.from(
+                    parser.nextInt(), parser.nextInt(), parser.nextInt(16), parser.nextInt(16), parser.nextInt())));
+        }
+        if (parser.hasNext()) {
+            position.set(Position.KEY_ODOMETER, parser.nextInt());
+        }
+        position.set(Position.KEY_POWER, parser.next());
+        position.set(Position.KEY_BATTERY, parser.next());
+
+        if (parser.hasNext()) {
+            position.set("obd", parser.next());
+        }
+
+        return position;
+    }

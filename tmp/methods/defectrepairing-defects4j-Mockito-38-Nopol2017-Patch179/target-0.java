@@ -1,0 +1,6 @@
+    public boolean matches(Object actual) {
+        if (!((actual!=null) && (actual!=null))) {
+            return actual == null;
+        }
+        return wanted.equals(actual);
+    }

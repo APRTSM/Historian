@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-101/src/java/org/apache/commons/math/complex/ComplexFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-101-fixed/src/java/org/apache/commons/math/complex/ComplexFormat.java
+index b404bc4..0757d9b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-101/src/java/org/apache/commons/math/complex/ComplexFormat.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-101-fixed/src/java/org/apache/commons/math/complex/ComplexFormat.java
+@@ -374,7 +374,8 @@ public class ComplexFormat extends Format implements Serializable {
+         int n = getImaginaryCharacter().length();
+         startIndex = pos.getIndex();
+         int endIndex = startIndex + n;
+-        if (
++        if ((startIndex >= source.length()) ||
++            (endIndex > source.length()) ||
+             source.substring(startIndex, endIndex).compareTo(
+             getImaginaryCharacter()) != 0) {
+             // set index back to initial, error index should be the start index

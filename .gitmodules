@@ -1,0 +1,12 @@
+[submodule "benchmarks/bears"]
+	path = benchmarks/bears
+	url = git@github.com:bears-bugs/bears-benchmark.git
+[submodule "benchmarks/bugsjar"]
+	path = benchmarks/bugsjar
+	url = git@github.com:bugs-dot-jar/bugs-dot-jar.git
+[submodule "benchmarks/introclassjava"]
+	path = benchmarks/introclassjava
+	url = git@github.com:Spirals-Team/IntroClassJava.git
+[submodule "benchmarks/quixbugs"]
+	path = benchmarks/quixbugs
+	url = git@github.com:jkoppel/QuixBugs.git

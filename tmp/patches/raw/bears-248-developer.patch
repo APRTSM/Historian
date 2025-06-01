@@ -1,0 +1,19 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java
+index f439f7ff0..2c1dc179b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/vertx-web-client/src/main/java/io/vertx/ext/web/client/impl/HttpContext.java
+@@ -195,11 +195,11 @@ public class HttpContext<T> {
+             fail(ar.cause());
+           }
+         });
++        return;
+       }
+-    } else {
+-      this.clientResponse = clientResponse;
+-      fire(ClientPhase.RECEIVE_RESPONSE);
+     }
++    this.clientResponse = clientResponse;
++    fire(ClientPhase.RECEIVE_RESPONSE);
+   }
+ 
+   /**

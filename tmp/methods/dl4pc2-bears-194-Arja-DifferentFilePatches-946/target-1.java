@@ -1,0 +1,13 @@
+	protected void init() {
+		if (!this.initialized) {
+			this.unsafeTypes = getConfig(this.unsafeTypesDescriptor);
+			this.safeTypes = getConfig(this.safeTypesDescriptor);
+			this.initialized = true;
+		}
+	}
+	protected void init() {
+		if (!this.initialized) {
+			init2();
+			this.initialized = true;
+		}
+	}

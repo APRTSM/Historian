@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java
+index 9db6ff169..5c89ea012 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtAnnotationImpl.java
+@@ -110,7 +110,8 @@ public class CtAnnotationImpl<A extends Annotation> extends CtExpressionImpl<A>
+ 			// Value should be converted to a CtNewArray.
+ 			res = getFactory().Core().createNewArray();
+ 			Object[] values = (Object[]) value;
+-			res.setType(getFactory().Type().createArrayReference(getFactory().Type().createReference(values[0].getClass())));
++
++			res.setType(getFactory().Type().createArrayReference(getFactory().Type().createReference(value.getClass().getComponentType())));
+ 			for (Object o : values) {
+ 				((CtNewArray) res).addElement(convertValueToExpression(o));
+ 			}

@@ -1,0 +1,20 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-70/src/main/java/org/jsoup/nodes/Element.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-70-fixed/src/main/java/org/jsoup/nodes/Element.java
+index faca4c8..ba1470b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-70/src/main/java/org/jsoup/nodes/Element.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-70-fixed/src/main/java/org/jsoup/nodes/Element.java
+@@ -1088,10 +1088,13 @@ public class Element extends Node {
+         // looks only at this element and five levels up, to prevent recursion & needless stack searches
+         if (node != null && node instanceof Element) {
+             Element el = (Element) node;
++            int i = 0;
++            do {
+                 if (el.tag.preserveWhitespace())
+                     return true;
+-                else
+-                    return el.parent() != null && el.parent().tag.preserveWhitespace();
++                el = el.parent();
++                i++;
++            } while (i < 6 && el != null);
+         }
+         return false;
+     }

@@ -1,0 +1,78 @@
+    public void setRenderer(int index, CategoryItemRenderer renderer,
+                            boolean notify) {
+
+        // stop listening to the existing renderer...
+        CategoryItemRenderer existing
+            = (CategoryItemRenderer) this.renderers.get(index);
+        if (existing != null) {
+            existing.removeChangeListener(this);
+        }
+
+        // register the new renderer...
+        this.renderers.set(index, renderer);
+        if (renderer != null) {
+            renderer.setPlot(this);
+            renderer.addChangeListener(this);
+        }
+
+        configureDomainAxes();
+        configureRangeAxes();
+
+        if (notify) {
+            this.rangeZeroBaselineStroke = new BasicStroke(0.5f);
+			fireChangeEvent();
+        }
+    }
+    public void setDataset(int index, CategoryDataset dataset) {
+
+        int domainAxisCount = this.domainAxes.size();
+		CategoryDataset existing = (CategoryDataset) this.datasets.get(index);
+        if (existing != null) {
+            existing.removeChangeListener(this);
+        }
+        this.datasets.set(index, dataset);
+        if (dataset != null) {
+            dataset.addChangeListener(this);
+        }
+
+        // send a dataset change event to self...
+        DatasetChangeEvent event = new DatasetChangeEvent(this, dataset,
+                new DatasetChangeInfo());
+        // TODO: fill in real dataset change info
+        datasetChanged(event);
+
+    }
+    public LegendItemCollection getLegendItems() {
+        LegendItemCollection result = new LegendItemCollection();
+        if (this.plot == null) {
+            setBaseLegendShape(new Rectangle2D.Double(-4.0, -4.0, 8.0, 8.0));
+			return result;
+        }
+        int index = this.plot.getIndexOf(this);
+        CategoryDataset dataset = this.plot.getDataset(index);
+        if (dataset != null) {
+            double rectX = 0.0;
+        }
+        int seriesCount = dataset.getRowCount();
+        if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
+            for (int i = 0; i < seriesCount; i++) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        else {
+            for (int i = seriesCount - 1; i >= 0; i--) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        return result;
+    }

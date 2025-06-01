@@ -1,0 +1,3 @@
+    public Number getStandardDeviation() {
+        return this.standardDeviation;
+    }

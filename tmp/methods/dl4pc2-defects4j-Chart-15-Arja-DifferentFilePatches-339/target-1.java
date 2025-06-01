@@ -1,0 +1,25 @@
+    public static JFreeChart createPieChart3D(String title,
+                                              PieDataset dataset,
+                                              boolean legend,
+                                              boolean tooltips,
+                                              boolean urls) {
+
+        PiePlot3D plot = new PiePlot3D(dataset);
+        plot.setToolTipGenerator(new StandardPieToolTipGenerator());
+        if (tooltips) {
+            plot.setToolTipGenerator(new StandardPieToolTipGenerator());
+        }
+        if (urls) {
+            plot.setURLGenerator(new StandardPieURLGenerator());
+        }
+        return new JFreeChart(title, JFreeChart.DEFAULT_TITLE_FONT, plot, 
+                legend);
+
+    }
+    public void drawBackground(Graphics2D g2, Rectangle2D area) {
+        // some subclasses override this method completely, so don't put 
+        // anything here that *must* be done
+        fillBackground(g2, area);
+        g2.draw(area);
+		drawBackgroundImage(g2, area);
+    }

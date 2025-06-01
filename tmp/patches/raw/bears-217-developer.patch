@@ -1,0 +1,17 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java
+index 9753720b2..2ee958c02 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilder.java
+@@ -792,8 +792,10 @@ public class JDTTreeBuilder extends ASTVisitor {
+ 		CtPackageDeclaration packageDeclaration = context.compilationUnitSpoon.getPackageDeclaration();
+ 		if (packageDeclaration != null) {
+ 			ImportReference packageRef = compilationUnitDeclaration.currentPackage;
+-			packageDeclaration.setPosition(factory.Core().createCompoundSourcePosition(
+-					context.compilationUnitSpoon, packageRef.sourceStart(), packageRef.sourceEnd(), packageRef.declarationSourceStart, packageRef.declarationEnd, context.compilationUnitSpoon.getLineSeparatorPositions()));
++			if (packageRef != null) {
++				packageDeclaration.setPosition(factory.Core().createCompoundSourcePosition(
++						context.compilationUnitSpoon, packageRef.sourceStart(), packageRef.sourceEnd(), packageRef.declarationSourceStart, packageRef.declarationEnd, context.compilationUnitSpoon.getLineSeparatorPositions()));
++			}
+ 		}
+ 		return true;
+ 	}

@@ -1,0 +1,12 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/address-model-lib/src/main/java/io/enmasse/address/model/Status.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/address-model-lib/src/main/java/io/enmasse/address/model/Status.java
+index 7745f9e6c..66e89f0a8 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/address-model-lib/src/main/java/io/enmasse/address/model/Status.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/address-model-lib/src/main/java/io/enmasse/address/model/Status.java
+@@ -21,6 +21,7 @@ public class Status {
+ 
+     public Status(io.enmasse.address.model.Status other) {
+         this.isReady = other.isReady();
++        this.phase = other.getPhase();
+         this.messages.addAll(other.getMessages());
+     }
+ 

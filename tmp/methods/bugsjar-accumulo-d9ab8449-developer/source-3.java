@@ -1,0 +1,34 @@
+  public ConnectorImpl(final Instance instance, Credentials cred) throws AccumuloException, AccumuloSecurityException {
+    ArgumentChecker.notNull(instance, cred);
+    this.instance = instance;
+    
+    this.credentials = cred;
+    
+    // Skip fail fast for system services; string literal for class name, to avoid
+    if (!"org.apache.accumulo.server.security.SystemCredentials$SystemToken".equals(cred.getToken().getClass().getName())) {
+      ServerClient.execute(instance, new ClientExec<ClientService.Client>() {
+        @Override
+        public void execute(ClientService.Client iface) throws Exception {
+          if (!iface.authenticate(Tracer.traceInfo(), credentials.toThrift(instance)))
+            throw new AccumuloSecurityException("Authentication failed, access denied", SecurityErrorCode.BAD_CREDENTIALS);
+        }
+      });
+    }
+  }
+  MockConnector(String username, MockInstance instance) {
+    this(username, new MockAccumulo(MockInstance.getDefaultFileSystem()), instance);
+  }
+  MockConnector(String username, MockAccumulo acu, MockInstance instance) {
+    this.username = username;
+    this.acu = acu;
+    this.instance = instance;
+  }
+  public Connector getConnector(String principal, AuthenticationToken token) throws AccumuloException, AccumuloSecurityException {
+    Connector conn = new MockConnector(principal, acu, this);
+    if (!acu.users.containsKey(principal))
+      conn.securityOperations().createLocalUser(principal, (PasswordToken) token);
+    else if (!acu.users.get(principal).token.equals(token))
+      throw new AccumuloSecurityException(principal, SecurityErrorCode.BAD_CREDENTIALS);
+    return conn;
+  }
+  public PasswordToken() {}

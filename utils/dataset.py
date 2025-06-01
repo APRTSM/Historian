@@ -1,0 +1,313 @@
+import os
+import logging
+from .utils import *
+from .config import *
+import json
+
+
+def get_dl4pc_exp2_dataset(bugs):
+    logging.info("Extracting DL4PC patches from second experiment ...")
+    patches = []
+
+    for root, _, files in os.walk(DL4PC2_DIR):
+        for file in files:
+            # Clear values from previous patch to prevent errors
+            bug_uid = tool = correctness = patch_number = None
+
+            # Start identifying the patch
+            if not file.endswith(".txt"):
+                continue
+
+            patch = {}
+            correctness_info, tool, benchmark_bug, patch_number= os.path.join(root, file).split("/")[-4:]
+            patch_number = patch_number.replace(".txt", "")
+            benchmark = benchmark_bug.split("-")[0]
+            
+            location = os.path.relpath(os.path.join(root, file), start=PROJECT_DIR)
+
+            # Find the corresponding bug_info
+            if benchmark == "Defects4J":
+                bug_project, bug_number = benchmark_bug.split("-")[1:]
+                bug_info = {"benchmark": benchmark, "project": bug_project, "number": bug_number}
+
+
+            elif benchmark == "Bugs.jar":
+                bug_project, bug_number = benchmark_bug.split("-")[1:]
+
+                bug_project_folder_name_map = {
+                    "math": "commons-math",
+                    "OAK": "jackrabbit-oak",
+                    "log4j2": "logging-log4j2"
+                }
+
+                if bug_project in bug_project_folder_name_map:
+                    bug_project_folder_name = bug_project_folder_name_map[bug_project]
+
+                else:
+                    bug_project_folder_name = bug_project
+
+                bug_info = {"benchmark": benchmark, "project": bug_project_folder_name, "number": bug_number}
+
+            elif benchmark == "Bears":
+                bug_number = benchmark_bug.split("-")[1]
+                bug_info = {"benchmark": benchmark, "number": bug_number}
+
+            elif benchmark == "QuixBugs":
+                bug_name = benchmark_bug.split("-")[1]
+                bug_info = {"benchmark": benchmark, "language": "Java", "project": bug_name}
+
+            else:
+                continue
+
+            # Match the info with an existing bug
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                continue
+
+            bug_uid = bug["uid"]
+            
+            # Set correctness
+            if correctness_info == "correct-patches":
+                correctness = "Correct"
+
+            else:
+                correctness = "Overfitting"
+
+            # Continue before this statement if not valid
+            assert bug_uid and tool and correctness and patch_number
+
+            patch = {
+                "uid": f"dl4pc2-{bug_uid}-{tool}-{patch_number}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(location, PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "DL4PC-E2"
+            }
+
+            patches.append(patch) 
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from DL4PC, second experiment.")
+
+    return patches
+
+def get_apre_nfl_dataset(bugs):
+    logging.info("Extracting APRE NFL patches ...")
+
+    patches = []
+    nfl_dir = os.path.join(APRE_NFL_DIR)
+
+    for root, dirs, files in os.walk(nfl_dir):
+        for file in files:
+            tool, project_id_correctness = root.split('/')[-2:]
+            project_id, correctness = project_id_correctness.split('_')
+
+            if correctness == 'C':
+                correctness = "Correct"
+            
+            else:
+                correctness = "Overfitting"
+        
+            project, id = project_id.split('-')
+
+            bug_info = {"benchmark": "Defects4J", "project": project, "number": id}
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                continue
+
+            bug_uid = bug["uid"]
+
+            # Remove `.txt` from name
+            patch_name = file[:-4]
+
+            # Continue before this
+            patch = {
+                "uid": f"aprenfl-{bug_uid}-{tool}-{patch_name}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(os.path.join(root, file), PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "APRE-NFL"
+            }
+            patches.append(patch)
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from APRE study (NFL).")
+
+
+    return patches
+
+
+""" DefectRepairing """
+def get_defectrepairing_dataset(bugs):
+    logging.info("Extracting DefectRepairing patches ...")
+
+    patches = []
+    info_dir = os.path.join(DEFECTREPAIRING_DIR, "INFO")
+    
+    for root, _, files in os.walk(DEFECTREPAIRING_DIR):
+        for patch_file in files:
+            bug_uid = tool = patch_number = patch_file_path = correctness = None
+
+            if patch_file.endswith(".json") or  patch_file.endswith(".md"):
+                continue
+
+            info_file_path = os.path.join(info_dir, f"{patch_file}.json")
+
+            with open(info_file_path, 'r') as f:
+                info = json.load(f)
+
+            if info["correctness"] == "Unknown":
+                continue
+
+            bug_info = {"benchmark": "Defects4J", "project": info["project"], "number": info["bug_id"]}
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                continue
+
+            tool = info["tool"]
+            correctness = info["correctness"]
+
+            if correctness == "Incorrect":
+                correctness = "Overfitting"
+
+            bug_uid = bug["uid"]
+            patch_number = info["ID"]
+            patch_file_path = os.path.join(root, patch_file)
+
+            # Continue before this
+            assert bug_uid and tool and patch_number and patch_file_path and correctness 
+
+            patch = {
+                "uid": f"defectrepairing-{bug_uid}-{tool}-{patch_number}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(patch_file_path, PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "DefectRepairing"
+            }
+
+            patches.append(patch) 
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from DefectRepairing study.")
+
+
+    return patches
+
+
+""" DRR """
+def get_drr_dataset(bugs):
+    logging.info("Extracting DRR patches ...")
+
+    patches = []
+    
+    for root, _, files in os.walk(DRR_DIR):
+        for patch_file in files:    
+            if not patch_file.endswith(".patch"):
+                continue
+            
+            if "Dunassessed" in root:
+                continue
+
+            patch_name, project, number, tool = patch_file.replace(".patch", "").replace("-plausible", "").split('-') 
+            bug_info = {"benchmark": "Defects4J", "project": project, "number": number}
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                continue
+
+            bug_uid = bug["uid"]
+
+            if "Dcorrect" in root:
+                correctness = "Correct"
+
+            else:
+                correctness = "Overfitting"
+
+            patch = {
+                "uid": f"drr-{bug_uid}-{tool}-{patch_name}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(os.path.join(root, patch_file), PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "DRR"
+            }
+            patches.append(patch)
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from DRR study.")
+
+    return patches
+
+
+""" WangICSE """
+def get_wangicse_dataset(bugs):
+    logging.info("Extracting WangICSE patches ...")
+
+    patches = []
+    
+    for root, _, files in os.walk(WANGICSE_DIR):
+        for patch_file in files:    
+            if not patch_file.endswith(".patch"):
+                continue
+            
+            if "Error" in root:
+                continue
+
+            patch_name, project, number, tool = patch_file.replace(".patch", "").replace("-plausible", "").replace("-plusible", "").split('-') 
+            bug_info = {"benchmark": "Defects4J", "project": project, "number": number}
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                continue
+
+            bug_uid = bug["uid"]
+
+            if "Doverfitting" in root:
+                correctness = "Overfitting"
+
+            else:
+                correctness = "Correct"
+
+            patch = {
+                "uid": f"wangicse-{bug_uid}-{tool}-{patch_name}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(os.path.join(root, patch_file), PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "WangICSE"
+            }
+            patches.append(patch)
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from Wang's ICSE study.")
+
+    return patches
+
+
+""" General """
+# Get all patches (from datasets)
+def get_patches(bugs):
+    patches = []
+    patches += get_dl4pc_exp2_dataset(bugs)
+    patches += get_apre_nfl_dataset(bugs)
+    patches += get_defectrepairing_dataset(bugs)
+    patches += get_drr_dataset(bugs)
+    patches += get_wangicse_dataset(bugs)
+
+    return patches

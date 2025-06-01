@@ -1,0 +1,26 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/FLATTEN.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_FLATTEN.java
+index e29ac1c..03a289a 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/FLATTEN.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_FLATTEN.java
+@@ -1,5 +1,6 @@
+ package java_programs;
+ import java.util.*;
++
+ /*
+  * To change this template, choose Tools | Templates
+  * and open the template in the editor.
+@@ -18,12 +19,12 @@ public class FLATTEN {
+                 if (x instanceof ArrayList) {
+                     result.addAll((ArrayList) flatten(x));
+                 } else {
+-                    result.add(flatten(x));
++                    result.add((x));
+                 }
+             }
+             return result;
+         } else {
+-            return flatten(arr);
++            return arr;
+         }
+     }
+ }

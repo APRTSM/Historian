@@ -1,0 +1,17 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
+index 67a647e98..35af9af64 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
+@@ -35,7 +35,11 @@ public class CommittedQueueBox implements QueueBox<CommittedQueueBox> {
+ 
+     public CommittedQueueBox(CommittedQueueBox commitDepBox) {
+         this.dots = new Dots(commitDepBox.dots);
+-        this.dep = new Clock<>(commitDepBox.dep);
++        if (commitDepBox.dep != null) {
++            this.dep = new Clock<>(commitDepBox.dep);
++        } else {
++            this.dep = null;
++        }
+         this.messageMap = new MessageMap(commitDepBox.messageMap);
+     }
+ 

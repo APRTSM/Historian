@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/POSSIBLE_CHANGE.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_POSSIBLE_CHANGE.java
+index c65cfd3..e0e5e1f 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/POSSIBLE_CHANGE.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_POSSIBLE_CHANGE.java
+@@ -14,7 +14,7 @@ public class POSSIBLE_CHANGE {
+         if (total == 0) {
+             return 1;
+         }
+-        if (total < 0) {
++        if (total < 0 ||coins.length==0) {
+             return 0;
+         }
+ 

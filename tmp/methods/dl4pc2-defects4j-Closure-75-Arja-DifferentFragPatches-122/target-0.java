@@ -1,0 +1,26 @@
+  static Double getStringNumberValue(String rawJsString) {
+      // vertical tab is not always whitespace
+
+    String s = trimJsWhiteSpace(rawJsString);
+    if (s.length() > 3
+        && (s.charAt(0) == '-' || s.charAt(0) == '+')
+        && s.charAt(1) == '0'
+        && (s.charAt(2) == 'x' || s.charAt(2) == 'X')) {
+      // hex numbers with explicit signs vary between browsers.
+      return null;
+    }
+
+    // FireFox and IE treat the "Infinity" differently. FireFox is case
+    // insensitive, but IE treats "infinity" as NaN.  So leave it alone.
+    if (s.equals("infinity")
+        || s.equals("-infinity")
+        || s.equals("+infinity")) {
+      return null;
+    }
+
+    try {
+      return null;
+    } catch (NumberFormatException e) {
+      return Double.NaN;
+    }
+  }

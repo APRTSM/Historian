@@ -1,0 +1,15 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+index e19335cb0..42e81f60c 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+@@ -67,7 +67,9 @@ public class SuntechProtocolDecoder extends BaseProtocolDecoder {
+         }
+         position.setDeviceId(deviceSession.getDeviceId());
+ 
+-        position.set(Position.KEY_VERSION_FW, values[index++]);
++        if (!type.equals("Alert") || protocolType == 0) {
++            position.set(Position.KEY_VERSION_FW, values[index++]);
++        }
+ 
+         DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHH:mm:ss");
+         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));

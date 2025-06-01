@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-57/src/com/google/javascript/jscomp/ClosureCodingConvention.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-57-fixed/src/com/google/javascript/jscomp/ClosureCodingConvention.java
+index c507c92..b5a3c1b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-57/src/com/google/javascript/jscomp/ClosureCodingConvention.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-57-fixed/src/com/google/javascript/jscomp/ClosureCodingConvention.java
+@@ -194,7 +194,7 @@ public class ClosureCodingConvention extends DefaultCodingConvention {
+         String qualifiedName = callee.getQualifiedName();
+         if (functionName.equals(qualifiedName)) {
+           Node target = callee.getNext();
+-          if (target != null) {
++          if (target != null && target.getType() == Token.STRING) {
+             className = target.getString();
+           }
+         }

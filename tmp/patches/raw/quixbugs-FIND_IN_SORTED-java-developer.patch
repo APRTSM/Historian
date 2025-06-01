@@ -1,0 +1,19 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/FIND_IN_SORTED.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_FIND_IN_SORTED.java
+index 3396154..daf4cd3 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/FIND_IN_SORTED.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_FIND_IN_SORTED.java
+@@ -1,4 +1,5 @@
+ package java_programs;
++
+ /*
+  * To change this template, choose Tools | Templates
+  * and open the template in the editor.
+@@ -17,7 +18,7 @@ public class FIND_IN_SORTED {
+         if (x < arr[mid]) {
+             return binsearch(arr, x, start, mid);
+         } else if (x > arr[mid]) {
+-            return binsearch(arr, x, mid, end);
++            return binsearch(arr, x, mid+1, end);
+         } else {
+             return mid;
+         }
