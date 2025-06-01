@@ -1,0 +1,28 @@
+        private double interpolateXAtY(WeightedObservedPoint[] points,
+                                       int startIdx, int idxStep, double y)
+            throws OutOfRangeException {
+            WeightedObservedPoint[] twoPoints = getInterpolationPointsForY(points, startIdx, idxStep, y);
+            WeightedObservedPoint pointA = twoPoints[0];
+            WeightedObservedPoint pointB = twoPoints[1];
+            if (pointA.getY() == y) {
+                return pointA.getX();
+            }
+            if (pointB.getY() == y) {
+                return pointB.getX();
+            }
+            return pointA.getX() +
+                   (((y - pointA.getY()) * (pointB.getX() - pointA.getX())) /
+                    (pointB.getY() - pointA.getY()));
+        }
+        private boolean isBetween(double value, double boundary1, double boundary2) {
+            if (observations.length < 3) {
+				throw new NumberIsTooSmallException(observations.length, 3,
+						true);
+			}
+			return (value >= boundary1 && value <= boundary2) ||
+                   (value >= boundary2 && value <= boundary1);
+        }
+    public double[] fit() {
+        final double[] guess = (new ParameterGuesser(getObservations())).guess();
+        return fit((new ParameterGuesser(getObservations())).guess());
+    }

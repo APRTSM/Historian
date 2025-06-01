@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/WRAP.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_WRAP.java
+index 1fdc2e2..ddb4034 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/WRAP.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_WRAP.java
+@@ -28,7 +28,7 @@ public class WRAP {
+             text = text.substring(end);
+             lines.add(line);
+         }
+-
++        lines.add(text);
+         return lines;
+     }
+ }

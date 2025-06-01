@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-84/src/main/java/org/jsoup/helper/W3CDom.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-84-fixed/src/main/java/org/jsoup/helper/W3CDom.java
+index 7b309a3..6847574 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-84/src/main/java/org/jsoup/helper/W3CDom.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-84-fixed/src/main/java/org/jsoup/helper/W3CDom.java
+@@ -88,7 +88,8 @@ public class W3CDom {
+                 String namespace = namespacesStack.peek().get(prefix);
+                 String tagName = sourceEl.tagName();
+ 
+-                Element el = 
++                Element el = namespace == null && tagName.contains(":") ?
++                    doc.createElementNS("", tagName) : // doesn't have a real namespace defined
+                     doc.createElementNS(namespace, tagName);
+                 copyAttributes(sourceEl, el);
+                 if (dest == null) { // sets up the root

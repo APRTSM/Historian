@@ -1,0 +1,5 @@
+,Processor,Prompt,Model,Recall_yes,Recall_no
+0,method,llm4cc-simple_prompt-semantical,codellama:13b-instruct,0.7044188637207576,0.6057877813504823
+1,method,llm4cc-simple_prompt-identical,codellama:13b-instruct,0.5755662829558114,0.7588424437299035
+2,method,llm4cc-simple_prompt-semantical,hermes3:8b,0.8303007797994801,0.5909967845659164
+3,method,llm4cc-simple_prompt-identical,hermes3:8b,0.8778314147790568,0.6327974276527332

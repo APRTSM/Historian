@@ -1,0 +1,226 @@
+    private void applyToDocumentStore(RevisionVector baseBranchRevision) {
+        // the value in _revisions.<revision> property of the commit root node
+        // regular commits use "c", which makes the commit visible to
+        // other readers. branch commits use the base revision to indicate
+        // the visibility of the commit
+        String commitValue = baseBranchRevision != null ? baseBranchRevision.toString() : "c";
+        DocumentStore store = nodeStore.getDocumentStore();
+        String commitRootPath = null;
+        if (baseBranchRevision != null) {
+            // branch commits always use root node as commit root
+            commitRootPath = "/";
+        }
+        ArrayList<UpdateOp> newNodes = new ArrayList<UpdateOp>();
+        ArrayList<UpdateOp> changedNodes = new ArrayList<UpdateOp>();
+        // operations are added to this list before they are executed,
+        // so that all operations can be rolled back if there is a conflict
+        ArrayList<UpdateOp> opLog = new ArrayList<UpdateOp>();
+
+        // Compute the commit root
+        for (String p : operations.keySet()) {
+            markChanged(p);
+            if (commitRootPath == null) {
+                commitRootPath = p;
+            } else {
+                while (!PathUtils.isAncestor(commitRootPath, p)) {
+                    commitRootPath = PathUtils.getParentPath(commitRootPath);
+                    if (denotesRoot(commitRootPath)) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        // push branch changes to journal
+        if (baseBranchRevision != null) {
+            // store as external change
+            JournalEntry doc = JOURNAL.newDocument(store);
+            doc.modified(modifiedNodes);
+            Revision r = revision.asBranchRevision();
+            store.create(JOURNAL, singletonList(doc.asUpdateOp(r)));
+        }
+
+        int commitRootDepth = PathUtils.getDepth(commitRootPath);
+        // check if there are real changes on the commit root
+        boolean commitRootHasChanges = operations.containsKey(commitRootPath);
+        // create a "root of the commit" if there is none
+        UpdateOp commitRoot = getUpdateOperationForNode(commitRootPath);
+        for (String p : operations.keySet()) {
+            UpdateOp op = operations.get(p);
+            if (op.isNew()) {
+                NodeDocument.setDeleted(op, revision, false);
+            }
+            if (op == commitRoot) {
+                if (!op.isNew() && commitRootHasChanges) {
+                    // commit root already exists and this is an update
+                    changedNodes.add(op);
+                }
+            } else {
+                NodeDocument.setCommitRoot(op, revision, commitRootDepth);
+                if (op.isNew()) {
+                    newNodes.add(op);
+                } else {
+                    changedNodes.add(op);
+                }
+            }
+        }
+        if (changedNodes.size() == 0 && commitRoot.isNew()) {
+            // no updates and root of commit is also new. that is,
+            // it is the root of a subtree added in a commit.
+            // so we try to add the root like all other nodes
+            NodeDocument.setRevision(commitRoot, revision, commitValue);
+            newNodes.add(commitRoot);
+        }
+        boolean success = false;
+        try {
+            if (newNodes.size() > 0) {
+                // set commit root on new nodes
+                if (!store.create(NODES, newNodes)) {
+                    // some of the documents already exist:
+                    // try to apply all changes one by one
+                    for (UpdateOp op : newNodes) {
+                        if (op == commitRoot) {
+                            // don't write the commit root just yet
+                            // (because there might be a conflict)
+                            NodeDocument.unsetRevision(commitRoot, revision);
+                        }
+                        changedNodes.add(op);
+                    }
+                    newNodes.clear();
+                }
+            }
+            for (UpdateOp op : changedNodes) {
+                // set commit root on changed nodes. this may even apply
+                // to the commit root. the _commitRoot entry is removed
+                // again when the _revisions entry is set at the end
+                NodeDocument.setCommitRoot(op, revision, commitRootDepth);
+                opLog.add(op);
+                createOrUpdateNode(store, op);
+            }
+            // finally write the commit root, unless it was already written
+            // with added nodes (the commit root might be written twice,
+            // first to check if there was a conflict, and only then to commit
+            // the revision, with the revision property set)
+            if (changedNodes.size() > 0 || !commitRoot.isNew()) {
+                // set revision to committed
+                NodeDocument.setRevision(commitRoot, revision, commitValue);
+                if (commitRootHasChanges) {
+                    // remove previously added commit root
+                    NodeDocument.removeCommitRoot(commitRoot, revision);
+                }
+                opLog.add(commitRoot);
+                if (baseBranchRevision == null) {
+                    // create a clone of the commitRoot in order
+                    // to set isNew to false. If we get here the
+                    // commitRoot document already exists and
+                    // only needs an update
+                    UpdateOp commit = commitRoot.copy();
+                    commit.setNew(false);
+                    // only set revision on commit root when there is
+                    // no collision for this commit revision
+                    commit.containsMapEntry(COLLISIONS, revision, false);
+                    NodeDocument before = nodeStore.updateCommitRoot(commit, revision);
+                    if (before == null) {
+                        String msg = "Conflicting concurrent change. " +
+                                "Update operation failed: " + commitRoot;
+                        NodeDocument commitRootDoc = store.find(NODES, commitRoot.getId());
+                        DocumentStoreException dse;
+                        if (commitRootDoc == null) {
+                            dse = new DocumentStoreException(msg);
+                        } else {
+                            dse = new ConflictException(msg,
+                                    commitRootDoc.getConflictsFor(
+                                        Collections.singleton(revision)));
+                        }
+                        throw dse;
+                    } else {
+                        success = true;
+                        // if we get here the commit was successful and
+                        // the commit revision is set on the commitRoot
+                        // document for this commit.
+                        // now check for conflicts/collisions by other commits.
+                        // use original commitRoot operation with
+                        // correct isNew flag.
+                        checkConflicts(commitRoot, before);
+                        checkSplitCandidate(before);
+                    }
+                } else {
+                    // this is a branch commit, do not fail on collisions now
+                    // trying to merge the branch will fail later
+                    createOrUpdateNode(store, commitRoot);
+                }
+                operations.put(commitRootPath, commitRoot);
+            }
+        } catch (DocumentStoreException e) {
+            // OAK-3084 do not roll back if already committed
+            if (success) {
+                LOG.error("Exception occurred after commit. Rollback will be suppressed.", e);
+            } else {
+                try {
+                    rollback(newNodes, opLog, commitRoot);
+                } catch (Exception ex) {
+                    // catch any exception caused by the rollback, log it
+                    // and throw the original exception
+                    LOG.warn("Rollback failed", ex);
+                }
+                throw e;
+            }
+        }
+    }
+    NodeDocument updateCommitRoot(UpdateOp commit, Revision commitRev)
+            throws DocumentStoreException {
+        // use batch commit when there are only revision and modified updates
+        boolean batch = true;
+        for (Map.Entry<Key, Operation> op : commit.getChanges().entrySet()) {
+            String name = op.getKey().getName();
+            if (NodeDocument.isRevisionsEntry(name)
+                    || NodeDocument.MODIFIED_IN_SECS.equals(name)) {
+                continue;
+            }
+            batch = false;
+            break;
+        }
+        try {
+            if (batch) {
+                return batchUpdateCommitRoot(commit);
+            } else {
+                return store.findAndUpdate(NODES, commit);
+            }
+        } catch (DocumentStoreException e) {
+            return verifyCommitRootUpdateApplied(commit, commitRev, e);
+        }
+    }
+    private NodeDocument verifyCommitRootUpdateApplied(UpdateOp commit,
+                                                       Revision commitRev,
+                                                       DocumentStoreException e)
+            throws DocumentStoreException {
+        LOG.info("Update of commit root failed with exception", e);
+        int numRetries = 10;
+        for (int i = 0; i < numRetries; i++) {
+            LOG.info("Checking if change made it to the DocumentStore anyway {}/{} ...",
+                    i + 1, numRetries);
+            NodeDocument commitRootDoc;
+            try {
+                commitRootDoc = store.find(NODES, commit.getId(), 0);
+            } catch (Exception ex) {
+                LOG.info("Failed to read commit root document", ex);
+                continue;
+            }
+            if (commitRootDoc == null) {
+                LOG.info("Commit root document missing for {}", commit.getId());
+                break;
+            }
+            if (commitRootDoc.getLocalRevisions().containsKey(commitRev)) {
+                LOG.info("Update made it to the store even though the call " +
+                        "failed with an exception. Previous exception will " +
+                        "be suppressed. {}", commit);
+                NodeDocument before = NODES.newDocument(store);
+                commitRootDoc.deepCopy(before);
+                UpdateUtils.applyChanges(before, commit.getReverseOperation());
+                return before;
+            }
+            break;
+        }
+        LOG.info("Update didn't make it to the store. Re-throwing the exception");
+        throw e;
+    }

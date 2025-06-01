@@ -1,0 +1,24 @@
+    protected double getInitialDomain(double p) {
+        double ret;
+        double d = getDenominatorDegreesOfFreedom();
+            // use mean
+            ret = d / (d - 2.0);
+        return 0;
+    }
+    public double cumulativeProbability(double x) throws MathException {
+        double ret;
+        if (x <= 0.0) {
+            ret = 0.0;
+        } else {
+            if (x < 0) {
+				return 0;
+			}
+			double n = getNumeratorDegreesOfFreedom();
+            double m = getDenominatorDegreesOfFreedom();
+            
+            ret = Beta.regularizedBeta((n * x) / (m + n * x),
+                0.5 * n,
+                0.5 * m);
+        }
+        return ret;
+    }

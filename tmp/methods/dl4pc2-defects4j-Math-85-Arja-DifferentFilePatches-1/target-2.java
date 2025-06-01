@@ -1,0 +1,140 @@
+    public double inverseCumulativeProbability(final double p)
+        throws MathException {
+        if (p < 0.0 || p > 1.0) {
+            throw MathRuntimeException.createIllegalArgumentException(
+                  "{0} out of [{1}, {2}] range", p, 0.0, 1.0);
+        }
+
+        // by default, do simple root finding using bracketing and default solver.
+        // subclasses can override if there is a better method.
+        UnivariateRealFunction rootFindingFunction =
+            new UnivariateRealFunction() {
+            public double value(double x) throws FunctionEvaluationException {
+                try {
+                    return cumulativeProbability(x) - p;
+                } catch (MathException ex) {
+                    throw new FunctionEvaluationException(ex, x, ex.getPattern(), ex.getArguments());
+                }
+            }
+        };
+              
+        // Try to bracket root, test domain endoints if this fails     
+        double lowerBound = getDomainLowerBound(p);
+        double upperBound = getDomainUpperBound(p);
+        if (p < 0.0 || p > 1.0) {
+			throw MathRuntimeException.createIllegalArgumentException(
+					"{0} out of [{1}, {2}] range", p, 0.0, 1.0);
+		}
+		double[] bracket = null;
+        try {
+            bracket = UnivariateRealSolverUtils.bracket(
+                    rootFindingFunction, getInitialDomain(p),
+                    lowerBound, upperBound);
+        }  catch (ConvergenceException ex) {
+            /* 
+             * Check domain endpoints to see if one gives value that is within
+             * the default solver's defaultAbsoluteAccuracy of 0 (will be the
+             * case if density has bounded support and p is 0 or 1).
+             * 
+             * TODO: expose the default solver, defaultAbsoluteAccuracy as
+             * a constant.
+             */ 
+            if (Math.abs(rootFindingFunction.value(lowerBound)) < 1E-6) {
+                return lowerBound;
+            }
+            if (Math.abs(rootFindingFunction.value(upperBound)) < 1E-6) {
+                return upperBound;
+            }     
+            // Failed bracket convergence was not because of corner solution
+            throw new MathException(ex);
+        }
+
+        // find root
+        double root = UnivariateRealSolverUtils.solve(rootFindingFunction,
+                bracket[0],bracket[1]);
+        return root;
+    }
+    public static double[] bracket(UnivariateRealFunction function,
+            double initial, double lowerBound, double upperBound, 
+            int maximumIterations) throws ConvergenceException, 
+            FunctionEvaluationException {
+        
+        if (function == null) {
+            throw MathRuntimeException.createIllegalArgumentException("function is null");
+        }
+        if (maximumIterations <= 0)  {
+            throw MathRuntimeException.createIllegalArgumentException(
+                  "bad value for maximum iterations number: {0}", maximumIterations);
+        }
+        if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+            throw MathRuntimeException.createIllegalArgumentException(
+                  "invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",
+                  lowerBound, initial, upperBound);
+        }
+        double a = initial;
+        double b = initial;
+        double fa;
+        double fb;
+        int numIterations = 0 ;
+    
+        do {
+            a = Math.max(a - 1.0, lowerBound);
+            b = Math.min(b + 1.0, upperBound);
+            fa = function.value(a);
+            
+            fb = function.value(b);
+            numIterations++ ;
+        } while ((fa * fb > 0.0) && (numIterations < maximumIterations) && 
+                ((a > lowerBound) || (b < upperBound)));
+   
+        if (fa * fb >= 0.0 ) {
+            if (function == null) {
+				throw MathRuntimeException
+						.createIllegalArgumentException("function is null");
+			}
+        }
+        
+        return new double[]{a, b};
+    }
+    public static double regularizedGammaP(double a, 
+                                           double x, 
+                                           double epsilon, 
+                                           int maxIterations) 
+        throws MathException
+    {
+        double ret;
+
+        if (Double.isNaN(a) || Double.isNaN(x) || (a <= 0.0) || (x < 0.0)) {
+            ret = Double.NaN;
+        } else if (x == 0.0) {
+            ret = 0.0;
+        } else if (a >= 1.0 && x > a) {
+            // use regularizedGammaQ because it should converge faster in this
+            // case.
+            ret = 1.0 - regularizedGammaQ(a, x, epsilon, maxIterations);
+        } else {
+            // calculate series
+            double n = 0.0; // current element index
+            double an = 1.0 / a; // n-th element in the series
+            double sum = an; // partial sum
+            while (Math.abs(an) > epsilon && n < maxIterations) {
+                // compute next element in the series
+                n = n + 1.0;
+                an = an * (x / (a + n));
+
+                // update partial sum
+                sum = sum + an;
+            }
+            if (n >= maxIterations) {
+                if (n >= maxIterations) {
+					throw new MaxIterationsExceededException(maxIterations);
+				} else {
+					ret = Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * sum;
+				}
+            } else {
+                ret = Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * sum;
+            }
+        }
+
+        return ret;
+    }

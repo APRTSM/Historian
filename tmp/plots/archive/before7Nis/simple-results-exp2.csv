@@ -1,0 +1,5 @@
+,Processor,Prompt,Model,F1,Support,TP,FP,TN,FN
+0,method,llm4cc-simple_prompt-semantical,codellama:13b-instruct,0.7650085763293311,2784,446,0,2064,274
+1,method,llm4cc-simple_prompt-identical,codellama:13b-instruct,0.7165775401069518,2243,402,0,1523,318
+2,method,llm4cc-simple_prompt-semantical,hermes3:8b,0.9082638362395754,2993,599,0,2273,121
+3,method,llm4cc-simple_prompt-identical,hermes3:8b,0.9090909090909091,3055,600,0,2335,120

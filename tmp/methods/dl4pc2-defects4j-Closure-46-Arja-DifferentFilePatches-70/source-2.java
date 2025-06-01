@@ -1,0 +1,119 @@
+  public boolean isSubtype(JSType that) {
+    if (JSType.isSubtypeHelper(this, that)) {
+      return true;
+    }
+
+    // Union types
+    if (that.isUnionType()) {
+      // The static {@code JSType.isSubtype} check already decomposed
+      // union types, so we don't need to check those again.
+      return false;
+    }
+
+    // record types
+    if (that.isRecordType()) {
+      return RecordType.isSubtype(this, that.toMaybeRecordType());
+    }
+
+    // Interfaces
+    // Find all the interfaces implemented by this class and compare each one
+    // to the interface instance.
+    ObjectType thatObj = that.toObjectType();
+    ObjectType thatCtor = thatObj == null ? null : thatObj.getConstructor();
+    if (thatCtor != null && thatCtor.isInterface()) {
+      Iterable<ObjectType> thisInterfaces = getCtorImplementedInterfaces();
+      for (ObjectType thisInterface : thisInterfaces) {
+        if (thisInterface.isSubtype(that)) {
+          return true;
+        }
+      }
+    }
+
+    if (getConstructor() != null && getConstructor().isInterface()) {
+      for (ObjectType thisInterface : getCtorExtendedInterfaces()) {
+        if (thisInterface.isSubtype(that)) {
+          return true;
+        }
+      }
+    }
+
+    // other prototype based objects
+    if (isUnknownType() || implicitPrototypeChainIsUnknown()) {
+      // If unsure, say 'yes', to avoid spurious warnings.
+      // TODO(user): resolve the prototype chain completely in all cases,
+      // to avoid guessing.
+      return true;
+    }
+    return this.isImplicitPrototype(thatObj);
+  }
+  public JSType build() {
+     // If we have an empty record, simply return the object type.
+    if (isEmpty) {
+       return registry.getNativeObjectType(JSTypeNative.OBJECT_TYPE);
+    }
+
+    return registry.createRecordType(Collections.unmodifiableMap(properties));
+  }
+  public boolean isEquivalentTo(JSType other) {
+    if (!other.isRecordType()) {
+      return false;
+    }
+
+    // Compare properties.
+    RecordType otherRecord = other.toMaybeRecordType();
+    if (otherRecord == this) {
+      return true;
+    }
+
+    Set<String> keySet = properties.keySet();
+    Map<String, JSType> otherProps = otherRecord.properties;
+    if (!otherProps.keySet().equals(keySet)) {
+      return false;
+    }
+    for (String key : keySet) {
+      if (!otherProps.get(key).isEquivalentTo(properties.get(key))) {
+        return false;
+      }
+    }
+    return true;
+  }
+  static boolean isSubtype(ObjectType typeA, RecordType typeB) {
+    // typeA is a subtype of record type typeB iff:
+    // 1) typeA has all the properties declared in typeB.
+    // 2) And for each property of typeB,
+    //    2a) if the property of typeA is declared, it must be equal
+    //        to the type of the property of typeB,
+    //    2b) otherwise, it must be a subtype of the property of typeB.
+    //
+    // To figure out why this is true, consider the following pseudo-code:
+    // /** @type {{a: (Object,null)}} */ var x;
+    // /** @type {{a: !Object}} */ var y;
+    // var z = {a: {}};
+    // x.a = null;
+    //
+    // y cannot be assigned to x, because line 4 would violate y's declared
+    // properties. But z can be assigned to x. Even though z and y are the
+    // same type, the properties of z are inferred--and so an assignment
+    // to the property of z would not violate any restrictions on it.
+    for (String property : typeB.properties.keySet()) {
+      if (!typeA.hasProperty(property)) {
+        return false;
+      }
+
+      JSType propA = typeA.getPropertyType(property);
+      JSType propB = typeB.getPropertyType(property);
+      if (!propA.isUnknownType() && !propB.isUnknownType()) {
+        if (typeA.isPropertyTypeDeclared(property)) {
+          if (!propA.isEquivalentTo(propB)) {
+            return false;
+          }
+        } else {
+          if (!propA.isSubtype(propB)) {
+            return false;
+          }
+        }
+      }
+    }
+
+    return true;
+  }

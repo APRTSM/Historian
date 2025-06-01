@@ -1,0 +1,27 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-150/src/com/google/javascript/jscomp/TypedScopeCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-150-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 4b841ae..5628a08 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-150/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-150-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1448,21 +1448,7 @@ final class TypedScopeCreator implements ScopeCreator {
+         return;
+       }
+ 
+-      attachLiteralTypes(n);
+-      switch (n.getType()) {
+-        case Token.FUNCTION:
+-          if (parent.getType() == Token.NAME) {
+-            return;
+-          }
+-          defineDeclaredFunction(n, parent);
+-          break;
+-        case Token.CATCH:
+-          defineCatch(n, parent);
+-          break;
+-        case Token.VAR:
+-          defineVar(n, parent);
+-          break;
+-      }
++      super.visit(t, n, parent);
+     }
+ 
+     /** Handle bleeding functions and function parameters. */

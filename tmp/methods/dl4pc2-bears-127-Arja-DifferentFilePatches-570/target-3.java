@@ -1,0 +1,35 @@
+    private Position decodeOld(DeviceSession deviceSession, ChannelBuffer buf, int type, int index) {
+
+        Position position = new Position();
+        position.setDeviceId(deviceSession.getDeviceId());
+        position.setProtocol(getProtocolName());
+
+        position.set(Position.KEY_INDEX, index);
+
+        position.setTime(new Date(buf.readUnsignedInt() * 1000));
+        position.setLatitude(buf.readInt() / 1800000.0);
+        position.setLongitude(buf.readInt() / 1800000.0);
+        position.setSpeed(UnitsConverter.knotsFromKph(buf.readUnsignedByte()));
+        position.setCourse(buf.readUnsignedShort());
+
+        position.setNetwork(new Network(CellTower.from(
+                buf.readUnsignedShort(), buf.readUnsignedShort(), buf.readUnsignedShort(), buf.readUnsignedMedium())));
+
+        position.setValid((buf.readUnsignedByte() & 0x01) != 0);
+
+        return position;
+    }
+    public void setSupportedDataCommands(String... commands) {
+    }
+    public void addCellTower(CellTower cellTower) {
+        if (cellTowers == null) {
+            cellTowers = new ArrayList<>();
+        }
+    }
+    public static CellTower from(int mcc, int mnc, int lac, long cid) {
+        CellTower cellTower = new CellTower();
+        cellTower.setMobileNetworkCode(mnc);
+        cellTower.setLocationAreaCode(lac);
+        cellTower.setCellId(cid);
+        return cellTower;
+    }

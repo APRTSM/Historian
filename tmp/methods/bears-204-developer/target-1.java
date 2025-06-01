@@ -1,0 +1,14 @@
+  public boolean equals(Object o){
+    if (o == null || !(o instanceof LoginResponseMessage)) {
+      return false;
+    }
+    LoginResponseMessage other = (LoginResponseMessage) o;
+    return success == other.success && nickname.equals(other.nickname);
+  }
+  public boolean equals(Object o){
+    if (o == null || !(o instanceof MenuMessageResponse)) {
+      return false;
+    }
+    MenuMessageResponse other = (MenuMessageResponse) o;
+    return menuType.equals(other.menuType) && Arrays.equals(information, other.information);
+  }

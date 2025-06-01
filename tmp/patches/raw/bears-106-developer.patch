@@ -1,0 +1,24 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TelicProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TelicProtocolDecoder.java
+index dd20932d9..579a6466b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TelicProtocolDecoder.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TelicProtocolDecoder.java
+@@ -53,8 +53,6 @@ public class TelicProtocolDecoder extends BaseProtocolDecoder {
+             .number("(d+)?,")                    // satellites
+             .expression("(?:[^,]*,){7}")
+             .number("(d+),")                     // battery
+-            .expression("[^,]*,")
+-            .number("(d+)?")                     // external
+             .any()
+             .compile();
+ 
+@@ -131,10 +129,6 @@ public class TelicProtocolDecoder extends BaseProtocolDecoder {
+ 
+         position.set(Position.KEY_BATTERY, parser.nextInt());
+ 
+-        if (parser.hasNext()) {
+-            position.set(Position.KEY_POWER, parser.nextInt());
+-        }
+-
+         return position;
+     }
+ 

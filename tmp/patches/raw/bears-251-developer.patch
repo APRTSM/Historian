@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/wffweb/src/main/java/com/webfirmframework/wffweb/tag/html/AbstractHtml.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/wffweb/src/main/java/com/webfirmframework/wffweb/tag/html/AbstractHtml.java
+index 693a88a6a..5f32c3a23 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/wffweb/src/main/java/com/webfirmframework/wffweb/tag/html/AbstractHtml.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/wffweb/src/main/java/com/webfirmframework/wffweb/tag/html/AbstractHtml.java
+@@ -1113,7 +1113,7 @@ public abstract class AbstractHtml extends AbstractJsObject {
+             return;
+         }
+ 
+-        attributesMap = new ConcurrentHashMap<>(attributes.length);
++        attributesMap = new ConcurrentHashMap<>();
+ 
+         for (final AbstractAttribute attribute : attributes) {
+             attributesMap.put(attribute.getAttributeName(), attribute);

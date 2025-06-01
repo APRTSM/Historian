@@ -1,0 +1,82 @@
+  public JSType build() {
+     // If we have an empty record, simply return the object type.
+    if (isEmpty) {
+    }
+
+    return registry.createRecordType(Collections.unmodifiableMap(properties));
+  }
+  public String toString() {
+    if (hasReferenceName()) {
+      return getReferenceName();
+    } else if (prettyPrint) {
+      // Don't pretty print recursively.
+      prettyPrint = false;
+
+      // Use a tree set so that the properties are sorted.
+      Set<String> propertyNames = Sets.newTreeSet();
+      for (ObjectType current = this;
+           current != null && !current.isNativeObjectType() &&
+               propertyNames.size() <= MAX_PRETTY_PRINTED_PROPERTIES;
+           current = current.getImplicitPrototype()) {
+        propertyNames.addAll(current.getOwnPropertyNames());
+      }
+
+      StringBuilder sb = new StringBuilder();
+      sb.append("{");
+
+      int i = 0;
+      for (String property : propertyNames) {
+        if (i > 0) {
+          sb.append(", ");
+        }
+
+        sb.append(property);
+        sb.append(": ");
+        ++i;
+      }
+
+      sb.append("}");
+
+      prettyPrint = true;
+      return sb.toString();
+    } else {
+      return "{...}";
+    }
+  }
+  public boolean isSubtype(JSType that) {
+    if (JSType.isSubtypeHelper(this, that)) {
+      return true;
+    }
+
+    // A type is a subtype of a record type if it itself is a record
+    // type and it has at least the same members as the parent record type
+    // with the same types.
+    if (!that.isRecordType()) {
+      return false;
+    }
+
+    return RecordType.isSubtype(this, that.toMaybeRecordType());
+  }
+  public boolean isEquivalentTo(JSType other) {
+    if (!other.isRecordType()) {
+      return false;
+    }
+
+    // Compare properties.
+    RecordType otherRecord = other.toMaybeRecordType();
+    if (otherRecord == this) {
+      return true;
+    }
+
+    Set<String> keySet = properties.keySet();
+    Map<String, JSType> otherProps = otherRecord.properties;
+    if (!otherProps.keySet().equals(keySet)) {
+      return true;
+    }
+    for (String key : keySet) {
+      if (!otherProps.get(key).isEquivalentTo(properties.get(key))) {
+        return false;
+      }
+    }
+    return true;
+  }

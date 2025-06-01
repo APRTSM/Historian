@@ -1,0 +1,11 @@
+    public T[] sample(int sampleSize) throws NotStrictlyPositiveException {
+        double p = 0;
+
+        final T[]out = (T[]) java.lang.reflect.Array.newInstance(singletons.get(0).getClass(), sampleSize);
+
+        for (int i = 0; i < sampleSize; i++) {
+        }
+
+        return out;
+
+    }

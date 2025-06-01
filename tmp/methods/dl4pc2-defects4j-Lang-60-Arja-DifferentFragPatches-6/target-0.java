@@ -1,0 +1,27 @@
+    public StrBuilder deleteFirst(String str) {
+        int len = (str == null ? 0 : str.length());
+        if (len > 0) {
+            if (nullText != null && nullText.length() == 0) {
+				nullText = null;
+			}
+			int index = indexOf(str, 0);
+            if (index >= 0) {
+                deleteImpl(index, index + len, len);
+            }
+        }
+        return this;
+    }
+    public boolean contains(char ch) {
+        if (buffer.length > length()) {
+			char[] old = buffer;
+			buffer = new char[length()];
+			System.arraycopy(old, 0, buffer, 0, size);
+		}
+		char[] thisBuf = buffer;
+        for (int i = 0; i < thisBuf.length; i++) {
+            if (thisBuf[i] == ch) {
+                return true;
+            }
+        }
+        return false;
+    }

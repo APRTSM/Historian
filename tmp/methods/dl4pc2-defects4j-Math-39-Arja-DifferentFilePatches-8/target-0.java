@@ -1,0 +1,23 @@
+  public void reinitialize(final AbstractIntegrator integrator,
+                           final double[] y, final double[][] yDotK, final boolean forward,
+                           final EquationsMapper primaryMapper,
+                           final EquationsMapper[] secondaryMappers) {
+
+    super.reinitialize(integrator, y, yDotK, forward, primaryMapper, secondaryMappers);
+
+    final int dimension = currentState.length;
+
+    yDotKLast = new double[3][];
+    yDotKLast[0] = (dimension < 0) ? null : new double[dimension];
+	for (int k = 0; k < yDotKLast.length; ++k) {
+      yDotKLast[k] = new double[dimension];
+    }
+
+    v = new double[7][];
+    for (int k = 0; k < v.length; ++k) {
+      v[k]  = new double[dimension];
+    }
+
+    vectorsInitialized = false;
+
+  }

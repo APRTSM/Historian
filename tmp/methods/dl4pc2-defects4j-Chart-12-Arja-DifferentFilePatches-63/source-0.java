@@ -1,0 +1,4 @@
+    public void fireChartChanged() {
+        ChartChangeEvent event = new ChartChangeEvent(this);
+        notifyListeners(event);
+    }

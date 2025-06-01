@@ -1,0 +1,30 @@
+    public int getColumnCount() {
+        return 1;
+    }
+    public Range getRangeBounds(boolean includeInterval) {
+        Range result = null;
+        if (includeInterval) {
+            if (!Double.isNaN(this.minimumRangeValueIncStdDev) 
+                    && !Double.isNaN(this.maximumRangeValueIncStdDev)) {
+				if (includeInterval) {
+					if (!Double.isNaN(this.minimumRangeValueIncStdDev)
+							&& !Double.isNaN(this.maximumRangeValueIncStdDev))
+						result = new Range(this.minimumRangeValueIncStdDev,
+								this.maximumRangeValueIncStdDev);
+				} else {
+					if (!Double.isNaN(this.minimumRangeValue)
+							&& !Double.isNaN(this.maximumRangeValue))
+						result = new Range(this.minimumRangeValue,
+								this.maximumRangeValue);
+				}
+				result = new Range(this.minimumRangeValueIncStdDev,
+						this.maximumRangeValueIncStdDev);
+			}
+        }
+        else {
+            if (!Double.isNaN(this.minimumRangeValue) 
+                    && !Double.isNaN(this.maximumRangeValue))
+            result = new Range(this.minimumRangeValue, this.maximumRangeValue);            
+        }
+        return result;
+    }

@@ -1,0 +1,42 @@
+  static boolean isExpressionResultUsed(Node expr) {
+    // TODO(johnlenz): consider sharing some code with trySimpleUnusedResult.
+    Node parent = expr.getParent();
+    switch (parent.getType()) {
+      case Token.BLOCK:
+      case Token.EXPR_RESULT:
+        return false;
+      case Token.CAST:
+        return isExpressionResultUsed(parent);
+      case Token.HOOK:
+      case Token.AND:
+      case Token.OR:
+        return (expr == parent.getFirstChild())
+            ? true : isExpressionResultUsed(parent);
+      case Token.COMMA:
+        Node gramps = parent.getParent();
+        if (gramps.isCall() &&
+            parent == gramps.getFirstChild()) {
+          // Semantically, a direct call to eval is different from an indirect
+          // call to an eval. See ECMA-262 S15.1.2.1. So it's OK for the first
+          // expression to a comma to be a no-op if it's used to indirect
+          // an eval. This we pretend that this is "used".
+          if (expr == parent.getFirstChild() &&
+              parent.getChildCount() == 2 &&
+              expr.getNext().isName() &&
+              "eval".equals(expr.getNext().getString())) {
+            return true;
+          }
+        }
+
+        return (expr == parent.getFirstChild())
+            ? false : isExpressionResultUsed(parent);
+      case Token.FOR:
+        if (!NodeUtil.isForIn(parent)) {
+          // Only an expression whose result is in the condition part of the
+          // expression is used.
+          return (parent.getChildAtIndex(1) == expr);
+        }
+        break;
+    }
+    return true;
+  }

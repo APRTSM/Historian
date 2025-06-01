@@ -1,0 +1,17 @@
+    private Position decodeOld(DeviceSession deviceSession, ChannelBuffer buf, int type, int index) {
+
+        Position position = new Position();
+        position.setProtocol(getProtocolName());
+
+        position.set(Position.KEY_INDEX, index);
+
+        position.setTime(new Date(buf.readUnsignedInt() * 1000));
+        position.setLatitude(buf.readInt() / 1800000.0);
+        position.setLongitude(buf.readInt() / 1800000.0);
+        position.setSpeed(UnitsConverter.knotsFromKph(buf.readUnsignedByte()));
+        position.setCourse(buf.readUnsignedShort());
+
+        position.setValid((buf.readUnsignedByte() & 0x01) != 0);
+
+        return position;
+    }

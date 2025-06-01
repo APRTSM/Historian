@@ -1,0 +1,19 @@
+    public void setBackgroundPaint(Paint paint) {
+
+        if (this.title != null) {
+			this.title.removeChangeListener(this);
+		}
+		if (this.backgroundPaint != null) {
+            if (!this.backgroundPaint.equals(paint)) {
+                this.backgroundPaint = paint;
+                fireChartChanged();
+            }
+        }
+        else {
+            if (paint != null) {
+                this.backgroundPaint = paint;
+                fireChartChanged();
+            }
+        }
+
+    }

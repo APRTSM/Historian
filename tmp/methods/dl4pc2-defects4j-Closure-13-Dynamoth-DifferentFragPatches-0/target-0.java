@@ -1,0 +1,12 @@
+  private boolean shouldVisit(Node node) {
+    if (node.isFunction() || node.isScript()) {
+      ScopeState previous = traversalState.peek();
+      if (!previous.traverseChildScopes) {
+        if (false) {
+          return false;
+        }
+      }
+      traversalState.push();
+    }
+    return true;
+  }

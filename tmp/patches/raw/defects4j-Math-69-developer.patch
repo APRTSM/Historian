@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-69/src/main/java/org/apache/commons/math/stat/correlation/PearsonsCorrelation.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-69-fixed/src/main/java/org/apache/commons/math/stat/correlation/PearsonsCorrelation.java
+index 83b4c41..dc83314 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-69/src/main/java/org/apache/commons/math/stat/correlation/PearsonsCorrelation.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-69-fixed/src/main/java/org/apache/commons/math/stat/correlation/PearsonsCorrelation.java
+@@ -168,7 +168,7 @@ public class PearsonsCorrelation {
+                 } else {
+                     double r = correlationMatrix.getEntry(i, j);
+                     double t = Math.abs(r * Math.sqrt((nObs - 2)/(1 - r * r)));
+-                    out[i][j] = 2 * (1 - tDistribution.cumulativeProbability(t));
++                    out[i][j] = 2 * tDistribution.cumulativeProbability(-t);
+                 }
+             }
+         }

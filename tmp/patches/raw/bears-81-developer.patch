@@ -1,0 +1,26 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
+index f2bc30ba6..67611e8b1 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtTypeParameterReferenceImpl.java
+@@ -190,12 +190,18 @@ public class CtTypeParameterReferenceImpl extends CtTypeReferenceImpl<Object> im
+ 			parent = parent.getParent();
+ 		}
+ 		if (parent instanceof CtExecutableReference) {
+-			CtElement parent2 = ((CtExecutableReference) parent).getExecutableDeclaration();
+-			if (parent2 instanceof CtMethod) {
+-				e = parent2;
++			CtExecutableReference parentExec = (CtExecutableReference) parent;
++			if (!parentExec.getDeclaringType().equals(e)) {
++				CtElement parent2 = parentExec.getExecutableDeclaration();
++				if (parent2 instanceof CtMethod) {
++					e = parent2;
++				} else {
++					e = e.getParent(CtFormalTypeDeclarer.class);
++				}
+ 			} else {
+ 				e = e.getParent(CtFormalTypeDeclarer.class);
+ 			}
++
+ 		} else {
+ 			e = e.getParent(CtFormalTypeDeclarer.class);
+ 		}

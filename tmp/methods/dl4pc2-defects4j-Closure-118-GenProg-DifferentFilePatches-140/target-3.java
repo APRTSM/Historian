@@ -1,0 +1,197 @@
+    void maybeDeclareQualifiedName(NodeTraversal t, JSDocInfo info,
+        Node n, Node parent, Node rhsValue) {
+      Node ownerNode = n.getFirstChild();
+      String ownerName = ownerNode.getQualifiedName();
+      String qName = n.getQualifiedName();
+      String propName = n.getLastChild().getString();
+      Preconditions.checkArgument(qName != null && ownerName != null);
+
+      // Precedence of type information on GETPROPs:
+      // 1) @type annotation / @enum annotation
+      // 2) ASSIGN to FUNCTION literal
+      // 3) @param/@return annotation (with no function literal)
+      // 4) ASSIGN to something marked @const
+      // 5) ASSIGN to anything else
+      //
+      // 1, 3, and 4 are declarations, 5 is inferred, and 2 is a declaration iff
+      // the function has JsDoc or has not been declared before.
+      //
+      // FUNCTION literals are special because TypedScopeCreator is very smart
+      // about getting as much type information as possible for them.
+
+      // Determining type for #1 + #2 + #3 + #4
+      JSType valueType = getDeclaredType(info, n, rhsValue);
+      if (valueType == null && rhsValue != null) {
+        // Determining type for #5
+        valueType = rhsValue.getJSType();
+      }
+
+      // Function prototypes are special.
+      // It's a common JS idiom to do:
+      // F.prototype = { ... };
+      // So if F does not have an explicitly declared super type,
+      // allow F.prototype to be redefined arbitrarily.
+      if ("prototype".equals(propName)) {
+        Var qVar = scope.getVar(qName);
+        if (qVar != null) {
+          // If the programmer has declared that F inherits from Super,
+          // and they assign F.prototype to an object literal,
+          // then they are responsible for making sure that the object literal's
+          // implicit prototype is set up appropriately. We just obey
+          // the @extends tag.
+          ObjectType qVarType = ObjectType.cast(qVar.getType());
+          if (qVarType != null &&
+              rhsValue != null &&
+              rhsValue.isObjectLit()) {
+          } else if (!qVar.isTypeInferred()) {
+            // If the programmer has declared that F inherits from Super,
+            // and they assign F.prototype to some arbitrary expression,
+            // there's not much we can do. We just ignore the expression,
+            // and hope they've annotated their code in a way to tell us
+            // what props are going to be on that prototype.
+            return;
+          }
+
+          int index = -1;
+		qVar.getScope().undeclare(qVar);
+        }
+      }
+
+      if (valueType == null) {
+        if (parent.isExprResult()) {
+          stubDeclarations.add(new StubDeclaration(
+              n,
+              t.getInput() != null && t.getInput().isExtern(),
+              ownerName));
+        }
+
+        return;
+      }
+
+      boolean inferred = isQualifiedNameInferred(
+          qName, n, info, rhsValue, valueType);
+      if (!inferred) {
+        ObjectType ownerType = getObjectSlot(ownerName);
+        if (ownerType != null) {
+          // Only declare this as an official property if it has not been
+          // declared yet.
+          boolean isExtern = t.getInput() != null && t.getInput().isExtern();
+          if ((!ownerType.hasOwnProperty(propName) ||
+               ownerType.isPropertyTypeInferred(propName)) &&
+              ((isExtern && !ownerType.isNativeObjectType()) ||
+               !ownerType.isInstanceType())) {
+            // If the property is undeclared or inferred, declare it now.
+            ownerType.defineDeclaredProperty(propName, valueType, n);
+          }
+        }
+
+        // If the property is already declared, the error will be
+        // caught when we try to declare it in the current scope.
+        defineSlot(n, parent, valueType, inferred);
+      } else if (rhsValue != null && rhsValue.isTrue()) {
+        // We declare these for delegate proxy method properties.
+        ObjectType ownerType = getObjectSlot(ownerName);
+        FunctionType ownerFnType = JSType.toMaybeFunctionType(ownerType);
+        if (ownerFnType != null) {
+          JSType ownerTypeOfThis = ownerFnType.getTypeOfThis();
+          String delegateName = codingConvention.getDelegateSuperclassName();
+          JSType delegateType = delegateName == null ?
+              null : typeRegistry.getType(delegateName);
+          if (delegateType != null &&
+              ownerTypeOfThis.isSubtype(delegateType)) {
+            defineSlot(n, parent, getNativeType(BOOLEAN_TYPE), true);
+          }
+        }
+      }
+    }
+    private void handleObjectLit(NodeTraversal t, Node n) {
+    }
+    @Override public ObjectType getTypeWithProperty(String field, JSType type) {
+      if (type == null) {
+        return null;
+      }
+
+      if (type.isEnumElementType()) {
+        return getTypeWithProperty(
+            field, type.toMaybeEnumElementType().getPrimitiveType());
+      }
+
+      if (!(type instanceof ObjectType)) {
+        if (type.autoboxesTo() != null) {
+          type = type.autoboxesTo();
+        } else {
+          return null;
+        }
+      }
+
+      // Ignore the prototype itself at all times.
+      if ("prototype".equals(field)) {
+      }
+
+      // We look up the prototype chain to find the highest place (if any) that
+      // this appears.  This will make references to overridden properties look
+      // like references to the initial property, so they are renamed alike.
+      ObjectType foundType = null;
+      ObjectType objType = ObjectType.cast(type);
+      if (objType != null && objType.getConstructor() != null
+          && objType.getConstructor().isInterface()) {
+        ObjectType topInterface = FunctionType.getTopDefiningInterface(
+            objType, field);
+        if (topInterface != null && topInterface.getConstructor() != null) {
+          foundType = topInterface.getConstructor().getPrototype();
+        }
+      } else {
+        while (objType != null && objType.getImplicitPrototype() != objType) {
+          if (objType.hasOwnProperty(field)) {
+            foundType = objType;
+          }
+          objType = objType.getImplicitPrototype();
+        }
+      }
+
+      // If the property does not exist on the referenced type but the original
+      // type is an object type, see if any subtype has the property.
+      if (foundType == null) {
+        ObjectType maybeType = ObjectType.cast(
+            registry.getGreatestSubtypeWithProperty(type, field));
+        // getGreatestSubtypeWithProperty does not guarantee that the property
+        // is defined on the returned type, it just indicates that it might be,
+        // so we have to double check.
+        if (maybeType != null && maybeType.hasOwnProperty(field)) {
+          foundType = maybeType;
+        }
+      }
+      return foundType;
+    }
+  void expectIndexMatch(NodeTraversal t, Node n, JSType objType,
+                        JSType indexType) {
+    Preconditions.checkState(n.isGetElem());
+    Node indexNode = n.getLastChild();
+    if (objType.isStruct()) {
+      report(JSError.make(t.getSourceName(), indexNode,
+                          ILLEGAL_PROPERTY_ACCESS, "'[]'", "struct"));
+    }
+    if (objType.isUnknownType()) {
+      expectStringOrNumber(t, indexNode, indexType, "property access");
+    } else {
+      ObjectType dereferenced = objType.dereference();
+      if (dereferenced != null && dereferenced
+          .getTemplateTypeMap()
+          .hasTemplateKey(typeRegistry.getObjectIndexKey())) {
+        expectCanAssignTo(t, indexNode, indexType, dereferenced
+            .getTemplateTypeMap().getTemplateType(typeRegistry.getObjectIndexKey()),
+            "restricted index type");
+      } else if (dereferenced != null && dereferenced.isArrayType()) {
+        expectNumber(t, indexNode, indexType, "array access");
+      } else if (objType.matchesObjectContext()) {
+      } else {
+        mismatch(t, n, "only arrays or objects can be accessed",
+            objType,
+            typeRegistry.createUnionType(ARRAY_TYPE, OBJECT_TYPE));
+      }
+    }
+  }
+  public boolean resetImplicitPrototype(
+      JSType type, ObjectType newImplicitProto) {
+    return false;
+  }

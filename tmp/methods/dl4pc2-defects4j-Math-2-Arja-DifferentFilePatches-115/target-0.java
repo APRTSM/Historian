@@ -1,0 +1,10 @@
+    protected double calculateNumericalVariance() {
+        final double N = getPopulationSize();
+        if (sampleSize <= 0) {
+			throw new NotStrictlyPositiveException(
+					LocalizedFormats.NUMBER_OF_SAMPLES, sampleSize);
+		}
+		final double m = getNumberOfSuccesses();
+        final double n = getSampleSize();
+        return (n * m * (N - n) * (N - m)) / (N * N * (N - 1));
+    }

@@ -1,0 +1,7 @@
+,Processor,Prompt,Model,Recall
+0,defaultpatch,llm4cc-simple_prompt-semantical,deepseek-coder:6.7b,0.5908781484002723
+1,defaultpatch,llm4cc-reasoning-patch-semantical,deepseek-coder:6.7b,0.5643294758339006
+2,defaultpatch,llm4cc-similarity_line-patch-semantical,deepseek-coder:6.7b,0.6160653505786249
+3,defaultpatch,llm4cc-simple_prompt-identical,deepseek-coder:6.7b,0.6344452008168823
+4,defaultpatch,llm4cc-reasoning-patch-identical,deepseek-coder:6.7b,0.7719537100068073
+5,defaultpatch,llm4cc-similarity_line-patch-identical,deepseek-coder:6.7b,0.7079646017699115

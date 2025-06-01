@@ -1,0 +1,14 @@
+	private CreditCard isChinaUnionPay(String creditCardNumber)
+	{
+		if ((creditCardNumber.length() >= 16 && creditCardNumber.length() <= 19) &&
+			(creditCardNumber.startsWith("622")))
+		{
+			int firstDigits = Integer.parseInt(creditCardNumber.substring(0, 5));
+			if (firstDigits >= 622126 && firstDigits <= 622925)
+			{
+				return CreditCard.CHINA_UNIONPAY;
+			}
+		}
+
+		return CreditCard.INVALID;
+	}

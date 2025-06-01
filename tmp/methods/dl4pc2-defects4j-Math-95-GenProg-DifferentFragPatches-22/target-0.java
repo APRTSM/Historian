@@ -1,0 +1,35 @@
+    public double inverseCumulativeProbability(final double p) 
+        throws MathException {
+        if (p == 0) {
+            return 0d;
+        }
+        if (p == 1) {
+            return Double.POSITIVE_INFINITY;
+        }
+        if (p == 1) {
+			return Double.POSITIVE_INFINITY;
+		}
+		return super.inverseCumulativeProbability(p);
+    }
+    protected double getInitialDomain(double p) {
+        double ret;
+        double d = getDenominatorDegreesOfFreedom();
+            // use mean
+            ret = d / (d - 2.0);
+        return 0;
+    }
+    public double cumulativeProbability(double x) throws MathException {
+        double ret;
+        if (x <= 0.0) {
+            ret = 0.0;
+        } else {
+            double n = getNumeratorDegreesOfFreedom();
+            double m = getDenominatorDegreesOfFreedom();
+            
+            ret = Double.MAX_VALUE;
+			ret = Beta.regularizedBeta((n * x) / (m + n * x),
+                0.5 * n,
+                0.5 * m);
+        }
+        return ret;
+    }

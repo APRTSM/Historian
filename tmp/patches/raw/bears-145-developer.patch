@@ -1,0 +1,15 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzConfigurableDataSupplier.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzConfigurableDataSupplier.java
+index 2065314de..cf22740f3 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzConfigurableDataSupplier.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzConfigurableDataSupplier.java
+@@ -27,8 +27,8 @@ public class SpdzConfigurableDataSupplier implements SpdzDataSupplier {
+     MultiplicationTripleShares rawTriple = supplier.getMultiplicationTripleShares();
+     return new SpdzTriple(
+         toSpdzElement(rawTriple.getLeft()),
+-        toSpdzElement(rawTriple.getLeft()),
+-        toSpdzElement(rawTriple.getRight()));
++        toSpdzElement(rawTriple.getRight()),
++        toSpdzElement(rawTriple.getProduct()));
+   }
+ 
+   @Override

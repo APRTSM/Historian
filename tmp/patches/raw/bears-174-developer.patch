@@ -1,0 +1,23 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
+index c9df10440..3a98fb911 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
+@@ -192,15 +192,15 @@ class PostgreSqlEntityFactory
+ 		{
+ 			EntityType entityType = attr.getRefEntity();
+ 			Object value;
+-			String[] postgreSqlMrefIds = (String[]) arrayValue.getArray();
++			Object[] postgreSqlMrefIds = (Object[]) arrayValue.getArray();
+ 			if (postgreSqlMrefIds.length > 0 && postgreSqlMrefIds[0] != null)
+ 			{
+ 				Attribute idAttr = entityType.getIdAttribute();
+ 				Object[] mrefIds = new Object[postgreSqlMrefIds.length];
+ 				for (int i = 0; i < postgreSqlMrefIds.length; ++i)
+ 				{
+-					String mrefIdStr = postgreSqlMrefIds[i];
+-					Object mrefId = mrefIdStr != null ? convertMrefIdValue(mrefIdStr, idAttr) : null;
++					Object mrefIdRaw = postgreSqlMrefIds[i];
++					Object mrefId = mrefIdRaw != null ? convertMrefIdValue(mrefIdRaw.toString(), idAttr) : null;
+ 					mrefIds[i] = mrefId;
+ 				}
+ 

@@ -1,0 +1,3 @@
+    public void add(TimeSeriesDataItem item) {
+        add(item, true);
+    }

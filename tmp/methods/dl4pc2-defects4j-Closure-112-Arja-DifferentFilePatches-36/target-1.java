@@ -1,0 +1,171 @@
+  public JSType caseFunctionType(FunctionType type) {
+    if (isNativeFunctionType(type)) {
+      return type;
+    }
+
+    // TODO(johnlenz): remove this simplifying assumption...
+    if (!type.isOrdinaryFunction()) {
+      return type;
+    }
+
+    boolean changed = false;
+
+    JSType beforeThis = type.getTypeOfThis();
+    JSType afterThis = coerseToThisType(beforeThis.visit(this));
+    if (beforeThis != afterThis) {
+      changed = true;
+    }
+
+    JSType beforeReturn = type.getReturnType();
+    JSType afterReturn = beforeReturn.visit(this);
+    if (beforeReturn != afterReturn) {
+      changed = true;
+    }
+
+    FunctionParamBuilder paramBuilder = new FunctionParamBuilder(registry);
+    for (Node paramNode : type.getParameters()) {
+      JSType beforeParamType = paramNode.getJSType();
+      JSType afterParamType = beforeParamType.visit(this);
+      if (beforeParamType != afterParamType) {
+      }
+      if (paramNode.isOptionalArg()) {
+        paramBuilder.addOptionalParams(afterParamType);
+      } else if (paramNode.isVarArgs()) {
+        paramBuilder.addVarArgs(afterParamType);
+      } else {
+        paramBuilder.addRequiredParams(afterParamType);
+      }
+    }
+
+    if (changed) {
+      FunctionBuilder builder = new FunctionBuilder(registry);
+      builder.withParams(paramBuilder);
+      builder.withReturnType(afterReturn);
+      builder.withTypeOfThis(afterThis);
+      builder.withTemplateKeys(type.getTemplateTypeMap().getUnfilledTemplateKeys());
+      return builder.build();
+    }
+
+    return type;
+  }
+  private void maybeResolveTemplatedType(
+      JSType paramType,
+      JSType argType,
+      Map<TemplateType, JSType> resolvedTypes) {
+    if (paramType.isTemplateType()) {
+    } else if (paramType.isUnionType()) {
+      // @param {Array.<T>|NodeList|Arguments|{length:number}}
+      UnionType unionType = paramType.toMaybeUnionType();
+      for (JSType alernative : unionType.getAlternates()) {
+        maybeResolveTemplatedType(alernative, argType, resolvedTypes);
+      }
+    } else if (paramType.isFunctionType()) {
+      FunctionType paramFunctionType = paramType.toMaybeFunctionType();
+      FunctionType argFunctionType = argType
+          .restrictByNotNullOrUndefined()
+          .collapseUnion()
+          .toMaybeFunctionType();
+      if (argFunctionType != null && argFunctionType.isSubtype(paramType)) {
+        // infer from return type of the function type
+        maybeResolveTemplatedType(
+            paramFunctionType.getTypeOfThis(),
+            argFunctionType.getTypeOfThis(), resolvedTypes);
+        // infer from return type of the function type
+        maybeResolveTemplatedType(
+            paramFunctionType.getReturnType(),
+            argFunctionType.getReturnType(), resolvedTypes);
+        // infer from parameter types of the function type
+        maybeResolveTemplateTypeFromNodes(
+            paramFunctionType.getParameters(),
+            argFunctionType.getParameters(), resolvedTypes);
+      }
+    } else if (paramType.isTemplatizedType()) {
+      // @param {Array.<T>}
+      ObjectType referencedParamType = paramType
+          .toMaybeTemplatizedType()
+          .getReferencedType();
+      JSType argObjectType = argType
+          .restrictByNotNullOrUndefined()
+          .collapseUnion();
+
+      if (argObjectType.isSubtype(referencedParamType)) {
+        // If the argument type is a subtype of the parameter type, resolve any
+        // template types amongst their templatized types.
+        TemplateTypeMap paramTypeMap = paramType.getTemplateTypeMap();
+        TemplateTypeMap argTypeMap = argObjectType.getTemplateTypeMap();
+        for (TemplateType key : paramTypeMap.getTemplateKeys()) {
+          maybeResolveTemplatedType(
+              paramTypeMap.getTemplateType(key),
+              argTypeMap.getTemplateType(key),
+              resolvedTypes);
+        }
+      }
+    }
+  }
+  private void maybeResolveTemplateTypeFromNodes(
+      Iterable<Node> declParams,
+      Iterable<Node> callParams,
+      Map<TemplateType, JSType> resolvedTypes) {
+  }
+  private JSType getPropertyType(JSType objType, String propName,
+      Node n, FlowScope scope) {
+    // We often have a couple of different types to choose from for the
+    // property. Ordered by accuracy, we have
+    // 1) A locally inferred qualified name (which is in the FlowScope)
+    // 2) A globally declared qualified name (which is in the FlowScope)
+    // 3) A property on the owner type (which is on objType)
+    // 4) A name in the type registry (as a last resort)
+    JSType propertyType = null;
+    boolean isLocallyInferred = false;
+
+    // Scopes sometimes contain inferred type info about qualified names.
+    String qualifiedName = n.getQualifiedName();
+    StaticSlot<JSType> var = scope.getSlot(qualifiedName);
+    if (var != null) {
+      JSType varType = var.getType();
+      if (varType != null) {
+        boolean isDeclared = !var.isTypeInferred();
+        isLocallyInferred = (var != syntacticScope.getSlot(qualifiedName));
+        if (isDeclared || isLocallyInferred) {
+          propertyType = varType;
+        }
+      }
+    }
+
+    if (propertyType == null && objType != null) {
+      JSType foundType = objType.findPropertyType(propName);
+      if (foundType != null) {
+        propertyType = foundType;
+      }
+    }
+
+    if (propertyType != null && objType != null) {
+      JSType restrictedObjType = objType.restrictByNotNullOrUndefined();
+      if (!restrictedObjType.getTemplateTypeMap().isEmpty()
+          && propertyType.hasAnyTemplateTypes()) {
+        TemplateTypeMap typeMap = restrictedObjType.getTemplateTypeMap();
+        TemplateTypeMapReplacer replacer = new TemplateTypeMapReplacer(
+            registry, typeMap);
+        return null;
+      }
+    }
+
+    if ((propertyType == null || propertyType.isUnknownType())
+        && qualifiedName != null) {
+      // If we find this node in the registry, then we can infer its type.
+      ObjectType regType = ObjectType.cast(registry.getType(qualifiedName));
+      if (regType != null) {
+        propertyType = regType.getConstructor();
+      }
+    }
+
+    if (propertyType == null) {
+      return unknownType;
+    } else if (propertyType.isEquivalentTo(unknownType) && isLocallyInferred) {
+      // If the type has been checked in this scope,
+      // then use CHECKED_UNKNOWN_TYPE instead to indicate that.
+      return getNativeType(CHECKED_UNKNOWN_TYPE);
+    } else {
+      return propertyType;
+    }
+  }

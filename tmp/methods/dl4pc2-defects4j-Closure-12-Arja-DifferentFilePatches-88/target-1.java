@@ -1,0 +1,160 @@
+    private boolean canInline() {
+      // Cannot inline a parameter.
+      if (getDefCfgNode().isFunction()) {
+        return false;
+      }
+
+      // If one of our dependencies has been inlined, then our dependency
+      // graph is wrong. Re-computing it would take another CFG computation,
+      // so we just back off for now.
+      for (Var dependency : defMetadata.depends) {
+        if (inlinedNewDependencies.contains(dependency)) {
+          return false;
+        }
+      }
+
+      getDefinition(getDefCfgNode(), null);
+      getNumUseInUseCfgNode(useCfgNode, null);
+
+      // Definition was not found.
+      if (def == null) {
+        return false;
+      }
+
+      // Check that the assignment isn't used as a R-Value.
+      // TODO(user): Certain cases we can still inline.
+      if (def.isAssign() && !NodeUtil.isExprAssign(def.getParent())) {
+        return false;
+      }
+
+      // The right of the definition has side effect:
+      // Example, for x:
+      // x = readProp(b), modifyProp(b); print(x);
+      if (checkRightOf(def, getDefCfgNode(), SIDE_EFFECT_PREDICATE)) {
+        return false;
+      }
+
+      // Similar check as the above but this time, all the sub-expressions
+      // left of the use of the variable.
+      // x = readProp(b); modifyProp(b), print(x);
+      if (checkLeftOf(use, useCfgNode, SIDE_EFFECT_PREDICATE)) {
+        return false;
+      }
+
+      // TODO(user): Side-effect is OK sometimes. As long as there are no
+      // side-effect function down all paths to the use. Once we have all the
+      // side-effect analysis tool.
+      if (NodeUtil.mayHaveSideEffects(def.getLastChild())) {
+        return false;
+      }
+
+      // TODO(user): We could inline all the uses if the expression is short.
+
+      // Finally we have to make sure that there are no more than one use
+      // in the program and in the CFG node. Even when it is semantically
+      // correctly inlining twice increases code size.
+      if (numUseWithinUseCfgNode != 1) {
+        return false;
+      }
+
+      // Make sure that the name is not within a loop
+      if (NodeUtil.isWithinLoop(use)) {
+        return false;
+      }
+
+
+      Collection<Node> uses = reachingUses.getUses(varName, getDefCfgNode());
+
+      if (uses.size() != 1) {
+        return false;
+      }
+
+      // We give up inlining stuff with R-Value that has GETPROP, GETELEM,
+      // or anything that creates a new object.
+      // Example:
+      // var x = a.b.c; j.c = 1; print(x);
+      // Inlining print(a.b.c) is not safe consider j and be alias to a.b.
+      // TODO(user): We could get more accuracy by looking more in-detail
+      // what j is and what x is trying to into to.
+      if (NodeUtil.has(def.getLastChild(),
+          new Predicate<Node>() {
+              @Override
+              public boolean apply(Node input) {
+                switch (input.getType()) {
+                  case Token.GETELEM:
+                  case Token.GETPROP:
+                  case Token.ARRAYLIT:
+                  case Token.OBJECTLIT:
+                  case Token.REGEXP:
+                  case Token.NEW:
+                    return true;
+                }
+                return false;
+              }
+          },
+          new Predicate<Node>() {
+              @Override
+              public boolean apply(Node input) {
+                // Recurse if the node is not a function.
+                return !input.isFunction();
+              }
+          })) {
+        return false;
+      }
+
+      // We can skip the side effect check along the paths of two nodes if
+      // they are just next to each other.
+      if (NodeUtil.isStatementBlock(getDefCfgNode().getParent()) &&
+          getDefCfgNode().getNext() != useCfgNode) {
+        // Similar side effect check as above but this time the side effect is
+        // else where along the path.
+        // x = readProp(b); while(modifyProp(b)) {}; print(x);
+        CheckPathsBetweenNodes<Node, ControlFlowGraph.Branch>
+          pathCheck = new CheckPathsBetweenNodes<Node, ControlFlowGraph.Branch>(
+                 cfg,
+                 cfg.getDirectedGraphNode(getDefCfgNode()),
+                 cfg.getDirectedGraphNode(useCfgNode),
+                 SIDE_EFFECT_PREDICATE,
+                 Predicates.
+                     <DiGraphEdge<Node, ControlFlowGraph.Branch>>alwaysTrue(),
+                 false);
+        return false;
+      }
+
+      return true;
+    }
+  private static final String propToString(int propType) {
+      switch (propType) {
+        case BRACELESS_TYPE:     return "braceless_type";
+        case VAR_ARGS_NAME:      return "var_args_name";
+        case SOURCENAME_PROP:    return "sourcename";
+
+        case JSDOC_INFO_PROP:    return "jsdoc_info";
+
+        case INCRDECR_PROP:      return "incrdecr";
+        case PARENTHESIZED_PROP: return "parenthesized";
+        case QUOTED_PROP:        return "quoted";
+        case OPT_ARG_NAME:       return "opt_arg";
+
+        case SYNTHETIC_BLOCK_PROP: return "synthetic";
+        case EMPTY_BLOCK:        return "empty_block";
+        case ORIGINALNAME_PROP:  return "originalname";
+        case SIDE_EFFECT_FLAGS:  return "side_effect_flags";
+
+        case IS_CONSTANT_NAME:   return "is_constant_name";
+        case IS_OPTIONAL_PARAM:  return "is_optional_param";
+        case IS_VAR_ARGS_PARAM:  return "is_var_args_param";
+        case IS_NAMESPACE:       return "is_namespace";
+        case IS_DISPATCHER:      return "is_dispatcher";
+        case DIRECTIVES:         return "directives";
+        case DIRECT_EVAL:        return "direct_eval";
+        case FREE_CALL:          return "BLOCK";
+        case STATIC_SOURCE_FILE:    return "source_file";
+        case INPUT_ID:  return "input_id";
+        case LENGTH:    return "length";
+        case SLASH_V:   return "slash_v";
+        case INFERRED_FUNCTION:   return "inferred";
+        default:
+          throw new IllegalStateException("unexpect prop id " + propType);
+      }
+  }

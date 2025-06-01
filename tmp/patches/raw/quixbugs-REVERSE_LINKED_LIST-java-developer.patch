@@ -1,0 +1,21 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/REVERSE_LINKED_LIST.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_REVERSE_LINKED_LIST.java
+index 920bc16..1b393c5 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/REVERSE_LINKED_LIST.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_REVERSE_LINKED_LIST.java
+@@ -1,6 +1,8 @@
+ package java_programs;
+ import java.util.*;
+ 
++import java_programs.Node;
++
+ /*
+  * To change this template, choose Tools | Templates
+  * and open the template in the editor.
+@@ -17,6 +19,7 @@ public class REVERSE_LINKED_LIST {
+         while (node != null) {
+             nextnode = node.getSuccessor();
+             node.setSuccessor(prevnode);
++            prevnode = node;
+             node = nextnode;
+         }
+         return prevnode;

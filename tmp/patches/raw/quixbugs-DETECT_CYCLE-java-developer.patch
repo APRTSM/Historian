@@ -1,0 +1,22 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/DETECT_CYCLE.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_DETECT_CYCLE.java
+index 33a3e05..a385e6f 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/DETECT_CYCLE.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_DETECT_CYCLE.java
+@@ -5,6 +5,8 @@ import java.util.*;
+  * and open the template in the editor.
+  */
+ 
++import java_programs.Node;
++
+ /**
+  *
+  * @author derricklin
+@@ -15,7 +17,7 @@ public class DETECT_CYCLE {
+         Node tortoise = node;
+ 
+         while (true) {
+-            if (hare.getSuccessor() == null)
++            if (null==hare ||hare.getSuccessor() == null)
+                 return false;
+ 
+             tortoise = tortoise.getSuccessor();

@@ -1,0 +1,11 @@
+    public void add(TimeSeriesDataItem item) {
+        add(item, true);
+    }
+    public Object clone() throws CloneNotSupportedException {
+
+        Series clone = (Series) super.clone();
+        clone.listeners = new EventListenerList();
+        clone.propertyChangeSupport = new PropertyChangeSupport(clone);
+        return clone;
+
+    }

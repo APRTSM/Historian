@@ -1,0 +1,19 @@
+	protected void init() {
+		if (!this.initialized) {
+			this.unsafeTypes = getConfig(this.unsafeTypesDescriptor);
+			this.safeTypes = getConfig(this.safeTypesDescriptor);
+			this.initialized = true;
+		}
+	}
+	private void init2() {
+		this.sanitizers = getConfig(this.sanitizerDescriptor);
+		this.sinkAnnotations = getConfig(this.sinkAnnotationsDescriptor);
+		this.generatorAnnotations = getConfig(this.generatorAnnotationsDescriptor);
+		this.searchAnnotationsInPackages = getConfig(this.annotationsPackagesDescriptor);
+		try {
+			this.MAX_DATAFLOWS = Integer.parseInt(getProperty(this.maxDataFlowsDescriptor));
+		}
+		catch (Exception e) {
+			this.MAX_DATAFLOWS = 30;
+		}
+	}

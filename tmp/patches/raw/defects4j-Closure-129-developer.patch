@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-129/src/com/google/javascript/jscomp/PrepareAst.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-129-fixed/src/com/google/javascript/jscomp/PrepareAst.java
+index d993bee..42982af 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-129/src/com/google/javascript/jscomp/PrepareAst.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-129-fixed/src/com/google/javascript/jscomp/PrepareAst.java
+@@ -163,6 +163,9 @@ class PrepareAst implements CompilerPass {
+       Node first = n.getFirstChild();
+ 
+       // ignore cast nodes.
++      while (first.isCast()) {
++        first = first.getFirstChild();
++      }
+ 
+       if (!NodeUtil.isGet(first)) {
+         n.putBooleanProp(Node.FREE_CALL, true);

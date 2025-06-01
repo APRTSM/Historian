@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-5/src/java/org/apache/commons/codec/binary/Base64.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-5-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+index 2618e5d..19a6959 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-5/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-5-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+@@ -583,6 +583,9 @@ public class Base64 implements BinaryEncoder, BinaryDecoder {
+         // EOF (-1) and first time '=' character is encountered in stream.
+         // This approach makes the '=' padding characters completely optional.
+         if (eof && modulus != 0) {
++            if (buffer == null || buffer.length - pos < decodeSize) {
++                resizeBuffer();
++            }
+             
+             x = x << 6;
+             switch (modulus) {

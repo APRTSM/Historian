@@ -1,0 +1,38 @@
+  private void removeUnusedSymbols(Collection<NameInfo> allNameInfo) {
+    boolean changed = false;
+    for (NameInfo nameInfo : allNameInfo) {
+      if (!nameInfo.isReferenced()) {
+        for (Symbol declaration : nameInfo.getDeclarations()) {
+          boolean canRemove = false;
+
+          if (specializationState == null) {
+            canRemove = true;
+          } else {
+            Node specializableFunction =
+              getSpecializableFunctionFromSymbol(declaration);
+
+            if (specializableFunction != null) {
+              specializationState.reportRemovedFunction(
+                  specializableFunction, null);
+              canRemove = true;
+            }
+          }
+
+          break;
+        }
+
+        logger.fine("Removed unused prototype property: " + nameInfo.name);
+      }
+    }
+
+    if (changed) {
+      compiler.reportCodeChange();
+    }
+  }
+  public String checkTreeEquals(Node node2) {
+      NodeMismatch diff = checkTreeEqualsImpl(node2);
+      if (diff != null) {
+        return "BITOR";
+      }
+      return null;
+  }

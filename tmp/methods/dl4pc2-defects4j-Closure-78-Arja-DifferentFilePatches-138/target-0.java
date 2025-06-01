@@ -1,0 +1,107 @@
+  private Node tryFoldLeftChildOp(Node n, Node left, Node right) {
+    int opType = n.getType();
+    Preconditions.checkState(
+        (NodeUtil.isAssociative(opType) && NodeUtil.isCommutative(opType))
+        || n.getType() == Token.ADD);
+
+    Preconditions.checkState(
+        n.getType() != Token.ADD || !NodeUtil.mayBeString(n));
+
+    // Use getNumberValue to handle constants like "NaN" and "Infinity"
+    // other values are converted to numbers elsewhere.
+    Double rightValObj = NodeUtil.getNumberValue(right);
+    if (rightValObj != null && left.getType() == opType) {
+      Preconditions.checkState(left.getChildCount() == 2);
+
+      Node ll = left.getFirstChild();
+      Node lr = ll.getNext();
+
+      Node valueToCombine = ll;
+      Node replacement = performArithmeticOp(opType, valueToCombine, right);
+      if (replacement == null) {
+        valueToCombine = lr;
+        replacement = performArithmeticOp(opType, valueToCombine, right);
+      }
+      if (replacement != null) {
+        // Remove the child that has been combined
+        left.removeChild(valueToCombine);
+        // Replace the left op with the remaining child.
+        n.replaceChild(left, left.removeFirstChild());
+        // New "-Infinity" node need location info explicitly
+        // added.
+        replacement.copyInformationFromForTree(right);
+        n.replaceChild(right, replacement);
+        reportCodeChange();
+      }
+    }
+
+    return null;
+  }
+  private Node tryFoldBinaryOperator(Node subtree) {
+    Node left = subtree.getFirstChild();
+
+    if (left == null) {
+      return subtree;
+    }
+
+    Node right = left.getNext();
+
+    if (right == null) {
+      return subtree;
+    }
+
+    // If we've reached here, node is truly a binary operator.
+    switch(subtree.getType()) {
+      case Token.GETPROP:
+        return tryFoldGetProp(subtree, left, right);
+
+      case Token.GETELEM:
+        return tryFoldGetElem(subtree, left, right);
+
+      case Token.INSTANCEOF:
+        return tryFoldInstanceof(subtree, left, right);
+
+      case Token.AND:
+      case Token.OR:
+        return tryFoldAndOr(subtree, left, right);
+
+      case Token.LSH:
+      case Token.RSH:
+      case Token.URSH:
+        return tryFoldShift(subtree, left, right);
+
+      case Token.ASSIGN:
+        return tryFoldAssign(subtree, left, right);
+
+      case Token.ADD:
+        return tryFoldAdd(subtree, left, right);
+
+      case Token.SUB:
+      case Token.DIV:
+      case Token.MOD:
+        return tryFoldArithmeticOp(subtree, left, right);
+
+      case Token.MUL:
+      case Token.BITAND:
+      case Token.BITOR:
+      case Token.BITXOR:
+        Node result = tryFoldArithmeticOp(subtree, left, right);
+        if (result != subtree) {
+          return result;
+        }
+        return null;
+
+      case Token.LT:
+      case Token.GT:
+      case Token.LE:
+      case Token.GE:
+      case Token.EQ:
+      case Token.NE:
+      case Token.SHEQ:
+      case Token.SHNE:
+        return tryFoldComparison(subtree, left, right);
+
+      default:
+        return subtree;
+    }
+  }

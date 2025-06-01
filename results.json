@@ -1,0 +1,1802 @@
+[
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "magicoder:7b-s-cl"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-magicoder:7b-s-cl-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codellama:13b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codellama:13b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "deepseek-coder:6.7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-deepseek-coder:6.7b-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "codegemma:7b-instruct"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-codegemma:7b-instruct-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5:7b-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "qwen2.5-coder:7b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-qwen2.5-coder:7b-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "yi-coder:9b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-yi-coder:9b-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-clone_type-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are code clones. Respond with \u2018yes\u2019 if the patches are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+            "type": "type"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-clone_type-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-clone_type-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-clone_type-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-integrated-patch",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+            "type": "integrated"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-integrated-patch.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-integrated-patch.pkl",
+        "classified_result_file_type-1-type-2-type-3-type-4-not-clone": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/type-1-type-2-type-3-type-4-not-clone-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-integrated-patch.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-semantical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-semantical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-semantical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-simple_prompt-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-simple_prompt-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-reasoning-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-reasoning-patch-identical.pkl"
+    },
+    {
+        "tool": "tbar",
+        "processor": {
+            "uid": "defaultpatch",
+            "function": "<function get_raw_patch at 0x77bf2f5abb50>"
+        },
+        "model": {
+            "uid": "hermes3:8b"
+        },
+        "temperature": {
+            "uid": 0.1
+        },
+        "prompt": {
+            "uid": "llm4cc-similarity_line-patch-identical",
+            "origin": "LLM4CC",
+            "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.",
+            "type": "boolean"
+        },
+        "file_name": "EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "result_file": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-identical.pkl",
+        "classified_result_file_yes-no": "/home/sahand/Desktop/CC4APCA/CC4APCA3/CC4APCA/tmp/results/classification/yes-no-EXP2-tbar-defaultpatch-hermes3:8b-0.1-llm4cc-similarity_line-patch-identical.pkl"
+    }
+]

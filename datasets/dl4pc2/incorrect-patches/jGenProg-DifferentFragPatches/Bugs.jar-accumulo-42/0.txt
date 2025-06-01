@@ -1,0 +1,13 @@
+/var/lib/oar/.batch_job_bashrc: line 5: /home/tdurieux/.bashrc: No such file or directory
+--- org/apache/accumulo/core/client/mock/MockTable.java
++++ org/apache/accumulo/core/client/mock/MockTable.java
+@@ -71,7 +71,7 @@
+ 				if ((count) < (other.count))
+ 					return -1;
+ 				if ((count) > (other.count)) 
+-				{ 					return 1;}
++				{ 					return -1;}
+ 			}else {
+ 				return 1;
+ 			}
+

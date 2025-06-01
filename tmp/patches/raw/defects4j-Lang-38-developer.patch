@@ -1,0 +1,12 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-38/src/java/org/apache/commons/lang3/time/FastDateFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-38-fixed/src/java/org/apache/commons/lang3/time/FastDateFormat.java
+index 6b10a94..d60af96 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-38/src/java/org/apache/commons/lang3/time/FastDateFormat.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-38-fixed/src/java/org/apache/commons/lang3/time/FastDateFormat.java
+@@ -869,6 +869,7 @@ public class FastDateFormat extends Format {
+      */
+     public StringBuffer format(Calendar calendar, StringBuffer buf) {
+         if (mTimeZoneForced) {
++            calendar.getTime(); /// LANG-538
+             calendar = (Calendar) calendar.clone();
+             calendar.setTimeZone(mTimeZone);
+         }

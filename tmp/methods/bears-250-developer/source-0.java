@@ -1,0 +1,17 @@
+    public static CompressedVector fromMap(Map<Integer, ? extends Number> map, int length) {
+        //TODO goto lambdas
+        int cardinality = map.size();
+        int[] indices = new int[cardinality];
+        double[] values = new double[cardinality];
+        int i = 0;
+        for (Map.Entry<Integer, ? extends Number> entry : map.entrySet()) {
+            int index = entry.getKey();
+            if (index < 0 || index >= length) {
+                throw new IllegalArgumentException("Check your map: Index must be 0..n-1");
+            }
+            indices[i] = index;
+            values[i] = entry.getValue().doubleValue();
+            i++;
+        }
+        return new CompressedVector(length, cardinality, values, indices);
+    }

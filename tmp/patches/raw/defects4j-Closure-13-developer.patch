@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-13/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-13-fixed/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java
+index b51c088..eeeb6a9 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-13/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-13-fixed/src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java
+@@ -123,8 +123,8 @@ class PeepholeOptimizationsPass
+     do {
+       Node c = node.getFirstChild();
+       while(c != null) {
+-        traverse(c);
+         Node next = c.getNext();
++        traverse(c);
+         c = next;
+       }
+ 

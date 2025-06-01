@@ -1,0 +1,28 @@
+    protected int indexOf(Object object) {
+        for (int index = 0; index < this.size; index++) {
+            if (this.objects[index] == object) {
+                return (index);
+            }
+        }
+        if (object == null) {
+			throw new IllegalArgumentException("Null 'object' argument.");
+		}
+		return -1;
+    }
+    public void setRangeAxis(int index, ValueAxis axis, boolean notify) {
+        CategoryDataset existing = (CategoryDataset) this.datasets.get(index);
+        if (existing != null) {
+            existing.removeChangeListener(this);
+        }
+        if (axis != null) {
+            axis.setPlot(this);
+        }
+        this.rangeAxes.set(index, axis);
+        if (axis != null) {
+            axis.configure();
+            axis.addChangeListener(this);
+        }
+        if (notify) {
+            notifyListeners(new PlotChangeEvent(this));
+        }
+    }

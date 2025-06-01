@@ -1,0 +1,5 @@
+  public void process(Node externs, Node root) {
+    ReferenceCollectingCallback callback = new ReferenceCollectingCallback(
+        compiler, new InliningBehavior(), getFilterForMode());
+    callback.process(externs, root);
+  }

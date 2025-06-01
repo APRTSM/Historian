@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-124/src/com/google/javascript/jscomp/ExploitAssigns.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-124-fixed/src/com/google/javascript/jscomp/ExploitAssigns.java
+index 0f03e35..1639f2c 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-124/src/com/google/javascript/jscomp/ExploitAssigns.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-124-fixed/src/com/google/javascript/jscomp/ExploitAssigns.java
+@@ -210,7 +210,9 @@ class ExploitAssigns extends AbstractPeepholeOptimization {
+     }
+     Preconditions.checkArgument(node.isGetProp());
+ 
++    while (node.isGetProp()) {
+       node = node.getFirstChild();
++    }
+     if (node.isName()
+         && isNameAssignedTo(node.getString(), replacement)) {
+       return false;

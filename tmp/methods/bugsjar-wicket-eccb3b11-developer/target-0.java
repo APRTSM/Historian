@@ -1,0 +1,31 @@
+	public static void writeJavaScriptUrl(final Response response, final CharSequence url,
+		final String id, boolean defer, String charset)
+	{
+		response.write("<script type=\"text/javascript\" ");
+		if (id != null)
+		{
+			response.write("id=\"" + Strings.escapeMarkup(id) + "\" ");
+		}
+		if (defer)
+		{
+			response.write("defer=\"defer\" ");
+		}
+		if (charset != null)
+		{
+			response.write("charset=\"" + Strings.escapeMarkup(charset) + "\" ");
+		}
+		response.write("src=\"");
+		response.write(url);
+		response.write("\"></script>");
+		response.write("\n");
+	}
+	public static void writeOpenTag(final Response response, String id)
+	{
+		response.write("<script type=\"text/javascript\" ");
+		if (id != null)
+		{
+			response.write("id=\"" + Strings.escapeMarkup(id) + "\"");
+		}
+		response.write(">");
+		response.write(SCRIPT_CONTENT_PREFIX);
+	}

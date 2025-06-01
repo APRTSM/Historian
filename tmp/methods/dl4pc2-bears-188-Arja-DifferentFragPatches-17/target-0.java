@@ -1,0 +1,25 @@
+    protected void paintComponent(Graphics g) {
+        progressBarsPanel.add(gasLabel);
+		super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.drawOval(speedMeterX, speedMeterY, meterWidth, meterHeight);
+        g.drawOval(tachoMeterX, tachoMeterY, meterWidth, meterHeight);
+        g.setColor(Color.RED);
+
+        g.fillArc(speedMeterX, speedMeterY, meterWidth, meterHeight, speedAngle, 2);
+        g.fillArc(tachoMeterX, tachoMeterY, meterWidth, meterHeight, rpmAngle, 2);
+    }
+    private void initializeDashboard() {
+        breakLabel.setText("break pedal");
+        initializeProgressBars();
+        setBounds(dashboardBoundsX, dashboardBoundsY, width, height);
+
+        initializeProgressBars();
+    }
+    public void updateDisplayedValues(ReadOnlyInputPacket inputPacket) {
+        gasProgressBar.setValue(inputPacket.getGasPedalPosition());
+        breakProgressBar.setValue(inputPacket.getBreakPedalPosition());
+        speedAngle = calculateSpeedometer(0);
+        rpmAngle = calculateTachometer(0);
+        speedAngle = calculateSpeedometer(0);
+    }

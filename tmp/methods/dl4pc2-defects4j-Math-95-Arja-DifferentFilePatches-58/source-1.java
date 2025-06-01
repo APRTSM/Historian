@@ -1,0 +1,16 @@
+    protected double getDomainLowerBound(double p) {
+        return 0.0;
+    }
+    protected double getInitialDomain(double p) {
+        double ret;
+        double d = getDenominatorDegreesOfFreedom();
+            // use mean
+            ret = d / (d - 2.0);
+        return ret;
+    }
+    public static double[] bracket(UnivariateRealFunction function, 
+            double initial, double lowerBound, double upperBound) 
+    throws ConvergenceException, FunctionEvaluationException {
+        return bracket( function, initial, lowerBound, upperBound,
+            Integer.MAX_VALUE ) ;
+    }

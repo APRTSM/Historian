@@ -1,0 +1,135 @@
+  private void tryConvertToNumber(Node n) {
+    switch (n.getType()) {
+      case Token.NUMBER:
+        // Nothing to do
+        return;
+      case Token.AND:
+      case Token.OR:
+      case Token.COMMA:
+        tryConvertToNumber(n.getLastChild());
+        return;
+      case Token.HOOK:
+        tryConvertToNumber(n.getChildAtIndex(1));
+        tryConvertToNumber(n.getLastChild());
+        return;
+      case Token.NAME:
+        if (!NodeUtil.isUndefined(n)) {
+          return;
+        }
+        break;
+    }
+
+    Double result = NodeUtil.getNumberValue(n);
+    if (result == null) {
+      return;
+    }
+
+    double value = result;
+
+    Node replacement;
+    if (Double.isNaN(value)) {
+      replacement = Node.newString(Token.NAME, "NaN");
+    } else if (value == Double.POSITIVE_INFINITY) {
+      replacement = Node.newString(Token.NAME, "Infinity");
+    } else if (value == Double.NEGATIVE_INFINITY) {
+      replacement = new Node(Token.NEG, Node.newString(Token.NAME, "Infinity"));
+      replacement.copyInformationFromForTree(n);
+    } else {
+      replacement = Node.newNumber(value);
+    }
+
+    n.getParent().replaceChild(n, replacement);
+    reportCodeChange();
+  }
+  private Node tryFoldUnaryOperator(Node n) {
+    Preconditions.checkState(n.hasOneChild());
+
+    Node left = n.getFirstChild();
+    Node parent = n.getParent();
+
+    if (left == null) {
+      return n;
+    }
+
+    TernaryValue leftVal = NodeUtil.getPureBooleanValue(left);
+    if (leftVal == TernaryValue.UNKNOWN) {
+      return n;
+    }
+
+    switch (n.getType()) {
+      case Token.NOT:
+        // Don't fold !0 and !1 back to false.
+        if (left.getType() == Token.NUMBER) {
+          double numValue = left.getDouble();
+          if (numValue == 0 || numValue == 1) {
+            return n;
+          }
+        }
+        int result = leftVal.toBoolean(true) ? Token.FALSE : Token.TRUE;
+        Node replacementNode = new Node(result);
+        parent.replaceChild(n, replacementNode);
+        reportCodeChange();
+        return replacementNode;
+      case Token.POS:
+        if (NodeUtil.isNumericResult(left)) {
+          // POS does nothing to numeric values.
+          parent.replaceChild(n, left.detachFromParent());
+          reportCodeChange();
+          return left;
+        }
+        return n;
+      case Token.NEG:
+        try {
+          if (left.getType() == Token.NAME) {
+            if (left.getString().equals("Infinity")) {
+              // "-Infinity" is valid and a literal, don't modify it.
+              return n;
+            } else if (left.getString().equals("NaN")) {
+              // "-NaN" is "NaN".
+              n.removeChild(left);
+              parent.replaceChild(n, left);
+              reportCodeChange();
+              return left;
+            }
+          }
+
+          double negNum = -left.getDouble();
+
+          Node negNumNode = Node.newNumber(negNum);
+          parent.replaceChild(n, negNumNode);
+          reportCodeChange();
+          return negNumNode;
+        } catch (UnsupportedOperationException ex) {
+          // left is not a number node, so do not replace, but warn the
+          // user because they can't be doing anything good
+          error(NEGATING_A_NON_NUMBER_ERROR, left);
+          return n;
+        }
+      case Token.BITNOT:
+        try {
+          double val = left.getDouble();
+          if (val >= Integer.MIN_VALUE && val <= Integer.MAX_VALUE) {
+            int intVal = (int) val;
+            if (intVal == val) {
+              Node notIntValNode = Node.newNumber(~intVal);
+              parent.replaceChild(n, notIntValNode);
+              reportCodeChange();
+              return notIntValNode;
+            } else {
+              error(FRACTIONAL_BITWISE_OPERAND, left);
+              return n;
+            }
+          } else {
+            error(BITWISE_OPERAND_OUT_OF_RANGE, left);
+            return n;
+          }
+        } catch (UnsupportedOperationException ex) {
+          // left is not a number node, so do not replace, but warn the
+          // user because they can't be doing anything good
+          error(NEGATING_A_NON_NUMBER_ERROR, left);
+          return n;
+        }
+        default:
+          return n;
+    }
+  }

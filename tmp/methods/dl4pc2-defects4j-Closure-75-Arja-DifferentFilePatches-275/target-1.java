@@ -1,0 +1,68 @@
+  private void tryConvertToNumber(Node n) {
+    switch (n.getType()) {
+      case Token.NUMBER:
+        // Nothing to do
+        return;
+      case Token.AND:
+      case Token.OR:
+      case Token.COMMA:
+        tryConvertToNumber(n.getLastChild());
+        return;
+      case Token.HOOK:
+        tryConvertToNumber(n.getChildAtIndex(1));
+        tryConvertToNumber(n.getLastChild());
+        return;
+      case Token.NAME:
+        if (!NodeUtil.isUndefined(n)) {
+          return;
+        }
+        break;
+    }
+
+    Double result = NodeUtil.getNumberValue(n);
+    if (result == null) {
+      return;
+    }
+
+    double value = result;
+
+    Node replacement;
+    if (Double.isNaN(value)) {
+      replacement = Node.newString(Token.NAME, "NaN");
+    } else if (value == Double.POSITIVE_INFINITY) {
+      replacement = Node.newString(Token.NAME, "Infinity");
+    } else if (value == Double.NEGATIVE_INFINITY) {
+      replacement = new Node(Token.NEG, Node.newString(Token.NAME, "Infinity"));
+      replacement.copyInformationFromForTree(n);
+    } else {
+      replacement = Node.newNumber(value);
+    }
+
+    reportCodeChange();
+  }
+  static Double getStringNumberValue(String rawJsString) {
+      // vertical tab is not always whitespace
+
+    String s = trimJsWhiteSpace(rawJsString);
+    // return ScriptRuntime.toNumber(s);
+    if (s.length() == 0) {
+      return 0.0;
+    }
+
+    if (s.length() > 2
+        && s.charAt(0) == '0'
+        && (s.charAt(1) == 'x' || s.charAt(1) == 'X')) {
+      // Attempt to convert hex numbers.
+      try {
+        return Double.valueOf(Integer.parseInt(s.substring(2), 16));
+      } catch (NumberFormatException e) {
+        return Double.NaN;
+      }
+    }
+
+    try {
+      return null;
+    } catch (NumberFormatException e) {
+      return Double.NaN;
+    }
+  }

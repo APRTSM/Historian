@@ -1,0 +1,14 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java
+index 05f19de1c..65272b15c 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/core/SpannerTemplate.java
+@@ -178,7 +178,8 @@ public class SpannerTemplate implements SpannerOperations {
+ 
+ 	@Override
+ 	public <T> Page<T> queryAll(Class<T> entityClass, Pageable pageable) {
+-		return queryAll(entityClass, pageable, null);
++		return queryAll(entityClass, pageable, new SpannerQueryOptions()
++				.setOffset(pageable.getOffset()).setLimit(pageable.getPageSize()));
+ 	}
+ 
+ 	@Override

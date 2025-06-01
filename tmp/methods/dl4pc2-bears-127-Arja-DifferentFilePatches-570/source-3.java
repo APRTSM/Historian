@@ -1,0 +1,72 @@
+    private Position decodeOld(DeviceSession deviceSession, ChannelBuffer buf, int type, int index) {
+
+        Position position = new Position();
+        position.setDeviceId(deviceSession.getDeviceId());
+        position.setProtocol(getProtocolName());
+
+        position.set(Position.KEY_INDEX, index);
+
+        position.setTime(new Date(buf.readUnsignedInt() * 1000));
+        position.setLatitude(buf.readInt() / 1800000.0);
+        position.setLongitude(buf.readInt() / 1800000.0);
+        position.setSpeed(UnitsConverter.knotsFromKph(buf.readUnsignedByte()));
+        position.setCourse(buf.readUnsignedShort());
+
+        position.setNetwork(new Network(CellTower.from(
+                buf.readUnsignedShort(), buf.readUnsignedShort(), buf.readUnsignedShort(), buf.readUnsignedMedium())));
+
+        position.setValid((buf.readUnsignedByte() & 0x01) != 0);
+
+        if (type == MSG_GPS) {
+
+            if (buf.readableBytes() >= 2) {
+                decodeStatus(position, buf.readUnsignedShort());
+            }
+
+            if (buf.readableBytes() >= 2 * 4) {
+
+                position.set(Position.KEY_BATTERY, buf.readUnsignedShort() * 0.001);
+
+                position.set(Position.KEY_RSSI, buf.readUnsignedShort());
+
+                position.set(Position.PREFIX_ADC + 1, buf.readUnsignedShort());
+                position.set(Position.PREFIX_ADC + 2, buf.readUnsignedShort());
+
+            }
+
+        } else if (type == MSG_ALARM) {
+
+            position.set(Position.KEY_ALARM, decodeAlarm(buf.readUnsignedByte()));
+
+        } else if (type == MSG_STATE) {
+
+            int statusType = buf.readUnsignedByte();
+
+            position.set(Position.KEY_EVENT, statusType);
+
+            if (statusType == 0x01 || statusType == 0x02 || statusType == 0x03) {
+                buf.readUnsignedInt(); // device time
+                decodeStatus(position, buf.readUnsignedShort());
+            }
+
+        }
+
+        return position;
+    }
+    public void setSupportedDataCommands(String... commands) {
+        supportedDataCommands.addAll(Arrays.asList(commands));
+    }
+    public void addCellTower(CellTower cellTower) {
+        if (cellTowers == null) {
+            cellTowers = new ArrayList<>();
+        }
+        cellTowers.add(cellTower);
+    }
+    public static CellTower from(int mcc, int mnc, int lac, long cid) {
+        CellTower cellTower = new CellTower();
+        cellTower.setMobileCountryCode(mcc);
+        cellTower.setMobileNetworkCode(mnc);
+        cellTower.setLocationAreaCode(lac);
+        cellTower.setCellId(cid);
+        return cellTower;
+    }

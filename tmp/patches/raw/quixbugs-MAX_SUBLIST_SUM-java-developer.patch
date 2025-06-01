@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/MAX_SUBLIST_SUM.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_MAX_SUBLIST_SUM.java
+index c002ec7..27ba72b 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/MAX_SUBLIST_SUM.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_MAX_SUBLIST_SUM.java
+@@ -16,7 +16,7 @@ public class MAX_SUBLIST_SUM {
+         int max_so_far = 0;
+ 
+         for (int x : arr) {
+-            max_ending_here = max_ending_here + x;
++            max_ending_here = Math.max(0,max_ending_here + x);
+             max_so_far = Math.max(max_so_far, max_ending_here);
+         }
+ 

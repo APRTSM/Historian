@@ -1,0 +1,11 @@
+	private void init2() {
+		this.sinks = getConfig(this.sinkDescriptor);
+		this.sanitizers = getConfig(this.sanitizerDescriptor);
+		this.sinkAnnotations = getConfig(this.sinkAnnotationsDescriptor);
+		try {
+			this.MAX_DATAFLOWS = Integer.parseInt(getProperty(this.maxDataFlowsDescriptor));
+		}
+		catch (Exception e) {
+			this.MAX_DATAFLOWS = 30;
+		}
+	}

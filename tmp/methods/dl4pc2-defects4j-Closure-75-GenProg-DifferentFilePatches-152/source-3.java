@@ -1,0 +1,396 @@
+  public static String name(int token)
+    {
+        if (!printNames) {
+            return String.valueOf(token);
+        }
+        switch (token) {
+          case ERROR:           return "ERROR";
+          case EOF:             return "EOF";
+          case EOL:             return "EOL";
+          case ENTERWITH:       return "ENTERWITH";
+          case LEAVEWITH:       return "LEAVEWITH";
+          case RETURN:          return "RETURN";
+          case GOTO:            return "GOTO";
+          case IFEQ:            return "IFEQ";
+          case IFNE:            return "IFNE";
+          case SETNAME:         return "SETNAME";
+          case BITOR:           return "BITOR";
+          case BITXOR:          return "BITXOR";
+          case BITAND:          return "BITAND";
+          case EQ:              return "EQ";
+          case NE:              return "NE";
+          case LT:              return "LT";
+          case LE:              return "LE";
+          case GT:              return "GT";
+          case GE:              return "GE";
+          case LSH:             return "LSH";
+          case RSH:             return "RSH";
+          case URSH:            return "URSH";
+          case ADD:             return "ADD";
+          case SUB:             return "SUB";
+          case MUL:             return "MUL";
+          case DIV:             return "DIV";
+          case MOD:             return "MOD";
+          case NOT:             return "NOT";
+          case BITNOT:          return "BITNOT";
+          case POS:             return "POS";
+          case NEG:             return "NEG";
+          case NEW:             return "NEW";
+          case DELPROP:         return "DELPROP";
+          case TYPEOF:          return "TYPEOF";
+          case GETPROP:         return "GETPROP";
+          case SETPROP:         return "SETPROP";
+          case GETELEM:         return "GETELEM";
+          case SETELEM:         return "SETELEM";
+          case CALL:            return "CALL";
+          case NAME:            return "NAME";
+          case LABEL_NAME:      return "LABEL_NAME";
+          case NUMBER:          return "NUMBER";
+          case STRING:          return "STRING";
+          case NULL:            return "NULL";
+          case THIS:            return "THIS";
+          case FALSE:           return "FALSE";
+          case TRUE:            return "TRUE";
+          case SHEQ:            return "SHEQ";
+          case SHNE:            return "SHNE";
+          case REGEXP:          return "REGEXP";
+          case BINDNAME:        return "BINDNAME";
+          case THROW:           return "THROW";
+          case RETHROW:         return "RETHROW";
+          case IN:              return "IN";
+          case INSTANCEOF:      return "INSTANCEOF";
+          case LOCAL_LOAD:      return "LOCAL_LOAD";
+          case GETVAR:          return "GETVAR";
+          case SETVAR:          return "SETVAR";
+          case CATCH_SCOPE:     return "CATCH_SCOPE";
+          case ENUM_INIT_KEYS:  return "ENUM_INIT_KEYS";
+          case ENUM_INIT_VALUES:  return "ENUM_INIT_VALUES";
+          case ENUM_NEXT:       return "ENUM_NEXT";
+          case ENUM_ID:         return "ENUM_ID";
+          case THISFN:          return "THISFN";
+          case RETURN_RESULT:   return "RETURN_RESULT";
+          case ARRAYLIT:        return "ARRAYLIT";
+          case OBJECTLIT:       return "OBJECTLIT";
+          case GET_REF:         return "GET_REF";
+          case SET_REF:         return "SET_REF";
+          case DEL_REF:         return "DEL_REF";
+          case REF_CALL:        return "REF_CALL";
+          case REF_SPECIAL:     return "REF_SPECIAL";
+          case DEFAULTNAMESPACE:return "DEFAULTNAMESPACE";
+          case ESCXMLTEXT:      return "ESCXMLTEXT";
+          case ESCXMLATTR:      return "ESCXMLATTR";
+          case REF_MEMBER:      return "REF_MEMBER";
+          case REF_NS_MEMBER:   return "REF_NS_MEMBER";
+          case REF_NAME:        return "REF_NAME";
+          case REF_NS_NAME:     return "REF_NS_NAME";
+          case TRY:             return "TRY";
+          case SEMI:            return "SEMI";
+          case LB:              return "LB";
+          case RB:              return "RB";
+          case LC:              return "LC";
+          case RC:              return "RC";
+          case LP:              return "LP";
+          case RP:              return "RP";
+          case COMMA:           return "COMMA";
+          case ASSIGN:          return "ASSIGN";
+          case ASSIGN_BITOR:    return "ASSIGN_BITOR";
+          case ASSIGN_BITXOR:   return "ASSIGN_BITXOR";
+          case ASSIGN_BITAND:   return "ASSIGN_BITAND";
+          case ASSIGN_LSH:      return "ASSIGN_LSH";
+          case ASSIGN_RSH:      return "ASSIGN_RSH";
+          case ASSIGN_URSH:     return "ASSIGN_URSH";
+          case ASSIGN_ADD:      return "ASSIGN_ADD";
+          case ASSIGN_SUB:      return "ASSIGN_SUB";
+          case ASSIGN_MUL:      return "ASSIGN_MUL";
+          case ASSIGN_DIV:      return "ASSIGN_DIV";
+          case ASSIGN_MOD:      return "ASSIGN_MOD";
+          case HOOK:            return "HOOK";
+          case COLON:           return "COLON";
+          case OR:              return "OR";
+          case AND:             return "AND";
+          case INC:             return "INC";
+          case DEC:             return "DEC";
+          case DOT:             return "DOT";
+          case FUNCTION:        return "FUNCTION";
+          case EXPORT:          return "EXPORT";
+          case IMPORT:          return "IMPORT";
+          case IF:              return "IF";
+          case ELSE:            return "ELSE";
+          case SWITCH:          return "SWITCH";
+          case CASE:            return "CASE";
+          case DEFAULT:         return "DEFAULT";
+          case WHILE:           return "WHILE";
+          case DO:              return "DO";
+          case FOR:             return "FOR";
+          case BREAK:           return "BREAK";
+          case CONTINUE:        return "CONTINUE";
+          case VAR:             return "VAR";
+          case WITH:            return "WITH";
+          case CATCH:           return "CATCH";
+          case FINALLY:         return "FINALLY";
+          case RESERVED:        return "RESERVED";
+          case EMPTY:           return "EMPTY";
+          case BLOCK:           return "BLOCK";
+          case LABEL:           return "LABEL";
+          case TARGET:          return "TARGET";
+          case LOOP:            return "LOOP";
+          case EXPR_VOID:       return "EXPR_VOID";
+          case EXPR_RESULT:     return "EXPR_RESULT";
+          case JSR:             return "JSR";
+          case SCRIPT:          return "SCRIPT";
+          case TYPEOFNAME:      return "TYPEOFNAME";
+          case USE_STACK:       return "USE_STACK";
+          case SETPROP_OP:      return "SETPROP_OP";
+          case SETELEM_OP:      return "SETELEM_OP";
+          case LOCAL_BLOCK:     return "LOCAL_BLOCK";
+          case SET_REF_OP:      return "SET_REF_OP";
+          case DOTDOT:          return "DOTDOT";
+          case COLONCOLON:      return "COLONCOLON";
+          case XML:             return "XML";
+          case DOTQUERY:        return "DOTQUERY";
+          case XMLATTR:         return "XMLATTR";
+          case XMLEND:          return "XMLEND";
+          case TO_OBJECT:       return "TO_OBJECT";
+          case TO_DOUBLE:       return "TO_DOUBLE";
+          case GET:             return "GET";
+          case SET:             return "SET";
+          case CONST:           return "CONST";
+          case SETCONST:        return "SETCONST";
+          case DEBUGGER:        return "DEBUGGER";
+          case ANNOTATION:      return "ANNOTATION";
+          case PIPE:            return "PIPE";
+          case STAR:            return "STAR";
+          case EOC:             return "EOC";
+          case QMARK:           return "QMARK";
+          case ELLIPSIS:        return "ELLIPSIS";
+          case BANG:            return "BANG";
+          case VOID:            return "VOID";
+          case EQUALS:          return "EQUALS";
+        }
+
+        // Token without name
+        throw new IllegalStateException(String.valueOf(token));
+    }
+  NodeMismatch checkTreeEqualsImpl(Node node2) {
+    if (!isEquivalentTo(node2, false, false)) {
+      return new NodeMismatch(this, node2);
+    }
+
+    NodeMismatch res = null;
+    Node n, n2;
+    for (n = first, n2 = node2.first;
+         res == null && n != null;
+         n = n.next, n2 = n2.next) {
+      if (node2 == null) {
+        throw new IllegalStateException();
+      }
+      res = n.checkTreeEqualsImpl(n2);
+      if (res != null) {
+        return res;
+      }
+    }
+    return res;
+  }
+  static String trimJsWhiteSpace(String s) {
+    int start = 0;
+    int end = s.length();
+    while (end > 0
+        && isStrWhiteSpaceChar(s.charAt(end - 1)) == TernaryValue.TRUE) {
+      end--;
+    }
+    while (start < end
+        && isStrWhiteSpaceChar(s.charAt(start)) == TernaryValue.TRUE) {
+      start++;
+    }
+    return s.substring(start, end);
+  }
+  static Double getNumberValue(Node n) {
+    switch (n.getType()) {
+      case Token.TRUE:
+        return 1.0;
+
+      case Token.FALSE:
+      case Token.NULL:
+        return 0.0;
+
+      case Token.NUMBER:
+        return n.getDouble();
+
+      case Token.VOID:
+        if (mayHaveSideEffects(n.getFirstChild())) {
+          return null;
+        } else {
+          return Double.NaN;
+        }
+
+      case Token.NAME:
+        // Check for known constants
+        String name = n.getString();
+        if (name.equals("undefined")) {
+          return Double.NaN;
+        }
+        if (name.equals("NaN")) {
+          return Double.NaN;
+        }
+        if (name.equals("Infinity")) {
+          return Double.POSITIVE_INFINITY;
+        }
+        return null;
+
+      case Token.NEG:
+        if (n.getChildCount() == 1 && n.getFirstChild().getType() == Token.NAME
+            && n.getFirstChild().getString().equals("Infinity")) {
+          return Double.NEGATIVE_INFINITY;
+        }
+        return null;
+
+      case Token.NOT:
+        TernaryValue child = getPureBooleanValue(n.getFirstChild());
+        if (child != TernaryValue.UNKNOWN) {
+          return child.toBoolean(true) ? 0.0 : 1.0; // reversed.
+        }
+        break;
+
+      case Token.STRING:
+        return getStringNumberValue(n.getString());
+
+      case Token.ARRAYLIT:
+      case Token.OBJECTLIT:
+        String value = getStringValue(n);
+        return value != null ? getStringNumberValue(value) : null;
+    }
+
+    return null;
+  }
+  static Double getStringNumberValue(String rawJsString) {
+      // vertical tab is not always whitespace
+
+    String s = trimJsWhiteSpace(rawJsString);
+    // return ScriptRuntime.toNumber(s);
+    if (s.length() == 0) {
+      return 0.0;
+    }
+
+    if (s.length() > 2
+        && s.charAt(0) == '0'
+        && (s.charAt(1) == 'x' || s.charAt(1) == 'X')) {
+      // Attempt to convert hex numbers.
+      try {
+        return Double.valueOf(Integer.parseInt(s.substring(2), 16));
+      } catch (NumberFormatException e) {
+        return Double.NaN;
+      }
+    }
+
+    if (s.length() > 3
+        && (s.charAt(0) == '-' || s.charAt(0) == '+')
+        && s.charAt(1) == '0'
+        && (s.charAt(2) == 'x' || s.charAt(2) == 'X')) {
+      // hex numbers with explicit signs vary between browsers.
+      return null;
+    }
+
+    // FireFox and IE treat the "Infinity" differently. FireFox is case
+    // insensitive, but IE treats "infinity" as NaN.  So leave it alone.
+    if (s.equals("infinity")
+        || s.equals("-infinity")
+        || s.equals("+infinity")) {
+      return null;
+    }
+
+    try {
+      return Double.parseDouble(s);
+    } catch (NumberFormatException e) {
+      return Double.NaN;
+    }
+  }
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }
+  static String strEscape(String s, char quote,
+                          String doublequoteEscape,
+                          String singlequoteEscape,
+                          String backslashEscape,
+                          CharsetEncoder outputCharsetEncoder) {
+    StringBuilder sb = new StringBuilder(s.length() + 2);
+    sb.append(quote);
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      switch (c) {
+        case '\0': sb.append("\\0"); break;
+        case '\n': sb.append("\\n"); break;
+        case '\r': sb.append("\\r"); break;
+        case '\t': sb.append("\\t"); break;
+        case '\\': sb.append(backslashEscape); break;
+        case '\"': sb.append(doublequoteEscape); break;
+        case '\'': sb.append(singlequoteEscape); break;
+        case '>':                       // Break --> into --\> or ]]> into ]]\>
+          if (i >= 2 &&
+              ((s.charAt(i - 1) == '-' && s.charAt(i - 2) == '-') ||
+               (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+            sb.append("\\>");
+          } else {
+            sb.append(c);
+          }
+          break;
+        case '<':
+          // Break </script into <\/script
+          final String END_SCRIPT = "/script";
+
+          // Break <!-- into <\!--
+          final String START_COMMENT = "!--";
+
+          if (s.regionMatches(true, i + 1, END_SCRIPT, 0,
+                              END_SCRIPT.length())) {
+            sb.append("<\\");
+          } else if (s.regionMatches(false, i + 1, START_COMMENT, 0,
+                                     START_COMMENT.length())) {
+            sb.append("<\\");
+          } else {
+            sb.append(c);
+          }
+          break;
+        default:
+          // If we're given an outputCharsetEncoder, then check if the
+          //  character can be represented in this character set.
+          if (outputCharsetEncoder != null) {
+            if (outputCharsetEncoder.canEncode(c)) {
+              sb.append(c);
+            } else {
+              // Unicode-escape the character.
+              appendHexJavaScriptRepresentation(sb, c);
+            }
+          } else {
+            // No charsetEncoder provided - pass straight latin characters
+            // through, and escape the rest.  Doing the explicit character
+            // check is measurably faster than using the CharsetEncoder.
+            if (c > 0x1f && c <= 0x7f) {
+              sb.append(c);
+            } else {
+              // Other characters can be misinterpreted by some js parsers,
+              // or perhaps mangled by proxies along the way,
+              // so we play it safe and unicode escape them.
+              appendHexJavaScriptRepresentation(sb, c);
+            }
+          }
+      }
+    }
+    sb.append(quote);
+    return sb.toString();
+  }

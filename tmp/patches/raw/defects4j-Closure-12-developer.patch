@@ -1,0 +1,17 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-12/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-12-fixed/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+index add5c66..8361ac9 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-12/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-12-fixed/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+@@ -157,6 +157,12 @@ class MaybeReachingVariableUse extends
+   }
+ 
+   private boolean hasExceptionHandler(Node cfgNode) {
++    List<DiGraphEdge<Node, Branch>> branchEdges = getCfg().getOutEdges(cfgNode);
++    for (DiGraphEdge<Node, Branch> edge : branchEdges) {
++      if (edge.getValue() == Branch.ON_EX) {
++        return true;
++      }
++    }
+     return false;
+   }
+ 

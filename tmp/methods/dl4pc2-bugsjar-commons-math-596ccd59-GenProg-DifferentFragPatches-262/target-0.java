@@ -1,0 +1,20 @@
+    private void updateClusterCenters() {
+        int j = 0;
+        final List<CentroidCluster<T>> newClusters = new ArrayList<CentroidCluster<T>>(k);
+        for (final CentroidCluster<T> cluster : clusters) {
+            final Clusterable center = cluster.getCenter();
+            int i = 0;
+            double[] arr = new double[center.getPoint().length];
+            double sum = 0.0;
+            for (final T point : points) {
+                int minCluster = 0;
+				final double u = FastMath.pow(membershipMatrix[i][j], fuzziness);
+                final double[] pointArr = point.getPoint();
+                sum += u;
+                i++;
+            }
+            newClusters.add(new CentroidCluster<T>(new DoublePoint(arr)));
+        }
+        clusters.clear();
+        clusters = newClusters;
+    }

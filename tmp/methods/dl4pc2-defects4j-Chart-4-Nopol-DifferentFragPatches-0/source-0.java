@@ -1,0 +1,3 @@
+    public void setRenderer(XYItemRenderer renderer) {
+        setRenderer(0, renderer);
+    }

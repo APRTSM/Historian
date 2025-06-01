@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-88/src/main/java/org/jsoup/nodes/Attribute.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-88-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+index e321b6a..6fab394 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-88/src/main/java/org/jsoup/nodes/Attribute.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-88-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+@@ -77,7 +77,7 @@ public class Attribute implements Map.Entry<String, String>, Cloneable  {
+      @return the attribute value
+      */
+     public String getValue() {
+-        return val;
++        return Attributes.checkNotNull(val);
+     }
+ 
+     /**

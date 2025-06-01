@@ -1,0 +1,60 @@
+	void internalMarkRendering(boolean setRenderingFlag)
+	{
+		if (setRenderingFlag)
+		{
+			setFlag(FLAG_PREPARED_FOR_RENDER, false);
+			setFlag(FLAG_RENDERING, true);
+		}
+		else
+		{
+			setFlag(FLAG_RENDERING, false);
+		}
+	}
+	public Component setMarkupId(String markupId)
+	{
+		Args.notEmpty(markupId, "markupId");
+
+		// TODO check if an automatic id has already been generated or getmarkupid() called
+		// previously and throw an illegalstateexception because something else might be depending
+		// on previous id
+
+		setMarkupIdImpl(markupId);
+		return this;
+	}
+	public final void afterRender()
+	{
+		// if the component has been previously attached via attach()
+		// detach it now
+		try
+		{
+			setFlag(FLAG_AFTER_RENDERING, true);
+
+			// always detach children because components can be attached
+			// independently of their parents
+			onAfterRenderChildren();
+
+			onAfterRender();
+			getApplication().getComponentOnAfterRenderListeners().onAfterRender(this);
+			if (getFlag(FLAG_AFTER_RENDERING))
+			{
+				throw new IllegalStateException(Component.class.getName() +
+					" has not been properly detached. Something in the hierarchy of " +
+					getClass().getName() +
+					" has not called super.onAfterRender() in the override of onAfterRender() method");
+			}
+		}
+		finally
+		{
+			// this flag must always be set to false.
+			setFlag(FLAG_RENDERING, false);
+		}
+	}
+	protected void onAfterRenderChildren()
+	{
+		for (Component child : this)
+		{
+			// set RENDERING_FLAG to false for auto-component's children (like Enclosure)
+			child.markRendering(false);
+		}
+		super.onAfterRenderChildren();
+	}
