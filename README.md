@@ -57,7 +57,7 @@ python build.py
 
 ```
 If you wish to regenerate LLM responses, ensure that [`Ollama`](https://ollama.com/) is installed and the desired models are pulled using:
-```
+```bash
 ollama pull <model_name>
 ```
 The list of required models is specified in tools/ollama/models.json.
@@ -67,3 +67,6 @@ To classify the LLM responses and generate summary plots:
 python results.py
 ```
 This will save the classified responses in `tmp/results/classified/` and generate plots in `tmp/plots/`.
+
+Experiments are implemented as functions or classes in `results.py`, and the function calls in `build.py` are commented out. To run a specific experiment, please uncomment the corresponding function call.
+
