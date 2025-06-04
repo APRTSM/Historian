@@ -51,12 +51,19 @@ git submodule update --init --recursive
 
 ## Usage
 
-To reproduce the experiments and generate results:
+To reproduce the experiments and generate results (including LLM responses if they do not already exist in `tmp/results/`):
 ```bash
 python build.py
-```
 
-To generate plots and summary figures:
+```
+If you wish to regenerate LLM responses, ensure that [`Ollama`](https://ollama.com/) is installed and the desired models are pulled using:
+```
+ollama pull <model_name>
+```
+The list of required models is specified in tools/ollama/models.json.
+
+To classify the LLM responses and generate summary plots:
 ```bash
 python results.py
 ```
+This will save the classified responses in `tmp/results/classified/` and generate plots in `tmp/plots/`.
