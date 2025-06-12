@@ -11,6 +11,7 @@ from dataclasses import dataclass
 import unidiff
 import collections
 from .config import *
+from utils import *
 
 
 """ Bash """
@@ -1051,5 +1052,303 @@ def get_response_result(response):
     return feature_list
 
  
+""" Patch Dataset Preprocessing"""
+def remove_developer_identical_patches(tool_patches=None, developer_patches=None):
+    logging.info("Removing Developer Identical-1 ...")
+
+    tool_patches['content'] = tool_patches['location'].apply(read_patch)
+
+    # get bugs with fixes
+    unique_bugs = tool_patches["bug_uid"].unique()
+    logging.info(f"Unique bugs: {len(unique_bugs)}")
+
+    # Make the bugs a dataframe
+    unique_bugs = pd.DataFrame(unique_bugs, columns=["bug_uid"])
+
+    unique_bugs["total_patches"] = unique_bugs["bug_uid"].apply(lambda x: len(tool_patches[tool_patches["bug_uid"] == x]))
+
+    logging.info(unique_bugs)
+
+    # Create a copy of tool_patches to work with
+    tool_patches_copy = tool_patches.copy()
+    logging.info(f"Current Representatives: {tool_patches_copy}")
+
+    # Remove developer identicals
+    logging.info("Removing developer identicals ...")
+    logging.info(f"Developer patches: {len(developer_patches)}")
+    logging.info(f"Current Representatives: {tool_patches_copy}")
+    developer_patches["content"] = developer_patches["location"].apply(read_patch)
+
+    # Track patches dropped due to being identical to developer patches
+    tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(lambda row: row["content"] == developer_patches[developer_patches["bug_uid"] == row["bug_uid"]]["content"].values[0], axis=1)
+    tool_patches_copy = tool_patches_copy[~tool_patches_copy["is_identical_to_dev"]]
+    
+    return tool_patches_copy
+
+""" Reporting """
+def report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs):
+    # Reports single hunk, and identical seperately
+    logging.info("--- Reporting dataset ---")
+    # Make copies to avoid modifying input dataframes
+    developer_patches = cleaned_developer_patches.copy()
+    tool_patches = cleaned_tool_patches.copy()
+    
+    logging.info("Reporting dataset ... Tool-devided, Developer-Provided, and Correctness, being single hunk")
+    logging.info(f"No of bugs: {len(bugs)}, No of developer patches: {len(developer_patches)}, No of tool patches: {len(tool_patches)}, No of correct tool patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}")
+
+    # ===== Summary Table Report =====
+    combined_patches = pd.concat([tool_patches, developer_patches])
+    combined_patches.reset_index(drop=True, inplace=True)
+    merged_data = combined_patches.merge(
+        bugs,
+        left_on="bug_uid",
+        right_index=True,
+        how="left"
+    )
+
+    summary_table = (
+        merged_data.groupby(['generator', 'benchmark', 'correctness'])
+            .size()
+            .unstack(fill_value=0)
+            .reset_index()
+    )
+
+    summary_table['C/O'] = (
+        summary_table.get('Correct', 0).astype(str) + '/' + summary_table.get('Overfitting', 0).astype(str)
+    )
+
+    final_table = summary_table.pivot(index='generator', columns='benchmark', values='C/O')
+    final_table = final_table.fillna('0/0')
+
+    logging.info("\nSummary Table (Correct/Overfitting by Generator x Benchmark):")
+    logging.info(final_table)
+
+    # ===== Developer-Identical Patches Report =====
+    logging.info("\n--- Developer-Identical Patches Report ---")
+    
+    # Read patch content for comparison
+    developer_patches['content'] = developer_patches['location'].apply(read_patch)
+    tool_patches['content'] = tool_patches['location'].apply(read_patch)
+    
+    # Find tool patches identical to developer patches
+    dev_identical_patches = []
+    non_dev_identical_patches = []
+    
+    for _, tool_patch in tool_patches.iterrows():
+        match = developer_patches[
+            (developer_patches['bug_uid'] == tool_patch['bug_uid']) &
+            (developer_patches['content'] == tool_patch['content'])
+        ]
+        if not match.empty:
+            dev_identical_patches.append(tool_patch)
+        else:
+            non_dev_identical_patches.append(tool_patch)
+    
+    dev_identical_df = pd.DataFrame(dev_identical_patches) if dev_identical_patches else pd.DataFrame()
+    non_dev_identical_df = pd.DataFrame(non_dev_identical_patches) if non_dev_identical_patches else pd.DataFrame()
+    
+    logging.info(f"Total tool patches: {len(tool_patches)}")
+    logging.info(f"Developer-identical patches: {len(dev_identical_df)}")
+    logging.info(f"Non-developer-identical patches: {len(non_dev_identical_df)}")
+    
+    if len(dev_identical_df) > 0:
+        # Breakdown by generator
+        logging.info("\nDeveloper-identical patches by generator:")
+        dev_identical_by_gen = dev_identical_df.groupby('generator_id').size()
+        for gen, count in dev_identical_by_gen.items():
+            logging.info(f"  {gen}: {count}")
+        
+        # Check correctness of developer-identical patches
+        if 'correctness' in dev_identical_df.columns:
+            correctness_count = dev_identical_df['correctness'].value_counts()
+            logging.info("\nCorrectness of developer-identical patches:")
+            for correctness, count in correctness_count.items():
+                logging.info(f"  {correctness}: {count}")
+            
+            # Flag if any overfitting patches are identical to developer patches
+            overfitting_identical = dev_identical_df[dev_identical_df['correctness'] == 'Overfitting']
+            if len(overfitting_identical) > 0:
+                logging.warning(f"WARNING: {len(overfitting_identical)} overfitting patches are identical to developer patches!")
+                for _, patch in overfitting_identical.iterrows():
+                    logging.warning(f"  Bug: {patch['bug_uid']}, Generator: {patch['generator_id']}")
+
+    # ===== Single Hunk Reporting =====
+    logging.info("\n--- Single Hunk Patch Reporting ---")
+
+    # Add single hunk info columns using both checks
+    developer_patches['is_single_hunk'] = developer_patches.apply(is_single_hunk, axis=1)
+    developer_patches['are_single_hunks'] = developer_patches.apply(
+        lambda patch: are_single_hunks(patch, developer_patches), axis=1
+    )
+
+    tool_patches['is_single_hunk'] = tool_patches.apply(is_single_hunk, axis=1)
+    tool_patches['are_single_hunks'] = tool_patches.apply(
+        lambda patch: are_single_hunks(patch, developer_patches), axis=1
+    )
+
+    # Developer single hunk patches (with both methods)
+    dev_single_hunk_is = developer_patches[developer_patches['is_single_hunk']]
+    dev_single_hunk_are = developer_patches[developer_patches['are_single_hunks']]
+    logging.info(f"Developer patches: {len(developer_patches)} total")
+    logging.info(f"  - {len(dev_single_hunk_is)} are single-hunk (is_single_hunk)")
+    logging.info(f"  - {len(dev_single_hunk_are)} are single-hunk (are_single_hunks)")
+
+    # Tool-generated single hunk patches (all)
+    tool_single_hunk_is = tool_patches[tool_patches['is_single_hunk']]
+    tool_single_hunk_is_correct = tool_single_hunk_is[tool_single_hunk_is['correctness'] == 'Correct']
+    tool_single_hunk_are = tool_patches[tool_patches['are_single_hunks']]
+    tool_single_hunk_are_correct = tool_single_hunk_are[tool_single_hunk_are['correctness'] == 'Correct']
+    logging.info(f"Tool patches: {len(tool_patches)} total")
+    logging.info(f"  - {len(tool_single_hunk_is)} are single-hunk (is_single_hunk)")
+    logging.info(f"  - {len(tool_single_hunk_is_correct)} are single-hunk (is_single_hunk) and correct")
+    logging.info(f"  - {len(tool_single_hunk_are)} are single-hunk (are_single_hunks)")
+    logging.info(f"  - {len(tool_single_hunk_are_correct)} are single-hunk (are_single_hunks) and correct")
+
+    # Single hunk analysis for non-developer-identical patches
+    if len(non_dev_identical_df) > 0:
+        non_dev_identical_df['is_single_hunk'] = non_dev_identical_df.apply(is_single_hunk, axis=1)
+        non_dev_identical_df['are_single_hunks'] = non_dev_identical_df.apply(
+            lambda patch: are_single_hunks(patch, developer_patches), axis=1
+        )
+        
+        non_dev_single_hunk_is = non_dev_identical_df[non_dev_identical_df['is_single_hunk']]
+        non_dev_single_hunk_are = non_dev_identical_df[non_dev_identical_df['are_single_hunks']]
+        
+        logging.info(f"\nNon-developer-identical tool patches: {len(non_dev_identical_df)} total")
+        logging.info(f"  - {len(non_dev_single_hunk_is)} are single-hunk (is_single_hunk)")
+        logging.info(f"  - {len(non_dev_single_hunk_are)} are single-hunk (are_single_hunks)")
+
+    # Correct tool patches - single hunk
+    correct_patches = tool_patches[tool_patches["correctness"] == "Correct"]
+    correct_single_hunk_is = correct_patches[correct_patches['is_single_hunk']]
+    correct_single_hunk_are = correct_patches[correct_patches['are_single_hunks']]
+    
+    # Calculate non-developer-identical correct patches that are single hunk
+    correct_non_dev_identical_single_hunk_is = 0
+    correct_non_dev_identical_single_hunk_are = 0
+    
+    for _, patch in correct_patches.iterrows():
+        # Check if patch is developer-identical
+        match = developer_patches[
+            (developer_patches['bug_uid'] == patch['bug_uid']) &
+            (developer_patches['content'] == patch['content'])
+        ]
+        # If not developer-identical, check if it's single hunk
+        if match.empty:
+            if patch['is_single_hunk']:
+                correct_non_dev_identical_single_hunk_is += 1
+            if patch['are_single_hunks']:
+                correct_non_dev_identical_single_hunk_are += 1
+    
+    logging.info(f"\nCorrect tool patches: {len(correct_patches)} total")
+    logging.info(f"  - {len(correct_single_hunk_is)} are single-hunk (is_single_hunk)")
+    logging.info(f"  - {len(correct_single_hunk_are)} are single-hunk (are_single_hunks)")
+    logging.info(f"  - {correct_non_dev_identical_single_hunk_is} non-developer-identical are single-hunk (is_single_hunk)")
+    logging.info(f"  - {correct_non_dev_identical_single_hunk_are} non-developer-identical are single-hunk (are_single_hunks)")
+
+    # Overfitting tool patches - single hunk
+    overfitting_patches = tool_patches[tool_patches["correctness"] == "Overfitting"]
+    overfitting_single_hunk_is = overfitting_patches[overfitting_patches['is_single_hunk']]
+    overfitting_single_hunk_are = overfitting_patches[overfitting_patches['are_single_hunks']]
+
+    # Calculate non-developer-identical overfitting patches that are single hunk
+    overfitting_non_dev_identical_single_hunk_is = 0
+    overfitting_non_dev_identical_single_hunk_are = 0
+
+    for _, patch in overfitting_patches.iterrows():
+        # Check if patch is developer-identical
+        match = developer_patches[
+            (developer_patches['bug_uid'] == patch['bug_uid']) &
+            (developer_patches['content'] == patch['content'])
+        ]
+        # If not developer-identical, check if it's single hunk
+        if match.empty:
+            if patch['is_single_hunk']:
+                overfitting_non_dev_identical_single_hunk_is += 1
+            if patch['are_single_hunks']:
+                overfitting_non_dev_identical_single_hunk_are += 1
+
+    logging.info(f"Overfitting tool patches: {len(overfitting_patches)} total")
+    logging.info(f"  - {len(overfitting_single_hunk_is)} are single-hunk (is_single_hunk)")
+    logging.info(f"  - {len(overfitting_single_hunk_are)} are single-hunk (are_single_hunks)")
+    logging.info(f"  - {overfitting_non_dev_identical_single_hunk_is} non-developer-identical are single-hunk (is_single_hunk)")
+    logging.info(f"  - {overfitting_non_dev_identical_single_hunk_are} non-developer-identical are single-hunk (are_single_hunks)")
+
+    # ===== Combined Summary Table =====
+    logging.info("\n--- Combined Summary Table ---")
+    
+    combined_summary = []
+    
+    # Add developer patches
+    dev_row = {
+        'Generator': 'Developer',
+        'Total': len(developer_patches),
+        'Dev-Identical': 0,  # Developers are always dev-identical
+        'Non-Dev-Identical': 0,  # N/A for developers
+        'is_single_hunk': len(developer_patches[developer_patches['is_single_hunk']]),
+        'are_single_hunks': len(developer_patches[developer_patches['are_single_hunks']]),
+        'Correctness': 'N/A'
+    }
+    combined_summary.append(dev_row)
+    
+    # Add tool patches by generator and correctness
+    for generator in tool_patches['generator_id'].unique():
+        gen_tool_patches = tool_patches[tool_patches['generator_id'] == generator]
+        
+        # Find dev-identical and non-dev-identical counts
+        gen_dev_identical = 0
+        gen_non_dev_identical = 0
+        for _, patch in gen_tool_patches.iterrows():
+            match = developer_patches[
+                (developer_patches['bug_uid'] == patch['bug_uid']) &
+                (developer_patches['content'] == patch['content'])
+            ]
+            if not match.empty:
+                gen_dev_identical += 1
+            else:
+                gen_non_dev_identical += 1
+        
+        for correctness in ['Correct', 'Overfitting']:
+            subset = gen_tool_patches[gen_tool_patches['correctness'] == correctness]
+            if len(subset) > 0:
+                # Count dev-identical in this subset
+                subset_dev_identical = 0
+                subset_non_dev_identical = 0
+                for _, patch in subset.iterrows():
+                    match = developer_patches[
+                        (developer_patches['bug_uid'] == patch['bug_uid']) &
+                        (developer_patches['content'] == patch['content'])
+                    ]
+                    if not match.empty:
+                        subset_dev_identical += 1
+                    else:
+                        subset_non_dev_identical += 1
+                
+                row = {
+                    'Generator': generator,
+                    'Total': len(subset),
+                    'Dev-Identical': subset_dev_identical,
+                    'Non-Dev-Identical': subset_non_dev_identical,
+                    'is_single_hunk': len(subset[subset['is_single_hunk']]),
+                    'are_single_hunks': len(subset[subset['are_single_hunks']]),
+                    'Correctness': correctness
+                }
+                combined_summary.append(row)
+    
+    if combined_summary:
+        summary_df = pd.DataFrame(combined_summary)
+        logging.info("\n")
+        logging.info(summary_df.to_string(index=False))
+
+    # Drop temporary columns (not from originals since we made copies)
+    developer_patches.drop(['content', 'is_single_hunk', 'are_single_hunks'], axis=1, inplace=True, errors='ignore')
+    tool_patches.drop(['content', 'is_single_hunk', 'are_single_hunks'], axis=1, inplace=True, errors='ignore')
+    if len(non_dev_identical_df) > 0:
+        non_dev_identical_df.drop(['content', 'is_single_hunk', 'are_single_hunks'], axis=1, inplace=True, errors='ignore')
+
+    logging.info("Reporting dataset completed.")
+
+
+
 if __name__ == '__main__':
     pass

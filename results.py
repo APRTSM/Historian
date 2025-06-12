@@ -1001,10 +1001,10 @@ def report_exp7():
 
 def count_identical_in_pairs(tool_patches=None, developer_patches=None):
     logging.info("Counting identical in pairs ...")
-    if not tool_patches:
+    if tool_patches is None:
         tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
-    if not developer_patches:
+    if developer_patches is None:
         developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
 
     tool_patches = tool_patches[tool_patches["bug_uid"].str.contains("defects4j")].copy()
