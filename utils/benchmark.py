@@ -783,18 +783,3 @@ def get_single_hunk_method(patch: pd.Series):
 
     return read_patch(target_method_dirs[0])
 
-def are_single_hunks(patch: pd.Series, developer_patches: pd.DataFrame) -> bool:
-    if get_patch_edit_numbers(patch["location"])["hunk"] != 1:
-        return False
-    
-    if get_patch_edit_numbers(developer_patches.loc[f"{patch['bug_uid']}-developer"]["location"])["hunk"] != 1:
-        return False
-    
-    return True
-
-def is_single_hunk(patch: pd.Series):
-    if get_patch_edit_numbers(patch["location"])["hunk"] != 1:
-        return False
-    
-    return True
-

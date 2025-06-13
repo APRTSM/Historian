@@ -1088,6 +1088,8 @@ def remove_developer_identical_patches(tool_patches=None, developer_patches=None
 """ Reporting """
 def report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs):
     # Reports single hunk, and identical seperately
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
     logging.info("--- Reporting dataset ---")
     # Make copies to avoid modifying input dataframes
     developer_patches = cleaned_developer_patches.copy()
@@ -1347,6 +1349,50 @@ def report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs):
         non_dev_identical_df.drop(['content', 'is_single_hunk', 'are_single_hunks'], axis=1, inplace=True, errors='ignore')
 
     logging.info("Reporting dataset completed.")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+
+
+
+""" Patches """
+def are_single_hunks(patch: pd.Series, developer_patches: pd.DataFrame) -> bool:
+    if get_patch_edit_numbers(patch["location"])["hunk"] != 1:
+        return False
+    
+    if get_patch_edit_numbers(developer_patches.loc[f"{patch['bug_uid']}-developer"]["location"])["hunk"] != 1:
+        return False
+    
+    return True
+
+def is_single_hunk(patch: pd.Series):
+    if get_patch_edit_numbers(patch["location"])["hunk"] != 1:
+        return False
+    
+    return True
+
+def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> pd.DataFrame:
+    if os.path.exists(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL):
+        logging.info("Loading single hunk tool patches from file ...")
+
+        return pd.read_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
+
+    # single_hunk_tool_patches = cleaned_tool_patches[cleaned_tool_patches.apply(lambda patch: are_single_hunks(patch, cleaned_developer_patches), axis=1)] # Also get single hunk dev patches.
+    single_hunk_tool_patches = patches[patches.apply(is_single_hunk, axis=1)]
+
+    # # are all single hunks have only one  source_method source_method is a list? Yes
+    # print(len(single_hunk_tool_patches))
+    # answer = single_hunk_tool_patches[single_hunk_tool_patches['source_methods'].apply(lambda x: isinstance(x, list) and len(x) == 1)]
+    # print(f"Single Hunk Tool Patches with only one source_method: {len(answer)}")
+
+    # Save to file
+    single_hunk_tool_patches.to_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
+    logging.info(f"Single hunk tool patches saved to {TMP_SINGLE_HUNK_TOOL_PATHCES_PKL}")
+
+    return single_hunk_tool_patches
+
+
+
+
 
 
 

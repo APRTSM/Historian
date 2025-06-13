@@ -261,7 +261,7 @@ def deduplicate_patches(cleaned_tool_patches):
         cleaned_tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
     else:
-        cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
+        cleaned_tool_patches['content'] = cleaned_tool_patches['target_methods'].apply(lambda x: read_patch(x[0]) if isinstance(x, list) and len(x) > 0 else None)
         tqdm.pandas(desc="Deduplicating patches")
         cleaned_tool_patches = cleaned_tool_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content']) 
         cleaned_tool_patches = cleaned_tool_patches.drop(columns=['content'])
@@ -860,15 +860,17 @@ if __name__=="__main__":
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
     # Get Single Hunk Patches
-    # get single hunks then get method as content
+    single_hunk_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
 
+    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-
-
+    cleaned_tool_patches.to_html("s.html")
+    Check if taget locates target-.java / why source locates target and vise versa
+    print(cleaned_tool_patches['target_methods'])
 
 
     # Deduplicating Same bug, same tool, same content
-    cleaned_tool_patches = deduplicate_patches(cleaned_tool_patches)
+    cleaned_tool_patches = deduplicate_patches(single_hunk_tool_patches)
 
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
