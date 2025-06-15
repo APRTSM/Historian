@@ -70,3 +70,7 @@ This will save the classified responses in `tmp/results/classified/` and generat
 
 Experiments are implemented as functions or classes in `results.py`, and the function calls in `build.py` are commented out. To run a specific experiment, please uncomment the corresponding function call.
 
+
+## TMP
+
+Add `ID2commit` to bugsjar
