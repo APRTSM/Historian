@@ -623,7 +623,7 @@ def get_developer_patches(bugs):
 
     return patches
 
-SKIP = True
+SKIP = False
 
 # Fixes patch and stores it: returns relpath of the fixed patch
 def fix_patch(patch: pd.Series, bugs: pd.DataFrame) -> str:
