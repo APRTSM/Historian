@@ -712,8 +712,8 @@ def get_method(patch: pd.Series, bugs: pd.DataFrame = None):
         source_files = sorted([f for f in all_files if f.startswith('source-')], key=lambda x: int(x.split('-')[1].split('.')[0]))
 
         # Append the absolute paths to the respective lists
-        source_method_dirs = [os.path.abspath(os.path.join(out_put_dir, f)) for f in target_files]
-        target_method_dirs = [os.path.abspath(os.path.join(out_put_dir, f)) for f in source_files]
+        source_method_dirs = [os.path.abspath(os.path.join(out_put_dir, f)) for f in source_files]
+        target_method_dirs = [os.path.abspath(os.path.join(out_put_dir, f)) for f in target_files]
 
         if not source_method_dirs or not target_method_dirs:
             raise ValueError

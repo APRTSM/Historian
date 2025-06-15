@@ -684,6 +684,12 @@ def read_patch(location):
 
     return diff
 
+def read_file(location):
+    with open(location) as file:
+        content = file.read()
+
+    return content
+
 keys = []
 @dataclass
 class FormattedPatch():
