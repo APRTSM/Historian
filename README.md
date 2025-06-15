@@ -75,3 +75,7 @@ Experiments are implemented as functions or classes in `results.py`, and the fun
 
 Add `ID2commit` to bugsjar
 `Defects4J v.2.0.1`
+`get_methods` and after locations are dependant.
+
+`SKIP = False` in `benchmark.py`
+Patches that need manual correction
