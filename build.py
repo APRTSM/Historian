@@ -864,11 +864,6 @@ if __name__=="__main__":
 
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    cleaned_tool_patches.to_html("s.html")
-    # Check if taget locates target-.java / why source locates target and vise versa
-    # print(cleaned_tool_patches['target_methods'])
-
-
     # Deduplicating Same bug, same tool, same content (Now looks for Methods)
     cleaned_tool_patches = deduplicate_patches(single_hunk_tool_patches)
 
