@@ -1062,7 +1062,8 @@ def get_response_result(response):
 def remove_developer_identical_patches(tool_patches=None, developer_patches=None):
     logging.info("Removing Developer Identical-1 ...")
 
-    tool_patches['content'] = tool_patches['location'].apply(read_patch)
+    # tool_patches['content'] = tool_patches['location'].apply(read_patch)
+    tool_patches['content'] = tool_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
 
     # get bugs with fixes
     unique_bugs = tool_patches["bug_uid"].unique()
@@ -1083,11 +1084,15 @@ def remove_developer_identical_patches(tool_patches=None, developer_patches=None
     logging.info("Removing developer identicals ...")
     logging.info(f"Developer patches: {len(developer_patches)}")
     logging.info(f"Current Representatives: {tool_patches_copy}")
-    developer_patches["content"] = developer_patches["location"].apply(read_patch)
+    # developer_patches["content"] = developer_patches["location"].apply(read_patch)
+    developer_patches['content'] = developer_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
+
 
     # Track patches dropped due to being identical to developer patches
     tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(lambda row: row["content"] == developer_patches[developer_patches["bug_uid"] == row["bug_uid"]]["content"].values[0], axis=1)
     tool_patches_copy = tool_patches_copy[~tool_patches_copy["is_identical_to_dev"]]
+
+    tool_patches_copy = tool_patches_copy.drop(columns=['content'])
     
     return tool_patches_copy
 

@@ -22,6 +22,9 @@ if __name__ == "__main__":
     # Remove developer identical-1 patches
     cleaned_tool_patches = remove_developer_identical_patches(tool_patches, developer_patches)
 
+    print(cleaned_tool_patches)
+
+
     # pairs = get_pairwise_tool_bug_based(cleaned_tool_patches)
 
     # print(pairs)
