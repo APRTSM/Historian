@@ -12,6 +12,7 @@ import unidiff
 import collections
 from .config import *
 from utils import *
+from itertools import combinations
 
 
 """ Bash """
@@ -1401,6 +1402,30 @@ def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> 
 
     return single_hunk_tool_patches
 
+def get_pairs(patches): # Aligns with exp1 sahand-exp1-2 CloneHelper
+    logging.info("Generating pairwise bug-based DataFrame ...")
+    # correct_patches = patches[patches["correctness"] == "Correct"].copy()
+    unique_bug_uids = patches['bug_uid'].nunique()
+    logging.info("Unique bug UIDs in the cleaned tool patches with correctness 'Correct':")
+    logging.info(unique_bug_uids)
+    pairwise_rows = []
+    for bug_uid, group in patches.groupby("bug_uid"):
+        uids = group.index.tolist()  
+        for uid1, uid2 in combinations(uids, 2):
+            pairwise_rows.append({
+                "uid": uid1,
+                "groundtruth_index": uid2,
+                "expert_label": "-"
+            })
+
+    pairwise_df = pd.DataFrame(pairwise_rows)
+
+    logging.info("Pairwise DataFrame:")
+    pairwise_df.to_pickle(os.path.join(TMP_PLOTS_DIR, "pairwise-bug-correct-deduplicated.pkl"))
+
+    logging.info(pairwise_df)
+
+    return pairwise_df
 
 
 

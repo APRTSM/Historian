@@ -11,7 +11,7 @@ from utils.benchmark import *
 from utils.utils import *
 from utils.tool import *
 from utils.dataset import *
-from build import init, clean_patches, get_methods, get_patch_processors, get_tool_settings, normalaize_names, deduplicate_patches, report_dataset, get_pairwise_tool_bug_based
+from build import init, clean_patches, get_methods, get_patch_processors, get_tool_settings, normalaize_names, deduplicate_patches, report_dataset, get_pairs
 from transformers import pipeline
 import itertools
 from sklearn.metrics import cohen_kappa_score, accuracy_score, f1_score
@@ -2111,7 +2111,7 @@ if __name__ == "__main__":
     # # sort by bug_uid
     # deduplicated_patches.sort_values(by='bug_uid', inplace=True)
 
-    pairs = get_pairwise_tool_bug_based(deduplicated_patches) # Use function from build.py
+    pairs = get_pairs(deduplicated_patches) # Use function from build.py
 
 
     create_dot_plot_identical_patches(deduplicated_patches)

@@ -13,7 +13,6 @@ from utils.dataset import *
 import argparse
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from itertools import combinations
 
 
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
@@ -808,31 +807,6 @@ def experiment_8(developer_patches, tool_patches, processor): #SourcererCC
 
         results = compare_groundtruth(tool_patch, groundtruth_patches)
         results.to_pickle(intermediate_result_file)
-
-def get_pairwise_tool_bug_based(patches): # Aligns with exp1 sahand-exp1-2 CloneHelper
-    logging.info("Generating pairwise bug-based DataFrame ...")
-    # correct_patches = patches[patches["correctness"] == "Correct"].copy()
-    unique_bug_uids = patches['bug_uid'].nunique()
-    logging.info("Unique bug UIDs in the cleaned tool patches with correctness 'Correct':")
-    logging.info(unique_bug_uids)
-    pairwise_rows = []
-    for bug_uid, group in patches.groupby("bug_uid"):
-        uids = group.index.tolist()  
-        for uid1, uid2 in combinations(uids, 2):
-            pairwise_rows.append({
-                "uid": uid1,
-                "groundtruth_index": uid2,
-                "expert_label": "Not-Clone"
-            })
-
-    pairwise_df = pd.DataFrame(pairwise_rows)
-
-    logging.info("Pairwise DataFrame:")
-    pairwise_df.to_pickle(os.path.join(TMP_PLOTS_DIR, "pairwise-bug-correct-deduplicated.pkl"))
-
-    logging.info(pairwise_df)
-
-    return pairwise_df
 
 if __name__=="__main__": 
     logging.info("Running build.py ...")
