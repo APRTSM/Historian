@@ -291,28 +291,21 @@ if __name__ == "__main__":
 
     # Detect exact matches and assign labels using target methods
     pairs = get_pairs(patches)
-    print(pairs)
     print(f"Number of pairs: {len(pairs)}")
     pairs = detect_exact_matches(pairs, patches)
     patches_kept, dropped, cluster_sizes = select_representatives_and_drop(patches, pairs, "Exact")
     print(f"Number of patches after dropping exact matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
-    pairs = get_pairs(patches_kept)
-    print(f"Number of pairs after dropping exact matches: {len(pairs)}")
 
 
+    # pairs = get_pairs(patches_kept)
+    # print(f"Number of pairs after dropping exact matches: {len(pairs)}")
+
+    # updated_original_pairs = propagate_labels_to_original_pairs(new_pairs, dropped, original_pairs)
+    # print(f"Labels propagated to original {len(updated_original_pairs)} pairs")
 
 
-
-    updated_original_pairs = propagate_labels_to_original_pairs(new_pairs, dropped, original_pairs)
-    print(f"Labels propagated to original {len(updated_original_pairs)} pairs")
-
-
-
-
-
-
-
+    pairs to html and labels
 
     """ Type-1 Spacing """
 
