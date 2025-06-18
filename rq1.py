@@ -197,14 +197,15 @@ def select_representatives_and_drop(patches, pairs, label):
     
     return patches_after_dropping, dropped_patches, representative_summary
 
-def propagate_labels_to_original_pairs(new_pairs, dropped_patches, old_pairs):
+def propagate_labels_to_original_pairs(new_pairs, dropped_patches, old_pairs, label_to_propagate):
     """
-    Propagate labels from new_pairs back to old_pairs using representative mapping.
+    Propagate specific label from new_pairs back to old_pairs using representative mapping.
     
     Args:
         new_pairs: DataFrame with pairs from reduced patch set (with new labels)
         dropped_patches: DataFrame with 'representative_id' column mapping dropped patches to representatives
         old_pairs: DataFrame with original pairs (to be updated with propagated labels)
+        label_to_propagate: The specific label to propagate (e.g., "Match Degree 1")
     
     Returns:
         old_pairs: Updated DataFrame with propagated labels
@@ -224,14 +225,14 @@ def propagate_labels_to_original_pairs(new_pairs, dropped_patches, old_pairs):
     # Create a copy of old_pairs to modify
     updated_old_pairs = old_pairs.copy()
     
-    # For each pair in new_pairs that has a non-default label
+    # For each pair in new_pairs that has the specific label to propagate
     for _, new_row in new_pairs.iterrows():
         new_uid1 = new_row['uid']
         new_uid2 = new_row['groundtruth_index']
         new_label = new_row['expert_label']
         
-        # Skip if this is a default/empty label (like '-')
-        if pd.isna(new_label) or new_label == '-' or new_label == '':
+        # Only process pairs with the specific label we want to propagate
+        if new_label != label_to_propagate:
             continue
         
         # Find all patches that have this representative (including the representative itself)
@@ -261,16 +262,84 @@ def propagate_labels_to_original_pairs(new_pairs, dropped_patches, old_pairs):
                     current_labels = updated_old_pairs.loc[mask1, 'expert_label']
                     update_mask = (current_labels == '-') | pd.isna(current_labels)
                     if update_mask.any():
-                        updated_old_pairs.loc[mask1 & update_mask, 'expert_label'] = new_label
+                        updated_old_pairs.loc[mask1 & update_mask, 'expert_label'] = label_to_propagate
                 
                 if mask2.any():
                     # Only update if current label is "-"
                     current_labels = updated_old_pairs.loc[mask2, 'expert_label']
                     update_mask = (current_labels == '-') | pd.isna(current_labels)
                     if update_mask.any():
-                        updated_old_pairs.loc[mask2 & update_mask, 'expert_label'] = new_label
+                        updated_old_pairs.loc[mask2 & update_mask, 'expert_label'] = label_to_propagate
     
     return updated_old_pairs
+
+
+def merge_dropped_dataframes(old_dropped, new_dropped):
+    """
+    Merge two dropped DataFrames, resolving transitive representative relationships.
+    
+    Args:
+        old_dropped: DataFrame with 'representative_id' column (first round of dropping)
+        new_dropped: DataFrame with 'representative_id' column (second round of dropping)
+    
+    Returns:
+        merged_dropped: DataFrame with all dropped patches pointing to final representatives
+    """
+    
+    # Handle empty cases
+    if old_dropped.empty and new_dropped.empty:
+        return pd.DataFrame()
+    elif old_dropped.empty:
+        return new_dropped.copy()
+    elif new_dropped.empty:
+        return old_dropped.copy()
+    
+    # Start with a copy of old_dropped
+    merged_dropped = old_dropped.copy()
+    
+    # Create mapping from new_dropped
+    if 'uid' in new_dropped.columns:
+        new_mapping = dict(zip(new_dropped['uid'], new_dropped['representative_id']))
+    else:
+        new_mapping = dict(zip(new_dropped.index, new_dropped['representative_id']))
+    
+    # Update representative_id in merged_dropped based on new_mapping
+    # If a representative from old_dropped is now dropped in new_dropped,
+    # update it to point to the new representative
+    def resolve_representative(rep_id):
+        """Resolve the final representative by following the chain"""
+        visited = set()
+        current = rep_id
+        
+        # Follow the chain until we reach a final representative
+        while current in new_mapping and current not in visited:
+            visited.add(current)
+            current = new_mapping[current]
+        
+        return current
+    
+    # Update all representative_ids
+    merged_dropped['representative_id'] = merged_dropped['representative_id'].apply(resolve_representative)
+    
+    # Add the new_dropped entries to merged_dropped
+    # But first, resolve their representatives too
+    new_dropped_copy = new_dropped.copy()
+    new_dropped_copy['representative_id'] = new_dropped_copy['representative_id'].apply(resolve_representative)
+    
+    # Concatenate the DataFrames
+    if 'uid' in merged_dropped.columns:
+        # Remove any duplicates that might exist (same uid in both)
+        existing_uids = set(merged_dropped['uid'])
+        new_entries = new_dropped_copy[~new_dropped_copy['uid'].isin(existing_uids)]
+    else:
+        # uid is index
+        existing_uids = set(merged_dropped.index)
+        new_entries = new_dropped_copy[~new_dropped_copy.index.isin(existing_uids)]
+    
+    # Concatenate
+    merged_dropped = pd.concat([merged_dropped, new_entries], ignore_index=False)
+    
+    return merged_dropped
 
 
 if __name__ == "__main__":
@@ -287,6 +356,7 @@ if __name__ == "__main__":
     patches = remove_developer_identical_patches(correct_tool_patche, developer_patches)
     print(f"Number of Correct-non-developer-identical tool patches: {len(patches)}")
 
+    print("----------------------------------------------")
     """ Start Experiments Exact Match """
 
     # Detect exact matches and assign labels using target methods
@@ -296,27 +366,26 @@ if __name__ == "__main__":
     patches_kept, dropped, cluster_sizes = select_representatives_and_drop(patches, pairs, "Exact")
     print(f"Number of patches after dropping exact matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
+    print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
 
-
-    # pairs = get_pairs(patches_kept)
-    # print(f"Number of pairs after dropping exact matches: {len(pairs)}")
-
-    # updated_original_pairs = propagate_labels_to_original_pairs(new_pairs, dropped, original_pairs)
-    # print(f"Labels propagated to original {len(updated_original_pairs)} pairs")
-
-
-    pairs to html and labels
-
+    print("----------------------------------------------")
     """ Type-1 Spacing """
 
-    # # Detect space removed matches and assign labels using target methods (To ease Manual)
-    pairs = get_pairs(patches_kept)
-    print(f"Number of pairs after dropping exact matches: {len(pairs)}")
-    pairs = assign_type_1_spacing(pairs, patches_kept)
-    patches_kept, dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs, "Type-1")
-    print(f"Number of patches after dropping Type-1 matches: {len(patches_kept)}")
+    # Detect space removed matches and assign labels using target methods (To ease Manual)
+    pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
+    print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
+    pairs_kept = assign_type_1_spacing(pairs_kept, patches_kept)
+    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Type-1") # patches_kept is remaining representatives
+    dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
+    print(f"Number of patches after dropping Type-1 spacing matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
 
+    pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Type-1")
+    print(f"Labels propagated to original {len(pairs)} pairs")
+    print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
+    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
+
+    print("----------------------------------------------")
     """ Type-1/2 Manual """
     pairs = get_pairs(patches_kept)
     print(f"Number of pairs after dropping Type-1 matches: {len(pairs)}")
