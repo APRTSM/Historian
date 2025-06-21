@@ -6,6 +6,7 @@ from utils.benchmark import *
 from utils.utils import *
 from utils.tool import *
 from utils.dataset import *
+from build import init, clean_patches, get_methods, get_patch_processors, get_tool_settings, apply_params, parse_args
 
 def detect_exact_matches(pairs, tool_patche):
     tool_patches['content'] = tool_patches['target_methods'].apply(lambda x: read_file(x[0]))
@@ -49,6 +50,11 @@ def assign_type_1_spacing(pairs, tool_patches):
 def select_representatives_and_drop(patches, pairs, label):
     """
     Select representative patches from connected components based on pairs with specified label.
+    This version is deterministic - same input always produces same output.
+
+    This function identifies groups of similar patches based on expert-labeled pairs and removes duplicates by keeping only one representative patch from each group. 
+    It uses graph theory (connected components) to find clusters of patches that are all connected through similarity relationships. 
+    The output includes the deduplicated patch set, information about which patches were dropped and their representatives, plus a summary of group sizes.
     
     Args:
         patches: DataFrame with patches (uid as index or column)
@@ -60,15 +66,12 @@ def select_representatives_and_drop(patches, pairs, label):
         dropped_patches: DataFrame with patches that were dropped (includes 'representative_id' column)
         representative_summary: DataFrame with columns ['representative_id', 'group_size', 'bug_uid']
     """
-    import pandas as pd
-    from collections import defaultdict, deque
     
     # Filter pairs to only those with the specified label
     relevant_pairs = pairs[pairs['expert_label'] == label].copy()
     
     if relevant_pairs.empty:
-        # No pairs with the specified label, return original patches
-        return patches.copy(), pd.DataFrame()
+        raise ValueError(f"No pairs found with label '{label}'. Cannot select representatives.")
     
     # Build adjacency list for the graph
     graph = defaultdict(set)
@@ -83,10 +86,11 @@ def select_representatives_and_drop(patches, pairs, label):
         all_nodes.add(uid2)
     
     # Find connected components using BFS
+    # DETERMINISTIC: Sort nodes to ensure consistent iteration order
     visited = set()
     connected_components = []
     
-    for node in all_nodes:
+    for node in sorted(all_nodes):  # ← DETERMINISTIC: Sort nodes
         if node not in visited:
             # BFS to find all nodes in this connected component
             component = []
@@ -97,11 +101,14 @@ def select_representatives_and_drop(patches, pairs, label):
                 current = queue.popleft()
                 component.append(current)
                 
-                for neighbor in graph[current]:
+                # DETERMINISTIC: Sort neighbors to ensure consistent traversal order
+                for neighbor in sorted(graph[current]):  # ← DETERMINISTIC: Sort neighbors
                     if neighbor not in visited:
                         visited.add(neighbor)
                         queue.append(neighbor)
             
+            # DETERMINISTIC: Sort component to ensure consistent representative selection
+            component.sort()  # ← DETERMINISTIC: Sort component
             connected_components.append(component)
     
     # Select representatives and create mapping
@@ -111,8 +118,8 @@ def select_representatives_and_drop(patches, pairs, label):
     
     for component in connected_components:
         if len(component) > 1:
-            # Keep the first one as representative
-            representative = component[0]
+            # DETERMINISTIC: Always choose the smallest (lexicographically first) as representative
+            representative = component[0]  # Now guaranteed to be smallest due to sorting
             representatives.add(representative)
             # Mark the rest for dropping and map them to representative
             for patch_to_drop in component[1:]:
@@ -148,7 +155,7 @@ def select_representatives_and_drop(patches, pairs, label):
     # Create summary of representatives and their group sizes
     representative_counts = {}
     for component in connected_components:
-        representative = component[0]  # First element is the representative
+        representative = component[0]  # First element is the representative (now deterministic)
         representative_counts[representative] = len(component)  # Total count including representative
     
     # Also include patches that weren't in any pairs with the specified label
@@ -191,7 +198,9 @@ def select_representatives_and_drop(patches, pairs, label):
                 for rep_id, count in representative_counts.items()
             ]
         
+        # DETERMINISTIC: Sort representative summary by representative_id
         representative_summary = pd.DataFrame(representative_data)
+        representative_summary = representative_summary.sort_values('representative_id').reset_index(drop=True)
     else:
         representative_summary = pd.DataFrame(columns=['representative_id', 'group_size', 'bug_uid'])
     
@@ -272,7 +281,6 @@ def propagate_labels_to_original_pairs(new_pairs, dropped_patches, old_pairs, la
                         updated_old_pairs.loc[mask2 & update_mask, 'expert_label'] = label_to_propagate
     
     return updated_old_pairs
-
 
 def merge_dropped_dataframes(old_dropped, new_dropped):
     """
@@ -389,3 +397,27 @@ if __name__ == "__main__":
     """ Type-1/2 Manual """
     pairs = get_pairs(patches_kept)
     print(f"Number of pairs after dropping Type-1 matches: {len(pairs)}")
+
+    """ LLM """
+    # Initial Data
+    bugs, developer_patches, tool_patches = init(configure=False)
+
+    # Patch Cleaning
+    cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
+
+    # Fetch Methods
+    cleaned_developer_patches, cleaned_tool_patches = get_methods(cleaned_developer_patches, cleaned_tool_patches, bugs)
+
+    # Patch Processings
+    patch_processors = get_patch_processors()
+
+    # Tool Settings
+    prompts, models, temperatures = get_tool_settings()
+
+    # Apply Passed Params
+    args = parse_args()
+    prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
+
+
+
+    
