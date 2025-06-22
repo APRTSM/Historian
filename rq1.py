@@ -1,12 +1,17 @@
 import re
 from collections import defaultdict, deque
 import pandas as pd
+import os
+import time
+import logging
+from tqdm import tqdm
+import ollama
 from utils.config import *
 from utils.benchmark import *
 from utils.utils import *
 from utils.tool import *
 from utils.dataset import *
-from build import init, clean_patches, get_methods, get_patch_processors, get_tool_settings, apply_params, parse_args
+from build import get_patch_processors, get_tool_settings, apply_params, parse_args
 
 def detect_exact_matches(pairs, tool_patche):
     tool_patches['content'] = tool_patches['target_methods'].apply(lambda x: read_file(x[0]))
@@ -349,12 +354,84 @@ def merge_dropped_dataframes(old_dropped, new_dropped):
     
     return merged_dropped
 
+def experiment_10(tool_patches, pairs, models, prompts, temperatures, patch_processors):
+    def get_response(patch1, patch2, prompt, temperature, model, processor):
+        patch1_content = processor["function"](patch1) 
+        patch2_content = processor["function"](patch2) 
+
+        prompt_content = prompt["content"]
+
+        content = f"""
+            {prompt_content}
+
+            Patch 1: {patch1_content}
+
+            Patch 2: {patch2_content}
+        """
+        response = ollama.chat(model=model["uid"], keep_alive=-1, options=ollama.Options(temperature=temperature["uid"]), messages=[
+            {
+                "role": "system",
+                "content": content,
+            },
+        ])
+
+        label = {
+            "patch1_uid": patch1.name,
+            "patch2_uid": patch2.name,
+            "processor": processor["uid"],
+            "model": model["uid"],
+            "temperature": temperature["uid"],
+            "prompt": prompt["uid"],
+            "response": response["message"]["content"],
+            "time": int(time.time())
+        }
+
+        return pd.Series(label)
+    
+    def compare_pair(pair_row, prompt, temperature, model, processor):
+        patch1_uid = pair_row["uid"]
+        patch2_uid = pair_row["groundtruth_index"]
+        
+        # Get the actual patch objects from tool_patches using the UIDs
+        patch1 = tool_patches.loc[patch1_uid]
+        patch2 = tool_patches.loc[patch2_uid]
+        
+        logging.info(f"Comparing pair: {patch1_uid} vs {patch2_uid}")
+        
+        result = get_response(patch1, patch2, prompt, temperature, model, processor)
+        
+        return result
+
+    logging.info(f"Running experiment 10 ... no_models: {len(models)}, no_prompts: {len(prompts)}, no_pairs: {len(pairs)}, no_temperatures: {len(temperatures)}, no_processors: {len(patch_processors)}")
+
+    for processor in patch_processors:
+        for model in models:
+            for temperature in temperatures:
+                for prompt in prompts:
+                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP10-{processor['uid']}-{model['uid']}-{temperature['uid']}-{prompt['uid']}.pkl")
+
+                    if os.path.exists(result_file):
+                        logging.info(f"Results already exist. PatchProcessor: {processor['uid']} model: {model['uid']} temperature: {temperature['uid']} prompt: {prompt['uid']} \n Skipping to the next one.")
+                        
+                        continue
+
+                    logging.info(f"Processing pairs ... PatchProcessor: {processor['uid']} model: {model['uid']} temperature: {temperature['uid']} prompt: {prompt['uid']}")
+                    results = pairs.progress_apply(
+                        lambda pair: compare_pair(pair, prompt, temperature, model, processor), 
+                        axis=1
+                    )
+
+                    results.to_pickle(result_file)
+                    logging.info(f"Saved combined results to {result_file}")
+
+            # Clean up model to free memory
+            ollama.generate(model=model["uid"], keep_alive=0)
+
 
 if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
-
 
     # Select only the correct tool patches for RQ1
     correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
@@ -399,25 +476,18 @@ if __name__ == "__main__":
     print(f"Number of pairs after dropping Type-1 matches: {len(pairs)}")
 
     """ LLM """
-    # Initial Data
-    bugs, developer_patches, tool_patches = init(configure=False)
-
-    # Patch Cleaning
-    cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
-
-    # Fetch Methods
-    cleaned_developer_patches, cleaned_tool_patches = get_methods(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
-    # Patch Processings
-    patch_processors = get_patch_processors()
+    bugs = pd.read_pickle(TMP_BUGS_PKL)
 
     # Tool Settings
+    patch_processors = get_patch_processors()
     prompts, models, temperatures = get_tool_settings()
 
     # Apply Passed Params
     args = parse_args()
     prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
 
+    # Run Experiment 10
+    experiment_10(patches_kept, pairs, models, prompts, temperatures, patch_processors) 
 
 
-    
+
