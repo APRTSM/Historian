@@ -486,6 +486,9 @@ if __name__ == "__main__":
     args = parse_args()
     prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
 
+    # Select prompts that their type is type or integrated
+    prompts = [prompt for prompt in prompts if prompt["type"] in ["type", "integrated"]]
+
     # Run Experiment 10
     experiment_10(patches_kept, pairs, models, prompts, temperatures, patch_processors) 
 
