@@ -260,6 +260,7 @@ def deduplicate_patches(cleaned_tool_patches):
         cleaned_tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
     else:
+        cleaned_tool_patches = cleaned_tool_patches.copy()
         cleaned_tool_patches['content'] = cleaned_tool_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
         # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
         tqdm.pandas(desc="Deduplicating patches")
@@ -839,9 +840,11 @@ if __name__=="__main__":
     single_hunk_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
 
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    print(single_hunk_tool_patches)
 
     # Deduplicating Same bug, same tool, same content (Now looks for Methods)
     cleaned_tool_patches = deduplicate_patches(single_hunk_tool_patches)
+    print(cleaned_tool_patches)
 
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
