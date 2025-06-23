@@ -432,6 +432,7 @@ if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
+    # print(tool_patches.loc["dl4pc2-bugsjar-flink-259f10c0-Dynamoth-DifferentFilePatches-0"])
 
     # Select only the correct tool patches for RQ1
     correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()

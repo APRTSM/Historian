@@ -771,14 +771,14 @@ def get_single_hunk_method(patch: pd.Series):
     _, target_method_dirs = get_method(patch)
 
     if len(target_method_dirs) != 1:
-        raise f"The patch is not single hunk. {target_method_dirs}"
+        raise ValueError(f"The patch is not single hunk. {target_method_dirs}")
 
     return read_patch(target_method_dirs[0])
 
 def are_single_hunks(patch: pd.Series, developer_patches: pd.DataFrame) -> bool:
     _, target_method_dirs = get_method(patch)
     _, developer_target_method_dirs = get_method(developer_patches.loc[f"{patch['bug_uid']}-developer"])
-
+    
     if len(target_method_dirs) != 1:
         return False
     

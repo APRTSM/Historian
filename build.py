@@ -834,19 +834,19 @@ if __name__=="__main__":
     # Normalaize Names, Last step for Developer Patches
     cleaned_developer_patches, cleaned_tool_patches = normalaize_names(cleaned_developer_patches, cleaned_tool_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
     # Get Single Hunk Patches (Same as Get Single Methods Until 15 June)
     single_hunk_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-    print(single_hunk_tool_patches)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # print(single_hunk_tool_patches)
 
     # Deduplicating Same bug, same tool, same content (Now looks for Methods)
     cleaned_tool_patches = deduplicate_patches(single_hunk_tool_patches)
-    print(cleaned_tool_patches)
+    # print(cleaned_tool_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
     """ Standard Upto Here Next Main """
 
