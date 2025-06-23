@@ -416,10 +416,12 @@ def experiment_10(tool_patches, pairs, models, prompts, temperatures, patch_proc
                         continue
 
                     logging.info(f"Processing pairs ... PatchProcessor: {processor['uid']} model: {model['uid']} temperature: {temperature['uid']} prompt: {prompt['uid']}")
+                    tqdm.pandas(desc=f"Processing {processor['uid']}-{model['uid']}-{temperature['uid']}-{prompt['uid']}")
                     results = pairs.progress_apply(
                         lambda pair: compare_pair(pair, prompt, temperature, model, processor), 
                         axis=1
                     )
+                    tqdm.pandas(desc="Unknown Process.")
 
                     results.to_pickle(result_file)
                     logging.info(f"Saved combined results to {result_file}")
@@ -432,11 +434,12 @@ if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
-    # print(tool_patches.loc["dl4pc2-bugsjar-flink-259f10c0-Dynamoth-DifferentFilePatches-0"])
+    print(f"Number of tool patches: {len(tool_patches)}")
+    print(f"Number of developer patches: {len(developer_patches)}")
 
     # Select only the correct tool patches for RQ1
     correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
-    print(f"Number of Correct tool patches: {len(correct_tool_patche)}")
+    print(f"Number of Unique Single-Hunk Correct tool patches: {len(correct_tool_patche)}")
 
     # Remove developer identical-1 patches (cleaned) (method match)
     patches = remove_developer_identical_patches(correct_tool_patche, developer_patches)
