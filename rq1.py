@@ -479,6 +479,9 @@ if __name__ == "__main__":
     pairs = get_pairs(patches_kept)
     print(f"Number of pairs after dropping Type-1 matches: {len(pairs)}")
 
+    """ Manual Labeling """
+    pairs.to_pickle("tmp.pkl")
+
     """ LLM """
     bugs = pd.read_pickle(TMP_BUGS_PKL)
 
