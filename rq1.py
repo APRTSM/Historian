@@ -454,6 +454,9 @@ if __name__ == "__main__":
     pairs = detect_exact_matches(pairs, patches)
     patches_kept, dropped, cluster_sizes = select_representatives_and_drop(patches, pairs, "Exact")
     print(f"Cluster sizes: {cluster_sizes}")
+
+    cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
+
     total_group_size = cluster_sizes['group_size'].sum()
     print(f"Total number of patches in all clusters: {total_group_size}")
     print(f"Number of patches after dropping exact matches: {len(patches_kept)}")
@@ -484,7 +487,7 @@ if __name__ == "__main__":
     # pairs.to_pickle("tmp.pkl")
     pairs_kept = get_pairs(patches_kept)
     print(f"Number of pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
-    pairs_kept = pd.read_pickle(os.path.join(TMP_DATA_DIR, "rq1-expert.pkl"))
+    pairs_kept = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "rq1-expert.pkl"))
     print(f"Number of manually labeled pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
 
     pairs_kept = pairs_kept.copy()
@@ -512,6 +515,9 @@ if __name__ == "__main__":
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Type-1', 'Type-1-2', 'Exact'] else "-")
     patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
     print(f"Cluster sizes: {cluster_sizes}")
+
+    cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
+
     total_group_size = cluster_sizes['group_size'].sum()
     print(f"Total number of patches in all clusters: {total_group_size}")
 

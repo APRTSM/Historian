@@ -51,6 +51,8 @@ TMP_RESULTS_DIR = os.path.join(TMP_DIR, "results")
 TMP_PLOTS_DIR = os.path.join(TMP_DIR, "plots")
 
 ## Initial Data
+TMP_RQ1_DATA_DIR = os.path.join(TMP_DATA_DIR, "rq1")
+
 TMP_FORMATTED_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "cleaned")
 TMP_DEVELOPER_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "raw")
 
