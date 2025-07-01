@@ -20,7 +20,7 @@ python controller.py
 
 cd ..
 
-cat clone-detector/NODE_*/output8.0/query_* > ../results.pairs
+cat clone-detector/NODE_*/output10.0/query_* > ../results.pairs
 
 cd clone-detector
 
