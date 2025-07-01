@@ -464,6 +464,21 @@ if __name__ == "__main__":
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
 
     print("----------------------------------------------")
+    """ SourcererCC 1 """
+
+    pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
+    print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
+    are_clones = sourcerercc_are_clones('public class A { public static void main(String[] args) { System.out.println("Hello, World!"); } }', 'public class A { public static void main(String[] args) { System.out.println("Hello, World!"); } }')
+
+    print(are_clones)
+
+    
+    # pairs_kept = assign_type_1_spacing(pairs_kept, patches_kept)
+    
+
+    exit()
+
+    print("----------------------------------------------")
     """ Type-1 Spacing """
 
     # Detect space removed matches and assign labels using target methods (To ease Manual)
