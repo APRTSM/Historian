@@ -5,7 +5,7 @@ public class HelloWorld {
     }
 
     public void greet() {
-        System.out.println("Greetings from the greet method!");
+        System.out.println("Greeting from the greet method!");
     }
 
     public int add(int a, int b) {
