@@ -25,3 +25,5 @@ cat clone-detector/NODE_*/output10.0/query_* > ../results.pairs
 cd clone-detector
 
 ./cleanup.sh
+
+cd ../..
