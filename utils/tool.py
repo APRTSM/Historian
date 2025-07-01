@@ -51,7 +51,6 @@ def ollama_get_settings():
 
 """ SourcererCC """
 def sourcerercc_are_clones(code_1, code_2):
-    execute_bash_command("./run.sh", dir=SOURCERERCC_DIR)
     src_1_dir = os.path.join(SOURCERERCC_DIR, "tokenizer-input", "src-1", "src.java")
     src_2_dir = os.path.join(SOURCERERCC_DIR, "tokenizer-input", "src-2", "src.java")
 
@@ -60,6 +59,8 @@ def sourcerercc_are_clones(code_1, code_2):
 
     with open(src_2_dir, "w") as f:
         f.write(code_2)
+        
+    execute_bash_command("./run.sh", dir=SOURCERERCC_DIR)
 
     file_path = os.path.join(SOURCERERCC_DIR, "results.pairs")
 
