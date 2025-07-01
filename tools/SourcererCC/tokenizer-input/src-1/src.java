@@ -12,8 +12,8 @@ public class HelloWorld {
         return a + b;
     }
 
-    public String concatenate(String str1, String str2) {
-        return str1 + str2;
+    public String concatenate(String v, String str2) {
+        return v + str2;
     }
 
 }

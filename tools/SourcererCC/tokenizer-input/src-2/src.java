@@ -5,7 +5,7 @@ public class HelloWorld {
     }
 
     public void greet() {
-        System.out.println("Greeting from the greet method!");
+        System.out.println("Greetings from the greet method!");
     }
 
     public int add(int a, int b) {
@@ -16,9 +16,4 @@ public class HelloWorld {
         return str1 + str2;
     }
 
-
-
-
-    
-
-}   // This is a simple Java class with a main method, a greet method, an add method, and a concatenate method.
+}
