@@ -453,6 +453,9 @@ if __name__ == "__main__":
     print(f"Number of pairs: {len(pairs)}")
     pairs = detect_exact_matches(pairs, patches)
     patches_kept, dropped, cluster_sizes = select_representatives_and_drop(patches, pairs, "Exact")
+    print(f"Cluster sizes: {cluster_sizes}")
+    total_group_size = cluster_sizes['group_size'].sum()
+    print(f"Total number of patches in all clusters: {total_group_size}")
     print(f"Number of patches after dropping exact matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
@@ -476,12 +479,45 @@ if __name__ == "__main__":
 
     print("----------------------------------------------")
     """ Type-1/2 Manual """
-    pairs = get_pairs(patches_kept)
-    print(f"Number of pairs after dropping Type-1 matches: {len(pairs)}")
 
-    """ Manual Labeling """
-    pairs.to_pickle("tmp.pkl")
+    # Load manually labeled pairs
+    # pairs.to_pickle("tmp.pkl")
+    pairs_kept = get_pairs(patches_kept)
+    print(f"Number of pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
+    pairs_kept = pd.read_pickle(os.path.join(TMP_DATA_DIR, "rq1-expert.pkl"))
+    print(f"Number of manually labeled pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
 
+    pairs_kept = pairs_kept.copy()
+    pairs_kept['expert_label'] = pairs_kept['expert_label'].apply(lambda x: "Type-1-2" if x in ["Type-1", "Type-2"] else "-")
+    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
+    
+    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Type-1-2") # patches_kept is remaining representatives
+    dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
+    print(f"Number of patches after dropping Type-1 spacing matches: {len(patches_kept)}")
+    print(f"Number of dropped patches: {len(dropped)}")
+    pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Type-1-2")
+    print(f"Labels propagated to original {len(pairs)} pairs")
+    print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
+    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
+
+    print("----------------------------------------------")
+
+    pairs_kept = get_pairs(patches_kept)
+    print(f"Number of pairs after dropping Type-1-2 matches manually: {len(pairs_kept)}")
+
+    print("----------------------------------------------")
+    """ Ploting """
+
+    ploting_pairs = pairs.copy()
+    ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Type-1', 'Type-1-2', 'Exact'] else "-")
+    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
+    print(f"Cluster sizes: {cluster_sizes}")
+    total_group_size = cluster_sizes['group_size'].sum()
+    print(f"Total number of patches in all clusters: {total_group_size}")
+
+    exit()
+
+    print("----------------------------------------------")
     """ LLM """
     bugs = pd.read_pickle(TMP_BUGS_PKL)
 
