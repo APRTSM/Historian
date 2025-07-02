@@ -443,7 +443,8 @@ def assign_clones_sourcerercc(pairs, tool_patches):
     # Ensure the content is available in tool_patches
     tool_patches['content'] = tool_patches['target_methods'].apply(get_single_hunk_method)
 
-    for index, row in pairs.iterrows():
+    # Add tqdm progress bar for the loop
+    for index, row in tqdm(pairs.iterrows(), total=len(pairs), desc="Detecting SourcererCC clones"):
         uid = row['uid']
         groundtruth_index = row['groundtruth_index']
         
