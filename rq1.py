@@ -440,8 +440,18 @@ def assign_clones_sourcerercc(pairs, tool_patches):
     Returns:
         pairs: DataFrame with updated 'expert_label' column
     """
+    logging.info("Assigning clones using SourcererCC...")
+
+    sourcerercc_labels_dir = os.path.join(TMP_DATA_DIR, "rq1","sourcerercc-clone.pkl")
+
+    if os.path.exists(sourcerercc_labels_dir):
+        logging.info(f"Loading existing SourcererCC labels from {sourcerercc_labels_dir}")
+        pairs = pd.read_pickle(sourcerercc_labels_dir)
+
+        return pairs
+    
     # Ensure the content is available in tool_patches
-    tool_patches['content'] = tool_patches['target_methods'].apply(get_single_hunk_method)
+    tool_patches['content'] = tool_patches.apply(get_single_hunk_method, axis=1)
 
     # Add tqdm progress bar for the loop
     for index, row in tqdm(pairs.iterrows(), total=len(pairs), desc="Detecting SourcererCC clones"):
@@ -459,6 +469,10 @@ def assign_clones_sourcerercc(pairs, tool_patches):
             pairs.at[index, 'expert_label'] = 'SourcererCC-Clone'
         else:
             pairs.at[index, 'expert_label'] = '-'
+
+    # Save the pairs with labels to a file
+    pairs.to_pickle(sourcerercc_labels_dir)
+    logging.info(f"Saved SourcererCC labels to {sourcerercc_labels_dir}")
 
     return pairs
 

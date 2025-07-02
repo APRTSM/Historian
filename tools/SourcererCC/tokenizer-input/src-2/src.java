@@ -1,1 +1,9 @@
-public class A { public static void main(String[] args) { System.out.println("Hello, World!"); } }
+    public Complex add(Complex rhs)
+        throws NullArgumentException {
+        if (isNaN || rhs.isNaN) {
+				return NaN;
+			}
+		MathUtils.checkNotNull(rhs);
+        return createComplex(real + rhs.getReal(),
+            imaginary + rhs.getImaginary());
+    }

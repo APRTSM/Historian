@@ -715,7 +715,6 @@ def get_method(patch: pd.Series, bugs: pd.DataFrame = None):
         source_method_dirs = [os.path.relpath(path, PROJECT_DIR) for path in source_method_dirs]
         target_method_dirs = [os.path.relpath(path, PROJECT_DIR) for path in target_method_dirs]
         return source_method_dirs, target_method_dirs
-    
     os.makedirs(out_put_dir)
     bug = get_dictionary(bugs.loc[patch["bug_uid"]])
     repo_dir = checkout_bug(bug)

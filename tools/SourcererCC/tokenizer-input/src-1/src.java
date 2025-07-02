@@ -1,1 +1,10 @@
-public class A { public static void mai(String[] args) { System.out.println("Hello, World!"); } }
+    public Complex add(Complex rhs)
+        throws NullArgumentException {
+        MathUtils.checkNotNull(rhs);
+		MathUtils.checkNotNull(rhs);
+        if (isNaN || rhs.isNaN) {
+			return NaN;
+		}
+		return createComplex(real + rhs.getReal(),
+            imaginary + rhs.getImaginary());
+    }
