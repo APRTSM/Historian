@@ -429,6 +429,37 @@ def experiment_10(tool_patches, pairs, models, prompts, temperatures, patch_proc
             # Clean up model to free memory
             ollama.generate(model=model["uid"], keep_alive=0)
 
+def assign_clones_sourcerercc(pairs, tool_patches):
+    """
+    Assigns clone labels to pairs using SourcererCC.
+    
+    Args:
+        pairs: DataFrame with pairs of patches
+        tool_patches: DataFrame with tool patches
+    
+    Returns:
+        pairs: DataFrame with updated 'expert_label' column
+    """
+    # Ensure the content is available in tool_patches
+    tool_patches['content'] = tool_patches['target_methods'].apply(get_single_hunk_method)
+
+    for index, row in pairs.iterrows():
+        uid = row['uid']
+        groundtruth_index = row['groundtruth_index']
+        
+        # Get the content of the target method
+        target_method_content = tool_patches.at[uid, 'content']
+        target_method_groundtruth_content = tool_patches.at[groundtruth_index, 'content']
+
+        # Use SourcererCC to check if they are clones
+        are_clones = sourcerercc_are_clones(target_method_content, target_method_groundtruth_content)
+
+        if are_clones:
+            pairs.at[index, 'expert_label'] = 'SourcererCC-Clone'
+        else:
+            pairs.at[index, 'expert_label'] = '-'
+
+    return pairs
 
 if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
@@ -468,32 +499,33 @@ if __name__ == "__main__":
 
     pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
     print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
-    are_clones = sourcerercc_are_clones('public class A { public static void main(String[] args) { System.out.println("Hello, World!"); } }', 'public class A { public static void main(String[] args) { System.out.println("Hello, World!"); } }')
-
-    print(are_clones)
-
-    
-    # pairs_kept = assign_type_1_spacing(pairs_kept, patches_kept)
-    
-
-    exit()
-
-    print("----------------------------------------------")
-    """ Type-1 Spacing """
-
-    # Detect space removed matches and assign labels using target methods (To ease Manual)
-    pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
-    print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
-    pairs_kept = assign_type_1_spacing(pairs_kept, patches_kept)
-    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Type-1") # patches_kept is remaining representatives
+    pairs_kept = assign_clones_sourcerercc(pairs_kept, patches_kept)
+    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "SourcererCC-Clone") # patches_kept is remaining representatives
     dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
-    print(f"Number of patches after dropping Type-1 spacing matches: {len(patches_kept)}")
+    print(f"Number of patches after dropping SourcererCC-Clone matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
 
-    pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Type-1")
+    pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "SourcererCC-Clone")
     print(f"Labels propagated to original {len(pairs)} pairs")
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
-    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
+    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")   
+
+    # print("----------------------------------------------")
+    # """ Type-1 Spacing """
+
+    # # Detect space removed matches and assign labels using target methods (To ease Manual)
+    # pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
+    # print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
+    # pairs_kept = assign_type_1_spacing(pairs_kept, patches_kept)
+    # patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Type-1") # patches_kept is remaining representatives
+    # dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
+    # print(f"Number of patches after dropping Type-1 spacing matches: {len(patches_kept)}")
+    # print(f"Number of dropped patches: {len(dropped)}")
+
+    # pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Type-1")
+    # print(f"Labels propagated to original {len(pairs)} pairs")
+    # print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
+    # print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
 
     print("----------------------------------------------")
     """ Type-1/2 Manual """
