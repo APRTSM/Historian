@@ -616,7 +616,6 @@ if __name__ == "__main__":
     print(f"Total number of patches in all clusters: {total_group_size}")
 
     print("----------------------------------------------")
-    pairs = pairs_kept.copy()
     """ LLM """
     bugs = pd.read_pickle(TMP_BUGS_PKL)
 
@@ -632,7 +631,7 @@ if __name__ == "__main__":
     prompts = [prompt for prompt in prompts if prompt["type"] in ["type", "integrated"]]
 
     # Run Experiment 10
-    experiment_10(patches_kept, pairs, models, prompts, temperatures, patch_processors) 
+    experiment_10(patches, pairs, models, prompts, temperatures, patch_processors) 
 
 
 
