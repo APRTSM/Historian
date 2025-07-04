@@ -615,8 +615,6 @@ if __name__ == "__main__":
     total_group_size = plotting_cluster_sizes['group_size'].sum()
     print(f"Total number of patches in all clusters: {total_group_size}")
 
-    exit()
-
     print("----------------------------------------------")
     """ LLM """
     bugs = pd.read_pickle(TMP_BUGS_PKL)
