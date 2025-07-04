@@ -616,6 +616,7 @@ if __name__ == "__main__":
     print(f"Total number of patches in all clusters: {total_group_size}")
 
     print("----------------------------------------------")
+    pairs = pairs_kept.copy()
     """ LLM """
     bugs = pd.read_pickle(TMP_BUGS_PKL)
 
