@@ -157,14 +157,17 @@ def plot_cluster_sizes(experiment_dfs, experiment_names=None, save_path=None,
 """ Usage"""
 def run_plots_cluster_sizes():
     exact_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
+    sourcerercc_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-sourcerercc-match.pkl"))
     type_1_2 = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
 
     print(exact_match["group_size"].unique())
+    print(sourcerercc_match["group_size"].unique())
     print(type_1_2["group_size"].unique())
     
     experiments = {
         'Exact Match': exact_match,
-        'Type 1 and 2': type_1_2
+        'SourcererCC Match': sourcerercc_match,
+        'Type 1 and 2 Match': type_1_2
     }
     plot_cluster_sizes(experiments, save_path=os.path.join(TMP_PLOTS_DIR, "cluster_sizes_comparison.png"))
 

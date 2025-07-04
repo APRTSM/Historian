@@ -1,9 +1,23 @@
-    public Complex add(Complex rhs)
-        throws NullArgumentException {
-        if (isNaN || rhs.isNaN) {
-				return NaN;
-			}
-		MathUtils.checkNotNull(rhs);
-        return createComplex(real + rhs.getReal(),
-            imaginary + rhs.getImaginary());
+    public static boolean detect_cycle(Node node) {
+        Node hare = node;
+        Node tortoise = node;
+
+        while (true) {
+            if (hare == null) {
+                if ( node.getSuccessor() == null)
+                return false;
+            } else {
+                if (hare.getSuccessor() == null)
+                return false;
+            }
+
+            tortoise = tortoise.getSuccessor();
+            if (hare == null) {
+                return false;
+            }
+            hare = hare.getSuccessor().getSuccessor();
+
+            if (hare == tortoise)
+                return true;
+        }
     }

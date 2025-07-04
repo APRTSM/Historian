@@ -1,10 +1,18 @@
-    public Complex add(Complex rhs)
-        throws NullArgumentException {
-        MathUtils.checkNotNull(rhs);
-		MathUtils.checkNotNull(rhs);
-        if (isNaN || rhs.isNaN) {
-			return NaN;
-		}
-		return createComplex(real + rhs.getReal(),
-            imaginary + rhs.getImaginary());
+    public static boolean detect_cycle(Node node) {
+        Node hare = node;
+        Node tortoise = node;
+
+        while (true) {
+            if (hare == null) {
+                return Boolean.FALSE;
+            }
+            if (hare.getSuccessor() == null)
+                return false;
+
+            tortoise = tortoise.getSuccessor();
+            hare = hare.getSuccessor().getSuccessor();
+
+            if (hare == tortoise)
+                return true;
+        }
     }
