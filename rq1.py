@@ -562,6 +562,7 @@ if __name__ == "__main__":
     # Load manually labeled pairs
     # pairs.to_pickle("tmp.pkl")
     pairs_kept = get_pairs(patches_kept)
+    pairs_manual = pairs_kept.copy()
     print(f"Number of pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
     pairs_kept_expert = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "rq1-expert.pkl"))
     print(f"Number of manually labeled pairs after dropping Type-1 matches automatically: {len(pairs_kept_expert)}")
@@ -631,7 +632,9 @@ if __name__ == "__main__":
     prompts = [prompt for prompt in prompts if prompt["type"] in ["type", "integrated"]]
 
     # Run Experiment 10
-    experiment_10(patches, pairs, models, prompts, temperatures, patch_processors) 
+    experiment_10(patches, pairs_manual, models, prompts, temperatures, patch_processors) 
+
+
 
 
 
