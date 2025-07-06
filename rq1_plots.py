@@ -153,7 +153,6 @@ def plot_cluster_sizes(experiment_dfs, experiment_names=None, save_path=None,
     
     return fig
 
-
 """ Usage"""
 def run_plots_cluster_sizes():
     exact_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
@@ -171,6 +170,241 @@ def run_plots_cluster_sizes():
     }
     plot_cluster_sizes(experiments, save_path=os.path.join(TMP_PLOTS_DIR, "cluster_sizes_comparison.png"))
 
-
 if __name__ == "__main__":
     run_plots_cluster_sizes()
+
+def plot_cluster_size_frequency_bars(experiment_dfs, experiment_names=None, save_path=None, 
+                                   figsize=(15, 5), dpi=300, max_cluster_size=None):
+    """
+    Create 3 separate bar charts showing frequency of cluster sizes for each experiment.
+    
+    Parameters:
+    -----------
+    experiment_dfs : dict or list
+        Dictionary with experiment names as keys and DataFrames as values,
+        or list of DataFrames (will use default names)
+    experiment_names : list, optional
+        List of names for experiments if experiment_dfs is a list
+    save_path : str, optional
+        Path to save the plot (e.g., 'cluster_size_frequency.png')
+    figsize : tuple, default=(15, 5)
+        Figure size (width, height)
+    dpi : int, default=300
+        Resolution for saved figure
+    max_cluster_size : int, optional
+        Maximum cluster size to display (useful for limiting x-axis range)
+    
+    Returns:
+    --------
+    matplotlib.figure.Figure : The created figure object
+    """
+    
+    # Handle input format
+    if isinstance(experiment_dfs, dict):
+        exp_dict = experiment_dfs
+    elif isinstance(experiment_dfs, list):
+        if experiment_names is None:
+            experiment_names = [f'Experiment_{i+1}' for i in range(len(experiment_dfs))]
+        exp_dict = dict(zip(experiment_names, experiment_dfs))
+    else:
+        raise ValueError("experiment_dfs must be a dictionary or list of DataFrames")
+    
+    # Create subplots
+    fig, axes = plt.subplots(1, 3, figsize=figsize, sharey=True)
+    fig.suptitle('Cluster Size Frequency Distribution', fontsize=16, fontweight='bold')
+    
+    # Define colors for consistency
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c']
+    
+    # Create bar chart for each experiment
+    for idx, (exp_name, df) in enumerate(exp_dict.items()):
+        ax = axes[idx]
+        
+        # Calculate frequency of each cluster size
+        cluster_size_counts = df['group_size'].value_counts().sort_index()
+        
+        # Apply max_cluster_size filter if specified
+        if max_cluster_size is not None:
+            cluster_size_counts = cluster_size_counts[cluster_size_counts.index <= max_cluster_size]
+        
+        # Create horizontal bar chart
+        bars = ax.barh(cluster_size_counts.index, cluster_size_counts.values, 
+                      color=colors[idx % len(colors)], alpha=0.7, edgecolor='black', linewidth=0.5)
+        
+        # Customize each subplot
+        ax.set_title(f'{exp_name}', fontsize=12, fontweight='bold')
+        ax.set_ylabel('Cluster Size', fontsize=10)
+        if idx == 0:  # Only label x-axis for the first subplot
+            ax.set_xlabel('Number of Clusters', fontsize=10)
+        
+        # Add value labels on right of bars
+        for bar, count in zip(bars, cluster_size_counts.values):
+            width = bar.get_width()
+            ax.text(width + 0.1, bar.get_y() + bar.get_height()/2.,
+                   f'{int(count)}', ha='left', va='center', fontsize=8)
+        
+        # Remove grid and background
+        ax.grid(False)
+        ax.set_facecolor('white')
+        
+        # Remove top and right spines
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        
+        # Set y-axis to show all cluster sizes
+        ax.set_yticks(cluster_size_counts.index)
+        
+        # Add summary statistics text with number of clusters
+        total_clusters = len(df)
+        mean_size = df['group_size'].mean()
+        median_size = df['group_size'].median()
+        max_size = df['group_size'].max()
+        
+        stats_text = f'Number of clusters: {total_clusters}\nμ: {mean_size:.1f}\nMedian: {median_size:.1f}\nMax: {max_size}'
+        ax.text(0.98, 0.98, stats_text, transform=ax.transAxes, fontsize=8,
+                verticalalignment='top', horizontalalignment='right', bbox=dict(boxstyle='round', facecolor='white', alpha=0.8, edgecolor='none'))
+    
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"Plot saved to: {save_path}")
+    
+    return fig
+
+
+def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, save_path=None, 
+                                     figsize=(6, 8), dpi=300, max_cluster_size=None):
+    """
+    Create a single horizontal bar chart comparing cluster size frequencies across all experiments.
+    
+    Parameters:
+    -----------
+    experiment_dfs : dict or list
+        Dictionary with experiment names as keys and DataFrames as values,
+        or list of DataFrames (will use default names)
+    experiment_names : list, optional
+        List of names for experiments if experiment_dfs is a list
+    save_path : str, optional
+        Path to save the plot (e.g., 'cluster_size_frequency_combined.png')
+    figsize : tuple, default=(12, 8)
+        Figure size (width, height)
+    dpi : int, default=300
+        Resolution for saved figure
+    max_cluster_size : int, optional
+        Maximum cluster size to display (useful for limiting range)
+    
+    Returns:
+    --------
+    matplotlib.figure.Figure : The created figure object
+    """
+    
+    # Handle input format
+    if isinstance(experiment_dfs, dict):
+        exp_dict = experiment_dfs
+    elif isinstance(experiment_dfs, list):
+        if experiment_names is None:
+            experiment_names = [f'Experiment_{i+1}' for i in range(len(experiment_dfs))]
+        exp_dict = dict(zip(experiment_names, experiment_dfs))
+    else:
+        raise ValueError("experiment_dfs must be a dictionary or list of DataFrames")
+    
+    # Get all unique cluster sizes across all experiments
+    all_cluster_sizes = set()
+    for df in exp_dict.values():
+        all_cluster_sizes.update(df['group_size'].unique())
+    
+    if max_cluster_size is not None:
+        all_cluster_sizes = {size for size in all_cluster_sizes if size <= max_cluster_size}
+    
+    all_cluster_sizes = sorted(all_cluster_sizes)
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=figsize)
+    
+    # Calculate bar width and positions
+    n_experiments = len(exp_dict)
+    bar_width = 0.8 / n_experiments
+    
+    # Create bars for each experiment
+    for i, (exp_name, df) in enumerate(exp_dict.items()):
+        cluster_size_counts = df['group_size'].value_counts().sort_index()
+        
+        # Create array of counts for all cluster sizes (0 if not present)
+        counts = [cluster_size_counts.get(size, 0) for size in all_cluster_sizes]
+        
+        # Calculate y positions for this experiment's bars
+        y_positions = [y + i * bar_width for y in range(len(all_cluster_sizes))]
+        
+        # Create horizontal bars
+        bars = ax.barh(y_positions, counts, bar_width, label=exp_name, alpha=0.7)
+        
+        # Add value labels on right of bars (only for non-zero values)
+        for y_pos, count in zip(y_positions, counts):
+            if count > 0:
+                ax.text(count + 0.1, y_pos, f'{int(count)}', ha='left', va='center', fontsize=8)
+    
+    # Customize plot
+    # ax.set_title('Cluster Size Frequency Distribution Comparison', fontsize=14, fontweight='bold')
+    ax.set_xlabel('Number of Clusters', fontsize=12)
+    ax.set_ylabel('Cluster Size', fontsize=12)
+    
+    # Set y-axis labels
+    ax.set_yticks([y + bar_width * (n_experiments - 1) / 2 for y in range(len(all_cluster_sizes))])
+    ax.set_yticklabels(all_cluster_sizes)
+    
+    # Add legend without borders
+    legend = ax.legend(frameon=False)
+    
+    # Remove grid and background
+    ax.grid(False)
+    ax.set_facecolor('white')
+    
+    # Remove top and right spines
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    
+    plt.tight_layout()
+    
+    # Save if path provided
+    if save_path:
+        plt.savefig(save_path, dpi=dpi, bbox_inches='tight')
+        print(f"Plot saved to: {save_path}")
+    
+    return fig
+
+
+
+
+# Usage example function
+def run_plots_cluster_size_frequency():
+    """Example usage of the cluster size frequency plotting functions"""
+    
+    # Load your data (replace with your actual data loading)
+    exact_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
+    sourcerercc_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-sourcerercc-match.pkl"))
+    type_1_2 = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
+    
+    experiments = {
+        'Exact Match': exact_match,
+        'SourcererCC Match': sourcerercc_match,
+        'Type 1 and 2 Match': type_1_2
+    }
+    
+    # Create 3 separate bar charts
+    fig1 = plot_cluster_size_frequency_bars(
+        experiments, 
+        save_path=os.path.join(TMP_PLOTS_DIR, "cluster_size_frequency_separate.png")
+    )
+    
+    # Create combined bar chart
+    fig2 = plot_cluster_size_frequency_single(
+        experiments,
+        save_path=os.path.join(TMP_PLOTS_DIR, "cluster_size_frequency_combined.png")
+    )
+    
+    plt.show()
+
+if __name__ == "__main__":
+    run_plots_cluster_size_frequency()
