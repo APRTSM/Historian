@@ -697,10 +697,10 @@ def fix_patch(patch: pd.Series, bugs: pd.DataFrame) -> str:
 # Returns method
 def get_method(patch: pd.Series, bugs: pd.DataFrame = None):
     patch_uid = patch.name
-    logging.info(f"Getting method of the patch: {patch_uid}")
+    logging.debug(f"Getting method of the patch: {patch_uid}")
     out_put_dir = os.path.join(TMP_METHODS_DIR, patch.name)
     if os.path.exists(out_put_dir):
-        logging.info(f"Methods already exist for the patch: {patch_uid}")
+        logging.debug(f"Methods already exist for the patch: {patch_uid}")
         all_files = os.listdir(out_put_dir)
         # Filter and sort the files for target and source files
         target_files = sorted([f for f in all_files if f.startswith('target-')], key=lambda x: int(x.split('-')[1].split('.')[0]))

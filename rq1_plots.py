@@ -218,11 +218,11 @@ def plot_cluster_size_frequency_bars(experiment_dfs, experiment_names=None, save
         raise ValueError("experiment_dfs must be a dictionary or list of DataFrames")
     
     # Create subplots
-    fig, axes = plt.subplots(1, 3, figsize=figsize, sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=figsize, sharey=True)
     fig.suptitle('Cluster Size Frequency Distribution', fontsize=16, fontweight='bold')
     
     # Define colors for consistency
-    colors = ['#1f77b4', '#ff7f0e', '#2ca02c']
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
     
     # Create bar chart for each experiment
     for idx, (exp_name, df) in enumerate(exp_dict.items()):
@@ -388,12 +388,14 @@ def run_plots_cluster_size_frequency():
     # Load your data (replace with your actual data loading)
     exact_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
     sourcerercc_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-sourcerercc-match.pkl"))
+    matching_clone = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-matching-type-2.pkl"))
     type_1_2 = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
-    
+
     experiments = {
         'Exact Match': exact_match,
-        'SourcererCC Match': sourcerercc_match,
-        'Type 1 and 2 Match': type_1_2
+        'T1 Match': sourcerercc_match,
+        'T2 Match': matching_clone,
+        'Type 1 and 2 Match': type_1_2,
     }
     
     # Create 3 separate bar charts

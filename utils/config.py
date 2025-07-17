@@ -73,6 +73,7 @@ TMP_METHOD_TOOL_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "method-tool-patches.pk
 TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "generator-normalized-developer-patches.pkl")
 TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "generator-normalized-tool-patches.pkl")
 TMP_SINGLE_HUNK_TOOL_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "single-hunk-tool-patches.pkl")
+TMP_SINGLE_HUNK_DEVELOPER_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "single-hunk-developer-patches.pkl")
 TMP_DEDUPLICATED_TOOL_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "deduplicated-tool-patches.pkl")
 TMP_SECOND_DEDUPLICATED_DEVELOPER_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "second-deduplicated-developer-patches.pkl")
 TMP_SECOND_DEDUPLICATED_TOOL_PATHCES_PKL = os.path.join(TMP_DATA_DIR, "second-deduplicated-tool-patches.pkl")
