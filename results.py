@@ -558,64 +558,64 @@ class Experiment2Results:
 
 class Experiment2Evaluator:
     def __init__(self, results: Results):
-        self.results = results
+        # self.results = results
 
-        # Simple Prompts Yes/No (translate yes no to overfitting and correct) Doing Majority Vote, Inverted
-        simple_prompts = [
-            "llm4cc-simple_prompt-semantical",
-            "llm4cc-reasoning-patch-semantical",
-            "llm4cc-similarity_line-patch-semantical",
+        # # Simple Prompts Yes/No (translate yes no to overfitting and correct) Doing Majority Vote, Inverted
+        # simple_prompts = [
+        #     "llm4cc-simple_prompt-semantical",
+        #     "llm4cc-reasoning-patch-semantical",
+        #     "llm4cc-similarity_line-patch-semantical",
 
-            "llm4cc-simple_prompt-identical",
-            "llm4cc-reasoning-patch-identical",
-            "llm4cc-similarity_line-patch-identical",
-        ]
-        simple_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_prompts]
-        self._get_simple_results_table(simple_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        #     "llm4cc-simple_prompt-identical",
+        #     "llm4cc-reasoning-patch-identical",
+        #     "llm4cc-similarity_line-patch-identical",
+        # ]
+        # simple_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_prompts]
+        # self._get_simple_results_table(simple_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
 
-        # Simple Prompts Type Binary (translate type to overfitting and correct) Doing Majority Vote, Inverted
-        type_binary_prompts = [
-            "llm4cc-clone_type",
-            "llm4cc-integrated",
-            "llm4cc-clone_type-patch",
-            "llm4cc-integrated-patch",
-        ]
-        type_binary_results = [result for result in self.results.results if result["prompt"]["uid"] in type_binary_prompts]
-        self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        # # Simple Prompts Type Binary (translate type to overfitting and correct) Doing Majority Vote, Inverted
+        # type_binary_prompts = [
+        #     "llm4cc-clone_type",
+        #     "llm4cc-integrated",
+        #     "llm4cc-clone_type-patch",
+        #     "llm4cc-integrated-patch",
+        # ]
+        # type_binary_results = [result for result in self.results.results if result["prompt"]["uid"] in type_binary_prompts]
+        # self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
 
         # Simple Prompts Type Expert Label (translate type to overfitting and correct) Not Doing Majority Vote
         self._get_type_expert_label_results_table(pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2), pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
 
-        # Simple Prompts Type (clone prompts with type, Not translating to Correct/Overfitting, 4 F1: against expert label) Not Doing Majority Vote
-        type_prompts = [
-            "llm4cc-clone_type",
-            "llm4cc-integrated",
-            "llm4cc-clone_type-patch",
-            "llm4cc-integrated-patch",
-        ]
-        type_results = [result for result in self.results.results if result["prompt"]["uid"] in type_prompts]
-        self._get_type_results_table(type_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2))
+        # # Simple Prompts Type (clone prompts with type, Not translating to Correct/Overfitting, 4 F1: against expert label) Not Doing Majority Vote
+        # type_prompts = [
+        #     "llm4cc-clone_type",
+        #     "llm4cc-integrated",
+        #     "llm4cc-clone_type-patch",
+        #     "llm4cc-integrated-patch",
+        # ]
+        # type_results = [result for result in self.results.results if result["prompt"]["uid"] in type_prompts]
+        # self._get_type_results_table(type_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2))
 
-        # Simple Prompts Yes/No (translate yes no (clone version) to overfitting and correct)) Not Doing Majority Vote
-        if "method" in [processor["uid"] for processor in results.patch_processors]:
-            simple_clone_prompts = [
-                "llm4cc-simple_prompt",
-                "llm4cc-reasoning",
-                "llm4cc-similarity_line",
-            ]
+        # # Simple Prompts Yes/No (translate yes no (clone version) to overfitting and correct)) Not Doing Majority Vote
+        # if "method" in [processor["uid"] for processor in results.patch_processors]:
+        #     simple_clone_prompts = [
+        #         "llm4cc-simple_prompt",
+        #         "llm4cc-reasoning",
+        #         "llm4cc-similarity_line",
+        #     ]
         
-        elif "defaultpatch" in [processor["uid"] for processor in results.patch_processors]:
-            simple_clone_prompts = [
-                "llm4cc-simple_prompt-patch",
-                "llm4cc-reasoning-patch",
-                "llm4cc-similarity_line-patch",
-            ]
+        # elif "defaultpatch" in [processor["uid"] for processor in results.patch_processors]:
+        #     simple_clone_prompts = [
+        #         "llm4cc-simple_prompt-patch",
+        #         "llm4cc-reasoning-patch",
+        #         "llm4cc-similarity_line-patch",
+        #     ]
 
-        else:
-            simple_clone_prompts = []
+        # else:
+        #     simple_clone_prompts = []
             
-        simple_clone_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_clone_prompts]
-        self._get_simple_clone_results_table(simple_clone_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        # simple_clone_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_clone_prompts]
+        # self._get_simple_clone_results_table(simple_clone_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
 
 
     def _translate_simple_label_to_binary(self, groundtruth_correctness, label): #
@@ -819,11 +819,14 @@ class Experiment2Evaluator:
     def _get_type_expert_label_results_table(self, exper_label, ground_truth): #
         f1, support, total, tp, fp, tn, fn = self._get_f1_type_binary_exper_label(exper_label, ground_truth)
 
+        print(exper_label)
+        print(ground_truth)
+
         table_data = {
             "Model": ["Expert"],
             "F1": f1,
             "Support": support,
-            "Tool": total,
+            "Total": total,
             "TP": tp,
             "FP": fp,
             "TN": tn,
@@ -966,6 +969,7 @@ class Experiment2Evaluator:
         table = pd.DataFrame(table_data)
 
         table.to_csv(TMP_SIMPLE_CLONE_RESULTS_CSV_EXP2)
+
 
 def report_exp7():
     # Report the results of experiment 7
@@ -1500,8 +1504,6 @@ def create_dot_plot_identical_patches_v2(deduplicated_patches):
     logging.info(f"Total dots plotted: {total_dots}")
     logging.info(f"Group size distribution: {dict(group_size_stats)}")
     logging.info(f"Total unique groups: {sum(group_size_stats.values())}")
-
-
 
 
 def create_dot_plot_identical_patches_v3(deduplicated_patches):
@@ -2100,8 +2102,17 @@ def analyze_group_patterns(deduplicated_patches):
 
 
 if __name__ == "__main__":
-    logging.info("Counting identical groups in correct patches 1-Deduplicated and tool generated ...") 
-    deduplicated_patches, dropped = count_identical_in_pairs() # Deduplicated with, and Keep Presentatives
+
+
+    results = Results()
+    evaluator = Experiment2Evaluator(results)
+
+
+
+
+
+    # logging.info("Counting identical groups in correct patches 1-Deduplicated and tool generated ...") 
+    # deduplicated_patches, dropped = count_identical_in_pairs() # Deduplicated with, and Keep Presentatives
 
     # # If you ant to EXPLORE DROPPED PATCHES UNCOMMENT THIS
     # dropped = dropped[dropped["reason_dropped"] == "duplicate_content"]
@@ -2111,20 +2122,20 @@ if __name__ == "__main__":
     # # sort by bug_uid
     # deduplicated_patches.sort_values(by='bug_uid', inplace=True)
 
-    pairs = get_pairs(deduplicated_patches) # Use function from build.py
+    # pairs = get_pairs(deduplicated_patches) # Use function from build.py
 
 
-    create_dot_plot_identical_patches(deduplicated_patches)
-    create_dot_plot_identical_patches_v2(deduplicated_patches)
-    create_dot_plot_identical_patches_v3(deduplicated_patches)
-    plot_group_count_distribution(deduplicated_patches, get_group_count_distribution(deduplicated_patches), save_path=os.path.join(TMP_PLOTS_DIR, 'group_count_distribution.png'))
+    # create_dot_plot_identical_patches(deduplicated_patches)
+    # create_dot_plot_identical_patches_v2(deduplicated_patches)
+    # create_dot_plot_identical_patches_v3(deduplicated_patches)
+    # plot_group_count_distribution(deduplicated_patches, get_group_count_distribution(deduplicated_patches), save_path=os.path.join(TMP_PLOTS_DIR, 'group_count_distribution.png'))
 
-    # Detailed analysis
-    groups_dist, groups_per_bug = create_groups_distribution_plot(deduplicated_patches)
+    # # Detailed analysis
+    # groups_dist, groups_per_bug = create_groups_distribution_plot(deduplicated_patches)
 
-    bug_analysis = create_detailed_groups_analysis(deduplicated_patches)
-    distribution = get_group_count_distribution(deduplicated_patches)
-    analyze_group_patterns(deduplicated_patches)
+    # bug_analysis = create_detailed_groups_analysis(deduplicated_patches)
+    # distribution = get_group_count_distribution(deduplicated_patches)
+    # analyze_group_patterns(deduplicated_patches)
 
     # logging.info("Experiment #1 is done. Running results.py ...")
     # results = Results()

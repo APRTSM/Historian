@@ -1,0 +1,12 @@
+---origianl--- mock.TestClass <7, 7>
+return Boolean.FALSE;
+
+---origianl--- mock.TestClass2 <7, 7>
+if (node.getSuccessor() == null) return false;
+
+---afterMatch-type0--- mock.TestClass2 <7, 7>
+if (Node.getSuccessor() == null) return false;
+
+---afterMatch-type1--- mock.TestClass2 <7, 7>
+if (Node.getSuccessor() == null) return false;
+

@@ -1,11 +1,20 @@
 public class TestClass2 {
-    public Paint getPaint(double value) {
-    double v = Math.max(value, this.lowerBound);
-    v = Math.min(v, this.upperBound);
-    if ((v == value) == false) {
-        value = v;
+    public static boolean detect_cycle(Node node) {
+    Node hare = node;
+    Node tortoise = node;
+    while (true) {
+        if (hare == null) {
+            if (node.getSuccessor() == null) return false;
+        }
+        else {
+            if (hare.getSuccessor() == null) return false;
+        }
+        tortoise = tortoise.getSuccessor();
+        if (hare == null) {
+            return false;
+        }
+        hare = hare.getSuccessor().getSuccessor();
+        if (hare == tortoise) return true;
     }
-    int g = (int) ((value - this.lowerBound) / (this.upperBound - this.lowerBound) * 1);
-    return new Color(g, g, g);
 }
 }
