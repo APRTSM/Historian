@@ -842,7 +842,7 @@ if __name__=="__main__":
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
     # print(cleaned_tool_patches)
 
-    # Deduplicating Same bug, same tool, same content (Now looks for Methods)
+    # Deduplicating Same bug, same tool, same content (Now looks for Methods), Last step for Tool Patches
     cleaned_tool_patches = deduplicate_patches(cleaned_tool_patches)
     # print(cleaned_tool_patches)
 
