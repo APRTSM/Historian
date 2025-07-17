@@ -1,0 +1,6 @@
+---patch code 0--- mock.TestClass <8, 8>
+String StringVar = "";
+
+---fix ingredient(SameFile)  varMapType:0--- mock.TestClass2 <8, 8>
+String StringVar = "";
+

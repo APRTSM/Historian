@@ -79,3 +79,6 @@ Add `ID2commit` to bugsjar
 
 `SKIP = False` in `benchmark.py`
 Patches that need manual correction
+
+
+_format_java_with_google_formatter set java paths

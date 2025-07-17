@@ -153,6 +153,14 @@ def plot_cluster_sizes(experiment_dfs, experiment_names=None, save_path=None,
     
     return fig
 
+
+
+
+
+
+
+
+
 """ Usage"""
 def run_plots_cluster_sizes():
     exact_match = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
@@ -273,9 +281,8 @@ def plot_cluster_size_frequency_bars(experiment_dfs, experiment_names=None, save
     
     return fig
 
-
 def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, save_path=None, 
-                                     figsize=(6, 8), dpi=300, max_cluster_size=None):
+                                     figsize=(7, 8), dpi=300, max_cluster_size=None):
     """
     Create a single horizontal bar chart comparing cluster size frequencies across all experiments.
     
@@ -355,7 +362,7 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
     ax.set_yticklabels(all_cluster_sizes)
     
     # Add legend without borders
-    legend = ax.legend(frameon=False)
+    legend = ax.legend(frameon=False, bbox_to_anchor=(0.95, 0.95))
     
     # Remove grid and background
     ax.grid(False)
@@ -373,9 +380,6 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
         print(f"Plot saved to: {save_path}")
     
     return fig
-
-
-
 
 # Usage example function
 def run_plots_cluster_size_frequency():
