@@ -44,8 +44,10 @@ def get_clone_type(code_1, code_2):
     
     for line_number in range(3, max_lines):
         type = get_varmap_type(code_1, code_2, line_number, line_number)
-        # if type == -1:
-        #     return -1
+
+        if type == -1:
+            return -1
+        
         match_list.append(type)
         # print(f"Line {line_number}: {type}, Line: {code_1_lines[line_number - 2].strip()}")
     
