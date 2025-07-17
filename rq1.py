@@ -477,39 +477,56 @@ def assign_clones_sourcerercc(pairs, tool_patches):
 
     return pairs
 
+def assign_matching_clone(pairs, tool_patches):
+    """
+    Assigns clone labels to pairs using Matching.
+    
+    Args:
+        pairs: DataFrame with pairs of patches
+        tool_patches: DataFrame with tool patches
+    
+    Returns:
+        pairs: DataFrame with updated 'expert_label' column
+    """
+    logging.info("Assigning clones using Matching...")
+
+    matching_labels_dir = os.path.join(TMP_DATA_DIR, "rq1", "matching-clone.pkl")
+
+    if os.path.exists(matching_labels_dir):
+        logging.info(f"Loading existing Matching labels from {matching_labels_dir}")
+        pairs = pd.read_pickle(matching_labels_dir)
+
+        return pairs
+
+    # Ensure the content is available in tool_patches
+    tool_patches['content'] = tool_patches.apply(get_single_hunk_method, axis=1)
+
+    # Add tqdm progress bar for the loop
+    for index, row in tqdm(pairs.iterrows(), total=len(pairs), desc="Detecting Matching clones"):
+        uid = row['uid']
+        groundtruth_index = row['groundtruth_index']
+        
+        # Get the content of the target method
+        target_method_content = tool_patches.at[uid, 'content']
+        target_method_groundtruth_content = tool_patches.at[groundtruth_index, 'content']
+
+        # Use Matching to check if they are clones
+        are_clones = matching_are_clones(target_method_content, target_method_groundtruth_content)
+
+        if are_clones == 0:
+            pairs.at[index, 'expert_label'] = 'Matching-Type-2'
+        # elif are_clones == 1:
+        #     pairs.at[index, 'expert_label'] = 'Matching-Type-1'
+        else:
+            pairs.at[index, 'expert_label'] = '-'
+
+    # Save the pairs with labels to a file
+    pairs.to_pickle(matching_labels_dir)
+    logging.info(f"Saved Matching labels to {matching_labels_dir}")
+
+    return pairs
+
 if __name__ == "__main__":
-    code_1 = """public void method() {
-            String str = "test";
-            List list = new ArrayList();
-
-            // s
-            
-
-            String item = "test";String itemm = "test"; List.add(item);
-            String item2 = "test";
-        }
-    """
-    
-    code_2 = """public void method2() {
-            String str = "test";
-
-            List myList = new ArrayList();
-            String itemm = "test";
-            String item = "test";
-            List.add(itemm);
-            String item = "test";
-        }
-    """
-    type = matching_are_clones(code_1, code_2)
-    print(f"Clone type: {type}")
-
-
-    
-    raise
-
-
-
-
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
@@ -543,7 +560,7 @@ if __name__ == "__main__":
     print("----------------------------------------------")
     """ Ploting """
     ploting_pairs = pairs.copy() # THE RESULT OF EACH ASSIGNMENT IS TO PROPAGATE TO THE ACTUAL PAIRS, WE HAVE TO MERGE DROPS AFTER 
-    ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x == 'Exact' else "-")
+    ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x == "Exact" else "-")
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
     plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
     print(plotting_cluster_sizes)
@@ -570,6 +587,30 @@ if __name__ == "__main__":
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Exact', 'SourcererCC-Clone'] else "-")
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
     plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-sourcerercc-match.pkl"))
+    print(plotting_cluster_sizes)
+
+    print("----------------------------------------------")
+    """ Matching """
+
+    pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
+    print(f"Number of pairs after dropping SourcererCC-Clone matches: {len(pairs_kept)}")
+    pairs_kept = assign_matching_clone(pairs_kept, patches_kept)
+    patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Matching-Type-2") # patches_kept is remaining representatives
+    dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
+    print(f"Number of patches after dropping Matching-Type-2 matches: {len(patches_kept)}")
+    print(f"Number of dropped patches: {len(dropped)}")
+
+    pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Matching-Type-2")
+    print(f"Labels propagated to original {len(pairs)} pairs")
+    print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
+    print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
+
+    print("----------------------------------------------")
+    """ Ploting """
+    ploting_pairs = pairs.copy()
+    ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Exact', 'SourcererCC-Clone', 'Matching-Type-2'] else "-")
+    _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
+    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-matching-type-2.pkl"))
     print(plotting_cluster_sizes)
 
     # print("----------------------------------------------")
