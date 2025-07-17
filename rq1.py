@@ -13,6 +13,7 @@ from utils.tool import *
 from utils.dataset import *
 from build import get_patch_processors, get_tool_settings, apply_params, parse_args
 
+
 def detect_exact_matches(pairs, tool_patche):
     tool_patches['content'] = tool_patches['target_methods'].apply(lambda x: read_file(x[0]))
 
@@ -477,6 +478,38 @@ def assign_clones_sourcerercc(pairs, tool_patches):
     return pairs
 
 if __name__ == "__main__":
+    code_1 = """public void method() {
+            String str = "test";
+            List list = new ArrayList();
+
+            // s
+            
+
+            String item = "test";String itemm = "test"; List.add(item);
+            String item2 = "test";
+        }
+    """
+    
+    code_2 = """public void method2() {
+            String str = "test";
+
+            List myList = new ArrayList();
+            String itemm = "test";
+            String item = "test";
+            List.add(itemm);
+            String item = "test";
+        }
+    """
+    type = matching_are_clones(code_1, code_2)
+    print(f"Clone type: {type}")
+
+
+    
+    raise
+
+
+
+
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)

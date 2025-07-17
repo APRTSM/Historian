@@ -1,12 +1,12 @@
 ---origianl--- mock.TestClass <8, 8>
-String item2 = "";
+String item2 = test;
 
 ---afterMatch-type0--- mock.TestClass <8, 8>
-String StringVar = "";
+String StringVar = test;
 
 ---origianl--- mock.TestClass2 <8, 8>
-String item = "";
+String item = test;
 
 ---afterMatch-type0--- mock.TestClass2 <8, 8>
-String StringVar = "";
+String StringVar = test;
 

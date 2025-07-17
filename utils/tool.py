@@ -69,3 +69,11 @@ def sourcerercc_are_clones(code_1, code_2):
     
     else:
         return True
+    
+
+""" Matching """
+def matching_are_clones(code_1, code_2):
+    # Implement the matching logic here
+    output, _ = execute_bash_command(f'python wrapper.py -c1 "{code_1}" -c2 "{code_2}"', dir=MATCHING_DIR, error_allowed=True)
+
+    return int(output)

@@ -1,10 +1,10 @@
 public class TestClass2 {
     public void method2() {
-    String str = "";
+    String str = test;
     List myList = new ArrayList();
-    String itemm = "";
-    String item = "";
+    String itemm = test;
+    String item = test;
     List.add(itemm);
-    String item = "";
+    String item = test;
 }
 }

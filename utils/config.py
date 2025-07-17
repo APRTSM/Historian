@@ -32,6 +32,7 @@ OLLAMA_PROMPTS_JSON =  os.path.join(OLLAMA_DIR, "prompts.json")
 OLLAMA_MODELS_JSON = os.path.join(OLLAMA_DIR, "models.json")
 OLLAMA_TEMPERATURES_JSON = os.path.join(OLLAMA_DIR, "temperatures.json")
 SOURCERERCC_DIR = os.path.join(TOOLS_DIR, "SourcererCC")
+MATCHING_DIR = os.path.join(TOOLS_DIR, "matching")
 
 # SETTINGS
 SETTINGS_FILE = os.path.join(PROJECT_DIR, "settings.xml")
