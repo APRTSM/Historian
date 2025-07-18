@@ -433,6 +433,7 @@ class Experiment2Results:
         self.temperatures = temperatures
         self.input_developer_patches = cleaned_developer_patches
         self.input_tool_patches = cleaned_tool_patches
+        self.all_tool_patches = tool_patches
         self.selected_tool = selected_tool
         self.selected_tool_patches = self.input_tool_patches[self.input_tool_patches["generator_id"].str.lower().str.contains(self.selected_tool)]
         self.no_selected_tool_patches = len(self.selected_tool_patches)
@@ -584,7 +585,7 @@ class Experiment2Evaluator:
         # self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
 
         # Simple Prompts Type Expert Label (translate type to overfitting and correct) Not Doing Majority Vote
-        self._get_type_expert_label_results_table(pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2), pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        self._get_type_expert_label_results_table(pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2), pd.concat((results.input_developer_patches, results.all_tool_patches), axis=0))
 
         # # Simple Prompts Type (clone prompts with type, Not translating to Correct/Overfitting, 4 F1: against expert label) Not Doing Majority Vote
         # type_prompts = [
@@ -792,8 +793,17 @@ class Experiment2Evaluator:
     def _get_f1_type_binary_exper_label(self, exper_label, ground_truth): #
         exper_label = exper_label.copy()
 
+        # Deduplicate ground_truth with same index
+        ground_truth = ground_truth.loc[~ground_truth.index.duplicated(keep='first')]
+
         exper_label["groundtruth_correctness"] = ground_truth.loc[exper_label["groundtruth_index"]]["correctness"].values
         exper_label["predicted_binary_label"] = exper_label.apply(lambda x: self._translate_type_label_to_binary(x["groundtruth_correctness"], x["expert_label"]), axis=1)
+
+        majority_labels = majority_vote_labels(exper_label, label_column="predicted_binary_label", id_column="uid")
+
+        # Check exp7 branch for numbers 139 TBar is 40/99
+        with open(TMP_TYPE_BINARY_VOTED_EXPER_LABEL_RESULTS_EXP2, "w") as f:
+            f.write(str(majority_labels.value_counts()))
 
         exper_label["selected_correctness"] = ground_truth.loc[exper_label["uid"]]["correctness"].values
 
@@ -818,9 +828,6 @@ class Experiment2Evaluator:
 
     def _get_type_expert_label_results_table(self, exper_label, ground_truth): #
         f1, support, total, tp, fp, tn, fn = self._get_f1_type_binary_exper_label(exper_label, ground_truth)
-
-        print(exper_label)
-        print(ground_truth)
 
         table_data = {
             "Model": ["Expert"],
@@ -2104,10 +2111,6 @@ def analyze_group_patterns(deduplicated_patches):
 if __name__ == "__main__":
 
 
-    results = Results()
-    evaluator = Experiment2Evaluator(results)
-
-
 
 
 
@@ -2144,34 +2147,34 @@ if __name__ == "__main__":
     # evaluator = Evaluator(results)
     # Plotter = Plotter()
 
-    # logging.info("Experiment #2 is done. Running results.py ...")
-    # input_models = [
-    #     "magicoder:7b-s-cl",
-    #     "codellama:7b-instruct",
-    #     "codellama:13b-instruct",
-    #     "deepseek-coder:6.7b",
-    #     "codegemma:7b-instruct",
-    #     "qwen2.5:7b",
-    #     "qwen2.5-coder:7b",
-    #     "yi-coder:9b",
-    #     "hermes3:8b"
-    # ]
+    logging.info("Experiment #2 is done. Running results.py ...")
+    input_models = [
+        "magicoder:7b-s-cl",
+        "codellama:7b-instruct",
+        "codellama:13b-instruct",
+        "deepseek-coder:6.7b",
+        "codegemma:7b-instruct",
+        "qwen2.5:7b",
+        "qwen2.5-coder:7b",
+        "yi-coder:9b",
+        "hermes3:8b"
+    ]
 
-    # input_prompts = [
-    #     "llm4cc-clone_type",
-    #     "llm4cc-integrated",
-    #     "llm4cc-simple_prompt-semantical",
-    #     "llm4cc-reasoning-patch-semantical",
-    #     "llm4cc-similarity_line-patch-semantical",
-    #     "llm4cc-simple_prompt-identical",
-    #     "llm4cc-reasoning-patch-identical",
-    #     "llm4cc-similarity_line-patch-identical"
-    # ]
+    input_prompts = [
+        "llm4cc-clone_type",
+        "llm4cc-integrated",
+        "llm4cc-simple_prompt-semantical",
+        "llm4cc-reasoning-patch-semantical",
+        "llm4cc-similarity_line-patch-semantical",
+        "llm4cc-simple_prompt-identical",
+        "llm4cc-reasoning-patch-identical",
+        "llm4cc-similarity_line-patch-identical"
+    ]
 
-    # results = Experiment2Results(selected_tool="tbar", input_processors=["method"], input_models=input_models, input_prompts=input_prompts)
-    # results.classify(labels=["yes", "no"])
-    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    # evaluator = Experiment2Evaluator(results)
+    results = Experiment2Results(selected_tool="tbar", input_processors=["method"], input_models=input_models, input_prompts=input_prompts)
+    results.classify(labels=["yes", "no"])
+    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    evaluator = Experiment2Evaluator(results)
 
     # input_prompts = [
     #     "llm4cc-clone_type-patch",

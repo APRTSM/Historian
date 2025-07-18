@@ -1,2 +1,2 @@
-,Model,F1,Support,Tool,TP,FP,TN,FN
+,Model,F1,Support,Total,TP,FP,TN,FN
 0,Expert,0.9340277777777778,572,4248,269,6,265,32
