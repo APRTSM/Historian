@@ -393,9 +393,9 @@ def run_plots_cluster_size_frequency():
 
     experiments = {
         'Exact Match': exact_match,
-        'T1 Match': sourcerercc_match,
-        'T2 Match': matching_clone,
-        'Type 1 and 2 Match': type_1_2,
+        'Token-Based Matching': sourcerercc_match,
+        'AST-Based Matching': matching_clone,
+        'Manual Assessment': type_1_2,
     }
     
     # Create 3 separate bar charts
