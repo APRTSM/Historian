@@ -59,11 +59,11 @@ def _normalize_strings_and_numbers(code):
     code = re.sub(r'"([^"\\]|\\.)*"', '""', code)
     code = re.sub(r"'([^'\\]|\\.)*'", "''", code)
     
-    # Replace all numeric literals (integers, floats, hex, etc.)
-    code = re.sub(r'\b\d+\.?\d*[fFdDlL]?\b', '1', code)
-    code = re.sub(r'\b0[xX][0-9a-fA-F]+[lL]?\b', '1', code)  # hex numbers
-    code = re.sub(r'\b0[bB][01]+[lL]?\b', '1', code)  # binary numbers
-    code = re.sub(r'\b0[0-7]+[lL]?\b', '1', code)  # octal numbers
+    # Replace all numeric literals (integers, floats, hex, etc.) including negative numbers
+    code = re.sub(r'-?\b\d+\.?\d*[fFdDlL]?\b', '1', code)
+    code = re.sub(r'-?\b0[xX][0-9a-fA-F]+[lL]?\b', '1', code)  # hex numbers
+    code = re.sub(r'-?\b0[bB][01]+[lL]?\b', '1', code)  # binary numbers
+    code = re.sub(r'-?\b0[0-7]+[lL]?\b', '1', code)  # octal numbers
     
     return code
 
@@ -167,7 +167,9 @@ if __name__ == "__main__":
             * with a method that demonstrates formatting.
             */
         public void testMethod(){ // This is a single-line comment 
-            int x=5;if(x>0){System.out.println("Positive");} else{System.out.println("Non-positive");}
+            int x=5;if(x>0){System.out.println("Positive");} else{System.out.println("Non-
+
+            positive");}
             if(x>10)
 
 
@@ -176,7 +178,12 @@ if __name__ == "__main__":
             */
         else
         {System.out.println("Small or equal to 10");}
-        String a="hello";String b="world";System.out.println(a+b);;
+
+        int index = -1;
+
+
+        
+        String a="hello";String b="world";System.out.println(a+b );;
         }
         }
     """

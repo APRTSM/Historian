@@ -74,7 +74,20 @@ def sourcerercc_are_clones(code_1, code_2):
 """ Matching """
 def matching_are_clones(code_1, code_2):
     # Implement the matching logic here
-    output, _ = execute_bash_command(f'python wrapper.py -c1 "{code_1}" -c2 "{code_2}"', dir=MATCHING_DIR, error_allowed=True)
+    code_1_dir = os.path.join(TMP_DIR, "code_1.java")
+    code_2_dir = os.path.join(TMP_DIR, "code_2.java")
+
+    with open(code_1_dir, "w") as f:
+        f.write(code_1)
+    with open(code_2_dir, "w") as f:
+        f.write(code_2)
+
+    command = f'python wrapper.py -f1 "{code_1_dir}" -f2 "{code_2_dir}"'
+    output, _ = execute_bash_command(command, dir=MATCHING_DIR, error_allowed=True)
+
+    # Remove the files
+    os.remove(code_1_dir)
+    os.remove(code_2_dir)
 
     try:
         output = int(output)

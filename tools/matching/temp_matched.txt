@@ -1,4 +1,4 @@
----origianl--- mock.TestClass <63, 63>
+---patch code ori--- mock.TestClass <63, 63>
 for (Node c = n.getLastChild();
     c != null;
     c = n.getLastChild()) {
@@ -8,7 +8,17 @@ for (Node c = n.getLastChild();
         }
     }
 
----afterMatch-type0--- mock.TestClass <63, 63>
+---fix ingredient(SameMethod)  varMapType:ori--- mock.TestClass2 <63, 63>
+for (Node c = n.getLastChild();
+    c != null;
+    c = n.getLastChild()) {
+        tryMinimizeExits(c, exitType, labelName);
+        if (c == n.getLastChild()) {
+            break;
+        }
+    }
+
+---patch code 0--- mock.TestClass <63, 63>
 for (Node Node = Node.getLastChild();
     Node != null;
     Node = Node.getLastChild()) {
@@ -18,7 +28,17 @@ for (Node Node = Node.getLastChild();
         }
     }
 
----afterMatch-type1--- mock.TestClass <63, 63>
+---fix ingredient(SameMethod)  varMapType:0--- mock.TestClass2 <63, 63>
+for (Node Node = Node.getLastChild();
+    Node != null;
+    Node = Node.getLastChild()) {
+        tryMinimizeExits(Node, intVar, StringVar);
+        if (Node == Node.getLastChild()) {
+            break;
+        }
+    }
+
+---patch code 1--- mock.TestClass <63, 63>
 for (Node Node = Node.getLastChild();
     Node != null;
     Node = Node.getLastChild()) {
@@ -28,27 +48,7 @@ for (Node Node = Node.getLastChild();
         }
     }
 
----origianl--- mock.TestClass2 <63, 63>
-for (Node c = n.getLastChild();
-    c != null;
-    c = n.getLastChild()) {
-        tryMinimizeExits(c, exitType, labelName);
-        if (c == n.getLastChild()) {
-            break;
-        }
-    }
-
----afterMatch-type0--- mock.TestClass2 <63, 63>
-for (Node Node = Node.getLastChild();
-    Node != null;
-    Node = Node.getLastChild()) {
-        tryMinimizeExits(Node, intVar, StringVar);
-        if (Node == Node.getLastChild()) {
-            break;
-        }
-    }
-
----afterMatch-type1--- mock.TestClass2 <63, 63>
+---fix ingredient(SameMethod)  varMapType:1--- mock.TestClass2 <63, 63>
 for (Node Node = Node.getLastChild();
     Node != null;
     Node = Node.getLastChild()) {

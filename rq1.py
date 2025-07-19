@@ -514,11 +514,12 @@ def assign_matching_clone(pairs, tool_patches):
         are_clones = matching_are_clones(target_method_content, target_method_groundtruth_content)
 
         if are_clones == 0:
+            print(f"Pair {index} is not a clone using Matching!!! uid: {uid}, groundtruth_index: {groundtruth_index}")
             pairs.at[index, 'expert_label'] = 'Matching-Type-2'
         # elif are_clones == 1:
         #     pairs.at[index, 'expert_label'] = 'Matching-Type-1'
-        else:
-            pairs.at[index, 'expert_label'] = '-'
+        # else:
+        #     pairs.at[index, 'expert_label'] = '-'
 
     # Save the pairs with labels to a file
     pairs.to_pickle(matching_labels_dir)
@@ -594,6 +595,26 @@ if __name__ == "__main__":
 
     pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
     print(f"Number of pairs after dropping SourcererCC-Clone matches: {len(pairs_kept)}")
+
+    # print("="* 50)
+    # # in pairs_kept I want to see if there is a row with uid 3 and groundtruth_index of 2 or vice versa
+    # a = "dl4pc2-defects4j-Closure-126-RSRepair-7"
+    # b = "dl4pc2-defects4j-Closure-126-RSRepair-6"
+    # content_a = read_file(patches.loc[a]["target_methods"][0])
+    # content_b = read_file(patches.loc[b]["target_methods"][0])
+    # print(content_a)
+    # print("="* 50)
+    # print(content_b)
+    # print("="* 50)
+    # print(matching_are_clones(content_a, content_b))
+    # print("="* 50)
+    # if not pairs_kept[(pairs_kept['uid'] == a) & (pairs_kept['groundtruth_index'] == b)].empty or not pairs_kept[(pairs_kept['uid'] == b) & (pairs_kept['groundtruth_index'] == a)].empty:
+    #     print("Found matching row!!!!:")
+    #     print(pairs_kept[(pairs_kept['uid'] == a) & (pairs_kept['groundtruth_index'] == b)])
+    # else:
+    #     print("No matching row found.")
+    # print("="* 50)
+
     pairs_kept = assign_matching_clone(pairs_kept, patches_kept)
     patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Matching-Type-2") # patches_kept is remaining representatives
     dropped = merge_dropped_dataframes(dropped, new_dropped) # Merge drops to get the full map dropped is the map
