@@ -71,14 +71,3 @@ This will save the classified responses in `tmp/results/classified/` and generat
 Experiments are implemented as functions or classes in `results.py`, and the function calls in `build.py` are commented out. To run a specific experiment, please uncomment the corresponding function call.
 
 
-## TMP
-
-Add `ID2commit` to bugsjar
-`Defects4J v.2.0.1`
-`get_methods` and after locations are dependant.
-
-`SKIP = False` in `benchmark.py`
-Patches that need manual correction
-
-
-_format_java_with_google_formatter set java paths
