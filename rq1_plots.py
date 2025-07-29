@@ -6,6 +6,7 @@ import numpy as np
 from pathlib import Path
 from utils.config import TMP_RQ1_DATA_DIR, TMP_PLOTS_DIR
 import os
+from utils.config import TMP_DEDUPLICATED_TOOL_PATHCES_PKL, TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL, TMP_BUGS_PKL
 
 
 def plot_cluster_sizes(experiment_dfs, experiment_names=None, save_path=None, 
@@ -177,9 +178,6 @@ def run_plots_cluster_sizes():
         'Type 1 and 2 Match': type_1_2
     }
     plot_cluster_sizes(experiments, save_path=os.path.join(TMP_PLOTS_DIR, "cluster_sizes_comparison.png"))
-
-if __name__ == "__main__":
-    run_plots_cluster_sizes()
 
 def plot_cluster_size_frequency_bars(experiment_dfs, experiment_names=None, save_path=None, 
                                    figsize=(15, 5), dpi=300, max_cluster_size=None):
@@ -412,5 +410,37 @@ def run_plots_cluster_size_frequency():
     
     plt.show()
 
+def run_bug_number():
+    # Load your data (replace with your actual data loading)
+    last_match_only_pairs = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "last-match-only-pairs.pkl"))
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+
+    # Add "bug_uid" column to last_match_only_pairs. first get uid column of last_match_only_pairs
+    # Then match with index column of tool_patches and add the bug_uid column to last_match_only_pairs from tool_patches
+    last_match_only_pairs = last_match_only_pairs.merge(tool_patches[['bug_uid']], left_on='uid', right_index=True, how='left')
+    
+    # get unique bug_uids
+    unique_bug_uids = last_match_only_pairs['bug_uid'].unique()
+    print(f"Number of unique bugs: {len(unique_bug_uids)}")
+
+    pairs_not_matching = last_match_only_pairs[last_match_only_pairs['expert_label'] != 'Match']
+    print(f"Number of pairs not matching: {len(pairs_not_matching)}")
+    unique_bug_uids_not_matching = pairs_not_matching['bug_uid'].unique()
+    print(len(unique_bug_uids_not_matching))
+
+    pairs_matching = last_match_only_pairs[last_match_only_pairs['expert_label'] == 'Match']
+    print(f"Number of pairs matching: {len(pairs_matching)}")
+    unique_bug_uids_matching = pairs_matching['bug_uid'].unique()
+    print(len(unique_bug_uids_matching))
+
+    # Bugs that are in unique_bug_uids_not_matching but not in unique_bug_uids_matching
+    unique_bug_uids_not_matching_only = set(unique_bug_uids_not_matching) - set(unique_bug_uids_matching)
+    print(f"Number of bugs not matching only: {len(unique_bug_uids_not_matching_only)}")
+
 if __name__ == "__main__":
-    run_plots_cluster_size_frequency()
+    # run_plots_cluster_sizes()
+    # run_plots_cluster_size_frequency()
+    run_bug_number()
+
+
+

@@ -1,60 +1,12 @@
----origianl--- mock.TestClass <63, 63>
-for (Node c = n.getLastChild();
-    c != null;
-    c = n.getLastChild()) {
-        tryMinimizeExits(c, exitType, labelName);
-        if (c == n.getLastChild()) {
-            break;
-        }
-    }
+---origianl--- mock.TestClass <7, 7>
+return Boolean.FALSE;
 
----afterMatch-type0--- mock.TestClass <63, 63>
-for (Node Node = Node.getLastChild();
-    Node != null;
-    Node = Node.getLastChild()) {
-        tryMinimizeExits(Node, intVar, StringVar);
-        if (Node == Node.getLastChild()) {
-            break;
-        }
-    }
+---origianl--- mock.TestClass2 <7, 7>
+if (node.getSuccessor() == null) return false;
 
----afterMatch-type1--- mock.TestClass <63, 63>
-for (Node Node = Node.getLastChild();
-    Node != null;
-    Node = Node.getLastChild()) {
-        tryMinimizeExits(Node, exitType, labelName);
-        if (Node == Node.getLastChild()) {
-            break;
-        }
-    }
+---afterMatch-type0--- mock.TestClass2 <7, 7>
+if (Node.getSuccessor() == null) return false;
 
----origianl--- mock.TestClass2 <63, 63>
-for (Node c = n.getLastChild();
-    c != null;
-    c = n.getLastChild()) {
-        tryMinimizeExits(c, exitType, labelName);
-        if (c == n.getLastChild()) {
-            break;
-        }
-    }
-
----afterMatch-type0--- mock.TestClass2 <63, 63>
-for (Node Node = Node.getLastChild();
-    Node != null;
-    Node = Node.getLastChild()) {
-        tryMinimizeExits(Node, intVar, StringVar);
-        if (Node == Node.getLastChild()) {
-            break;
-        }
-    }
-
----afterMatch-type1--- mock.TestClass2 <63, 63>
-for (Node Node = Node.getLastChild();
-    Node != null;
-    Node = Node.getLastChild()) {
-        tryMinimizeExits(Node, exitType, labelName);
-        if (Node == Node.getLastChild()) {
-            break;
-        }
-    }
+---afterMatch-type1--- mock.TestClass2 <7, 7>
+if (Node.getSuccessor() == null) return false;
 

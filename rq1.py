@@ -514,7 +514,7 @@ def assign_matching_clone(pairs, tool_patches):
         are_clones = matching_are_clones(target_method_content, target_method_groundtruth_content)
 
         if are_clones == 0:
-            print(f"Pair {index} is not a clone using Matching!!! uid: {uid}, groundtruth_index: {groundtruth_index}")
+            print(f"Pair {index} is a clone using Matching!!! uid: {uid}, groundtruth_index: {groundtruth_index}")
             pairs.at[index, 'expert_label'] = 'Matching-Type-2'
         # elif are_clones == 1:
         #     pairs.at[index, 'expert_label'] = 'Matching-Type-1'
@@ -540,6 +540,8 @@ if __name__ == "__main__":
 
     # Remove developer identical-1 patches (cleaned) (method match)
     patches = remove_developer_identical_patches(correct_tool_patche, developer_patches)
+    print(patches["bug_uid"].value_counts())
+    print(patches["bug_uid"].value_counts()[patches["bug_uid"].value_counts() != 1])
     print(f"Number of Correct-non-developer-identical tool patches: {len(patches)}")
 
     print("----------------------------------------------")
@@ -702,6 +704,10 @@ if __name__ == "__main__":
 
     ploting_pairs = pairs.copy()
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Type-1', 'SourcererCC-Clone', 'Type-1-2', 'Exact'] else "-")
+    
+    last_match_only_pairs = ploting_pairs.copy()
+    last_match_only_pairs.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "last-match-only-pairs.pkl"))
+
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
     print(plotting_cluster_sizes)
 
