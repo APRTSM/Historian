@@ -21,7 +21,7 @@ git submodule update --init --recursive
 ```
 
 ## Structure
-
+```
     benchmarks/: bug benchmarks used for evaluation
 
     datasets/: historically validated APR patches
@@ -32,7 +32,13 @@ git submodule update --init --recursive
 
     tmp/: results, logs, and intermediate files
 
-        tmp/results/: experiment outputs
+        tmp/data: includes preprocessed data in each step
+
+        tmp/results/classification: classified LLM outputs for the research question 3 and 4   (Which EXP?)
+
+        tmp/results/rq1: labels for the reasearch question 1 
+
+        tmp/results/expert: expert labels for the reasearch question 2 (EXP2-*.pkl)
 
         tmp/plots/: generated figures
 
@@ -47,7 +53,7 @@ git submodule update --init --recursive
     build.py: script to generate all results
 
     results.py: script to aggregate results and generate plots
-
+```
 
 ## Usage
 
@@ -70,4 +76,6 @@ This will save the classified responses in `tmp/results/classified/` and generat
 
 Experiments are implemented as functions or classes in `results.py`, and the function calls in `build.py` are commented out. To run a specific experiment, please uncomment the corresponding function call.
 
+
+## Experiments
 

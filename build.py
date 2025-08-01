@@ -599,6 +599,7 @@ def experiment_2(developer_patches, tool_patches, models, prompts, temperatures,
 
             ollama.generate(model=model["uid"], keep_alive=0)
 
+# Only Correct
 def experiment_1(developer_patches, tool_patches, models, prompts, temperatures, patch_processors):
     def get_response(patch, prompt, temperature, model, processor):
         tool_content = processor["function"](patch) 
@@ -690,6 +691,7 @@ def apply_params(args, prompts, models, patch_processors):
     
     return prompts, models, patch_processors
 
+# SourcererCC Experiment
 def experiment_7(developer_patches, tool_patches, processor):
     def get_response(patch):
         tool_content = processor["function"](patch) 
@@ -727,6 +729,7 @@ def experiment_7(developer_patches, tool_patches, processor):
 
     logging.info(f"Results already exist. EXP7-sourcerercc")
     
+# SourcererCC Experiment
 def experiment_8(developer_patches, tool_patches, processor): #SourcererCC
     def get_response(groundtruth_patch, tool_patch):
         tool_patch_content = processor["function"](tool_patch) 

@@ -1,23 +1,17 @@
-    public static boolean detect_cycle(Node node) {
-        Node hare = node;
-        Node tortoise = node;
-
-        while (true) {
-            if (hare == null) {
-                if ( node.getSuccessor() == null)
-                return false;
-            } else {
-                if (hare.getSuccessor() == null)
-                return false;
-            }
-
-            tortoise = tortoise.getSuccessor();
-            if (hare == null) {
-                return false;
-            }
-            hare = hare.getSuccessor().getSuccessor();
-
-            if (hare == tortoise)
-                return true;
-        }
+    public MultiplePiePlot(CategoryDataset dataset) {
+        super();
+        this.dataset = dataset;
+        PiePlot piePlot = new PiePlot(null);
+        this.pieChart = new JFreeChart(piePlot);
+        setDataset(dataset);
+        this.pieChart.removeLegend();
+        this.dataExtractOrder = TableOrder.BY_COLUMN;
+        this.pieChart.setBackgroundPaint(null);
+        TextTitle seriesTitle = new TextTitle("Series Title",
+                new Font("SansSerif", Font.BOLD, 12));
+        seriesTitle.setPosition(RectangleEdge.BOTTOM);
+        this.pieChart.setTitle(seriesTitle);
+        this.aggregatedItemsKey = "Other";
+        this.aggregatedItemsPaint = Color.lightGray;
+        this.sectionPaints = new HashMap();
     }

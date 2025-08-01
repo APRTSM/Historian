@@ -443,7 +443,7 @@ def assign_clones_sourcerercc(pairs, tool_patches):
     """
     logging.info("Assigning clones using SourcererCC...")
 
-    sourcerercc_labels_dir = os.path.join(TMP_DATA_DIR, "rq1","sourcerercc-clone.pkl")
+    sourcerercc_labels_dir = os.path.join(TMP_RQ1_RESULTS_DIR,"sourcerercc-clone.pkl")
 
     if os.path.exists(sourcerercc_labels_dir):
         logging.info(f"Loading existing SourcererCC labels from {sourcerercc_labels_dir}")
@@ -490,7 +490,7 @@ def assign_matching_clone(pairs, tool_patches):
     """
     logging.info("Assigning clones using Matching...")
 
-    matching_labels_dir = os.path.join(TMP_DATA_DIR, "rq1", "matching-clone.pkl")
+    matching_labels_dir = os.path.join(TMP_RQ1_RESULTS_DIR, "matching-clone.pkl")
 
     if os.path.exists(matching_labels_dir):
         logging.info(f"Loading existing Matching labels from {matching_labels_dir}")
@@ -565,7 +565,7 @@ if __name__ == "__main__":
     ploting_pairs = pairs.copy() # THE RESULT OF EACH ASSIGNMENT IS TO PROPAGATE TO THE ACTUAL PAIRS, WE HAVE TO MERGE DROPS AFTER 
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x == "Exact" else "-")
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
-    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-exact-match.pkl"))
+    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "cluster-sizes-exact-match.pkl"))
     print(plotting_cluster_sizes)
 
     print("----------------------------------------------")
@@ -589,7 +589,7 @@ if __name__ == "__main__":
     ploting_pairs = pairs.copy()
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Exact', 'SourcererCC-Clone'] else "-")
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
-    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-sourcerercc-match.pkl"))
+    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "cluster-sizes-sourcerercc-match.pkl"))
     print(plotting_cluster_sizes)
 
     print("----------------------------------------------")
@@ -633,7 +633,7 @@ if __name__ == "__main__":
     ploting_pairs = pairs.copy()
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Exact', 'SourcererCC-Clone', 'Matching-Type-2'] else "-")
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
-    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-matching-type-2.pkl"))
+    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "cluster-sizes-matching-type-2.pkl"))
     print(plotting_cluster_sizes)
 
     # print("----------------------------------------------")
@@ -661,7 +661,7 @@ if __name__ == "__main__":
     pairs_kept = get_pairs(patches_kept)
     pairs_manual = pairs_kept.copy()
     print(f"Number of pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
-    pairs_kept_expert = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "rq1-expert.pkl"))
+    pairs_kept_expert = pd.read_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "rq1-expert.pkl"))
     print(f"Number of manually labeled pairs after dropping Type-1 matches automatically: {len(pairs_kept_expert)}")
 
     # Get uid and groundtruth_index from pairs_kept and match with a row in paris_kept_expert and assign expert_label to pairs_kept
@@ -706,13 +706,13 @@ if __name__ == "__main__":
     ploting_pairs['expert_label'] = ploting_pairs['expert_label'].apply(lambda x: "Match" if x in ['Type-1', 'SourcererCC-Clone', 'Type-1-2', 'Exact'] else "-")
     
     last_match_only_pairs = ploting_pairs.copy()
-    last_match_only_pairs.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "last-match-only-pairs.pkl"))
+    last_match_only_pairs.to_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "last-match-only-pairs.pkl"))
 
     _, _, plotting_cluster_sizes = select_representatives_and_drop(patches, ploting_pairs, "Match") # patches_kept is remaining representatives
     print(plotting_cluster_sizes)
 
 
-    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
+    plotting_cluster_sizes.to_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "cluster-sizes-type-1-2.pkl"))
 
     total_group_size = plotting_cluster_sizes['group_size'].sum()
     print(f"Total number of patches in all clusters: {total_group_size}")
@@ -733,7 +733,7 @@ if __name__ == "__main__":
     prompts = [prompt for prompt in prompts if prompt["type"] in ["type", "integrated"]]
 
     # Run Experiment 10
-    experiment_10(patches, pairs_manual, models, prompts, temperatures, patch_processors) 
+    # experiment_10(patches, pairs_manual, models, prompts, temperatures, patch_processors) 
 
 
 
