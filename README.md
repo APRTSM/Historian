@@ -32,17 +32,19 @@ git submodule update --init --recursive
 
     tmp/: results, logs, and intermediate files
 
-        tmp/data: includes preprocessed data in each step
+        tmp/data: includes preprocessed data in each step 
 
-        tmp/results/classification: classified LLM outputs for the research question 3 and 4   (Which EXP?)
+        tmp/data/metadata: includes models, datasets, benchmarks and other metadata used in experiments
+
+        tmp/results/classification: classified LLM outputs for the research question 3 and 4 (the keywords EXP2 and EXP3 respectively) 
 
         tmp/results/rq1: labels for the reasearch question 1 
 
         tmp/results/expert: expert labels for the reasearch question 2 (EXP2-*.pkl)
 
-        tmp/plots/: generated figures
+        tmp/plots: generated figures
 
-        tmp/logs/: execution logs
+        tmp/logs: execution logs
 
     tmp/config.py: configuration (paths, keys)
 
@@ -50,9 +52,9 @@ git submodule update --init --recursive
 
     tmp/datasets.py: interfaces for dataset access
 
-    build.py: script to generate all results
+    build.py: script to generate the files in tmp/results
 
-    results.py: script to aggregate results and generate plots
+    results.py: script to aggregate results (generate files in tmp/results/classification) and generate plots in tmp/plots
 ```
 
 ## Usage
