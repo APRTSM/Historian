@@ -297,6 +297,7 @@ class Evaluator:
         kappa_df = pd.DataFrame(kappa_values)
         kappa_df.to_csv(TMP_COHENS_KAPPA_CSV)
 
+
 class Plotter:
         
     def __init__(self):
@@ -402,6 +403,7 @@ class Plotter:
         type_df = type_df[type_df["Processor"] == representation]
 
         return type_df
+
 
 class Experiment2Results:
     def __init__(self, selected_tool, input_processors=None, input_models=None, input_prompts=None):
@@ -978,6 +980,338 @@ class Experiment2Evaluator:
         table.to_csv(TMP_SIMPLE_CLONE_RESULTS_CSV_EXP2)
 
 
+class Experiment3Results:
+    def __init__(self, selected_tools, input_processor=None, input_model=None, input_prompt=None):
+        # Initial Data
+        bugs, developer_patches, tool_patches = init(configure=False)
+
+        # Patch Processings
+        patch_processors = get_patch_processors()
+
+        # Tool Settings
+        prompts, models, temperatures = get_tool_settings()
+
+        self.bugs = bugs
+        self.patch_processor = get_object_by_uid(patch_processors, input_processor)
+        self.model = get_object_by_uid(models, input_model)
+        self.prompt = get_object_by_uid(prompts, input_prompt)
+        self.temperature = temperatures[0]
+        self.input_developer_patches = developer_patches
+        self.input_tool_patches = tool_patches
+        self.selected_tools = selected_tools
+
+        self._merge_results()
+
+        self.results = self._get_results()
+
+        self.pipe = pipeline(model="facebook/bart-large-mnli", device=0)
+
+    def _merge_results(self):
+        logging.info("Merging Results ...")
+
+        for tool in self.selected_tools:
+            final_result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl")
+
+            if os.path.exists(final_result_file):
+                logging.info(f"Skipping merging for {final_result_file} as it already exists.")
+
+                continue 
+
+            no_selected_tool_patches = len(self.input_tool_patches[self.input_tool_patches["generator"] == tool])
+
+            if no_selected_tool_patches == 0:
+                raise Exception(f"No tool patches found for {tool}")
+
+            for i in range(no_selected_tool_patches):
+                result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}-{i}.pkl")
+                df = pd.read_pickle(result_file)
+                
+                if i == 0:
+                    combined_df = df
+                
+                else:
+                    combined_df = pd.concat([combined_df, df])
+
+            combined_df.to_pickle(final_result_file)
+
+    def _get_results(self):
+        results = []
+
+        for tool in self.selected_tools:
+            logging.info(f"Getting Results for {self.patch_processor['uid']}, {self.model['uid']}, {self.temperature['uid']}, {self.prompt['uid']}")
+
+            file_name = f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl"
+            result_file = os.path.join(TMP_RESULTS_DIR, file_name)
+
+            result = {
+                "tool": tool,
+                "processor": self.patch_processor,
+                "model": self.model,
+                "temperature": self.temperature,
+                "prompt": self.prompt,
+                "file_name": file_name,                           
+                "result_file": result_file,
+            }
+
+            results.append(result)
+
+        logging.info(f"Results: {results}")
+
+        return results
+    
+    def _classify_text(self, text: str) -> str:
+        result = self.pipe(text, candidate_labels=self.labels)
+        predicted_label = result["labels"][0]
+
+        return predicted_label
+
+    def classify(self, labels: list, selected_results=None):
+        if not selected_results:
+            selected_results = self.results
+
+        for result in selected_results:
+            self.labels = labels
+            classified_result_dir = os.path.join(TMP_CLASSIFICATION_RESULTS_DIR, f"{'-'.join(labels)}-{result['file_name']}")
+            result[f"classified_result_file_{'-'.join(labels)}"] = classified_result_dir
+
+            if os.path.exists(classified_result_dir):
+                logging.info(f"Skipping classification for {result['file_name']} as it already exists.")
+
+                continue
+
+            else:
+                logging.info(f"Classifying Texts {classified_result_dir}")
+
+                df = pd.read_pickle(result["result_file"])
+
+                tqdm.pandas(desc=f"Classifying Texts {classified_result_dir}")
+
+                df["predicted_label"] = df["response"].progress_apply(self._classify_text)
+
+                df.to_pickle(classified_result_dir)
+
+        logging.info("Classification Done.")
+
+class Experiment3Evaluator:
+    def __init__(self, results: Results):
+        self.results = results
+
+        # Simple Prompts Yes/No (translate yes no to overfitting and correct) Majority Voting NOT Applied
+        simple_prompts = [
+            "llm4cc-simple_prompt-semantical",
+            "llm4cc-reasoning-patch-semantical",
+            "llm4cc-similarity_line-patch-semantical",
+
+            "llm4cc-simple_prompt-identical",
+            "llm4cc-reasoning-patch-identical",
+            "llm4cc-similarity_line-patch-identical",
+        ]
+        simple_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_prompts]
+        self._get_simple_results_table(simple_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+
+        # Simple Prompts Type Binary (translate type to overfitting and correct) Majority Voting Applied, Inverted, Punished
+        type_binary_prompts = [
+            "llm4cc-clone_type",
+            "llm4cc-integrated",
+            "llm4cc-clone_type-patch",
+            "llm4cc-integrated-patch",
+        ]
+        type_binary_results = [result for result in self.results.results if result["prompt"]["uid"] in type_binary_prompts]
+        self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+
+    def _translate_simple_label_to_binary(self, groundtruth_correctness, label): #
+        if groundtruth_correctness == "Correct" and label == "no":
+            return "Overfitting"
+
+        elif groundtruth_correctness == "Correct" and label == "yes":
+            return "Correct"
+
+        elif groundtruth_correctness == "Overfitting" and label == "yes":
+            return "Overfitting"
+
+        return "Unknown"
+
+    def _get_f1_simple(self, results, labels, ground_truth): #
+        f1_values = []
+        support = []
+        tp_values = []
+        fp_values = []
+        tn_values = []
+        fn_values = []
+
+        for result in results:
+            classified_result_dir = result[f"classified_result_file_{'-'.join(labels)}"]
+
+            df = pd.read_pickle(classified_result_dir)
+
+            ground_truth_clean = ground_truth[~ground_truth.index.duplicated(keep='first')]
+            df["groundtruth_correctness"] = ground_truth_clean.loc[df.index]["correctness"].values
+
+            df["predicted_correctness"] = df.apply(lambda x: self._translate_simple_label_to_binary(x["groundtruth_correctness"], x["predicted_label"]), axis=1)
+
+            df["selected_correctness"] = ground_truth_clean.loc[df.index]["correctness"].values
+
+            # Get Support and Drop Unknowns
+            unknown_count = df["predicted_correctness"].value_counts().get("Unknown", 0)
+            total_count = len(df)
+            support.append(total_count - unknown_count)
+            df = df[df["predicted_correctness"] != "Unknown"]
+
+            # 1 corresponds to Correct
+            df["predicted_correctness_binary"] = df["predicted_correctness"].apply(lambda x: 1 if x == "Correct" else 0)
+            df["selected_correctness_binary"] = df["selected_correctness"].apply(lambda x: 1 if x == "Correct" else 0)
+
+
+            # Group df by "tool_patch_uid" to get majority voting over oponions for 0 and 1 and assign that correctness to the grouped
+
+            # Calculate TP, FP, TN, FN 
+            tp = ((df["predicted_correctness_binary"] == 1) & (df["selected_correctness_binary"] == 1)).sum()
+            fp = ((df["predicted_correctness_binary"] == 1) & (df["selected_correctness_binary"] == 0)).sum()
+            tn = ((df["predicted_correctness_binary"] == 0) & (df["selected_correctness_binary"] == 0)).sum()
+            fn = ((df["predicted_correctness_binary"] == 0) & (df["selected_correctness_binary"] == 1)).sum()
+            
+            tp_values.append(tp)
+            fp_values.append(fp)
+            tn_values.append(tn)
+            fn_values.append(fn)
+
+            f1 = f1_score(df["selected_correctness_binary"], df["predicted_correctness_binary"], zero_division=0)
+            f1_values.append(f1)
+            
+        return f1_values, support, tp_values, fp_values, tn_values, fn_values
+
+    def _get_simple_results_table(self, results, labels, ground_truth): #
+        f1_values, support, tp_values, fp_values, tn_values, fn_values = self._get_f1_simple(results, labels, ground_truth)
+
+        table_data = {
+            "Processor": [result["processor"]["uid"] for result in results],
+            "Prompt": [result["prompt"]["uid"] for result in results],
+            "Model": [result["model"]["uid"] for result in results],
+            "Tool": [result["tool"] for result in results],
+            "F1": f1_values,
+            "Support": support,
+            "TP": tp_values,
+            "FP": fp_values,
+            "TN": tn_values,
+            "FN": fn_values
+        }
+
+        table = pd.DataFrame(table_data)
+
+        table.to_csv(TMP_SIMPLE_RESULTS_CSV_EXP3)
+        
+
+    def _predict_binary(self, row):
+        if row["predicted_binary_label"] == "Unknown":
+            if row["selected_correctness"] == "Correct":
+                return 1
+            
+            else:
+                return 0
+            
+        else:
+            return 0 if row["predicted_binary_label"] == "Correct" else 1
+
+    def _translate_type_label_to_binary(self, groundtruth_correctness, label): #
+        if groundtruth_correctness == "Correct" and label == "not-clone":
+            return "Overfitting" 
+
+        elif groundtruth_correctness == "Correct" and label in ["type-1", "type-2", "type-4"]:
+            return "Correct"
+
+        elif groundtruth_correctness == "Overfitting" and label in ["type-1", "type-2", "type-4"]:
+            return "Overfitting"
+
+        return "Unknown"
+    
+    def _get_f1_type_binary(self, results, labels, ground_truth): #
+        f1_values = []
+        accuracy_values = []  # Added accuracy values list
+        support = []
+        total = []
+        tp_values = []
+        fp_values = []
+        tn_values = []
+        fn_values = []
+
+        for result in results:
+            classified_result_dir = result[f"classified_result_file_{'-'.join(labels)}"]
+            df = pd.read_pickle(classified_result_dir)
+
+            ground_truth_clean = ground_truth[~ground_truth.index.duplicated(keep="first")]
+
+            # df["groundtruth_correctness"] = df["groundtruth_patch_uid"].map(ground_truth_clean["correctness"])
+            df["groundtruth_correctness"] = ground_truth_clean.loc[df["groundtruth_patch_uid"]]["correctness"].values
+
+            # Get Raw Translation
+            df["raw_predicted_binary_label"] = df.apply(lambda x: self._translate_type_label_to_binary(x["groundtruth_correctness"], x["predicted_label"]), axis=1)
+
+            # Use Raw to Get Majority Vote
+            majority_labels = majority_vote_labels(df, label_column="raw_predicted_binary_label", id_column="tool_patch_uid")
+            df_voted = df[["tool_patch_uid"]].drop_duplicates().copy()
+
+            # df_voted["selected_correctness"] = df_voted["tool_patch_uid"].map(ground_truth_clean["correctness"])
+            df_voted["selected_correctness"] = ground_truth_clean.loc[df_voted["tool_patch_uid"]]["correctness"].values
+
+            df_voted["predicted_binary_label"] = df_voted["tool_patch_uid"].map(majority_labels)
+
+            df = df_voted.copy()
+
+            # Get Support and Drop Unknowns
+            unknown_count = df["predicted_binary_label"].value_counts().get("Unknown", 0)
+            total_count = len(df)
+            support.append((total_count - unknown_count)/total_count)
+            total.append(total_count)
+            # df = df[df["predicted_binary_label"] != "Unknown"]
+
+            df["predicted_correctness_binary"] = df.apply(self._predict_binary, axis=1)
+
+            # df["predicted_correctness_binary"] = df["predicted_binary_label"].apply(lambda x: 0 if x == "Correct" else 1)
+            df["selected_correctness_binary"] = df["selected_correctness"].apply(lambda x: 0 if x == "Correct" else 1)
+
+            # Calculate TP, FP, TN, FN
+            tp = ((df["predicted_correctness_binary"] == 1) & (df["selected_correctness_binary"] == 1)).sum()
+            fp = ((df["predicted_correctness_binary"] == 1) & (df["selected_correctness_binary"] == 0)).sum()
+            tn = ((df["predicted_correctness_binary"] == 0) & (df["selected_correctness_binary"] == 0)).sum()
+            fn = ((df["predicted_correctness_binary"] == 0) & (df["selected_correctness_binary"] == 1)).sum()
+            
+            tp_values.append(tp)
+            fp_values.append(fp)
+            tn_values.append(tn)
+            fn_values.append(fn)
+
+            # Calculate accuracy
+            accuracy = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) > 0 else 0
+            accuracy_values.append(accuracy)
+
+            f1 = f1_score(df["selected_correctness_binary"], df["predicted_correctness_binary"], zero_division=0)
+            f1_values.append(f1)
+            
+        return f1_values, accuracy_values, support, total, tp_values, fp_values, tn_values, fn_values
+
+    def _get_type_binary_results_table(self, results, labels, ground_truth): #
+        f1_values, accuracy_score, support, total, tp_values, fp_values, tn_values, fn_values = self._get_f1_type_binary(results, labels, ground_truth)
+
+        table_data = {
+            "Processor": [result["processor"]["uid"] for result in results],
+            "Prompt": [result["prompt"]["uid"] for result in results],
+            "Model": [result["model"]["uid"] for result in results],
+            "Tool": [result["tool"] for result in results],
+            "F1": f1_values,
+            "Accuracy": accuracy_score,
+            "Support": support,
+            "total": total,
+            "TP": tp_values,
+            "FP": fp_values,
+            "TN": tn_values,
+            "FN": fn_values
+        }
+
+        table = pd.DataFrame(table_data)
+
+        table.to_csv(TMP_TYPE_BINARY_RESULTS_CSV_EXP3)
+
+
 def report_exp7():
     # Report the results of experiment 7
     logging.info("Reporting Experiment 7 Results ...")
@@ -1008,7 +1342,6 @@ def report_exp7():
         logging.info(f"Recall for expert_label '{true_positives}': {recall:.2f}")
 
     return recalls
-
 
 def count_identical_in_pairs(tool_patches=None, developer_patches=None):
     logging.info("Counting identical in pairs ...")
@@ -1512,7 +1845,6 @@ def create_dot_plot_identical_patches_v2(deduplicated_patches):
     logging.info(f"Group size distribution: {dict(group_size_stats)}")
     logging.info(f"Total unique groups: {sum(group_size_stats.values())}")
 
-
 def create_dot_plot_identical_patches_v3(deduplicated_patches):
     """
     Enhanced version with groups sorted by size (smallest groups at left, increasing to right)
@@ -1668,7 +2000,6 @@ def create_dot_plot_identical_patches_v3(deduplicated_patches):
     for i, (bug_uid, total_patches) in enumerate(bug_totals_filtered[:5]):
         groups = bug_groups[bug_uid]
         logging.info(f"  {bug_uid}: {groups} (bottom to top: {' -> '.join(map(str, groups))})")
-
 
 def create_groups_distribution_plot(deduplicated_patches):
     """
@@ -1986,8 +2317,6 @@ def get_group_count_distribution(deduplicated_patches) -> dict:
     
     return distribution_dict
 
-
-
 def plot_group_count_distribution(deduplicated_patches, distribution, save_path=None):
     """
     Create a horizontal bar plot showing the distribution of group counts.
@@ -2059,7 +2388,6 @@ def plot_group_count_distribution(deduplicated_patches, distribution, save_path=
     
     return distribution
 
-
 def analyze_group_patterns(deduplicated_patches):
     """
     More detailed analysis of group patterns
@@ -2109,11 +2437,6 @@ def analyze_group_patterns(deduplicated_patches):
 
 
 if __name__ == "__main__":
-
-
-
-
-
     # logging.info("Counting identical groups in correct patches 1-Deduplicated and tool generated ...") 
     # deduplicated_patches, dropped = count_identical_in_pairs() # Deduplicated with, and Keep Presentatives
 
@@ -2194,5 +2517,20 @@ if __name__ == "__main__":
     
     # logging.info("Experiment #7 is done. Running results.py ...")
     # report_exp7()
+
+    logging.info("Running Experiment #3 ...")
+    tools = [
+        'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
+        'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
+        'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
+    ]
+    
+    results = Experiment3Results(selected_tools=tools, input_processor="defaultpatch", input_model="qwen2.5:7b", input_prompt="llm4cc-clone_type-patch")
+    results.classify(labels=["yes", "no"])
+    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+
+    evaluator = Experiment3Evaluator(results)
+
+
 
     
