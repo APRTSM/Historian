@@ -48,7 +48,7 @@ This will save the classified responses in `tmp/results/classified/` and generat
 
 ## RQ2, RQ3 and RQ4
 
-`tmp/results/` includes raw LLM responses in pickle files. To classify the LLM responses, aggrigate votes and generate summary plots for 2nd, 3rd and 4th research questions:
+`tmp/results/` includes raw LLM responses in pickle files. To classify the LLM responses, aggregate votes and generate summary plots for 2nd, 3rd and 4th research questions:
 ```bash
 python results.py
 ```
@@ -59,9 +59,9 @@ Results will be saved in `tmp/plots/`.
 
 Raw LLM responses are stored in `tmp/results/` as pickle files.
 
-If you wish to generate LLM responses from scratch instructions are provided in the following:
+If you wish to generate LLM responses from scratch, instructions are provided in the following:
 
-To reproduce the LLM responses if they do not already exist in `tmp/results/`, ensure that [`Ollama`](https://ollama.com/) is installed, server is running and the desired models are pulled using:
+To reproduce the LLM responses if they do not already exist in `tmp/results/`, ensure that [`Ollama`](https://ollama.com/) is installed, the server is running and the desired models are pulled using:
 ```bash
 ollama pull <model_name>
 ```
@@ -74,16 +74,16 @@ python build.py
 
 # Clean Patches and Methods
 
-Cleaned patches and extracted methods are stored in `tmp/patches` and `tmp/methods` respectively. If you wish to regenerate them out of `datsets` consider the following. 
+Cleaned patches and extracted methods are stored in `tmp/patches` and `tmp/methods` respectively. If you wish to regenerate them out of `datasets`, consider the following. 
 
 Initialize submodules:
 ```bash
 git submodule update --init --recursive
 ```
 
-Add [`Defects4J`](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it, for detailed instructions please visit [`Defects4J`](https://github.com/rjust/defects4j):
+Add [`Defects4J`](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it. For detailed instructions, please visit [`Defects4J`](https://github.com/rjust/defects4j):
 
-Add IDs to Bugs.jar,
+Add IDs to Bugs.jar:
 ```bash
 cp -r benchmarks/ID2commit-bugsjar benchmarks/bugsjar/ID2commit
 ```
@@ -93,4 +93,4 @@ Then run:
 python build.py
 ```
 
-Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g. location and ID of patches, methods, bugs and etc.)
+Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g., location and ID of patches, methods, bugs, etc.)
