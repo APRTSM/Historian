@@ -82,12 +82,15 @@ git submodule update --init --recursive
 ```
 
 Add [`Defects4J`](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it, for detailed instructions please visit [`Defects4J`](https://github.com/rjust/defects4j):
+
 Add IDs to Bugs.jar,
 ```bash
 cp -r benchmarks/ID2commit-bugsjar benchmarks/bugsjar/ID2commit
 ```
+
 Then run:
 ```bash
 python build.py
 ```
+
 Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g. location and ID of patches, methods, bugs and etc.)
