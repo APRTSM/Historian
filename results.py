@@ -2518,18 +2518,23 @@ if __name__ == "__main__":
     # logging.info("Experiment #7 is done. Running results.py ...")
     # report_exp7()
 
-    logging.info("Running Experiment #3 ...")
-    tools = [
-        'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
-        'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
-        'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
-    ]
-    
-    results = Experiment3Results(selected_tools=tools, input_processor="defaultpatch", input_model="qwen2.5:7b", input_prompt="llm4cc-clone_type-patch")
-    results.classify(labels=["yes", "no"])
-    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
 
-    evaluator = Experiment3Evaluator(results)
+
+
+
+
+    # logging.info("Running Experiment #3 ...")
+    # tools = [
+    #     'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
+    #     'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
+    #     'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
+    # ]
+    
+    # results = Experiment3Results(selected_tools=tools, input_processor="defaultpatch", input_model="qwen2.5:7b", input_prompt="llm4cc-clone_type-patch")
+    # results.classify(labels=["yes", "no"])
+    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+
+    # evaluator = Experiment3Evaluator(results)
 
 
 

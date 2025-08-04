@@ -13,11 +13,6 @@ Install Python dependencies:
 pip install -r requirements.txt
 ```
 
-Initialize submodules:
-```bash
-git submodule update --init --recursive
-```
-
 ## Structure
 
 ```
@@ -38,28 +33,10 @@ tmp/config.py: configuration (paths, keys)
 tmp/benchmarks.py: API access to benchmark metadata
 tmp/datasets.py: interfaces for dataset access
 build.py: script to generate the files in tmp/results
-results.py: script to aggregate results (generate files in tmp/results/classification) and generate plots in tmp/plots
+results.py: script to aggregate (majority voting) results (generate files in tmp/results/classification) and generate plots in tmp/plots
 ```
 
-## Usage
-
-To reproduce the experiments and generate results (including LLM responses if they do not already exist in `tmp/results/`):
-```bash
-python build.py
-```
-
-If you wish to regenerate LLM responses, ensure that [`Ollama`](https://ollama.com/) is installed and the desired models are pulled using:
-```bash
-ollama pull <model_name>
-```
-
-The list of required models is specified in `tmp/data/metadata/ollama/models.json`.
-
-To classify the LLM responses and generate summary plots:
-```bash
-python results.py
-```
-This will save the classified responses in `tmp/results/classified/` and generate plots in `tmp/plots/`.
+## RQ1
 
 To generate results of the first research question:
 ```bash
@@ -67,3 +44,50 @@ python rq1.py
 python rq1_plots.py
 ```
 
+This will save the classified responses in `tmp/results/classified/` and generate plots in `tmp/plots/`.
+
+## RQ2, RQ3 and RQ4
+
+`tmp/results/` includes raw LLM responses in pickle files. To classify the LLM responses, aggrigate votes and generate summary plots for 2nd, 3rd and 4th research questions:
+```bash
+python results.py
+```
+
+Results will be saved in `tmp/plots/`.
+
+## Regenerate Raw LLM Responses
+
+Raw LLM responses are stored in `tmp/results/` as pickle files.
+
+If you wish to generate LLM responses from scratch instructions are provided in the following:
+
+To reproduce the LLM responses if they do not already exist in `tmp/results/`, ensure that [`Ollama`](https://ollama.com/) is installed, server is running and the desired models are pulled using:
+```bash
+ollama pull <model_name>
+```
+The list of required models is specified in `tmp/data/metadata/ollama/models.json`.
+
+Then run the following:
+```bash
+python build.py
+```
+
+# Clean Patches and Methods
+
+Cleaned patches and extracted methods are stored in `tmp/patches` and `tmp/methods` respectively. If you wish to regenerate them out of `datsets` consider the following. 
+
+Initialize submodules:
+```bash
+git submodule update --init --recursive
+```
+
+Add [`Defects4J`](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it, for detailed instructions please visit [`Defects4J`](https://github.com/rjust/defects4j):
+Add IDs to Bugs.jar,
+```bash
+cp -r benchmarks/ID2commit-bugsjar benchmarks/bugsjar/ID2commit
+```
+Then run:
+```bash
+python build.py
+```
+Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g. location and ID of patches, methods, bugs and etc.)
