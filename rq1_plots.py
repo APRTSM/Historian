@@ -438,8 +438,8 @@ def run_bug_number():
     print(f"Number of bugs not matching only: {len(unique_bug_uids_not_matching_only)}")
 
 if __name__ == "__main__":
-    # run_plots_cluster_sizes()
-    # run_plots_cluster_size_frequency()
+    run_plots_cluster_sizes()
+    run_plots_cluster_size_frequency()
     run_bug_number()
 
 
