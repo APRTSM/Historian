@@ -42,6 +42,8 @@ TOOLS_JSON = os.path.join(TOOLS_DIR, "tools.json")
 
 INPUT_DIR = os.path.join(PROJECT_DIR, "input")
 
+
+
 # TMP
 TMP_DIR = os.path.join(PROJECT_DIR, "tmp")
 TMP_CHECKOUTS_DIR = os.path.join(TMP_DIR, "checkouts")
@@ -50,6 +52,9 @@ TMP_PATCHES_DIR = os.path.join(TMP_DIR, "patches")
 TMP_DATA_DIR = os.path.join(TMP_DIR, "data")
 TMP_RESULTS_DIR = os.path.join(TMP_DIR, "results")
 TMP_PLOTS_DIR = os.path.join(TMP_DIR, "plots")
+
+TMP_RQ1_DATA_DIR = os.path.join(TMP_DATA_DIR, "rq1")
+
 
 ## Initial Data
 TMP_RQ1_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq1")
