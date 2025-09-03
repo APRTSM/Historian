@@ -569,7 +569,7 @@ if __name__ == "__main__":
     print(plotting_cluster_sizes)
 
     print("----------------------------------------------")
-    """ SourcererCC 1 """
+    """ SourcererCC 1 (Token Based) """
 
     pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
     print(f"Number of pairs after dropping exact matches: {len(pairs_kept)}")
@@ -593,12 +593,13 @@ if __name__ == "__main__":
     print(plotting_cluster_sizes)
 
     print("----------------------------------------------")
-    """ Matching """
+    """ Matching (AST Based) """
 
     pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
     print(f"Number of pairs after dropping SourcererCC-Clone matches: {len(pairs_kept)}")
 
-    # print("="* 50)
+    # Just information Start
+    # print("="* 50) 
     # # in pairs_kept I want to see if there is a row with uid 3 and groundtruth_index of 2 or vice versa
     # a = "dl4pc2-defects4j-Closure-126-RSRepair-7"
     # b = "dl4pc2-defects4j-Closure-126-RSRepair-6"
@@ -616,6 +617,7 @@ if __name__ == "__main__":
     # else:
     #     print("No matching row found.")
     # print("="* 50)
+    # Just information End
 
     pairs_kept = assign_matching_clone(pairs_kept, patches_kept)
     patches_kept, new_dropped, cluster_sizes = select_representatives_and_drop(patches_kept, pairs_kept, "Matching-Type-2") # patches_kept is remaining representatives
