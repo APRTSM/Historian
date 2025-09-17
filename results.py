@@ -439,6 +439,8 @@ class Experiment2Results:
         self.selected_tool = selected_tool
         self.selected_tool_patches = self.input_tool_patches[self.input_tool_patches["generator_id"].str.lower().str.contains(self.selected_tool)]
         self.no_selected_tool_patches = len(self.selected_tool_patches)
+        self.all_groundtruth_patches_uid_deduplicated = pd.concat((self.input_developer_patches, self.all_tool_patches), axis=0)
+        self.all_groundtruth_patches_uid_deduplicated = self.all_groundtruth_patches_uid_deduplicated[~self.all_groundtruth_patches_uid_deduplicated.index.duplicated(keep='first')] # New Addition Eyl 17
 
         logging.info(f"Selected Tool: {selected_tool}, # Developer Patches: {len(developer_patches)}, # Tool Patches: {len(tool_patches)}, Patch Processors: {self.patch_processors}, Models: {self.models}, Prompts: {self.prompts}, Temperatures: {self.temperatures}")
 
@@ -574,7 +576,7 @@ class Experiment2Evaluator:
             "llm4cc-similarity_line-patch-identical",
         ]
         simple_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_prompts]
-        self._get_simple_results_table(simple_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        self._get_simple_results_table(simple_results, ["yes", "no"], results.all_groundtruth_patches_uid_deduplicated)
 
         # Simple Prompts Type Binary (translate type to overfitting and correct) Doing Majority Vote, Inverted
         type_binary_prompts = [
@@ -584,10 +586,10 @@ class Experiment2Evaluator:
             "llm4cc-integrated-patch",
         ]
         type_binary_results = [result for result in self.results.results if result["prompt"]["uid"] in type_binary_prompts]
-        self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], results.all_groundtruth_patches_uid_deduplicated)
 
         # Simple Prompts Type Expert Label (translate type to overfitting and correct) Not Doing Majority Vote
-        self._get_type_expert_label_results_table(pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2), pd.concat((results.input_developer_patches, results.all_tool_patches), axis=0))
+        self._get_type_expert_label_results_table(pd.read_pickle(TMP_EXPERT_CORRECT_LABEL_PKL_EXP2), results.all_groundtruth_patches_uid_deduplicated)
 
         # Simple Prompts Type (clone prompts with type, Not translating to Correct/Overfitting, 4 F1: against expert label) Not Doing Majority Vote
         type_prompts = [
@@ -618,7 +620,7 @@ class Experiment2Evaluator:
             simple_clone_prompts = []
             
         simple_clone_results = [result for result in self.results.results if result["prompt"]["uid"] in simple_clone_prompts]
-        self._get_simple_clone_results_table(simple_clone_results, ["yes", "no"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
+        self._get_simple_clone_results_table(simple_clone_results, ["yes", "no"], results.all_groundtruth_patches_uid_deduplicated)
 
 
     def _translate_simple_label_to_binary(self, groundtruth_correctness, label): #
@@ -633,6 +635,7 @@ class Experiment2Evaluator:
 
         return "Unknown"
 
+    # Deal with the logic in a result file and assign values to it
     def _get_f1_simple(self, results, labels, ground_truth): #
         f1_values = []
         support = []
@@ -647,6 +650,7 @@ class Experiment2Evaluator:
 
             df = pd.read_pickle(classified_result_dir)
 
+            ground_truth = ground_truth[~ground_truth.index.duplicated(keep='first')]
             df["groundtruth_correctness"] = ground_truth.loc[df["groundtruth_patch_uid"]]["correctness"].values
 
             df["raw_predicted_correctness"] = df.apply(lambda x: self._translate_simple_label_to_binary(x["groundtruth_correctness"], x["predicted_label"]), axis=1)
