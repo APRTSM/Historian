@@ -646,6 +646,8 @@ class Experiment2Evaluator:
         fn_values = []
 
         for result in results:
+            print(pd.read_pickle(result["result_file"]))
+            print(result["result_file"])
             classified_result_dir = result[f"classified_result_file_{'-'.join(labels)}"]
 
             df = pd.read_pickle(classified_result_dir)
