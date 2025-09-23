@@ -594,20 +594,12 @@ if __name__ == "__main__":
 
     print("----------------------------------------------")
     """ Matching (AST Based) """
-<<<<<<< HEAD
-=======
-
->>>>>>> 34da84ef67d62931d0162ac9ef5368aef862af25
 
     pairs_kept = get_pairs(patches_kept) # pairs_kept is deriven from patches_kept and will be labeled
     print(f"Number of pairs after dropping SourcererCC-Clone matches: {len(pairs_kept)}")
 
     # Just information Start
-<<<<<<< HEAD
     # print("="* 50) 
-=======
-    # print("="* 50)
->>>>>>> 34da84ef67d62931d0162ac9ef5368aef862af25
     # # in pairs_kept I want to see if there is a row with uid 3 and groundtruth_index of 2 or vice versa
     # a = "dl4pc2-defects4j-Closure-126-RSRepair-7"
     # b = "dl4pc2-defects4j-Closure-126-RSRepair-6"
