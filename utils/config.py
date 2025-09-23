@@ -121,6 +121,7 @@ TMP_SIMPLE_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"simple-results-exp3.
 TMP_TYPE_BINARY_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp3.csv")
 
 TMP_RQ2_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq2")
+TMP_RQ3_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq3")
 
 LOG_DIR = os.path.join(TMP_DIR, "logs")
 LOG_FILE = os.path.join(LOG_DIR, f"{FORMATTED_DATE_TIME}.log")

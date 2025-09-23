@@ -217,8 +217,8 @@ class RegexEvaluator:
         }
 
     def save_results(self):
-        json.dump([{k: v if isinstance(v, (str, int, float, bool, type(None))) else str(v) for k, v in result.items()} for result in self.results.results], open(os.path.join(TMP_RQ2_PLOTS_DIR, f"evaluation_results_{self.results.patch_processors}.json"), "w"), indent=4)
-        json.dump(self.averages, open(os.path.join(TMP_RQ2_PLOTS_DIR, f"evaluation_averages_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
+        json.dump([{k: v if isinstance(v, (str, int, float, bool, type(None))) else str(v) for k, v in result.items()} for result in self.results.results], open(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_results_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
+        json.dump(self.averages, open(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_averages_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
 
     def evaluate(self, labels: list, selected_results=None):
         if not selected_results:
