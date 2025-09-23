@@ -11,15 +11,12 @@ This repository provides the replication package "Historian".
 Install Python dependencies:
 ```bash
 pip install -r requirements.txt
-<<<<<<< HEAD
 ```
 
 Initialize submodules:
 
 ```bash
 git submodule update --init --recursive
-=======
->>>>>>> 34da84ef67d62931d0162ac9ef5368aef862af25
 ```
 
 ## Structure
