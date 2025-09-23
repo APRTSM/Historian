@@ -58,6 +58,7 @@ TMP_RQ1_DATA_DIR = os.path.join(TMP_DATA_DIR, "rq1")
 
 ## Initial Data
 TMP_RQ1_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq1")
+TMP_RQ2_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq2")
 
 TMP_FORMATTED_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "cleaned")
 TMP_DEVELOPER_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "raw")
@@ -118,6 +119,8 @@ TMP_SIMPLE_CLONE_RESULTS_CSV_EXP2 = os.path.join(TMP_PLOTS_DIR, "simple-clone-re
 
 TMP_SIMPLE_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"simple-results-exp3.csv")
 TMP_TYPE_BINARY_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp3.csv")
+
+TMP_RQ2_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq2")
 
 LOG_DIR = os.path.join(TMP_DIR, "logs")
 LOG_FILE = os.path.join(LOG_DIR, f"{FORMATTED_DATE_TIME}.log")
