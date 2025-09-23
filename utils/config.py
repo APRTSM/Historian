@@ -42,6 +42,8 @@ TOOLS_JSON = os.path.join(TOOLS_DIR, "tools.json")
 
 INPUT_DIR = os.path.join(PROJECT_DIR, "input")
 
+
+
 # TMP
 TMP_DIR = os.path.join(PROJECT_DIR, "tmp")
 TMP_CHECKOUTS_DIR = os.path.join(TMP_DIR, "checkouts")
@@ -51,8 +53,11 @@ TMP_DATA_DIR = os.path.join(TMP_DIR, "data")
 TMP_RESULTS_DIR = os.path.join(TMP_DIR, "results")
 TMP_PLOTS_DIR = os.path.join(TMP_DIR, "plots")
 
-## Initial Data
 TMP_RQ1_DATA_DIR = os.path.join(TMP_DATA_DIR, "rq1")
+
+
+## Initial Data
+TMP_RQ1_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq1")
 
 TMP_FORMATTED_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "cleaned")
 TMP_DEVELOPER_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "raw")
@@ -110,6 +115,9 @@ TMP_TYPE_BINARY_EXPER_LABEL_RESULTS_CSV_EXP2 = os.path.join(TMP_PLOTS_DIR, "type
 TMP_TYPE_BINARY_VOTED_EXPER_LABEL_RESULTS_EXP2 = os.path.join(TMP_PLOTS_DIR, "type-binary-expert-voted-label-results-exp2.txt")
 
 TMP_SIMPLE_CLONE_RESULTS_CSV_EXP2 = os.path.join(TMP_PLOTS_DIR, "simple-clone-results-exp2.csv")
+
+TMP_SIMPLE_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"simple-results-exp3.csv")
+TMP_TYPE_BINARY_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp3.csv")
 
 LOG_DIR = os.path.join(TMP_DIR, "logs")
 LOG_FILE = os.path.join(LOG_DIR, f"{FORMATTED_DATE_TIME}.log")

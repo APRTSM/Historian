@@ -115,55 +115,5 @@
         "origin": "LLM4CC",
         "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be ‘yes’ or ‘no’.",
         "type": "boolean"
-    },
-
-    {
-        "uid": "llm4cc-clone_type_explanation",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality. \n\nPlease analyze the following two code snippets and determine if they are code clones. Respond with 'yes' if the code snippets are clones or 'no' if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
-        "type": "type"
-    },
-    {
-        "uid": "llm4cc-integrated_explanation",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality. \n\nPlease analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
-        "type": "integrated"
-    },
-    {
-        "uid": "llm4cc-clone_type-patch_explanation",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality. \n\nPlease analyze the following two patches and determine if they are code clones. Respond with 'yes' if the patches are clones or 'no' if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
-        "type": "type"
-    },
-    {
-        "uid": "llm4cc-integrated-patch_explanation",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality. \n\nPlease analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
-        "type": "integrated"
-    },
-
-    {
-        "uid": "llm4cc-clone_type_example",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality.\n\nType-1 Example:\n// Clone 1\nint sum = a + b;\nreturn sum;\n\n// Clone 2\nint sum=a+b;\nreturn sum;\n\nType-2 Example:\n// Clone 1\nint calculateArea(int width, int height) {\n    return width * height;\n}\n\n// Clone 2\nint computeArea(int w, int h) {\n    return w * h;\n}\n\nType-3 Example:\n// Clone 1\nif (x > 0) {\n    result = x * 2;\n    return result;\n}\n\n// Clone 2\nif (y > 0) {\n    System.out.println(\"Processing...\");\n    result = y * 2;\n    return result;\n}\n\nType-4 Example:\n// Clone 1\nint max = (a > b) ? a : b;\n\n// Clone 2\nint max;\nif (a > b) {\n    max = a;\n} else {\n    max = b;\n}\n\nPlease analyze the following two code snippets and determine if they are code clones. Respond with 'yes' if the code snippets are clones or 'no' if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
-        "type": "type"
-    },
-    {
-        "uid": "llm4cc-integrated_example",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality.\n\nType-1 Example:\n// Clone 1\nint sum = a + b;\nreturn sum;\n\n// Clone 2\nint sum=a+b;\nreturn sum;\n\nType-2 Example:\n// Clone 1\nint calculateArea(int width, int height) {\n    return width * height;\n}\n\n// Clone 2\nint computeArea(int w, int h) {\n    return w * h;\n}\n\nType-3 Example:\n// Clone 1\nif (x > 0) {\n    result = x * 2;\n    return result;\n}\n\n// Clone 2\nif (y > 0) {\n    System.out.println(\"Processing...\");\n    result = y * 2;\n    return result;\n}\n\nType-4 Example:\n// Clone 1\nint max = (a > b) ? a : b;\n\n// Clone 2\nint max;\nif (a > b) {\n    max = a;\n} else {\n    max = b;\n}\n\nPlease analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
-        "type": "integrated"
-    },
-    {
-        "uid": "llm4cc-clone_type-patch_example",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality.\n\nType-1 Example:\n// Clone 1\nint sum = a + b;\nreturn sum;\n\n// Clone 2\nint sum=a+b;\nreturn sum;\n\nType-2 Example:\n// Clone 1\nint calculateArea(int width, int height) {\n    return width * height;\n}\n\n// Clone 2\nint computeArea(int w, int h) {\n    return w * h;\n}\n\nType-3 Example:\n// Clone 1\nif (x > 0) {\n    result = x * 2;\n    return result;\n}\n\n// Clone 2\nif (y > 0) {\n    System.out.println(\"Processing...\");\n    result = y * 2;\n    return result;\n}\n\nType-4 Example:\n// Clone 1\nint max = (a > b) ? a : b;\n\n// Clone 2\nint max;\nif (a > b) {\n    max = a;\n} else {\n    max = b;\n}\n\nPlease analyze the following two patches and determine if they are code clones. Respond with 'yes' if the patches are clones or 'no' if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
-        "type": "type"
-    },
-    {
-        "uid": "llm4cc-integrated-patch_example",
-        "origin": "LLM4CC",
-        "content": "Type-1 (Identical): Exact duplicates with only whitespace and comment differences.\nType-2 (Parameterized): Structurally identical with variations in identifiers, literals, or types. \nType-3 (Gapped): Similar structure with added, deleted, or modified statements. \nType-4 (Semantic): Different syntax but equivalent functionality.\n\nType-1 Example:\n// Clone 1\nint sum = a + b;\nreturn sum;\n\n// Clone 2\nint sum=a+b;\nreturn sum;\n\nType-2 Example:\n// Clone 1\nint calculateArea(int width, int height) {\n    return width * height;\n}\n\n// Clone 2\nint computeArea(int w, int h) {\n    return w * h;\n}\n\nType-3 Example:\n// Clone 1\nif (x > 0) {\n    result = x * 2;\n    return result;\n}\n\n// Clone 2\nif (y > 0) {\n    System.out.println(\"Processing...\");\n    result = y * 2;\n    return result;\n}\n\nType-4 Example:\n// Clone 1\nint max = (a > b) ? a : b;\n\n// Clone 2\nint max;\nif (a > b) {\n    max = a;\n} else {\n    max = b;\n}\n\nPlease analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
-        "type": "integrated"
     }
 ]
