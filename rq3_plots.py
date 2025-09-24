@@ -184,8 +184,56 @@ class RegexEvaluator:
         self.results = self.evaluate(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
 
         self.averages = self.calculate_averages()
+        self.per_model_averages = self.calculate_per_model_averages()
         
         self.save_results()
+
+
+    def calculate_per_model_averages(self):
+        per_model_averages = {}
+        
+        # Group results by model
+        for result in self.results.results:
+            model_uid = result["model"]["uid"]
+            
+            if model_uid not in per_model_averages:
+                per_model_averages[model_uid] = {
+                    "regex_portion_yes_no": [],
+                    "regex_portion_clone_type": [],
+                    "zero_shot_acc_yes_no": [],
+                    "zero_shot_acc_clone_type": []
+                }
+            
+            # Collect metrics for this model
+            if "regex_portion_yes-no" in result:
+                per_model_averages[model_uid]["regex_portion_yes_no"].append(result["regex_portion_yes-no"])
+            
+            if "regex_portion_type-1-type-2-type-3-type-4-not-clone" in result:
+                per_model_averages[model_uid]["regex_portion_clone_type"].append(result["regex_portion_type-1-type-2-type-3-type-4-not-clone"])
+            
+            if "zero_shot_acc_yes-no" in result:
+                per_model_averages[model_uid]["zero_shot_acc_yes_no"].append(result["zero_shot_acc_yes-no"])
+            
+            if "zero_shot_acc_type-1-type-2-type-3-type-4-not-clone" in result:
+                per_model_averages[model_uid]["zero_shot_acc_clone_type"].append(result["zero_shot_acc_type-1-type-2-type-3-type-4-not-clone"])
+        
+        # Calculate averages for each model
+        for model_uid in per_model_averages:
+            model_data = per_model_averages[model_uid]
+            
+            per_model_averages[model_uid] = {
+                "avg_regex_portion_yes_no": sum(model_data["regex_portion_yes_no"]) / len(model_data["regex_portion_yes_no"]) if model_data["regex_portion_yes_no"] else 0,
+                "avg_regex_portion_clone_type": sum(model_data["regex_portion_clone_type"]) / len(model_data["regex_portion_clone_type"]) if model_data["regex_portion_clone_type"] else 0,
+                "avg_zero_shot_acc_yes_no": sum(model_data["zero_shot_acc_yes_no"]) / len(model_data["zero_shot_acc_yes_no"]) if model_data["zero_shot_acc_yes_no"] else 0,
+                "avg_zero_shot_acc_clone_type": sum(model_data["zero_shot_acc_clone_type"]) / len(model_data["zero_shot_acc_clone_type"]) if model_data["zero_shot_acc_clone_type"] else 0
+            }
+            
+            logging.info(f"Model {model_uid} - Regex portion (yes-no): {per_model_averages[model_uid]['avg_regex_portion_yes_no']:.3f}")
+            logging.info(f"Model {model_uid} - Regex portion (clone type): {per_model_averages[model_uid]['avg_regex_portion_clone_type']:.3f}")
+            logging.info(f"Model {model_uid} - Zero-shot accuracy (yes-no): {per_model_averages[model_uid]['avg_zero_shot_acc_yes_no']:.3f}")
+            logging.info(f"Model {model_uid} - Zero-shot accuracy (clone type): {per_model_averages[model_uid]['avg_zero_shot_acc_clone_type']:.3f}")
+        
+        return per_model_averages
 
     def calculate_averages(self):
         # Average regex_portion for yes-no labels
@@ -219,6 +267,7 @@ class RegexEvaluator:
     def save_results(self):
         json.dump([{k: v if isinstance(v, (str, int, float, bool, type(None))) else str(v) for k, v in result.items()} for result in self.results.results], open(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_results_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
         json.dump(self.averages, open(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_averages_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
+        json.dump(self.per_model_averages, open(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_{self.results.patch_processors[0]['uid']}.json"), "w"), indent=4)
 
     def evaluate(self, labels: list, selected_results=None):
         if not selected_results:
