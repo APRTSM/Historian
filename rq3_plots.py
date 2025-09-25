@@ -361,7 +361,7 @@ def plot_json_data(json_file_path):
     # Customize the plot
     # ax.set_xlabel('Models')
     # ax.set_ylabel('Values')
-    ax.set_title('Model Performance Comparison')
+    ax.set_title('Model Performance Comparison for Diff Representation')
     ax.set_xticks(x)
     ax.set_xticklabels(models, rotation=45, ha='right')
     
