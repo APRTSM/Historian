@@ -100,3 +100,19 @@ python build.py
 ```
 
 Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g., location and ID of patches, methods, bugs, etc.)
+
+
+
+
+
+
+
+
+
+
+## RQ3
+- Zero-Shot Classification Performance:
+```bash
+# Results are saved in tmp/plots/rq3
+python rq3_zeroshot_plots.py
+```
