@@ -440,61 +440,61 @@ def create_latex_table(json_file_path):
 
 
 if __name__ == "__main__":
-    # input_models = [
-    #     "magicoder:7b-s-cl",
-    #     "codellama:7b-instruct",
-    #     "codellama:13b-instruct",
-    #     "deepseek-coder:6.7b",
-    #     "codegemma:7b-instruct",
-    #     "qwen2.5:7b",
-    #     "qwen2.5-coder:7b",
-    #     "yi-coder:9b",
-    #     "hermes3:8b"
-    # ]
+    input_models = [
+        "magicoder:7b-s-cl",
+        "codellama:7b-instruct",
+        "codellama:13b-instruct",
+        "deepseek-coder:6.7b",
+        "codegemma:7b-instruct",
+        "qwen2.5:7b",
+        "qwen2.5-coder:7b",
+        "yi-coder:9b",
+        "hermes3:8b"
+    ]
 
-    # input_prompts = [
-    #     # "llm4cc-simple_prompt",
-    #     # "llm4cc-reasoning",
-    #     # "llm4cc-similarity_line",
+    input_prompts = [
+        # "llm4cc-simple_prompt",
+        # "llm4cc-reasoning",
+        # "llm4cc-similarity_line",
         
-    #     "llm4cc-clone_type",
-    #     "llm4cc-integrated",
+        "llm4cc-clone_type",
+        "llm4cc-integrated",
 
-    #     "llm4cc-simple_prompt-semantical",
-    #     "llm4cc-reasoning-patch-semantical",
-    #     "llm4cc-similarity_line-patch-semantical",
+        "llm4cc-simple_prompt-semantical",
+        "llm4cc-reasoning-patch-semantical",
+        "llm4cc-similarity_line-patch-semantical",
 
-    #     "llm4cc-simple_prompt-identical",
-    #     "llm4cc-reasoning-patch-identical",
-    #     "llm4cc-similarity_line-patch-identical"
-    # ]
+        "llm4cc-simple_prompt-identical",
+        "llm4cc-reasoning-patch-identical",
+        "llm4cc-similarity_line-patch-identical"
+    ]
 
-    # input_processors = ["method"]
+    input_processors = ["method"]
 
-    # results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
-    # results.classify(labels=["yes", "no"])
-    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    # evaluator = RegexEvaluator(results)
+    results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
+    results.classify(labels=["yes", "no"])
+    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    evaluator = RegexEvaluator(results)
 
-    # input_prompts = [
-    #     "llm4cc-clone_type-patch",
-    #     "llm4cc-integrated-patch",
+    input_prompts = [
+        "llm4cc-clone_type-patch",
+        "llm4cc-integrated-patch",
 
-    #     "llm4cc-simple_prompt-semantical",
-    #     "llm4cc-reasoning-patch-semantical",
-    #     "llm4cc-similarity_line-patch-semantical",
+        "llm4cc-simple_prompt-semantical",
+        "llm4cc-reasoning-patch-semantical",
+        "llm4cc-similarity_line-patch-semantical",
 
-    #     "llm4cc-simple_prompt-identical",
-    #     "llm4cc-reasoning-patch-identical",
-    #     "llm4cc-similarity_line-patch-identical"
-    # ]
+        "llm4cc-simple_prompt-identical",
+        "llm4cc-reasoning-patch-identical",
+        "llm4cc-similarity_line-patch-identical"
+    ]
 
-    # input_processors = ["defaultpatch"]
+    input_processors = ["defaultpatch"]
 
-    # results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
-    # results.classify(labels=["yes", "no"])
-    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    # evaluator = RegexEvaluator(results)
+    results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
+    results.classify(labels=["yes", "no"])
+    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    evaluator = RegexEvaluator(results)
 
     plot_json_data(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
     create_latex_table(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
