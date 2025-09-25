@@ -20,7 +20,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-
 class Results:
     def __init__(self, selected_tool, input_processors=None, input_models=None, input_prompts=None):
         # Initial Data
@@ -333,60 +332,116 @@ class RegexEvaluator:
         logging.info("Evaluation Done.")
         return self.results
 
+def plot_json_data(json_file_path):
+    # Load JSON data
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    
+    # Extract model names and metrics
+    models = list(data.keys())
+    zero_shot_acc = [data[model]['avg_zero_shot_acc_yes_no'] for model in models]
+    regex_portion = [data[model]['avg_regex_portion_yes_no'] for model in models]
+    
+    # Create DataFrame for easy plotting
+    df = pd.DataFrame({
+        'Model': models,
+        'Zero Shot Accuracy': zero_shot_acc,
+        'Regex Portion': regex_portion
+    })
+    
+    # Create the plot
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # Create bar chart
+    x = range(len(models))
+    width = 0.35
+    bars1 = ax.bar([i - width/2 for i in x], zero_shot_acc, width, label='Accuracy', alpha=0.8)
+    bars2 = ax.bar([i + width/2 for i in x], regex_portion, width, label='Regex Portion', alpha=0.8)
+    
+    # Customize the plot
+    # ax.set_xlabel('Models')
+    # ax.set_ylabel('Values')
+    ax.set_title('Model Performance Comparison')
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, rotation=45, ha='right')
+    
+    # Remove grid and make legend smaller
+    ax.legend(fontsize='small')
+    
+    # Remove top and right spines (borders)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    
+    # Add value labels on bars
+    for bar in bars1:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                f'{height:.3f}', ha='center', va='bottom', fontsize=8)
+    
+    for bar in bars2:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                f'{height:.3f}', ha='center', va='bottom', fontsize=8)
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(TMP_RQ3_PLOTS_DIR, f"model_comparison_zeroshot.png"), dpi=300, bbox_inches='tight')
+    plt.close()
 
 if __name__ == "__main__":
-    input_models = [
-        "magicoder:7b-s-cl",
-        "codellama:7b-instruct",
-        "codellama:13b-instruct",
-        "deepseek-coder:6.7b",
-        "codegemma:7b-instruct",
-        "qwen2.5:7b",
-        "qwen2.5-coder:7b",
-        "yi-coder:9b",
-        "hermes3:8b"
-    ]
+    # input_models = [
+    #     "magicoder:7b-s-cl",
+    #     "codellama:7b-instruct",
+    #     "codellama:13b-instruct",
+    #     "deepseek-coder:6.7b",
+    #     "codegemma:7b-instruct",
+    #     "qwen2.5:7b",
+    #     "qwen2.5-coder:7b",
+    #     "yi-coder:9b",
+    #     "hermes3:8b"
+    # ]
 
-    input_prompts = [
-        # "llm4cc-simple_prompt",
-        # "llm4cc-reasoning",
-        # "llm4cc-similarity_line",
+    # input_prompts = [
+    #     # "llm4cc-simple_prompt",
+    #     # "llm4cc-reasoning",
+    #     # "llm4cc-similarity_line",
         
-        "llm4cc-clone_type",
-        "llm4cc-integrated",
+    #     "llm4cc-clone_type",
+    #     "llm4cc-integrated",
 
-        "llm4cc-simple_prompt-semantical",
-        "llm4cc-reasoning-patch-semantical",
-        "llm4cc-similarity_line-patch-semantical",
+    #     "llm4cc-simple_prompt-semantical",
+    #     "llm4cc-reasoning-patch-semantical",
+    #     "llm4cc-similarity_line-patch-semantical",
 
-        "llm4cc-simple_prompt-identical",
-        "llm4cc-reasoning-patch-identical",
-        "llm4cc-similarity_line-patch-identical"
-    ]
+    #     "llm4cc-simple_prompt-identical",
+    #     "llm4cc-reasoning-patch-identical",
+    #     "llm4cc-similarity_line-patch-identical"
+    # ]
 
-    input_processors = ["method"]
+    # input_processors = ["method"]
 
-    results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
-    results.classify(labels=["yes", "no"])
-    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    evaluator = RegexEvaluator(results)
+    # results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
+    # results.classify(labels=["yes", "no"])
+    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    # evaluator = RegexEvaluator(results)
 
-    input_prompts = [
-        "llm4cc-clone_type-patch",
-        "llm4cc-integrated-patch",
+    # input_prompts = [
+    #     "llm4cc-clone_type-patch",
+    #     "llm4cc-integrated-patch",
 
-        "llm4cc-simple_prompt-semantical",
-        "llm4cc-reasoning-patch-semantical",
-        "llm4cc-similarity_line-patch-semantical",
+    #     "llm4cc-simple_prompt-semantical",
+    #     "llm4cc-reasoning-patch-semantical",
+    #     "llm4cc-similarity_line-patch-semantical",
 
-        "llm4cc-simple_prompt-identical",
-        "llm4cc-reasoning-patch-identical",
-        "llm4cc-similarity_line-patch-identical"
-    ]
+    #     "llm4cc-simple_prompt-identical",
+    #     "llm4cc-reasoning-patch-identical",
+    #     "llm4cc-similarity_line-patch-identical"
+    # ]
 
-    input_processors = ["defaultpatch"]
+    # input_processors = ["defaultpatch"]
 
-    results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
-    results.classify(labels=["yes", "no"])
-    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    evaluator = RegexEvaluator(results)
+    # results = Results(selected_tool="tbar", input_processors=input_processors, input_models=input_models, input_prompts=input_prompts)
+    # results.classify(labels=["yes", "no"])
+    # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    # evaluator = RegexEvaluator(results)
+
+    plot_json_data(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
