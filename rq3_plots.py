@@ -387,6 +387,58 @@ def plot_json_data(json_file_path):
     plt.savefig(os.path.join(TMP_RQ3_PLOTS_DIR, f"model_comparison_zeroshot.png"), dpi=300, bbox_inches='tight')
     plt.close()
 
+
+def create_latex_table(json_file_path):
+    # Load JSON data
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    
+    # Extract model names and metrics
+    models = list(data.keys())
+    zero_shot_acc = [data[model]['avg_zero_shot_acc_yes_no'] for model in models]
+    regex_portion = [data[model]['avg_regex_portion_yes_no'] for model in models]
+    
+    # Create LaTeX table
+    table_content = []
+    
+    # Table header
+    header = " & ".join(models) + " \\\\"
+    table_content.append(header)
+    table_content.append("\\hline")
+    
+    # Zero shot accuracy row
+    acc_row = "Zero Shot Accuracy & " + " & ".join([f"{acc:.3f}" for acc in zero_shot_acc]) + " \\\\"
+    table_content.append(acc_row)
+    
+    # Regex portion row  
+    regex_row = "Regex Portion & " + " & ".join([f"{portion:.3f}" for portion in regex_portion]) + " \\\\"
+    table_content.append(regex_row)
+    
+    # Complete LaTeX table
+    num_cols = len(models) + 1  # +1 for the metric name column
+    col_spec = "l" + "c" * len(models)  # left-aligned first column, centered others
+    
+    latex_table = f"""\\begin{{tabular}}{{{col_spec}}}
+        \\toprule
+        {table_content[0]}
+        \\midrule
+        {table_content[2]}
+        {table_content[3]}
+        \\bottomrule
+        \\end{{tabular}}
+    """
+    
+    # Save to file
+    output_path = os.path.join(TMP_RQ3_PLOTS_DIR, "model_comparison_table.tex")
+    with open(output_path, 'w') as f:
+        f.write(latex_table)
+    
+    # Also print to console
+    print(latex_table)
+    
+    return latex_table
+
+
 if __name__ == "__main__":
     # input_models = [
     #     "magicoder:7b-s-cl",
@@ -445,3 +497,4 @@ if __name__ == "__main__":
     # evaluator = RegexEvaluator(results)
 
     plot_json_data(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
+    create_latex_table(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
