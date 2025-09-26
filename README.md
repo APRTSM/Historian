@@ -14,33 +14,69 @@ pip install -r requirements.txt
 ```
 
 Initialize submodules:
-
 ```bash
 git submodule update --init --recursive
 ```
 
-## Structure
+## Project Structure
 
 ```
-benchmarks/: bug benchmarks used for evaluation
-datasets/: historically validated APR patches
-tools/: tools for patch analysis
-utils/: helper utilities for preprocessing and analysis
-tmp/: results, logs, and intermediate files
-tmp/data: includes preprocessed data in each step
-tmp/data/metadata: includes datasets, benchmarks and other metadata used in experiments
-tmp/data/metadata/ollama: includes prompts and models used in experiments
-tmp/results/classification: classified LLM outputs for research questions 3 and 4 (the keywords EXP2 and EXP3 respectively)
-tmp/results/rq1: labels for research question 1
-tmp/results/expert: expert labels for research question 2 (EXP2-*.pkl)
-tmp/plots: generated figures
-tmp/logs: execution logs
-tmp/config.py: configuration (paths, keys)
-tmp/benchmarks.py: API access to benchmark metadata
-tmp/datasets.py: interfaces for dataset access
-build.py: script to generate the files in tmp/results
-results.py: script to aggregate (majority voting) results (generate files in tmp/results/classification) and generate plots in tmp/plots
+.
+├── benchmarks/                         # bug benchmarks used for evaluation
+│   ├── bears/                          # Bears benchmark
+│   ├── benchmarks.json                 # benchmarks configuration file
+│   ├── bugsjar/                        # Bugs.jar benchmark
+│   ├── defects4j/                      # Defects4J benchmark
+│   ├── ID2commit-bugsjar/              # commit ID mappings for Bugs.jar
+│   ├── introclassjava/                 # IntroClassJava benchmark
+│   └── quixbugs/                       # QuixBugs benchmark
+├── build.py                            # script to generate the files in tmp/results (RQ3 and RQ4)
+├── classify.py                         # script to classify LLM responses
+├── datasets/                           # historically validated APR patches
+│   ├── aprenfl/                        # APR-ENF-L dataset
+│   ├── datasets.json                   # datasets configuration file with links to datasets
+│   ├── defectrepairing/                # DefectRepairing dataset
+│   ├── dl4pc2/                         # DL4PC2 dataset
+│   ├── drr/                            # DRR dataset
+│   └── wangicse/                       # Wang ICSE dataset
+├── __pycache__/                        # Python cache files
+│   └── build.cpython-310.pyc           # compiled Python bytecode
+├── rebutal/                            # includes materials mentioned in rebuttal response
+├── requirements.txt                    # Python dependencies
+├── results.json                        # refeneces to LLM responses 
+├── results.py                          # script to aggregate (majority voting) results and generate plots
+├── rq1_plots.py                        # script to generate plots for research question 1
+├── rq1.py                              # script to generate results for research question 1
+├── rq3_zeroshot_plots.py               # script to generate zero-shot classification performance plots
+├── tmp/                                # results, logs, and intermediate files
+│   ├── checkouts/                      # includes all generated documents
+│   ├── data/                           # includes preprocessed data in each step
+│   ├── logs/                           # execution logs
+│   ├── methods/                        # extracted methods storage
+│   ├── patches/                        # cleaned patches storage
+│   ├── plots/                          # generated figures
+│   └── results/                        # raw LLM responses and classification results
+├── tools/                              # tools for patch analysis
+│   ├── matching/                       # AST-based code clone detection tool
+│   ├── ollama/                         # Ollama configurations
+│   ├── SourcererCC/                    # SourcererCC code clone detection tool (text-based)
+│   └── tools.json                      # list of tools and links
+└── utils/                              # helper utilities for preprocessing and analysis
+    ├── benchmark.py                    # API access to benchmark metadata
+    ├── config.py                       # configuration (paths, keys)
+    ├── dataset.py                      # interfaces for dataset access
+    ├── __pycache__/                    # Python cache files
+    ├── tool.py                         # scripts to wrap tools
+    └── utils.py                        # utils
 ```
+
+### Key Subdirectories in tmp/:
+
+- `tmp/data/metadata/`: includes datasets, benchmarks and other metadata used in experiments
+- `tmp/data/metadata/ollama/`: includes prompts and models used in experiments
+- `tmp/results/classification/`: classified LLM outputs for research questions 3 and 4 (keywords EXP2 and EXP3 respectively)
+- `tmp/results/rq1/`: labels for research question 1
+- `tmp/results/expert/`: expert labels for research question 2 (EXP2-*.pkl files)
 
 ## RQ1
 
@@ -61,16 +97,25 @@ python results.py
 
 Results will be saved in `tmp/plots/`.
 
+## RQ3
+
+- Zero-Shot Classification Performance:
+```bash
+# Results are saved in tmp/plots/rq3
+python rq3_zeroshot_plots.py
+```
+
 ## Regenerate Raw LLM Responses
 
 Raw LLM responses are stored in `tmp/results/` as pickle files.
 
 If you wish to generate LLM responses from scratch, instructions are provided in the following:
 
-To reproduce the LLM responses if they do not already exist in `tmp/results/`, ensure that [`Ollama`](https://ollama.com/) is installed, the server is running and the desired models are pulled using:
+To reproduce the LLM responses if they do not already exist in `tmp/results/`, ensure that [Ollama](https://ollama.com/) is installed, the server is running and the desired models are pulled using:
 ```bash
 ollama pull <model_name>
 ```
+
 The list of required models is specified in `tmp/data/metadata/ollama/models.json`.
 
 Then run the following:
@@ -80,14 +125,14 @@ python build.py
 
 # Clean Patches and Methods
 
-Cleaned patches and extracted methods are stored in `tmp/patches` and `tmp/methods` respectively. If you wish to regenerate them out of `datasets`, consider the following. 
+Cleaned patches and extracted methods are stored in `tmp/patches` and `tmp/methods` respectively. If you wish to regenerate them out of `datasets`, consider the following.
 
 Initialize submodules:
 ```bash
 git submodule update --init --recursive
 ```
 
-Add [`Defects4J`](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it. For detailed instructions, please visit [`Defects4J`](https://github.com/rjust/defects4j):
+Add [Defects4J](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it. For detailed instructions, please visit [Defects4J](https://github.com/rjust/defects4j):
 
 Add IDs to Bugs.jar:
 ```bash
@@ -100,19 +145,3 @@ python build.py
 ```
 
 Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g., location and ID of patches, methods, bugs, etc.)
-
-
-
-
-
-
-
-
-
-
-## RQ3
-- Zero-Shot Classification Performance:
-```bash
-# Results are saved in tmp/plots/rq3
-python rq3_zeroshot_plots.py
-```
