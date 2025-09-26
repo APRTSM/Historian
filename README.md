@@ -2,11 +2,7 @@
 
 This repository provides the replication package "Historian".
 
-
-## Overview and Motivation
-Automated Program Repair (APR) has advanced significantly, but assessing patch correctness remains a critical bottleneck due to overfitting patches. Our RQ1 shows that ~38% of patches are redundant or very similar changes (syntactic clones), making relabeling them from scratch inefficient and unnecessary. 
-
-## Technical Novelty 
+## Overview
 Historian is a tool to tackle this by formulating patch assessment as code clone detection and semantic similarity. It introduces a novel paradigm that formulates APCA as a multi-reference code clone detection problem against a historical knowledge base. 
 
 <p align="center">
@@ -22,7 +18,7 @@ Historian is a tool to tackle this by formulating patch assessment as code clone
 - **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
 
 <p align="center">
-  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/main-results.png" alt="Overview Figure">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/main-results.png" alt="Performance Figure">
 </p>
 
 ## Purpose and Scope
