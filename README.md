@@ -21,9 +21,6 @@ Historian is a tool to tackle this by formulating patch assessment as code clone
 
 - **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
 
-<p align="center">
-  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/main-results.png" alt="Overview Figure">
-</p>
 
 ## Purpose and Scope
 In the error-prone research environment of APR, our empirical studies show that many APR-generated patches are repetitive and exhibit human-understandable similarities (Type-1, Type-2 clones), making relabeling from scratch inefficient and unnecessary. The tool addresses the specific challenge of reducing redundant validation effort while maintaining high accuracy through evidence-based decision making.
