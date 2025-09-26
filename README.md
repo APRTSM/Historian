@@ -9,6 +9,10 @@ Automated Program Repair (APR) has advanced significantly, but assessing patch c
 ## Technical Novelty 
 Historian is a tool to tackle this by formulating patch assessment as code clone detection and semantic similarity. It introduces a novel paradigm that formulates APCA as a multi-reference code clone detection problem against a historical knowledge base. 
 
+<p align="center">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/method.png" alt="Overview Figure">
+</p>
+
 - **Evidence-Based Decision Making**: Unlike black-box classifiers, Historian provides transparent verdicts by pointing to specific historical patches that match, enabling expert verification.
 
 - **Self-Improving Architecture**: The reference set grows over time, making Historian progressively more powerful without expensive model retraining.
@@ -16,6 +20,10 @@ Historian is a tool to tackle this by formulating patch assessment as code clone
 - **Principled Uncertainty Handling**: Unknown labels indicate insufficient historical evidence, directing human experts to cases requiring thorough evaluation.
 
 - **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
+
+<p align="center">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/main-results.png" alt="Overview Figure">
+</p>
 
 ## Purpose and Scope
 In the error-prone research environment of APR, our empirical studies show that many APR-generated patches are repetitive and exhibit human-understandable similarities (Type-1, Type-2 clones), making relabeling from scratch inefficient and unnecessary. The tool addresses the specific challenge of reducing redundant validation effort while maintaining high accuracy through evidence-based decision making.
