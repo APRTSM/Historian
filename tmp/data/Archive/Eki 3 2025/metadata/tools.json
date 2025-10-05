@@ -1,0 +1,20 @@
+[
+    {
+        "uid": "ollama",
+        "name": "Ollama",
+        "description": "",
+        "link": "https://github.com/ollama/ollama"
+    },
+    {
+        "uid": "SourcererCC",
+        "name": "SourcererCC",
+        "description": "",
+        "link": "https://github.com/DehengYang/repair-ingredients"
+    },
+    {
+        "uid": "matching",
+        "name": "Matching",
+        "description": "",
+        "link": "https://github.com/ollama/ollama"
+    }
+]

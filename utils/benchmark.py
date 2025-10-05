@@ -800,8 +800,8 @@ def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> 
 
         return pd.read_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
 
-    # single_hunk_tool_patches = patches[patches.apply(is_single_hunk, axis=1)]
-    single_hunk_tool_patches = patches[patches.apply(lambda patch: are_single_hunks(patch, developer_patches), axis=1)]
+    single_hunk_tool_patches = patches[patches.apply(is_single_hunk, axis=1)]
+    # single_hunk_tool_patches = patches[patches.apply(lambda patch: are_single_hunks(patch, developer_patches), axis=1)]
 
     # # are all single hunks have only one  source_method source_method is a list? Yes
     # print(len(single_hunk_tool_patches))
