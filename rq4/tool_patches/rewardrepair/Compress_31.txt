@@ -1,0 +1,5 @@
+Compress_31   src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java:135
+Identical to human-written patches  remove 3 line(s)
+-   if  (currentByte  ==  0)  {  break;  }  
++     
+

@@ -1,0 +1,6 @@
+Identical   Math_72_BrentSolver_2_2 
+src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java 127 
+-  setResult(yMax, 0); 
++  setResult(max,  0);
+[Human-written Patch]
++  setResult(max,  0);

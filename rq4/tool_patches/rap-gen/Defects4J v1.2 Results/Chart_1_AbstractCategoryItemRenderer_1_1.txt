@@ -1,0 +1,11 @@
+Chart_1_AbstractCategoryItemRenderer_1_1 
+source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java 1797
+
+Buggy Line:
+if (dataset != null) {
+
+Developer's Fix:
+if (dataset == null) {
+
+[success] RAP-Gen's Repair:
+if(dataset == null){

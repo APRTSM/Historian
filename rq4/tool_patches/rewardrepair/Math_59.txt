@@ -1,0 +1,6 @@
+Math_59
+FL: org.apache.commons.math.util.FastMath,3482,1
+Identical to human-written patches  replace line(s)
+-     return    (a    <=    b)    ?    b    :    (Float.isNaN(a    +    b)    ?    Float.NaN    :    b);   
++     return (a < = b)? b : (Float.isNaN(a + b)? Float.NaN : a);
+

@@ -1,0 +1,6 @@
+Math_33
+FL: org.apache.commons.math3.optimization.linear.SimplexTableau,338,0.167
+Identical to human-written patches  replace line(s)
+-     if    (Precision.compareTo(entry,    0d,    maxUlps)    >    0)    {    
++     if (Precision.compareTo(entry, 0d, epsilon) > 0) {
+

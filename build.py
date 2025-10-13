@@ -970,30 +970,32 @@ if __name__=="__main__":
 
     report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    """ Standard Upto Here Next Main """
+    cleaned_tool_patches.to_html("tmp.html")
+    
+    # """ Standard Upto Here Next Main """
 
-    # Deduplicating Second
-    # cleaned_developer_patches, cleaned_tool_patches = second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches)
+    # # Deduplicating Second
+    # # cleaned_developer_patches, cleaned_tool_patches = second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches)
 
-    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    # experiment_1(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
+    # # experiment_1(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
 
-    experiment_2(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
+    # experiment_2(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
 
-    # experiment_5(cleaned_developer_patches, cleaned_tool_patches, models, temperatures, patch_processors)
+    # # experiment_5(cleaned_developer_patches, cleaned_tool_patches, models, temperatures, patch_processors)
 
-    # experiment_7(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
+    # # experiment_7(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
 
-    # experiment_8(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
+    # # experiment_8(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
 
-    tools = [
-        'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
-        'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
-        'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
-    ]
-    for tool in tools:
-        experiment_3(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
+    # tools = [
+    #     'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
+    #     'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
+    #     'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
+    # ]
+    # for tool in tools:
+    #     experiment_3(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
 
 
 

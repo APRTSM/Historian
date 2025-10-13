@@ -1,0 +1,6 @@
+Plausible   Chart_9_TimeSeries_1_1 
+source/org/jfree/data/time/TimeSeries.java 944 
+-  if (endIndex < 0) { 
++  if(endIndex  ==  this.data.size()  ||  startIndex  >  endIndex)  {
+[Human-written Patch]
++  if  ((endIndex  <  0)  ||  (endIndex  <  startIndex))  {

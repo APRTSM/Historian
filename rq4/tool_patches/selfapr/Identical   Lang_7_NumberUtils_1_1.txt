@@ -1,0 +1,6 @@
+Identical   Lang_7_NumberUtils_1_1 
+src/main/java/org/apache/commons/lang3/math/NumberUtils.java 452 
+-  if (str.startsWith("--")) { return null; } 
++  [Delete]
+[Human-written Patch]
++

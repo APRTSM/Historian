@@ -1,0 +1,6 @@
+Plausible   Math_59_FastMath_1_1 
+src/main/java/org/apache/commons/math/util/FastMath.java 3482 
+-  return (a <= b) ? b : (Float.isNaN(a + b) ? Float.NaN : b); 
++  return  (a  >  b)?  a  :(Float.isNaN(a  +  b)?  Float.NaN  :  b);
+[Human-written Patch]
++  return  (a  <=  b)?  b  :  (Float.isNaN(a  +  b)?  Float.NaN  :  a);

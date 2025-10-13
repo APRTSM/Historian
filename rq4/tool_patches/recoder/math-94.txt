@@ -1,0 +1,4 @@
+math-94
+Math94412avaj.slitUhtaMlituhtamsnommocehcapagroavajcrsyggub
+-        if (u * v == 0) {
++if(((u == 0) || (v == 0))){

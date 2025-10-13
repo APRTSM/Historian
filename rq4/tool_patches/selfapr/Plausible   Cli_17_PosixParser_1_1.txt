@@ -1,0 +1,6 @@
+Plausible   Cli_17_PosixParser_1_1 
+src/java/org/apache/commons/cli/PosixParser.java 302 
+-  
++  if(stopAtNonOption)  {  process(token.substring(i));  break;  }
+[Human-written Patch]
++  break;[CE] ')' expected

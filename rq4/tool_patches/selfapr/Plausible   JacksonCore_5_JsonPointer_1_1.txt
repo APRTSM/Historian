@@ -1,0 +1,6 @@
+Plausible   JacksonCore_5_JsonPointer_1_1 
+src/main/java/com/fasterxml/jackson/core/JsonPointer.java 193 
+-  char c = str.charAt(i++); 
++  char  c  =(str  ==  null)?  0  :  str.charAt(i);
+[Human-written Patch]
++  char  c  =  str.charAt(i);

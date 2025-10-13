@@ -1,0 +1,6 @@
+Codec_7   
+FL: org.apache.commons.codec.binary.Base64,670,0.062
+Identical to human-written patches  replace 1 line(s)
+-   return  StringUtils.newStringUtf8(encodeBase64(binaryData,  true));  
++     return StringUtils.newStringUtf8(encodeBase64(binaryData, false));
+

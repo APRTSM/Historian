@@ -1,0 +1,6 @@
+Identical   Cli_12_GnuParser_1_1 
+src/java/org/apache/commons/cli/GnuParser.java 81 
+-  if (options.hasOption(arg.substring(0, 2))) { 
++  else  if(options.hasOption(arg.substring(0,  2)))  {
+[Human-written Patch]
++  else  if  (options.hasOption(arg.substring(0,  2)))  {

@@ -1,0 +1,6 @@
+Plausible   Compress_23_Coders_1_1 
+src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java 112 
+-  dictSize |= (coder.properties[i + 1] << (8 * i)); 
++  dictSize  |=(coder.properties[i  +  1]  <<  (31  *  i));
+[Human-written Patch]
++  dictSize  |=  (coder.properties[i  +  1]  &  0xffl)  <<  (8  *  i);

@@ -1,0 +1,7 @@
+Collections_26 src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java:277
+Semantical equivalent to human-written patches  add line(s)   
+- private Object readResolve() {
++ Object  readResolve()  {
+developer patch:
++ protected  Object  readResolve()  {
+

@@ -1,0 +1,6 @@
+JxPath_16 
+FL: org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer,391,0.218
+Identical to human-written patches  replace 1 line(s)
+-   return  (node  instanceof  Element)  ||  (node  instanceof  Document);  
++     return true;
+

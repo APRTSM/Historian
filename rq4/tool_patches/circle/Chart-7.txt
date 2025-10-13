@@ -1,0 +1,16 @@
+Chart 7
+source/org/jfree/data/time/TimePeriodValues.java
+300 - 303
+###    buggy:  ###
+- long s = getDataItem(this.minMiddleIndex).getPeriod().getStart()
+-     .getTime();
+- long e = getDataItem(this.minMiddleIndex).getPeriod().getEnd()
+-     .getTime();
+### developer: ###
++ long s = getDataItem(this.maxMiddleIndex).getPeriod().getStart()
++     .getTime();
++ long e = getDataItem(this.maxMiddleIndex).getPeriod().getEnd()
++     .getTime();
+###    ours:   ###
++ long s = getDataItem(this.maxMiddleIndex).getPeriod().getStart().getTime();long e = getDataItem(this.maxMiddleIndex).getPeriod().getEnd().getTime();
+

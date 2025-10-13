@@ -1,0 +1,5 @@
+//Semantically Equal: Invoke the corresponding method, "getLeastSupertype", of super class.
+closure-46
+Closure46145avaj.epyTdroceRepytsjonihrtpircsavajelgoogmoccrsyggub
+-    RecordTypeBuilder builder = new RecordTypeBuilder(registry);
++if(0!=1){return super.getLeastSupertype(that);}

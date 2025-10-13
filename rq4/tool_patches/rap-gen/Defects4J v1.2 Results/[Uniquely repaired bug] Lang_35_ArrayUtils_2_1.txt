@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Lang_35_ArrayUtils_2_1
+src/main/java/org/apache/commons/lang3/ArrayUtils.java 3295
+
+Buggy Line:
+type = Object.class;
+
+Developer's Fix:
+throw new IllegalArgumentException("Arguments cannot both be null");
+
+[success] RAP-Gen's Repair:
+throw new IllegalArgumentException("");

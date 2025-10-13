@@ -1,0 +1,6 @@
+Identical   Closure_6_TypeValidator_2_1 
+src/com/google/javascript/jscomp/TypeValidator.java 366 
+-   if  ((leftType.isConstructor()  ||  leftType.isEnumType())  &&  (rightType.isConstructor()  ||  rightType.isEnumType()))  {  registerMismatch(rightType,  leftType,  null);  }  else  {  
++  [Delete]
+[Human-written Patch]
++  [Delete]

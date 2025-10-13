@@ -1,0 +1,4 @@
+chart-3
+Chart31058avaj.seireSemiTemitatadeerfjgroecruosyggub
+-        if (this.data.size() > 0) {
++copy.findBoundsByIteration();

@@ -1,0 +1,6 @@
+Plausible   Lang_33_ClassUtils_1_1 
+src/main/java/org/apache/commons/lang3/ClassUtils.java 910 
+-  classes[i] = array[i].getClass(); 
++  classes[i]  =(array[i]  ==  null?  classes[i]  :  array[i].getClass());
+[Human-written Patch]
++  classes[i]  =  array[i]  ==  null?  null  :  array[i].getClass();

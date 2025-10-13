@@ -1,0 +1,10 @@
+Math 96
+src/java/org/apache/commons/math/complex/Complex.java
+258 - 258
+###    buggy:  ###
+- ret = (Double.doubleToRawLongBits(real) == Double.doubleToRawLongBits(rhs.getReal())) && (Double.doubleToRawLongBits(imaginary) == Double.doubleToRawLongBits(rhs.getImaginary()));
+### developer: ###
++ ret = (real == rhs.real) && (imaginary == rhs.imaginary);
+###    ours:   ###
++ ret = (real == rhs.getReal()) && (imaginary == rhs.getImaginary());
+

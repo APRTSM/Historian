@@ -1,0 +1,9 @@
+Mockito_38  src/org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java: 48
+Semantical equivalent to human-written patches  replace line(s)
+-     return  StringDescription.toString(m).equals(arg.toString());  
++     if  (arg  ==  null)  return  false;  return  StringDescription.toString(m).equals(arg.toString());
+
+developer patch: 
++ return  StringDescription.toString(m).equals(arg  ==  null?   "null   "  :  arg.toString()); 
+
+

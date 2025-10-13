@@ -1,0 +1,6 @@
+Identical   Math_72_BrentSolver_2_1 
+src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java 115 
+-  setResult(yMin, 0); 
++  setResult(min,  0);
+[Human-written Patch]
++  setResult(min,  0);

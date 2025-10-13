@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Math_35_ElitisticListPopulation_2_2
+src/main/java/org/apache/commons/math3/genetics/ElitisticListPopulation.java 65
+
+Buggy Line:
+this.elitismRate = elitismRate;
+
+Developer's Fix:
+setElitismRate(elitismRate);
+
+[success] RAP-Gen's Repair:
+setElitismRate(elitismRate);

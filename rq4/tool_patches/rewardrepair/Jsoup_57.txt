@@ -1,0 +1,6 @@
+Jsoup_57   
+FL: org.jsoup.nodes.Attributes,125,0.707
+Identical to human-written patches  replace 1 line(s)
+-   attributes.remove(attrKey);  
++   it.remove();
+

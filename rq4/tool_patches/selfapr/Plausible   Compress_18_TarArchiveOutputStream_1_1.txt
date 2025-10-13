@@ -1,0 +1,5 @@
+Plausible   Compress_18_TarArchiveOutputStream_1_1 
+src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java 457 
++  name  = "./ "  +  headers.get(entryName);
+[Human-written Patch]
++  while  (name.endsWith( "/ "))  {  n', "  name  =  name.substring(0,  name.length()  -  1);  }

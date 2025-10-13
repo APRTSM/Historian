@@ -1,0 +1,8 @@
+JacksonDatabind_46  src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java 156
+Semantical equivalent to human-written patches  add line(s)   
++     sb.append('>');
+
+developer patch:
+-     sb.append(';');
++     sb.append(">;");
+

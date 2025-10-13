@@ -1,0 +1,6 @@
+Identical   JacksonDatabind_27_BeanDeserializer_1_1 
+src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java 794 
+-  if (ext.handlePropertyValue(p, ctxt, propName, buffer)) { 
++  if(ext.handlePropertyValue(p,  ctxt,  propName,  null))  {
+[Human-written Patch]
++  if  (ext.handlePropertyValue(p,  ctxt,  propName,  null))  {

@@ -1,0 +1,6 @@
+Plausible   Chart_11_ShapeUtilities_1_1 
+source/org/jfree/chart/util/ShapeUtilities.java 275 
+-  PathIterator iterator2 = p1.getPathIterator(null); 
++  PathIterator  iterator2  =(PathIterator)p2.getPathIterator(null);
+[Human-written Patch]
++  PathIterator  iterator2  =  p2.getPathIterator(null);

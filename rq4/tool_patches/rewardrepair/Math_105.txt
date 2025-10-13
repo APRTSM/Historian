@@ -1,0 +1,9 @@
+Math_105
+FL: org.apache.commons.math.stat.regression.SimpleRegression,264,0.333
+Semantical equivalent to human-written patches  replace line(s)
+-  return sumYY - sumXY * sumXY / sumXX;
++  return  Math.max(0,  sumYY  -  sumXY  *  sumXY  /  sumXX);
+developer patch:
++  return  Math.max(0d,  sumYY  -  sumXY  *  sumXY  /  sumXX);
+
+

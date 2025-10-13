@@ -1,0 +1,6 @@
+Identical   Lang_26_FastDateFormat_1_1 
+src/main/java/org/apache/commons/lang3/time/FastDateFormat.java 820 
+-  Calendar c = new GregorianCalendar(mTimeZone); 
++  Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);
+[Human-written Patch]
++  Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);

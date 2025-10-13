@@ -1,0 +1,6 @@
+Compress_14   src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java:65
+Identical to human-written patches  replace 8 line(s)
+-   boolean  allNUL  =  true;  for  (int  i  =  start;  i  <  end;  i++){  if  (buffer[i]  !=  0){  allNUL  =  false;  break;  }  }  if  (allNUL)  {  
++     if (buffer[start] == 0) {
+
+

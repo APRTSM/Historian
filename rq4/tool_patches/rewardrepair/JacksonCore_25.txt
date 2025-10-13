@@ -1,0 +1,6 @@
+JacksonCore_25   
+FL: com.fasterxml.jackson.core.json.ReaderBasedJsonParser,1963,0.052
+Identical to human-written patches  replace 1 line(s)
+-   if  (i  <=  maxCode)  {  
++     if (i < maxCode) {
+

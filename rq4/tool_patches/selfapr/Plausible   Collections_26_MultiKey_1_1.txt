@@ -1,0 +1,6 @@
+Plausible   Collections_26_MultiKey_1_1 
+src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java 277 
+-  private Object readResolve() { 
++  final  Object  readResolve()  {
+[Human-written Patch]
++  protected  Object  readResolve()  {

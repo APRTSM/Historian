@@ -1,0 +1,6 @@
+Jsoup_24   
+FL: org.jsoup.parser.TokeniserState,558,1
+Identical to human-written patches  remove 1 line(s)
+-   r.advance();  
++     
+

@@ -1,0 +1,6 @@
+Plausible   Jsoup_46_Entities_1_1 
+src/main/java/org/jsoup/nodes/Entities.java 118 
+-  accum.append(c); 
++  accum.append(stripLeadingWhite).append( "&nbsp; ");
+[Human-written Patch]
++  accum.append( "&#xa0; ");

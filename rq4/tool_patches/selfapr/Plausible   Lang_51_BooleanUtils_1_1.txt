@@ -1,0 +1,5 @@
+Plausible   Lang_51_BooleanUtils_1_1 
+src/java/org/apache/commons/lang/BooleanUtils.java 682 
++  return(str.charAt(1)  ==  'J'  ||  str.charAt(1)  ==  'J')&&(str.charAt(2)  ==  'S'  ||  str.charAt(2)  =='s');
+[Human-written Patch]
++  return  false;

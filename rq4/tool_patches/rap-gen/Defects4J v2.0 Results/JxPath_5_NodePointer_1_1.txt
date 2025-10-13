@@ -1,0 +1,11 @@
+JxPath_5_NodePointer_1_1
+src/java/org/apache/commons/jxpath/ri/model/NodePointer.java 665
+
+Buggy Line:
+throw new JXPathException("Cannot compare pointers that do not belong to the same tree: \\\'" + p1 +"\\\' and \\\'" + p2 +"\\\'");
+
+Developer's Fix:
+return 0;
+
+[success] RAP-Gen's Repair:
+return 0;

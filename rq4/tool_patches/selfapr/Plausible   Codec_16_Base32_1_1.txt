@@ -1,0 +1,6 @@
+Plausible   Codec_16_Base32_1_1 
+src/main/java/org/apache/commons/codec/binary/Base32.java 99 
+-  25, 26, 27, 28, 29, 30, 31, 32, 
++  25,  26,  28,  30,  31,  59,
+[Human-written Patch]
++  25,  26,  27,  28,  29,  30,  31,

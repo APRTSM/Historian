@@ -1,0 +1,6 @@
+Identical   JacksonXml_5_XmlSerializerProvider_1_1 
+src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java 59 
+-  _rootNameLookup = src._rootNameLookup; 
++  _rootNameLookup  =  new  XmlRootNameLookup();
+[Human-written Patch]
++  _rootNameLookup  =  new  XmlRootNameLookup();

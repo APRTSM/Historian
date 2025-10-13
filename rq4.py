@@ -350,8 +350,34 @@ def apply_params(args, prompts, models, patch_processors):
     return prompts, models, patch_processors
 
 
+# RQ4
+def iterate_patches(rq4_data_dir):
+    results = []
+    for tool in os.listdir(rq4_data_dir):
+        tool_path = os.path.join(rq4_data_dir, tool)
+
+        if os.path.isdir(tool_path):
+            for filename in os.listdir(tool_path):
+                filepath = os.path.join(tool_path, filename)
+
+                if filename.endswith(('.txt', '.java', '.patch')) and not os.path.isdir(filepath):
+                    results.append({
+                        'tool': tool,
+                        'filename': filename,
+                        'filepath': filepath
+                    })
+
+                elif not os.path.isdir(filepath):
+                    logging.info(f"Skipping non-patch file: {filepath}")
+
+    return results
+
 if __name__=="__main__": 
-    logging.info("Running build.py ...")
+    logging.info("Running rq4.py ...")
+    logging.info("Reading patches from RQ4 data directory ...")
+    files = iterate_patches(RQ4_DATA_DIR)
+
+    raise
 
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)

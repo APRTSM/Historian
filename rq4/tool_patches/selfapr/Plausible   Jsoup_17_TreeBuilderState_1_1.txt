@@ -1,0 +1,6 @@
+Plausible   Jsoup_17_TreeBuilderState_1_1 
+src/main/java/org/jsoup/parser/TreeBuilderState.java 1451 
+-  private static String nullString = String.valueOf(0x0000); 
++  private  static  String  nullString  =  String.valueOf(0x800);
+[Human-written Patch]
++  private  static  String  nullString  =  String.valueOf('u0000');

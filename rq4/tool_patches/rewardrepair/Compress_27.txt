@@ -1,0 +1,5 @@
+Compress_27   src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java:133
+Identical to human-written patches  remove 4 line(s)
+-   if  (start  ==  end)  {  throw  new  IllegalArgumentException(  exceptionMessage(buffer,  offset,  length,  start,  trailer));  }  
++     
+

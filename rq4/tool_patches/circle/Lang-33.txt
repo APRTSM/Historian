@@ -1,0 +1,10 @@
+Lang 33
+src/main/java/org/apache/commons/lang3/ClassUtils.java
+910 - 910
+###    buggy:  ###
+- classes[i] = array[i].getClass();
+### developer: ###
++ classes[i] = array[i] == null ? null : array[i].getClass();
+###    ours:   ###
++ if (array[i] == null)  classes[i] = null;  else  classes[i] = array[i].getClass();
+

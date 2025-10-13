@@ -1,0 +1,6 @@
+Chart_24
+FL: org.jfree.chart.renderer.GrayPaintScale,126,1
+Identical to human-written patches  replace line(s)
+-     int    g    =    (int)    ((value    -    this.lowerBound)    /    (this.upperBound    
++     int g = (int) ((v - this.lowerBound) / (this.upperBound
+

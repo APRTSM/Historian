@@ -1,0 +1,11 @@
+Closure_73_CodeGenerator_1_1
+src/com/google/javascript/jscomp/CodeGenerator.java 1045
+
+Buggy Line:
+if (c > 0x1f && c <= 0x7f) {
+
+Developer's Fix:
+if (c > 0x1f && c < 0x7f) {
+
+[success] RAP-Gen's Repair:
+if(c > 0x1f && c < 0x7f){

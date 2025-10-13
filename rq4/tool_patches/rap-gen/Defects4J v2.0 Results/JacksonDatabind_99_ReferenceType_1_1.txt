@@ -1,0 +1,10 @@
+JacksonDatabind_99_ReferenceType_1_1
+src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java 169
+
+Buggy Line:
+
+Developer's Fix:
+sb.append('>');
+
+[success] RAP-Gen's Repair:
+sb.append('>');

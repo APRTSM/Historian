@@ -1,0 +1,1 @@
+final long n1n2prod = (long) n1 * n2;

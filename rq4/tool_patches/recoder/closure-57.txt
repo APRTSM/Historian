@@ -1,0 +1,4 @@
+closure-57
+Closure57197avaj.noitnevnoCgnidoCerusolCpmocsjtpircsavajelgoogmoccrsyggub
+-          if (target != null) {
++if(((target != null) && !target.isQualifiedName())){

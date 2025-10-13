@@ -1,0 +1,6 @@
+Identical   Compress_31_TarUtils_1_1 
+src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java 135 
+-  if (currentByte == 0) { break; } 
++  [Delete]
+[Human-written Patch]
++  [Delete]

@@ -1,0 +1,11 @@
+Math_77_ArrayRealVector_1_1
+src/main/java/org/apache/commons/math/linear/ArrayRealVector.java 721
+
+Buggy Line:
+max += Math.max(max, Math.abs(a));
+
+Developer's Fix:
+max = Math.max(max, Math.abs(a));
+
+[success] RAP-Gen's Repair:
+max = Math.max(max, Math.abs(a));

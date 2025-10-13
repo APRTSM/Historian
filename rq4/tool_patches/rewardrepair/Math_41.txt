@@ -1,0 +1,6 @@
+Math_41
+FL: org.apache.commons.math.stat.descriptive.moment.Variance,520,0.408
+Identical to human-written patches  replace line(s)
+-     for    (int    i    =    0;    i    <    weights.length;    i++)    {    
++     for (int i = begin; i < begin + length; i++) {
+

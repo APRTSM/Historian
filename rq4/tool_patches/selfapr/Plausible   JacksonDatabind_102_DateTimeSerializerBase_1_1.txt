@@ -1,0 +1,6 @@
+Plausible   JacksonDatabind_102_DateTimeSerializerBase_1_1 
+src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java 67 
+-  if (property == null) { return this; } 
++  if(serializers  ==  null)  {  return  this;  }
+[Human-written Patch]
++  [Delete]

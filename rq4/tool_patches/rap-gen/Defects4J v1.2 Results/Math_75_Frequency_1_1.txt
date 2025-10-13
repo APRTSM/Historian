@@ -1,0 +1,11 @@
+Math_75_Frequency_1_1
+src/main/java/org/apache/commons/math/stat/Frequency.java 303
+
+Buggy Line:
+return getCumPct((Comparable<?>) v);
+
+Developer's Fix:
+return getPct((Comparable<?>) v);
+
+[success] RAP-Gen's Repair:
+return getPct(( Comparable<?>)v);

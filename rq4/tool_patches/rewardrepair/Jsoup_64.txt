@@ -1,0 +1,7 @@
+Jsoup_64   src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java:1489
+Identical to human-written patches  replace 1 line(s)
+-   tb.insert(startTag); 
++ 
+src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java:1493 
++     tb.insert(startTag);
+

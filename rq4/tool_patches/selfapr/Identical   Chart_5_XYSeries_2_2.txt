@@ -1,0 +1,6 @@
+Identical   Chart_5_XYSeries_2_2 
+source/org/jfree/data/xy/XYSeries.java 548 
+-  if (index >= 0 && !this.allowDuplicateXValues) { 
++  if(index  >=  0)  {
+[Human-written Patch]
++  if  (index  >=  0)  {

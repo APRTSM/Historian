@@ -1,0 +1,6 @@
+Plausible   JxPath_12_DOMNodePointer_1_1 
+src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java 108 
+-  return equalStrings(namespaceURI, nodeNS); 
++  return  equalStrings(namespaceURI,  nodeNS)&&  wildcard  ||  testName.getName().equals(DOMNodePointer.getLocalName(node));
+[Human-written Patch]
++  return  equalStrings(namespaceURI,  nodeNS)  ||  nodeNS  ==  null  &&  equalStrings(testPrefix,  getPrefix(node));

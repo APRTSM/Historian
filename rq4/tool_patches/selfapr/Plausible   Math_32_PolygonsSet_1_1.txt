@@ -1,0 +1,6 @@
+Plausible   Math_32_PolygonsSet_1_1 
+src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java 136 
+-  if ((Boolean) tree.getAttribute()) { 
++  if(tree.getAttribute()  ==  null)  {
+[Human-written Patch]
++  if  (tree.getCut()  ==  null  &&  (Boolean)  tree.getAttribute())  {

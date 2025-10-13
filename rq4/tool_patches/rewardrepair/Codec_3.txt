@@ -1,0 +1,6 @@
+Codec_3   
+FL: org.apache.commons.codec.language.DoubleMetaphone,455,0.5
+Identical to human-written patches  replace 1 line(s)
+-   }  else  if  (contains(value,  index  +  1,  4,   "IER "))  {  
++     } else if (contains(value, index + 1, 3, "IER ")) {
+

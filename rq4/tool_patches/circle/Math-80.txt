@@ -1,0 +1,10 @@
+Math 80
+src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+1135 - 1135
+###    buggy:  ###
+- int j = 4 * n - 1;
+### developer: ###
++ int j = 4 * (n - 1);
+###    ours:   ###
++ int j = 4 * (n - 1);
+

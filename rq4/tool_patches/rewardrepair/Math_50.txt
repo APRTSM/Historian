@@ -1,0 +1,7 @@
+Math_50
+FL: org.apache.commons.math.analysis.solvers.BaseSecantSolver,188,0.707
+org.apache.commons.math.analysis.solvers.BaseSecantSolver,189,0.707
+Identical to human-written patches  replace line(s)
+-         x0    =    0.5    *    (x0    +    x1    -    FastMath.max(rtol    *    FastMath.abs(x1),    atol));   f0 = computeObjectiveValue(x0);   
++     
+

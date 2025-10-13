@@ -1,0 +1,1 @@
+!options.dependencyOptions.needsManagement() ||

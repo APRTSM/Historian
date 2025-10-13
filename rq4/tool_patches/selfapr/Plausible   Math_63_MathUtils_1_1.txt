@@ -1,0 +1,6 @@
+Plausible   Math_63_MathUtils_1_1 
+src/main/java/org/apache/commons/math/util/MathUtils.java 417 
+-  return (Double.isNaN(x) && Double.isNaN(y)) || x == y; 
++  return  (Double.isNaN(x)&&  Double.isInfinite(y))  ||  x  ==  y;
+[Human-written Patch]
++  return  equals(x,  y,  1);

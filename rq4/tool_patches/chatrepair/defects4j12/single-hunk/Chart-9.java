@@ -1,0 +1,1 @@
+if (startIndex == this.data.size() || endIndex < startIndex) {

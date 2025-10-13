@@ -1,0 +1,6 @@
+Plausible   Jsoup_45_HtmlTreeBuilder_1_1 
+src/main/java/org/jsoup/parser/HtmlTreeBuilder.java 394 
+-  } else if (("td".equals(name) ||"td".equals(name) && !last)) { 
++  }  else  if( "cell ".equals(name)|| "ctxt ".equals(name)||!last)  {
+[Human-written Patch]
++  }  else  if  (( "td ".equals(name)  || "th ".equals(name)  &&!last))  {

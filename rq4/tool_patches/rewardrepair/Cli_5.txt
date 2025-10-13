@@ -1,0 +1,6 @@
+Cli_5   
+FL: org.apache.commons.cli.Util,37,0.174
+Identical to human-written patches  add line(s)
+-   
++     if (str == null) { return null; }
+

@@ -1,0 +1,6 @@
+Identical   JacksonCore_25_ReaderBasedJsonParser_1_1 
+src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java 1963 
+-  if (i <= maxCode) { 
++  if(i  <  maxCode)  {
+[Human-written Patch]
++  if  (i  <  maxCode)  {

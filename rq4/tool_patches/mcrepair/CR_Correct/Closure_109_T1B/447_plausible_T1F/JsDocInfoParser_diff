@@ -1,0 +1,14 @@
+--- "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_109/447/JsDocInfoParser_Origin.java"	2022-07-18 11:54:06.816498883 +0900
++++ "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_109/447/JsDocInfoParser.java"	2022-07-18 11:54:06.820498902 +0900
+@@ -1904,10 +1904,7 @@
+    * ContextTypeExpression := BasicTypeExpression | '?'
+    * For expressions on the right hand side of a this: or new:
+    */
+-  private Node parseContextTypeExpression(JsDocToken token) {
+-          return parseTypeName(token);
+-  }
+-
++private Node parseContextTypeExpression ( JsDocToken token ) { return this . parseTypeExpression ( token ) ; }
+   /**
+    * BasicTypeExpression := '*' | 'null' | 'undefined' | TypeName
+    *     | FunctionType | UnionType | RecordType | ArrayType

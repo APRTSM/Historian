@@ -1,0 +1,6 @@
+Identical   Math_75_Frequency_1_1 
+src/main/java/org/apache/commons/math/stat/Frequency.java 303 
+-  return getCumPct((Comparable<?>) v); 
++  return  getPct((  Comparable  <?>)v);
+[Human-written Patch]
++  return  getPct((Comparable  <?>)  v);

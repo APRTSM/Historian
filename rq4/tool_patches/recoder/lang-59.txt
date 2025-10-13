@@ -1,0 +1,4 @@
+lang-59
+Lang59884avaj.redliuBrtStxetgnalsnommocehcapagroavajcrsyggub
+-                str.getChars(0, strLen, buffer, size);
++str.getChars(0, width, buffer, size);

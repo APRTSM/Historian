@@ -1,0 +1,6 @@
+Plausible   Math_94_MathUtils_1_1 
+src/java/org/apache/commons/math/util/MathUtils.java 412 
+-  if (u * v == 0) { 
++  if(u  ==  0  ||  v  ==  0)  {
+[Human-written Patch]
++  if  ((u  ==  0)  ||  (v  ==  0))  {

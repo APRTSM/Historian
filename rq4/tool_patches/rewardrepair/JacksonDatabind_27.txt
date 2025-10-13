@@ -1,0 +1,6 @@
+JacksonDatabind_27   
+FL: com.fasterxml.jackson.databind.deser.BeanDeserializer,794,0.204
+Identical to human-written patches  replace 1 line(s)
+-   if  (ext.handlePropertyValue(p,  ctxt,  propName,  buffer))  {  
++     if (ext.handlePropertyValue(p, ctxt, propName, null)) {
+
