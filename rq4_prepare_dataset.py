@@ -351,31 +351,138 @@ def apply_params(args, prompts, models, patch_processors):
 
 
 # RQ4
-def iterate_patches(rq4_data_dir):
+def generate_patch_from_ours(patch, bug):
+    checkout_dir = checkout_bug_defects4j(patch['bug_uid'])
+    get_developer_patch(bug)
+
+    content = read_patch(patch['location'])
+    """
+    Converts the diff format to a unified patch using the 'ours' version.
+    
+    Args:
+        content: String containing the diff in the specified format
+    
+    Returns:
+        String containing the unified diff patch
+    """
+    lines = content.strip().split('\n')
+    
+    # Extract file path and line numbers
+    file_path = None
+    start_line = None
+    end_line = None
+    buggy_lines = []
+    ours_lines = []
+    
+    section = None
+    
+    for line in lines:
+        # Check if line contains a file path (has a slash)
+        if '/' in line and not line.startswith('-') and not line.startswith('+') and 'buggy' not in line.lower() and 'developer' not in line.lower() and 'ours' not in line.lower():
+            file_path = line.strip()
+        elif line and line[0].isdigit():
+            # Parse line numbers like "584 - 584" or "300 - 303"
+            parts = line.replace(' ', '').split('-')
+            start_line = int(parts[0])
+            if len(parts) > 1:
+                end_line = int(parts[1])
+        elif '### buggy:' in line.lower() or '###    buggy:' in line.lower():
+            section = 'buggy'
+        elif '### developer:' in line.lower():
+            section = 'developer'
+        elif '### ours:' in line.lower() or '###    ours:' in line.lower():
+            section = 'ours'
+        elif line.startswith('-') and section == 'buggy':
+            buggy_lines.append(line[1:].strip())  # Remove '-' prefix and trim
+        elif line.startswith('+') and section == 'ours':
+            ours_lines.append(line[1:].strip())  # Remove '+' prefix and trim
+    
+    # Calculate line counts
+    buggy_count = len(buggy_lines)
+    ours_count = len(ours_lines)
+    
+    # Generate unified diff
+    patch = f"--- {file_path}\n"
+    patch += f"+++ {file_path}\n"
+    patch += f"@@ -{start_line},{buggy_count} +{start_line},{ours_count} @@\n"
+    
+    # Add removed lines
+    for line in buggy_lines:
+        patch += f"-{line}\n"
+    
+    # Add added lines
+    for line in ours_lines:
+        patch += f"+{line}\n"
+    
+    return patch
+
+def iterate_patches(rq4_data_dir, bugs):
     results = []
     for tool in os.listdir(rq4_data_dir):
         tool_path = os.path.join(rq4_data_dir, tool)
 
         if os.path.isdir(tool_path):
+            index = 0
+
             for filename in os.listdir(tool_path):
                 filepath = os.path.join(tool_path, filename)
 
-                if filename.endswith(('.txt', '.java', '.patch')) and not os.path.isdir(filepath):
-                    results.append({
-                        'tool': tool,
-                        'filename': filename,
-                        'filepath': filepath
-                    })
-
-                elif not os.path.isdir(filepath):
+                if os.path.isdir(filepath):
                     logging.info(f"Skipping non-patch file: {filepath}")
+
+                    continue
+
+                elif os.path.isdir(filepath):
+                    continue
+
+                elif "alpharepair" in tool:
+                    continue
+
+                elif "arja-e" in tool:
+                    continue
+
+                elif "chatrepair" in tool:
+                    continue
+
+                elif "circle" in tool:
+                    bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"]
+                    uid = f"historian-{bug.name}-{tool}-{index}"
+                    location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+                    patch_dict = {
+                        "uid": uid,
+                        "bug_uid": bug.name,
+                        "generator": "Circle",
+                        "location": location,
+                        "correctness": "Correct",
+                        "generator_id": "circle",
+                        "origin": "Historian"
+                    }
+                    patch = pd.Series(patch_dict, name=uid)
+
+                    patch_content = generate_patch_from_ours(patch, bug)
+                    
+                    fixed_patch_dir = fix_patch(patch, bugs)
+
+                    print(f"Fixed Patch Dir: {fixed_patch_dir}")
+
+                    patch["fixed_location"] = fixed_patch_dir
+                    
+                    index += 1
+
+                    raise
+
+
+
 
     return results
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")
+    bugs, developer_patches, tool_patches = init(configure=False)
+
     logging.info("Reading patches from RQ4 data directory ...")
-    files = iterate_patches(RQ4_DATA_DIR)
+    files = iterate_patches(RQ4_DATA_DIR, bugs)
 
     raise
 
