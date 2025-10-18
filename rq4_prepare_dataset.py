@@ -352,8 +352,20 @@ def apply_params(args, prompts, models, patch_processors):
 
 # RQ4
 def generate_patch_from_ours(patch, bug):
-    checkout_dir = checkout_bug_defects4j(patch['bug_uid'])
-    get_developer_patch(bug)
+    if hasattr(bug, "to_dict"):
+        bug_uid = bug.name
+        bug = bug.to_dict()
+        bug['uid'] = bug_uid
+
+    checkout_dir = checkout_bug_defects4j(bug)
+    dir = get_developer_patch(bug)
+
+
+    
+    print(111111111)
+
+    print(checkout_dir)
+    print(dir)
 
     content = read_patch(patch['location'])
     """
@@ -448,27 +460,60 @@ def iterate_patches(rq4_data_dir, bugs):
                     bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"]
                     uid = f"historian-{bug.name}-{tool}-{index}"
                     location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+                    formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
-                    patch_dict = {
-                        "uid": uid,
-                        "bug_uid": bug.name,
-                        "generator": "Circle",
-                        "location": location,
-                        "correctness": "Correct",
-                        "generator_id": "circle",
-                        "origin": "Historian"
-                    }
-                    patch = pd.Series(patch_dict, name=uid)
 
-                    patch_content = generate_patch_from_ours(patch, bug)
+                    # patch_content = generate_patch_from_ours(patch, bug)
+
+                    if os.path.exists(formatted_patch_dir):
+                        logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+
+                        continue
+
+                    if not os.path.exists(location):
+                        logging.info(f"Processing patch: {filepath}")
+                        logging.info(f"Copying to first cleaned: {location}")
+
+                        with open(filepath, 'r') as file:
+                            patch_content = file.read()
+
+                        with open(location, 'w') as file:
+                            file.write(patch_content)
+
+                        index += 1
+
+                        fixed_patch_dir = fix_patch(patch, bugs)
+
+                        logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
+
+                        patch["fixed_location"] = fixed_patch_dir
+
+                    while True:
+                        logging.info(f"Trying to apply patch: {location}")
+
+                        patch_dict = {
+                            "uid": uid,
+                            "bug_uid": bug.name,
+                            "generator": "Circle",
+                            "location": location,
+                            "correctness": "Correct",
+                            "generator_id": "circle",
+                            "origin": "Historian"
+                        }
+                        patch = pd.Series(patch_dict, name=uid)
+
+                        fixed_patch_dir = fix_patch(patch, bugs)
+
+                        if fixed_patch_dir:
+                            logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
+
+                            patch["fixed_location"] = fixed_patch_dir
+
+                            break
+
+                        logging.error(f"Failed to fix patch: {location}. Retrying...")
+                        print(f"Failed to fix patch: {location}. Retrying...")
                     
-                    fixed_patch_dir = fix_patch(patch, bugs)
-
-                    print(f"Fixed Patch Dir: {fixed_patch_dir}")
-
-                    patch["fixed_location"] = fixed_patch_dir
-                    
-                    index += 1
 
                     raise
 
