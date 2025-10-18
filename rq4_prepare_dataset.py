@@ -457,7 +457,8 @@ def iterate_patches(rq4_data_dir, bugs):
                     continue
 
                 elif "circle" in tool:
-                    bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"]
+                    bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
+                    bug['uid'] = bug.name
                     uid = f"historian-{bug.name}-{tool}-{index}"
                     location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
                     formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
@@ -488,6 +489,7 @@ def iterate_patches(rq4_data_dir, bugs):
 
                         patch["fixed_location"] = fixed_patch_dir
 
+                    checkout_dir = None
                     while True:
                         logging.info(f"Trying to apply patch: {location}")
 
@@ -502,6 +504,9 @@ def iterate_patches(rq4_data_dir, bugs):
                         }
                         patch = pd.Series(patch_dict, name=uid)
 
+                        if checkout_dir:
+                            shutil.rmtree(checkout_dir)
+
                         fixed_patch_dir = fix_patch(patch, bugs)
 
                         if fixed_patch_dir:
@@ -511,9 +516,14 @@ def iterate_patches(rq4_data_dir, bugs):
 
                             break
 
+                        developer_patch = get_developer_patch(bug)
+                        checkout_dir = checkout_bug(bug)
+
                         logging.error(f"Failed to fix patch: {location}. Retrying...")
                         print(f"Failed to fix patch: {location}. Retrying...")
-                    
+                        print(f"Developer Patch Location: {developer_patch['location']}")
+                        print(f"Checkout Directory: {checkout_dir}")
+                        input("Press any key to try again.")
 
                     raise
 
