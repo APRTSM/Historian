@@ -112,7 +112,7 @@ def get_input_patches(bugs):
     return input_patches
 
 def clean_patches(bugs, developer_patches, tool_patches):
-    logging.info("Testing tool patches ...") 
+    logging.info("Testing tool patches (keep applicable only) ...")
 
     if os.path.exists(TMP_CLEANED_DEVELOPER_PATHCES_PKL):
         cleaned_developer_patches = pd.read_pickle(TMP_CLEANED_DEVELOPER_PATHCES_PKL)
