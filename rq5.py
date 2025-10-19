@@ -139,7 +139,9 @@ def clean_patches(bugs, developer_patches, tool_patches):
     no_cleaned_developer_patches = len(cleaned_developer_patches)
     no_cleaned_tool_patches = len(cleaned_tool_patches)
 
-    logging.info(f"Successfully tested tool patches: \n{no_cleaned_developer_patches} \n{no_cleaned_tool_patches}") 
+    logging.info(f"Successfully tested tool patches: \n{no_cleaned_developer_patches} \n{no_cleaned_tool_patches} \n Correct Tool Patches: {len(cleaned_tool_patches[cleaned_tool_patches['correctness'] == 'Correct'])}, Incorrect Tool Patches: {len(cleaned_tool_patches[cleaned_tool_patches['correctness'] == 'Overfitting'])}, Unknown Tool Patches: {len(cleaned_tool_patches[cleaned_tool_patches['correctness'] == 'Unknown'])}") 
+    dev_origin_counts = cleaned_developer_patches['origin'].value_counts().to_dict()
+    logging.info(f"Added origin_count feature. Developer origins: {dev_origin_counts}.")
 
     return cleaned_developer_patches, cleaned_tool_patches
 
@@ -537,8 +539,6 @@ if __name__=="__main__":
 
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)
-
-    report_dataset(developer_patches, tool_patches, bugs)
 
     # Patch Cleaning (keep applicable only)
     cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
