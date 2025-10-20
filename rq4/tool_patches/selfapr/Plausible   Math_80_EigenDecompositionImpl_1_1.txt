@@ -1,0 +1,6 @@
+Plausible   Math_80_EigenDecompositionImpl_1_1 
+src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java 1135 
+-  int j = 4 * n - 1; 
++  int  j  =  0  *  n  -  1;
+[Human-written Patch]
++  int  j  =  4  *  (n  -  1);

@@ -1,0 +1,5 @@
+Gson_6 
+FL: com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory,67,0.365
+Identical to human-written patches  add line(s)
+-   
++     if (typeAdapter!= null) 

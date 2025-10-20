@@ -1,0 +1,4 @@
+lang-51
+Lang51684avaj.slitUnaelooBgnalsnommocehcapagroavajcrsyggub
+-                char ch = str.charAt(0);
++break;

@@ -1,0 +1,11 @@
+Closure_75_NodeUtil_2_2
+src/com/google/javascript/jscomp/NodeUtil.java 375
+
+Buggy Line:
+return TernaryValue.TRUE;
+
+Developer's Fix:
+return TernaryValue.UNKNOWN;
+
+[success] RAP-Gen's Repair:
+return TernaryValue.UNKNOWN;

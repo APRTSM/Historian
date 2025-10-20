@@ -1,0 +1,5 @@
+Plausible   Chart_24_GrayPaintScale_1_1 
+source/org/jfree/chart/renderer/GrayPaintScale.java 126 
++  value  =  Math.max(v,  this.lowerBound);  v  =  Math.min(v,  this.upperBound);
+[Human-written Patch]
++  value  =  v;

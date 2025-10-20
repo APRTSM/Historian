@@ -1,0 +1,6 @@
+Math_85
+FL: org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils,198,0.243
+Identical to human-written patches  replace line(s)
+-     if    (fa    *    fb    >=    0.0    )    {    
++     if (fa * fb > 0.0) {
+

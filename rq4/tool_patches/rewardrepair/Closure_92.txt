@@ -1,0 +1,5 @@
+Closure_92   src/com/google/javascript/jscomp/ProcessClosurePrimitives.java:789
+Identical to human-written patches  replace line(s)
+-     int    indexOfDot    =    namespace.indexOf('.');    
++     int indexOfDot = namespace.lastIndexOf('.');
+

@@ -1,0 +1,6 @@
+Closure_73
+FL: com.google.javascript.jscomp.CodeGenerator,1045,0.047
+Identical to human-written patches  replace line(s)
+-     if    (c    >    0x1f    &&    c    <=    0x7f)    {    
++     if (c > 0x1f && c < 0x7f) {
+

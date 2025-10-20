@@ -1,0 +1,5 @@
+Codec_8   src/java/org/apache/commons/codec/binary/Base64InputStream.java:169
+Identical to human-written patches  remove 3 line(s)
+-   if  (c  >  0  &&  b.length  ==  len)  {  base64.setInitialBuffer(b,  offset,  len);  }  
++     
+

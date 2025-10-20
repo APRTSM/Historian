@@ -1,0 +1,10 @@
+Closure 73
+src/com/google/javascript/jscomp/CodeGenerator.java
+1045 - 1045
+###    buggy:  ###
+- if (c > 0x1f && c <= 0x7f
+### developer: ###
++ if (c > 0x1f && c < 0x7f) {
+###    ours:   ###
++ if (c > 0x1f && c < 0x7f) {
+

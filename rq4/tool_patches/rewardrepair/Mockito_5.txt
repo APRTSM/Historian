@@ -1,0 +1,5 @@
+Mockito_5   src/org/mockito/internal/verification/VerificationOverTimeImpl.java:91
+Identical to human-written patches  replace line(s)
+-     catch    (org.mockito.exceptions.verification.junit.ArgumentsAreDifferent    e)    {    
++     catch (AssertionError e) {
+

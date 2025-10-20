@@ -1,0 +1,11 @@
+Closure_46_RecordType_1_1
+src/com/google/javascript/rhino/jstype/RecordType.java 140
+
+Buggy Line:
+if (!that.isRecordType()) { return super.getLeastSupertype(that); } RecordTypeBuilder builder = new RecordTypeBuilder(registry); for (String property : properties.keySet()) { if (that.toMaybeRecordType().hasProperty(property) && that.toMaybeRecordType().getPropertyType(property).isEquivalentTo( getPropertyType(property))) { builder.addProperty(property, getPropertyType(property), getPropertyNode(property)); } } return builder.build(); }
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

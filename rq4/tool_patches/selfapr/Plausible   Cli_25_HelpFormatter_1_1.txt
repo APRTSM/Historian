@@ -1,0 +1,6 @@
+Plausible   Cli_25_HelpFormatter_1_1 
+src/java/org/apache/commons/cli/HelpFormatter.java 825 
+-  nextLineTabStop = width - 1; 
++  nextLineTabStop  =(nextLineTabStop  <  width)?  nextLineTabStop  :  1;
+[Human-written Patch]
++  nextLineTabStop  =  1;

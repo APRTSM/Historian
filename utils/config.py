@@ -9,6 +9,11 @@ FORMATTED_DATE_TIME = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 """ Directories """
 PROJECT_DIR = os.getcwd()
 
+# RESEARCH QUESTIONS
+RQ4_DIR = os.path.join(PROJECT_DIR, "rq4")
+RQ4_DATA_DIR = os.path.join(RQ4_DIR, "tool_patches")
+RQ4_FIRST_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "first_cleaned_tool_patches")
+
 # DATASETS
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")
 DL4PC2_DIR = os.path.join(DATASETS_DIR, "dl4pc2")
@@ -41,8 +46,6 @@ DATASETS_JSON = os.path.join(DATASETS_DIR, "datasets.json")
 TOOLS_JSON = os.path.join(TOOLS_DIR, "tools.json")
 
 INPUT_DIR = os.path.join(PROJECT_DIR, "input")
-
-
 
 # TMP
 TMP_DIR = os.path.join(PROJECT_DIR, "tmp")

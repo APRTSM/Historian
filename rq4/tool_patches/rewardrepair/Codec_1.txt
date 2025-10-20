@@ -1,0 +1,14 @@
+Codec_1   src/java/org/apache/commons/codec/language/Caverphone,org/apache/commons/codec/language/Metaphone,org/apache/commons/codec/language/SoundexUtils.java
+Identical to human-written patches  replace 1 line(s)
+-   return  txt.toUpperCase()  ;  
++     return txt.toUpperCase(java.util.Locale.ENGLISH) ;
+
+src/java/org/apache/commons/codec/language/Caverphone:59
+-	txt = txt.toLowerCase() ;
++      txt  =  txt.toLowerCase(Locale.ENGLISH)  ;
+
+src/java/org/apache/commons/codec/language/SoundexUtils.java:53
+-return str.toUpperCase();
++return  str.toUpperCase(java.util.Locale.ENGLISH);   
+
+

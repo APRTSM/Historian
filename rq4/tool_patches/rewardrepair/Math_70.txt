@@ -1,0 +1,6 @@
+Math_70
+FL: org.apache.commons.math.analysis.solvers.BisectionSolver,72,1
+Identical to human-written patches  replace line(s)
+-     return    solve(min,    max);    
++     return solve(f, min, max);
+

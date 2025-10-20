@@ -1,0 +1,6 @@
+Jsoup_43   
+FL: org.jsoup.nodes.Element,574,0.267
+Identical to human-written patches  replace 1 line(s)
+-   if  (element.equals(search))  
++     if (element == search)
+

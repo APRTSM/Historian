@@ -1,0 +1,4 @@
+closure-18
+Closure181288avaj.relipmoCpmocsjtpircsavajelgoogmoccrsyggub
+-      if (options.dependencyOptions.needsManagement() && options.closurePass) {
++if(options.dependencyOptions.needsManagement()){

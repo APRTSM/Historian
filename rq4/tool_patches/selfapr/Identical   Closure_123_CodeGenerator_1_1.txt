@@ -1,0 +1,6 @@
+Identical   Closure_123_CodeGenerator_1_1 
+src/com/google/javascript/jscomp/CodeGenerator.java 285 
+-  Context rhsContext = Context.OTHER; 
++  Context  rhsContext  =  getContextForNoInOperator(context);
+[Human-written Patch]
++  Context  rhsContext  =  getContextForNoInOperator(context);

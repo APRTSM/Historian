@@ -1,0 +1,6 @@
+Plausible   Math_11_MultivariateNormalDistribution_1_1 
+src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java 183 
+-  return FastMath.pow(2 * FastMath.PI, -dim / 2) * 
++  return  FastMath.pow(2  *  FastMath.PI,  -dim  /  2.0)*
+[Human-written Patch]
++  return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *

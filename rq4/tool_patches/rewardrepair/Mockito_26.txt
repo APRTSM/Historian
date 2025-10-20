@@ -1,0 +1,5 @@
+Mockito_26   src/org/mockito/internal/util/Primitives.java:66
+Identical to human-written patches  replace line(s)
+-     primitiveValues.put(double.class,    0);    
++     primitiveValues.put(double.class, 0D);
+

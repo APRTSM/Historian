@@ -1,0 +1,6 @@
+Closure_168
+FL: com.google.javascript.jscomp.TypedScopeCreator,1996,0.036
+Identical to human-written patches  replace 1 line(s)
+-  if (t.getScopeDepth() <= 2) { 
++  if (t.getScopeDepth() < = 1) {
+

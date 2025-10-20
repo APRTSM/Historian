@@ -1,0 +1,6 @@
+JxPath_5   
+FL: org.apache.commons.jxpath.ri.model.NodePointer,665,1
+Identical to human-written patches  replace 3 line(s)
+-   throw  new  JXPathException(   "Cannot  compare  pointers  that  do  not  belong  to  the  same  tree:  ' "  +  p1  +   "'  and  ' "  +  p2  +   "' ");  
++     return 0;
+

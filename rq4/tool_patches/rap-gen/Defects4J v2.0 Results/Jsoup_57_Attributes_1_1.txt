@@ -1,0 +1,11 @@
+Jsoup_57_Attributes_1_1
+src/main/java/org/jsoup/nodes/Attributes.java 125
+
+Buggy Line:
+attributes.remove(attrKey);
+
+Developer's Fix:
+it.remove();
+
+[success] RAP-Gen's Repair:
+it.remove();

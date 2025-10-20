@@ -531,6 +531,12 @@ if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
+
+    tool_patches = tool_patches[tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    
+
+
     print(f"Number of tool patches: {len(tool_patches)}")
     print(f"Number of developer patches: {len(developer_patches)}")
 
@@ -540,8 +546,8 @@ if __name__ == "__main__":
 
     # Remove developer identical-1 patches (cleaned) (method match)
     patches = remove_developer_identical_patches(correct_tool_patche, developer_patches)
-    print(patches["bug_uid"].value_counts())
-    print(patches["bug_uid"].value_counts()[patches["bug_uid"].value_counts() != 1])
+    print(len(patches["bug_uid"].value_counts()))
+    print(len(patches["bug_uid"].value_counts()[patches["bug_uid"].value_counts() != 1]))
     print(f"Number of Correct-non-developer-identical tool patches: {len(patches)}")
 
     print("----------------------------------------------")
@@ -558,6 +564,8 @@ if __name__ == "__main__":
     print(f"Total number of patches in all clusters: {total_group_size}")
     print(f"Number of patches after dropping exact matches: {len(patches_kept)}")
     print(f"Number of dropped patches: {len(dropped)}")
+    print(len(patches_kept["bug_uid"].value_counts()))
+    print(len(patches_kept["bug_uid"].value_counts()[patches_kept["bug_uid"].value_counts() != 1]))
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
 
     print("----------------------------------------------")
@@ -581,6 +589,8 @@ if __name__ == "__main__":
 
     pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "SourcererCC-Clone")
     print(f"Labels propagated to original {len(pairs)} pairs")
+    print(len(patches_kept["bug_uid"].value_counts()))
+    print(len(patches_kept["bug_uid"].value_counts()[patches_kept["bug_uid"].value_counts() != 1]))
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
     print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")   
 
@@ -627,6 +637,8 @@ if __name__ == "__main__":
 
     pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Matching-Type-2")
     print(f"Labels propagated to original {len(pairs)} pairs")
+    print(len(patches_kept["bug_uid"].value_counts()))
+    print(len(patches_kept["bug_uid"].value_counts()[patches_kept["bug_uid"].value_counts() != 1]))
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
     print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
 
@@ -693,6 +705,9 @@ if __name__ == "__main__":
     print(f"Number of dropped patches: {len(dropped)}")
     pairs = propagate_labels_to_original_pairs(pairs_kept, dropped, pairs, "Type-1-2")
     print(f"Labels propagated to original {len(pairs)} pairs")
+    print(len(patches_kept["bug_uid"].value_counts()))
+    print(patches_kept["bug_uid"].value_counts())
+    print(len(patches_kept["bug_uid"].value_counts()[patches_kept["bug_uid"].value_counts() != 1])) # patches represent clusters
     print(f"pairs with labels: {len(pairs[pairs['expert_label'] != '-'])}")
     print(f"pairs with labels: {len(pairs_kept[pairs_kept['expert_label'] != '-'])}")
 

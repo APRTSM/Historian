@@ -1,0 +1,6 @@
+Identical   Jsoup_62_HtmlTreeBuilderState_1_1 
+src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java 764 
+-  String name = t.asEndTag().normalName(); 
++  String  name  =  t.asEndTag().name();
+[Human-written Patch]
++  String  name  =  t.asEndTag().name();

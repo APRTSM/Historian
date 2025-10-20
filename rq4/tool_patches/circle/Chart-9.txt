@@ -1,0 +1,10 @@
+Chart 9
+source/org/jfree/data/time/TimeSeries.java
+944 - 944
+###    buggy:  ###
+- if (endIndex < 0) {
+### developer: ###
++ if ((endIndex < 0) || (endIndex < startIndex)) {
+###    ours:   ###
++ if (endIndex <0 || startIndex >endIndex){
+

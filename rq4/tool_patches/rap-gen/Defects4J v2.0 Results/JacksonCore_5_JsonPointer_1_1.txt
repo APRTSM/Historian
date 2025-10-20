@@ -1,0 +1,11 @@
+JacksonCore_5_JsonPointer_1_1
+src/main/java/com/fasterxml/jackson/core/JsonPointer.java 193
+
+Buggy Line:
+char c = str.charAt(i++);
+
+Developer's Fix:
+char c = str.charAt(i);
+
+[success] RAP-Gen's Repair:
+char c = str.charAt(i);

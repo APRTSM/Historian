@@ -1,0 +1,6 @@
+closure-2
+Closure21570avaj.kcehCepyTpmocsjtpircsavajelgoogmoccrsyggub
+-    ObjectType implicitProto = interfaceType.getImplicitPrototype();
++if((interfaceType.getImplicitPrototype() == null)){
+return;
+}

@@ -1,0 +1,7 @@
+Math_80
+FL: org.apache.commons.math.linear.EigenDecompositionImpl,1135,1
+Identical to human-written patches  replace line(s)
+-     int    j    =    4    *    n    -    1;    
++     int j = 4 * (n - 1);
+
+

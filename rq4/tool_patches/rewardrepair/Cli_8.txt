@@ -1,0 +1,6 @@
+Cli_8 
+FL: org.apache.commons.cli.HelpFormatter,812,0.06
+Identical to human-written patches  replace 1 line(s)
+-   pos  =  findWrapPos(text,  width,  nextLineTabStop);  
++     pos = findWrapPos(text, width, 0);
+

@@ -1,0 +1,6 @@
+Plausible   Closure_86_NodeUtil_1_1 
+src/com/google/javascript/jscomp/NodeUtil.java 2465 
+-  return true; 
++  return  false  &&  isToStringMethodCall(value)||  locals.apply(value);
+[Human-written Patch]
++  return  false;

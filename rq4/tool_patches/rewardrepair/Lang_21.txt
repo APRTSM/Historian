@@ -1,0 +1,5 @@
+Lang_21   src/main/java/org/apache/commons/lang3/time/DateUtils.java:265
+Identical to human-written patches  replace line(s)
+-     cal1.get(Calendar.HOUR)    ==    cal2.get(Calendar.HOUR)    &&    
++     cal1.get(Calendar.HOUR_OF_DAY) == cal2.get(Calendar.HOUR_OF_DAY) &&
+

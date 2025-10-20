@@ -1,0 +1,9 @@
+Lang_57 
+FL: org.apache.commons.lang.LocaleUtils,223,1
+Semantical equivalent to human-written patches  replace line(s)
+- return cAvailableLocaleSet.contains(locale);
++ return  cAvailableLocaleList.contains(locale);
+developer patch:
++ return  availableLocaleList().contains(locale);
+Same correct patch as CURE:  https://github.com/lin-tan/CURE/blob/master/Bugs_CURE_fixed/Defects4J/Lang_57.txt
+

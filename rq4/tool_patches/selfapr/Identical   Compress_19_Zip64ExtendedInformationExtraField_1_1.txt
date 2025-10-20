@@ -1,0 +1,6 @@
+Identical   Compress_19_Zip64ExtendedInformationExtraField_1_1 
+src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java 259 
+-  if (rawCentralDirectoryData.length != expectedLength) { 
++  if(rawCentralDirectoryData.length  <  expectedLength)  {
+[Human-written Patch]
++  if  (rawCentralDirectoryData.length  <  expectedLength)  {

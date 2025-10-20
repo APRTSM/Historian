@@ -1,0 +1,6 @@
+Plausible   Math_41_Variance_1_1 
+src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java 520 
+-  for (int i = 0; i < weights.length; i++) { 
++  for(int  i  =  begin;  i!=  begin  +  length;  i++)  {
+[Human-written Patch]
++  for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {

@@ -1,0 +1,6 @@
+Jsoup_86 src/main/java/org/jsoup/nodes/Comment.java 78
+Semantical equivalent to human-written patches  replace 1 line(s)   
+- if (doc.childNodeSize() > 0) {
++ if  (!doc.children().isEmpty())  {
+developer patch:
++ if  (doc.children().size()  >  0)  {

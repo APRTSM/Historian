@@ -1,0 +1,31 @@
+--- "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_70/37/TypedScopeCreator_Origin.java"	2022-07-18 12:18:27.690688374 +0900
++++ "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_70/37/TypedScopeCreator.java"	2022-07-18 12:18:27.694688385 +0900
+@@ -1731,27 +1731,7 @@
+     /**
+      * Declares all of a function's arguments.
+      */
+-    private void declareArguments(Node functionNode) {
+-      Node astParameters = functionNode.getFirstChild().getNext();
+-      Node body = astParameters.getNext();
+-      FunctionType functionType = (FunctionType) functionNode.getJSType();
+-      if (functionType != null) {
+-        Node jsDocParameters = functionType.getParametersNode();
+-        if (jsDocParameters != null) {
+-          Node jsDocParameter = jsDocParameters.getFirstChild();
+-          for (Node astParameter : astParameters.children()) {
+-            if (jsDocParameter != null) {
+-              defineSlot(astParameter, functionNode,
+-                  jsDocParameter.getJSType(), true);
+-              jsDocParameter = jsDocParameter.getNext();
+-            } else {
+-              defineSlot(astParameter, functionNode, null, true);
+-            }
+-          }
+-        }
+-      }
+-    } // end declareArguments
+-  } // end LocalScopeBuilder
++private void declareArguments ( Node functionNode ) { Node astParameters = functionNode . getFirstChild ( ) . getNext ( ) ; Node body = astParameters . getNext ( ) ; FunctionType functionType = ( FunctionType ) functionNode . getJSType ( ) ; if ( functionType != null ) { Node jsDocParameters = functionType . getParametersNode ( ) ; if ( jsDocParameters != null ) { Node jsDocParameter = jsDocParameters . getFirstChild ( ) ; for ( Node astParameter : astParameters . children ( ) ) { if ( jsDocParameter != null ) { defineSlot ( astParameter , functionNode , jsDocParameter . getJSType ( ) , false ) ; jsDocParameter = jsDocParameter . getNext ( ) ; } else { defineSlot ( astParameter , functionNode , null , true ) ; } } } } }  } // end LocalScopeBuilder
+ 
+ 
+   /** Find the best JSDoc for the given node. */

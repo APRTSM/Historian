@@ -1,0 +1,6 @@
+Plausible   JacksonDatabind_57_ObjectReader_1_1 
+src/main/java/com/fasterxml/jackson/databind/ObjectReader.java 1441 
+-  return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src),true)); 
++  return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src,  offset,  length),  true));
+[Human-written Patch]
++  return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src,  offset,  length),  true));

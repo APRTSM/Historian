@@ -1,0 +1,6 @@
+Identical   Lang_6_CharSequenceTranslator_1_1 
+src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java 95 
+-  pos += Character.charCount(Character.codePointAt(input, pos)); 
++  pos  +=  Character.charCount(Character.codePointAt(input,pt));
+[Human-written Patch]
++  pos  +=  Character.charCount(Character.codePointAt(input,  pt));

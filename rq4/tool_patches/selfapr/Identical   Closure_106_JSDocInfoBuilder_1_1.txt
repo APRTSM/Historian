@@ -1,0 +1,6 @@
+Identical   Closure_106_JSDocInfoBuilder_1_1 
+src/com/google/javascript/rhino/JSDocInfoBuilder.java 189 
+-  if (parseDocumentation) { populated = true; } 
++  populated  =  true;
+[Human-written Patch]
++  populated  =  true;

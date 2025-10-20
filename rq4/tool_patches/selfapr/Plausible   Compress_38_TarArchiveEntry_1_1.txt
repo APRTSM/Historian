@@ -1,0 +1,6 @@
+Plausible   Compress_38_TarArchiveEntry_1_1 
+src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java 859 
+-  if (getName().endsWith("/")) { 
++  if(getName().endsWith( "/ ")||  linkFlag  ==  TarArchiveEntry.MILLIS_PER_SECOND)  {
+[Human-written Patch]
++  if  (!isPaxHeader()  &&!isGlobalPaxHeader()  &&  getName().endsWith( "/ "))  {

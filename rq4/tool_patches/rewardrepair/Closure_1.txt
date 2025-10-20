@@ -1,0 +1,6 @@
+Closure_1
+FL: com.google.javascript.jscomp.RemoveUnusedVars,380,0.254
+Identical to human-written patches  add line(s)
+-     
++     if (!removeGlobals) { return; }
+

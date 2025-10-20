@@ -1,0 +1,4 @@
+chart-20
+Chart2095avaj.rekraMeulaVtolptrahceerfjgroecruosyggub
+-        super(paint, stroke, paint, stroke, alpha);
++super(paint, stroke, outlinePaint, outlineStroke, alpha);

@@ -1,0 +1,11 @@
+Closure_168_TypedScopeCreator_1_1
+src/com/google/javascript/jscomp/TypedScopeCreator.java 1996
+
+Buggy Line:
+if (t.getScopeDepth() <= 2) {
+
+Developer's Fix:
+if (t.getScopeDepth() <= 1) {
+
+[success] RAP-Gen's Repair:
+if(t.getScopeDepth() <= 1){

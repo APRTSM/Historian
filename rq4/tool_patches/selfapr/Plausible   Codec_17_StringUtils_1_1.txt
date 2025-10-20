@@ -1,0 +1,6 @@
+Plausible   Codec_17_StringUtils_1_1 
+src/main/java/org/apache/commons/codec/binary/StringUtils.java 339 
+-  return new String(bytes, Charsets.ISO_8859_1); 
++  return(bytes  ==  null)?  null  :  new  String(bytes,  Charsets.ISO_8859_1);
+[Human-written Patch]
++  return  newString(bytes,  Charsets.ISO_8859_1);

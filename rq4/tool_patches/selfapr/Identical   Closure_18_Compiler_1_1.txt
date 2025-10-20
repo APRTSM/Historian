@@ -1,0 +1,6 @@
+Identical   Closure_18_Compiler_1_1 
+src/com/google/javascript/jscomp/Compiler.java 1288 
+-  if (options.dependencyOptions.needsManagement() && options.closurePass) { 
++  if(options.dependencyOptions.needsManagement())  {
+[Human-written Patch]
++  if  (options.dependencyOptions.needsManagement())  {

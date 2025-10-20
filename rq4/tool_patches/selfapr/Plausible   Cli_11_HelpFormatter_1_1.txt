@@ -1,0 +1,6 @@
+Plausible   Cli_11_HelpFormatter_1_1 
+src/java/org/apache/commons/cli/HelpFormatter.java 632 
+-  if (option.hasArg() && (option.getArgName() != null)) { 
++  if(!required  &&(option.hasArg())&&(option.getArgName()!=  null))  {
+[Human-written Patch]
++  if  (option.hasArg()  &&  option.hasArgName())  {

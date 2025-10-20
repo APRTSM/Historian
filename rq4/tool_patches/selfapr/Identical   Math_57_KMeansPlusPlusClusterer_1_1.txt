@@ -1,0 +1,6 @@
+Identical   Math_57_KMeansPlusPlusClusterer_1_1 
+src/main/java/org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer.java 175 
+-  int sum = 0; 
++  double  sum  =  0;
+[Human-written Patch]
++  double  sum  =  0;

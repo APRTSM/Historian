@@ -1,0 +1,5 @@
+JacksonCore_5   src/main/java/com/fasterxml/jackson/core/JsonPointer.java:193
+Identical to human-written patches  replace 1 line(s)
+-   char  c  =  str.charAt(i++);  
++     char c = str.charAt(i);
+

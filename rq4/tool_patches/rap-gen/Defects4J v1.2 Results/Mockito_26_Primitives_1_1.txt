@@ -1,0 +1,11 @@
+Mockito_26_Primitives_1_1
+src/org/mockito/internal/util/Primitives.java 66
+
+Buggy Line:
+primitiveValues.put(double.class, 0);
+
+Developer's Fix:
+primitiveValues.put(double.class, 0D);
+
+[success] RAP-Gen's Repair:
+primitiveValues.put(double.class, 0D);

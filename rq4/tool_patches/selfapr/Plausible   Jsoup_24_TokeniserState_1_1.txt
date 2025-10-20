@@ -1,0 +1,6 @@
+Plausible   Jsoup_24_TokeniserState_1_1 
+src/main/java/org/jsoup/parser/TokeniserState.java 558 
+-  r.advance(); 
++  t.dataBuffer.append(r.consumeLetterSequence());
+[Human-written Patch]
++  [Delete]

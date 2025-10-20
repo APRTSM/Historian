@@ -1,0 +1,5 @@
+//Semantically Equal: Don't return CanInlineResult.NO as the human patch.
+closure-115
+Closure115731avaj.rotcejnInoitcnuFpmocsjtpircsavajelgoogmoccrsyggub
+-            return CanInlineResult.NO;
++

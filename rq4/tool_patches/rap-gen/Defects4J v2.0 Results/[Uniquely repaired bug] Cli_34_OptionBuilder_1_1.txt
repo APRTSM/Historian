@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Cli_34_OptionBuilder_1_1
+src/main/java/org/apache/commons/cli/OptionBuilder.java 84
+
+Buggy Line:
+type = null;
+
+Developer's Fix:
+type = String.class;
+
+[success] RAP-Gen's Repair:
+type = String.class;

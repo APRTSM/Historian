@@ -1,0 +1,6 @@
+Identical   Math_49_OpenMapRealVector_4_2 
+src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java 358 
+-  Iterator iter = res.entries.iterator(); 
++  Iterator  iter  =  entries.iterator();
+[Human-written Patch]
++  Iterator  iter  =  entries.iterator();

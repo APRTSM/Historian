@@ -1,0 +1,6 @@
+Identical   Closure_113_ProcessClosurePrimitives_1_1 
+src/com/google/javascript/jscomp/ProcessClosurePrimitives.java 329 
+-  if (provided != null) { 
++  if(provided!=  null  ||  requiresLevel.isOn())  {
+[Human-written Patch]
++  if  (provided!=  null  ||  requiresLevel.isOn())  {

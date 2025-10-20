@@ -1,0 +1,6 @@
+Lang_59
+FL: org.apache.commons.lang.text.StrBuilder,884,0.408
+Identical to human-written patches  replace line(s)
+-     str.getChars(0,    strLen,    buffer,    size);    
++     str.getChars(0, width, buffer, size);
+

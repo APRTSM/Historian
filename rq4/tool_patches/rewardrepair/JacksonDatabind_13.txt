@@ -1,0 +1,5 @@
+JacksonDatabind_13   src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java:87
+Identical to human-written patches  add line(s)
+-   
++     if (id == null) { return null; }
+

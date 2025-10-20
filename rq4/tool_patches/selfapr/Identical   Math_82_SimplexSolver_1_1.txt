@@ -1,0 +1,6 @@
+Identical   Math_82_SimplexSolver_1_1 
+src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java 82 
+-  if (MathUtils.compareTo(entry, 0, epsilon) >= 0) { 
++  if(MathUtils.compareTo(entry,  0,  epsilon)>  0)  {
+[Human-written Patch]
++  if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {

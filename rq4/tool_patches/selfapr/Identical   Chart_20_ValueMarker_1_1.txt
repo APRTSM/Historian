@@ -1,0 +1,6 @@
+Identical   Chart_20_ValueMarker_1_1 
+source/org/jfree/chart/plot/ValueMarker.java 95 
+-  super(paint, stroke, paint, stroke, alpha); 
++  super(paint,  stroke,  outlinePaint,  outlineStroke,  alpha);
+[Human-written Patch]
++  super(paint,  stroke,  outlinePaint,  outlineStroke,  alpha);

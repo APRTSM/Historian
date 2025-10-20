@@ -1,0 +1,6 @@
+Math_82
+FL: org.apache.commons.math.optimization.linear.SimplexSolver,82,0.267
+Identical to human-written patches  replace line(s)
+-     if    (MathUtils.compareTo(entry,    0,    epsilon)    >=    0)    {    
++     if (MathUtils.compareTo(entry, 0, epsilon) > 0) {
+

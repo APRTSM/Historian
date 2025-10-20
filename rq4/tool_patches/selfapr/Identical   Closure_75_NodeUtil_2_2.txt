@@ -1,0 +1,6 @@
+Identical   Closure_75_NodeUtil_2_2 
+src/com/google/javascript/jscomp/NodeUtil.java 375 
+-  return TernaryValue.TRUE; 
++  return  TernaryValue.UNKNOWN;
+[Human-written Patch]
++  return  TernaryValue.UNKNOWN;

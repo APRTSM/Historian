@@ -1,0 +1,11 @@
+Jsoup_40_DocumentType_1_1
+src/main/java/org/jsoup/nodes/DocumentType.java 22
+
+Buggy Line:
+Validate.notEmpty(name);
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

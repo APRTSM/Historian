@@ -1,0 +1,6 @@
+Codec_2   
+FL: org.apache.commons.codec.binary.Base64,446,0.086
+Identical to human-written patches  replace 1 line(s)
+-   if  (lineLength  >  0)  {  
++     if (lineLength > 0 && pos > 0) {
+

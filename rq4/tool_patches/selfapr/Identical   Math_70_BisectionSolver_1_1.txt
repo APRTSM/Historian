@@ -1,0 +1,6 @@
+Identical   Math_70_BisectionSolver_1_1 
+src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72 
+-  return solve(min, max); 
++  return  solve(f,  min,  max);
+[Human-written Patch]
++  return  solve(f,  min,  max);

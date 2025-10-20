@@ -1,0 +1,6 @@
+Identical   Math_33_SimplexTableau_1_1 
+src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java 338 
+-  if (Precision.compareTo(entry, 0d, maxUlps) > 0) { 
++  if(Precision.compareTo(entry,  0d,  epsilon)>  0)  {
+[Human-written Patch]
++  if  (Precision.compareTo(entry,  0d,  epsilon)  >  0)  {

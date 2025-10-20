@@ -1,0 +1,8 @@
+Math_104 src/java/org/apache/commons/math/special/Gamma.java:37
+Semantical equivalent to human-written patches  replace line(s)
+-   private static final double DEFAULT_EPSILON = 10e-9;
++   static  final  double  DEFAULT_EPSILON  =  10e-15;
+developer patch:
+-   private static final double DEFAULT_EPSILON = 10e-15;
+
+

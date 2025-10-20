@@ -1,0 +1,6 @@
+Lang_45
+FL: org.apache.commons.lang.WordUtils,618,1
+Identical to human-written patches  add line(s)
+-        
++     if  (lower  >  str.length())  {  lower  =  str.length();  }
+

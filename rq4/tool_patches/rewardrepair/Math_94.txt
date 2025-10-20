@@ -1,0 +1,6 @@
+Math_94 
+FL: org.apache.commons.math.util.MathUtils,413,0.149
+Identical to human-written patches  replace line(s)
+-     if    (u    *    v    ==    0)    {    
++     if ((u == 0) || (v == 0)) {
+

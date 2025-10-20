@@ -1,0 +1,11 @@
+Jsoup_86_Comment_1_1
+src/main/java/org/jsoup/nodes/Comment.java 78
+
+Buggy Line:
+if (doc.childNodeSize() > 0) {
+
+Developer's Fix:
+if (doc.children().size() > 0) {
+
+[success] RAP-Gen's Repair:
+if(doc.children().size() > 0){

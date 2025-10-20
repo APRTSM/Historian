@@ -1,0 +1,6 @@
+Plausible   Closure_10_NodeUtil_1_1 
+src/com/google/javascript/jscomp/NodeUtil.java 1417 
+-  return allResultsMatch(n, MAY_BE_STRING_PREDICATE); 
++  return  mayBeStringHelper(n);
+[Human-written Patch]
++  return  anyResultsMatch(n,  MAY_BE_STRING_PREDICATE);

@@ -1,0 +1,6 @@
+Csv_11   
+FL: org.apache.commons.csv.CSVParser,384,0.258
+Identical to human-written patches  replace 1 line(s)
+-   final  boolean  emptyHeader  =  header.trim().isEmpty();  
++     final boolean emptyHeader = header == null || header.trim().isEmpty();
+

@@ -1,0 +1,6 @@
+Plausible   JacksonCore_8_TextBuffer_1_1 
+src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java 307 
+-  if (!_hasSegments) return _currentSegment; 
++  if(!_hasSegments)return  this.contentsAsArray();
+[Human-written Patch]
++  if  (!_hasSegments  &&  _currentSegment!=  null)  return  _currentSegment;

@@ -1,0 +1,6 @@
+Math_75
+FL: org.apache.commons.math.stat.Frequency,303,1
+Identical to human-written patches  replace line(s)
+-     return    getCumPct((Comparable<?>)    v);    
++     return getPct((Comparable <?>) v);
+

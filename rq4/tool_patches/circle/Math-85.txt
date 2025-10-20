@@ -1,0 +1,10 @@
+Math 85
+src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+198 - 198
+###    buggy:  ###
+- if (fa * fb >= 0.0 ) {
+### developer: ###
++ if (fa * fb > 0.0 ) {
+###    ours:   ###
++ if (fa * fb > 0.0 ) {
+

@@ -1,0 +1,6 @@
+Closure_18
+FL: com.google.javascript.jscomp.Compiler,1288,0.081
+Identical to human-written patches  replace line(s)
+-     if    (options.dependencyOptions.needsManagement()    &&    options.closurePass)    {    
++     if (options.dependencyOptions.needsManagement()) {
+

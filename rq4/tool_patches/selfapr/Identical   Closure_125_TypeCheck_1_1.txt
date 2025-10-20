@@ -1,0 +1,6 @@
+Identical   Closure_125_TypeCheck_1_1 
+src/com/google/javascript/jscomp/TypeCheck.java 1661 
+-  if (fnType != null) { 
++  if(fnType!=  null  &&  fnType.hasInstanceType())  {
+[Human-written Patch]
++  if  (fnType!=  null  &&  fnType.hasInstanceType())  {

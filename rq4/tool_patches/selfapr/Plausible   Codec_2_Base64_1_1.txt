@@ -1,0 +1,6 @@
+Plausible   Codec_2_Base64_1_1 
+src/java/org/apache/commons/codec/binary/Base64.java 447 
+-   
++  if(pos  >  0)  {  System.arraycopy(lineSeparator,  0,  buf,  pos,  lineSeparator.length);  pos  +=  lineSeparator.length;  }
+[Human-written Patch]
++if (lineLength > 0 && pos > 0) {

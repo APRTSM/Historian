@@ -389,6 +389,39 @@ def run_plots_cluster_size_frequency():
     matching_clone = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-matching-type-2.pkl"))
     type_1_2 = pd.read_pickle(os.path.join(TMP_RQ1_DATA_DIR, "cluster-sizes-type-1-2.pkl"))
 
+    # Get the rows that will be dropped Only Defects4J
+    dropped_rows = exact_match[~exact_match['bug_uid'].str.contains('defects4j', na=False)]
+    print(dropped_rows)
+    print(exact_match)
+    exact_match = exact_match[exact_match['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    print(exact_match)
+    
+    print("================================")
+
+    dropped_rows = sourcerercc_match[~sourcerercc_match['bug_uid'].str.contains('defects4j', na=False)]
+    print(dropped_rows)
+    print(sourcerercc_match)
+    sourcerercc_match = sourcerercc_match[sourcerercc_match['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    print(sourcerercc_match)
+
+    print("================================")
+
+    dropped_rows = matching_clone[~matching_clone['bug_uid'].str.contains('defects4j', na=False)]
+    print(dropped_rows)
+    print(matching_clone)
+    matching_clone = matching_clone[matching_clone['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    print(matching_clone)
+
+    print("================================")
+
+    dropped_rows = type_1_2[~type_1_2['bug_uid'].str.contains('defects4j', na=False)]
+    print(dropped_rows) 
+    print(type_1_2)
+    type_1_2 = type_1_2[type_1_2['bug_uid'].str.contains('defects4j', case=False, na=False)]
+    print(type_1_2)
+
+    print("================================")
+
     experiments = {
         'Exact Match': exact_match,
         'Token-Based Matching': sourcerercc_match,
@@ -407,8 +440,6 @@ def run_plots_cluster_size_frequency():
         experiments,
         save_path=os.path.join(TMP_PLOTS_DIR, "cluster_size_frequency_combined.png")
     )
-    
-    plt.show()
 
 def run_bug_number():
     # Load your data (replace with your actual data loading)
@@ -438,9 +469,9 @@ def run_bug_number():
     print(f"Number of bugs not matching only: {len(unique_bug_uids_not_matching_only)}")
 
 if __name__ == "__main__":
-    run_plots_cluster_sizes()
+    # run_plots_cluster_sizes()
     run_plots_cluster_size_frequency()
-    run_bug_number()
+    # run_bug_number()
 
 
 

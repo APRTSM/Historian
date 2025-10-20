@@ -1,0 +1,1 @@
+return (a >= b) ? a : (Float.isNaN(a + b) ? Float.NaN : b);

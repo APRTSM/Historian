@@ -1,0 +1,6 @@
+Chart_11
+FL: org.jfree.chart.util.ShapeUtilities,275,0.25
+Identical to human-written patches  replace line(s)
+-     PathIterator    iterator2    =    p1.getPathIterator(null);    
++     PathIterator iterator2 = p2.getPathIterator(null);
+

@@ -1,0 +1,11 @@
+Closure_125_TypeCheck_1_1
+src/com/google/javascript/jscomp/TypeCheck.java 1661
+
+Buggy Line:
+if (fnType != null) {
+
+Developer's Fix:
+if (fnType != null && fnType.hasInstanceType()) {
+
+[success] RAP-Gen's Repair:
+if(fnType!= null && fnType.hasInstanceType()){

@@ -1,0 +1,6 @@
+Identical   Math_79_MathUtils_2_1 
+src/main/java/org/apache/commons/math/util/MathUtils.java 1624 
+-  int sum = 0;  
++  double  sum  =  0;
+[Human-written Patch]
++  double  sum  =  0;

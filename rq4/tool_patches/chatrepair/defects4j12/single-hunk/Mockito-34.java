@@ -1,0 +1,1 @@
+if (k < i.getArguments().length && m instanceof CapturesArguments) {

@@ -1,0 +1,13 @@
+Chart_9 
+FL: org.jfree.data.time.TimeSeries,944,0.707
+Semantical equivalent to human-written patches  replace line(s)
+-  if (endIndex < 0) {
++  if  (endIndex  -  startIndex  <  0)  {
+or
++  if  (endIndex  <  startIndex)  {
+
+developer patch:
++  if  ((endIndex  <  0)  ||  (endIndex  <  startIndex))  {
+
+Same correct patch as SequenceR: https://github.com/KTH/sequencer/tree/master/results/Defects4J_patches/Chart_9/15_correct 
+

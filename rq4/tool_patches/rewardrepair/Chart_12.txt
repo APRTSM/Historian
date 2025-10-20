@@ -1,0 +1,5 @@
+Chart_12   source/org/jfree/chart/plot/MultiplePiePlot.java:145
+Identical to human-written patches  replace line(s)
+-     this.dataset    =    dataset;    
++     setDataset(dataset);
+

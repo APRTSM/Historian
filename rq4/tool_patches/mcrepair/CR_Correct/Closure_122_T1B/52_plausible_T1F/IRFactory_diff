@@ -1,0 +1,19 @@
+--- "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_122/52/IRFactory_Origin.java"	2022-07-18 11:56:08.029083619 +0900
++++ "/home/selab/\353\260\224\355\203\225\355\231\224\353\251\264/APR_Resources/repair/combination_patches/Closure_122/52/IRFactory.java"	2022-07-18 11:56:08.029083619 +0900
+@@ -248,15 +248,7 @@
+   /**
+    * Check to see if the given block comment looks like it should be JSDoc.
+    */
+-  private void handleBlockComment(Comment comment) {
+-    if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") != -1) {
+-      errorReporter.warning(
+-          SUSPICIOUS_COMMENT_WARNING,
+-          sourceName,
+-          comment.getLineno(), "", 0);
+-    }
+-  }
+-
++private void handleBlockComment ( Comment comment ) { if ( comment . getValue ( ) . indexOf ( "/* @" ) != - 1 || comment . getValue ( ) . indexOf ( "@" ) != - 1 ) { errorReporter . warning ( SUSPICIOUS_COMMENT_WARNING , sourceName , comment . getLineno ( ) , "" , 0 ) ; } }
+   /**
+    * @return true if the jsDocParser represents a fileoverview.
+    */

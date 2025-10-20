@@ -1,0 +1,11 @@
+Chart 11
+source/org/jfree/chart/util/ShapeUtilities.java
+275 - 275
+###    buggy:  ###
+- PathIterator iterator2 = p1.getPathIterator(null);
+### developer: ###
++ PathIterator iterator2 = p2.getPathIterator(null);
+###    ours:   ###
++ PathIterator iterator2 = p2.getPathIterator(null);
+
+// Equivalence: next 'if' statement won't execute if 'removed' is false.

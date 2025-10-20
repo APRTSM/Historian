@@ -1,0 +1,5 @@
+closure-63
+Closure6297avaj.rettamroFegasseMthgiewthgiLpmocsjtpircsavajelgoogmoccrsyggub
+-      if (excerpt.equals(LINE)
+          && 0 <= charno && charno < sourceExcerpt.length()) {
++if(((excerpt.equals(LINE) && (0 <= charno)) && (charno <= sourceExcerpt.length()))){

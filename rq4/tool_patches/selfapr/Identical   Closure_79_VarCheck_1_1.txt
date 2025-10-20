@@ -1,0 +1,5 @@
+Identical   Closure_79_VarCheck_1_1 
+src/com/google/javascript/jscomp/VarCheck.java 221 
++  compiler.reportCodeChange();
+[Human-written Patch]
++  compiler.reportCodeChange();

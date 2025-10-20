@@ -1,0 +1,4 @@
+math-85
+Math85198avaj.slitUrevloSlaeRetairavinUsrevlossisylanahtamsnommocehcapagroavajcrsyggub
+-        if (fa * fb >= 0.0 ) {
++if(((fa * fb) > 0.0)){

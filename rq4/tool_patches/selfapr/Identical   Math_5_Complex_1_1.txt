@@ -1,0 +1,6 @@
+Identical   Math_5_Complex_1_1 
+src/main/java/org/apache/commons/math3/complex/Complex.java 305 
+-  return NaN; 
++  return  INF;
+[Human-written Patch]
++  return  INF;
