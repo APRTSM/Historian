@@ -797,8 +797,13 @@ def is_single_hunk(patch: pd.Series):
 def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> pd.DataFrame:
     if os.path.exists(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL):
         logging.info("Loading single hunk tool patches from file ...")
+        single_hunk_tool_patches = pd.read_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
 
-        return pd.read_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
+        dropped_rows_tool = single_hunk_tool_patches[~single_hunk_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        single_hunk_tool_patches = single_hunk_tool_patches[single_hunk_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
+        return single_hunk_tool_patches
 
     single_hunk_tool_patches = patches[patches.apply(is_single_hunk, axis=1)]
     # single_hunk_tool_patches = patches[patches.apply(lambda patch: are_single_hunks(patch, developer_patches), axis=1)]
@@ -811,6 +816,10 @@ def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> 
     # Save to file
     single_hunk_tool_patches.to_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
     logging.info(f"Single hunk tool patches saved to {TMP_SINGLE_HUNK_TOOL_PATHCES_PKL}")
+
+    dropped_rows_tool = single_hunk_tool_patches[~single_hunk_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    single_hunk_tool_patches = single_hunk_tool_patches[single_hunk_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
 
     return single_hunk_tool_patches
 

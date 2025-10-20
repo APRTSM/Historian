@@ -144,6 +144,14 @@ def clean_patches(bugs, developer_patches, tool_patches):
         cleaned_tool_patches.dropna(subset=['location'], inplace=True)
         cleaned_tool_patches.to_pickle(TMP_CLEANED_TOOL_PATHCES_PKL)
 
+    # Filter to Defects4J only
+    dropped_rows_developer = cleaned_developer_patches[~cleaned_developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    dropped_rows_tool = cleaned_tool_patches[~cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    cleaned_developer_patches = cleaned_developer_patches[cleaned_developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    cleaned_tool_patches = cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    logging.info(f"Dropped Developer Patches Rows (Non-Defects4J): {len(dropped_rows_developer)}")
+    logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
     no_cleaned_developer_patches = len(cleaned_developer_patches)
     no_cleaned_tool_patches = len(cleaned_tool_patches)
 
@@ -155,9 +163,23 @@ def clean_patches(bugs, developer_patches, tool_patches):
 
 # Returns methods
 def get_methods(developer_patches: pd.DataFrame, tool_patches: pd.DataFrame, bugs: pd.DataFrame):
+    logging.info("Fetching methods for patches ...")
+
     if os.path.exists(TMP_METHOD_DEVELOPER_PATHCES_PKL):
         developer_patches = pd.read_pickle(TMP_METHOD_DEVELOPER_PATHCES_PKL)
         tool_patches = pd.read_pickle(TMP_METHOD_TOOL_PATHCES_PKL)
+
+        # Filter to Defects4J only
+        dropped_rows_developer = developer_patches[~developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+        dropped_rows_tool = tool_patches[~tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+        tool_patches = tool_patches[tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        logging.info(f"Dropped Developer Patches Rows (Non-Defects4J): {len(dropped_rows_developer)}")
+        logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
+        logging.info(f"Successfully tested tool patches: \n{len(developer_patches)} \n{len(tool_patches)} \n Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Incorrect Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}, Unknown Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Unknown'])}") 
+        dev_origin_counts = cleaned_developer_patches['origin'].value_counts().to_dict()
+        logging.info(f"Added origin_count feature. Developer origins: {dev_origin_counts}.")
 
         return developer_patches, tool_patches
     
@@ -251,6 +273,14 @@ def normalaize_names(developer_patches, tool_patches):
         developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
         tool_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
 
+        # Filter to Defects4J only
+        dropped_rows_developer = developer_patches[~developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+        dropped_rows_tool = tool_patches[~tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+        tool_patches = tool_patches[tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+        logging.info(f"Dropped Developer Patches Rows (Non-Defects4J): {len(dropped_rows_developer)}")
+        logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
         return developer_patches, tool_patches
     
     # Normalize generator names
@@ -281,6 +311,11 @@ def deduplicate_patches(cleaned_tool_patches):
 
     logging.info(f"Filtered tool patches to only include Defects4J bugs. No of tool patches: {cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]}")
 
+    # Filter to Defects4J only
+    dropped_rows_tool = cleaned_tool_patches[~cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    cleaned_tool_patches = cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
     return cleaned_tool_patches
 
 def second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches):
@@ -304,6 +339,14 @@ def second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches):
         cleaned_developer_patches = cleaned_developer_patches.drop(columns=['content'])
 
         cleaned_tool_patches.to_pickle(TMP_SECOND_DEDUPLICATED_TOOL_PATHCES_PKL)
+
+    # Filter to Defects4J only
+    dropped_rows_developer = cleaned_developer_patches[~cleaned_developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    dropped_rows_tool = cleaned_tool_patches[~cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    cleaned_developer_patches = cleaned_developer_patches[cleaned_developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    cleaned_tool_patches = cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    logging.info(f"Dropped Developer Patches Rows (Non-Defects4J): {len(dropped_rows_developer)}")
+    logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
 
     return cleaned_developer_patches, cleaned_tool_patches
 
