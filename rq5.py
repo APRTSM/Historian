@@ -50,6 +50,14 @@ def init(configure=True):
         shutil.copy(TOOLS_JSON, TMP_TOOLS_JSON)
         shutil.copy(SETTINGS_FILE, TMP_SETTINGS_FILE)
 
+    # Filter to Defects4J only
+    dropped_rows_developer = developer_patches[~developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    dropped_rows_tool = tool_patches[~tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', na=False)]
+    tool_patches = tool_patches[tool_patches['bug_uid'].str.contains('defects4j', na=False)]
+    logging.info(f"Dropped Developer Patches Rows (Non-Defects4J): {len(dropped_rows_developer)}")
+    logging.info(f"Dropped Tool Patches Rows (Non-Defects4J): {len(dropped_rows_tool)}")
+
     logging.info(f"Successfully fetched the initial data.")
     bugs_statistics = bugs.groupby('benchmark').size().reset_index(name="#Bugs")
     developer_patches_statistics = developer_patches.groupby('origin').size().reset_index(name="#DeveloperPatches")
@@ -535,8 +543,6 @@ def iterate_patches(rq4_data_dir, bugs):
     return results
 
 if __name__=="__main__": 
-    bugs, developer_patches, tool_patches = init(configure=False)
-
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)
 
