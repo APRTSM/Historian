@@ -813,7 +813,7 @@ def experiment_8(developer_patches, tool_patches, processor): #SourcererCC
         results = compare_groundtruth(tool_patch, groundtruth_patches)
         results.to_pickle(intermediate_result_file)
 
-# Compare patches of the selected tool
+# Compare patches of the selected tool Our EXP3 working with command parameters.
 def experiment_3(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, selected_tool):
     def get_response(groundtruth_patch, tool_patch, prompt, temperature, model, processor):
         tool_patch_content = processor["function"](tool_patch) 
