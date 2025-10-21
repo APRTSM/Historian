@@ -325,7 +325,7 @@ def is_in_list(patch, patch_list):
             
     return False
     
-
+# EXPERIMENTS
 # Compare input patches with existing patches Embedding
 def experiment_5(developer_patches, tool_patches, models, temperatures, patch_processors):
     def get_embedding(patch_content, model, temperature):
