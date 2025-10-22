@@ -497,4 +497,3 @@ if __name__ == "__main__":
     evaluator = RegexEvaluator(results)
 
     plot_json_data(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))
-    create_latex_table(os.path.join(TMP_RQ3_PLOTS_DIR, f"evaluation_per_model_averages_defaultpatch.json"))

@@ -279,8 +279,8 @@ def plot_cluster_size_frequency_bars(experiment_dfs, experiment_names=None, save
     
     return fig
 
-def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, save_path=None, 
-                                     figsize=(7, 8), dpi=300, max_cluster_size=None):
+def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, save_path=None,
+                                        figsize=(8, 6), dpi=300, max_cluster_size=None):
     """
     Create a single horizontal bar chart comparing cluster size frequencies across all experiments.
     
@@ -293,7 +293,7 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
         List of names for experiments if experiment_dfs is a list
     save_path : str, optional
         Path to save the plot (e.g., 'cluster_size_frequency_combined.png')
-    figsize : tuple, default=(12, 8)
+    figsize : tuple, default=(14, 6)
         Figure size (width, height)
     dpi : int, default=300
         Resolution for saved figure
@@ -304,7 +304,6 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
     --------
     matplotlib.figure.Figure : The created figure object
     """
-    
     # Handle input format
     if isinstance(experiment_dfs, dict):
         exp_dict = experiment_dfs
@@ -328,9 +327,10 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
     # Create figure
     fig, ax = plt.subplots(figsize=figsize)
     
-    # Calculate bar width and positions
+    # Calculate bar width and positions - slightly thicker bars
     n_experiments = len(exp_dict)
-    bar_width = 0.8 / n_experiments
+    bar_width = 2 / n_experiments  # Increased from 0.3 to 0.5 for thicker bars
+    y_spacing = 2.1  # Reduce spacing between cluster sizes (1.0 = normal, <1.0 = compressed)
     
     # Create bars for each experiment
     for i, (exp_name, df) in enumerate(exp_dict.items()):
@@ -339,28 +339,35 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
         # Create array of counts for all cluster sizes (0 if not present)
         counts = [cluster_size_counts.get(size, 0) for size in all_cluster_sizes]
         
-        # Calculate y positions for this experiment's bars
-        y_positions = [y + i * bar_width for y in range(len(all_cluster_sizes))]
+        # Calculate y positions for this experiment's bars with reduced spacing
+        y_positions = [(y * y_spacing) + i * bar_width for y in range(len(all_cluster_sizes))]
         
         # Create horizontal bars
         bars = ax.barh(y_positions, counts, bar_width, label=exp_name, alpha=0.7)
         
         # Add value labels on right of bars (only for non-zero values)
+# Add value labels on right of bars (including zeros)
         for y_pos, count in zip(y_positions, counts):
-            if count > 0:
-                ax.text(count + 0.1, y_pos, f'{int(count)}', ha='left', va='center', fontsize=8)
-    
+            # Moderate offset of 0.25 for reasonable distance from bars
+            x_position = max(count + 0.25, 0.25)  # Ensure zeros appear at a minimum position
+            ax.text(x_position, y_pos, f'{int(count)}', ha='left', va='center', fontsize=11)
     # Customize plot
-    # ax.set_title('Cluster Size Frequency Distribution Comparison', fontsize=14, fontweight='bold')
-    ax.set_xlabel('Number of Clusters', fontsize=12)
-    ax.set_ylabel('Cluster Size', fontsize=12)
+    ax.set_xlabel('Number of Clusters', fontsize=14, fontweight='bold')
+    ax.set_ylabel('Cluster Size', fontsize=14, fontweight='bold')
     
-    # Set y-axis labels
-    ax.set_yticks([y + bar_width * (n_experiments - 1) / 2 for y in range(len(all_cluster_sizes))])
-    ax.set_yticklabels(all_cluster_sizes)
+    # Set y-axis labels with larger font and reduced spacing
+    y_tick_positions = [(y * y_spacing) + bar_width * (n_experiments - 1) / 2 for y in range(len(all_cluster_sizes))]
+    ax.set_yticks(y_tick_positions)
+    ax.set_yticklabels(all_cluster_sizes, fontsize=12)
     
-    # Add legend without borders
-    legend = ax.legend(frameon=False, bbox_to_anchor=(0.95, 0.95))
+    # Increase x-axis tick label font size
+    ax.tick_params(axis='x', labelsize=12)
+    
+    # Reduce space between first bars and x-axis
+    ax.set_ylim(-0.3, len(all_cluster_sizes) * y_spacing)
+    
+    # Add legend without borders with larger font
+    legend = ax.legend(frameon=False, bbox_to_anchor=(0.98, 0.98), fontsize=12)
     
     # Remove grid and background
     ax.grid(False)
@@ -379,7 +386,7 @@ def plot_cluster_size_frequency_single(experiment_dfs, experiment_names=None, sa
     
     return fig
 
-# Usage example function
+
 def run_plots_cluster_size_frequency():
     """Example usage of the cluster size frequency plotting functions"""
     

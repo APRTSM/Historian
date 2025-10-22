@@ -1,7 +1,7 @@
 [
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -20,7 +20,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -39,7 +39,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -53,7 +53,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -67,7 +67,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -81,7 +81,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -95,7 +95,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -109,7 +109,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'magicoder:7b-s-cl'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -123,7 +123,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -142,7 +142,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -161,7 +161,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -175,7 +175,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -189,7 +189,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -203,7 +203,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -217,7 +217,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -231,7 +231,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -245,7 +245,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -264,7 +264,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -283,7 +283,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -297,7 +297,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -311,7 +311,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -325,7 +325,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -339,7 +339,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -353,7 +353,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codellama:13b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -367,7 +367,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -386,7 +386,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -405,7 +405,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -419,7 +419,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -433,7 +433,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -447,7 +447,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -461,7 +461,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -475,7 +475,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'deepseek-coder:6.7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -489,7 +489,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -508,7 +508,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -527,7 +527,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -541,7 +541,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -555,7 +555,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -569,7 +569,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -583,7 +583,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -597,7 +597,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'codegemma:7b-instruct'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -611,7 +611,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -630,7 +630,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -649,7 +649,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -663,7 +663,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -677,7 +677,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -691,7 +691,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -705,7 +705,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -719,7 +719,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -733,7 +733,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -752,7 +752,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -771,7 +771,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -785,7 +785,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -799,7 +799,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -813,7 +813,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -827,7 +827,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -841,7 +841,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'qwen2.5-coder:7b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -855,7 +855,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -874,7 +874,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -893,7 +893,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -907,7 +907,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -921,7 +921,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -935,7 +935,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -949,7 +949,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -963,7 +963,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'yi-coder:9b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -977,7 +977,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-clone_type', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets and determine if they are code clones. Respond with \u2018yes\u2019 if the code snippets are clones or \u2018no\u2019 if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).', 'type': 'type'}",
@@ -996,7 +996,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-integrated', 'origin': 'LLM4CC', 'content': 'Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.', 'type': 'integrated'}",
@@ -1015,7 +1015,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically similar. Respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -1029,7 +1029,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically similar or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -1043,7 +1043,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-semantical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
@@ -1057,7 +1057,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-simple_prompt-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches and determine if they are semantically identical. Respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if not.', 'type': 'boolean'}",
@@ -1071,7 +1071,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-reasoning-patch-identical', 'origin': 'LLM4CC', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with \u2018yes\u2019 if the patches are semantically identical or \u2018no\u2019 if they are not.', 'type': 'boolean'}",
@@ -1085,7 +1085,7 @@
     },
     {
         "tool": "tbar",
-        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x77784e881240>}",
+        "processor": "{'uid': 'method', 'function': <function get_single_hunk_method at 0x7b2c80665090>}",
         "model": "{'uid': 'hermes3:8b'}",
         "temperature": "{'uid': 0.1}",
         "prompt": "{'uid': 'llm4cc-similarity_line-patch-identical', 'origin': 'LLM4CC', 'content': 'Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be \u2018yes\u2019 or \u2018no\u2019.', 'type': 'boolean'}",
