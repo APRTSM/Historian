@@ -2491,25 +2491,9 @@ if __name__ == "__main__":
         "hermes3:8b"
     ]
 
-    input_prompts = [
-        "llm4cc-clone_type",
-        "llm4cc-integrated",
-        "llm4cc-simple_prompt-semantical",
-        "llm4cc-reasoning-patch-semantical",
-        "llm4cc-similarity_line-patch-semantical",
-        "llm4cc-simple_prompt-identical",
-        "llm4cc-reasoning-patch-identical",
-        "llm4cc-similarity_line-patch-identical"
-    ]
-
-    results = Experiment2Results(selected_tool="tbar", input_processors=["method"], input_models=input_models, input_prompts=input_prompts)
-    results.classify(labels=["yes", "no"])
-    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
-    evaluator = Experiment2Evaluator(results)
-
     # input_prompts = [
-    #     "llm4cc-clone_type-patch",
-    #     "llm4cc-integrated-patch",
+    #     "llm4cc-clone_type",
+    #     "llm4cc-integrated",
     #     "llm4cc-simple_prompt-semantical",
     #     "llm4cc-reasoning-patch-semantical",
     #     "llm4cc-similarity_line-patch-semantical",
@@ -2518,10 +2502,26 @@ if __name__ == "__main__":
     #     "llm4cc-similarity_line-patch-identical"
     # ]
 
-    # results = Experiment2Results(selected_tool="tbar", input_processors=["defaultpatch"], input_models=input_models, input_prompts=input_prompts)
+    # results = Experiment2Results(selected_tool="tbar", input_processors=["method"], input_models=input_models, input_prompts=input_prompts)
     # results.classify(labels=["yes", "no"])
     # results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
     # evaluator = Experiment2Evaluator(results)
+
+    input_prompts = [
+        "llm4cc-clone_type-patch",
+        "llm4cc-integrated-patch",
+        "llm4cc-simple_prompt-semantical",
+        "llm4cc-reasoning-patch-semantical",
+        "llm4cc-similarity_line-patch-semantical",
+        "llm4cc-simple_prompt-identical",
+        "llm4cc-reasoning-patch-identical",
+        "llm4cc-similarity_line-patch-identical"
+    ]
+
+    results = Experiment2Results(selected_tool="tbar", input_processors=["defaultpatch"], input_models=input_models, input_prompts=input_prompts)
+    results.classify(labels=["yes", "no"])
+    results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
+    evaluator = Experiment2Evaluator(results)
     
     # logging.info("Experiment #7 is done. Running results.py ...")
     # report_exp7()

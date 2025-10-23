@@ -159,3 +159,9 @@ python build.py
 ```
 
 Please note that this script will skip cleaning and extraction phases if the corresponding pickle files exist in `tmp/data`. These pickle files are generated (by `build.py`) after extraction and include metadata (e.g., location and ID of patches, methods, bugs, etc.)
+
+
+## TMP 
+results are here for table .
+simple-results-exp2.csv
+type-binary-results-exp2.csv
