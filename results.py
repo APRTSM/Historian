@@ -640,6 +640,7 @@ class Experiment2Evaluator:
     # Deal with the logic in a result file and assign values to it
     def _get_f1_simple(self, results, labels, ground_truth): #
         f1_values = []
+        acc_values = []
         support = []
         total = []
         tp_values = []
@@ -689,17 +690,20 @@ class Experiment2Evaluator:
 
             f1 = f1_score(df["selected_correctness_binary"], df["predicted_correctness_binary"], zero_division=0)
             f1_values.append(f1)
-            
-        return f1_values, support, total, tp_values, fp_values, tn_values, fn_values
+            acc = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) > 0 else 0
+            acc_values.append(acc)
+
+        return f1_values, acc_values, support, total, tp_values, fp_values, tn_values, fn_values
 
     def _get_simple_results_table(self, results, labels, ground_truth): #
-        f1_values, support, total, tp_values, fp_values, tn_values, fn_values = self._get_f1_simple(results, labels, ground_truth)
+        f1_values, acc_values, support, total, tp_values, fp_values, tn_values, fn_values = self._get_f1_simple(results, labels, ground_truth)
 
         table_data = {
             "Processor": [result["processor"]["uid"] for result in results],
             "Prompt": [result["prompt"]["uid"] for result in results],
             "Model": [result["model"]["uid"] for result in results],
             "F1": f1_values,
+            "Acc": acc_values,
             "Support": support,
             "Total": total,
             "TP": tp_values,
@@ -727,6 +731,7 @@ class Experiment2Evaluator:
 
     def _get_f1_type_binary(self, results, labels, ground_truth): #
         f1_values = []
+        acc_values = []
         support = []
         total = []
         tp_values = []
@@ -776,17 +781,20 @@ class Experiment2Evaluator:
 
             f1 = f1_score(df["selected_correctness_binary"], df["predicted_correctness_binary"], zero_division=0)
             f1_values.append(f1)
-            
-        return f1_values, support, total, tp_values, fp_values, tn_values, fn_values
+            acc = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) > 0 else 0
+            acc_values.append(acc)
+
+        return f1_values, acc_values, support, total, tp_values, fp_values, tn_values, fn_values
 
     def _get_type_binary_results_table(self, results, labels, ground_truth): #
-        f1_values, support, total, tp_values, fp_values, tn_values, fn_values = self._get_f1_type_binary(results, labels, ground_truth)
+        f1_values, acc_values, support, total, tp_values, fp_values, tn_values, fn_values = self._get_f1_type_binary(results, labels, ground_truth)
 
         table_data = {
             "Processor": [result["processor"]["uid"] for result in results],
             "Prompt": [result["prompt"]["uid"] for result in results],
             "Model": [result["model"]["uid"] for result in results],
             "F1": f1_values,
+            "Acc": acc_values,
             "Support": support,
             "Total": total,
             "TP": tp_values,

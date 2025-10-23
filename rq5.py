@@ -585,9 +585,59 @@ def iterate_patches(rq4_data_dir, bugs):
 
     return results
 
+
+# RQ5 Specific
+def initial_report(developer_patches, tool_patches, bugs):
+
+    # Reports single hunk, and identical seperately
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+    logging.info("Initial Report ...")
+    logging.info("--- Reporting dataset ---")
+    # Make copies to avoid modifying input dataframes
+    developer_patches = developer_patches.copy()
+    tool_patches = tool_patches.copy()
+    
+    logging.info("Reporting dataset ... Tool-devided, Developer-Provided, and Correctness, being single hunk")
+    logging.info(f"No of bugs: {len(bugs)}, No of developer patches: {len(developer_patches)}, No of tool patches: {len(tool_patches)}, No of correct tool patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}")
+
+    # ===== Summary Table Report =====
+    combined_patches = pd.concat([tool_patches, developer_patches])
+    combined_patches.reset_index(drop=True, inplace=True)
+    merged_data = combined_patches.merge(
+        bugs,
+        left_on="bug_uid",
+        right_index=True,
+        how="left"
+    )
+
+    summary_table = (
+        merged_data.groupby(['generator', 'benchmark', 'correctness'])
+            .size()
+            .unstack(fill_value=0)
+            .reset_index()
+    )
+
+    summary_table['C/O'] = (
+        summary_table.get('Correct', 0).astype(str) + '/' + summary_table.get('Overfitting', 0).astype(str)
+    )
+
+    final_table = summary_table.pivot(index='generator', columns='benchmark', values='C/O')
+    final_table = final_table.fillna('0/0')
+
+    logging.info("\nSummary Table (Correct/Overfitting by Generator x Benchmark):")
+    logging.info(final_table)
+    logging.info("Reporting dataset completed.")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+    logging.info("-------------------------------------------------------------------------------------------------------------------------")
+
+
+
 if __name__=="__main__": 
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)
+
+    initial_report(developer_patches, tool_patches, bugs)
 
     # Patch Cleaning (keep applicable only)
     cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
