@@ -100,6 +100,7 @@ def get_apre_nfl_dataset(bugs):
 
     patches = []
     nfl_dir = os.path.join(APRE_NFL_DIR)
+    skipped = []  # To track missing ones
 
     for root, dirs, files in os.walk(nfl_dir):
         for file in files:
@@ -108,24 +109,23 @@ def get_apre_nfl_dataset(bugs):
 
             if correctness == 'C':
                 correctness = "Correct"
-            
             else:
                 correctness = "Overfitting"
-        
+
             project, id = project_id.split('-')
 
             bug_info = {"benchmark": "Defects4J", "project": project, "number": id}
             bug = get_record(bugs, bug_info)
 
             if not bug:
+                skipped.append({"project": project, "id": id, "file": file, "root": root})
                 continue
 
             bug_uid = bug["uid"]
 
-            # Remove `.txt` from name
-            patch_name = file[:-4]
+            # Remove `.txt` from name (if any)
+            patch_name = file[:-4] if file.endswith(".txt") else file
 
-            # Continue before this
             patch = {
                 "uid": f"aprenfl-{bug_uid}-{tool}-{patch_name}",
                 "bug_uid": bug_uid,
@@ -140,9 +140,14 @@ def get_apre_nfl_dataset(bugs):
     no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
 
     logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from APRE study (NFL).")
+    logging.info(f"{len(skipped)} patches skipped (no matching bug).")
 
+    # Log details of missing ones
+    for s in skipped:
+        logging.warning(f"Skipped: {s['project']}-{s['id']} ({s['file']}) in {s['root']}")
 
     return patches
+
 
 
 """ DefectRepairing """
@@ -265,6 +270,7 @@ def get_wangicse_dataset(bugs):
                 continue
             
             if "Error" in root:
+                logging.warning(f"Skipping patch in error folder: {os.path.join(root, patch_file)}")
                 continue
 
             patch_name, project, number, tool = patch_file.replace(".patch", "").replace("-plausible", "").replace("-plusible", "").split('-') 
@@ -272,6 +278,7 @@ def get_wangicse_dataset(bugs):
             bug = get_record(bugs, bug_info)
 
             if not bug:
+                logging.warning(f"Skipping patch with no bug record: {os.path.join(root, patch_file)}")
                 continue
 
             bug_uid = bug["uid"]

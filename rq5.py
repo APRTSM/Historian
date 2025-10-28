@@ -634,44 +634,53 @@ def initial_report(developer_patches, tool_patches, bugs):
 
 
 if __name__=="__main__": 
+    bugs_list = get_bugs()
+    # patches = get_patches(bugs_list)
+    patches = get_apre_nfl_dataset(bugs_list)
+    # print(patches)
+    # print(len(patches))
+    sorted_patches = get_record(patches, {"generator": "TBar", "correctness": "Correct"}, multiple=True)
+    print(sorted_patches)
+    print(len(sorted_patches))
+
     # Initial Data
-    bugs, developer_patches, tool_patches = init(configure=False)
+    # bugs, developer_patches, tool_patches = init(configure=False)
 
-    initial_report(developer_patches, tool_patches, bugs)
+    # initial_report(developer_patches, tool_patches, bugs)
 
-    # Patch Cleaning (keep applicable only)
-    cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
+    # # Patch Cleaning (keep applicable only)
+    # cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
 
-    # Fetch Methods
-    cleaned_developer_patches, cleaned_tool_patches = get_methods(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # # Fetch Methods
+    # cleaned_developer_patches, cleaned_tool_patches = get_methods(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    # Patch Processings
-    patch_processors = get_patch_processors()
+    # # Patch Processings
+    # patch_processors = get_patch_processors()
 
-    # Tool Settings
-    prompts, models, temperatures = get_tool_settings()
+    # # Tool Settings
+    # prompts, models, temperatures = get_tool_settings()
 
-    # Apply Passed Params
-    args = parse_args()
-    prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
+    # # Apply Passed Params
+    # args = parse_args()
+    # prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
 
-    # Normalaize Names, Last step for Developer Patches, Formatting generator_id
-    cleaned_developer_patches, cleaned_tool_patches = normalaize_names(cleaned_developer_patches, cleaned_tool_patches)
+    # # Normalaize Names, Last step for Developer Patches, Formatting generator_id
+    # cleaned_developer_patches, cleaned_tool_patches = normalaize_names(cleaned_developer_patches, cleaned_tool_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    # Get Single Hunk Patches (Same as Get Single Methods Until 15 June)
-    cleaned_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
+    # # Get Single Hunk Patches (Same as Get Single Methods Until 15 June)
+    # cleaned_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-    # print(cleaned_tool_patches)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # # print(cleaned_tool_patches)
 
-    # Deduplicating Same bug, same tool, same content (Now looks for Methods), Last step for Tool Patches
-    cleaned_tool_patches = deduplicate_patches(cleaned_tool_patches)
-    # print(cleaned_tool_patches)
+    # # Deduplicating Same bug, same tool, same content (Now looks for Methods), Last step for Tool Patches
+    # cleaned_tool_patches = deduplicate_patches(cleaned_tool_patches)
+    # # print(cleaned_tool_patches)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
-    """ Standard Upto Here Next Main """
+    # """ Standard Upto Here Next Main """
 
     

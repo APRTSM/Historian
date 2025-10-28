@@ -42,7 +42,7 @@ def rmtree(func, dir, info):
 
 """ Data List """
 # Get object corresponding to the existing features
-def get_record(records, record_info):
+def get_record(records, record_info, multiple=False):
     records_copy = records.copy()
 
     for key, value in record_info.items():
@@ -54,11 +54,14 @@ def get_record(records, record_info):
                 except:
                     pass
     
-    if not len(records_copy) == 1:
+    if not len(records_copy) == 1 and not multiple:
         logging.info(f"Could not find a record for the given info: {record_info}, List of Matching Records: {records_copy}")
 
         return None
-    
+
+    elif multiple:
+        return records_copy
+
     # assert len(records_copy) == 1, f"Invalid record information. {record_info}"
 
     return records_copy[0]
