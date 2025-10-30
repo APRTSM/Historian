@@ -154,8 +154,8 @@ print(f"  UID matches: {comparison_df['uid_match'].sum()} / {len(comparison_df)}
 print(f"  Tool/Groundtruth matches: {comparison_df['tool_match'].sum()} / {len(comparison_df)}")
 
 # Show first few rows of comparison
-print("\n📝 First 10 rows of comparison:")
-print(comparison_df.head(10).to_string())
+# print("\n📝 First 10 rows of comparison:")
+# print(comparison_df.head(10).to_string())
 
 # If you want to see the mismatches specifically
 if mismatches > 0:

@@ -146,7 +146,7 @@ Initialize submodules:
 git submodule update --init --recursive
 ```
 
-Add [Defects4J](https://github.com/rjust/defects4j) in `benchmarks/defects4j` to the path and initialize it. For detailed instructions, please visit [Defects4J](https://github.com/rjust/defects4j):
+Add [Defects4J](https://github.com/rjust/defects4j) (version 2.0.1) in `benchmarks/defects4j` to the path and initialize it. For detailed instructions, please visit [Defects4J](https://github.com/rjust/defects4j):
 
 Add IDs to Bugs.jar:
 ```bash
@@ -165,3 +165,8 @@ Please note that this script will skip cleaning and extraction phases if the cor
 results are here for table 6 Selecting best configuration
 simple-results-exp2.csv
 type-binary-results-exp2.csv
+
+rq4 tries to add new patche. From rq4/tool_patches to rq4/first_cleaned_tool_patches
+rq4.py iterates through the patches and stops at a none applicable patch
+tells the user to fix it in rq4/tool_patches by providing checkout dir and developer patch
+It uses checkout ability/ tmp dir/ benchmarks/rq4 dir/
