@@ -6,7 +6,7 @@ This repository provides the replication package "Historian".
 Historian is a tool to tackle this by formulating patch assessment as code clone detection and semantic similarity. It introduces a novel paradigm that formulates APCA as a multi-reference code clone detection problem against a historical knowledge base. 
 
 <p align="center">
-  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/method.png" alt="Overview Figure">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/extra/method.png" alt="Overview Figure">
 </p>
 
 - **Evidence-Based Decision Making**: Unlike black-box classifiers, Historian provides transparent verdicts by pointing to specific historical patches that match, enabling expert verification.
@@ -18,7 +18,7 @@ Historian is a tool to tackle this by formulating patch assessment as code clone
 - **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
 
 <p align="center">
-  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/rebutal/main-results.png" alt="Performance Figure">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/extra/main-results.png" alt="Performance Figure">
 </p>
 
 ## Purpose and Scope
@@ -60,7 +60,7 @@ git submodule update --init --recursive
 │   └── wangicse/                       # Wang ICSE dataset
 ├── __pycache__/                        # Python cache files
 │   └── build.cpython-310.pyc           # compiled Python bytecode
-├── rebutal/                            # includes materials mentioned in rebuttal response
+├── extra/                              # includes extra materials mentioned 
 ├── requirements.txt                    # Python dependencies
 ├── results.json                        # refeneces to LLM responses 
 ├── results.py                          # script to aggregate (majority voting) results and generate plots
