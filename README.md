@@ -162,6 +162,6 @@ Please note that this script will skip cleaning and extraction phases if the cor
 
 
 ## TMP 
-results are here for table .
+results are here for table 6 Selecting best configuration
 simple-results-exp2.csv
 type-binary-results-exp2.csv

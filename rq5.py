@@ -636,10 +636,11 @@ def initial_report(developer_patches, tool_patches, bugs):
 if __name__=="__main__": 
     bugs_list = get_bugs()
     # patches = get_patches(bugs_list)
-    patches = get_apre_nfl_dataset(bugs_list)
+    patches = get_wangicse_dataset(bugs_list)
     # print(patches)
     # print(len(patches))
-    sorted_patches = get_record(patches, {"generator": "TBar", "correctness": "Correct"}, multiple=True)
+    # sorted_patches = get_record(patches, {"generator": "TBar", "correctness": "Overfitting"}, multiple=True)
+    sorted_patches = get_record(patches, {"correctness": "Correct"}, multiple=True)
     print(sorted_patches)
     print(len(sorted_patches))
 
