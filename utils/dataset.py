@@ -232,6 +232,7 @@ def get_drr_dataset(bugs):
             bug = get_record(bugs, bug_info)
 
             if not bug:
+                logging.warning(f"Skipping patch with no bug record: {os.path.join(root, patch_file)}")
                 continue
 
             bug_uid = bug["uid"]

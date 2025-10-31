@@ -635,7 +635,7 @@ def initial_report(developer_patches, tool_patches, bugs):
 if __name__=="__main__": 
     bugs_list = get_bugs()
     # patches = get_patches(bugs_list)
-    patches = get_dl4pc_exp2_dataset(bugs_list)
+    patches = get_drr_dataset(bugs_list)
     # print(patches)
     # print(len(patches))
     # sorted_patches = get_record(patches, {"generator": "TBar", "correctness": "Overfitting"}, multiple=True)
