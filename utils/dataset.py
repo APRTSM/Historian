@@ -57,12 +57,14 @@ def get_dl4pc_exp2_dataset(bugs):
                 bug_info = {"benchmark": benchmark, "language": "Java", "project": bug_name}
 
             else:
+                logging.warning(f"Unknown benchmark {benchmark} in DL4PC second experiment patch extraction.")
                 continue
 
             # Match the info with an existing bug
             bug = get_record(bugs, bug_info)
 
             if not bug:
+                logging.warning(f"No matching bug found for DL4PC second experiment patch: {bug_info}")
                 continue
 
             bug_uid = bug["uid"]
