@@ -100,6 +100,8 @@ def iterate_patches(rq4_data_dir, bugs):
                     if os.path.exists(formatted_patch_dir):
                         logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
 
+                        index += 1
+
                         continue
 
                     if not os.path.exists(location):
@@ -112,13 +114,7 @@ def iterate_patches(rq4_data_dir, bugs):
                         with open(location, 'w') as file:
                             file.write(patch_content)
 
-                        index += 1
-
-                        fixed_patch_dir = fix_patch(patch, bugs)
-
-                        logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
-
-                        patch["fixed_location"] = fixed_patch_dir
+                        logging.info(f"Not Yet Fixed Patch Dir: {fixed_patch_dir}")
 
                     checkout_dir = None
                     while True:
@@ -144,6 +140,12 @@ def iterate_patches(rq4_data_dir, bugs):
                             logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
 
                             patch["fixed_location"] = fixed_patch_dir
+
+                            with open(fixed_patch_dir, 'r') as file:
+                                fixed_patch_content = file.read()
+
+                            with open(formatted_patch_dir, 'w') as file:
+                                file.write(fixed_patch_content)
 
                             break
 
