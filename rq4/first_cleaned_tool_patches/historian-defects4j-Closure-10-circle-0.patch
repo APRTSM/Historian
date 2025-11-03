@@ -1,0 +1,10 @@
+Closure 10
+src/com/google/javascript/jscomp/NodeUtil.java
+1417 - 1417
+###    buggy:  ###
+- return allResultsMatch(n, MAY_BE_STRING_PREDICATE);
+### developer: ###
++ return anyResultsMatch(n, MAY_BE_STRING_PREDICATE);
+###    ours:   ###
++ return anyResultsMatch(n, MAY_BE_STRING_PREDICATE);
+

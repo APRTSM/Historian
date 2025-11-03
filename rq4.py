@@ -14,6 +14,7 @@ import argparse
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
 def init(configure=True):
     logging.info("Fetching the initiaql data.")
@@ -59,111 +60,86 @@ def init(configure=True):
 
     return bugs, developer_patches, tool_patches
 
-def iterate_patches(rq4_data_dir, bugs):
-    results = []
-    for tool in os.listdir(rq4_data_dir):
-        tool_path = os.path.join(rq4_data_dir, tool)
+def iterate_patches_circle(bugs):
+    for tool in os.listdir(RQ4_DATA_DIR):
+        tool_path = os.path.join(RQ4_DATA_DIR, tool)
 
-        if os.path.isdir(tool_path):
-            index = 0
+        if not os.path.isdir(tool_path):
+            continue
 
-            for filename in os.listdir(tool_path):
-                filepath = os.path.join(tool_path, filename)
+        if not "circle" in tool:
+            continue
+        
+        index = 0
 
-                if os.path.isdir(filepath):
-                    logging.info(f"Skipping non-patch file: {filepath}")
+        for filename in os.listdir(tool_path):
+            filepath = os.path.join(tool_path, filename)
 
-                    continue
+            # Check if ends with .txt
+            if not filename.endswith(".txt") or filename == "d4j_patches.txt" or "Closure-63" in filename or "Closure-93" in filename:
+                logging.info(f"Skipping non-txt file: {filepath}")
 
-                elif os.path.isdir(filepath):
-                    continue
+                continue
 
-                elif "alpharepair" in tool:
-                    continue
+            # Set bug
+            bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
+            bug['uid'] = bug.name
 
-                elif "arja-e" in tool:
-                    continue
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
 
-                elif "chatrepair" in tool:
-                    continue
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+            formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
-                elif "circle" in tool:
-                    bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
-                    bug['uid'] = bug.name
-                    uid = f"historian-{bug.name}-{tool}-{index}"
-                    location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
-                    formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
+            if os.path.exists(formatted_patch_dir):
+                logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
 
+                index += 1
 
-                    # patch_content = generate_patch_from_ours(patch, bug)
+                continue
 
-                    if os.path.exists(formatted_patch_dir):
-                        logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+            checkout_dir = None
+            while True:
+                logging.info(f"Trying to apply patch: {first_cleaned_location}")
 
-                        index += 1
+                patch_dict = {
+                    "uid": uid,
+                    "bug_uid": bug.name,
+                    "generator": "Circle",
+                    "location": first_cleaned_location,
+                    "correctness": "Correct",
+                    "generator_id": "circle",
+                    "origin": "Historian"
+                }
+                patch = pd.Series(patch_dict, name=uid)
 
-                        continue
+                if checkout_dir:
+                    shutil.rmtree(checkout_dir)
 
-                    if not os.path.exists(location):
-                        logging.info(f"Processing patch: {filepath}")
-                        logging.info(f"Copying to first cleaned: {location}")
+                fixed_patch_dir = fix_patch(patch, bugs)
 
-                        with open(filepath, 'r') as file:
-                            patch_content = file.read()
+                if fixed_patch_dir:
+                    logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
 
-                        with open(location, 'w') as file:
-                            file.write(patch_content)
+                    patch["fixed_location"] = fixed_patch_dir
 
-                        logging.info(f"Not Yet Fixed Patch Dir: {fixed_patch_dir}")
+                    copy_paste(fixed_patch_dir, formatted_patch_dir)
 
-                    checkout_dir = None
-                    while True:
-                        logging.info(f"Trying to apply patch: {location}")
+                    index += 1
 
-                        patch_dict = {
-                            "uid": uid,
-                            "bug_uid": bug.name,
-                            "generator": "Circle",
-                            "location": location,
-                            "correctness": "Correct",
-                            "generator_id": "circle",
-                            "origin": "Historian"
-                        }
-                        patch = pd.Series(patch_dict, name=uid)
+                    break
 
-                        if checkout_dir:
-                            shutil.rmtree(checkout_dir)
+                developer_patch = get_developer_patch(bug)
+                checkout_dir = checkout_bug(bug)
 
-                        fixed_patch_dir = fix_patch(patch, bugs)
-
-                        if fixed_patch_dir:
-                            logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
-
-                            patch["fixed_location"] = fixed_patch_dir
-
-                            with open(fixed_patch_dir, 'r') as file:
-                                fixed_patch_content = file.read()
-
-                            with open(formatted_patch_dir, 'w') as file:
-                                file.write(fixed_patch_content)
-
-                            break
-
-                        developer_patch = get_developer_patch(bug)
-                        checkout_dir = checkout_bug(bug)
-
-                        logging.error(f"Failed to fix patch: {location}. Retrying...")
-                        print(f"Failed to fix patch: {location}. Retrying...")
-                        print(f"Developer Patch Location: {developer_patch['location']}")
-                        print(f"Checkout Directory: {checkout_dir}")
-                        input("Press any key to try again.")
-
-                    raise
+                logging.error(f"Failed to fix patch: {first_cleaned_location}. Retrying...")
+                print(f"Failed to fix patch: {first_cleaned_location}. Retrying...")
+                print(f"Developer Patch Location: {developer_patch['location']}")
+                print(f"Checkout Directory: {checkout_dir}")
+                input("Press any key to try again.")
 
 
-
-
-    return results
 
 
 
@@ -172,6 +148,6 @@ if __name__=="__main__":
     bugs, developer_patches, tool_patches = init(configure=False)
 
     logging.info("Reading patches from RQ4 data directory ...")
-    files = iterate_patches(RQ4_DATA_DIR, bugs)
+    files = iterate_patches(bugs)
 
     raise

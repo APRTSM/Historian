@@ -14,6 +14,14 @@ from .config import *
 from utils import *
 from itertools import combinations
 
+""" Simple """
+def copy_paste(source_dir, target_dir):
+    with open(source_dir, 'r') as file:
+        fixed_patch_content = file.read()
+
+    with open(target_dir, 'w') as file:
+        file.write(fixed_patch_content)
+
 
 """ Bash """
 def execute_bash_command(command, dir=None, error_allowed=False):

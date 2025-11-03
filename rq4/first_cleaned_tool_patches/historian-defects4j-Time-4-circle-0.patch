@@ -1,0 +1,10 @@
+Time 4
+src/main/java/org/joda/time/Partial.java
+464 - 464
+###    buggy:  ###
+- Partial newPartial = new Partial(iChronology, newTypes, newValues);
+### developer: ###
++ Partial newPartial = new Partial(newTypes, newValues, iChronology);
+###    ours:   ###
++ Partial newPartial = new Partial(newTypes, newValues, iChronology);
+

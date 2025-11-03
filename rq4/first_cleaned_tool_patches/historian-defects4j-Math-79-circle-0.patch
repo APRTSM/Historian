@@ -1,0 +1,10 @@
+Math 79
+src/main/java/org/apache/commons/math/util/MathUtils.java
+1626 - 1626
+###    buggy:  ###
+- final int dp = p1[i] - p2[i];
+### developer: ###
++ final double dp = p1[i] - p2[i];
+###    ours:   ###
++ final double dp = p1[i] - p2[i];
+
