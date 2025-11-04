@@ -13,6 +13,7 @@ PROJECT_DIR = os.getcwd()
 RQ4_DIR = os.path.join(PROJECT_DIR, "rq4")
 RQ4_DATA_DIR = os.path.join(RQ4_DIR, "tool_patches")
 RQ4_FIRST_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "first_cleaned_tool_patches")
+RQ4_SECOND_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "second_cleaned_tool_patches")
 
 # DATASETS
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")
