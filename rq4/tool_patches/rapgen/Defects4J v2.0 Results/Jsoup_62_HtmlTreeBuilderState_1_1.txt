@@ -1,0 +1,11 @@
+Jsoup_62_HtmlTreeBuilderState_1_1
+src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java 764
+
+Buggy Line:
+String name = t.asEndTag().normalName();
+
+Developer's Fix:
+String name = t.asEndTag().name();
+
+[success] RAP-Gen's Repair:
+String name = t.asEndTag().name();

@@ -1,0 +1,11 @@
+Math_22_UniformRealDistribution_1_1
+src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+
+Buggy Line:
+return false;
+
+Developer's Fix:
+return true;
+
+[success] RAP-Gen's Repair:
+return true;

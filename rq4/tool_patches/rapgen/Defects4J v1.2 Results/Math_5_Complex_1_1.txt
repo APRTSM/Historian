@@ -1,0 +1,11 @@
+Math_5_Complex_1_1
+src/main/java/org/apache/commons/math3/complex/Complex.java 305
+
+Buggy Line:
+return NaN;
+
+Developer's Fix:
+return INF;
+
+[success] RAP-Gen's Repair:
+return INF;

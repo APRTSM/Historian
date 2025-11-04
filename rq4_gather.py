@@ -75,7 +75,7 @@ def iterate_patches_circle(bugs):
 
         # Check if ends with .txt
         if not filename.endswith(".txt") or filename == "d4j_patches.txt" or "Closure-63" in filename or "Closure-93" in filename:
-            logging.info(f"Skipping non-txt file: {filepath}")
+            logging.info(f"Skipping file: {filepath}")
             continue
 
         # Set bug
@@ -109,7 +109,7 @@ def iterate_patches_alpharepair(bugs):
 
             # Check if ends with .txt
             if not filename.endswith(".txt"):
-                logging.info(f"Skipping non-txt file: {filepath}")
+                logging.info(f"Skipping file: {filepath}")
                 continue
 
             # Extract bug identifier from filename (e.g., "Chart-1.txt" -> "Chart-1")
@@ -146,7 +146,7 @@ def iterate_patches_cure(bugs):
 
             # Check if ends with .txt
             if not filename.endswith(".txt"):
-                logging.info(f"Skipping non-txt file: {filepath}")
+                logging.info(f"Skipping file: {filepath}")
                 continue
 
             # Extract bug identifier from filename
@@ -186,7 +186,7 @@ def iterate_patches_dlfix(bugs):
 
             # Check if ends with .txt
             if not filename.endswith(".txt") or "Closure_63" in filename:
-                logging.info(f"Skipping non-txt file: {filepath}")
+                logging.info(f"Skipping file: {filepath}")
                 continue
 
             # Extract bug identifier from filename
@@ -206,11 +206,158 @@ def iterate_patches_dlfix(bugs):
             copy_paste(filepath, first_cleaned_location)
             index += 1
 
+def iterate_patches_fitrepair(bugs):
+    tool = "fitrepair"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing fitrepair subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            # Check if ends with .txt
+            if not filename.endswith(".txt"):
+                logging.info(f"Skipping file: {filepath}")
+                continue
+
+            # Extract bug identifier from filename
+            bug_id = filename.split('.')[0]
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_iter(bugs):
+    tool = "iter"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing iter subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            # Extract bug identifier from filename
+            project, bug_number = re.match(r"([a-zA-Z]+)(\d+)", subdir).groups()
+            bug_id = f"{project}-{bug_number}"
+
+            filepath = os.path.join(subdir_path, filename)
+
+            # Check if ends with .txt
+            if not filename.endswith(".txt") or bug_id == "Closure-63":
+                logging.info(f"Skipping file: {filepath}")
+                continue
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_knod(bugs):
+    tool = "knod"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing knod subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            # Extract bug identifier from filename
+            bug_id = "-".join(filename.split('_')[:2])
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_rapgen(bugs):
+    tool = "rapgen"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing rapgen subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            # Extract bug identifier from filename
+            bug_id = "-".join(filename.replace("[Uniquely repaired bug] ", "").split('.')[0].split('_')[:2])
+
+            if "defects4j" in bug_id:
+                logging.info(f"Skipping file: {filepath}")
+                continue
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
     # iterate_patches_cure(bugs)
-    iterate_patches_dlfix(bugs)
+    # iterate_patches_dlfix(bugs)
+    # iterate_patches_fitrepair(bugs)
+    # iterate_patches_iter(bugs)
+    # iterate_patches_knod(bugs)
+    iterate_patches_rapgen(bugs)
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")

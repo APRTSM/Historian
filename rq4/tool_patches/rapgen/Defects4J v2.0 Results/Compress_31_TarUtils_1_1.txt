@@ -1,0 +1,11 @@
+Compress_31_TarUtils_1_1
+src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java 135
+
+Buggy Line:
+if (currentByte == 0) { break; }
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

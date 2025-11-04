@@ -1,0 +1,11 @@
+Math_79_MathUtils_2_1
+src/main/java/org/apache/commons/math/util/MathUtils.java 1624
+
+Buggy Line:
+int sum = 0;
+
+Developer's Fix:
+double sum = 0;
+
+[success] RAP-Gen's Repair:
+double sum = 0;

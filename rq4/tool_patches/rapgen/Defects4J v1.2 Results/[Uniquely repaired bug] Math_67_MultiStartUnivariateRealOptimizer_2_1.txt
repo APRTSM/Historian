@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Math_67_MultiStartUnivariateRealOptimizer_2_1
+src/main/java/org/apache/commons/math/optimization/MultiStartUnivariateRealOptimizer.java 92
+
+Buggy Line:
+return optimizer.getFunctionValue();
+
+Developer's Fix:
+return optimaValues[0];
+
+[success] RAP-Gen's Repair:
+return optimaValues[0];

@@ -1,0 +1,11 @@
+Chart_20_ValueMarker_1_1
+source/org/jfree/chart/plot/ValueMarker.java 95
+
+Buggy Line:
+super(paint, stroke, paint, stroke, alpha);
+
+Developer's Fix:
+super(paint, stroke, outlinePaint, outlineStroke, alpha);
+
+[success] RAP-Gen's Repair:
+super(paint, stroke, outlinePaint, outlineStroke, alpha);

@@ -1,0 +1,10 @@
+JacksonDatabind_13_ObjectIdValueProperty_1_1
+src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java 92
+
+Buggy Line:
+
+Developer's Fix:
+if (id == null) { return null; }
+
+[success] RAP-Gen's Repair:
+if(id == null){ return null; }

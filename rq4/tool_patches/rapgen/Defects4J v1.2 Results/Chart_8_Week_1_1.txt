@@ -1,0 +1,11 @@
+Chart_8_Week_1_1
+source/org/jfree/data/time/Week.java 175 
+
+Buggy Line:
+this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());
+
+Developer's Fix:
+this(time, zone, Locale.getDefault());
+
+[success] RAP-Gen's Repair:
+this(time, zone, Locale.getDefault());

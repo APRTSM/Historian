@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Lang_34_ToStringStyle_2_1
+src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java 148
+
+Buggy Line:
+return REGISTRY.get() != null ? REGISTRY.get() : Collections.<Object, Object>emptyMap();
+
+Developer's Fix:
+return REGISTRY.get();
+
+[success] RAP-Gen's Repair:
+return REGISTRY.get();

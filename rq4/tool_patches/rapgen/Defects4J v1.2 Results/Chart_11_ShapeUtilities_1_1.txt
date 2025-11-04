@@ -1,0 +1,11 @@
+Chart_11_ShapeUtilities_1_1
+source/org/jfree/chart/util/ShapeUtilities.java 275
+
+Buggy Line:
+PathIterator iterator2 = p1.getPathIterator(null);
+
+Developer's Fix:
+PathIterator iterator2 = p2.getPathIterator(null);
+
+[success] RAP-Gen's Repair:
+PathIterator iterator2 = p2.getPathIterator(null);

@@ -1,0 +1,11 @@
+Compress_14_TarUtils_1_1
+src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java 65
+
+Buggy Line:
+boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) {
+
+Developer's Fix:
+if (buffer[start] == 0) {
+
+[success] RAP-Gen's Repair:
+if(buffer[start] == 0){

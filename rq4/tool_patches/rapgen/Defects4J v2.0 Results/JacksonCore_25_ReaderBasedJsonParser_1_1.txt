@@ -1,0 +1,11 @@
+JacksonCore_25_ReaderBasedJsonParser_1_1
+src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java 1963
+
+Buggy Line:
+if (i <= maxCode) {
+
+Developer's Fix:
+if (i < maxCode) {
+
+[success] RAP-Gen's Repair:
+if(i < maxCode){

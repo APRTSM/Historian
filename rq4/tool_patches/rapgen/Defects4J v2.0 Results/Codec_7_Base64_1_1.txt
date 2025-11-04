@@ -1,0 +1,11 @@
+Codec_7_Base64_1_1
+src/java/org/apache/commons/codec/binary/Base64.java 670
+
+Buggy Line:
+return StringUtils.newStringUtf8(encodeBase64(binaryData, true));
+
+Developer's Fix:
+return StringUtils.newStringUtf8(encodeBase64(binaryData, false));
+
+[success] RAP-Gen's Repair:
+return StringUtils.newStringUtf8(encodeBase64(binaryData, false));

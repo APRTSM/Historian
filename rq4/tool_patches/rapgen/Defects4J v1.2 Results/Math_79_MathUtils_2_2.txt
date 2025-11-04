@@ -1,0 +1,11 @@
+Math_79_MathUtils_2_2
+src/main/java/org/apache/commons/math/util/MathUtils.java 1626
+
+Buggy Line:
+final int dp = p1[i] - p2[i];
+
+Developer's Fix:
+final double dp = p1[i] - p2[i];
+
+[success] RAP-Gen's Repair:
+final double dp = p1[i] - p2[i];

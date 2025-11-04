@@ -1,0 +1,11 @@
+Closure_104_UnionType_1_1
+src/com/google/javascript/rhino/jstype/UnionType.java 291
+
+Buggy Line:
+if (result != null) {
+
+Developer's Fix:
+if (!result.isNoType()) {
+
+[success] RAP-Gen's Repair:
+if(!result.isNoType()){

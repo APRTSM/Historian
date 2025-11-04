@@ -1,0 +1,11 @@
+Closure_70_TypedScopeCreator_1_1
+src/com/google/javascript/jscomp/TypedScopeCreator.java 1745
+
+Buggy Line:
+jsDocParameter.getJSType(), true);
+
+Developer's Fix:
+jsDocParameter.getJSType(), false);
+
+[success] RAP-Gen's Repair:
+jsDocParameter.getJSType(), false);

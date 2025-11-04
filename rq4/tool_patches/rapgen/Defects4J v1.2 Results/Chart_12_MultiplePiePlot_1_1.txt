@@ -1,0 +1,11 @@
+Chart_12_MultiplePiePlot_1_1
+source/org/jfree/chart/plot/MultiplePiePlot.java 145
+
+Buggy Line:
+this.dataset = dataset;
+
+Developer's Fix:
+setDataset(dataset);
+
+[success] RAP-Gen's Repair:
+setDataset(dataset);

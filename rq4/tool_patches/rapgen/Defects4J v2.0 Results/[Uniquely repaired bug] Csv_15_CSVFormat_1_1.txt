@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Csv_15_CSVFormat_1_1
+src/main/java/org/apache/commons/csv/CSVFormat.java 1189
+
+Buggy Line:
+if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) { quote = true; } else if (c <= COMMENT) {
+
+Developer's Fix:
+if (c <= COMMENT) {
+
+[success] RAP-Gen's Repair:
+if(c <= COMMENT){

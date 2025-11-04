@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Math_77_OpenMapRealVector_1_1
+src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java 498
+
+Buggy Line:
+public double getLInfNorm() { double max = 0; Iterator iter = entries.iterator(); while (iter.hasNext()) { iter.advance(); max += iter.value(); } return max; }
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

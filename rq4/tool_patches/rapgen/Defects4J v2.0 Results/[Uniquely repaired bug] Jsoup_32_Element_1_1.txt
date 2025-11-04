@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Jsoup_32_Element_1_1
+src/main/java/org/jsoup/nodes/Element.java 1138
+
+Buggy Line:
+clone.classNames();
+
+Developer's Fix:
+clone.classNames = null;
+
+[success] RAP-Gen's Repair:
+clone.classNames = null;

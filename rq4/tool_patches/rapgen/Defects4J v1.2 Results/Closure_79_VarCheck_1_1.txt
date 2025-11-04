@@ -1,0 +1,10 @@
+Closure_79_VarCheck_1_1
+src/com/google/javascript/jscomp/VarCheck.java 221
+
+Buggy Line:
+
+Developer's Fix:
+compiler.reportCodeChange();
+
+[success] RAP-Gen's Repair:
+compiler.reportCodeChange();

@@ -1,0 +1,11 @@
+Cli_8_HelpFormatter_1_1
+src/java/org/apache/commons/cli/HelpFormatter.java 812
+
+Buggy Line:
+pos = findWrapPos(text, width, nextLineTabStop);
+
+Developer's Fix:
+pos = findWrapPos(text, width, 0);
+
+[success] RAP-Gen's Repair:
+pos = findWrapPos(text, width, 0);

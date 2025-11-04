@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Closure_65_CodeGenerator_1_1
+src/com/google/javascript/jscomp/CodeGenerator.java 1015
+
+Buggy Line:
+case '\0': sb.append("\\0"); break;
+
+Developer's Fix:
+case '\0': sb.append("\\000"); break;
+
+[success] RAP-Gen's Repair:
+case '\0': sb.append("\\000"); break;
