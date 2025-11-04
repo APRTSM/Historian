@@ -13,10 +13,10 @@ from utils.dataset import *
 import argparse
 import numpy as np
 
-
 """
 Gathers files from different projects in rq4/tool_patches and stores them in rq4/first_cleaned_data
 We fix them manually and move them to rq4/second_cleaned_data
+RQ4_FIRST_CLEANED_DATA_DIR is gathered data dir
 """
 
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
@@ -64,7 +64,6 @@ def init(configure=True):
 
     return bugs, developer_patches, tool_patches
 
-
 def iterate_patches_circle(bugs):
     tool = "circle"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
@@ -92,7 +91,6 @@ def iterate_patches_circle(bugs):
         # Run this once to copy paste the first cleaned patches
         copy_paste(filepath, first_cleaned_location)
         index += 1
-
 
 def iterate_patches_alpharepair(bugs):
     tool = "alpharepair"
@@ -131,11 +129,46 @@ def iterate_patches_alpharepair(bugs):
             copy_paste(filepath, first_cleaned_location)
             index += 1
 
+def iterate_patches_cure(bugs):
+    tool = "cure"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing cure subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            # Check if ends with .txt
+            if not filename.endswith(".txt"):
+                logging.info(f"Skipping non-txt file: {filepath}")
+                continue
+
+            # Extract bug identifier from filename
+            bug_id = "-".join(filename.split('.')[0].split('_'))
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
 
 def iterate_patches(bugs):
     iterate_patches_circle(bugs)
     iterate_patches_alpharepair(bugs)
-
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")

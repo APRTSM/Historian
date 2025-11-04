@@ -65,7 +65,6 @@ def init(configure=True):
 
     return bugs, developer_patches, tool_patches
 
-
 def iterate_patches_tool(bugs, tool_id, tool_name):
     for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
         if not tool_id in file:
@@ -126,8 +125,6 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
             print(f"Developer Patch Location: {developer_patch['location']}")
             print(f"Checkout Directory: {checkout_dir}")
             input("Press enter key to try again.")
-
-
 
 def iterate_patches_tools(bugs):
     iterate_patches_tool(bugs, "circle", "Circle")
