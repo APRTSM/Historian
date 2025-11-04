@@ -540,7 +540,7 @@ def iterate_patches(bugs):
     # iterate_patches_repilot(bugs)
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
-    iterate_patches_transplantfix(bugs)
+    # iterate_patches_transplantfix(bugs)
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")
