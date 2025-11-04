@@ -1,0 +1,4 @@
+lang-6
+Lang695avaj.rotalsnarTecneuqeSrahCetalsnarttxet3gnalsnommocehcapagroavajniamcrsyggub
+-                pos += Character.charCount(Character.codePointAt(input, pos));
++pos += Character.charCount(Character.codePointAt(input, pt));

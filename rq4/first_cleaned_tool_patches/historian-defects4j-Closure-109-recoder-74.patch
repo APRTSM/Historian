@@ -1,0 +1,5 @@
+//Justified as Plusable Pactch
+closure-109
+Closure1091908avaj.resraPofnIcoDsJgnisrappmocsjtpircsavajelgoogmoccrsyggub
+-          return parseTypeName(token);
++return parseAndRecordTypeNode(token);

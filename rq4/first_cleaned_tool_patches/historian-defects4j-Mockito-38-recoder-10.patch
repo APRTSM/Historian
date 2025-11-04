@@ -1,0 +1,4 @@
+mockito-38
+Mockito3848avaj.looTgnihctaMtnemugrAgnihctamtnemugranoitacifirevlanretniotikcomgrocrsyggub
+-        return StringDescription.toString(m).equals(arg.toString());
++return StringDescription.toString(m).equals(((arg == null))?"null":arg.toString());

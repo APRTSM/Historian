@@ -1,0 +1,4 @@
+compress-19
+Compress19259avaj.dleiFartxEnoitamrofnIdednetxE46piZpizsrevihcrasserpmocsnommocehcapagroavajniamcrsyggub
+-            if (rawCentralDirectoryData.length != expectedLength) {
++if((rawCentralDirectoryData.length < expectedLength)){
