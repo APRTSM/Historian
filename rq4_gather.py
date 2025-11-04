@@ -542,6 +542,8 @@ def iterate_patches(bugs):
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
 
+    pass
+
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")
     bugs, developer_patches, tool_patches = init(configure=False)
