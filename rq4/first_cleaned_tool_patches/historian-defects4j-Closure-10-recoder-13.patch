@@ -1,4 +1,0 @@
-closure-10
-Closure101417avaj.litUedoNpmocsjtpircsavajelgoogmoccrsyggub
--      return allResultsMatch(n, MAY_BE_STRING_PREDICATE);
-+return anyResultsMatch(n, MAY_BE_STRING_PREDICATE);

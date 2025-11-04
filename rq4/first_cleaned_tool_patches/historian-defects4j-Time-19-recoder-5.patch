@@ -1,4 +1,0 @@
-time-19
-Time19900avaj.enoZemiTetaDemitadojgroavajniamcrsyggub
--        } else if (offsetLocal > 0) {
-+}else if((offsetLocal >= 0)){

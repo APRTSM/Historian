@@ -1,5 +1,0 @@
-//Semantically Equal: Remove the correspnding lines.
-closure-126
-Closure126141avaj.stnioPtixEeziminiMpmocsjtpircsavajelgoogmoccrsyggub
--      if (NodeUtil.hasFinally(n)) {
-+if(!NodeUtil.hasFinally(n)){

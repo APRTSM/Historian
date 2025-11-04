@@ -1,5 +1,0 @@
-//Justified as plausible patch
-lang-7
-Lang7452avaj.slitUrebmuNhtam3gnalsnommocehcapagroavajniamcrsyggub
--        if (str.startsWith("--")) {
-+if(str.startsWith("null")){

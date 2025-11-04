@@ -1,4 +1,0 @@
-closure-92
-Closure92789avaj.sevitimirPerusolCssecorPpmocsjtpircsavajelgoogmoccrsyggub
--          int indexOfDot = namespace.indexOf('.');
-+int indexOfDot = namespace.lastIndexOf(".");

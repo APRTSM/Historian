@@ -381,6 +381,152 @@ def iterate_patches_recoder(bugs):
         copy_paste(filepath, first_cleaned_location)
         index += 1
 
+def iterate_patches_repilot(bugs):
+    tool = "repilot"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing repilot subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            # Extract bug identifier from filename
+            bug_id = filename.split('.')[0]
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_tare(bugs):
+    tool = "tare"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing tare subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            if ".txt" not in filename:
+                continue
+
+            # Extract bug identifier from filename
+            bug_id = filename.replace("patch", "").split('.')[0]
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_tenure(bugs):
+    tool = "tenure"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        logging.info(f"Processing tenure subdirectory: {subdir}")
+
+        for filename in os.listdir(subdir_path):
+            filepath = os.path.join(subdir_path, filename)
+
+            if ".txt" not in filename or "Closure_63" in filename or "Closure_93" in filename:
+                continue
+
+            # Extract bug identifier from filename
+            bug_id = filename.replace("_multi", "").split('.')[0].replace('_', '-')
+
+            # Set bug
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            # Set uid
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            # Set locations
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # Run this once to copy paste the first cleaned patches
+            copy_paste(filepath, first_cleaned_location)
+            index += 1
+
+def iterate_patches_transplantfix(bugs):
+    tool = "transplantfix"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool)
+
+    index = 0
+
+    # Iterate through subdirectories 
+    for subdir in os.listdir(tool_path):
+        subdir_path = os.path.join(tool_path, subdir)
+
+        if not os.path.isdir(subdir_path):
+            continue
+
+        logging.info(f"Processing transplantfix subdirectory: {subdir}")
+
+        for foldername_fl in os.listdir(subdir_path):
+            folderpath_fl = os.path.join(subdir_path, foldername_fl)
+
+            for foldername_bug in os.listdir(folderpath_fl):
+                folderpath_bug = os.path.join(folderpath_fl, foldername_bug)
+
+                for filename in os.listdir(folderpath_bug):
+                    filepath = os.path.join(folderpath_bug, filename)
+
+                    # Extract bug identifier from filename
+                    bug_id = foldername_bug.replace('_', '-')
+
+                    # if "Closure_63" in filename or "Closure_93" in filename:
+                    #     continue
+
+                    # Set bug
+                    bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+                    bug['uid'] = bug.name
+
+                    # Set uid
+                    uid = f"historian-{bug.name}-{tool}-{index}"
+
+                    # Set locations
+                    first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+                    # Run this once to copy paste the first cleaned patches
+                    copy_paste(filepath, first_cleaned_location)
+                    index += 1
+
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
@@ -390,7 +536,11 @@ def iterate_patches(bugs):
     # iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
-    iterate_patches_recoder(bugs)
+    # iterate_patches_recoder(bugs)
+    # iterate_patches_repilot(bugs)
+    # iterate_patches_tare(bugs)
+    # iterate_patches_tenure(bugs)
+    iterate_patches_transplantfix(bugs)
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")

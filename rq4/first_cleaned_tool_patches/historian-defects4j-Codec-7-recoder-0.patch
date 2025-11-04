@@ -1,4 +1,0 @@
-codec-7
-Codec7670avaj.46esaByranibcedocsnommocehcapagroavajcrsyggub
--        return StringUtils.newStringUtf8(encodeBase64(binaryData, true));
-+return StringUtils.newStringUtf8(encodeBase64(binaryData, false));

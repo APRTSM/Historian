@@ -1,6 +1,0 @@
-//Justified as plausible patch
-chart-7
-Chart7300avaj.seulaVdoirePemiTemitatadeerfjgroecruosyggub
--            long s = getDataItem(this.minMiddleIndex).getPeriod().getStart()
-                .getTime();
-+long s = getDataItem(this.maxStartIndex).getPeriod().getStart().getTime();

@@ -1,4 +1,0 @@
-jsoup-61
-Jsoup611092avaj.tnemelEsedonpuosjgroavajniamcrsyggub
--        final String classAttr = attributes.get("class");
-+final String classAttr = attributes.getIgnoreCase("class");
