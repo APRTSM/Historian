@@ -1,2 +1,0 @@
-- if (!that.isRecordType()) {
-+ if (!that.isRecordType() || this.isRecordType() || this == that) {

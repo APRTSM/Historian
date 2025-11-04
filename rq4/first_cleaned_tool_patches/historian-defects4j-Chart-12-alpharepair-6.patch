@@ -1,2 +1,0 @@
-- this.dataset = dataset;
-+ setDataset(dataset); this.dataset = dataset;

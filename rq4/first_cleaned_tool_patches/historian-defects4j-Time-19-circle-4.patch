@@ -1,9 +1,0 @@
-Time 19
-src/main/java/org/joda/time/DateTimeZone.java
-900 - 900
-###    buggy:  ###
-- } else if (offsetLocal > 0) {
-### developer: ###
-+ } else if (offsetLocal >= 0) {
-###    ours:   ###
-+ }else if (offsetLocal >= 0){

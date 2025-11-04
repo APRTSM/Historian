@@ -1,2 +1,0 @@
-- final BigDecimal[] out = new BigDecimal[v.length];
-+ final BigDecimal[] out  = new BigDecimal[nRows];

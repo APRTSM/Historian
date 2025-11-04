@@ -1,2 +1,0 @@
-- final int n1n2prod = n1 * n2;
-+ double n1n2prod= n1 * n2;

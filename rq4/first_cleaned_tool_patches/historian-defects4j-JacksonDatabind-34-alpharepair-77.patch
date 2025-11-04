@@ -1,2 +1,0 @@
-- visitFloatFormat(visitor, typeHint, JsonParser.NumberType.BIG_INTEGER);
-+ visitFloatFormat(visitor, typeHint, JsonParser.NumberType.BIG_DECIMAL);

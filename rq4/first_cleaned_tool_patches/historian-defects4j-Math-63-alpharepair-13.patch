@@ -1,2 +1,0 @@
-- return (Double.isNaN(x) && Double.isNaN(y)) || x == y;
-+ return equals ( x, y, 1 ) ;

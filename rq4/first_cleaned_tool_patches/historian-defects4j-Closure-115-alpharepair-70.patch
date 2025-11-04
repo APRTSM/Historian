@@ -1,2 +1,0 @@
-- hasSideEffects = NodeUtil.mayHaveSideEffects(stmt.getFirstChild(), compiler);
-+ hasSideEffects  = false;

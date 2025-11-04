@@ -1,2 +1,0 @@
-- if (ext.handlePropertyValue(p, ctxt, propName, buffer)) {
-+ if (ext.handlePropertyValue(p, ctxt, propName, null)) {

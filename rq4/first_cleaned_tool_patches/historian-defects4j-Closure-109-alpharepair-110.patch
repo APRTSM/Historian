@@ -1,2 +1,0 @@
-- return parseTypeName(token);
-+ return parseTypeExpression(token);

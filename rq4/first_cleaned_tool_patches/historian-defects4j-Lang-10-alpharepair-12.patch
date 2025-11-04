@@ -1,2 +1,0 @@
-- if(Character.isWhitespace(c)) {
-+ if(Character.isWhitespace(c) && wasWhite) {

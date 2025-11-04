@@ -1,2 +1,0 @@
-- if (dataset != null) {
-+ if (dataset == null) {

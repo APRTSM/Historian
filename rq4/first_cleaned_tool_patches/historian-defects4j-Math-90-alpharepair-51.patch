@@ -1,2 +1,0 @@
-- Object obj = v;
-+ Object obj = (Object) (Comparable)v;

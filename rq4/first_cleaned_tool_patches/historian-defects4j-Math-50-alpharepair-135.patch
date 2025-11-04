@@ -1,2 +1,0 @@
-- if (x == x1) {
-+ if (x == x1 && inverted!= inverted) {

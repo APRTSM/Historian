@@ -1,2 +1,0 @@
-+ next(pos);
-  return appendTo == null ? null : appendTo.append(QUOTE);

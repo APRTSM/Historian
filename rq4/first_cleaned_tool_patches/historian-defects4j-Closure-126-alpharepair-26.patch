@@ -1,2 +1,0 @@
-- if (NodeUtil.hasFinally(n)) {
-+ if (false) {

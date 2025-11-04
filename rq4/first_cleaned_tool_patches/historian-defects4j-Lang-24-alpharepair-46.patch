@@ -1,2 +1,0 @@
-- return foundDigit && !hasExp;
-+ return foundDigit && !hasExp && !hasDecPoint

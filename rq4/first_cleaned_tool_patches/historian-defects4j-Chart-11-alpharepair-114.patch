@@ -1,2 +1,0 @@
-- PathIterator iterator1 = p1.getPathIterator(null);
-+ PathIterator iterator1 = p2.getPathIterator(null);

@@ -1,2 +1,0 @@
-- return chromosomes.iterator();
-+ return Collections. unmodifiableList ( chromosomes ).iterator();
