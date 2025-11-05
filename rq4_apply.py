@@ -103,10 +103,6 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
 
             fixed_patch_dir = fix_patch(patch, bugs)
 
-            checkout_dir = os.path.join(TMP_CHECKOUTS_DIR, bug['uid'])
-            if os.path.exists(checkout_dir):
-                shutil.rmtree(checkout_dir)
-
             if fixed_patch_dir:
                 logging.info(f"✅ Fixed Patch Dir: {fixed_patch_dir}")
 
@@ -137,6 +133,9 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             
             if not ignore:
                 input("Press enter key to try again.")
+
+            if os.path.exists(checkout_dir):
+                shutil.rmtree(checkout_dir)
 
             print("-"*20 + "\n")
             
