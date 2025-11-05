@@ -320,6 +320,17 @@ def format_patch(location: str, source_file: str = "", prefix=None) -> str:
     # Write the modified content to a new file in the output directory
     return ''.join(modified_lines)
 
+def remove_line_trailing_whitespace(patch_content: str) -> str:
+    modified_lines = []
+
+    for line in patch_content.splitlines():
+        if not line.strip() == "":
+            modified_lines.append(line.rstrip() + '\n')
+        else:
+            modified_lines.append(line + '\n')
+
+    return ''.join(modified_lines)
+
 def get_patch_changes(patch_location: str, repo_location: str):
     logging.info(f"Patch Location{patch_location}, Repo Location{repo_location}")
 
@@ -473,6 +484,22 @@ def fix_repo_patch(patch_location: str, repo_location: str) -> str:
         logging.info(f"Source Folder: {source_folder}, Error: {stderr}")
 
         os.remove(formatted_patch_dir)
+
+        if "trailing whitespace" in stderr:
+            diff = remove_line_trailing_whitespace(diff)
+
+            with open(formatted_patch_dir, 'w') as file:
+                file.write(diff)
+
+            command = f"git apply --whitespace=fix --ignore-space-change --ignore-whitespace {formatted_patch_dir}"
+            logging.info(f"command: {command}")
+            logging.info(f"repo_location: {repo_location}")
+
+            _, stderr = execute_bash_command(command, repo_location, error_allowed=True)
+
+            logging.info(f"Tried to fix the trailing whitespace. Got error: {stderr}")
+
+            os.remove(formatted_patch_dir)
 
         if "patch fragment without header" in stderr:
             diff = format_patch(patch_location, source_folder, prefix="--- ")

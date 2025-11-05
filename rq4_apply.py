@@ -76,7 +76,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
 
         if os.path.exists(formatted_patch_dir):
             logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
-            index += 1
+            print(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
             continue
 
         _, _, project, bug_id, _, index = uid.split("-")
@@ -108,13 +108,14 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
             fixed_patch_dir = fix_patch(patch, bugs)
 
             if fixed_patch_dir:
-                logging.info(f"Fixed Patch Dir: {fixed_patch_dir}")
+                logging.info(f"✅ Fixed Patch Dir: {fixed_patch_dir}")
 
                 patch["fixed_location"] = fixed_patch_dir
                 copy_paste(fixed_patch_dir, formatted_patch_dir)
-                index += 1
 
-                print(f"Successfully fixed patch: {formatted_patch_dir}")
+                print(f"✅ Successfully fixed patch: {formatted_patch_dir}")
+                print("="*20 + "\n")
+
                 break
 
             developer_patch = get_developer_patch(bug)
@@ -126,15 +127,15 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
 
             changed_file_address_path = os.path.join(checkout_dir, patch_content.split("\n")[0].replace("--- a/", "").split(" ")[0].strip())
 
-            logging.error(f"Failed to fix patch: {second_cleaned_location}. \n Retrying...")
+            logging.error(f"❌ Failed to fix patch: {second_cleaned_location}. \n Retrying... \n")
             print(f"+ Bug uid: {bug['uid']} \n")
             print(f"Tool: {tool_name} \n")
             print(f"Changed File Address Path: {changed_file_address_path} \n")
-            print(f"Failed to fix patch: {second_cleaned_location}. \n Retrying...")
+            print(f"❌ Failed to fix patch: {second_cleaned_location}. \n Retrying... \n")
             print(f"Developer Patch Location: {developer_patch['location']} \n")
             print(f"Checkout Directory: {checkout_dir} \n")
-            print("==============================\n")
             input("Press enter key to try again.")
+            print("-"*20 + "\n")
 
 def iterate_patches_tools(bugs):
     iterate_patches_tool(bugs, "circle", "Circle")
