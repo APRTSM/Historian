@@ -75,8 +75,8 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
         formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
         if os.path.exists(formatted_patch_dir):
-            logging.info(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
-            print(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+            logging.info(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+            print(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
             continue
 
         _, _, project, bug_id, _, _ = uid.split("-")
