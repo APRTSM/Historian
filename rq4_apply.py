@@ -120,10 +120,20 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
             developer_patch = get_developer_patch(bug)
             checkout_dir = checkout_bug(bug)
 
-            logging.error(f"Failed to fix patch: {second_cleaned_location}. Retrying...")
-            print(f"Failed to fix patch: {second_cleaned_location}. Retrying...")
-            print(f"Developer Patch Location: {developer_patch['location']}")
-            print(f"Checkout Directory: {checkout_dir}")
+            # Read patch content
+            with open(second_cleaned_location, 'r') as f:
+                patch_content = f.read()
+
+            changed_file_address_path = os.path.join(checkout_dir, patch_content.split("\n")[0].replace("--- a/", "").split(" ")[0].strip())
+
+            logging.error(f"Failed to fix patch: {second_cleaned_location}. \n Retrying...")
+            print(f"+ Bug uid: {bug['uid']} \n")
+            print(f"Tool: {tool_name} \n")
+            print(f"Changed File Address Path: {changed_file_address_path} \n")
+            print(f"Failed to fix patch: {second_cleaned_location}. \n Retrying...")
+            print(f"Developer Patch Location: {developer_patch['location']} \n")
+            print(f"Checkout Directory: {checkout_dir} \n")
+            print("==============================\n")
             input("Press enter key to try again.")
 
 def iterate_patches_tools(bugs):
