@@ -66,9 +66,13 @@ def init(configure=True):
     return bugs, developer_patches, tool_patches
 
 def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
+    count_success = 0
+    count_total = 0
     for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
         if not tool_id in file:
             continue
+
+        count_total += 1
 
         # Parse    
         uid = file.split(".")[0]
@@ -77,6 +81,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
         if os.path.exists(formatted_patch_dir):
             logging.info(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
             print(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+            count_success += 1
             continue
 
         _, _, project, bug_id, _, _ = uid.split("-")
@@ -112,6 +117,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
                 print(f"✅ Successfully fixed patch: {formatted_patch_dir}")
                 print("="*20 + "\n")
 
+                count_success += 1
                 break
 
             developer_patch = get_developer_patch(bug)
@@ -140,6 +146,9 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             print("-"*20 + "\n")
             
             break
+
+    logging.info(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
+    print(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
 
 def iterate_patches_tools(bugs):
     iterate_patches_tool(bugs, "circle", "Circle")
