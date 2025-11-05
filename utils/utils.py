@@ -579,6 +579,11 @@ def fix_repo_patch(patch_location: str, repo_location: str) -> str:
 
             return None
         
+        elif "unrecognized input" in stderr:
+            logging.info("The patch has unrecognized input.")
+
+            return None
+        
         else:
             raise Exception(f"Unexpected stderr content while fixing the patch. Error: {stderr}")
         
