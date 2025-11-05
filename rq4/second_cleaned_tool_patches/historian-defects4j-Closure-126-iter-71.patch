@@ -1,0 +1,37 @@
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -138,8 +138,6 @@ 
+                    * can cause problems if it changes the completion type of the finally            
+                                        * block. See ECMA 262 Sections 8.9 & 12.14            
+                                        */
+-  Node elseBlock = n.getFirstChild();
+-  tryMinimizeExits(finallyBlock, exitType, labelName);
+                 }            
+                                 
+                                     // Just a 'label'.
+
+@@ -138,7 +138,7 @@ 
+                    * can cause problems if it changes the completion type of the finally            
+                                        * block. See ECMA 262 Sections 8.9 & 12.14            
+                                        */
+- tryMinimizeExits(finallyBlock, exitType, labelName); 
++ tryMinimizeExits(n, exitType, labelName);
+                 }            
+                                 
+                                     // Just a 'label'.
+
+@@ -138,3 +138,4 @@ 
+                    * can cause problems if it changes the completion type of the finally            
+                                        * block. See ECMA 262 Sections 8.9 & 12.14            
+                                        */
++ tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); }
+
+@@ -138,7 +138,7 @@ 
+                    * can cause problems if it changes the completion type of the finally            
+                                        * block. See ECMA 262 Sections 8.9 & 12.14            
+                                        */
+- tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); } 
++ if(finallyBlock == null) { tryMinimizeExits(n, exitType, labelName); } 
+                 }            
+                                 
+                                     // Just a 'label'.

@@ -1,0 +1,12 @@
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+@@ -184,7 +184,7 @@
+                                 break;            
+                                                 case REGULA_FALSI:            
+                                                     // Nothing.
+- if (x == x1) {
++ if (x == x1 && inverted!= inverted) {
+                                         break;            
+                                                 default:            
+                                                     // Should never happen.
+                                                     

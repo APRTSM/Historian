@@ -1,0 +1,8 @@
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
+@@ -137,4 +137,4 @@
+        propertyNode);
+      }
+
+-       RecordTypeBuilder builder = new RecordTypeBuilder(registry);
++       if(0!=1){return super.getLeastSupertype(that);}

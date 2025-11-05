@@ -1,0 +1,20 @@
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -50,7 +50,15 @@
+    * @param n The node for which the error should be reported
+    */
+   protected void error(DiagnosticType diagnostic, Node n) {
+-    JSError error = currentTraversal.makeError(n, diagnostic, n.toString());
++    if (n.getType() == Token.NUMBER) {
++double numValue = n.getDouble();
++if (numValue == 0 || numValue == 1) {
++return ;
++}
++
++}
++
++JSError error = currentTraversal.makeError(n, diagnostic, n.toString());
+     currentTraversal.getCompiler().report(error);
+   }
+ 
+

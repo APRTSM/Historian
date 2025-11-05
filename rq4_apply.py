@@ -65,7 +65,7 @@ def init(configure=True):
 
     return bugs, developer_patches, tool_patches
 
-def iterate_patches_tool(bugs, tool_id, tool_name):
+def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
     for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
         if not tool_id in file:
             continue
@@ -79,7 +79,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
             print(f"Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
             continue
 
-        _, _, project, bug_id, _, index = uid.split("-")
+        _, _, project, bug_id, _, _ = uid.split("-")
 
         # Set bug
         bug = bugs.loc[f"defects4j-{project}-{bug_id}"].copy()
@@ -134,13 +134,27 @@ def iterate_patches_tool(bugs, tool_id, tool_name):
             print(f"❌ Failed to fix patch: {second_cleaned_location}. \n Retrying... \n")
             print(f"Developer Patch Location: {developer_patch['location']} \n")
             print(f"Checkout Directory: {checkout_dir} \n")
-            input("Press enter key to try again.")
+            
+            if not ignore:
+                input("Press enter key to try again.")
+
             print("-"*20 + "\n")
+            
+            break
 
 def iterate_patches_tools(bugs):
     iterate_patches_tool(bugs, "circle", "Circle")
     iterate_patches_tool(bugs, "alpharepair", "AlphaRepair")
-
+    iterate_patches_tool(bugs, "cure", "CURE")
+    iterate_patches_tool(bugs, "dlfix", "DLFix")
+    iterate_patches_tool(bugs, "fitrepair", "FitRepair")
+    iterate_patches_tool(bugs, "knod", "KNode")
+    iterate_patches_tool(bugs, "rapgen", "RapGen")
+    iterate_patches_tool(bugs, "recoder", "Recoder")
+    iterate_patches_tool(bugs, "repilot", "RePilot")
+    iterate_patches_tool(bugs, "tare", "Tare")
+    iterate_patches_tool(bugs, "tenure", "Tenure")
+    iterate_patches_tool(bugs, "transplantfix", "TransplantFix")
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")
