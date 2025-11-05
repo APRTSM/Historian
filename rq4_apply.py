@@ -87,7 +87,6 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
 
         second_cleaned_location = os.path.join(RQ4_SECOND_CLEANED_DATA_DIR, f"{uid}.patch")
 
-        checkout_dir = None
         while True:
             logging.info(f"Trying to apply patch: {second_cleaned_location}")
 
@@ -102,10 +101,11 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             }
             patch = pd.Series(patch_dict, name=uid)
 
-            if checkout_dir:
-                shutil.rmtree(checkout_dir)
-
             fixed_patch_dir = fix_patch(patch, bugs)
+
+            checkout_dir = os.path.join(TMP_CHECKOUTS_DIR, bug['uid'])
+            if os.path.exists(checkout_dir):
+                shutil.rmtree(checkout_dir)
 
             if fixed_patch_dir:
                 logging.info(f"✅ Fixed Patch Dir: {fixed_patch_dir}")
