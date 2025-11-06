@@ -310,6 +310,56 @@ def get_wangicse_dataset(bugs):
     return patches
 
 
+""" Historian """
+def get_historian_dataset(bugs):
+    logging.info("Extracting Historian patches ...")
+
+    patches = []
+    
+    # Iterate through files in dir
+
+    for filename in os.listdir(HISTORIAN_DIR):
+        file_path = os.path.join(HISTORIAN_DIR, filename)
+        print(filename)
+
+        origin, benchmark, bug_project, bug_number, tool, index = filename.replace(".patch", "").split('-')
+
+        raise
+    #         if not patch_file.endswith(".patch"):
+    #             continue
+            
+    #         if "Error" in root:
+    #             logging.warning(f"Skipping patch in error folder: {os.path.join(root, patch_file)}")
+    #             continue
+
+    #         patch_name, project, number, tool = patch_file.replace(".patch", "").split('-') 
+    #         bug_info = {"benchmark": "Defects4J", "project": project, "number": number}
+    #         bug = get_record(bugs, bug_info)
+
+    #         if not bug:
+    #             logging.warning(f"Skipping patch with no bug record: {os.path.join(root, patch_file)}")
+    #             continue
+
+    #         bug_uid = bug["uid"]
+
+    #         correctness = "Correct"
+
+    #         patch = {
+    #             "uid": f"historian-{bug_uid}-{tool}-{patch_name}",
+    #             "bug_uid": bug_uid,
+    #             "generator": tool,
+    #             "location": os.path.relpath(os.path.join(root, patch_file), PROJECT_DIR),
+    #             "correctness": correctness,
+    #             "origin": "Historian"
+    #         }
+    #         patches.append(patch)
+
+    # no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+
+    # logging.info(f"{no_correct_patches} Correct patches extracted from Historian study.")
+
+    # return patches
+
 """ General """
 # Get all patches (from datasets)
 def get_patches(bugs):
@@ -321,3 +371,5 @@ def get_patches(bugs):
     patches += get_wangicse_dataset(bugs)
 
     return patches
+
+

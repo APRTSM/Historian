@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/math/complex/Complex.java
++++ b/src/java/org/apache/commons/math/complex/Complex.java
+@@ -255,4 +255,4 @@
+                 if (rhs.isNaN()) {
+                     ret = this.isNaN();
+                 } else {
+-        return real;
++       return (real + 0);

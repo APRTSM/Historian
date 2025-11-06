@@ -1,0 +1,6 @@
+csv-5
+Csv5325avaj.retnirPVSCvscsnommocehcapagroavajniamcrsyggub
+-            out.append(recordSeparator);
++if((recordSeparator == null)){
+return;
+}

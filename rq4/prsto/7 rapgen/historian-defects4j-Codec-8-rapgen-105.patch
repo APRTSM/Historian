@@ -1,0 +1,11 @@
+Codec_8_Base64_1_1
+src/java/org/apache/commons/codec/binary/Base64.java 419
+
+Buggy Line:
+void setInitialBuffer(byte[] out, int outPos, int outAvail) { if (out != null && out.length == outAvail) { buffer = out; pos = outPos; readPos = outPos; } }
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

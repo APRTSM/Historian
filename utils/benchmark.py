@@ -794,7 +794,7 @@ def is_single_hunk(patch: pd.Series):
     
     return True
 
-def get_single_hunks(patches: pd.DataFrame, developer_patches: pd.DataFrame) -> pd.DataFrame:
+def get_single_hunks(patches: pd.DataFrame, developer_patches) -> pd.DataFrame:
     if os.path.exists(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL):
         logging.info("Loading single hunk tool patches from file ...")
         single_hunk_tool_patches = pd.read_pickle(TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
@@ -886,7 +886,7 @@ def report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs):
     )
 
     summary_table = (
-        merged_data.groupby(['generator', 'benchmark', 'correctness'])
+        merged_data.groupby(['generator_id', 'benchmark', 'correctness'])
             .size()
             .unstack(fill_value=0)
             .reset_index()
@@ -896,7 +896,7 @@ def report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs):
         summary_table.get('Correct', 0).astype(str) + '/' + summary_table.get('Overfitting', 0).astype(str)
     )
 
-    final_table = summary_table.pivot(index='generator', columns='benchmark', values='C/O')
+    final_table = summary_table.pivot(index='generator_id', columns='benchmark', values='C/O')
     final_table = final_table.fillna('0/0')
 
     logging.info("\nSummary Table (Correct/Overfitting by Generator x Benchmark):")

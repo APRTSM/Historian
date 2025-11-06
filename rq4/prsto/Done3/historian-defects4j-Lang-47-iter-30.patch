@@ -1,0 +1,16 @@
+--- a/src/java/org/apache/commons/lang/text/StrBuilder.java
++++ b/src/java/org/apache/commons/lang/text/StrBuilder.java
+@@ -1183,4 +1183,4 @@
+                     if (width > 0) {            
+                                             ensureCapacity(size + width);            
+                                             String str = (obj == null ? getNullText() : obj.toString());
+- 
++    if (str== null ){ str = ""; }
+
+
+@@ -1227,4 +1230,4 @@
+                     if (width > 0) {            
+                                             ensureCapacity(size + width);            
+                                             String str = (obj == null ? getNullText() : obj.toString());
+- 
++       if  (str==  null  ){  str  =   " ";  } 

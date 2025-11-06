@@ -22,6 +22,7 @@ APRE_NFL_DIR = os.path.join(DATASETS_DIR, "aprenfl")
 DEFECTREPAIRING_DIR = os.path.join(DATASETS_DIR, "defectrepairing")
 DRR_DIR = os.path.join(DATASETS_DIR, "drr")
 WANGICSE_DIR = os.path.join(DATASETS_DIR, "wangicse")
+HISTORIAN_DIR = os.path.join(DATASETS_DIR, "historian")
 
 # BENCHMARKS
 BENCHMARKS_DIR = os.path.join(PROJECT_DIR, "benchmarks")

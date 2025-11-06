@@ -1,0 +1,13 @@
+--- a/src/main/java/org/joda/time/Partial.java
+--- b/src/main/java/org/joda/time/Partial.java
+@@ -108,7 +108,8 @@
+      * @return the minimum value of 1
+      */
+     public int getMinimumValue() {
+-        return 1;
++        return getWrappedField().getMaximumValue() + 1;
++
+     }
+ 
+     /**
+

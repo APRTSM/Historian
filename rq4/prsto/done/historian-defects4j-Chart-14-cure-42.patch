@@ -1,0 +1,85 @@
+--- a/source/org/jfree/chart/plot/XYPlot.java 
++++ b/source/org/jfree/chart/plot/XYPlot.java 
+@@ -2526,6 +2529,6 @@
+		markers = (ArrayList) this.backgroundRangeMarkers.get(new Integer(            
+									index));            
+						}
+- boolean removed = markers.remove(marker);
++ boolean removed = markers != null && markers.remove( marker ) ;
+                     if (removed && notify) {            
+							fireChangeEvent();
+
+
+
+Developer's patch:
+if (markers == null) {
+	return false；
+}            
+boolean removed = markers.remove(marker);
+
+
+
+
+
+
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2290,6 +2290,6 @@
+                         markers = (ArrayList) this.backgroundDomainMarkers.get(new Integer(            
+                                                     index));            
+                                         }
+- boolean removed = markers.remove(marker);
++ boolean removed = markers != null && markers.remove( marker ) ;           
+                                         if (removed && notify) {            
+                                             fireChangeEvent();
+
+
+
+Developer's patch:
+if (markers == null) {
+	return false；
+}            
+boolean removed = markers.remove(marker);
+
+
+
+--- a/source/org/jfree/chart/plot/CategoryPlot.java 
++++ b/source/org/jfree/chart/plot/CategoryPlot.java 
+@@ -2445,6 +2448,6 @@
+					markers = (ArrayList) this.backgroundRangeMarkers.get(new Integer(            
+												index));            
+									}
+- boolean removed = markers.remove(marker);
++ boolean removed = markers != null && markers.remove( marker ) ;          
+					if (removed && notify) {            
+						fireChangeEvent();
+
+
+
+
+Developer's patch:
+if (markers == null) {
+	return false；
+}            
+boolean removed = markers.remove(marker);
+
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2163,6 +2163,6 @@ 
+				markers = (ArrayList) this.backgroundDomainMarkers.get(new Integer(            
+					index));            
+						}
+-boolean removed = markers.remove(marker);
++boolean removed = markers != null && markers.remove( marker ) ;
+				if (removed && notify) {            
+					fireChangeEvent();
+
+
+Developer's patch:
+if (markers == null) {
+	return false；
+}            
+boolean removed = markers.remove(marker);
+
+Explanation:
+CURE's patch is equivalent to developer's patch and each chunk in this bug has its own test cases.

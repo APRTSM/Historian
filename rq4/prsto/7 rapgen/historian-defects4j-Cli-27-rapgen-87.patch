@@ -1,0 +1,11 @@
+Cli_27_OptionGroup_2_2
+src/java/org/apache/commons/cli/OptionGroup.java 100
+
+Buggy Line:
+selected = option.getOpt();
+
+Developer's Fix:
+selected = option.getKey();
+
+[success] RAP-Gen's Repair:
+selected = option.getKey();

@@ -1,0 +1,11 @@
+Jsoup_41_Element_1_1
+src/main/java/org/jsoup/nodes/Element.java 1175
+
+Buggy Line:
+return this == o;
+
+Developer's Fix:
+return tag.equals(element.tag);
+
+[success] RAP-Gen's Repair:
+return tag.equals(element.tag);

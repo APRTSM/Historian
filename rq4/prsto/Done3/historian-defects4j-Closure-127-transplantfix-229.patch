@@ -1,0 +1,17 @@
+--- a/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
++++ b/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+@@ -1450,11 +1450,8 @@
+          res == null && n != null;
+          n = n.next, n2 = n2.next) {
+       if (node2 == null) {
+-        throw new IllegalStateException();
+-      }
+-      res = n.checkTreeEqualsImpl(n2);
+-      if (res != null) {
+-        return res;
++        next = first = node2;
++
+       }
+     }
+     return res;
+

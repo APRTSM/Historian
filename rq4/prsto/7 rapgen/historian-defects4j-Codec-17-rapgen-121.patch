@@ -1,0 +1,11 @@
+Codec_17_StringUtils_1_1
+src/main/java/org/apache/commons/codec/binary/StringUtils.java 339
+
+Buggy Line:
+return new String(bytes, Charsets.ISO_8859_1);
+
+Developer's Fix:
+return newString(bytes, Charsets.ISO_8859_1);
+
+[success] RAP-Gen's Repair:
+return newString(bytes, Charsets.ISO_8859_1);
