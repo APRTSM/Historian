@@ -316,49 +316,34 @@ def get_historian_dataset(bugs):
 
     patches = []
     
-    # Iterate through files in dir
-
     for filename in os.listdir(HISTORIAN_DIR):
         file_path = os.path.join(HISTORIAN_DIR, filename)
         print(filename)
 
-        origin, benchmark, bug_project, bug_number, tool, index = filename.replace(".patch", "").split('-')
+        uid = filename.replace(".patch", "")
+        _, _, bug_project, bug_number, tool, _ = filename.replace(".patch", "").split('-')
 
-        raise
-    #         if not patch_file.endswith(".patch"):
-    #             continue
-            
-    #         if "Error" in root:
-    #             logging.warning(f"Skipping patch in error folder: {os.path.join(root, patch_file)}")
-    #             continue
+        if type(bugs) == dict:
+            bug_info = {"benchmark": "Defects4J", "project": bug_project, "number": bug_number}
+            bug = get_record(bugs, bug_info)
+        
+        else:
+            bug = bugs.loc[f"defects4j-{bug_project}-{bug_number}"].copy()
+            bug['uid'] = bug.name
 
-    #         patch_name, project, number, tool = patch_file.replace(".patch", "").split('-') 
-    #         bug_info = {"benchmark": "Defects4J", "project": project, "number": number}
-    #         bug = get_record(bugs, bug_info)
+        bug_uid = bug["uid"]
 
-    #         if not bug:
-    #             logging.warning(f"Skipping patch with no bug record: {os.path.join(root, patch_file)}")
-    #             continue
+        patch = {
+            "uid": uid,
+            "bug_uid": bug_uid,
+            "generator": tool,
+            "location": os.path.relpath(file_path, PROJECT_DIR),
+            "correctness": "Unknown",
+            "origin": "Historian"
+        }
+        patches.append(patch)
 
-    #         bug_uid = bug["uid"]
-
-    #         correctness = "Correct"
-
-    #         patch = {
-    #             "uid": f"historian-{bug_uid}-{tool}-{patch_name}",
-    #             "bug_uid": bug_uid,
-    #             "generator": tool,
-    #             "location": os.path.relpath(os.path.join(root, patch_file), PROJECT_DIR),
-    #             "correctness": correctness,
-    #             "origin": "Historian"
-    #         }
-    #         patches.append(patch)
-
-    # no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
-
-    # logging.info(f"{no_correct_patches} Correct patches extracted from Historian study.")
-
-    # return patches
+    return patches
 
 """ General """
 # Get all patches (from datasets)

@@ -454,10 +454,6 @@ if __name__=="__main__":
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)
 
-    get_historian_dataset(bugs)
-
-    raise
-
     # Patch Processings
     patch_processors = get_patch_processors()
 
@@ -470,7 +466,10 @@ if __name__=="__main__":
 
     """" New Patches Preprocessing """
 
+    new_patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
 
+    print(len(new_patches))
+    raise
 
     """ Groundtruth Preprocessing """
 
