@@ -441,6 +441,7 @@ if __name__=="__main__":
 
     # Initial Data
     bugs, developer_patches, tool_patches = init(configure=False)
+    new_patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
 
     # Patch Processings
     patch_processors = get_patch_processors()
@@ -453,8 +454,6 @@ if __name__=="__main__":
     prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
 
     """" New Patches Preprocessing """
-
-    new_patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
 
     print("Raw New Patches:")
     print(len(new_patches))
@@ -486,33 +485,49 @@ if __name__=="__main__":
 
     """ Groundtruth Preprocessing """
 
+    print("Raw Developer Patches:")
+    print(len(developer_patches))
+    print("Raw Tool Patches:")
+    print(len(tool_patches))
+
     # Patch Cleaning (Fix Patches)
     cleaned_developer_patches = clean_and_save_patches(bugs, developer_patches, TMP_CLEANED_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = clean_and_save_patches(bugs, tool_patches, TMP_CLEANED_TOOL_PATHCES_PKL)
+
+    print("Cleaned Developer Patches:")
+    print(len(cleaned_developer_patches))
+    print("Cleaned Tool Patches:")
+    print(len(cleaned_tool_patches))
 
     # Fetch Methods (Get Changed Methods) Should be same but is not!
     cleaned_developer_patches = get_methods_and_save(bugs, cleaned_developer_patches, TMP_METHOD_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = get_methods_and_save(bugs, cleaned_tool_patches, TMP_METHOD_TOOL_PATHCES_PKL)
 
+    print("Method Developer Patches:")
+    print(len(cleaned_developer_patches))
+    print("Method Tool Patches:")
+    print(len(cleaned_tool_patches))
+
     # Normalize Names, Last step for Developer Patches, Formatting generator_id
     cleaned_developer_patches = normalize_names_and_save(cleaned_developer_patches, TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = normalize_names_and_save(cleaned_tool_patches, TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
-
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
     # Get Single Method Patches
     cleaned_developer_patches = get_single_methods_and_save(cleaned_developer_patches, TMP_SINGLE_HUNK_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = get_single_methods_and_save(cleaned_tool_patches, TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    print("Single Hunk Developer Patches:")
+    print(len(cleaned_developer_patches))
+    print("Single Hunk Tool Patches:")
+    print(len(cleaned_tool_patches))
 
     # Deduplicating Same bug, same tool, same content (Now looks for Methods), Last step for Tool Patches
     cleaned_tool_patches = deduplicate_patches_and_save(cleaned_tool_patches, TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
+    print("Deduplicated Tool Patches:")
+    print(len(cleaned_tool_patches))    
 
-    """ Data Preprocessing """
-
+    # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
 
     """ Main Task Execution """
 
