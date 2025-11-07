@@ -1,4 +1,4 @@
---- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java 1797
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
 +++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
 @@ -1794,7 +1794,7 @@
         }

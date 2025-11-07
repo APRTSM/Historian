@@ -14,6 +14,11 @@ RQ4_DIR = os.path.join(PROJECT_DIR, "rq4")
 RQ4_DATA_DIR = os.path.join(RQ4_DIR, "tool_patches")
 RQ4_FIRST_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "first_cleaned_tool_patches")
 RQ4_SECOND_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "second_cleaned_tool_patches")
+TMP_CLEANED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "cleaned_new_patches.pkl")
+TMP_METHOD_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "method_new_patches.pkl")
+TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "generator_normalized_new_patches.pkl")
+TMP_SINGLE_HUNK_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "single_hunk_new_patches.pkl")
+TMP_DEDUPLICATED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "deduplicated_new_patches.pkl")
 
 # DATASETS
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")

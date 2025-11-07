@@ -1,0 +1,5 @@
+    public CSVFormat withIgnoreEmptyHeaders(final boolean ignoreEmptyHeaders) {
+        return new CSVFormat(delimiter, quoteChar, quotePolicy, commentStart, escape,
+                ignoreSurroundingSpaces, ignoreEmptyHeaders, recordSeparator, nullString, header, skipHeaderRecord,
+                ignoreEmptyHeaders);
+    }

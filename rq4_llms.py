@@ -326,11 +326,9 @@ Get New Patches
 Preprocess New Patches
 First Step Compare Each New Patch with Existing Groundtruth Patches (Do it in Pare Checking Way Not File)
 """
-def experiment_4(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, selected_tool):
-    def get_response(groundtruth_patch, tool_patch, prompt, temperature, model, processor):
-        tool_patch_content = processor["function"](tool_patch) 
-
-        # Select the developer patch with same bug_uid
+def experiment_5(new_patches, developer_patches, tool_patches, models, prompts, temperatures, patch_processors):
+    def get_response(groundtruth_patch, new_patch, prompt, temperature, model, processor):
+        new_patch_content = processor["function"](new_patch) 
         groundtruth_patch_content = processor["function"](groundtruth_patch) 
 
         prompt_content = prompt["content"]
@@ -340,7 +338,7 @@ def experiment_4(developer_patches, tool_patches, models, prompts, temperatures,
 
             Patch 1: {groundtruth_patch_content}
 
-            Patch 2: {tool_patch_content}
+            Patch 2: {new_patch_content}
         """
         response = ollama.chat(model=model["uid"], keep_alive=-1, options=ollama.Options(temperature=temperature["uid"]), messages=[
             {
@@ -349,9 +347,8 @@ def experiment_4(developer_patches, tool_patches, models, prompts, temperatures,
             },
         ])
 
-        # Continue before this
         label = {
-            "tool_patch_uid": tool_patch.name,
+            "new_patch_uid": new_patch.name,
             "groundtruth_patch_uid": groundtruth_patch.name,
             "processor": processor["uid"],
             "model": model["uid"],
@@ -363,54 +360,35 @@ def experiment_4(developer_patches, tool_patches, models, prompts, temperatures,
 
         return pd.Series(label)
     
-    def compare_groundtruth(tool_patch, groundtruth, prompt, temperature, model, processor):
-        groundtruth_selected_bug = groundtruth.loc[groundtruth["bug_uid"] == tool_patch["bug_uid"]]
+    def compare_groundtruth(new_patch, groundtruth, prompt, temperature, model, processor, existing_pairs):
+        groundtruth_selected_bug = groundtruth.loc[groundtruth["bug_uid"] == new_patch["bug_uid"]]
 
-        logging.info(f"tool_patch: {tool_patch.name}, no_selected_bug_groundtruth_patches: {len(groundtruth_selected_bug)}")
+        logging.info(f"new_patch: {new_patch.name}, no_selected_bug_groundtruth_patches: {len(groundtruth_selected_bug)}")
 
-        results = groundtruth_selected_bug.apply(lambda row: get_response(row, tool_patch, prompt, temperature, model, processor), axis=1)
+        results = []
+        for _, gt_patch in groundtruth_selected_bug.iterrows():
+            # Check if this pair already exists in the results
+            pair_key = (new_patch.name, gt_patch.name)
+            if pair_key not in existing_pairs:
+                result = get_response(gt_patch, new_patch, prompt, temperature, model, processor)
+                results.append(result)
+            else:
+                logging.info(f"Pair already exists: new_patch={new_patch.name}, groundtruth={gt_patch.name}. Skipping.")
+        
+        if results:
+            return pd.DataFrame(results)
+        else:
+            return pd.DataFrame()
 
-        return results
-
-    # # Exclude Selected Tool
-    # selected_tool = "tbar"
-
-    # Remove 2017, 2015, ...
-    selected_tool_patches = tool_patches[tool_patches["generator"] == selected_tool]
-    tool_patches = tool_patches[tool_patches["generator"] != selected_tool]
-
-    # # Exclude overfitting patches
-    # tool_patches = tool_patches[tool_patches["correctness"] == "Correct"]
-
-    # # Keep single hunks
-    # tool_patches = tool_patches[tool_patches.apply(is_single_hunk, axis=1)]
-    # developer_patches = developer_patches[developer_patches.apply(is_single_hunk, axis=1)]
-
-    logging.info(f"------------------------------------")
-    logging.info(f"Single Hunk Tool Generated Patches: {len(tool_patches)}")
-    logging.info(f"Single Hunk Developer Patches: {len(developer_patches)}")
-    logging.info(f"Selected Patches: {len(selected_tool_patches)}")
-    logging.info(f"------------------------------------")
-
-    # Create extended groundtruth
+    # Create groundtruth from developer_patches and tool_patches (not discarding any)
     groundtruth_patches = pd.concat([tool_patches, developer_patches], axis=0)
 
     no_groundtruth_patches = len(groundtruth_patches)
-    no_selected_tool_patches = len(selected_tool_patches)
+    no_new_patches = len(new_patches)
     no_models = len(models)
     no_prompts = len(prompts)
     no_temperatures = len(temperatures)
-    logging.info(f"Running experiment 3 ... selected_tool: {selected_tool}, no_models: {no_models}, no_prompts: {no_prompts}, no_correct_patches: {no_groundtruth_patches}, no_selected_tool_patches: {no_selected_tool_patches}, temperature: {no_temperatures}")
-
-    comparison_indices = selected_tool_patches.apply(
-        lambda tool_patch: pd.Series(
-            groundtruth_patches[groundtruth_patches["bug_uid"] == tool_patch["bug_uid"]].index,
-            name=tool_patch.name
-        ),
-        axis=1
-    ).stack().reset_index(level=1, drop=True).reset_index(name='groundtruth_index')
-
-    comparison_indices.to_pickle(os.path.join(TMP_EXPERT_LABEL_DIR, f"EXP3-unlabeled-{selected_tool}.pkl"))
+    logging.info(f"Running experiment 5 ... no_models: {no_models}, no_prompts: {no_prompts}, no_groundtruth_patches: {no_groundtruth_patches}, no_new_patches: {no_new_patches}, no_temperatures: {no_temperatures}")
 
     for processor in patch_processors:
         for model in models:
@@ -420,25 +398,35 @@ def experiment_4(developer_patches, tool_patches, models, prompts, temperatures,
                     temperature_value = temperature["uid"]
                     model_uid = model["uid"]
                     processor_uid = processor["uid"]
-                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
+                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP5-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
 
+                    # Load existing results if file exists
+                    existing_pairs = set()
                     if os.path.exists(result_file):
-                        logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} \n Skipping to the next one.")
+                        logging.info(f"Loading existing results from {result_file}")
+                        existing_results = pd.read_pickle(result_file)
+                        # Create set of existing pairs (new_patch_uid, groundtruth_patch_uid)
+                        existing_pairs = set(zip(existing_results["new_patch_uid"], existing_results["groundtruth_patch_uid"]))
+                        logging.info(f"Found {len(existing_pairs)} existing pairs")
+
+                    all_results = []
+                    if os.path.exists(result_file):
+                        all_results.append(existing_results)
+
+                    for i, (_, new_patch) in enumerate(tqdm(new_patches.iterrows(), total=len(new_patches), desc=f"Processing the patch ... PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}")):
+                        logging.info(f"Processing the patch ... PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}, index: {i}")
+
+                        results = compare_groundtruth(new_patch, groundtruth_patches, prompt, temperature, model, processor, existing_pairs)
                         
-                        continue
-
-                    for i, (_, tool_patch) in enumerate(tqdm(selected_tool_patches.iterrows(), total=len(selected_tool_patches), desc=f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}")):
-                        result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
-
-                        if os.path.exists(result_file):
-                            logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} index: {i} \n Skipping to the next one.")
+                        if not results.empty:
+                            all_results.append(results)
+                            # Update existing_pairs with newly processed pairs
+                            new_pairs = set(zip(results["new_patch_uid"], results["groundtruth_patch_uid"]))
+                            existing_pairs.update(new_pairs)
                             
-                            continue
-
-                        logging.info(f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}, index: {i}")
-
-                        results = compare_groundtruth(tool_patch, groundtruth_patches, prompt, temperature, model, processor)
-                        results.to_pickle(result_file)
+                            # Save incrementally after each new_patch
+                            combined_results = pd.concat(all_results, ignore_index=True)
+                            combined_results.to_pickle(result_file)
 
             ollama.generate(model=model["uid"], keep_alive=0)
 
@@ -468,8 +456,33 @@ if __name__=="__main__":
 
     new_patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
 
+    print("Raw New Patches:")
     print(len(new_patches))
-    raise
+
+    cleaned_new_patches = clean_and_save_patches(bugs, new_patches, TMP_CLEANED_NEW_PATHCES_PKL)
+
+    print("Cleaned New Patches:")
+    print(len(cleaned_new_patches))
+
+    cleaned_new_patches = get_methods_and_save(bugs, cleaned_new_patches, TMP_METHOD_NEW_PATHCES_PKL)
+
+    print("Method New Patches:")
+    print(len(cleaned_new_patches))
+
+    cleaned_new_patches = normalize_names_and_save(cleaned_new_patches, TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL)
+
+    print("Generator Normalized New Patches:")
+    print(len(cleaned_new_patches))
+
+    cleaned_new_patches = get_single_methods_and_save(cleaned_new_patches, TMP_SINGLE_HUNK_NEW_PATHCES_PKL)
+
+    print("Single Hunk New Patches:")
+    print(len(cleaned_new_patches))
+
+    cleaned_new_patches = deduplicate_patches_and_save(cleaned_new_patches, TMP_DEDUPLICATED_NEW_PATHCES_PKL)
+
+    print("Deduplicated New Patches:")
+    print(len(cleaned_new_patches))
 
     """ Groundtruth Preprocessing """
 

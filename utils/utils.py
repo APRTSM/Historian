@@ -723,6 +723,7 @@ def get_modified_files_git_repo(output_dir, checkout_dir, patch_dir):
         return original_file_dir, changed_file_dir
     
 def read_patch(location):
+    print(location)
     with open(location) as file:
         diff = file.read()
 

@@ -318,7 +318,6 @@ def get_historian_dataset(bugs):
     
     for filename in os.listdir(HISTORIAN_DIR):
         file_path = os.path.join(HISTORIAN_DIR, filename)
-        print(filename)
 
         uid = filename.replace(".patch", "")
         _, _, bug_project, bug_number, tool, _ = filename.replace(".patch", "").split('-')
