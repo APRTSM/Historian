@@ -326,7 +326,7 @@ Get New Patches
 Preprocess New Patches
 First Step Compare Each New Patch with Existing Groundtruth Patches (Do it in Pare Checking Way Not File)
 """
-def experiment_5(new_patches, developer_patches, tool_patches, models, prompts, temperatures, patch_processors):
+def experiment_4(new_patches, developer_patches, tool_patches, models, prompts, temperatures, patch_processors):
     def get_response(groundtruth_patch, new_patch, prompt, temperature, model, processor):
         new_patch_content = processor["function"](new_patch) 
         groundtruth_patch_content = processor["function"](groundtruth_patch) 
@@ -388,7 +388,7 @@ def experiment_5(new_patches, developer_patches, tool_patches, models, prompts, 
     no_models = len(models)
     no_prompts = len(prompts)
     no_temperatures = len(temperatures)
-    logging.info(f"Running experiment 5 ... no_models: {no_models}, no_prompts: {no_prompts}, no_groundtruth_patches: {no_groundtruth_patches}, no_new_patches: {no_new_patches}, no_temperatures: {no_temperatures}")
+    logging.info(f"Running experiment 4 ... no_models: {no_models}, no_prompts: {no_prompts}, no_groundtruth_patches: {no_groundtruth_patches}, no_new_patches: {no_new_patches}, no_temperatures: {no_temperatures}")
 
     for processor in patch_processors:
         for model in models:
@@ -398,7 +398,7 @@ def experiment_5(new_patches, developer_patches, tool_patches, models, prompts, 
                     temperature_value = temperature["uid"]
                     model_uid = model["uid"]
                     processor_uid = processor["uid"]
-                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP5-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
+                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP4-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
 
                     # Load existing results if file exists
                     existing_pairs = set()
@@ -516,29 +516,6 @@ if __name__=="__main__":
 
     """ Main Task Execution """
 
-    # # Deduplicating Second
-    # # cleaned_developer_patches, cleaned_tool_patches = second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches)
-
-    # # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
-    # # experiment_1(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
-
-    # experiment_2(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
-
-    # # experiment_5(cleaned_developer_patches, cleaned_tool_patches, models, temperatures, patch_processors)
-
-    # # experiment_7(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
-
-    # # experiment_8(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
-
-    # tools = [
-    #     'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
-    #     'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
-    #     'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
-    # ]
-    # for tool in tools:
-    #     experiment_3(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
-
-
+    experiment_4(cleaned_new_patches, cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
 
     
