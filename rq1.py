@@ -433,18 +433,15 @@ def experiment_10(tool_patches, pairs, models, prompts, temperatures, patch_proc
 def assign_clones_sourcerercc(pairs, tool_patches):
     """
     Assigns clone labels to pairs using SourcererCC.
-    
     This function processes pairs incrementally and saves progress to disk.
     If interrupted, it will resume from where it left off on the next run.
     
     Files saved:
-        - sourcerercc-clone.pkl: Incremental progress saved every 100 pairs and at completion
+        - sourcerercc-clone.pkl: Incremental progress saved every 10 pairs and at completion
     
     Important notes:
         - If you want to restart the whole process from scratch, delete the 
           'sourcerercc-clone.pkl' file from TMP_RQ1_RESULTS_DIR before running.
-        - If the input pairs have changed from a previous run, an error will be raised.
-          You must delete the pickle file to process a new set of pairs.
     
     Args:
         pairs: DataFrame with pairs of patches
@@ -452,70 +449,62 @@ def assign_clones_sourcerercc(pairs, tool_patches):
     
     Returns:
         pairs: DataFrame with updated 'expert_label' column
-        
-    Raises:
-        ValueError: If the current pairs differ from previously saved pairs
     """
     logging.info("Assigning clones using SourcererCC...")
-
-    sourcerercc_labels_dir = os.path.join(TMP_RQ1_RESULTS_DIR,"sourcerercc-clone.pkl")
-
-    # Load existing results if available
+    sourcerercc_labels_dir = os.path.join(TMP_RQ1_RESULTS_DIR, "sourcerercc-clone.pkl")
+    
+    # Load existing progress or initialize
     if os.path.exists(sourcerercc_labels_dir):
         logging.info(f"Loading existing SourcererCC labels from {sourcerercc_labels_dir}")
-        existing_pairs = pd.read_pickle(sourcerercc_labels_dir)
+        pairs_processed = pd.read_pickle(sourcerercc_labels_dir)
         
-        # Check if the pairs match (same uid and groundtruth_index combinations)
-        current_pairs_set = set(zip(pairs['uid'], pairs['groundtruth_index']))
-        existing_pairs_set = set(zip(existing_pairs['uid'], existing_pairs['groundtruth_index']))
+        # Check if already completed
+        non_null_labels = pairs_processed['expert_label'].notna().sum()
+        if non_null_labels == len(pairs_processed):
+            logging.info(f"All {len(pairs_processed)} pairs already processed. Returning cached results.")
+            return pairs_processed
         
-        if current_pairs_set != existing_pairs_set:
-            error_msg = (
-                f"Pairs have changed from previous run!\n"
-                f"Current pairs: {len(current_pairs_set)}\n"
-                f"Existing pairs: {len(existing_pairs_set)}\n"
-                f"New pairs not in existing: {len(current_pairs_set - existing_pairs_set)}\n"
-                f"Existing pairs not in current: {len(existing_pairs_set - current_pairs_set)}\n"
-                f"Please delete '{sourcerercc_labels_dir}' to restart with new pairs."
-            )
-            raise ValueError(error_msg)
-        
-        # Merge existing labels back into pairs (only for matching pairs)
-        pairs = pairs.drop('expert_label', axis=1, errors='ignore')
-        pairs = pairs.merge(
-            existing_pairs[['uid', 'groundtruth_index', 'expert_label']], 
-            on=['uid', 'groundtruth_index'], 
-            how='left'
-        )
+        # Copy the processed labels to the current pairs DataFrame
+        if 'expert_label' in pairs_processed.columns:
+            pairs['expert_label'] = pairs_processed['expert_label']
     else:
-        # Initialize expert_label column if it doesn't exist
-        if 'expert_label' not in pairs.columns:
-            pairs['expert_label'] = '-'
+        # Initialize expert_label column for new processing
+        pairs['expert_label'] = pd.NA
+        logging.info("Starting fresh SourcererCC processing...")
     
     # Ensure the content is available in tool_patches
     tool_patches['content'] = tool_patches.apply(get_single_hunk_method, axis=1)
-
-    # Filter pairs that haven't been processed yet (expert_label is NaN or '-')
-    unprocessed_mask = pairs['expert_label'].isna() | (pairs['expert_label'] == '-')
-    unprocessed_pairs = pairs[unprocessed_mask]
     
-    logging.info(f"Total pairs: {len(pairs)}, Already processed: {len(pairs) - len(unprocessed_pairs)}, Remaining: {len(unprocessed_pairs)}")
-
-    # Process unprocessed pairs with progress bar
-    batch_size = 100  # Save every 100 pairs
+    # Find where to resume from
+    start_index = 0
+    if 'expert_label' in pairs.columns:
+        # Find the first row that hasn't been processed yet (has NaN/None/pd.NA)
+        processed_mask = pairs['expert_label'].notna()
+        if processed_mask.any():
+            start_index = processed_mask.sum()
+            logging.info(f"Resuming from index {start_index} (already processed {start_index} pairs)")
+    
+    # Process remaining pairs
+    save_interval = 10  # Save every 10 iterations
     processed_count = 0
     
-    for index, row in tqdm(unprocessed_pairs.iterrows(), total=len(unprocessed_pairs), desc="Detecting SourcererCC clones"):
+    # Add tqdm progress bar for the remaining pairs
+    for idx, (index, row) in enumerate(tqdm(
+        pairs.iloc[start_index:].iterrows(), 
+        total=len(pairs) - start_index, 
+        desc="Detecting SourcererCC clones",
+        initial=0
+    )):
         uid = row['uid']
         groundtruth_index = row['groundtruth_index']
         
         # Get the content of the target method
         target_method_content = tool_patches.at[uid, 'content']
         target_method_groundtruth_content = tool_patches.at[groundtruth_index, 'content']
-
+        
         # Use SourcererCC to check if they are clones
         are_clones = sourcerercc_are_clones(target_method_content, target_method_groundtruth_content)
-
+        
         if are_clones:
             pairs.at[index, 'expert_label'] = 'SourcererCC-Clone'
         else:
@@ -523,15 +512,15 @@ def assign_clones_sourcerercc(pairs, tool_patches):
         
         processed_count += 1
         
-        # Save progress every batch_size iterations
-        if processed_count % batch_size == 0:
+        # Save progress every 10 iterations
+        if processed_count % save_interval == 0:
             pairs.to_pickle(sourcerercc_labels_dir)
-            logging.info(f"Progress saved: {processed_count}/{len(unprocessed_pairs)} pairs processed")
-
-    # Final save after processing all pairs
+            logging.debug(f"Saved progress at iteration {start_index + processed_count}")
+    
+    # Final save after all processing is complete
     pairs.to_pickle(sourcerercc_labels_dir)
-    logging.info(f"Saved SourcererCC labels to {sourcerercc_labels_dir}")
-
+    logging.info(f"Completed! Saved all SourcererCC labels to {sourcerercc_labels_dir}")
+    
     return pairs
 
 def assign_matching_clone(pairs, tool_patches):
