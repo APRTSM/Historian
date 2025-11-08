@@ -455,33 +455,33 @@ if __name__=="__main__":
 
     """" New Patches Preprocessing """
 
-    print("Raw New Patches:")
-    print(len(new_patches))
+    # print("Raw New Patches:")
+    # print(len(new_patches))
 
-    cleaned_new_patches = clean_and_save_patches(bugs, new_patches, TMP_CLEANED_NEW_PATHCES_PKL)
+    # cleaned_new_patches = clean_and_save_patches(bugs, new_patches, TMP_CLEANED_NEW_PATHCES_PKL)
 
-    print("Cleaned New Patches:")
-    print(len(cleaned_new_patches))
+    # print("Cleaned New Patches:")
+    # print(len(cleaned_new_patches))
 
-    cleaned_new_patches = get_methods_and_save(bugs, cleaned_new_patches, TMP_METHOD_NEW_PATHCES_PKL)
+    # cleaned_new_patches = get_methods_and_save(bugs, cleaned_new_patches, TMP_METHOD_NEW_PATHCES_PKL)
 
-    print("Method New Patches:")
-    print(len(cleaned_new_patches))
+    # print("Method New Patches:")
+    # print(len(cleaned_new_patches))
 
-    cleaned_new_patches = normalize_names_and_save(cleaned_new_patches, TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL)
+    # cleaned_new_patches = normalize_names_and_save(cleaned_new_patches, TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL)
 
-    print("Generator Normalized New Patches:")
-    print(len(cleaned_new_patches))
+    # print("Generator Normalized New Patches:")
+    # print(len(cleaned_new_patches))
 
-    cleaned_new_patches = get_single_methods_and_save(cleaned_new_patches, TMP_SINGLE_HUNK_NEW_PATHCES_PKL)
+    # cleaned_new_patches = get_single_methods_and_save(cleaned_new_patches, TMP_SINGLE_HUNK_NEW_PATHCES_PKL)
 
-    print("Single Hunk New Patches:")
-    print(len(cleaned_new_patches))
+    # print("Single Hunk New Patches:")
+    # print(len(cleaned_new_patches))
 
-    cleaned_new_patches = deduplicate_patches_and_save(cleaned_new_patches, TMP_DEDUPLICATED_NEW_PATHCES_PKL)
+    # cleaned_new_patches = deduplicate_patches_and_save(cleaned_new_patches, TMP_DEDUPLICATED_NEW_PATHCES_PKL)
 
-    print("Deduplicated New Patches:")
-    print(len(cleaned_new_patches))
+    # print("Deduplicated New Patches:")
+    # print(len(cleaned_new_patches))
 
     """ Groundtruth Preprocessing """
 
@@ -531,6 +531,6 @@ if __name__=="__main__":
 
     """ Main Task Execution """
 
-    experiment_4(cleaned_new_patches, cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
+    # experiment_4(cleaned_new_patches, cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
 
     

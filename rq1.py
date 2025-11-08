@@ -587,7 +587,8 @@ if __name__ == "__main__":
     print(f"Number of developer patches: {len(developer_patches)}")
 
     # Select only the correct tool patches for RQ1
-    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Overfitting"].copy()
+    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
+
     # correct_tool_patche = tool_patches.copy()
     print(f"Number of Unique Single-Hunk Correct tool patches: {len(correct_tool_patche)}")
 
