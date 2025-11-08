@@ -1,17 +1,32 @@
-    public MultiplePiePlot(CategoryDataset dataset) {
-        super();
-        this.dataset = dataset;
-        PiePlot piePlot = new PiePlot(null);
-        this.pieChart = new JFreeChart(piePlot);
-        setDataset(dataset);
-		this.pieChart.removeLegend();
-        this.dataExtractOrder = TableOrder.BY_COLUMN;
-        this.pieChart.setBackgroundPaint(null);
-        TextTitle seriesTitle = new TextTitle("Series Title",
-                new Font("SansSerif", Font.BOLD, 12));
-        seriesTitle.setPosition(RectangleEdge.BOTTOM);
-        this.pieChart.setTitle(seriesTitle);
-        this.aggregatedItemsKey = "Other";
-        this.aggregatedItemsPaint = Color.lightGray;
-        this.sectionPaints = new HashMap();
+    public LegendItemCollection getLegendItems() {
+        LegendItemCollection result = new LegendItemCollection();
+        this.backgroundAnnotations = new ArrayList();
+		if (this.plot == null) {
+            return result;
+        }
+        int index = this.plot.getIndexOf(this);
+        CategoryDataset dataset = this.plot.getDataset(index);
+        this.rowCount = dataset.getRowCount();
+        int seriesCount = dataset.getRowCount();
+        if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
+            for (int i = 0; i < seriesCount; i++) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        else {
+            for (int i = seriesCount - 1; i >= 0; i--) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        return result;
     }
