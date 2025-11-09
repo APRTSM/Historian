@@ -263,6 +263,8 @@ def deduplicate_patches(cleaned_tool_patches):
         cleaned_tool_patches = cleaned_tool_patches.copy()
         cleaned_tool_patches['content'] = cleaned_tool_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
         # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
+        if cleaned_tool_patches['content'].isnull().any():
+            raise ValueError("There are patches with no single method content.")
         tqdm.pandas(desc="Deduplicating patches")
         tqdm.pandas(desc="Deduplicating patches")
         cleaned_tool_patches = cleaned_tool_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content']) 

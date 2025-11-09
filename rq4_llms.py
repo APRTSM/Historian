@@ -240,9 +240,23 @@ def deduplicate_patches_and_save(patches, path):
         return deduplicated_patches
 
     deduplicated_patches = patches.copy()
-    deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
+    deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if len(x) == 1 else None)
     # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
+    # If there is None raise error
+    if deduplicated_patches['content'].isnull().any():
+        raise ValueError("There are patches with no single method content.")
+
+    # write removed patches dataframe to html 
+    # Find the duplicates before deduplication (for comparison)
+    duplicates = deduplicated_patches[deduplicated_patches.duplicated(subset=['bug_uid', 'generator_id', 'content'], keep=False)]
+
+    # Perform deduplication
     deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
+
+    # Save to HTML files
+    deduplicated_patches.to_html('deduplicated_patches.html', index=False, escape=False)
+    duplicates.to_html('removed_duplicates.html', index=False, escape=False)
+
     deduplicated_patches = deduplicated_patches.drop(columns=['content'])
     deduplicated_patches.to_pickle(path)
     logging.info(f"Filtered tool patches to only include Defects4J bugs. No of tool patches: {cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]}")
