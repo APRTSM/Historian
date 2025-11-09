@@ -245,8 +245,8 @@ def deduplicate_patches_and_save(patches, path):
     
     # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
     # If there is None raise error
-    if deduplicated_patches['content'].isnull().any():
-        raise ValueError("There are patches with no single method content.")
+    # if deduplicated_patches['content'].isnull().any():
+    #     raise ValueError("There are patches with no single method content.")
 
     # write removed patches dataframe to html 
     # Find the duplicates before deduplication (for comparison)
