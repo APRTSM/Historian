@@ -254,8 +254,8 @@ def deduplicate_patches_and_save(patches, path):
     deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
 
     # Save to HTML files
-    deduplicated_patches.to_html('deduplicated_patches.html', index=False, escape=False)
-    duplicates.to_html('removed_duplicates.html', index=False, escape=False)
+    # duplicates.to_html('removed_duplicates.html', index=False, escape=False)
+    # deduplicated_patches.to_html('deduplicated_patches.html', index=False, escape=False)
 
     deduplicated_patches = deduplicated_patches.drop(columns=['content'])
     deduplicated_patches.to_pickle(path)
