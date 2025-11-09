@@ -240,7 +240,9 @@ def deduplicate_patches_and_save(patches, path):
         return deduplicated_patches
 
     deduplicated_patches = patches.copy()
-    deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if len(x) == 1 else None)
+    deduplicated_patches['content'] = deduplicated_patches.apply(get_single_hunk_method, axis=1)
+    # deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if len(x) == 1 else None)
+    
     # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
     # If there is None raise error
     if deduplicated_patches['content'].isnull().any():
