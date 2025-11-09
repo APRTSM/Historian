@@ -234,15 +234,18 @@ def normalize_names_and_save(patches, path):
     return patches
 
 def deduplicate_patches_and_save(patches, path):
+    logging.info("Deduplicating developer patches ...")
     if os.path.exists(path):
         deduplicated_patches = pd.read_pickle(path)
         return deduplicated_patches
 
     deduplicated_patches = patches.copy()
-    deduplicated_patches['content'] = deduplicated_patches['location'].apply(lambda x: read_patch(x[0]) if isinstance(x, list) and len(x) > 0 else None)
+    deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
+    # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
     deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
     deduplicated_patches = deduplicated_patches.drop(columns=['content'])
     deduplicated_patches.to_pickle(path)
+    logging.info(f"Filtered tool patches to only include Defects4J bugs. No of tool patches: {cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]}")
     return deduplicated_patches
 
 def second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches):
