@@ -31,10 +31,10 @@ Search rq4/second_cleaned_tool_patches
 
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels.
 
-rq4_tmp_broken_patches.py not sure what it is doing.
+rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
 
 ----
-State 20 Kas: _ added patches to first cleaned. Also cleaned 3000 non applicable patches from the old dataset.
+State 20 Kas: _ added historian patches to prsto. Also cleaned 3000 non applicable patches from the old dataset not added yet.
 """
 
 
@@ -364,7 +364,7 @@ def apply_params(args, prompts, models, patch_processors):
     return prompts, models, patch_processors
 
 """
-Get New Patches
+Get New Patches (Historian)
 Preprocess New Patches
 First Step Compare Each New Patch with Existing Groundtruth Patches (Do it in Pare Checking Way Not File)
 """
