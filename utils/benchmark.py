@@ -826,24 +826,24 @@ def get_single_hunks(patches: pd.DataFrame, developer_patches) -> pd.DataFrame:
 """ Patch Dataset Preprocessing"""
 def remove_developer_identical_patches(tool_patches=None, developer_patches=None):
     logging.info("Removing Developer Identical-1 ...")
+    tool_patches_copy = tool_patches.copy()
 
     # tool_patches['content'] = tool_patches['location'].apply(read_patch)
     # tool_patches['content'] = tool_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
-    tool_patches['content'] = tool_patches.apply(get_single_hunk_method, axis=1)
+    tool_patches_copy['content'] = tool_patches_copy.apply(get_single_hunk_method, axis=1)
 
     # get bugs with fixes
-    unique_bugs = tool_patches["bug_uid"].unique()
-    logging.info(f"Unique bugs: {len(unique_bugs)}")
+    # unique_bugs = tool_patches["bug_uid"].unique()
+    # logging.info(f"Unique bugs: {len(unique_bugs)}")
 
     # Make the bugs a dataframe
-    unique_bugs = pd.DataFrame(unique_bugs, columns=["bug_uid"])
+    # unique_bugs = pd.DataFrame(unique_bugs, columns=["bug_uid"])
 
-    unique_bugs["total_patches"] = unique_bugs["bug_uid"].apply(lambda x: len(tool_patches[tool_patches["bug_uid"] == x]))
+    # unique_bugs["total_patches"] = unique_bugs["bug_uid"].apply(lambda x: len(tool_patches[tool_patches["bug_uid"] == x]))
 
-    logging.info(unique_bugs)
+    # logging.info(unique_bugs)
 
     # Create a copy of tool_patches to work with
-    tool_patches_copy = tool_patches.copy()
     logging.info(f"Current Representatives: {tool_patches_copy}")
 
     # Remove developer identicals
@@ -855,7 +855,16 @@ def remove_developer_identical_patches(tool_patches=None, developer_patches=None
     # developer_patches['content'] = developer_patches.apply(get_single_hunk_method, axis=1)
 
     # Track patches dropped due to being identical to developer patches
-    tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(lambda row: row["content"] == get_single_hunk_method(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]].iloc[0]), axis=1)
+    # tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(lambda row: row["content"] == get_single_hunk_method(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]].iloc[0]), axis=1)
+    tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(
+        lambda row: (
+            row["content"] == get_single_hunk_method(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]].iloc[0])
+            if len(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]]) > 0
+            else False
+        ), 
+        axis=1
+    )
+    
     tool_patches_copy = tool_patches_copy[~tool_patches_copy["is_identical_to_dev"]]
 
     tool_patches_copy = tool_patches_copy.drop(columns=['content'])

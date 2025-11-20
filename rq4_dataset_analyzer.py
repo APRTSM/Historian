@@ -530,7 +530,7 @@ def assign_matching_clone(pairs, tool_patches):
 if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
     tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
+    developer_patches = pd.read_pickle(TMP_SINGLE_HUNK_DEVELOPER_PATHCES_PKL)
 
     tool_patches = tool_patches[tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]
     developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]
@@ -541,7 +541,7 @@ if __name__ == "__main__":
     print(f"Number of developer patches: {len(developer_patches)}")
 
     # Select only the correct tool patches for RQ1
-    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
+    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Overfitting"].copy()
     print(f"Number of Unique Single-Hunk Correct tool patches: {len(correct_tool_patche)}")
 
     # Remove developer identical-1 patches (cleaned) (method match)
