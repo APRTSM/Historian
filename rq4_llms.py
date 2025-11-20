@@ -14,6 +14,29 @@ import argparse
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
+"""
+This is the main file to preprocess and read the data for RQ4 LLMs.
+New patches are gathered from Historian dataset.
+Preprocessing functions are rewritten.
+
+rq4_gather.py 
+Gathers files from different projects in rq4/tool_patches and stores them in rq4/first_cleaned_data and assigns them ids.
+We fix them manually and move them to rq4/second_cleaned_data
+RQ4_FIRST_CLEANED_DATA_DIR is gathered data dir
+
+rq4_apply.py
+First check if patch exists in cleaned patches
+Try to apply from rq4/second_cleaned_tool_patches
+Search rq4/second_cleaned_tool_patches 
+
+rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels.
+
+rq4_tmp_broken_patches.py not sure what it is doing.
+
+----
+State 20 Kas: _ added patches to first cleaned. Also cleaned 3000 non applicable patches from the old dataset.
+"""
+
 
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
 def init(configure=True):
