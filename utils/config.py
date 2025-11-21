@@ -28,6 +28,8 @@ DEFECTREPAIRING_DIR = os.path.join(DATASETS_DIR, "defectrepairing")
 DRR_DIR = os.path.join(DATASETS_DIR, "drr")
 WANGICSE_DIR = os.path.join(DATASETS_DIR, "wangicse")
 HISTORIAN_DIR = os.path.join(DATASETS_DIR, "historian")
+CSMALL_DIR = os.path.join(DATASETS_DIR, "csmall")
+LLM4PC_DIR = os.path.join(DATASETS_DIR, "llm4pc")
 
 # BENCHMARKS
 BENCHMARKS_DIR = os.path.join(PROJECT_DIR, "benchmarks")

@@ -14,6 +14,17 @@ from .config import *
 from utils import *
 from itertools import combinations
 
+
+
+
+""" Files"""
+def find_file_relative(search_dir, filename):
+    for root, _, files in os.walk(search_dir):
+        if filename in files:
+            return os.path.relpath(os.path.join(root, filename), search_dir)
+        
+    return None  
+
 """ Simple """
 def copy_paste(source_dir, target_dir):
     with open(source_dir, 'r') as file:

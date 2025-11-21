@@ -365,6 +365,7 @@ def get_llm4pc_dataset(bugs):
         if not bug:
             # Depricated bugs in Defects4J v2.0
             if bug_info["project"] == "Closure" and bug_info["number"] in ["63", "93"]:
+                logging.info(f"Skipping deprecated bug in LLM4PC: {bug_info}")
                 continue
 
             raise Exception(f"Bug not found in LLM4PC: {bug_info}")
@@ -383,7 +384,7 @@ def get_llm4pc_dataset(bugs):
         location = os.path.join(CSMALL_DIR, correctness.lower(), tool, row["project"], row["filename"])
 
         if not os.path.exists(location):
-            search_location = os.path.join(WANGICSE_DIR)
+            search_location = WANGICSE_DIR
             file_location = find_file_relative(search_location, row["filename"])
             origin_location = WANGICSE_DIR
 
@@ -417,15 +418,17 @@ def get_llm4pc_dataset(bugs):
                     origin_location = PROJECT_DIR
                 
 
-            if not file_location:
+            if not file_location: # Search
                 logging.error(f"Patch not found in LLM4PC: {location}")
 
-                continue
+                raise Exception(f"Patch not found in LLM4PC: {location}")
 
             location = os.path.join(origin_location, file_location)
 
             if not os.path.exists(location):
-                raise Exception(f"Patch not found in LLM4PC: {location}")
+                logging.error(f"Location not found in LLM4PC: {location}")
+
+                raise Exception(f"Location not found in LLM4PC: {location}")
 
         assert bug_uid and tool and patch_name and correctness and location
 
