@@ -344,6 +344,106 @@ def get_historian_dataset(bugs):
 
     return patches
 
+""" LLM4PatchCorrect """
+def get_llm4pc_dataset(bugs):
+    logging.info("Extracting LLM4PC patches ...")
+
+    patches = []
+
+    df = pd.read_csv(os.path.join(LLM4PC_DIR, "all_data_v1.csv"))
+
+    # Developer patches are not considered seperately
+    df = df[df["tool"] != "defects4j-developer"]
+
+    defectrepairing_patches = get_defectrepairing_dataset(bugs)
+
+    for index, row in df.iterrows():
+        bug_info = {"benchmark": "Defects4J", "project": row["project"], "number": str(row["bug_id"])}
+
+        bug = get_record(bugs, bug_info)
+
+        if not bug:
+            # Depricated bugs in Defects4J v2.0
+            if bug_info["project"] == "Closure" and bug_info["number"] in ["63", "93"]:
+                continue
+
+            raise Exception(f"Bug not found in LLM4PC: {bug_info}")
+
+        bug_uid = bug["uid"]
+        tool = row["tool"]
+
+        patch_name = row["filename"].split("-")[0]
+
+        if row["label"]:
+            correctness = "Overfitting"
+
+        else:
+            correctness = "Correct"
+
+        location = os.path.join(CSMALL_DIR, correctness.lower(), tool, row["project"], row["filename"])
+
+        if not os.path.exists(location):
+            search_location = os.path.join(WANGICSE_DIR)
+            file_location = find_file_relative(search_location, row["filename"])
+            origin_location = WANGICSE_DIR
+
+
+            if not file_location:
+                search_location = DRR_DIR
+                file_location = find_file_relative(search_location, row["filename"])
+                origin_location = DRR_DIR
+
+            if not file_location:
+                file_name_modified = row["filename"].replace("-plausible", "")
+                file_location = find_file_relative(search_location, file_name_modified)
+                origin_location = DRR_DIR
+
+            if not file_location:
+                file_name_modified = row["filename"].replace("jGenProg-plausible", "JGenProg2017")
+                file_location = find_file_relative(search_location, file_name_modified)
+                origin_location = DRR_DIR
+
+            if not file_location:
+                record = {
+                    "bug_uid": bug_uid,
+                    "generator": row["filename"].replace("-plausible", "").replace(".patch", "").split("-")[-1],
+                    "correctness": correctness,
+                }
+
+                defectreparing_record = get_record(defectrepairing_patches, record)
+
+                if defectreparing_record:
+                    file_location = defectreparing_record["location"]
+                    origin_location = PROJECT_DIR
+                
+
+            if not file_location:
+                logging.error(f"Patch not found in LLM4PC: {location}")
+
+                continue
+
+            location = os.path.join(origin_location, file_location)
+
+            if not os.path.exists(location):
+                raise Exception(f"Patch not found in LLM4PC: {location}")
+
+        assert bug_uid and tool and patch_name and correctness and location
+
+        patch = {
+            "uid": f"llm4pc-{bug_uid}-{tool}-{patch_name}",
+            "bug_uid": bug_uid,
+            "generator": tool,
+            "location": os.path.relpath(location, PROJECT_DIR),
+            "correctness": correctness,
+            "origin": "LLM4PC"
+        }
+
+        patches.append(patch)
+
+    return patches
+
+
+
 """ General """
 # Get all patches (from datasets)
 def get_patches(bugs):
