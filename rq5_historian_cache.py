@@ -743,36 +743,36 @@ class Experiment3Evaluator:
         table.to_csv(TMP_TYPE_BINARY_RESULTS_CSV_EXP3)
 
 
-def historan_cache(results: Results):
-    for result in results.results:
-        logging.info(f"Processing Historian Cache for {result['tool']} ...")
+# def historan_cache(results: Results):
+#     for result in results.results:
+#         logging.info(f"Processing Historian Cache for {result['tool']} ...")
 
-        classified_result_dir = result[f"classified_result_file_type-1-type-2-type-3-type-4-not-clone"]
+#         classified_result_dir = result[f"classified_result_file_type-1-type-2-type-3-type-4-not-clone"]
 
-        df = pd.read_pickle(classified_result_dir)
+#         df = pd.read_pickle(classified_result_dir)
 
-        df.to_html("notes/debug.html")
-        raise
+#         df.to_html("notes/debug.html")
+#         raise
 
 
-        cache_dir = os.path.join(TMP_HISTORIAN_CACHE_DIR, f"historian_cache_{result['tool']}.pkl")
+#         cache_dir = os.path.join(TMP_HISTORIAN_CACHE_DIR, f"historian_cache_{result['tool']}.pkl")
 
-        if os.path.exists(cache_dir):
-            logging.info(f"Skipping Historian Cache for {result['tool']} as it already exists.")
+#         if os.path.exists(cache_dir):
+#             logging.info(f"Skipping Historian Cache for {result['tool']} as it already exists.")
 
-            continue
+#             continue
 
-        else:
-            logging.info(f"Creating Historian Cache for {result['tool']} at {cache_dir}")
+#         else:
+#             logging.info(f"Creating Historian Cache for {result['tool']} at {cache_dir}")
 
-            historian_cache = df[["tool_patch_uid", "response", "predicted_label"]].copy()
-            historian_cache = historian_cache.rename(columns={
-                "tool_patch_uid": "patch_uid",
-                "response": "llm_response",
-                "predicted_label": "llm_predicted_label"
-            })
+#             historian_cache = df[["tool_patch_uid", "response", "predicted_label"]].copy()
+#             historian_cache = historian_cache.rename(columns={
+#                 "tool_patch_uid": "patch_uid",
+#                 "response": "llm_response",
+#                 "predicted_label": "llm_predicted_label"
+#             })
 
-            historian_cache.to_pickle(cache_dir)
+#             historian_cache.to_pickle(cache_dir)
 
 if __name__ == "__main__":
     logging.info("Experiment 5 Historian Cache Results Module")
@@ -796,8 +796,8 @@ if __name__ == "__main__":
     results.classify(labels=["yes", "no"])
     results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
 
-    historan_cache(results)
+    evaluator = Experiment3Evaluator(results)
+    # historan_cache(results) Delete this
 
-    # evaluator = Experiment3Evaluator(results)
 
 
