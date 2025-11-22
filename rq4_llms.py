@@ -43,7 +43,10 @@ The problem with Experiment3Evaluator is that EXP3 results have ids like llm4pc-
     But I deleted the file to get llm4pc patches which was finding the patches by matching the content of the patch file.
 Also, where are the results of Gemini. Find them in previous branches. On a mission to find these paatches cuz I need groundtruth correctness labels.
 Added llm4pc to dataset, few to utils config and dataset,py, the function is not trying to find patches by their content but rather with their uid.
-    It is actually caches small datase which consists of the following datsets, wangicse and dl4pc
+    It is actually caches small datase (csmall) which consists of the following datsets, wangicse and dl4pc.
+    The get_llm4pc_dataset function in dataset.py gets patches from csmall or defectsrepairing except developer pathces.
+    - Does this function get all patches in the paper?
+    - get these patches ready and run rq5 without error. then get cache labels. Put them instead of Unknowns.
 """
 
 
