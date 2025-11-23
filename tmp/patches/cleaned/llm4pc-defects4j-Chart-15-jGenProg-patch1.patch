@@ -1,0 +1,12 @@
+--- a/source///org/jfree/chart/JFreeChart.java
++++ b/source///org/jfree/chart/JFreeChart.java
+@@ -1216,8 +1216,7 @@
+         if (info != null) {
+             plotInfo = info.getPlotInfo();
+         }
+-        this.plot.draw(g2, plotArea, anchor, null, plotInfo);
+-
++        
+         g2.setClip(savedClip);
+ 
+         notifyListeners(new ChartProgressEvent(this, this, 

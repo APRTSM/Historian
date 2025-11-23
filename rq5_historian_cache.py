@@ -775,11 +775,13 @@ class Experiment3Evaluator:
 #             historian_cache.to_pickle(cache_dir)
 
 if __name__ == "__main__":
+    bugs, developer_patches, tool_patches = init(configure=False)
+    new_patches = pd.DataFrame(get_llm4pc_dataset(bugs)).set_index("uid")
+
+    print(f"New Patches: {new_patches.head()}")
+    raise
+
     logging.info("Experiment 5 Historian Cache Results Module")
-
-
-
-
 
     logging.info("Running Experiment #3 ...")
     tools = [
