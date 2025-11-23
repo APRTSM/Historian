@@ -20,6 +20,11 @@ TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "generator_norm
 TMP_SINGLE_HUNK_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "single_hunk_new_patches.pkl")
 TMP_DEDUPLICATED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "deduplicated_new_patches.pkl")
 
+RQ5_DIR = os.path.join(PROJECT_DIR, "rq5")
+TMP_CLEANED_LLM4PC_PATCHES_PKL = os.path.join(RQ5_DIR, "cleaned_llm4pc_patches.pkl")
+LLM4PC_TOOL_PATCHES_DIR = os.path.join(RQ5_DIR, "tool-patches.pkl")
+TMP_TYPE_BINARY_RESULTS_CSV_EXP5 = os.path.join(RQ5_DIR, "type-binary-results-exp5.csv")
+
 # DATASETS
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")
 DL4PC2_DIR = os.path.join(DATASETS_DIR, "dl4pc2")

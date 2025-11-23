@@ -421,6 +421,10 @@ def get_llm4pc_dataset(bugs):
             if not file_location: # Search
                 logging.error(f"Patch not found in LLM4PC: {location}")
 
+                if "patch1-Math-73-jGenProg.patch" in location or "patch1-Math-50-jGenProg.patch" in location:
+                    logging.info("Known missing patch in LLM4PC, skipping...")
+                    continue
+
                 raise Exception(f"Patch not found in LLM4PC: {location}")
 
             location = os.path.join(origin_location, file_location)

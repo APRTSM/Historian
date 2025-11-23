@@ -20,7 +20,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-
 def majority_vote_labels(df, label_column="predicted_label", id_column="tool_patch_uid"):
     voted_labels = {}
 
@@ -412,6 +411,10 @@ class Experiment3Results:
         # Initial Data
         bugs, developer_patches, tool_patches = init(configure=False)
 
+        bugs_with_uid = bugs.reset_index()  # This makes 'uid' a regular column
+        bugs_dict = bugs_with_uid.to_dict('records')
+        tool_patches = pd.DataFrame(get_llm4pc_dataset(bugs_dict)).set_index("uid")
+
         # Patch Processings
         patch_processors = get_patch_processors()
 
@@ -542,10 +545,10 @@ class Experiment3Evaluator:
 
         # Simple Prompts Type Binary (translate type to overfitting and correct) Majority Voting Applied, Inverted, Punished
         type_binary_prompts = [
-            "llm4cc-clone_type",
-            "llm4cc-integrated",
+            # "llm4cc-clone_type",
+            # "llm4cc-integrated",
             "llm4cc-clone_type-patch",
-            "llm4cc-integrated-patch",
+            # "llm4cc-integrated-patch",
         ]
         type_binary_results = [result for result in self.results.results if result["prompt"]["uid"] in type_binary_prompts]
         self._get_type_binary_results_table(type_binary_results, ["type-1", "type-2", "type-3", "type-4", "not-clone"], pd.concat((results.input_developer_patches, results.input_tool_patches), axis=0))
@@ -740,7 +743,7 @@ class Experiment3Evaluator:
 
         table = pd.DataFrame(table_data)
 
-        table.to_csv(TMP_TYPE_BINARY_RESULTS_CSV_EXP3)
+        table.to_csv(TMP_TYPE_BINARY_RESULTS_CSV_EXP5)
 
 
 # def historan_cache(results: Results):
@@ -775,17 +778,21 @@ class Experiment3Evaluator:
 #             historian_cache.to_pickle(cache_dir)
 
 if __name__ == "__main__":
-    bugs, developer_patches, tool_patches = init(configure=False)
-    new_patches = pd.DataFrame(get_llm4pc_dataset(bugs)).set_index("uid")
+    # bugs, developer_patches, tool_patches = init(configure=False)
+    # bugs_with_uid = bugs.reset_index()  # This makes 'uid' a regular column
+    # bugs_dict = bugs_with_uid.to_dict('records')
+    # llm4pc_patches = pd.DataFrame(get_llm4pc_dataset(bugs_dict)).set_index("uid")
 
-    print(f"New Patches: {new_patches.head()}")
-    raise
+    # print(llm4pc_patches)
+    # llm4pc_patches.to_html("notes/debug.html")
+
+    # raise
 
     logging.info("Experiment 5 Historian Cache Results Module")
 
     logging.info("Running Experiment #3 ...")
     tools = [
-        'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
+            'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
         'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
         'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
     ]
