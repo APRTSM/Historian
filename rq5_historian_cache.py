@@ -42,6 +42,34 @@ def majority_vote_labels(df, label_column="predicted_label", id_column="tool_pat
 
     return pd.Series(voted_labels)
 
+def correct_cache_result_uid(label: pd.Series) -> pd.Series:
+    pathc_name, project_name, number, generator = label["Patch"].split("/")[1].replace("-plausible", "").replace(".patch", "").split("-")
+    # llm4pc-defects4j-Closure-114-GenProg-patch1 
+    patch_uid = f"llm4pc-defects4j-{project_name}-{number}-{generator}-{pathc_name}"
+
+    return patch_uid
+
+def get_cache_labels():
+    cache_results = pd.read_csv(os.path.join(RQ5_DIR, "Cache.csv"))
+
+    # apply correct_cache_result_uid
+    cache_results["tool_patch_uid"] = cache_results.apply(correct_cache_result_uid, axis=1)
+
+    # Make first character capital
+    cache_results["Predicted value"] = cache_results["Predicted value"].str.capitalize()
+
+    return cache_results
+
+def replace_other_apca_labels(df: pd.DataFrame, other_apca_labels: pd.DataFrame, label_column, id_column: str, other_label_column: str) -> pd.DataFrame:
+    unknown_mask = df[label_column] == "Unknown"
+    # Use merge instead of map to handle duplicate IDs
+    lookup_dict = other_apca_labels.drop_duplicates(subset=[id_column]).set_index(id_column)[other_label_column].to_dict()
+    mapped_values = df.loc[unknown_mask, id_column].map(lookup_dict)
+    unmatched = df.loc[unknown_mask & mapped_values.isna(), id_column].unique()
+    if len(unmatched) > 0:
+        raise ValueError(f"Unmatched IDs: {unmatched.tolist()}")
+    df.loc[unknown_mask, label_column] = mapped_values
+    return df
 
 class Results:
     def __init__(self):
@@ -411,6 +439,7 @@ class Experiment3Results:
         # Initial Data
         bugs, developer_patches, tool_patches = init(configure=False)
 
+        # Does not Read from RQ5 Directory but generate itself
         bugs_with_uid = bugs.reset_index()  # This makes 'uid' a regular column
         bugs_dict = bugs_with_uid.to_dict('records')
         tool_patches = pd.DataFrame(get_llm4pc_dataset(bugs_dict)).set_index("uid")
@@ -668,27 +697,34 @@ class Experiment3Evaluator:
         tn_values = []
         fn_values = []
 
+        # Each result corresponds to a tool
         for result in results:
             classified_result_dir = result[f"classified_result_file_{'-'.join(labels)}"]
             df = pd.read_pickle(classified_result_dir)
 
-            # # df["groundtruth_correctness"] = df["groundtruth_patch_uid"].map(ground_truth_clean["correctness"])
-            # # df["groundtruth_correctness"] = ground_truth_clean.loc[df["groundtruth_patch_uid"]]["correctness"].values
             ground_truth_clean = ground_truth[~ground_truth.index.duplicated(keep='first')]
+            # Get groundtruth patch correctness for each comparison
             df["groundtruth_correctness"] = ground_truth_clean.loc[df.index]["correctness"].values
 
-            # Get Raw Translation
+            # Get Raw Translation (Type to Binary), Each comparison
+            # Use groundtruth_correctness and predicted_type_label to get raw_predicted_binary_label
             df["raw_predicted_binary_label"] = df.apply(lambda x: self._translate_type_label_to_binary(x["groundtruth_correctness"], x["predicted_label"]), axis=1)
 
-            # Use Raw to Get Majority Vote
+            # Use Raw to Get Majority Vote (Overfitting/Correct/Unknown) for Each tool_patch_uid
             majority_labels = majority_vote_labels(df, label_column="raw_predicted_binary_label", id_column="tool_patch_uid")
+            # tool_patch_uid is the uid of the selected tool, Deduplication makes reduce from comparison to selected tool patch
             df_voted = df[["tool_patch_uid"]].drop_duplicates().copy()
 
-            # df_voted["selected_correctness"] = df_voted["tool_patch_uid"].map(ground_truth_clean["correctness"])
+            # selected_correctness is the selected tool patch actual correctness for the tool_patch_uid Correct/Overfitting
             df_voted["selected_correctness"] = ground_truth_clean.loc[df_voted["tool_patch_uid"]]["correctness"].values
 
+            # predicted_binary_label is the predicted
             df_voted["predicted_binary_label"] = df_voted["tool_patch_uid"].map(majority_labels)
 
+            # Now it is predicted_binary_label(Correct/Overfitting/Unknown) vs selected_correctness(Correct/Overfitting)given for tool_patch_uid
+
+            # Replace unknowns in df_voted["predicted_binary_label"] with other APCA Tool Labels
+            df_voted = replace_other_apca_labels(df_voted, get_cache_labels(), "predicted_binary_label", "tool_patch_uid", "Predicted value")
             df = df_voted.copy()
 
             # Get Support and Drop Unknowns
