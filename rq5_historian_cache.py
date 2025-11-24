@@ -45,6 +45,7 @@ def majority_vote_labels(df, label_column="predicted_label", id_column="tool_pat
 def correct_cache_result_uid(label: pd.Series) -> pd.Series:
     pathc_name, project_name, number, generator = label["Patch"].split("/")[1].replace("-plausible", "").replace(".patch", "").split("-")
     # llm4pc-defects4j-Closure-114-GenProg-patch1 
+    generator = generator.replace("Nopol2015", "Nopol").replace("Nopol2017", "Nopol")
     patch_uid = f"llm4pc-defects4j-{project_name}-{number}-{generator}-{pathc_name}"
 
     return patch_uid
@@ -61,6 +62,9 @@ def get_cache_labels():
     return cache_results
 
 def replace_other_apca_labels(df: pd.DataFrame, other_apca_labels: pd.DataFrame, label_column, id_column: str, other_label_column: str) -> pd.DataFrame:
+    other_apca_labels.to_csv("notes/other_apca_labels.csv", index=False)  # Debugging line
+    df.to_csv("notes/df.csv", index=False)  # Debugging line
+
     unknown_mask = df[label_column] == "Unknown"
     # Use merge instead of map to handle duplicate IDs
     lookup_dict = other_apca_labels.drop_duplicates(subset=[id_column]).set_index(id_column)[other_label_column].to_dict()
