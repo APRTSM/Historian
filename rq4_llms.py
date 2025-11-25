@@ -57,6 +57,10 @@ Added llm4pc to dataset, few to utils config and dataset,py, the function is not
     The get_llm4pc_dataset function in dataset.py gets patches from csmall or defectsrepairing except developer pathces.
     - Does this function get all patches in the paper?
     - get these patches ready and run rq5 without error. then get cache labels. Put them instead of Unknowns.
+---
+Errors
+aprenfl-defects4j-Math-95-ARJA-Patch_179_153.patch Math 95 patches all are missing an if at line 145 at the file named FDistributionImpl.java
+    Sometime you need to do cd .. and go back to checkout dir again to apply the patch.
 """
 
 

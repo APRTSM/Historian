@@ -44,7 +44,7 @@ def clean_and_save_patches(bugs, patches, path):
             with open(row["location"], 'r') as f:
                 patch_content = f.read()
 
-            changed_file_address_path = os.path.join(checkout_dir, patch_content.split("\n")[0].replace("--- ", "").split(" ")[0].strip())
+            changed_file_address_path = os.path.join(checkout_dir, patch_content.split("\n")[0].replace("--- a", "").replace("--- ", "").split(" ")[0].strip())
 
             print(f"+ Bug uid: {bug['uid']} \n")
             print(f"Tool: {row['generator']} \n")
@@ -52,7 +52,6 @@ def clean_and_save_patches(bugs, patches, path):
             print(f"❌ Failed to fix patch: {row['location']}. \n Retrying... \n")
             print(f"Checkout Directory: {checkout_dir} \n")
             
-
             print(f"Patch fixing failed for index {index}. Pressing Enter to retry...")
             
             input()
@@ -61,6 +60,9 @@ def clean_and_save_patches(bugs, patches, path):
                 shutil.rmtree(checkout_dir)
 
             result_dir = fix_patch(row, bugs)
+
+            print("Result dir after retry:", result_dir)
+            print("-----------------------------------")
 
         cleaned_patches.at[index, "location"]  = result_dir
         
