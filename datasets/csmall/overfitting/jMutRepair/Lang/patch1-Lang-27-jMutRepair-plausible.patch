@@ -6,7 +6,7 @@
          } else {
 -            if (expPos > -1) {
 +            if (expPos < -1) {
-                 if (expPos > str.length()) {
-                     throw new NumberFormatException(str + " is not a valid number.");
-                 }
+                mant = str.substring(0, expPos);
+            } else {
+                mant = str;
 

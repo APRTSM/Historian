@@ -31,6 +31,7 @@ def clean_and_save_patches(bugs, patches, path):
     cleaned_patches = patches.copy()
     # cleaned_patches["location"] = cleaned_patches.progress_apply(fix_patch, args=(bugs, ), axis=1)
 
+    counter = 0
     for index, row in cleaned_patches.iterrows():
         result_dir = fix_patch(row, bugs)
         
@@ -64,7 +65,11 @@ def clean_and_save_patches(bugs, patches, path):
             print("Result dir after retry:", result_dir)
             print("-----------------------------------")
 
+        print("✅ Successfully fixed patch:", row["location"], "->", result_dir, "count:", counter, "total", len(cleaned_patches))
+        print("-----------------------------------")
+
         cleaned_patches.at[index, "location"]  = result_dir
+        counter += 1
         
     cleaned_patches.dropna(subset=['location'], inplace=True)
     cleaned_patches.to_pickle(path)

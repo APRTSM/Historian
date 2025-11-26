@@ -16,7 +16,7 @@
 +
 +
 +
-         }
- 
-         return new double[]{ a, b };
+        }
+        
+        return new double[]{a, b};
 

@@ -16,7 +16,8 @@
 +
 +
 +
-             }
-         }else             if (((parent.getType()) != (com.google.javascript.rhino.Token.EXPR_RESULT)) && ((parent.getType()) != (com.google.javascript.rhino.Token.BLOCK))) {
-                 if (!((((parent.getType()) == (com.google.javascript.rhino.Token.FOR)) && ((parent.getChildCount()) == 4)) && ((n == (parent.getFirstChild())) || (n == (parent.getFirstChild().getNext().getNext()))))) {
+      }
+    } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
 
+        
