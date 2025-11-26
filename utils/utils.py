@@ -496,7 +496,9 @@ def fix_repo_patch(patch_location: str, repo_location: str) -> str:
 
         os.remove(formatted_patch_dir)
 
-        if re.search(r"warning: \d+ lines? adds? whitespace errors?\.", stderr) and not "error" in stderr.replace("add whitespace errors.", ""):
+        if "warning: " in stderr and not "error" in stderr.replace(" errors.", ""):
+            logging.info(f"Patch applied with warnings.")
+
             return diff
 
         if "trailing whitespace" in stderr:
