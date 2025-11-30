@@ -42,6 +42,13 @@ def majority_vote_labels(df, label_column="predicted_label", id_column="tool_pat
 
     return pd.Series(voted_labels)
 
+"""ODS"""
+def get_ods_labels():
+    ods_labels = pd.read_csv(os.path.join(RQ5_DIR, "ODS.csv"))
+
+    return ods_labels
+
+"""Cache"""
 def correct_cache_result_uid(label: pd.Series) -> pd.Series:
     pathc_name, project_name, number, generator = label["Patch"].split("/")[1].replace("-plausible", "").replace(".patch", "").split("-")
     # llm4pc-defects4j-Closure-114-GenProg-patch1 
@@ -728,7 +735,8 @@ class Experiment3Evaluator:
             # Now it is predicted_binary_label(Correct/Overfitting/Unknown) vs selected_correctness(Correct/Overfitting)given for tool_patch_uid
 
             # Replace unknowns in df_voted["predicted_binary_label"] with other APCA Tool Labels
-            df_voted = replace_other_apca_labels(df_voted, get_cache_labels(), "predicted_binary_label", "tool_patch_uid", "Predicted value")
+            # df_voted = replace_other_apca_labels(df_voted, get_cache_labels(), "predicted_binary_label", "tool_patch_uid", "Predicted value")
+            df_voted = replace_other_apca_labels(df_voted, get_ods_labels(), "predicted_binary_label", "tool_patch_uid", "Predicted value")
             df = df_voted.copy()
 
             # Get Support and Drop Unknowns

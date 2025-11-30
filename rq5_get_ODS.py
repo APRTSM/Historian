@@ -27,43 +27,55 @@ from tqdm import tqdm
 
 
 if __name__ == "__main__":
-    patches = pd.read_pickle(TMP_LLM4PC_FILES_PKL)
-    ODS_DIR = "/home/sahand/coming2/coming"
-    
-    ods_predictions = []
-    
-    for index, row in tqdm(patches.iterrows(), total=len(patches), desc="Processing patches"):
-        patch_id = row.name  # or index if no name
-        actual_correctness = row['correctness']
-        
-        # Get source and target files
-        source_files = row['source_files']
-        target_files = row['target_files']
-        
-        # Create command with all file pairs (make paths absolute)
-        files_args = []
-        for src, tgt in zip(source_files, target_files):
-            src_path = os.path.join(PROJECT_DIR, src)
-            tgt_path = os.path.join(PROJECT_DIR, tgt)
-            files_args.extend([src_path, tgt_path])
-        
-        cmd = f"python3 ods_predictor.py {' '.join(files_args)}"
+    ODS_RESULTS_CSV = os.path.join("notes", "rq5_ods_predictions.csv")
 
-        print(cmd)
-        raise
-        result = execute_bash_command(cmd, ODS_DIR)
+    if not os.path.exists(ODS_RESULTS_CSV):
+        patches = pd.read_pickle(TMP_LLM4PC_FILES_PKL)
+        ODS_DIR = "/home/sahand/coming2/coming"
         
-        # Extract prediction result (last line)
-        prediction = result.strip().split('\n')[-1].replace('ODS Prediction: ', '')
-        ods_predictions.append(prediction)
+        ods_predictions = []
         
-        logging.info(f"Patch: {patch_id} | Actual: {actual_correctness} | ODS: {prediction}")
-    
-    # Add ODS column
-    patches['ods_prediction'] = ods_predictions
-    
-    # Save to CSV
-    patches.to_csv(os.path.join("notes", "rq5_ods_predictions.csv"))
+        for index, row in tqdm(patches.iterrows(), total=len(patches), desc="Processing patches"):
+            patch_id = row.name  # or index if no name
+            actual_correctness = row['correctness']
+            
+            # Get source and target files
+            source_files = row['source_files']
+            target_files = row['target_files']
+            
+            # Create command with all file pairs (make paths absolute)
+            files_args = []
+            for src, tgt in zip(source_files, target_files):
+                src_path = os.path.join(PROJECT_DIR, src)
+                tgt_path = os.path.join(PROJECT_DIR, tgt)
+                files_args.extend([src_path, tgt_path])
+            
+            cmd = f"python3 ods_predictor.py {' '.join(files_args)}"
+
+            result = execute_bash_command(cmd, ODS_DIR)
+            
+            # Extract prediction result (last line)
+            prediction = result.strip().split('\n')[-1].replace('ODS Prediction: ', '')
+            ods_predictions.append(prediction)
+            
+            logging.info(f"Patch: {patch_id} | Actual: {actual_correctness} | ODS: {prediction}")
+        
+        # Add ODS column
+        patches['ods_prediction'] = ods_predictions
+        
+        # Save to CSV
+        patches.to_csv(ODS_RESULTS_CSV)
+
+    ods_labels_raw = pd.read_csv(ODS_RESULTS_CSV)
+
+
+    ods_labels = ods_labels_raw[['uid', 'correctness', 'ods_prediction']].rename(columns={'uid':'tool_patch_uid', 'correctness': 'Oracle', 'ods_prediction': 'Predicted value'}).copy()
+    ods_labels["Predicted value"] = ods_labels["Predicted value"].str.capitalize()
+
+    ODS_LABELS_RQ5_DIR = os.path.join(RQ5_DIR, "ODS.csv")
+    ods_labels.to_csv(ODS_LABELS_RQ5_DIR, index=False)
+
+
 
 # Index	Patch	Oracle	Predicted value	tool_patch_uid
 # 0	0	correct/patch1-Chart-1-AVATAR.patch	correct	Overfitting	llm4pc-defects4j-Chart-1-AVATAR-patch1
