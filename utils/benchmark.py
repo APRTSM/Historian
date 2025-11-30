@@ -747,6 +747,97 @@ def get_method(patch: pd.Series, bugs: pd.DataFrame = None):
     logging.info(f"Successfully fetched methods of the patch: {patch_uid}")
     return source_method_dirs, target_method_dirs
 
+def get_file(patch: pd.Series, bugs: pd.DataFrame = None):
+    """
+    Extract changed files for a single patch.
+    
+    Args:
+        patch: Series containing patch information
+        bugs: DataFrame containing bug information
+    
+    Returns:
+        tuple: (source_file_dirs, target_file_dirs) or None if extraction fails
+    """
+    patch_uid = patch.name
+    logging.info(f"Getting files of the patch: {patch.location}")
+    
+    output_dir = os.path.join(TMP_FILES_DIR, patch.name)
+    
+    # Check if files already exist
+    if os.path.exists(output_dir):
+        logging.info(f"Files already exist for the patch: {patch_uid}")
+        all_files = os.listdir(output_dir)
+        
+        # Filter and sort the files for target and source files
+        target_files = sorted([f for f in all_files if f.startswith('target-')], 
+                             key=lambda x: int(x.split('-')[1]))
+        source_files = sorted([f for f in all_files if f.startswith('source-')], 
+                             key=lambda x: int(x.split('-')[1]))
+        
+        # Append the absolute paths to the respective lists
+        source_file_dirs = [os.path.abspath(os.path.join(output_dir, f)) for f in source_files]
+        target_file_dirs = [os.path.abspath(os.path.join(output_dir, f)) for f in target_files]
+        
+        if not source_file_dirs or not target_file_dirs:
+            logging.warning(f"No valid files found for patch: {patch_uid}")
+            return None, None
+        
+        # Convert to relative paths before returning
+        source_file_dirs = [os.path.relpath(path, PROJECT_DIR) for path in source_file_dirs]
+        target_file_dirs = [os.path.relpath(path, PROJECT_DIR) for path in target_file_dirs]
+        
+        return source_file_dirs, target_file_dirs
+    
+    # Create output directory
+    os.makedirs(output_dir)
+    
+    # Get bug information
+    bug = get_dictionary(bugs.loc[patch["bug_uid"]])
+    repo_dir = checkout_bug(bug)
+    
+    one_file = False
+    if bug["benchmark"] == "QuixBugs":
+        one_file = True
+    
+    try:
+        if one_file:
+            source_file_dirs, target_file_dirs = get_java_modified_files_git_repo(
+                output_dir, TMP_CHECKOUTS_DIR, os.path.join(PROJECT_DIR, patch["location"])
+            )
+        else:
+            source_file_dirs, target_file_dirs = get_java_modified_files_git_repo(
+                output_dir, repo_dir, os.path.join(PROJECT_DIR, patch["location"])
+            )
+            
+    except (UnicodeDecodeError, unidiff.errors.UnidiffParseError, Exception) as e:
+        logging.error(f"Could not parse the patch while getting files: {patch_uid}. Error: {str(e)}")
+        shutil.rmtree(output_dir, ignore_errors=True)
+        if one_file and os.path.exists(repo_dir):
+            os.remove(repo_dir)
+        elif os.path.exists(repo_dir):
+            shutil.rmtree(repo_dir, onerror=rmtree)
+        return None, None
+    
+    # Clean up repository
+    if one_file and os.path.exists(repo_dir):
+        os.remove(repo_dir)
+    elif os.path.exists(repo_dir):
+        shutil.rmtree(repo_dir, onerror=rmtree)
+    
+    if not source_file_dirs or not target_file_dirs:
+        logging.warning(f"No files extracted for patch: {patch_uid}")
+        shutil.rmtree(output_dir, ignore_errors=True)
+        return None, None
+    
+    # Convert to relative paths before returning
+    source_file_dirs = [os.path.relpath(path, PROJECT_DIR) for path in source_file_dirs]
+    target_file_dirs = [os.path.relpath(path, PROJECT_DIR) for path in target_file_dirs]
+    
+    logging.info(f"Successfully fetched files of the patch: {patch_uid}")
+    return source_file_dirs, target_file_dirs
+
+
+
 # Returns diff
 def get_raw_patch(patch: pd.Series) -> str:
     return read_patch(patch["location"])

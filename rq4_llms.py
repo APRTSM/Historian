@@ -197,6 +197,43 @@ def get_methods_and_save(bugs, patches, path):
 
     return patches
 
+
+def get_files_and_save(bugs, patches, path):
+    """
+    Extract changed files from patches and save them, with caching support.
+    
+    Args:
+        bugs: DataFrame containing bug information
+        patches: DataFrame containing patch information
+        path: Path to save/load the cached results
+    
+    Returns:
+        DataFrame: Updated patches DataFrame with source_files and target_files columns
+    """
+    if os.path.exists(path):
+        cleaned_patches = pd.read_pickle(path)
+        return cleaned_patches
+    
+    logging.info(f"Getting files and saving patches to {path} ...")
+    
+    # Add progress bar for applying get_file function
+    tqdm.pandas(desc="Extracting Files")
+    patches[['source_files', 'target_files']] = patches.progress_apply(
+        lambda row: get_file(row, bugs), axis=1, result_type='expand'
+    )
+    
+    logging.info(f"Successfully fetched files. Total patches processed: {len(patches)}")
+    logging.info("Dropping patches with no files ...")
+    
+    # Drop patches where file extraction failed
+    patches.dropna(subset=['target_files'], inplace=True)
+    
+    logging.info(f"Remaining patches after filtering: {len(patches)}")
+    
+    # Save the results
+    patches.to_pickle(path)
+    return patches
+
 def get_patch_processors():
     logging.info("Listing Patch Processors.")
 

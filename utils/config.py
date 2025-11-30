@@ -22,6 +22,10 @@ TMP_DEDUPLICATED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "deduplicated_new_patch
 
 RQ5_DIR = os.path.join(PROJECT_DIR, "rq5")
 TMP_CLEANED_LLM4PC_PATCHES_PKL = os.path.join(RQ5_DIR, "cleaned_llm4pc_patches.pkl")
+TMP_LLM4PC_METHODS_PKL = os.path.join(RQ5_DIR, "llm4pc_methods.pkl")
+TMP_LLM4PC_NORMALIZED_NAMES_PKL = os.path.join(RQ5_DIR, "llm4pc_normalized_names.pkl")
+TMP_LLM4PC_SINGLE_METHODS_PKL = os.path.join(RQ5_DIR, "llm4pc_single_methods.pkl")
+TMP_LLM4PC_FILES_PKL = os.path.join(RQ5_DIR, "llm4pc_files.pkl")
 LLM4PC_TOOL_PATCHES_DIR = os.path.join(RQ5_DIR, "tool-patches.pkl")
 TMP_TYPE_BINARY_RESULTS_CSV_EXP5 = os.path.join(RQ5_DIR, "type-binary-results-exp5.csv")
 
@@ -65,6 +69,7 @@ INPUT_DIR = os.path.join(PROJECT_DIR, "input")
 TMP_DIR = os.path.join(PROJECT_DIR, "tmp")
 TMP_CHECKOUTS_DIR = os.path.join(TMP_DIR, "checkouts")
 TMP_METHODS_DIR = os.path.join(TMP_DIR, "methods")
+TMP_FILES_DIR = os.path.join(TMP_DIR, "files")
 TMP_PATCHES_DIR = os.path.join(TMP_DIR, "patches")
 TMP_DATA_DIR = os.path.join(TMP_DIR, "data")
 TMP_RESULTS_DIR = os.path.join(TMP_DIR, "results")

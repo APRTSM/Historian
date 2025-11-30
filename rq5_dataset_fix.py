@@ -19,6 +19,7 @@ from collections import Counter, defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from rq4_llms import get_methods_and_save, normalize_names_and_save, get_single_methods_and_save, get_files_and_save
 
 
 def clean_and_save_patches(bugs, patches, path):
@@ -883,7 +884,27 @@ if __name__ == "__main__":
     bugs_dict = bugs_with_uid.to_dict('records')
     llm4pc_patches = pd.DataFrame(get_llm4pc_dataset(bugs_dict)).set_index("uid")
 
+    print(len(llm4pc_patches))
+
     cleaned_llm4pc_patches = clean_and_save_patches(bugs, llm4pc_patches, TMP_CLEANED_LLM4PC_PATCHES_PKL)
+
+    print(len(cleaned_llm4pc_patches))
+
+    cleaned_llm4pc_patches = get_methods_and_save(bugs, cleaned_llm4pc_patches, TMP_LLM4PC_METHODS_PKL)
+
+    print(len(cleaned_llm4pc_patches))
+
+    cleaned_llm4pc_patches = normalize_names_and_save(cleaned_llm4pc_patches, TMP_LLM4PC_NORMALIZED_NAMES_PKL)
+    
+    print(len(cleaned_llm4pc_patches))
+    
+    cleaned_llm4pc_patches = get_files_and_save(bugs, cleaned_llm4pc_patches, TMP_LLM4PC_FILES_PKL)
+
+    print(len(cleaned_llm4pc_patches))
+
+    cleaned_llm4pc_patches = get_single_methods_and_save(cleaned_llm4pc_patches, TMP_LLM4PC_SINGLE_METHODS_PKL)
+
+    print(len(cleaned_llm4pc_patches))
 
     raise
 

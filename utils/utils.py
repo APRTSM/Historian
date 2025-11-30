@@ -1031,6 +1031,128 @@ def get_java_modified_methods_git_repo(output_dir, checkout_dir, patch_dir): # L
 
     return source_methods, target_methods    
 
+def get_java_modified_files_git_repo(output_dir, checkout_dir, patch_dir):
+    """
+    Extract changed files from a git patch and save buggy and patched versions.
+    
+    Args:
+        output_dir: Directory to save the extracted files
+        checkout_dir: Directory containing the checked out repository
+        patch_dir: Path to the patch file
+    
+    Returns:
+        tuple: (source_files, target_files) - lists of paths to buggy and patched files
+    """
+    with open(patch_dir) as f:
+        patch = PatchSet(f.read())
+
+    source_files = []
+    target_files = []
+    
+    for i, patched_file in enumerate(patch):
+        # Skip binary files or files that don't exist
+        if patched_file.is_binary_file:
+            logging.warning(f"Skipping binary file: {patched_file.source_file}")
+            continue
+            
+        original_file_path = os.path.join(checkout_dir, patched_file.source_file[2:])
+        
+        # Check if original file exists
+        if not os.path.exists(original_file_path):
+            logging.warning(f"Original file not found: {original_file_path}")
+            continue
+        
+        # Read the original (buggy) file
+        try:
+            with open(original_file_path, 'r', encoding='utf-8') as file:
+                buggy_content = file.read()
+        except UnicodeDecodeError:
+            logging.warning(f"Could not decode file: {original_file_path}")
+            continue
+        
+        # Apply patch to get the patched version
+        apply_patch_to_git_repo(checkout_dir, patch_dir)
+        
+        changed_file_path = os.path.join(checkout_dir, patched_file.source_file[2:])
+        
+        # Read the patched file
+        try:
+            with open(changed_file_path, 'r', encoding='utf-8') as file:
+                patched_content = file.read()
+        except (FileNotFoundError, UnicodeDecodeError):
+            logging.warning(f"Could not read patched file: {changed_file_path}")
+            reset_applied_patch_git_repo(checkout_dir)
+            continue
+        
+        # Reset the patch
+        reset_applied_patch_git_repo(checkout_dir)
+        
+        # Save the files with descriptive names
+        file_name = os.path.basename(patched_file.source_file)
+        file_name_without_ext = os.path.splitext(file_name)[0]
+        file_ext = os.path.splitext(file_name)[1]
+        
+        buggy_file_path = os.path.join(output_dir, f"source-{i}-{file_name_without_ext}{file_ext}")
+        patched_file_path = os.path.join(output_dir, f"target-{i}-{file_name_without_ext}{file_ext}")
+        
+        # Write the buggy version
+        with open(buggy_file_path, 'w', encoding='utf-8') as file:
+            file.write(buggy_content)
+        
+        # Write the patched version
+        with open(patched_file_path, 'w', encoding='utf-8') as file:
+            file.write(patched_content)
+        
+        source_files.append(buggy_file_path)
+        target_files.append(patched_file_path)
+    
+    return source_files, target_files
+
+def get_changed_file_info(patch_path):
+    """
+    Get information about changed files in a patch without extracting them.
+    
+    Args:
+        patch_path: Path to the patch file
+    
+    Returns:
+        list: List of dictionaries containing file information
+    """
+    file_info = []
+    
+    try:
+        with open(patch_path) as f:
+            patch = PatchSet(f.read())
+        
+        for patched_file in patch:
+            info = {
+                'source_file': patched_file.source_file,
+                'target_file': patched_file.target_file,
+                'is_binary': patched_file.is_binary_file,
+                'is_added': patched_file.is_added_file,
+                'is_removed': patched_file.is_removed_file,
+                'is_modified': patched_file.is_modified_file,
+                'added_lines': sum(1 for hunk in patched_file for line in hunk if line.is_added),
+                'removed_lines': sum(1 for hunk in patched_file for line in hunk if line.is_removed)
+            }
+            file_info.append(info)
+            
+    except Exception as e:
+        logging.error(f"Error parsing patch {patch_path}: {str(e)}")
+    
+    return file_info
+
+def clean_files_directory(files_dir):
+    """
+    Clean up extracted files directory.
+    
+    Args:
+        files_dir: Directory containing extracted files
+    """
+    if os.path.exists(files_dir):
+        shutil.rmtree(files_dir)
+        logging.info(f"Cleaned up files directory: {files_dir}")
+
 def _normalize_code(code):
     """
     Normalizes code to compare the core content by:
