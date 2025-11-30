@@ -35,7 +35,7 @@ rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to
 
 rq5 focuses on intersection of tool labels.
 
-rq5_historian_cache.py gets historian unknonw labels labeled by cache on 813 patches.
+rq5_historian_cache.py gets historian unknonw labels labeled by cache on 813 patches. (replace_other_apca_labels in _get_f1_type_binary in Experiment3Evaluator)
 
 rq5_dataset_analysis.py finds that we have 813 patches while the llm4pc has 825 tool generated patches from 1182 small-cache.
 out of 1182 3.. are developer patches when excluded we are left with 825 tool patches.
@@ -43,7 +43,7 @@ Out of 825 we have 813 patches in our cleaned dataset. Missing 12 patches belong
 
 rq5_dataset_fix.py after rq5_dataset_analysis.py we try to fix non applicable patches out of 813 patches. For ODS we need to get mehtods.
 
-
+rq5_get_ODS.py prepares the ODS labels to use in rq5_historian_cache.py.
 
 ----
 State 20 Kas: _ added historian patches to prsto. Also cleaned 3000 non applicable patches from the old dataset not added yet.
