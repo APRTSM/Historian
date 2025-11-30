@@ -46,6 +46,9 @@ def execute_bash_command(command, dir=None, error_allowed=False):
     stderr = result.stderr.decode("latin-1")
 
     if not error_allowed:
+        if result.returncode != 0 or stderr.strip() != "":
+            logging.error(f"Command: {command}\nDirectory: {dir}\nSTDOUT: {stdout}\nSTDERR: {stderr}")
+
         assert result.returncode == 0, stderr
 
         return stdout
