@@ -32,7 +32,7 @@ def get_defects4j_issues(patch: pd.Series, bug_reports: dict):
     report_list = bug_reports.get(bug_uid, [])
 
     if not report_list:
-        new_patch["bug_report"] = ""
+        new_patch["bug_report"] = "none"
 
     else:
         new_patch["bug_report"] = "\n".join(report_list)
@@ -52,8 +52,6 @@ if __name__ == "__main__":
 
     patches["content"] = patches["location"].apply(read_file)
     patches = patches.apply(get_defects4j_issues, args=(bug_reports, ), axis=1)
-
-    patches.to_html("notes/rq5_historian_quatrain_patches.html")
 
     ODS_RESULTS_CSV = os.path.join("rq5", "rq5_quatrain_predictions.csv")
     patches.to_csv(ODS_RESULTS_CSV, index=False)
