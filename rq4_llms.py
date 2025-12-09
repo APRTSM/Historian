@@ -46,6 +46,9 @@ rq5_dataset_fix.py after rq5_dataset_analysis.py we try to fix non applicable pa
 rq5_get_ODS.py prepares the ODS labels to use in rq5_historian_cache.py.
 rq5_historian_ods.py gets histrian unknown labels labeled by ODS on 813 patches. Copy of rq5_historian_cache.py
 rq5_historian_quatrain.py uses "rq5", "Bug_Report_All.json" adds report title + description to the patches and saves it in "rq5", "rq5_quatrain_predictions.csv" to send to server to extract quatrain labels.
+    evaluate_csv.py in QUatrain on server uses bug_report field and content field to get quatrain labels.
+
+rq5/README.md has the notes about files.
 
 ----
 State 20 Kas: _ added historian patches to prsto. Also cleaned 3000 non applicable patches from the old dataset not added yet.
