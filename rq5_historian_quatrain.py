@@ -847,6 +847,7 @@ if __name__ == "__main__":
 
     input_processor="defaultpatch"
     input_model="qwen2.5:7b"
+    input_model="gemini-flash"
     input_prompt="llm4cc-clone_type-patch"
     
     results = Experiment3Results(selected_tools=tools, input_processor=input_processor, input_model=input_model, input_prompt=input_prompt)
