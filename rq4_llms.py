@@ -35,7 +35,7 @@ rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to
 
 rq5 focuses on intersection of tool labels.
 
-rq5_historian_cache.py gets historian unknonw labels labeled by cache on 813 patches. (replace_other_apca_labels in _get_f1_type_binary in Experiment3Evaluator)
+rq5_historian_cache.py gets historian unknonw labels labeled by cache on 813 patches. (replace_other_apca_labels in _get_f1_type_binary in Experiment3Evaluator) (STARED)
 
 rq5_dataset_analysis.py finds that we have 813 patches while the llm4pc has 825 tool generated patches from 1182 small-cache.
 out of 1182 3.. are developer patches when excluded we are left with 825 tool patches.
@@ -45,8 +45,11 @@ rq5_dataset_fix.py after rq5_dataset_analysis.py we try to fix non applicable pa
 
 rq5_get_ODS.py prepares the ODS labels to use in rq5_historian_cache.py.
 rq5_historian_ods.py gets histrian unknown labels labeled by ODS on 813 patches. Copy of rq5_historian_cache.py
-rq5_historian_quatrain.py uses "rq5", "Bug_Report_All.json" adds report title + description to the patches and saves it in "rq5", "rq5_quatrain_predictions.csv" to send to server to extract quatrain labels.
-    evaluate_csv.py in QUatrain on server uses bug_report field and content field to get quatrain labels.
+
+rq5_historian_quatrain_bugreports.py uses "rq5", "Bug_Report_All.json" adds report title + description to the patches and saves it in "rq5", "rq5_quatrain_predictions.csv" to send to server to extract quatrain labels.
+    evaluate_csv.py in QUatrain uses "rq5_quatrain_predictions.csv" on server uses bug_report field and content field to get quatrain labels.
+rq5_historian_quatrain_bugreports.py same as rq5_historian_cache.py but uses quatrain labels instead of cache labels.
+rq5_historian_quatrain_tocsv.py changes labels from results of quatrain executed on server to csv file.
 
 rq5/README.md has the notes about files.
 
