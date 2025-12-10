@@ -140,7 +140,9 @@ TMP_TYPE_BINARY_VOTED_EXPER_LABEL_RESULTS_EXP2 = os.path.join(TMP_PLOTS_DIR, "ty
 TMP_SIMPLE_CLONE_RESULTS_CSV_EXP2 = os.path.join(TMP_PLOTS_DIR, "simple-clone-results-exp2.csv")
 
 TMP_SIMPLE_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"simple-results-exp3.csv")
+TMP_SIMPLE_RESULTS_CSV_EXP4 = os.path.join(TMP_PLOTS_DIR, f"simple-results-exp4.csv")
 TMP_TYPE_BINARY_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp3.csv")
+TMP_TYPE_BINARY_RESULTS_CSV_EXP4 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp4.csv")
 
 TMP_RQ2_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq2")
 TMP_RQ3_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq3")
