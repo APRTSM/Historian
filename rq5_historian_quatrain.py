@@ -481,11 +481,6 @@ class Experiment3Results:
         logging.info("Merging Results ...")
 
         for tool in self.selected_tools:
-            print(tool)
-            print(self.patch_processor)
-            print(self.model)
-            print(self.temperature)
-            print(self.prompt)
             final_result_file = os.path.join(TMP_RESULTS_DIR, f"EXP4-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl")
 
             if os.path.exists(final_result_file):

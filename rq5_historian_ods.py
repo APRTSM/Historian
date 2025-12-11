@@ -481,7 +481,7 @@ class Experiment3Results:
         logging.info("Merging Results ...")
 
         for tool in self.selected_tools:
-            final_result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl")
+            final_result_file = os.path.join(TMP_RESULTS_DIR, f"EXP4-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl")
 
             if os.path.exists(final_result_file):
                 logging.info(f"Skipping merging for {final_result_file} as it already exists.")
@@ -494,7 +494,7 @@ class Experiment3Results:
                 raise Exception(f"No tool patches found for {tool}")
 
             for i in range(no_selected_tool_patches):
-                result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}-{i}.pkl")
+                result_file = os.path.join(TMP_RESULTS_DIR, f"EXP4-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}-{i}.pkl")
                 df = pd.read_pickle(result_file)
                 
                 if i == 0:
@@ -511,7 +511,7 @@ class Experiment3Results:
         for tool in self.selected_tools:
             logging.info(f"Getting Results for {self.patch_processor['uid']}, {self.model['uid']}, {self.temperature['uid']}, {self.prompt['uid']}")
 
-            file_name = f"EXP3-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl"
+            file_name = f"EXP4-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl"
             result_file = os.path.join(TMP_RESULTS_DIR, file_name)
 
             result = {
@@ -672,7 +672,7 @@ class Experiment3Evaluator:
 
         table = pd.DataFrame(table_data)
 
-        table.to_csv(TMP_SIMPLE_RESULTS_CSV_EXP3)
+        table.to_csv(TMP_SIMPLE_RESULTS_CSV_EXP4)
         
 
     def _predict_binary(self, row):
@@ -846,11 +846,12 @@ if __name__ == "__main__":
     ]
 
     input_processor="defaultpatch"
-    input_model="qwen2.5:7b"
+    # input_model="qwen2.5:7b"
+    input_model="gemini-flash"
     input_prompt="llm4cc-clone_type-patch"
     
     results = Experiment3Results(selected_tools=tools, input_processor=input_processor, input_model=input_model, input_prompt=input_prompt)
-    results.classify(labels=["yes", "no"])
+    # results.classify(labels=["yes", "no"])
     results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
 
     evaluator = Experiment3Evaluator(results)
