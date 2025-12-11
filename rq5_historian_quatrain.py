@@ -481,6 +481,11 @@ class Experiment3Results:
         logging.info("Merging Results ...")
 
         for tool in self.selected_tools:
+            print(tool)
+            print(self.patch_processor)
+            print(self.model)
+            print(self.temperature)
+            print(self.prompt)
             final_result_file = os.path.join(TMP_RESULTS_DIR, f"EXP4-{tool}-{self.patch_processor['uid']}-{self.model['uid']}-{self.temperature['uid']}-{self.prompt['uid']}.pkl")
 
             if os.path.exists(final_result_file):
@@ -846,13 +851,13 @@ if __name__ == "__main__":
     ]
 
     input_processor="defaultpatch"
-    # input_model="qwen2.5:7b"
-    # Also change to EXP4
+    # input_model="qwen2.5:7b" or "gemini-flash"
+    # Also change to EXP4 or EXP3
     input_model="gemini-flash"
     input_prompt="llm4cc-clone_type-patch"
     
     results = Experiment3Results(selected_tools=tools, input_processor=input_processor, input_model=input_model, input_prompt=input_prompt)
-    results.classify(labels=["yes", "no"])
+    # results.classify(labels=["yes", "no"])
     results.classify(labels=["type-1", "type-2", "type-3", "type-4", "not-clone"], selected_results=[result for result in results.results if result["prompt"]["type"] in ["type", "integrated"]])
 
     evaluator = Experiment3Evaluator(results)
