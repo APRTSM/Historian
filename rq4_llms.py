@@ -14,7 +14,7 @@ import argparse
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-"""
+""" RQ5
 This is the main file to preprocess and read the data for RQ4 LLMs.
 New patches are gathered from Historian dataset.
 Preprocessing functions are rewritten.
@@ -69,6 +69,16 @@ Added llm4pc to dataset, few to utils config and dataset,py, the function is not
 Errors
 aprenfl-defects4j-Math-95-ARJA-Patch_179_153.patch Math 95 patches all are missing an if at line 145 at the file named FDistributionImpl.java
     Sometime you need to do cd .. and go back to checkout dir again to apply the patch.
+"""
+
+""" RQ0
+Motivation for incorrect patches. 
+I look for the time that results/rq1 first appeared or rq1.py appeared.
+
+git log --reverse --oneline ff4086937..HEAD -- tmp/plots/cluster_size_frequency_combined.png
+211a7f693 fix ...
+tmp-rq1 branch
+
 """
 
 
