@@ -77,7 +77,11 @@ I look for the time that results/rq1 first appeared or rq1.py appeared.
 
 git log --reverse --oneline ff4086937..HEAD -- tmp/plots/cluster_size_frequency_combined.png
 211a7f693 fix ...
-tmp-rq1 branch
+tmp-rq1 branch (Where this branch starts aligns with motivation for Correct patches)
+211a7f693 fix
+05cd0ab66 fix
+4a4e8ed22 fix
+Let's do it on cache small dataset. except the developer means 825 patches.
 
 """
 
