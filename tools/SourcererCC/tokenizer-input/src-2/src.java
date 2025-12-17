@@ -1,3 +1,3 @@
     public static boolean equals(double x, double y) {
-        return (Double.isNaN(x) && Double.isNaN(x >= 0.0 ? 1.0 : -1.0)) || x == y;
+        return (Double.isNaN(x) && Double.isNaN(org.apache.commons.math.util.MathUtils.TWO_PI)) || x == y;
     }
