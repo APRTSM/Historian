@@ -92,11 +92,11 @@ def checkout_bug_defects4j(bug):
     bug_uid, id, project = bug["uid"], bug["number"], bug["project"]
     output_dir = os.path.join(TMP_CHECKOUTS_DIR, f"{bug_uid}")
 
-
-    if bug_uid == "defects4j-Closure-93" or bug_uid == "defects4j-Closure-63":
+    print(bug_uid)
+    if bug_uid in ["defects4j-Closure-93", "defects4j-Closure-63", "defects4j-Lang-2", "defects4j-Time-21"]:
         # Change to Java 1.7 and add defects4j 1 to path
         os.environ["JAVA_HOME"] = JAVA_7_HOME
-        execute_bash_command(f"{DEFECTS4J_DIR_15} checkout -p {project} -v {id}b -w {output_dir}")
+        execute_bash_command(f"sudo {DEFECTS4J_DIR_15}/framework/bin/defects4j checkout -p {project} -v {id}b -w {output_dir}")
         os.environ["JAVA_HOME"] = JAVA_8_HOME
 
         raise
