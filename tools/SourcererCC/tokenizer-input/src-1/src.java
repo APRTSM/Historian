@@ -1,14 +1,11 @@
-    public static boolean equals(double[] x, double[] y) {
-        if ((x == null) || (y == null)) {
-            return !((x == null) ^ (y == null));
-        }
-        if (x.length != y.length) {
-            return false;
-        }
-        for (int i = 0; i < x.length; ++i) {
-            if (!equals(x[i], y[i], i)) {
-                return false;
+    private Integer getPivotColumn(SimplexTableau tableau) {
+        double minValue = 0;
+        Integer minPos = null;
+        for (int i = tableau.getNumObjectiveFunctions(); i < tableau.getWidth() - 1; i++) {
+            if (MathUtils.compareTo(tableau.getEntry(0, i), DEFAULT_EPSILON, epsilon) < 0) {
+                minValue = tableau.getEntry(0, i);
+                minPos = i;
             }
         }
-        return true;
+        return minPos;
     }

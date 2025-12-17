@@ -6,6 +6,9 @@ from datetime import datetime
 
 FORMATTED_DATE_TIME = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+JAVA_7_HOME = "/usr/lib/jvm/java-7-oracle"
+JAVA_8_HOME = "/usr/lib/jvm/java-8-openjdk-amd64"
+
 """ Directories """
 PROJECT_DIR = os.getcwd()
 
@@ -43,6 +46,7 @@ LLM4PC_DIR = os.path.join(DATASETS_DIR, "llm4pc")
 # BENCHMARKS
 BENCHMARKS_DIR = os.path.join(PROJECT_DIR, "benchmarks")
 DEFECTS4J_DIR = os.path.join(BENCHMARKS_DIR, "defects4j")
+DEFECTS4J_DIR_15 = os.path.join(BENCHMARKS_DIR, "defects4j15")
 BUGSJAR_DIR = os.path.join(BENCHMARKS_DIR, "bugsjar")
 QUIXBUGS_DIR = os.path.join(BENCHMARKS_DIR, "quixbugs")
 BEARS_DIR = os.path.join(BENCHMARKS_DIR, "bears")

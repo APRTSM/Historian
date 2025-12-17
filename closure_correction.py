@@ -16,6 +16,7 @@ from rq4_llms import init, get_patch_processors, get_tool_settings, apply_params
 
 if __name__ == "__main__":
     # Get the tool patches and developer patches (Numbers match with previous versions if patch matches are considered)
-    bugs, developer_patches, tool_patches = init(configure=False)
+    bugs, developer_patches, tool_patches = init(configure=True)
 
-    print(bugs[bugs['project'] == 'Closure'].index)
+    closure_bugs = bugs[bugs['project'] == 'Closure'].index.tolist()
+    print("defects4j-Closure-93" in closure_bugs)

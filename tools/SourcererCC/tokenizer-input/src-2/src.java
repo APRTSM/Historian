@@ -1,3 +1,16 @@
-    public static boolean equals(double x, double y) {
-        return (Double.isNaN(x) && Double.isNaN(org.apache.commons.math.util.MathUtils.TWO_PI)) || x == y;
+    private Integer getPivotRow(final int col, final SimplexTableau tableau) {
+        double minRatio = Double.MAX_VALUE;
+        Integer minRatioPos = null;
+        for (int i = tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+            final double rhs = tableau.getEntry(i, tableau.getWidth() - 1);
+            final double entry = tableau.getEntry(i, col);
+            if((MathUtils.compareTo(entry,epsilon,epsilon))>=0){
+                final double ratio = rhs / entry;
+                if (ratio < minRatio) {
+                    minRatio = ratio;
+                    minRatioPos = i; 
+                }
+            }
+        }
+        return minRatioPos;
     }

@@ -62,6 +62,8 @@ def get_bug_list_defects4j():
                             bug_list.append(bug_info)
 
                 if file == "deprecated-bugs.csv":
+                    file_path = os.path.join(folder_path, file) 
+
                     with open(file_path, mode='r', newline='', encoding='utf-8-sig') as file:
                         reader = csv.DictReader(file)
                         
@@ -89,8 +91,18 @@ def get_bug_list_defects4j():
 def checkout_bug_defects4j(bug):
     bug_uid, id, project = bug["uid"], bug["number"], bug["project"]
     output_dir = os.path.join(TMP_CHECKOUTS_DIR, f"{bug_uid}")
-    
-    execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}")
+
+
+    if bug_uid == "defects4j-Closure-93" or bug_uid == "defects4j-Closure-63":
+        # Change to Java 1.7 and add defects4j 1 to path
+        os.environ["JAVA_HOME"] = JAVA_7_HOME
+        execute_bash_command(f"{DEFECTS4J_DIR_15} checkout -p {project} -v {id}b -w {output_dir}")
+        os.environ["JAVA_HOME"] = JAVA_8_HOME
+
+        raise
+
+    else:
+        execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}")
 
     return output_dir
 
