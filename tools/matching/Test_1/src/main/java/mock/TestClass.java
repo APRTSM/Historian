@@ -1,38 +1,33 @@
 public class TestClass {
-    public LegendItemCollection getLegendItems() {
-    LegendItemCollection result = new LegendItemCollection();
-    this.backgroundAnnotations = new ArrayList();
-    if (this.plot == null) {
-        return result;
+    public static double[] bracket( UnivariateRealFunction function, double initial, double lowerBound, double upperBound, int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+        throw MathRuntimeException.createIllegalArgumentException("");
     }
-    int index = this.plot.getIndexOf(this);
-    CategoryDataset dataset = this.plot.getDataset(index);
-    this.rowCount = dataset.getRowCount();
-    int seriesCount = dataset.getRowCount();
-    if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
-        for (int i = 1;
-        i < seriesCount;
-        i++) {
-            if (isSeriesVisibleInLegend(i)) {
-                LegendItem item = getLegendItem(index, i);
-                if (item != null) {
-                    result.add(item);
-                }
-            }
-        }
+    if (maximumIterations <= 1) {
+        throw MathRuntimeException.createIllegalArgumentException("", maximumIterations);
     }
-    else {
-        for (int i = seriesCount - 1;
-        i >= 1;
-        i--) {
-            if (isSeriesVisibleInLegend(i)) {
-                LegendItem item = getLegendItem(index, i);
-                if (item != null) {
-                    result.add(item);
-                }
-            }
-        }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+        throw MathRuntimeException.createIllegalArgumentException( "", lowerBound, initial, upperBound);
     }
-    return result;
+    double a = initial;
+    double b = initial;
+    double fa;
+    double fb;
+    int numIterations = 1;
+    do {
+        a = Math.max(a - 1, lowerBound);
+        b = Math.min(b + 1, upperBound);
+        fa = function.value(a);
+        fb = function.value(b);
+        numIterations++;
+    }
+    while ((fa * fb > 1) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+    if (fa * fb >= 1 && !(fa * fb == 1)) {
+        throw new ConvergenceException( "" + "" + "", numIterations, maximumIterations, initial, lowerBound, upperBound, a, b, fa, fb);
+    }
+    return new double[] {
+        a, b
+    }
+    ;
 }
 }

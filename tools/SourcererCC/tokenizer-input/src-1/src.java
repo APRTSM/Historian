@@ -1,42 +1,14 @@
-    public LegendItemCollection getLegendItems() {
-        LegendItemCollection result = new LegendItemCollection();
-        if (this.plot == null) {
-            return result;
+    public static boolean equals(double[] x, double[] y) {
+        if ((x == null) || (y == null)) {
+            return !((x == null) ^ (y == null));
         }
-// start of generated patch
-int index=this.plot.getIndexOf(this);
-CategoryDataset dataset=this.plot.getDataset(index);
-if(dataset==null){
-return result;
-}
-// end of generated patch
-/* start of original code
-        int index = this.plot.getIndexOf(this);
-        CategoryDataset dataset = this.plot.getDataset(index);
-        if (dataset != null) {
-            return result;
+        if (x.length != y.length) {
+            return false;
         }
-end of original code*/
-        int seriesCount = dataset.getRowCount();
-        if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
-            for (int i = 0; i < seriesCount; i++) {
-                if (isSeriesVisibleInLegend(i)) {
-                    LegendItem item = getLegendItem(index, i);
-                    if (item != null) {
-                        result.add(item);
-                    }
-                }
+        for (int i = 0; i < x.length; ++i) {
+            if (!equals(x[i], y[i], i)) {
+                return false;
             }
         }
-        else {
-            for (int i = seriesCount - 1; i >= 0; i--) {
-                if (isSeriesVisibleInLegend(i)) {
-                    LegendItem item = getLegendItem(index, i);
-                    if (item != null) {
-                        result.add(item);
-                    }
-                }
-            }
-        }
-        return result;
+        return true;
     }

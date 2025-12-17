@@ -54,6 +54,30 @@ def get_bug_list_defects4j():
                                 "benchmark": "Defects4J",
                                 "project": project,
                                 "number": id_in_project,
+                                "deprecated": False,
+                                "report_link": report_link,
+                                "language": "Java"
+                            }
+
+                            bug_list.append(bug_info)
+
+                if file == "deprecated-bugs.csv":
+                    with open(file_path, mode='r', newline='', encoding='utf-8-sig') as file:
+                        reader = csv.DictReader(file)
+                        
+                        for row in reader:
+                            report_link = row["report.url"]
+
+                            if report_link == "UNKNOWN":
+                                report_link = None
+
+                            id_in_project = row["bug.id"]
+                            bug_info = {
+                                "uid": f"defects4j-{project}-{id_in_project}",
+                                "benchmark": "Defects4J",
+                                "project": project,
+                                "number": id_in_project,
+                                "deprecated": True,
                                 "report_link": report_link,
                                 "language": "Java"
                             }
@@ -947,12 +971,20 @@ def remove_developer_identical_patches(tool_patches=None, developer_patches=None
 
     # Track patches dropped due to being identical to developer patches
     # tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(lambda row: row["content"] == get_single_hunk_method(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]].iloc[0]), axis=1)
+    # if get_single_hunk_method raises error, then it is not identical
+
+
+    def is_identical(row):
+        dev_rows = developer_patches[developer_patches["bug_uid"] == row["bug_uid"]]
+        if len(dev_rows) == 0:
+            return False
+        try:
+            return row["content"] == get_single_hunk_method(dev_rows.iloc[0])
+        except Exception:
+            return False
+
     tool_patches_copy["is_identical_to_dev"] = tool_patches_copy.apply(
-        lambda row: (
-            row["content"] == get_single_hunk_method(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]].iloc[0])
-            if len(developer_patches[developer_patches["bug_uid"] == row["bug_uid"]]) > 0
-            else False
-        ), 
+        is_identical,
         axis=1
     )
     

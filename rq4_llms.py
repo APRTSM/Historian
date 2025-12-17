@@ -81,7 +81,18 @@ tmp-rq1 branch (Where this branch starts aligns with motivation for Correct patc
 211a7f693 fix
 05cd0ab66 fix
 4a4e8ed22 fix
-Let's do it on cache small dataset. except the developer means 825 patches.
+Let's do it on cache small dataset. except the developer remains 825 patches. (12 belong to CLosure 63 and 93)
+Number of initial tool patches: 813 ...
+Number of initial tool patches: 813
+Number of initial tool patches: 782 (What we select) (single method patches)
+Number of initial tool patches: 692 (After deduplication same bug, same generator, same content)
+rq1_cache_small.py does it for correct and incorrect patches. 782.
+operates in tmp/results/rq1 reads tmp/results/rq1/rq1-expert.pkl writes remaining
+result is tmp/plots/cluster_size_frequency_combined.png
+But I have to add labels for correct and overfitting. No pairs found with label  Error
+then run rq1_plots.py reads from /home/sahand/Desktop/Historian/tmp/data/rq1
+
+closure_correction.py add closure to defects4j dataset.
 
 """
 
@@ -358,7 +369,7 @@ def deduplicate_patches_and_save(patches, path):
 
     # write removed patches dataframe to html 
     # Find the duplicates before deduplication (for comparison)
-    duplicates = deduplicated_patches[deduplicated_patches.duplicated(subset=['bug_uid', 'generator_id', 'content'], keep=False)]
+    # duplicates = deduplicated_patches[deduplicated_patches.duplicated(subset=['bug_uid', 'generator_id', 'content'], keep=False)]
 
     # Perform deduplication
     deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
@@ -369,7 +380,6 @@ def deduplicate_patches_and_save(patches, path):
 
     deduplicated_patches = deduplicated_patches.drop(columns=['content'])
     deduplicated_patches.to_pickle(path)
-    logging.info(f"Filtered tool patches to only include Defects4J bugs. No of tool patches: {cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]}")
     return deduplicated_patches
 
 def second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches):

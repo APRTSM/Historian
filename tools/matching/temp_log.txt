@@ -1,0 +1,6 @@
+---origianl--- mock.TestClass <23, 23>
+}
+
+---origianl--- mock.TestClass2 <23, 23>
+}
+
