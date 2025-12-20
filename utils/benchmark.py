@@ -97,6 +97,7 @@ def checkout_bug_defects4j(bug):
         # Change to Java 1.7 and add defects4j 1 to path
         os.environ["JAVA_HOME"] = JAVA_7_HOME
         execute_bash_command(f"sudo {DEFECTS4J_DIR_15}/framework/bin/defects4j checkout -p {project} -v {id}b -w {output_dir}")
+        execute_bash_command(f"sudo chown -R $USER:$USER {output_dir}")
         os.environ["JAVA_HOME"] = JAVA_8_HOME
 
     else:
@@ -113,6 +114,7 @@ def checkout_fix_defects4j(bug):
         # Change to Java 1.7 and add defects4j 1 to path
         os.environ["JAVA_HOME"] = JAVA_7_HOME
         execute_bash_command(f"sudo {DEFECTS4J_DIR_15}/framework/bin/defects4j checkout -p {project} -v {id}f -w {output_dir}")
+        execute_bash_command(f"sudo chown -R $USER:$USER {output_dir}")
         os.environ["JAVA_HOME"] = JAVA_8_HOME
 
     else:

@@ -103,7 +103,7 @@ def select_representatives_and_drop(patches, pairs, label):
     visited = set()
     connected_components = []
     
-    for node in sorted(all_nodes):  # ← DETERMINISTIC: Sort nodes
+    for node in sorted(all_nodes):  # DETERMINISTIC: Sort nodes
         if node not in visited:
             # BFS to find all nodes in this connected component
             component = []
@@ -115,13 +115,13 @@ def select_representatives_and_drop(patches, pairs, label):
                 component.append(current)
                 
                 # DETERMINISTIC: Sort neighbors to ensure consistent traversal order
-                for neighbor in sorted(graph[current]):  # ← DETERMINISTIC: Sort neighbors
+                for neighbor in sorted(graph[current]):  # DETERMINISTIC: Sort neighbors
                     if neighbor not in visited:
                         visited.add(neighbor)
                         queue.append(neighbor)
             
             # DETERMINISTIC: Sort component to ensure consistent representative selection
-            component.sort()  # ← DETERMINISTIC: Sort component
+            component.sort()  # DETERMINISTIC: Sort component
             connected_components.append(component)
     
     # Select representatives and create mapping
