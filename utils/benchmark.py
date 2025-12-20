@@ -92,46 +92,12 @@ def checkout_bug_defects4j(bug):
     bug_uid, id, project = bug["uid"], bug["number"], bug["project"]
     output_dir = os.path.join(TMP_CHECKOUTS_DIR, f"{bug_uid}")
 
-    depricated_bugs = [
-        "defects4j-Closure-93",
-        "defects4j-Closure-63",
-        "defects4j-Lang-2",
-        "defects4j-Time-21",
-        "defects4j-Cli-6",
-        "defects4j-Collections-1",
-        "defects4j-Collections-2",
-        "defects4j-Collections-3",
-        "defects4j-Collections-4",
-        "defects4j-Collections-5",
-        "defects4j-Collections-6",
-        "defects4j-Collections-7",
-        "defects4j-Collections-8",
-        "defects4j-Collections-9",
-        "defects4j-Collections-10",
-        "defects4j-Collections-11",
-        "defects4j-Collections-12",
-        "defects4j-Collections-13",
-        "defects4j-Collections-14",
-        "defects4j-Collections-15",
-        "defects4j-Collections-16",
-        "defects4j-Collections-17",
-        "defects4j-Collections-18",
-        "defects4j-Collections-19",
-        "defects4j-Collections-20",
-        "defects4j-Collections-21",
-        "defects4j-Collections-22",
-        "defects4j-Collections-23",
-        "defects4j-Collections-24"
-    ]
-
     # Add depricated bugs here if needed
-    if bug_uid in ["defects4j-Closure-93", "defects4j-Closure-63", "defects4j-Lang-2", "defects4j-Time-21", "defects4j-Cli-6"]:
+    if bug_uid in DEPRICATED_BUGS:
         # Change to Java 1.7 and add defects4j 1 to path
         os.environ["JAVA_HOME"] = JAVA_7_HOME
         execute_bash_command(f"sudo {DEFECTS4J_DIR_15}/framework/bin/defects4j checkout -p {project} -v {id}b -w {output_dir}")
         os.environ["JAVA_HOME"] = JAVA_8_HOME
-
-        raise
 
     else:
         execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}")
@@ -141,8 +107,16 @@ def checkout_bug_defects4j(bug):
 def checkout_fix_defects4j(bug):
     bug_uid, id, project = bug["uid"], bug["number"], bug["project"]
     output_dir = os.path.join(TMP_CHECKOUTS_DIR, f"{bug_uid}-fixed")
-    
-    execute_bash_command(f"defects4j checkout -p {project} -v {id}f -w {output_dir}")
+
+    # Add depricated bugs here if needed
+    if bug_uid in DEPRICATED_BUGS:
+        # Change to Java 1.7 and add defects4j 1 to path
+        os.environ["JAVA_HOME"] = JAVA_7_HOME
+        execute_bash_command(f"sudo {DEFECTS4J_DIR_15}/framework/bin/defects4j checkout -p {project} -v {id}f -w {output_dir}")
+        os.environ["JAVA_HOME"] = JAVA_8_HOME
+
+    else:
+        execute_bash_command(f"defects4j checkout -p {project} -v {id}f -w {output_dir}")
 
     return output_dir
 

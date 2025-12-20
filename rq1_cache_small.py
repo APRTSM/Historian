@@ -755,24 +755,13 @@ if __name__ == "__main__":
     pairs_manual = pairs_kept.copy()
     print(f"Number of pairs after dropping Type-1 matches automatically: {len(pairs_kept)}")
 
-
-
-
     '''Start'''
-
     pairs_kept_expert = pd.read_pickle(os.path.join(TMP_RQ1_RESULTS_DIR, "rq1-expert.pkl"))
     print(f"Number of manually labeled pairs after dropping Type-1 matches automatically: {len(pairs_kept_expert)}")
-
-
-
 
     # Get uid and groundtruth_index from pairs_kept and match with a row in paris_kept_expert and assign expert_label to pairs_kept
     # Drop the existing expert_label column
     pairs_kept = pairs_kept.drop('expert_label', axis=1)
-
-
-
-
 
     # To add your labels, just get pairs_kept as pickle add a column expert_label with your labels and save it as rq1-expert.pkl in TMP_RQ1_RESULTS_DIR
     # Merge with expert labels
@@ -784,14 +773,7 @@ if __name__ == "__main__":
 
     # Fill missing expert labels with 'UNKNOWN'
     pairs_kept['expert_label'] = pairs_kept['expert_label'].fillna('UNKNOWN')
-
     '''End pairs_kept['expert_label'] has type info'''
-
-
-
-
-
-
 
     print(pairs_kept['expert_label'].unique())
     print(f"Number of pairs after dropping Type-1 matches automatically and manually labeled: {len(pairs_kept)}")

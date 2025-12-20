@@ -170,5 +170,38 @@ logging.basicConfig(
 tqdm.pandas(desc="Unknown Process.")
 
 
+""" DEFECTS4J Settings """
+DEPRICATED_BUGS = [
+    "defects4j-Closure-93",
+    "defects4j-Closure-63",
+    "defects4j-Lang-2",
+    "defects4j-Time-21",
+    "defects4j-Cli-6",
+    "defects4j-Collections-1",
+    "defects4j-Collections-2",
+    "defects4j-Collections-3",
+    "defects4j-Collections-4",
+    "defects4j-Collections-5",
+    "defects4j-Collections-6",
+    "defects4j-Collections-7",
+    "defects4j-Collections-8",
+    "defects4j-Collections-9",
+    "defects4j-Collections-10",
+    "defects4j-Collections-11",
+    "defects4j-Collections-12",
+    "defects4j-Collections-13",
+    "defects4j-Collections-14",
+    "defects4j-Collections-15",
+    "defects4j-Collections-16",
+    "defects4j-Collections-17",
+    "defects4j-Collections-18",
+    "defects4j-Collections-19",
+    "defects4j-Collections-20",
+    "defects4j-Collections-21",
+    "defects4j-Collections-22",
+    "defects4j-Collections-23",
+    "defects4j-Collections-24"
+]
+
 if __name__=="__main__":
     pass
