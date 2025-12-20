@@ -774,7 +774,7 @@ if __name__ == "__main__":
 
 
 
-
+    # To add your labels, just get pairs_kept as pickle add a column expert_label with your labels and save it as rq1-expert.pkl in TMP_RQ1_RESULTS_DIR
     # Merge with expert labels
     pairs_kept = pairs_kept.merge(
         pairs_kept_expert[['uid', 'groundtruth_index', 'expert_label']], 
