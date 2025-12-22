@@ -174,6 +174,9 @@ tqdm.pandas(desc="Unknown Process.")
 DEPRICATED_BUGS = [
     "defects4j-Closure-93",
     "defects4j-Closure-63",
+]
+
+DEPRICATED_BUGS_2 = [
     "defects4j-Lang-2",
     "defects4j-Time-21",
     "defects4j-Cli-6",
@@ -200,7 +203,7 @@ DEPRICATED_BUGS = [
     "defects4j-Collections-21",
     "defects4j-Collections-22",
     "defects4j-Collections-23",
-    "defects4j-Collections-24"
+    "defects4j-Collections-24",
 ]
 
 if __name__=="__main__":

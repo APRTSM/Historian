@@ -84,7 +84,8 @@ def get_bug_list_defects4j():
                                 "language": "Java"
                             }
 
-                            bug_list.append(bug_info)
+                            if not bug_info["uid"] in DEPRICATED_BUGS_2:
+                                bug_list.append(bug_info)
 
     return bug_list
 

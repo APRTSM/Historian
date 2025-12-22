@@ -597,13 +597,18 @@ if __name__ == "__main__":
     bugs_dict = bugs_with_uid.to_dict('records')
     
     tool_patches = pd.DataFrame(get_llm4pc_dataset(bugs_dict)).set_index("uid")
+    print("init")
+    print(f"Number of initial tool patches: {len(tool_patches)}")
     tool_patches = clean_and_save_patches(bugs, tool_patches, TMP_CLEANED_DEVELOPER_PATHCES_PKL)
+    print(f"Number of initial tool patches after clean_and_save_patches: {len(tool_patches)}")
     tool_patches = get_methods_and_save(bugs, tool_patches, TMP_METHOD_TOOL_PATHCES_PKL)
+    print(f"Number of initial tool patches after get_methods_and_save: {len(tool_patches)}")
     tool_patches = normalize_names_and_save(tool_patches, TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
+    print(f"Number of initial tool patches after normalize_names_and_save: {len(tool_patches)}")
     tool_patches = get_single_methods_and_save(tool_patches, TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
-    tool_patches = deduplicate_patches_and_save(tool_patches, TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    
     print(f"Number of initial tool patches after get_single_methods_and_save: {len(tool_patches)}")
+    tool_patches = deduplicate_patches_and_save(tool_patches, TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    print(f"Number of initial tool patches after deduplicate_patches_and_save: {len(tool_patches)}")
     # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
     developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
