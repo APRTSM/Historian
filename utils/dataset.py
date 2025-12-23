@@ -364,9 +364,9 @@ def get_llm4pc_dataset(bugs):
 
         if not bug:
             # Depricated bugs in Defects4J v2.0
-            if bug_info["project"] == "Closure" and bug_info["number"] in ["63", "93"]:
-                logging.info(f"Skipping deprecated bug in LLM4PC: {bug_info}")
-                continue
+            # if bug_info["project"] == "Closure" and bug_info["number"] in ["63", "93"]:
+            #     logging.info(f"Skipping deprecated bug in LLM4PC: {bug_info}")
+            #     continue
 
             raise Exception(f"Bug not found in LLM4PC: {bug_info}")
 

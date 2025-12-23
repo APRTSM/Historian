@@ -605,6 +605,8 @@ if __name__ == "__main__":
     print(f"Number of initial tool patches after get_methods_and_save: {len(tool_patches)}")
     tool_patches = normalize_names_and_save(tool_patches, TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
     print(f"Number of initial tool patches after normalize_names_and_save: {len(tool_patches)}")
+    print("Number of bugs correctly solved:", len(tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts()))
+    print("Number of bugs correctly solved with more than one patch:", len(tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts()[tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts() != 1]))
     tool_patches = get_single_methods_and_save(tool_patches, TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
     print(f"Number of initial tool patches after get_single_methods_and_save: {len(tool_patches)}")
     tool_patches = deduplicate_patches_and_save(tool_patches, TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
@@ -617,22 +619,28 @@ if __name__ == "__main__":
     developer_patches = developer_patches[developer_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]
     print(f"Number of tool patches after filtering to defects4j: {len(tool_patches)}")
 
+    print("----------------------------------------------")
 
     print(f"Number of tool patches: {len(tool_patches)}")
+    print("Number of bugs correctly solved:", len(tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts()))
+    print("Number of bugs correctly solved with more than one patch:", len(tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts()[tool_patches[tool_patches["correctness"] == "Correct"]["bug_uid"].value_counts() != 1]))
     print(f"Number of developer patches: {len(developer_patches)}")
+    
+    print("----------------------------------------------")
 
     # Select only the correct tool patches for RQ1
-    # correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
-    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Overfitting"].copy()
+    correct_tool_patche = tool_patches[tool_patches["correctness"] == "Correct"].copy()
+    # correct_tool_patche = tool_patches[tool_patches["correctness"] == "Overfitting"].copy()
 
     # correct_tool_patche = tool_patches.copy()
-    print(f"Number of Unique Single-Hunk Correct tool patches: {len(correct_tool_patche)}")
+    print(f"Number of Correct tool patches: {len(correct_tool_patche)}")
 
     # Remove developer identical-1 patches (cleaned) (method match)
     patches = remove_developer_identical_patches(correct_tool_patche, developer_patches)
-    print(len(patches["bug_uid"].value_counts()))
-    print(len(patches["bug_uid"].value_counts()[patches["bug_uid"].value_counts() != 1]))
     print(f"Number of Correct-non-developer-identical tool patches: {len(patches)}")
+
+    print("Number of bugs:", len(patches["bug_uid"].value_counts()))
+    print("Number of bugs with more than one patch:", len(patches["bug_uid"].value_counts()[patches["bug_uid"].value_counts() != 1]))
 
     print("----------------------------------------------")
     """ Start Experiments Exact Match """

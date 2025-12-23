@@ -71,7 +71,7 @@ aprenfl-defects4j-Math-95-ARJA-Patch_179_153.patch Math 95 patches all are missi
     Sometime you need to do cd .. and go back to checkout dir again to apply the patch.
 """
 
-""" RQ0
+""" RQ1
 Motivation for incorrect patches. 
 I look for the time that results/rq1 first appeared or rq1.py appeared.
 
@@ -93,7 +93,8 @@ But I have to add labels for correct and overfitting. No pairs found with label 
 then run rq1_plots.py reads from /home/sahand/Desktop/Historian/tmp/data/rq1
 
 closure_correction.py add closure to defects4j dataset.
-
+Ara 23 I added support for depricated bugs from defects4j15, check the configs. So now it is 825 patches also added two known missing patches to cache small.
+    check dataset.py get_llm4pc_dataset, benchmark.py get_bug_list_defects4j and checkout_bug_defects4j and checkout_fix_defects4j
 """
 
 

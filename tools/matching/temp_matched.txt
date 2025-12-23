@@ -1,18 +1,3 @@
----patch code ori--- mock.TestClass <3, 3>
-return 1;
-
----fix ingredient(SameMethod)  <parseContainCheck>  varMapType:ori--- mock.TestClass2 <3, 3>
-if (true) return 1;
-
----patch code 0--- mock.TestClass <3, 3>
-return 1;
-
----fix ingredient(SameMethod)  <parseContainCheck>  varMapType:0--- mock.TestClass2 <3, 3>
-if (true) return 1;
-
----patch code 1--- mock.TestClass <3, 3>
-return 1;
-
----fix ingredient(SameMethod)  <parseContainCheck>  varMapType:1--- mock.TestClass2 <3, 3>
-if (true) return 1;
+---patch code ori--- mock.TestClass <23, 23>
+}
 

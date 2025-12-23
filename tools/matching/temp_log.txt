@@ -1,6 +1,6 @@
----origianl--- mock.TestClass <3, 3>
-return 1;
+---origianl--- mock.TestClass <23, 23>
+}
 
----origianl--- mock.TestClass2 <3, 3>
-if (true) return 1;
+---origianl--- mock.TestClass2 <23, 23>
+}
 
