@@ -25,11 +25,15 @@ We fix them manually and move them to rq4/second_cleaned_data
 RQ4_FIRST_CLEANED_DATA_DIR is gathered data dir
 
 rq4_apply.py
-First check if patch exists in cleaned patches
+Searches through patches in RQ4_SECOND_CLEANED_DATA_DIR (rq4/second_cleaned_tool_patches )
 Try to apply from rq4/second_cleaned_tool_patches
-Search rq4/second_cleaned_tool_patches 
+if applied save to TMP_FORMATTED_PATCH_DIR
 
-rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels.
+Since I didnt know what did I do to rq4/second_cleaned_tool_patches I toolk a copy of it deleted inside and took the patches from three done folders of prsto.
+    copied again the files that does not exist in rq4/second_cleaned_tool_patches. now I first copy the files of the tool I want to rq4/second_cleaned_tool_patches add not fixed (are not in done) command should check if the patch does not already exist in rq4/second_cleaned_tool_patches.
+    so check the number of tool patches in the sheet and the total shown when we run rq4_apply.py. it should match. 
+
+rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED
 
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
 
@@ -95,6 +99,7 @@ then run rq1_plots.py reads from /home/sahand/Desktop/Historian/tmp/data/rq1
 closure_correction.py add closure to defects4j dataset.
 Ara 23 I added support for depricated bugs from defects4j15, check the configs. So now it is 825 patches also added two known missing patches to cache small.
     check dataset.py get_llm4pc_dataset, benchmark.py get_bug_list_defects4j and checkout_bug_defects4j and checkout_fix_defects4j
+    tmp/results/rq1 includes extesnsive archvive of rq1 results.
 """
 
 

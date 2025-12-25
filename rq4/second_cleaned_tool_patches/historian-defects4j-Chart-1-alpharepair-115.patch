@@ -9,3 +9,4 @@
               return result;
          }
          int seriesCount = dataset.getRowCount(); 
+         

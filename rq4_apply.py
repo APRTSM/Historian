@@ -68,11 +68,19 @@ def init(configure=True):
 def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
     count_success = 0
     count_total = 0
+
     for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
         if not tool_id in file:
             continue
 
         count_total += 1
+
+    for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
+        if not tool_id in file:
+            continue
+
+        print(f"Iteration Number: {count_success+1} / {count_total}")
+        logging.info(f"Iteration Number: {count_success+1} / {count_total}")
 
         # Parse    
         uid = file.split(".")[0]
