@@ -32,6 +32,10 @@ if applied save to TMP_FORMATTED_PATCH_DIR
 Since I didnt know what did I do to rq4/second_cleaned_tool_patches I toolk a copy of it deleted inside and took the patches from three done folders of prsto.
     copied again the files that does not exist in rq4/second_cleaned_tool_patches. now I first copy the files of the tool I want to rq4/second_cleaned_tool_patches add not fixed (are not in done) command should check if the patch does not already exist in rq4/second_cleaned_tool_patches.
     so check the number of tool patches in the sheet and the total shown when we run rq4_apply.py. it should match. 
+    light green in sheet means prsto got them ow its time to apply and check the numbers and make it dark green.
+    should I cover closure 63 as well? so in replication package and in our dataset columns in the sheet match. Next tool I wil doo now I'm doing transplantfix.
+    including closure will require running first_cleaned_tool_patches again to gather closure patches as well.
+
 
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED
 
