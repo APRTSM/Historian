@@ -133,6 +133,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
         bug['uid'] = bug.name
 
         second_cleaned_location = os.path.join(RQ4_SECOND_CLEANED_DATA_DIR, f"{uid}.patch")
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
 
         while True:
             logging.info(f"Trying to apply patch: {second_cleaned_location}")
@@ -172,6 +173,7 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             changed_file_address_path = os.path.join(checkout_dir, patch_content.split("\n")[0].replace("--- a/", "").split(" ")[0].strip())
 
             logging.error(f"❌ Failed to fix patch: {second_cleaned_location}. \n Retrying... \n")
+            print(f"-> ORIGINAL path: {first_cleaned_location} \n")
             print(f"+ Bug uid: {bug['uid']} \n")
             print(f"Tool: {tool_name} \n")
             print(f"Changed File Address Path: {changed_file_address_path} \n")
@@ -179,15 +181,15 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             print(f"Developer Patch Location: {developer_patch['location']} \n")
             print(f"Checkout Directory: {checkout_dir} \n")
             
-            if not ignore:
-                input("Press enter key to try again.")
-
             if os.path.exists(checkout_dir):
                 shutil.rmtree(checkout_dir)
 
+            if ignore:
+                break
+
+            input("Press enter key to try again.")
+
             print("-"*20 + "\n")
-            
-            break
 
     logging.info(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
     print(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
