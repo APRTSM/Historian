@@ -181,13 +181,17 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
             print(f"Developer Patch Location: {developer_patch['location']} \n")
             print(f"Checkout Directory: {checkout_dir} \n")
             
-            if os.path.exists(checkout_dir):
-                shutil.rmtree(checkout_dir)
 
             if ignore:
+                if os.path.exists(checkout_dir):
+                    shutil.rmtree(checkout_dir)
+
                 break
 
             input("Press enter key to try again.")
+
+            if os.path.exists(checkout_dir):
+                shutil.rmtree(checkout_dir)
 
             print("-"*20 + "\n")
 

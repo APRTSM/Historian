@@ -1,0 +1,8 @@
+--- a/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
+@@ -341,4 +341,4 @@
+               Vector3D k     = v1Su1.crossProduct(v2Su2);            
+                                   Vector3D u3    = u1.crossProduct(u2);            
+                                   double c       = k.dotProduct(u3);
+- if (c == 0) {
++ if (c <= 0) {

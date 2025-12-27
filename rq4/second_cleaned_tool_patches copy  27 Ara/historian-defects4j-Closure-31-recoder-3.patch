@@ -1,0 +1,9 @@
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1282,5 +1282,5 @@
+
+        // Check if the sources need to be re-ordered.
+-      if (options.dependencyOptions.needsManagement() &&
+          !options.skipAllPasses &&
+          options.closurePass) {
++       if(options.dependencyOptions.needsManagement()){

@@ -1,0 +1,12 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java
+@@ -580,6 +580,8 @@
+             // creator property?
+             SettableBeanProperty creatorProp = creator.findCreatorProperty(propName);
+             if (creatorProp != null) {
++if (buffer.assignParameter(creatorProp,creatorProp.deserialize(p,ctxt)))  
++
+                 if (buffer.assignParameter(creatorProp, creatorProp.deserialize(p, ctxt))) {
+                     t = p.nextToken();
+                     Object bean;
+

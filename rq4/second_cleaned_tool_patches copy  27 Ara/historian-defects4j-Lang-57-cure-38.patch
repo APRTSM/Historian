@@ -1,0 +1,24 @@
+--- a/src/java/org/apache/commons/lang/LocaleUtils.java
++++ b/src/java/org/apache/commons/lang/LocaleUtils.java
+@@ -220,7 +220,7 @@
+                  * @return true if the locale is a known locale            
+                */            
+                public static boolean isAvailableLocale(Locale locale) {
+- return cAvailableLocaleSet.contains(locale);
++ return cAvailableLocaleList.contains( locale ) ;
+      }            
+                                 
+     //-----------------------------------------------------------------------
+
+
+
+Developer's patch:
+return availableLocaleList().contains(locale);
+
+
+Explanation:
+CURE's patch is equivalent to developer's patch, since the availableLocaleList() method is as follow:
+public static List availableLocaleList() {
+    return cAvailableLocaleList;
+}
+

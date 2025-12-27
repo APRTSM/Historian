@@ -1,0 +1,8 @@
+--- a/src/com/google/javascript/jscomp/FunctionInjector.java
++++ b/src/com/google/javascript/jscomp/FunctionInjector.java
+@@ -727,4 +719,4 @@
+        // For each named parameter check if a mutable argument use more than one.
+         if (fnParam != null) { 
+            if (cArg != null) {
+-            return CanInlineResult.NO;
++
