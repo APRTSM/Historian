@@ -65,7 +65,41 @@ def init(configure=True):
 
     return bugs, developer_patches, tool_patches
 
+def copy_patches_not_fixed(tool_id):
+    counter = 0
+    for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
+        if tool_id in file:
+            counter += 1
+
+    logging.info(f"📢 Total patches already for tool {tool_id}: {counter}")
+    print(f"📢 Total patches already for tool {tool_id}: {counter}")
+
+    for file in os.listdir(RQ4_FIRST_CLEANED_DATA_DIR):
+        if not tool_id in file:
+            continue
+
+        formatted_patch_dir = os.path.join(RQ4_SECOND_CLEANED_DATA_DIR, file)
+
+        if os.path.exists(formatted_patch_dir):
+            logging.info(f"✅ Patch already exists, skipping: {formatted_patch_dir}")
+            continue
+
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, file)
+        copy_paste(first_cleaned_location, formatted_patch_dir)
+
+        logging.info(f"✅ Copied patch to tmp formatted dir: {formatted_patch_dir}")
+        
+    counter = 0
+    for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
+        if tool_id in file:
+            counter += 1
+
+    logging.info(f"📢 Total copied patches for tool {tool_id}: {counter}")
+    print(f"📢 Total copied patches for tool {tool_id}: {counter}")
+
 def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
+    copy_patches_not_fixed(tool_id)
+
     count_success = 0
     count_total = 0
 
@@ -87,8 +121,8 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
         formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
         if os.path.exists(formatted_patch_dir):
-            logging.info(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
-            print(f"✅ Patch already exists in tmp formatted dir, skipping: {formatted_patch_dir}")
+            logging.info(f"✅ Patch already exists, skipping: {formatted_patch_dir}")
+            print(f"✅ Patch already exists, skipping: {formatted_patch_dir}")
             count_success += 1
             continue
 

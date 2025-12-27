@@ -40,6 +40,8 @@ Since I didnt know what did I do to rq4/second_cleaned_tool_patches I toolk a co
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED
 
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
+    it is related to fixing 3000 broken patches from our initial dataset not new datset.
+
 
 rq5 focuses on intersection of tool labels.
 

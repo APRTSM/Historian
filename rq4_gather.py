@@ -540,7 +540,7 @@ def iterate_patches(bugs):
     # iterate_patches_repilot(bugs)
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
-    # iterate_patches_transplantfix(bugs)
+    iterate_patches_transplantfix(bugs)
 
     pass
 
@@ -550,5 +550,3 @@ if __name__=="__main__":
 
     logging.info("Reading patches from RQ4 data directory ...")
     files = iterate_patches(bugs)
-
-    raise
