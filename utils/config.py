@@ -206,5 +206,9 @@ DEPRICATED_BUGS_2 = [
     "defects4j-Collections-24",
 ]
 
+DEFECTS4J_ERROR_BUGS = [
+    "defects4j-Math-12",
+]
+
 if __name__=="__main__":
     pass

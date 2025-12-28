@@ -102,7 +102,11 @@ def checkout_bug_defects4j(bug):
         os.environ["JAVA_HOME"] = JAVA_8_HOME
 
     else:
-        execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}")
+        if bug_uid in DEFECTS4J_ERROR_BUGS:
+            execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}", error_allowed=True)
+
+        else:
+            execute_bash_command(f"defects4j checkout -p {project} -v {id}b -w {output_dir}")
 
     return output_dir
 
@@ -119,7 +123,11 @@ def checkout_fix_defects4j(bug):
         os.environ["JAVA_HOME"] = JAVA_8_HOME
 
     else:
-        execute_bash_command(f"defects4j checkout -p {project} -v {id}f -w {output_dir}")
+        if bug_uid in DEFECTS4J_ERROR_BUGS:
+            execute_bash_command(f"defects4j checkout -p {project} -v {id}f -w {output_dir}", error_allowed=True)
+        
+        else:
+            execute_bash_command(f"defects4j checkout -p {project} -v {id}f -w {output_dir}")
 
     return output_dir
 
