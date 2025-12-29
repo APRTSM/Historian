@@ -36,7 +36,9 @@ Since I didnt know what did I do to rq4/second_cleaned_tool_patches I toolk a co
     should I cover closure 63 as well? so in replication package and in our dataset columns in the sheet match. Next tool I wil doo now I'm doing transplantfix.
     including closure will require running first_cleaned_tool_patches again to gather closure patches as well.
 
+rq4_assign _correctness.py assignes correctness after applying patches in rq4_apply.py reads from the list in TMP
 
+    
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED
 
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
