@@ -1,0 +1,12 @@
+--- a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
++++ b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+@@ -237,7 +237,7 @@
+             //if not scalar and ended successfully, and !includePath, then return null
+                 if (_currToken.isStructEnd()) {
+                     if (_headContext.isStartHandled()) {
+-                        return (_currToken = null);
++                        
+                     }
+                 } else if (_currToken.isScalarValue()) {
+                     //else if scalar, and scalar not present in obj/array and !includePath and INCLUDE_ALL matched once
+

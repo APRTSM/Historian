@@ -1,0 +1,12 @@
+--- a/src/main/java/org/apache/commons/codec/binary/Base32.java
++++ b/src/main/java/org/apache/commons/codec/binary/Base32.java
+@@ -306,7 +306,7 @@
+         this.decodeSize = this.encodeSize - 1;
+ 
+         if (isInAlphabet(pad) || isWhiteSpace(pad)) {
+-            throw new IllegalArgumentException("pad must not be in alphabet or whitespace");
++            
+         }
+     }
+ 
+

@@ -1,0 +1,13 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -129,8 +129,7 @@
+         if (trailer == 0 || trailer == ' '){
+             end--;
+         } else {
+-            throw new IllegalArgumentException(
+-                    exceptionMessage(buffer, offset, length, end-1, trailer));
++            
+         }
+         trailer = buffer[end - 1];
+         while (start < end - 1 && (trailer == 0 || trailer == ' ')) {
+

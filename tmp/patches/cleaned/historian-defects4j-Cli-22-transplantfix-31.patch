@@ -1,0 +1,12 @@
+--- a/src/java/org/apache/commons/cli/PosixParser.java
++++ b/src/java/org/apache/commons/cli/PosixParser.java
+@@ -184,7 +184,7 @@
+     private void processNonOptionToken(String value)
+     {
+             eatTheRest = true;
+-            tokens.add("--");
++            
+ 
+         tokens.add(value);
+     }
+

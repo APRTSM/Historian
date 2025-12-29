@@ -208,6 +208,7 @@ DEPRICATED_BUGS_2 = [
 
 DEFECTS4J_ERROR_BUGS = [
     "defects4j-Math-12",
+    "defects4j-Closure-107",
 ]
 
 if __name__=="__main__":

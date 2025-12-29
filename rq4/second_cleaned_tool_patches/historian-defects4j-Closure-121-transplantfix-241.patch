@@ -1,5 +1,5 @@
---- a/src/com/google/javascript/jscomp/InlineVariables.java
-+++ b/src/com/google/javascript/jscomp/InlineVariables.java
+--- a/src/com/google/javascript/rhino/Node.java‍
++++ b/src/com/google/javascript/rhino/Node.java‍
 @@ -1455,7 +1455,7 @@
          throw new IllegalStateException();
        }
