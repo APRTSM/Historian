@@ -87,12 +87,12 @@ if __name__ == "__main__":
     selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
 
-    selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, f"{selected_tool_name}_patches_cleaned.pkl")
-    selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, f"{selected_tool_name}_method_patches.pkl")
-    selected_tool_patches = normalize_names_and_save(selected_tool_patches, f"{selected_tool_name}_normalized_patches.pkl")
-    selected_tool_patches = get_single_methods_and_save(selected_tool_patches, f"{selected_tool_name}_single_hunk_patches.pkl")
-    selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, f"{selected_tool_name}_deduplicated_patches.pkl")
+    selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches_cleaned.pkl"))
+    selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_method_patches.pkl"))
+    selected_tool_patches = normalize_names_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_normalized_patches.pkl"))
+    selected_tool_patches = get_single_methods_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_single_hunk_patches.pkl"))
+    selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
 
-
-        are_clones = sourcerercc_are_clones(target_method_content, target_method_groundtruth_content)
+    results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
+    results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
 
