@@ -1,0 +1,5 @@
+  public boolean hasEncounteredAllErrors() {
+    return (errors == null) ?
+        errorsIndex == 0 :
+        errors.length == errorsIndex;
+  }

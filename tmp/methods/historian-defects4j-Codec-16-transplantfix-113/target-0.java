@@ -1,0 +1,32 @@
+    public Base32(final int lineLength, final byte[] lineSeparator, final boolean useHex, final byte pad) {
+        super(BYTES_PER_UNENCODED_BLOCK, BYTES_PER_ENCODED_BLOCK, lineLength,
+                lineSeparator == null ? 0 : lineSeparator.length, pad);
+        if (useHex) {
+            this.encodeTable = HEX_ENCODE_TABLE;
+            this.decodeTable = HEX_DECODE_TABLE;
+        } else {
+            this.encodeTable = ENCODE_TABLE;
+            this.decodeTable = DECODE_TABLE;
+        }
+        if (lineLength > 0) {
+            if (lineSeparator == null) {
+                throw new IllegalArgumentException("lineLength " + lineLength + " > 0, but lineSeparator is null");
+            }
+            // Must be done after initializing the tables
+            if (containsAlphabetOrPad(lineSeparator)) {
+                final String sep = StringUtils.newStringUtf8(lineSeparator);
+                throw new IllegalArgumentException("lineSeparator must not contain Base32 characters: [" + sep + "]");
+            }
+            this.encodeSize = BYTES_PER_ENCODED_BLOCK + lineSeparator.length;
+            this.lineSeparator = new byte[lineSeparator.length];
+            System.arraycopy(lineSeparator, 0, this.lineSeparator, 0, lineSeparator.length);
+        } else {
+            this.encodeSize = BYTES_PER_ENCODED_BLOCK;
+            this.lineSeparator = null;
+        }
+        this.decodeSize = this.encodeSize - 1;
+
+        if (isInAlphabet(pad) || isWhiteSpace(pad)) {
+
+        }
+    }

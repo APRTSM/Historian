@@ -49,7 +49,7 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         total=len(selected_tool_patches),
         desc="Detecting SourcererCC clones"
     ):
-        uid = row['uid']
+        uid = row.name
         bug_uid = row['bug_uid']
         selected_content = row['content']
         
@@ -79,9 +79,6 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
 
 
 if __name__ == "__main__":
-    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
-
     bugs, developer_patches, tool_patches = init(configure=False)
 
     selected_tool_name = "transplantfix"
@@ -109,8 +106,11 @@ if __name__ == "__main__":
 
     print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
 
-    raise
-
+    # Load deduplicated tool patches
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    
     results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
     results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
+    results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
 
