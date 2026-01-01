@@ -1,17 +1,17 @@
-    private boolean flipIfWarranted(final int n, final int step) {
-        if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
-            // flip array
-            int j = 4 * n - 1;
-            for (int i = 0; i < j; i += 4) {
-                for (int k = 0; k < 4; k += step) {
-                    final double tmp = work[i + k];
-                    work[j + 2] = work[i] * tmp;
-
-                    work[j - k] = tmp;
-                }
-                j -= 4;
-            }
-            return true;
-        }
-        return false;
+    public MultiplePiePlot(CategoryDataset dataset) {
+        super();
+        this.dataset = dataset;
+        PiePlot piePlot = new PiePlot(null);
+        this.pieChart = new JFreeChart(piePlot);
+        this.pieChart.removeLegend();
+        this.dataExtractOrder = TableOrder.BY_COLUMN;
+        this.pieChart.setBackgroundPaint(null);
+        TextTitle seriesTitle = new TextTitle("Series Title",
+                new Font("SansSerif", Font.BOLD, 12));
+        seriesTitle.setPosition(RectangleEdge.BOTTOM);
+        this.pieChart.setTitle(seriesTitle);
+        this.aggregatedItemsKey = "Other";
+        this.aggregatedItemsPaint = Color.lightGray;
+        setDataset(dataset);
+this.sectionPaints = new HashMap();
     }

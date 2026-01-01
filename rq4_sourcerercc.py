@@ -43,15 +43,19 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         selected_tool_patches['content'] = selected_tool_patches.apply(get_single_hunk_method, axis=1)
     
     results = []
+    total = len(selected_tool_patches)
     
-    for _, row in tqdm(
+    for idx, (_, row) in enumerate(tqdm(
         selected_tool_patches.iterrows(),
-        total=len(selected_tool_patches),
+        total=total,
         desc="Detecting SourcererCC clones"
-    ):
+    )):
         uid = row.name
         bug_uid = row['bug_uid']
         selected_content = row['content']
+
+        # log the index out of total
+        logging.info(f"Processing patch {idx + 1}/{total} (UID: {uid})")
         
         # Find all patches with matching bug_uid in tool_patches
         matching_patches = tool_patches[tool_patches['bug_uid'] == bug_uid]
@@ -75,7 +79,6 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
     logging.info(f"Completed! Processed {len(result_df)} patches.")
     
     return result_df
-
 
 
 
