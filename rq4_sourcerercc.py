@@ -55,12 +55,17 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         
         # Find all patches with matching bug_uid in tool_patches
         matching_patches = tool_patches[tool_patches['bug_uid'] == bug_uid]
+
+        if len(matching_patches) > 10:
+            matching_patches = matching_patches.head(10)
         
         # Check if any matching patch is a clone
         is_clone = False
         for _, match_row in matching_patches.iterrows():
             match_content = match_row['content']
-            if sourcerercc_are_clones(selected_content, match_content):
+            label = sourcerercc_are_clones(selected_content, match_content)
+            logging.info(f"Comparing UID {uid} with matching patch UID {match_row.name}: Clone={label}")
+            if label:
                 is_clone = True
                 break
         

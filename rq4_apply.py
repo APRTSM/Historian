@@ -104,6 +104,8 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
     # copy_patches_not_fixed does not work because when I gave it to prst It didnt include clousre 63 and 93
     # copy_patches_not_fixed(tool_id) 
 
+    counter = 0
+
     for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
         if tool_id in file:
             counter += 1
