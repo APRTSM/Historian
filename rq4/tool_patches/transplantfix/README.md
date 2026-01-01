@@ -10,6 +10,7 @@ This directory contains all plausible patches (i.e., patches that pass all test 
 # 1. Defects4J v1.2
 
 ## 1.1. FL Scenario
+>>>
 
 **The bugs correctly fixed by TransplantFix: (30)**
 
@@ -20,6 +21,7 @@ This directory contains all plausible patches (i.e., patches that pass all test 
 + Time_3
 
 ## 1.2. Non-FL Scenario
+>>>
 
 **The bugs correctly fixed by TransplantFix: (36)**
 
@@ -33,6 +35,7 @@ This directory contains all plausible patches (i.e., patches that pass all test 
 # 2. Defects4J v1.2
 
 ## 2.1. FL Scenario
+>>>
 
 **The bugs correctly fixed by TransplantFix: (14)**
 
@@ -43,6 +46,7 @@ This directory contains all plausible patches (i.e., patches that pass all test 
 + Jsoup_40, Jsoup_68, Jsoup_75, Gson_15
 
 ## 2.2. Non-FL Scenario
+>>>
 
 **The bugs correctly fixed by TransplantFix: (25)**
 

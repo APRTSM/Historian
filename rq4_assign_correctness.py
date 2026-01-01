@@ -524,7 +524,7 @@ def iterate_patches_transplantfix(bugs):
                     # Set locations
                     location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
-                    correctness = "Incorrect"
+                    correctness = "Overfitting"
                     readme_location = os.path.join(tool_path, "README.md")
                     with open(readme_location, 'r') as readme_file:
                         readme_content = readme_file.read()
