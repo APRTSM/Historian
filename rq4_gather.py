@@ -359,7 +359,7 @@ def iterate_patches_recoder(bugs):
         filepath = os.path.join(tool_path, filename)
 
         # Check if ends with .txt
-        if "closure-63" in filename or "closure-93" in filename or "patch_ground" in filename or "out" in filename or "defect4j2" in filename:
+        if "patch_ground" in filename or "out" in filename or "defect4j2" in filename:
             logging.info(f"Skipping file: {filepath}")
             continue
 
@@ -536,11 +536,11 @@ def iterate_patches(bugs):
     # iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
-    # iterate_patches_recoder(bugs)
+    iterate_patches_recoder(bugs)
     # iterate_patches_repilot(bugs)
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
-    iterate_patches_transplantfix(bugs)
+    # iterate_patches_transplantfix(bugs)
 
     pass
 

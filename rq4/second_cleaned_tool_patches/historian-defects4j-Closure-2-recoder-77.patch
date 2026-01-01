@@ -1,0 +1,9 @@
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1569,6 +1569,9 @@
+        ObjectType interfaceType) {
+-    ObjectType implicitProto = interfaceType.getImplicitPrototype();
+     Set<String> currentPropertyNames;
++    if((interfaceType.getImplicitPrototype() == null)){
+return;
+}

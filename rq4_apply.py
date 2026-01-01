@@ -85,6 +85,9 @@ def copy_patches_not_fixed(tool_id):
             continue
 
         first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, file)
+
+        print(first_cleaned_location, formatted_patch_dir)
+        raise
         copy_paste(first_cleaned_location, formatted_patch_dir)
 
         logging.info(f"✅ Copied patch to tmp formatted dir: {formatted_patch_dir}")
@@ -98,7 +101,15 @@ def copy_patches_not_fixed(tool_id):
     print(f"📢 Total copied patches for tool {tool_id}: {counter}")
 
 def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
-    copy_patches_not_fixed(tool_id)
+    # copy_patches_not_fixed does not work because when I gave it to prst It didnt include clousre 63 and 93
+    # copy_patches_not_fixed(tool_id) 
+
+    for file in os.listdir(RQ4_SECOND_CLEANED_DATA_DIR):
+        if tool_id in file:
+            counter += 1
+
+    logging.info(f"📢 Total patches already for tool {tool_id}: {counter}")
+    print(f"📢 Total patches already for tool {tool_id}: {counter}")
 
     count_success = 0
     count_total = 0
@@ -206,11 +217,11 @@ def iterate_patches_tools(bugs):
     # iterate_patches_tool(bugs, "fitrepair", "FitRepair")
     # iterate_patches_tool(bugs, "knod", "KNode")
     # iterate_patches_tool(bugs, "rapgen", "RapGen")
-    # iterate_patches_tool(bugs, "recoder", "Recoder")
+    iterate_patches_tool(bugs, "recoder", "Recoder", ignore=False)
     # iterate_patches_tool(bugs, "repilot", "RePilot")
     # iterate_patches_tool(bugs, "tare", "Tare")
     # iterate_patches_tool(bugs, "tenure", "Tenure")
-    iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
+    # iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")

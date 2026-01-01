@@ -1,0 +1,4 @@
+math-27
+Math27597avaj.noitcarFnoitcarf3htamsnommocehcapagroavajniamcrsyggub
+-        return multiply(100).doubleValue();
++return (100 * doubleValue());

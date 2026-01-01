@@ -1,0 +1,5 @@
+csv-4
+Csv4288avaj.resraPVSCvscsnommocehcapagroavajniamcrsyggub
+-        return new LinkedHashMap<String, Integer>(this.headerMap);
++if((this.headerMap == null)){
+return null;}

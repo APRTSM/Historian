@@ -29,14 +29,17 @@ Searches through patches in RQ4_SECOND_CLEANED_DATA_DIR (rq4/second_cleaned_tool
 Try to apply from rq4/second_cleaned_tool_patches
 if applied save to TMP_FORMATTED_PATCH_DIR
 
-Since I didnt know what did I do to rq4/second_cleaned_tool_patches I toolk a copy of it deleted inside and took the patches from three done folders of prsto.
+Since I didnt know what did I do to rq4/second_cleaned_tool_patches I took a copy of it deleted inside and took the patches from three done folders of prsto.
     copied again the files that does not exist in rq4/second_cleaned_tool_patches. now I first copy the files of the tool I want to rq4/second_cleaned_tool_patches add not fixed (are not in done) command should check if the patch does not already exist in rq4/second_cleaned_tool_patches.
+    cd /home/sahand/Desktop/Historian/rq4/first_cleaned_tool_patches && for f in *; do [ ! -e "/home/sahand/Desktop/Historian/rq4/second_cleaned_tool_patches/$f" ] && mv "$f" /home/sahand/Desktop/Historian/rq4/second_cleaned_tool_patches/; done
+    copy_patches_not_fixed does not work because when I gave it to prst It didnt include clousre 63 and 93 patches, which means the index has changed. add this patches manually and index them as last one.
+    
     so check the number of tool patches in the sheet and the total shown when we run rq4_apply.py. it should match. 
     light green in sheet means prsto got them ow its time to apply and check the numbers and make it dark green.
     should I cover closure 63 as well? so in replication package and in our dataset columns in the sheet match. Next tool I wil doo now I'm doing transplantfix.
     including closure will require running first_cleaned_tool_patches again to gather closure patches as well.
 
-rq4_assign _correctness.py assignes correctness after applying patches in rq4_apply.py reads from the list in TMP
+rq4_assign_correctness.py assignes correctness after applying patches in rq4_apply.py reads from the list in TMP
 
     
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED

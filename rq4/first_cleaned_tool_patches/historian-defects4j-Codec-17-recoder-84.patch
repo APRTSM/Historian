@@ -1,0 +1,5 @@
+codec-17
+Codec17339avaj.slitUgnirtSyranibcedocsnommocehcapagroavajniamcrsyggub
+-        return new String(bytes, Charsets.ISO_8859_1);
++if((bytes == null)){
+return null;}

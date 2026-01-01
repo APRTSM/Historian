@@ -1,0 +1,4 @@
+math-33
+Math33338avaj.uaelbaTxelpmiSraenilnoitazimitpo3htamsnommocehcapagroavajniamcrsyggub
+-            if (Precision.compareTo(entry, 0d, maxUlps) > 0) {
++if((Precision.compareTo(entry, 0d, epsilon) > 0)){

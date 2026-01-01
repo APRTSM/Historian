@@ -1,0 +1,4 @@
+closure-125
+Closure1251661avaj.kcehCepyTpmocsjtpircsavajelgoogmoccrsyggub
+-      if (fnType != null) {
++if(((fnType != null) && fnType.hasInstanceType())){

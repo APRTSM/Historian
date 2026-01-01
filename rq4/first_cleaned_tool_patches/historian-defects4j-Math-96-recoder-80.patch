@@ -1,0 +1,5 @@
+//Semantically Equal: The original code only works incorrectly when the variable "real" is negative zero "-0", the patch will convert the variable "real" form "-0" into "0".
+math-96
+Math96299avaj.xelpmoCxelpmochtamsnommocehcapagroavajcrsyggub
+-        return real;
++return (real + 0);
