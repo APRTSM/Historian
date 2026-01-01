@@ -663,6 +663,11 @@ if __name__=="__main__":
     cleaned_developer_patches = normalize_names_and_save(cleaned_developer_patches, TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = normalize_names_and_save(cleaned_tool_patches, TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
 
+    print("Generator Normalized Developer Patches:")
+    print(len(cleaned_developer_patches))
+    print("Generator Normalized Tool Patches:")
+    print(len(cleaned_tool_patches))
+
     # Get Single Method Patches
     cleaned_developer_patches = get_single_methods_and_save(cleaned_developer_patches, TMP_SINGLE_HUNK_DEVELOPER_PATHCES_PKL)
     cleaned_tool_patches = get_single_methods_and_save(cleaned_tool_patches, TMP_SINGLE_HUNK_TOOL_PATHCES_PKL)
