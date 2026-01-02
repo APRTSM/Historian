@@ -1,93 +1,57 @@
-    public boolean evaluateStep(final StepInterpolator interpolator)
-        throws ConvergenceException {
+    private Integer getPivotRow(SimplexTableau tableau, final int col) {
+        // create a list of all the rows that tie for the lowest score in the minimum ratio test
+        List<Integer> minRatioPositions = new ArrayList<Integer>();
+        double minRatio = Double.MAX_VALUE;
+        for (int i = tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+            final double rhs = tableau.getEntry(i, tableau.getWidth() - 1);
+            final double entry = tableau.getEntry(i, col);
 
-            forward = interpolator.isForward();
-            t0=interpolator.getPreviousTime();
-            final double t1 = interpolator.getCurrentTime();
-            final double dt = t1 - t0;
-            if (FastMath.abs(dt) < convergence) {
-                // we cannot do anything on such a small step, don't trigger any events
-                return false;
-            }
-            final int    n = FastMath.max(1, (int) FastMath.ceil(FastMath.abs(dt) / maxCheckInterval));
-            final double h = dt / n;
-
-            final UnivariateRealFunction f = new UnivariateRealFunction() {
-                public double value(final double t) {
-                    interpolator.setInterpolatedTime(t);
-                    return handler.g(t, interpolator.getInterpolatedState());
+            if (Precision.compareTo(entry, 0d, maxUlps) > 0) {
+                final double ratio = rhs / entry;
+                // check if the entry is strictly equal to the current min ratio
+                // do not use a ulp/epsilon check
+                final int cmp = Double.compare(ratio, minRatio);
+                if (cmp == 0) {
+                } else if (cmp < 0) {
+                    minRatio = ratio;
+                    minRatioPositions = new ArrayList<Integer>();
+                    minRatioPositions.add(i);
                 }
-            };
+            }
+        }
 
-            double ta = t0;
-            double ga = g0;
-            for (int i = 0; i < n; ++i) {
+        if (minRatioPositions.size() == 0) {
+            return null;
+        } else if (minRatioPositions.size() > 1) {
+            // there's a degeneracy as indicated by a tie in the minimum ratio test
 
-                // evaluate handler value at the end of the substep
-                final double tb = t0 + (i + 1) * h;
-                interpolator.setInterpolatedTime(tb);
-                final double gb = handler.g(tb, interpolator.getInterpolatedState());
-
-                // check events occurrence
-                if (g0Positive ^ (gb >= 0)) {
-                    // there is a sign change: an event is expected during this step
-
-                    // variation direction, with respect to the integration direction
-                    increasing = gb >= ga;
-
-                    // find the event time making sure we select a solution just at or past the exact root
-                    final double root;
-                    if (solver instanceof BracketedUnivariateRealSolver<?>) {
-                        @SuppressWarnings("unchecked")
-                        BracketedUnivariateRealSolver<UnivariateRealFunction> bracketing =
-                                (BracketedUnivariateRealSolver<UnivariateRealFunction>) solver;
-                        root = forward ?
-                               bracketing.solve(maxIterationCount, f, ta, tb, AllowedSolution.RIGHT_SIDE) :
-                               bracketing.solve(maxIterationCount, f, tb, ta, AllowedSolution.LEFT_SIDE);
-                    } else {
-                        final double baseRoot = forward ?
-                                                solver.solve(maxIterationCount, f, ta, tb) :
-                                                solver.solve(maxIterationCount, f, tb, ta);
-                        final int remainingEval = maxIterationCount - solver.getEvaluations();
-                        BracketedUnivariateRealSolver<UnivariateRealFunction> bracketing =
-                                new PegasusSolver(solver.getRelativeAccuracy(), solver.getAbsoluteAccuracy());
-                        root = forward ?
-                               UnivariateRealSolverUtils.forceSide(remainingEval, f, bracketing,
-                                                                   baseRoot, ta, tb, AllowedSolution.RIGHT_SIDE) :
-                               UnivariateRealSolverUtils.forceSide(remainingEval, f, bracketing,
-                                                                   baseRoot, tb, ta, AllowedSolution.LEFT_SIDE);
-                    }
-
-                    if ((!Double.isNaN(previousEventTime)) &&
-                        (FastMath.abs(root - ta) <= convergence) &&
-                        (FastMath.abs(root - previousEventTime) <= convergence)) {
-                        // we have either found nothing or found (again ?) a past event,
-                        // retry the substep excluding this value
-                        ta = forward ? ta + convergence : ta - convergence;
-                        ga = f.value(ta);
-                        --i;
-                    } else if (Double.isNaN(previousEventTime) ||
-                               (FastMath.abs(previousEventTime - root) > convergence)) {
-                        pendingEventTime = root;
-                        pendingEvent = true;
-                        return true;
-                    } else {
-                        // no sign change: there is no event for now
-                        ta = tb;
-                        ga = gb;
-                    }
-
-                } else {
-                    // no sign change: there is no event for now
-                    ta = tb;
-                    ga = gb;
+            // 1. check if there's an artificial variable that can be forced out of the basis
+                for (Integer row : minRatioPositions) {
                 }
 
-            }
-
-            // no event during the whole step
-            pendingEvent     = false;
-            pendingEventTime = Double.NaN;
-            return false;
-
+            // 2. apply Bland's rule to prevent cycling:
+            //    take the row for which the corresponding basic variable has the smallest index
+            //
+            // see http://www.stanford.edu/class/msande310/blandrule.pdf
+            // see http://en.wikipedia.org/wiki/Bland%27s_rule (not equivalent to the above paper)
+            //
+            // Additional heuristic: if we did not get a solution after half of maxIterations
+            //                       revert to the simple case of just returning the top-most row
+            // This heuristic is based on empirical data gathered while investigating MATH-828.
+                Integer minRow = null;
+                int minIndex = tableau.getWidth();
+                for (Integer row : minRatioPositions) {
+                    int i = tableau.getNumObjectiveFunctions();
+                    for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+                        if (row == tableau.getBasicRow(i)) {
+                            if (i < minIndex) {
+                                minIndex = i;
+                                minRow = row;
+                            }
+                        }
+                    }
+                }
+                return minRow;
+        }
+        return minRatioPositions.get(0);
     }

@@ -26,11 +26,9 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
     """
     Assigns SourcererCC clone labels to selected patches by comparing against
     all patches with matching bug_uid in tool_patches.
-    
     Args:
         tool_patches: DataFrame with all tool patches
         selected_tool_patches: DataFrame with selected patches to label
-    
     Returns:
         DataFrame with columns: 'uid', 'sourcerercc_label' (True/False)
     """
@@ -42,42 +40,57 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
     if 'content' not in selected_tool_patches.columns:
         selected_tool_patches['content'] = selected_tool_patches.apply(get_single_hunk_method, axis=1)
     
-    results = []
-    total = len(selected_tool_patches)
-    
-    for idx, (_, row) in enumerate(tqdm(
-        selected_tool_patches.iterrows(),
-        total=total,
-        desc="Detecting SourcererCC clones"
-    )):
+    # Remove duplicate content within each bug_uid group from tool_patches
+    original_count = len(tool_patches)
+    tool_patches = tool_patches.drop_duplicates(subset=['bug_uid', 'content'], keep='first')
+    dedupe_count = len(tool_patches)
+    logging.info(f"Deduplicated tool_patches (REMOVE SAME BUG_UID CONTENT TO REDUCE COMPARISON SIZE): {original_count} -> {dedupe_count} (removed {original_count - dedupe_count} duplicates)")
+    print(f"Deduplicated tool_patches (REMOVE SAME BUG_UID CONTENT TO REDUCE COMPARISON SIZE): {original_count} -> {dedupe_count} (removed {original_count - dedupe_count} duplicates)")
+
+    # Pre-calculate all comparisons to get accurate total
+    comparisons = []
+    for _, row in selected_tool_patches.iterrows():
         uid = row.name
         bug_uid = row['bug_uid']
         selected_content = row['content']
-
-        # log the index out of total
-        logging.info(f"Processing patch {idx + 1}/{total} (UID: {uid})")
         
-        # Find all patches with matching bug_uid in tool_patches
         matching_patches = tool_patches[tool_patches['bug_uid'] == bug_uid]
-
-        if len(matching_patches) > 10:
-            matching_patches = matching_patches.head(10)
+        # if len(matching_patches) > 10:
+        #     matching_patches = matching_patches.head(10)
         
-        # Check if any matching patch is a clone
-        is_clone = False
         for _, match_row in matching_patches.iterrows():
-            match_content = match_row['content']
-            label = sourcerercc_are_clones(selected_content, match_content)
-            logging.info(f"Comparing UID {uid} with matching patch UID {match_row.name}: Clone={label}")
-            if label:
-                is_clone = True
-                break
+            comparisons.append({
+                'uid': uid,
+                'selected_content': selected_content,
+                'match_uid': match_row.name,
+                'match_content': match_row['content']
+            })
+    
+    total_comparisons = len(comparisons)
+    logging.info(f"Total comparisons to perform: {total_comparisons}")
+    
+    # Track results per uid
+    uid_results = {row.name: False for _, row in selected_tool_patches.iterrows()}
+    
+    # Perform comparisons with accurate progress bar
+    for comp in tqdm(comparisons, total=total_comparisons, desc="Detecting SourcererCC clones"):
+        uid = comp['uid']
         
-        results.append({'uid': uid, 'sourcerercc_label': is_clone})
+        # Skip if already found a clone for this uid
+        if uid_results[uid]:
+            continue
+        
+        label = sourcerercc_are_clones(comp['selected_content'], comp['match_content'])
+        logging.info(f"Comparing UID {uid} with matching patch UID {comp['match_uid']}: Clone={label}")
+        
+        if label:
+            uid_results[uid] = True
     
+    # Build result DataFrame
+    results = [{'uid': uid, 'sourcerercc_label': is_clone} for uid, is_clone in uid_results.items()]
     result_df = pd.DataFrame(results)
-    logging.info(f"Completed! Processed {len(result_df)} patches.")
     
+    logging.info(f"Completed! Processed {len(result_df)} patches with {total_comparisons} comparisons.")
     return result_df
 
 
