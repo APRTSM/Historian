@@ -81,11 +81,6 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
     return result_df
 
 
-
-
-
-
-
 if __name__ == "__main__":
     bugs, developer_patches, tool_patches = init(configure=False)
 
