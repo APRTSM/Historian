@@ -1,9 +1,13 @@
 --- a/src/com/google/javascript/jscomp/TypeCheck.java
 +++ b/src/com/google/javascript/jscomp/TypeCheck.java
-@@ -1569,6 +1569,9 @@
-        ObjectType interfaceType) {
+@@ -1567,7 +1567,9 @@
+      String functionName, HashMap<String, ObjectType> properties,
+      HashMap<String, ObjectType> currentProperties,
+      ObjectType interfaceType) {
 -    ObjectType implicitProto = interfaceType.getImplicitPrototype();
-     Set<String> currentPropertyNames;
 +    if((interfaceType.getImplicitPrototype() == null)){
-return;
-}
++       return;
++    }
+    Set<String> currentPropertyNames;
+      // This can be the case if interfaceType is proxy to a non-existent
+      // object (which is a bad type annotation, but shouldn't crash).

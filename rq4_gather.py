@@ -352,34 +352,63 @@ def iterate_patches_rapgen(bugs):
 def iterate_patches_recoder(bugs):
     tool = "recoder"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
-
     index = 0
-
+    
+    # Store closure-63 and closure-93 files to process at the end
+    deferred_files = []
+    
     for filename in os.listdir(tool_path):
         filepath = os.path.join(tool_path, filename)
-
-        # Check if ends with .txt
+        
+        # Skip non-patch files
         if "patch_ground" in filename or "out" in filename or "defect4j2" in filename:
             logging.info(f"Skipping file: {filepath}")
             continue
-
+        
+        # Defer closure-63 and closure-93 to process at the end
+        if "closure-63" in filename or "closure-93" in filename:
+            deferred_files.append((filename, filepath))
+            continue
+        
         # Extract bug identifier from filename
         bug_id = filename.split('.')[0]
         bug_id = bug_id[0].upper() + bug_id[1:]
-
+        
         # Set bug
         bug = bugs.loc[f"defects4j-{bug_id}"].copy()
         bug['uid'] = bug.name
-
+        
         # Set uid
         uid = f"historian-{bug.name}-{tool}-{index}"
-
+        
         # Set locations
         first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
-
+        
         # Run this once to copy paste the first cleaned patches
         copy_paste(filepath, first_cleaned_location)
         index += 1
+    
+    # Process deferred files (closure-63 and closure-93) at the end
+    for filename, filepath in deferred_files:
+        # Extract bug identifier from filename
+        bug_id = filename.split('.')[0]
+        bug_id = bug_id[0].upper() + bug_id[1:]
+        
+        # Set bug
+        bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+        bug['uid'] = bug.name
+        
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        
+        # Set locations
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        
+        # Run this once to copy paste the first cleaned patches
+        copy_paste(filepath, first_cleaned_location)
+        index += 1
+
+        
 
 def iterate_patches_repilot(bugs):
     tool = "repilot"

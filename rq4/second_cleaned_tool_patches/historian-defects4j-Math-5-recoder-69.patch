@@ -1,6 +1,11 @@
 --- a/src/main/java/org/apache/commons/math3/complex/Complex.java
 +++ b/src/main/java/org/apache/commons/math3/complex/Complex.java
-@@ -304,2 +304,2 @@
+@@ -302,7 +302,7 @@ public class Complex implements FieldElement<Complex>, Serializable  {
+         }
+ 
          if (real == 0.0 && imaginary == 0.0) {
 -            return NaN;
-+           return INF;
++            return INF;
+         }
+ 
+         if (isInfinite) {
