@@ -391,7 +391,7 @@ def iterate_patches_recoder(bugs):
 
         correctness = "Correct"
 
-        if bug.name in ["closure-7", "closure-109", "chart-7", "lang-7", "lang-63"]:
+        if bug.name in ["defects4j-Closure-7", "defects4j-Closure-109", "defects4j-Chart-7", "defects4j-Lang-7", "defects4j-Lang-63"]:
             correctness = "Overfitting"
 
         patch_dict = {
@@ -431,7 +431,7 @@ def iterate_patches_recoder(bugs):
 
         correctness = "Correct"
 
-        if bug.name in ["closure-7", "closure-109", "chart-7", "lang-7", "lang-63"]:
+        if bug.name in ["defects4j-Closure-7", "defects4j-Closure-109", "defects4j-Chart-7", "defects4j-Lang-7", "defects4j-Lang-63"]:
             correctness = "Overfitting"
 
         patch_dict = {
@@ -636,6 +636,7 @@ def iterate_patches_transplantfix(bugs):
 
     patches_df = pd.DataFrame(patches_list).set_index("uid")
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
 
 def iterate_patches(bugs):
@@ -647,11 +648,11 @@ def iterate_patches(bugs):
     # iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
-    # iterate_patches_recoder(bugs)
+    iterate_patches_recoder(bugs)
     # iterate_patches_repilot(bugs)
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
-    iterate_patches_transplantfix(bugs)
+    # iterate_patches_transplantfix(bugs)
 
     pass
 
