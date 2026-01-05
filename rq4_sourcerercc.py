@@ -98,8 +98,9 @@ if __name__ == "__main__":
     bugs, developer_patches, tool_patches = init(configure=False)
 
     # selected_tool_name = "transplantfix"
-    selected_tool_name = "recoder"
-    
+    # selected_tool_name = "recoder"
+    selected_tool_name = "circle"
+
     selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
     print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")

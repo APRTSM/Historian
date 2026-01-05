@@ -26,8 +26,8 @@ correct_both = [0, 2.1, 7.5, 3.9, 15.5]
 correct_tools_only = [0, 4.9, 12.3, 0.9, 6.4]
 
 # Three categories for overfitting patches:
-overfitting_baseline_only = [0, 20, 0, 12.2, 0]
-overfitting_both = [0, 20, 0, 5.6, 0]
+overfitting_baseline_only = [0, 40, 0, 12.2, 0]
+overfitting_both = [0, 0, 0, 5.6, 0]
 overfitting_tools_only = [0, 0, 0, 3.9, 0]
 
 # Colors - baby/pastel red and green

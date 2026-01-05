@@ -68,6 +68,8 @@ rq5_historian_quatrain_tocsv.py changes labels from results of quatrain executed
 
 rq5/README.md has the notes about files.
 
+rq4_figure_1.py Oca 5 Draw Figure 1 for RQ4
+
 ----
 State 20 Kas: _ added historian patches to prsto. Also cleaned 3000 non applicable patches from the old dataset not added yet.
 
