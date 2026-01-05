@@ -1,5 +1,0 @@
-cli-5
-Cli536avaj.litUilcsnommocehcapagroavajcrsyggub
--        if (str.startsWith("--"))
-+if((str == null)){
-return null;}

@@ -1,6 +1,0 @@
-closure-31
-Closure311284avaj.relipmoCpmocsjtpircsavajelgoogmoccrsyggub
--      if (options.dependencyOptions.needsManagement() &&
-          !options.skipAllPasses &&
-          options.closurePass) {
-+if(options.dependencyOptions.needsManagement()){

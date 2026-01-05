@@ -1,4 +1,0 @@
-math-82
-Math8282avaj.revloSxelpmiSraenilnoitazimitpohtamsnommocehcapagroavajniamcrsyggub
--            if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
-+if((MathUtils.compareTo(entry, 0, epsilon) > 0)){

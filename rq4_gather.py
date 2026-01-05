@@ -67,27 +67,50 @@ def init(configure=True):
 def iterate_patches_circle(bugs):
     tool = "circle"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
-
     index = 0
-
+    
+    # Store Closure-63 and Closure-93 files to process at the end
+    deferred_files = []
+    
     for filename in os.listdir(tool_path):
         filepath = os.path.join(tool_path, filename)
-
-        # Check if ends with .txt
-        if not filename.endswith(".txt") or filename == "d4j_patches.txt" or "Closure-63" in filename or "Closure-93" in filename:
+        
+        # Check if ends with .txt and skip non-patch files
+        if not filename.endswith(".txt") or filename == "d4j_patches.txt":
             logging.info(f"Skipping file: {filepath}")
             continue
-
+        
+        # Defer Closure-63 and Closure-93 to process at the end
+        if "Closure-63" in filename or "Closure-93" in filename:
+            deferred_files.append((filename, filepath))
+            continue
+        
         # Set bug
         bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
         bug['uid'] = bug.name
-
+        
         # Set uid
         uid = f"historian-{bug.name}-{tool}-{index}"
-
+        
         # Set locations
         first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
-
+        
+        # Run this once to copy paste the first cleaned patches
+        copy_paste(filepath, first_cleaned_location)
+        index += 1
+    
+    # Process deferred files (Closure-63 and Closure-93) at the end
+    for filename, filepath in deferred_files:
+        # Set bug
+        bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
+        bug['uid'] = bug.name
+        
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        
+        # Set locations
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        
         # Run this once to copy paste the first cleaned patches
         copy_paste(filepath, first_cleaned_location)
         index += 1
@@ -246,40 +269,61 @@ def iterate_patches_fitrepair(bugs):
 def iterate_patches_iter(bugs):
     tool = "iter"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
-
     index = 0
-
+    
+    # Store Closure-63 files to process at the end
+    deferred_files = []
+    
     # Iterate through subdirectories 
     for subdir in os.listdir(tool_path):
         subdir_path = os.path.join(tool_path, subdir)
-
         logging.info(f"Processing iter subdirectory: {subdir}")
-
+        
         for filename in os.listdir(subdir_path):
             # Extract bug identifier from filename
             project, bug_number = re.match(r"([a-zA-Z]+)(\d+)", subdir).groups()
             bug_id = f"{project}-{bug_number}"
-
             filepath = os.path.join(subdir_path, filename)
-
+            
             # Check if ends with .txt
-            if not filename.endswith(".txt") or bug_id == "Closure-63":
+            if not filename.endswith(".txt"):
                 logging.info(f"Skipping file: {filepath}")
                 continue
-
+            
+            # Defer Closure-63 to process at the end
+            if bug_id == "Closure-63":
+                deferred_files.append((filename, filepath, bug_id))
+                continue
+            
             # Set bug
             bug = bugs.loc[f"defects4j-{bug_id}"].copy()
             bug['uid'] = bug.name
-
+            
             # Set uid
             uid = f"historian-{bug.name}-{tool}-{index}"
-
+            
             # Set locations
             first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
-
+            
             # Run this once to copy paste the first cleaned patches
             copy_paste(filepath, first_cleaned_location)
             index += 1
+    
+    # Process deferred files (Closure-63) at the end
+    for filename, filepath, bug_id in deferred_files:
+        # Set bug
+        bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+        bug['uid'] = bug.name
+        
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        
+        # Set locations
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        
+        # Run this once to copy paste the first cleaned patches
+        copy_paste(filepath, first_cleaned_location)
+        index += 1
 
 def iterate_patches_knod(bugs):
     tool = "knod"
@@ -407,8 +451,6 @@ def iterate_patches_recoder(bugs):
         # Run this once to copy paste the first cleaned patches
         copy_paste(filepath, first_cleaned_location)
         index += 1
-
-        
 
 def iterate_patches_repilot(bugs):
     tool = "repilot"
@@ -562,10 +604,10 @@ def iterate_patches(bugs):
     # iterate_patches_cure(bugs)
     # iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
-    # iterate_patches_iter(bugs)
+    iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
-    iterate_patches_recoder(bugs)
+    # iterate_patches_recoder(bugs)
     # iterate_patches_repilot(bugs)
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)

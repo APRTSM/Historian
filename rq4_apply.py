@@ -212,18 +212,21 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
     print(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
 
 def iterate_patches_tools(bugs):
-    # iterate_patches_tool(bugs, "circle", "Circle")
+    iterate_patches_tool(bugs, "circle", "Circle", ignore=False)
     # iterate_patches_tool(bugs, "alpharepair", "AlphaRepair")
     # iterate_patches_tool(bugs, "cure", "CURE")
     # iterate_patches_tool(bugs, "dlfix", "DLFix")
     # iterate_patches_tool(bugs, "fitrepair", "FitRepair")
+    # iterate_patches_tool(bugs, "iter", "Iter")
     # iterate_patches_tool(bugs, "knod", "KNode")
     # iterate_patches_tool(bugs, "rapgen", "RapGen")
-    iterate_patches_tool(bugs, "recoder", "Recoder", ignore=False)
+    # iterate_patches_tool(bugs, "recoder", "Recoder", ignore=False)
     # iterate_patches_tool(bugs, "repilot", "RePilot")
     # iterate_patches_tool(bugs, "tare", "Tare")
     # iterate_patches_tool(bugs, "tenure", "Tenure")
     # iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
+
+    pass
 
 if __name__=="__main__": 
     logging.info("Running rq4.py ...")

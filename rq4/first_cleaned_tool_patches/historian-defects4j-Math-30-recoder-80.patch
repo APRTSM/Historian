@@ -1,4 +1,0 @@
-math-30
-Math30173avaj.tseTUyentihWnnaMecnerefnitats3htamsnommocehcapagroavajniamcrsyggub
--        final int n1n2prod = n1 * n2;
-+final long n1n2prod = (n1 * n2);

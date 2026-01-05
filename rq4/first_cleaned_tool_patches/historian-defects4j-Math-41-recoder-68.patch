@@ -1,4 +1,0 @@
-math-41
-Math41520avaj.ecnairaVtnemomevitpircsedtatshtamsnommocehcapagroavajniamcrsyggub
--                for (int i = 0; i < weights.length; i++) {
-+for(int i = begin;(i < (begin + length));i++) {

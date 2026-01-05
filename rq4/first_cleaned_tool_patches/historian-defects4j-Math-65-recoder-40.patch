@@ -1,4 +1,0 @@
-math-65
-Math65258avaj.rezimitpOserauqStsaeLtcartsbAlarenegnoitazimitpohtamsnommocehcapagroavajniamcrsyggub
--            chiSquare += residual * residual / residualsWeights[i];
-+chiSquare += ((residual * residual) * residualsWeights[i]);

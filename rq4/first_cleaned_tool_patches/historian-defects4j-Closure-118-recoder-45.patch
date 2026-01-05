@@ -1,6 +1,0 @@
-closure-118
-Closure118497avaj.seitreporPetaugibmasiDpmocsjtpircsavajelgoogmoccrsyggub
--        String name = child.getString();
-+if(child.isQuotedString()){
-return;
-}

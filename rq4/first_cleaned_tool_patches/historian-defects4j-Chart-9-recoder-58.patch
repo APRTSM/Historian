@@ -1,4 +1,0 @@
-chart-9
-Chart9944avaj.seireSemiTemitatadeerfjgroecruosyggub
--        if (endIndex < 0) {
-+if(((endIndex < 0) || (endIndex < startIndex))){

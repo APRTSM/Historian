@@ -1,4 +1,0 @@
-closure-40
-Closure40452avaj.slitUrebmuNhtam3gnalsnommocehcapagroavajniamcrsyggub
--        JsName name = getName(ns.name, false);
-+JsName name = getName(ns.name, true);

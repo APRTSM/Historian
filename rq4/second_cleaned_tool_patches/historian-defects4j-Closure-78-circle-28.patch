@@ -1,5 +1,19 @@
 --- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
 +++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
-@@ -717,2 +717,1 @@ 
-                    if (rval == 0) {
-- error(DiagnosticType.error(JSC_DIVIDE_BY_0_ERROR, Divide by 0), right);
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78-fixed/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -708,14 +708,12 @@ class PeepholeFoldConstants extends AbstractPeepholeOptimization {
+         break;
+       case Token.MOD:
+         if (rval == 0) {
+-          error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR", "Divide by 0"), right);
+           return null;
+         }
+         result = lval % rval;
+         break;
+       case Token.DIV:
+         if (rval == 0) {
+-          error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR", "Divide by 0"), right);
+           return null;
+         }
+         result = lval / rval;

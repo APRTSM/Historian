@@ -1,4 +1,0 @@
-lang-33
-Lang33910avaj.slitUssalC3gnalsnommocehcapagroavajniamcrsyggub
--            classes[i] = array[i].getClass();
-+classes[i] = ((array[i] == null))?null:array[i].getClass();

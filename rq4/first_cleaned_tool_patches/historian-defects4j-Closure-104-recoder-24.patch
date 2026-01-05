@@ -1,4 +1,0 @@
-closure-104
-Closure104291avaj.epyTnoinUepytsjonihrtpircsavajelgoogmoccrsyggub
--    if (result != null) {
-+if(((result != null) && !result.isNoType())){
