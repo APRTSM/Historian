@@ -115,6 +115,19 @@ Ara 23 I added support for depricated bugs from defects4j15, check the configs. 
     tmp/results/rq1 includes extesnsive archvive of rq1 results.
 """
 
+""" Missing Experiments
+Evaluating the quality of APR tools in experimental settings presents a significant challenge. 
+A single bug often admits multiple semantically equivalent correct solutions, and APR tools typically generate numerous plausible patches that must be assessed. 
+Historian addresses this challenge through an evidence-based approach. 
+By matching candidate patches against a historically validated reference set, it can identify redundant patches and provide traceable verdicts backed by concrete precedent. 
+When a patch matches a known correct or overfitting solution, researchers can verify the verdict 
+through simple inspection of the matched reference rather than extensive manual analysis---saving substantial time in large-scale evaluations.
+
+ When a patch matches a known correct or overfitting solution, researchers can verify the verdict through simple inspection of the matched reference 
+ rather than extensive manual analysis---
+ saving substantial time in large-scale evaluations.
+"""
+
 
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
 def init(configure=True):
