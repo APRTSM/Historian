@@ -23,7 +23,7 @@ from rq4_llms import *
 
 
 def report_data(df):
-    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"Correct Tool Patches: {len(df[df['correctness'] == 'Correct'])}, Overfitting: {len(df[df['correctness'] == 'Overfitting'])}")
 
 
 
@@ -159,8 +159,32 @@ if __name__ == "__main__":
     """"""
     """"""
 
+    # Just force sudo
+    bugs, developer_patches, tool_patches = init(configure=False)
+    bug = bugs.loc['defects4j-Closure-63'].copy()
+    bug['uid'] = bug.name
+    checkout_dir = checkout_bug(bug)
+    if os.path.exists(checkout_dir):
+        shutil.rmtree(checkout_dir)
 
-    tool_1_name, tool_2_name = "recoder", "circle"
+
+    # tool_1_name, tool_2_name = "recoder", "circle"
+    # tool_1_name, tool_2_name = "recoder", "transplantfix"
+    tool_2_name, tool_1_name = "recoder", "circle"
+    # tool_2_name, tool_1_name = "recoder", "transplantfix"
+    selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
+    report_data(selected_tool_patches_1)
+    selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
+    report_data(selected_tool_patches_2)
+
+    results_df = assign_sourcerercc_labels(selected_tool_patches_1, selected_tool_patches_2)
+    results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl"))
+    results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
+
+    """"""
+
+    # tool_1_name, tool_2_name = "circle", "transplantfix"
+    tool_2_name, tool_1_name = "circle", "transplantfix"
     selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
     report_data(selected_tool_patches_1)
     selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
