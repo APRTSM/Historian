@@ -339,6 +339,10 @@ def iterate_patches_dlfix(bugs):
         
         index += 1
 
+    patches_df = pd.DataFrame(patches_list).set_index("uid")
+    patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
+
 
 def iterate_patches_fitrepair(bugs):
     tool = "fitrepair"
@@ -774,10 +778,10 @@ def iterate_patches_transplantfix(bugs):
 
 
 def iterate_patches(bugs):
-    iterate_patches_circle(bugs)
+    # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
     # iterate_patches_cure(bugs)
-    # iterate_patches_dlfix(bugs)
+    iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
     # iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
