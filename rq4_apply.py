@@ -212,10 +212,10 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
     print(f"📢 Successfully fixed {count_success} from {count_total} patches for tool: {tool_name}")
 
 def iterate_patches_tools(bugs):
-    iterate_patches_tool(bugs, "circle", "Circle", ignore=False)
+    # iterate_patches_tool(bugs, "circle", "Circle", ignore=False)
     # iterate_patches_tool(bugs, "alpharepair", "AlphaRepair")
     # iterate_patches_tool(bugs, "cure", "CURE")
-    # iterate_patches_tool(bugs, "dlfix", "DLFix")
+    iterate_patches_tool(bugs, "dlfix", "DLFix", ignore=False)
     # iterate_patches_tool(bugs, "fitrepair", "FitRepair")
     # iterate_patches_tool(bugs, "iter", "Iter")
     # iterate_patches_tool(bugs, "knod", "KNode")
