@@ -9,4 +9,3 @@
              } else {
                  int padLen = width - strLen;
                  str.getChars(0, strLen, buffer, size);
-

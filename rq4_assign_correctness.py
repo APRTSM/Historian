@@ -237,42 +237,108 @@ def iterate_patches_cure(bugs):
 def iterate_patches_dlfix(bugs):
     tool = "dlfix"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
-
     index = 0
-
+    patches_list = []
+    
+    # Store Closure_63 files to process at the end
+    deferred_files = []
+    
     # Iterate through subdirectories 
     for subdir in os.listdir(tool_path):
         subdir_path = os.path.join(tool_path, subdir)
-
         if not os.path.isdir(subdir_path):
             continue
-
         logging.info(f"Processing dlfix subdirectory: {subdir}")
-
+        
         for filename in os.listdir(subdir_path):
             filepath = os.path.join(subdir_path, filename)
-
+            
             # Check if ends with .txt
-            if not filename.endswith(".txt") or "Closure_63" in filename:
+            if not filename.endswith(".txt"):
                 logging.info(f"Skipping file: {filepath}")
                 continue
-
+            
+            # Defer Closure_63 to process at the end
+            if "Closure_63" in filename:
+                deferred_files.append((filename, filepath))
+                continue
+            
             # Extract bug identifier from filename
             bug_id = "-".join(filename.split('.')[0].split('_'))
-
+            
             # Set bug
             bug = bugs.loc[f"defects4j-{bug_id}"].copy()
             bug['uid'] = bug.name
-
+            
             # Set uid
             uid = f"historian-{bug.name}-{tool}-{index}"
+            
+            # ...
+            # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+            
+            location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
-            # Set locations
-            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+            if not os.path.exists(location):  
+                raise FileNotFoundError(f"Patch file not found: {location}")
 
-            # Run this once to copy paste the first cleaned patches
-            copy_paste(filepath, first_cleaned_location)
+            correctness = "Correct"
+
+            patch_dict = {
+                "uid": uid,
+                "bug_uid": bug.name,
+                "generator": tool,
+                "location": location,
+                "correctness": correctness,
+                "generator_id": tool,
+                "origin": "Historian",
+                "index": index
+            }
+
+            patches_list.append(patch_dict)
+            # copy_paste(filepath, first_cleaned_location)
+            # ...
+
             index += 1
+    
+    # Process deferred files (Closure_63) at the end
+    for filename, filepath in deferred_files:
+        # Extract bug identifier from filename
+        bug_id = "-".join(filename.split('.')[0].split('_'))
+        
+        # Set bug
+        bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+        bug['uid'] = bug.name
+        
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        
+        # ...
+        # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        
+        location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
+
+        if not os.path.exists(location):  
+            raise FileNotFoundError(f"Patch file not found: {location}")
+
+        correctness = "Correct"
+
+        patch_dict = {
+            "uid": uid,
+            "bug_uid": bug.name,
+            "generator": tool,
+            "location": location,
+            "correctness": correctness,
+            "generator_id": tool,
+            "origin": "Historian",
+            "index": index
+        }
+
+        patches_list.append(patch_dict)
+        # copy_paste(filepath, first_cleaned_location)
+        # ...
+        
+        index += 1
+
 
 def iterate_patches_fitrepair(bugs):
     tool = "fitrepair"
