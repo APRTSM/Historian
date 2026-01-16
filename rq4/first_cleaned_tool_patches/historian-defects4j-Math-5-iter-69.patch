@@ -1,11 +1,9 @@
---- a/src/main/java/org/apache/commons/math3/complex/Complex.java
-+++ b/src/main/java/org/apache/commons/math3/complex/Complex.java
-@@ -302,7 +302,7 @@
-                     }            
-                                 
-                                         if (real == 0.0 && imaginary == 0.0) {
-- return  NaN;  
-+ return  INF; 
-                     }            
-                                 
-                                         if (isInfinite) {
+
+Math5 -  FL is ranked in the 1 position(s) with a suspicious value: 1.0
+Number of failing tests: 1 
+Buggy Location: 305
+Patch Found in iteration 0 
+Repair Action: replace 
+ - return  NaN;  
+ + return  INF; 
+ --------------------------------------------------

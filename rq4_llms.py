@@ -15,6 +15,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 """ RQ5
+RQ4 is Time series
 This is the main file to preprocess and read the data for RQ4 LLMs.
 New patches are gathered from Historian dataset.
 Preprocessing functions are rewritten.
@@ -128,6 +129,37 @@ through simple inspection of the matched reference rather than extensive manual 
  saving substantial time in large-scale evaluations.
 """
 
+"""
+RQ3: Zero-Shot Performance of LLMs on Code Clone Detection
+rq3_zero_shot_plot_boxplot.py plots violin and box plot, calculates zero shot for those failed to regex detect. again 128 combination or sth
+
+"""
+
+
+"""
+    # Prompt Abbreviation Mapping:
+    # Prompt UIDAbbreviation
+    # llm4cc-clone_type-patch CC SCC
+    # llm4cc-integrated-patch CC I
+    # llm4cc-simple_prompt-patch-semantical SS S
+    # llm4cc-reasoning-patch-semantical SS R
+    # llm4cc-similarity_line-patch-semantical SS LS
+    # llm4cc-simple_prompt-patch-identical SI S
+    # llm4cc-reasoning-patch-identical SI R
+    # llm4cc-similarity_line-patch-identical SI LS
+
+    # Model Abbreviation Mapping:
+    # Model UID Abbreviation
+    # magicoder:7b-s-cl MC7B
+    # codellama:7b-instruct CL7B
+    # deepseek-coder:6.7b DSC6.7B
+    # codegemma:7b-instruct CG7B
+    # qwen2.5:7b QW7B
+    # qwen2.5-coder:7b QWC7B
+    # yi-coder:9b YC9B
+    # hermes3:8b H3-8B
+    # gemini-2.0-flash Gemini
+"""
 
 # Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
 def init(configure=True):

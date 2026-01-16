@@ -1,22 +1,25 @@
---- a/src/com/google/javascript/rhino/jstype/NamedType.java
-+++ b/src/com/google/javascript/rhino/jstype/NamedType.java
-@@ -187,4 +187,4 @@ 
-    // makes more sense. Now, resolution via registry is first in order to            
-                // avoid triggering the warnings built into the resolution via properties.            
-                        boolean resolved = resolveViaRegistry(t, enclosing);
+
+Partial patch is found in FL-1
+Buggy class:projects/Closure4/src/com/google/javascript/rhino/jstype/NamedType.java
+buggy location: 190, suspucious value: 0.16984155512168936
+Original failing tests: 3 -> Current failing tests: 1
+
 - if (detectImplicitPrototypeCycle()) { 
 + if(resolved) {
 
-@@ -187,4 +187,4 @@ 
-    // makes more sense. Now, resolution via registry is first in order to            
-                // avoid triggering the warnings built into the resolution via properties.            
-                        boolean resolved = resolveViaRegistry(t, enclosing);
+Partial patch is found in FL-1
+Buggy class:projects/Closure4/src/com/google/javascript/rhino/jstype/NamedType.java
+buggy location: 190, suspucious value: 0.16984155512168936
+Original failing tests: 3 -> Current failing tests: 1
+
 - if (detectImplicitPrototypeCycle()) { 
 + if(detectInheritanceCycle()) {
 
-@@ -199,4 +199,4 @@
-                 }            
-                                 
-                                     resolveViaProperties(t, enclosing);
-- if  (detectImplicitPrototypeCycle())  {  
-+ if(detectInheritanceCycle()  )  { 
+Closure4 -  FL is ranked in the FL-2 -  FL is ranked in the 39 position(s) with a suspicious value: 0.0
+Number of failing tests: 1 
+Buggy Location: 202
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (detectImplicitPrototypeCycle())  {  
+ + if(detectInheritanceCycle()  )  { 
+ --------------------------------------------------

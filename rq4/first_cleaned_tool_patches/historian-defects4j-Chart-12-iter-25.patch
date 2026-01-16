@@ -1,11 +1,9 @@
---- a/source/org/jfree/chart/plot/MultiplePiePlot.java
-+++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
-@@ -142,7 +142,7 @@
-                  */            
-                        public MultiplePiePlot(CategoryDataset dataset) {            
-                            super();
--  this.dataset = dataset;
-+  setDataset(dataset);
-                     PiePlot piePlot = new PiePlot(null);            
-                            this.pieChart = new JFreeChart(piePlot);            
-                            this.pieChart.removeLegend();
+
+Chart12 -  FL is ranked in the 6 position(s) with a suspicious value: 0.5
+Number of failing tests: 1 
+Buggy Location: 145
+
+Iteration: 0, Diagnostic: [FE] AssertionFailedError Repair Action: add 
+ -  this.dataset = dataset;
+ +  setDataset(dataset);
+

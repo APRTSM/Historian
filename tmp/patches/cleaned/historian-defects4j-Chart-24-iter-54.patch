@@ -1,5 +1,5 @@
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-24/source/org/jfree/chart/renderer/GrayPaintScale.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-24-fixed/source/org/jfree/chart/renderer/GrayPaintScale.java
+--- a/source/org/jfree/chart/renderer/GrayPaintScale.java
++++ b/source/org/jfree/chart/renderer/GrayPaintScale.java
 @@ -123,7 +123,6 @@ public class GrayPaintScale
      public Paint getPaint(double value) {
          double v = Math.max(value, this.lowerBound);

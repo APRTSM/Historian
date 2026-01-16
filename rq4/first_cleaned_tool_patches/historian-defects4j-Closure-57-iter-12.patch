@@ -1,11 +1,9 @@
---- a/src/com/google/javascript/jscomp/ClosureCodingConvention.java
-+++ b/src/com/google/javascript/jscomp/ClosureCodingConvention.java
-@@ -194,7 +194,7 @@
-                     String qualifiedName = callee.getQualifiedName();            
-                                         if (functionName.equals(qualifiedName)) {            
-                                           Node target = callee.getNext();
-- if  (target  !=  null)  {  
-+ if(target!=  null  &&  target.getType()  ==  Token.STRING)  { 
-                         className = target.getString();            
-                                           }            
-                                         }
+
+Closure57 -  FL is ranked in the Closure57 -  FL is ranked in the 9 position(s) with a suspicious value: 1.0
+Number of failing tests: 1 
+Buggy Location: 197
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (target  !=  null)  {  
+ + if(target!=  null  &&  target.getType()  ==  Token.STRING)  { 
+ --------------------------------------------------

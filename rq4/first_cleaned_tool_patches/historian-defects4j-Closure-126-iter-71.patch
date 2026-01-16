@@ -1,37 +1,25 @@
---- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
-+++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
-@@ -138,8 +138,6 @@ 
-                    * can cause problems if it changes the completion type of the finally            
-                                        * block. See ECMA 262 Sections 8.9 & 12.14            
-                                        */
--  Node elseBlock = n.getFirstChild();
--  tryMinimizeExits(finallyBlock, exitType, labelName);
-                 }            
-                                 
-                                     // Just a 'label'.
+Closure126 -  FL is ranked in the 2 position(s) with a suspicious value: 1.0
 
-@@ -138,7 +138,7 @@ 
-                    * can cause problems if it changes the completion type of the finally            
-                                        * block. See ECMA 262 Sections 8.9 & 12.14            
-                                        */
-- tryMinimizeExits(finallyBlock, exitType, labelName); 
-+ tryMinimizeExits(n, exitType, labelName);
-                 }            
-                                 
-                                     // Just a 'label'.
+Number of failing tests: 2 
+Buggy Location: 143
 
-@@ -138,3 +138,4 @@ 
-                    * can cause problems if it changes the completion type of the finally            
-                                        * block. See ECMA 262 Sections 8.9 & 12.14            
-                                        */
-+ tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); }
+Iteration: 0, Diagnostic: [FE] AssertionFailedError Repair Action: replace 
+ -  Node elseBlock = n.getFirstChild();
+ -  tryMinimizeExits(finallyBlock, exitType, labelName);
+ +  
+ ---------------------------------------------------------------------------
 
-@@ -138,7 +138,7 @@ 
-                    * can cause problems if it changes the completion type of the finally            
-                                        * block. See ECMA 262 Sections 8.9 & 12.14            
-                                        */
-- tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); } 
-+ if(finallyBlock == null) { tryMinimizeExits(n, exitType, labelName); } 
-                 }            
-                                 
-                                     // Just a 'label'.
+Closure126 -  FL is ranked in the 2 position(s) with a suspicious value: 1.0
+
+Number of failing tests: 2 
+Buggy Location: 143
+
+Iteration: 0, Diagnostic: [FE] StackOverflowError Repair Action: replace 
+ - tryMinimizeExits(finallyBlock, exitType, labelName); 
+ + tryMinimizeExits(n, exitType, labelName);
+Iteration: 1, Diagnostic: [CE] illegal start of type Repair Action: add 
+ + tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); }
+Iteration: 2, Repair Action: replace 
+ - tryMinimizeExits(n, exitType, labelName); tryMinimizeExits(n, exitType, labelName); } 
+ + if(finallyBlock == null) { tryMinimizeExits(n, exitType, labelName); } 
+ ----------------------------------------------------------------------------------------------------

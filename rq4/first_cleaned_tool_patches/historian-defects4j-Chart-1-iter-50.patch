@@ -1,11 +1,8 @@
---- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
-+++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
-@@ -1794,7 +1794,7 @@
-                     }            
-                int index = this.plot.getIndexOf(this);            
-                CategoryDataset dataset = this.plot.getDataset(index);
-- if  (dataset  !=  null)  {  
-+ if(dataset  ==  null)  { 
-            return result;            
-                        }            
-                        int seriesCount = dataset.getRowCount();
+Chart1 -  FL is ranked in the 9 position(s) with a suspicious value: 1.0
+
+Number of failing tests: 1 
+Buggy Location: 1797
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (dataset  !=  null)  {  
+ + if(dataset  ==  null)  { 

@@ -1,16 +1,13 @@
---- a/source/org/jfree/chart/plot/ValueMarker.java
-+++ b/source/org/jfree/chart/plot/ValueMarker.java
-@@ -92,4 +92,4 @@
-                  */            
-                    public ValueMarker(double value, Paint paint, Stroke stroke,             
-                        Paint outlinePaint, Stroke outlineStroke, float alpha) {
-- super(paint, stroke, paint, stroke, alpha); 
-+ super(paint, stroke, outlineStroke, alpha);
+Chart20/1
 
+Chart20 -  FL is ranked in the 1 position(s) with a suspicious value: 1.0
+Number of failing tests: 1 
+Buggy Location: 95
 
-@@ -92,4 +92,4 @@
-                  */            
-                    public ValueMarker(double value, Paint paint, Stroke stroke,             
-                        Paint outlinePaint, Stroke outlineStroke, float alpha) {
-- super(paint, stroke, outlineStroke, alpha); 
-+ super(paint, stroke, outlinePaint, outlineStroke, alpha); 
+Iteration: 0, Diagnostic: [CE] no suitable constructor found for Marker(Paint,Stroke,Stroke,float) Repair Action: replace 
+ - super(paint, stroke, paint, stroke, alpha); 
+ + super(paint, stroke, outlineStroke, alpha);
+Iteration: 1, Repair Action: replace 
+ - super(paint, stroke, outlineStroke, alpha); 
+ + super(paint, stroke, outlinePaint, outlineStroke, alpha); 
+ ----------------------------------------------------------------------------------------------------

@@ -1,11 +1,9 @@
---- a/src/com/google/javascript/jscomp/NodeUtil.java
-+++ b/src/com/google/javascript/jscomp/NodeUtil.java
-@@ -2462,7 +2462,7 @@
-                     // TODO(nicksantos): This needs to be changed so that it            
-                                         // returns true iff we're sure the value was never aliased from inside            
-                                         // the constructor (similar to callHasLocalResult)
-- return  true;  
-+ return  false; 
-                   case Token.FUNCTION:            
-                                       case Token.REGEXP:            
-                                       case Token.ARRAYLIT:
+Closure86 -  FL is ranked in the 2 position(s) with a suspicious value: 0.6236095644623235
+
+
+Number of failing tests: 7 
+Buggy Location: 2465
+Patch Found in iteration 0 
+Repair Action: replace 
+ - return  true;  
+ + return  false; 

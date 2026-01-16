@@ -1,20 +1,17 @@
---- a/src/com/google/javascript/jscomp/CodeConsumer.java
-+++ b/src/com/google/javascript/jscomp/CodeConsumer.java
-@@ -242,7 +242,7 @@
-                 // x--4 (which is a syntax error).            
-                                     char prev = getLastChar();            
-                                     boolean negativeZero = isNegativeZero(x);
-- if  (x  <  0  &&  prev  ==  '-')  {  
-+ if  (prev  <  0  ||  prev  ==  '-')  { 
-                   add(" ");            
-                                     }            
-                     
-@@ -242,7 +242,7 @@
-                 // x--4 (which is a syntax error).            
-                                     char prev = getLastChar();            
-                                     boolean negativeZero = isNegativeZero(x);
-- if  (x  <  0  &&  prev  ==  '-')  {  
-+ if  (x  <=  0  &&  prev  ==  '-')  { 
-                       add(" ");            
-                                     }            
-                     
+
+Closure38 -  FL is ranked in the 6 position(s) with a suspicious value: 0.19245008972987526
+Number of failing tests: 1 
+Buggy Location: 245
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (x  <  0  &&  prev  ==  '-')  {  
+ + if  (prev  <  0  ||  prev  ==  '-')  { 
+ --------------------------------------------------
+ Closure38 -  FL is ranked in the 6 position(s) with a suspicious value: 0.19245008972987526
+Number of failing tests: 1 
+Buggy Location: 245
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (x  <  0  &&  prev  ==  '-')  {  
+ + if  (x  <=  0  &&  prev  ==  '-')  { 
+ --------------------------------------------------

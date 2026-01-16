@@ -1,7 +1,10 @@
---- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
-+++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
-@@ -95,3 +95,3 @@
-        // charno == sourceExpert.length() means something is missing
-        // at the end of the line
-- if  (excerpt.equals(LINE)  &&  0  <=  charno  &&  charno  <  sourceExcerpt.length())  {  
-+ if(excerpt.equals(LINE) &&  0  <=  charno  &&  charno  <=  sourceExcerpt.length())  { 
+Closure62 -  FL is ranked in the 26 position(s) with a suspicious value: 0.7071067811865475
+
+
+Number of failing tests: 2 
+Buggy Location: 97
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (excerpt.equals(LINE)  &&  0  <=  charno  &&  charno  <  sourceExcerpt.length())  {  
+ + if(excerpt.equals(LINE) &&  0  <=  charno  &&  charno  <=  sourceExcerpt.length())  { 
+  ----------------------------------------------------------------------------------------------------

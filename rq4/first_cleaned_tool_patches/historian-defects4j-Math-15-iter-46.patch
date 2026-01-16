@@ -1,16 +1,14 @@
---- a/src/main/java/org/apache/commons/math3/util/FastMath.java
-+++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
-@@ -1538,4 +1539,4 @@
-                     /* Handle special case x<0 */            
-                                         if (x < 0) {            
-                                             // y is an even integer in this case
-- if (y >= TWO_POWER_52 || y <= -TWO_POWER_52) {
-+ if (y >= TWO_POWER_52 * 2 || y <= -TWO_POWER_52) {
+
+  ----------------------------------------------------------------------------------------------------
+Math15 -  FL is ranked in the 2 position(s) with a suspicious value: 1.0
 
 
-@@ -1538,4 +1539,4 @@
-                     /* Handle special case x<0 */            
-                                         if (x < 0) {            
-                                             // y is an even integer in this case
-- if (y >= TWO_POWER_52 || y <= -TWO_POWER_52) {
-+ if (y >= TWO_POWER_52 * 2 || y <= -TWO_POWER_52*2) {
+Number of failing tests: 1 
+Buggy Location: 1541
+Patch Found in iteration 1 
+Repair Action: replace 
+ - if (y >= TWO_POWER_52 || y <= -TWO_POWER_52) {
+ + if (y >= TWO_POWER_52 * 2 || y <= -TWO_POWER_52) {
+Repair Action: replace 
+ - if (y >= TWO_POWER_52 || y <= -TWO_POWER_52) {
+ + if (y >= TWO_POWER_52 * 2 || y <= -TWO_POWER_52*2) {

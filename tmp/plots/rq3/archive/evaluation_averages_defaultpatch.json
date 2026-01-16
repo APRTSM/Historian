@@ -1,0 +1,6 @@
+{
+    "avg_regex_portion_yes_no": 0.5592387577668276,
+    "avg_regex_portion_clone_type": 0.23810999652644405,
+    "avg_zero_shot_acc_yes_no": 0.9406041596597701,
+    "avg_zero_shot_acc_clone_type": 0.5380957640727984
+}

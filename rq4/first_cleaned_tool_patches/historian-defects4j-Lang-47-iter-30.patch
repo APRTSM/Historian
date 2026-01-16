@@ -1,16 +1,17 @@
---- a/src/java/org/apache/commons/lang/text/StrBuilder.java
-+++ b/src/java/org/apache/commons/lang/text/StrBuilder.java
-@@ -1183,4 +1183,4 @@
-                     if (width > 0) {            
-                                             ensureCapacity(size + width);            
-                                             String str = (obj == null ? getNullText() : obj.toString());
+
+Partial patch is found in FL-1
+Buggy class:projects/Lang47/src/java/org/apache/commons/lang/text/StrBuilder.java
+buggy location: 1186, suspucious value: 0.7071067811865475
+Original failing tests: 2 -> Current failing tests: 1
+
 - 
 +    if (str== null ){ str = ""; }
 
-
-@@ -1227,4 +1230,4 @@
-                     if (width > 0) {            
-                                             ensureCapacity(size + width);            
-                                             String str = (obj == null ? getNullText() : obj.toString());
-- 
-+       if  (str==  null  ){  str  =   " ";  } 
+Lang47 -  FL is ranked in the FL-2 -  FL is ranked in the 4 position(s) with a suspicious value: 1.0
+Number of failing tests: 1 
+Buggy Location: 1231
+Patch Found in iteration 0 
+Repair Action: add 
+ - 
+ +       if  (str==  null  ){  str  =   " ";  } 
+ --------------------------------------------------

@@ -450,6 +450,7 @@ if __name__ == "__main__":
         "qwen2.5-coder:7b",
         "yi-coder:9b",
         "hermes3:8b"
+        # "gemini-flash"
     ]
 
     input_prompts = [

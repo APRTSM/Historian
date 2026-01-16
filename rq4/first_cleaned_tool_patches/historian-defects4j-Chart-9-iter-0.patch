@@ -1,11 +1,9 @@
---- a/source/org/jfree/data/time/TimeSeries.java
-+++ b/source/org/jfree/data/time/TimeSeries.java
-@ -941,7 +941,7 @@
-                         endIndex = -(endIndex + 1); // this is first item AFTER end period            
-                                             endIndex = endIndex - 1;    // so this is last item BEFORE end            
-                                         }
-- if  (endIndex  <  0)  {  
-+ if(startIndex  >  endIndex)  { 
-                         emptyRange = true;            
-                                         }            
-                                         if (emptyRange) {
+
+Chart9 -  FL is ranked in the 14 position(s) with a suspicious value: 0.7071067811865475
+Number of failing tests: 1 
+Buggy Location: 944
+Patch Found in iteration 0 
+Repair Action: replace 
+ - if  (endIndex  <  0)  {  
+ + if(startIndex  >  endIndex)  { 
+ --------------------------------------------------

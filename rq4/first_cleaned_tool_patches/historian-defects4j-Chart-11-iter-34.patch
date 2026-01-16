@@ -1,11 +1,9 @@
---- a/source/org/jfree/chart/util/ShapeUtilities.java
-+++ b/source/org/jfree/chart/util/ShapeUtilities.java
-@@ -272,7 +272,7 @@
-                         return false;            
-                        }            
-                        PathIterator iterator1 = p1.getPathIterator(null);
-- PathIterator  iterator2  =  p1.getPathIterator(null);  
-+ PathIterator  iterator2  =  p2.getPathIterator(null); 
-                     double[] d1 = new double[6];            
-                        double[] d2 = new double[6];            
-                        boolean done = iterator1.isDone() && iterator2.isDone();
+Chart11 -  FL is ranked in the 5 position(s) with a suspicious value: 0.7071067811865475
+
+
+Number of failing tests: 1 
+Buggy Location: 275
+Patch Found in iteration 0 
+Repair Action: replace 
+ - PathIterator  iterator2  =  p1.getPathIterator(null);  
+ + PathIterator  iterator2  =  p2.getPathIterator(null); 
