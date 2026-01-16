@@ -132,6 +132,8 @@ through simple inspection of the matched reference rather than extensive manual 
 """
 RQ3: Zero-Shot Performance of LLMs on Code Clone Detection
 rq3_zero_shot_plot_boxplot.py plots violin and box plot, calculates zero shot for those failed to regex detect. again 128 combination or sth
+rq3_zeroshot.py calculates zero-shot accuracy and f1 json files and rq3_zeroshot_plots.py calculates the tables.
+
 
 """
 
