@@ -201,10 +201,15 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
 
                 break
 
-            input("Press enter key to try again.")
+            inp = input("Press enter key to try again.")
 
             if os.path.exists(checkout_dir):
                 shutil.rmtree(checkout_dir)
+
+            if inp.lower().strip() == "i":
+                print("Ignoring this patch... 🛑")
+                
+                break
 
             print("-"*20 + "\n")
 
