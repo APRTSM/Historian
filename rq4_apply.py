@@ -208,7 +208,9 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
 
             if inp.lower().strip() == "i":
                 print("Ignoring this patch... 🛑")
-                
+
+                # count_success += 1
+
                 break
 
             print("-"*20 + "\n")

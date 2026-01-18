@@ -343,7 +343,6 @@ def iterate_patches_dlfix(bugs):
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
     patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
-
 def iterate_patches_fitrepair(bugs):
     tool = "fitrepair"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
@@ -384,40 +383,101 @@ def iterate_patches_fitrepair(bugs):
 def iterate_patches_iter(bugs):
     tool = "iter"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
-
     index = 0
-
+    patches_list = []
+    
+    # Store Closure-63 files to process at the end
+    deferred_files = []
+    
     # Iterate through subdirectories 
     for subdir in os.listdir(tool_path):
         subdir_path = os.path.join(tool_path, subdir)
-
         logging.info(f"Processing iter subdirectory: {subdir}")
-
+        
         for filename in os.listdir(subdir_path):
             # Extract bug identifier from filename
             project, bug_number = re.match(r"([a-zA-Z]+)(\d+)", subdir).groups()
             bug_id = f"{project}-{bug_number}"
-
             filepath = os.path.join(subdir_path, filename)
-
+            
             # Check if ends with .txt
-            if not filename.endswith(".txt") or bug_id == "Closure-63":
+            if not filename.endswith(".txt"):
                 logging.info(f"Skipping file: {filepath}")
                 continue
-
+            
+            # Defer Closure-63 to process at the end
+            if bug_id == "Closure-63":
+                deferred_files.append((filename, filepath, bug_id))
+                continue
+            
             # Set bug
             bug = bugs.loc[f"defects4j-{bug_id}"].copy()
             bug['uid'] = bug.name
-
+            
             # Set uid
             uid = f"historian-{bug.name}-{tool}-{index}"
+            
+            # ...
+            # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+            
+            location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
-            # Set locations
-            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+            if not os.path.exists(location):  
+                raise FileNotFoundError(f"Patch file not found: {location}")
 
-            # Run this once to copy paste the first cleaned patches
-            copy_paste(filepath, first_cleaned_location)
+            correctness = "Correct"
+
+            patch_dict = {
+                "uid": uid,
+                "bug_uid": bug.name,
+                "generator": tool,
+                "location": location,
+                "correctness": correctness,
+                "generator_id": tool,
+                "origin": "Historian",
+                "index": index
+            }
+
+            patches_list.append(patch_dict)
+            # copy_paste(filepath, first_cleaned_location)
+            # ...
+
             index += 1
+    
+    # Process deferred files (Closure-63) at the end
+    for filename, filepath, bug_id in deferred_files:
+        # Set bug
+        bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+        bug['uid'] = bug.name
+        
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        
+        # ...
+        # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        
+        location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
+
+        if not os.path.exists(location):  
+            raise FileNotFoundError(f"Patch file not found: {location}")
+
+        correctness = "Correct"
+
+        patch_dict = {
+            "uid": uid,
+            "bug_uid": bug.name,
+            "generator": tool,
+            "location": location,
+            "correctness": correctness,
+            "generator_id": tool,
+            "origin": "Historian",
+            "index": index
+        }
+
+        patches_list.append(patch_dict)
+        # copy_paste(filepath, first_cleaned_location)
+        # ...
+        index += 1
 
 def iterate_patches_knod(bugs):
     tool = "knod"
@@ -781,9 +841,9 @@ def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
     # iterate_patches_cure(bugs)
-    iterate_patches_dlfix(bugs)
+    # iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
-    # iterate_patches_iter(bugs)
+    iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
     # iterate_patches_recoder(bugs)
