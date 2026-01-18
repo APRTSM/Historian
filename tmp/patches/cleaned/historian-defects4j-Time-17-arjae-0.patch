@@ -1,0 +1,12 @@
+diff -w -r -u Time17b/src/main/java/org/joda/time/DateTimeZone.java Time17b_Patch/src/main/java/org/joda/time/DateTimeZone.java
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
+@@ -1172,7 +1172,7 @@
+         
+         // work out range of instants that have duplicate local times
+         long local = convertUTCToLocal(instant);
+-        return convertLocalToUTC(local, false, earlierOrLater ? instantAfter : instantBefore);
++        return convertLocalToUTC(local, false, earlierOrLater ? hashCode() : instantBefore);
+         
+         // calculate result
+           // currently in later offset

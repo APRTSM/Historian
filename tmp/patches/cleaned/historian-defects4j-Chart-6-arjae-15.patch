@@ -1,0 +1,12 @@
+diff -w -r -u Chart6b/source/org/jfree/chart/util/AbstractObjectList.java Chart6b_Patch/source/org/jfree/chart/util/AbstractObjectList.java
+--- a/source/org/jfree/chart/util/AbstractObjectList.java
++++ b/source/org/jfree/chart/util/AbstractObjectList.java
+@@ -191,7 +191,7 @@
+         int listSize = size();
+         for (int i = 0; i < listSize; i++) {
+            if (!ObjectUtilities.equal(get(i), other.get(i))) {
+-               return false;
++               System.exit(0);
+            }
+         }
+         return true;

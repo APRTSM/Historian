@@ -1,0 +1,17 @@
+diff -w -r -u Lang46b/src/java/org/apache/commons/lang/StringEscapeUtils.java Lang46b_Patch/src/java/org/apache/commons/lang/StringEscapeUtils.java
+--- a/src/java/org/apache/commons/lang/StringEscapeUtils.java
++++ b/src/java/org/apache/commons/lang/StringEscapeUtils.java
+@@ -241,8 +241,13 @@
+                         out.write('\\');
+                         break;
+                     case '/' :
++					;
++					{
++						if (escapeSingleQuote) {
+                             out.write('\\');
++						}
+                         out.write('/');
++					}
+                         break;
+                     default :
+                         out.write(ch);

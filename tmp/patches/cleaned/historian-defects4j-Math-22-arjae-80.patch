@@ -1,0 +1,24 @@
+diff -w -r -u Math22b/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java Math22b_Patch/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java
+--- a/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java
+@@ -181,7 +181,7 @@
+ 
+     /** {@inheritDoc} */
+     public boolean isSupportUpperBoundInclusive() {
+-        return false;
++        return true;
+     }
+ 
+     /**
+diff -w -r -u Math22b/src/main/java/org/apache/commons/math3/distribution/FDistribution.java Math22b_Patch/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
+--- a/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
+@@ -272,7 +272,7 @@
+ 
+     /** {@inheritDoc} */
+     public boolean isSupportLowerBoundInclusive() {
+-        return true;
++        return false;
+     }
+ 
+     /** {@inheritDoc} */

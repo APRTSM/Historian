@@ -1,0 +1,13 @@
+diff -w -r -u Lang45b/src/java/org/apache/commons/lang/WordUtils.java Lang45b_Patch/src/java/org/apache/commons/lang/WordUtils.java
+--- a/src/java/org/apache/commons/lang/WordUtils.java
++++ b/src/java/org/apache/commons/lang/WordUtils.java
+@@ -618,8 +618,7 @@
+         if (upper == -1 || upper > str.length()) {
+             upper = str.length();
+         }
+-        // if upper is less than lower, raise it to lower
+-        if (upper < lower) {
++        if (upper < lower && upper != str.length()) {
+             upper = lower;
+         }
+ 

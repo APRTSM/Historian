@@ -849,6 +849,73 @@ def iterate_patches_transplantfix(bugs):
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
     patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
+def iterate_patches_arja(bugs):
+    tool = "arjae"
+    tool_path = os.path.join(RQ4_DATA_DIR, tool, "patches")
+    index = 0
+
+    patches_list = []
+
+    for filename in os.listdir(tool_path):
+        filepath = os.path.join(tool_path, filename)
+
+        # Skip non-patch files
+        if filename.endswith(".md"):
+            logging.info(f"Skipping file: {filepath}")
+            continue
+
+        # Extract bug identifier from filename
+        bug_id = '-'.join(filename.split('_'))
+
+        # Set bug
+        bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+        bug['uid'] = bug.name
+
+        # Set uid
+        uid = f"historian-{bug.name}-{tool}-{index}"
+
+        location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
+
+        if not os.path.exists(location):  
+            raise FileNotFoundError(f"Patch file not found: {location}")
+        
+        correctness = "Overfitting"
+
+        # 7 bugs for Chart: C3, C4, C5, C10, C11, C12, C24 \
+        # 9 bugs for Lang: L7, L20, L24, L33, L34, L39, L43, L44, L61 \
+        # 21 bugs for Math: M4, M5, M11, M22, M25, M30, M34, M39, M53, M56, M57, M58, M65, M70, M73, M75, M79, M86, M89, M94, M98 \
+        # 2 bugs for Time: T7, T15
+
+        bug_project, bug_number = filename.split('_')
+
+        if bug_project == "Chart" and bug_number in ["3", "4", "5", "10", "11", "12", "24"]:
+            correctness = "Correct"
+        elif bug_project == "Lang" and bug_number in ["7", "20", "24", "33", "34", "39", "43", "44", "61"]:
+            correctness = "Correct"
+        elif bug_project == "Math" and bug_number in ["4", "5", "11", "22", "25", "30", "34", "39", "53", "56", "57", "58", "65", "70", "73", "75", "79", "86", "89", "94", "98"]:
+            correctness = "Correct"
+        elif bug_project == "Time" and bug_number in ["7", "15"]:
+            correctness = "Correct"
+
+        patch_dict = {
+            "uid": uid,
+            "bug_uid": bug.name,
+            "generator": tool,
+            "location": location,
+            "correctness": correctness,
+            "generator_id": tool,
+            "origin": "Historian",
+            "index": index
+        }
+
+        patches_list.append(patch_dict)
+
+        index += 1
+
+    patches_df = pd.DataFrame(patches_list).set_index("uid")
+    patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
+
 
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
@@ -856,7 +923,7 @@ def iterate_patches(bugs):
     # iterate_patches_cure(bugs)
     # iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
-    iterate_patches_iter(bugs)
+    # iterate_patches_iter(bugs)
     # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
     # iterate_patches_recoder(bugs)
@@ -864,6 +931,7 @@ def iterate_patches(bugs):
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
+    iterate_patches_arja(bugs)
 
     pass
 

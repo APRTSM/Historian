@@ -1,0 +1,18 @@
+diff -w -r -u Math40b/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java Math40b_Patch/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+@@ -261,6 +261,14 @@
+                         // we have more points before the sign change, drop the lowest point
+                         ++start;
+                     } else {
++                        if (!((nextX > xA) && (nextX < xB))) {
++							if (signChangeIndex - start >= end - signChangeIndex) {
++								++start;
++							} else {
++								--end;
++							}
++							nextX = Double.NaN;
++						}
+                         // we have more points after sign change, drop the highest point
+                         --end;
+                     }

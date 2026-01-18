@@ -1,0 +1,12 @@
+diff -w -r -u Chart4b/source/org/jfree/chart/plot/XYPlot.java Chart4b_Patch/source/org/jfree/chart/plot/XYPlot.java
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4490,6 +4490,8 @@
+                     }
+                 }
+                 
++                    if (!(r != null))
++					continue;
+                     Collection c = r.getAnnotations();
+                     Iterator i = c.iterator();
+                     while (i.hasNext()) {

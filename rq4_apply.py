@@ -224,7 +224,7 @@ def iterate_patches_tools(bugs):
     # iterate_patches_tool(bugs, "cure", "CURE")
     # iterate_patches_tool(bugs, "dlfix", "DLFix", ignore=False)
     # iterate_patches_tool(bugs, "fitrepair", "FitRepair")
-    iterate_patches_tool(bugs, "iter", "Iter", ignore=False)
+    # iterate_patches_tool(bugs, "iter", "Iter", ignore=False)
     # iterate_patches_tool(bugs, "knod", "KNode")
     # iterate_patches_tool(bugs, "rapgen", "RapGen")
     # iterate_patches_tool(bugs, "recoder", "Recoder", ignore=False)
@@ -232,6 +232,7 @@ def iterate_patches_tools(bugs):
     # iterate_patches_tool(bugs, "tare", "Tare")
     # iterate_patches_tool(bugs, "tenure", "Tenure")
     # iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
+    iterate_patches_tool(bugs, "arjae", "ARJAe", ignore=False)
 
     pass
 

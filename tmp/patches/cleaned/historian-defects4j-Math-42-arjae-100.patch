@@ -1,0 +1,12 @@
+diff -w -r -u Math42b/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java Math42b_Patch/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+--- a/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
++++ b/src/main/java/org/apache/commons/math/optimization/linear/SimplexTableau.java
+@@ -313,7 +313,7 @@
+             final double entry = getEntry(i, col);
+             if (Precision.equals(entry, 1d, maxUlps) && (row == null)) {
+                 row = i;
+-            } else if (!Precision.equals(entry, 0d, maxUlps)) {
++            } else if (!Precision.equals(entry, 0d, maxUlps) && i < constraints.size()) {
+                 return null;
+             }
+         }
