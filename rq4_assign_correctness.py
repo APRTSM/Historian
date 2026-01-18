@@ -422,6 +422,13 @@ def iterate_patches_iter(bugs):
             
             location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
+            # 
+            if "historian-defects4j-JacksonCore-6-iter-7.patch" in location or "historian-defects4j-JacksonCore-12-iter-70.patch" in location:
+                print(f"Found problematic patch: {location}")
+                index += 1
+
+                break
+
             if not os.path.exists(location):  
                 raise FileNotFoundError(f"Patch file not found: {location}")
 
@@ -477,7 +484,13 @@ def iterate_patches_iter(bugs):
         patches_list.append(patch_dict)
         # copy_paste(filepath, first_cleaned_location)
         # ...
+
         index += 1
+    
+    patches_df = pd.DataFrame(patches_list).set_index("uid")
+    patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
+
 
 def iterate_patches_knod(bugs):
     tool = "knod"
