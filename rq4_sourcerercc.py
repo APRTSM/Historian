@@ -116,81 +116,81 @@ def get_selected_tool_patches(selected_tool_name):
     return selected_tool_patches
 
 
+def get_sourcerercc_labels(tool_1_name, tool_2_name):
+    selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
+    report_data(selected_tool_patches_1)
+    selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
+    report_data(selected_tool_patches_2)
+
+    if os.path.exists(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl")):
+        print(f"✅ SourcererCC labels already exist for {tool_1_name} vs {tool_2_name}.")
+    
+    else:
+        results_df = assign_sourcerercc_labels(selected_tool_patches_1, selected_tool_patches_2)
+        results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl"))
+        results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
+
+    print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
+
 if __name__ == "__main__":
-    bugs, developer_patches, tool_patches = init(configure=False)
-
-    # selected_tool_name = "transplantfix"
-    # selected_tool_name = "recoder"
-    # selected_tool_name = "circle"
-    selected_tool_name = "dlfix"
-
-    selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
-
-    print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-
-    selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches_cleaned.pkl"))
-    
-    print(f"CLEANED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-
-    selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_method_patches.pkl"))
-    
-    print(f"METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-
-    selected_tool_patches = normalize_names_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_normalized_patches.pkl"))
-    
-    print(f"NORMALIZED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-    
-    selected_tool_patches = get_single_methods_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_single_hunk_patches.pkl"))
-    
-    print(f"SINGLE METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-    
-    selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
-
-    print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
-
-    # Load deduplicated tool patches
-    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
-    
-    results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
-    results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
-    results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
-
-    """"""
-    """"""
-    """"""
-
-    # # Just force sudo
     # bugs, developer_patches, tool_patches = init(configure=False)
-    # bug = bugs.loc['defects4j-Closure-63'].copy()
-    # bug['uid'] = bug.name
-    # checkout_dir = checkout_bug(bug)
-    # if os.path.exists(checkout_dir):
-    #     shutil.rmtree(checkout_dir)
+
+    # # selected_tool_name = "transplantfix"
+    # # selected_tool_name = "recoder"
+    # # selected_tool_name = "circle"
+    # # selected_tool_name = "dlfix"
+    # selected_tool_name = "iter"
+
+    # selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
+
+    # print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+
+    # selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches_cleaned.pkl"))
+    
+    # print(f"CLEANED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+
+    # selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_method_patches.pkl"))
+    
+    # print(f"METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+
+    # selected_tool_patches = normalize_names_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_normalized_patches.pkl"))
+    
+    # print(f"NORMALIZED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    
+    # selected_tool_patches = get_single_methods_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_single_hunk_patches.pkl"))
+    
+    # print(f"SINGLE METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    
+    # selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
+
+    # print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+
+    # # Load deduplicated tool patches
+    # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    # print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    
+    # results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
+    # results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
+    # results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+
+    """"""
+    """"""
+    """"""
+
+    # Just force sudo
+    bugs, developer_patches, tool_patches = init(configure=False)
+    bug = bugs.loc['defects4j-Closure-63'].copy()
+    bug['uid'] = bug.name
+    checkout_dir = checkout_bug(bug)
+    if os.path.exists(checkout_dir):
+        shutil.rmtree(checkout_dir)
 
 
-    # # tool_1_name, tool_2_name = "recoder", "circle"
-    # # tool_1_name, tool_2_name = "recoder", "transplantfix"
-    # tool_2_name, tool_1_name = "recoder", "circle"
-    # # tool_2_name, tool_1_name = "recoder", "transplantfix"
-    # selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
-    # report_data(selected_tool_patches_1)
-    # selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
-    # report_data(selected_tool_patches_2)
+    get_sourcerercc_labels("dlfix", "recoder")
+    get_sourcerercc_labels("dlfix", "circle")
+    get_sourcerercc_labels("dlfix", "transplantfix")
+    get_sourcerercc_labels("dlfix", "iter")
+    
+    
+    """"""
 
-    # results_df = assign_sourcerercc_labels(selected_tool_patches_1, selected_tool_patches_2)
-    # results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl"))
-    # results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
-
-    # """"""
-
-    # # tool_1_name, tool_2_name = "circle", "transplantfix"
-    # tool_2_name, tool_1_name = "circle", "transplantfix"
-    # selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
-    # report_data(selected_tool_patches_1)
-    # selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
-    # report_data(selected_tool_patches_2)
-
-    # results_df = assign_sourcerercc_labels(selected_tool_patches_1, selected_tool_patches_2)
-    # results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl"))
-    # results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))

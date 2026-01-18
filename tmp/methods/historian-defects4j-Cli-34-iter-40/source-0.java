@@ -1,0 +1,6 @@
+    public static OptionBuilder hasArgs()
+    {
+        OptionBuilder.numberOfArgs = Option.UNLIMITED_VALUES;
+
+        return instance;
+    }
