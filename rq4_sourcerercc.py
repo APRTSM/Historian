@@ -161,6 +161,68 @@ def get_bar_scores(tool_name, other_tools):
         matched_overfitting = len(overfitting_selected_tool_patches[overfitting_selected_tool_patches['match'] == True])    
         print(f"Matched Correct: {matched_correct}, Matched Overfitting: {matched_overfitting}")
 
+def get_bar_scores_detailed(tool_name, other_tools):
+    """
+    Reports matches with baseline, added tools, and both (intersection).
+    - Baseline: matches from {tool_name}_sourcerercc_labels.pkl (vs TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    - Added tools: matches from {other_tool}_{tool_name}_sourcerercc_labels.pkl
+    """
+    selected_tool_patches = get_selected_tool_patches(tool_name).copy()
+    
+    # Initialize columns
+    selected_tool_patches["match_baseline"] = False
+    selected_tool_patches["match_added_tools"] = False
+    
+    # 1. Check matches with BASELINE (original tool_patches from TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    baseline_labels_path = os.path.join(RQ4_META_DATA_DIR, f"{tool_name}_sourcerercc_labels.pkl")
+    if os.path.exists(baseline_labels_path):
+        baseline_df = pd.read_pickle(baseline_labels_path)
+        for idx, row in selected_tool_patches.iterrows():
+            uid = row.name
+            match_row = baseline_df[baseline_df['uid'] == uid]
+            if not match_row.empty and match_row.iloc[0]['sourcerercc_label'] == True:
+                selected_tool_patches.at[idx, 'match_baseline'] = True
+    else:
+        print(f"Warning: Baseline labels not found at {baseline_labels_path}")
+    
+    # 2. Check matches with ADDED TOOLS
+    for other_tool in other_tools:
+        pair_info_dir = os.path.join(RQ4_META_DATA_DIR, f"{other_tool}_{tool_name}_sourcerercc_labels.pkl")
+        if not os.path.exists(pair_info_dir):
+            print(f"Warning: {pair_info_dir} not found")
+            continue
+        results_df = pd.read_pickle(pair_info_dir)
+        for idx, row in selected_tool_patches.iterrows():
+            uid = row.name
+            match_row = results_df[results_df['uid'] == uid]
+            if not match_row.empty and match_row.iloc[0]['sourcerercc_label'] == True:
+                selected_tool_patches.at[idx, 'match_added_tools'] = True
+    
+    # Calculate categories for CORRECT
+    correct = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
+    c_baseline_only = len(correct[(correct['match_baseline'] == True) & (correct['match_added_tools'] == False)])
+    c_added_only = len(correct[(correct['match_baseline'] == False) & (correct['match_added_tools'] == True)])
+    c_both = len(correct[(correct['match_baseline'] == True) & (correct['match_added_tools'] == True)])
+    c_total = len(correct)
+    
+    # Calculate categories for OVERFITTING
+    overfitting = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
+    o_baseline_only = len(overfitting[(overfitting['match_baseline'] == True) & (overfitting['match_added_tools'] == False)])
+    o_added_only = len(overfitting[(overfitting['match_baseline'] == False) & (overfitting['match_added_tools'] == True)])
+    o_both = len(overfitting[(overfitting['match_baseline'] == True) & (overfitting['match_added_tools'] == True)])
+    o_total = len(overfitting)
+    
+    print("="*60)
+    print(f"Tool: {tool_name}")
+    print(f"CORRECT (n={c_total}): Baseline={c_baseline_only}, Added={c_added_only}, Both={c_both}, Total Matched={c_baseline_only+c_added_only+c_both}")
+    print(f"OVERFITTING (n={o_total}): Baseline={o_baseline_only}, Added={o_added_only}, Both={o_both}, Total Matched={o_baseline_only+o_added_only+o_both}")
+    
+    return {
+        'tool': tool_name,
+        'c_total': c_total, 'c_baseline_only': c_baseline_only, 'c_added_only': c_added_only, 'c_both': c_both,
+        'o_total': o_total, 'o_baseline_only': o_baseline_only, 'o_added_only': o_added_only, 'o_both': o_both,
+    }
+
 if __name__ == "__main__":
     bugs, developer_patches, tool_patches = init(configure=False)
 
@@ -212,43 +274,45 @@ if __name__ == "__main__":
     """"""
     """"""
 
-    # Just force sudo
-    bugs, developer_patches, tool_patches = init(configure=False)
-    bug = bugs.loc['defects4j-Closure-63'].copy()
-    bug['uid'] = bug.name
-    checkout_dir = checkout_bug(bug)
-    if os.path.exists(checkout_dir):
-        shutil.rmtree(checkout_dir)
+    # # Just force sudo
+    # bugs, developer_patches, tool_patches = init(configure=False)
+    # bug = bugs.loc['defects4j-Closure-63'].copy()
+    # bug['uid'] = bug.name
+    # checkout_dir = checkout_bug(bug)
+    # if os.path.exists(checkout_dir):
+    #     shutil.rmtree(checkout_dir)
 
 
-    get_sourcerercc_labels("dlfix", "recoder")
-    get_sourcerercc_labels("dlfix", "circle")
-    get_sourcerercc_labels("dlfix", "transplantfix")
-    get_sourcerercc_labels("dlfix", "iter")
-    get_sourcerercc_labels("dlfix", "t5apr")
+    # get_sourcerercc_labels("dlfix", "recoder")
+    # get_sourcerercc_labels("dlfix", "circle")
+    # get_sourcerercc_labels("dlfix", "transplantfix")
+    # get_sourcerercc_labels("dlfix", "iter")
+    # get_sourcerercc_labels("dlfix", "t5apr")
 
-    get_sourcerercc_labels("arjae", "recoder")
-    get_sourcerercc_labels("arjae", "circle")
-    get_sourcerercc_labels("arjae", "transplantfix")
-    get_sourcerercc_labels("arjae", "iter")
-    get_sourcerercc_labels("arjae", "t5apr")
+    # get_sourcerercc_labels("arjae", "recoder")
+    # get_sourcerercc_labels("arjae", "circle")
+    # get_sourcerercc_labels("arjae", "transplantfix")
+    # get_sourcerercc_labels("arjae", "iter")
+    # get_sourcerercc_labels("arjae", "t5apr")
 
-    get_sourcerercc_labels("recoder", "circle")
-    get_sourcerercc_labels("recoder", "transplantfix")
-    get_sourcerercc_labels("recoder", "iter")
-    get_sourcerercc_labels("recoder", "t5apr")
+    # get_sourcerercc_labels("recoder", "circle")
+    # get_sourcerercc_labels("recoder", "transplantfix")
+    # get_sourcerercc_labels("recoder", "iter")
+    # get_sourcerercc_labels("recoder", "t5apr")
 
-    get_sourcerercc_labels("circle", "transplantfix")
-    get_sourcerercc_labels("circle", "iter")
-    get_sourcerercc_labels("circle", "t5apr")
+    # get_sourcerercc_labels("circle", "transplantfix")
+    # get_sourcerercc_labels("circle", "iter")
+    # get_sourcerercc_labels("circle", "t5apr")
 
-    get_sourcerercc_labels("transplantfix", "iter")
-    get_sourcerercc_labels("transplantfix", "t5apr")
+    # get_sourcerercc_labels("transplantfix", "iter")
+    # get_sourcerercc_labels("transplantfix", "t5apr")
 
 
     """"""
     """"""
     """"""
+
+    # # Quick checks
     # tool_name = "dlfix"
     # selected_tool_patches = get_selected_tool_patches(tool_name)
     # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
@@ -261,8 +325,39 @@ if __name__ == "__main__":
     # overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
     # print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
-
     # get_bar_scores("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"])
     # get_bar_scores("transplantfix", ["recoder", "circle", "dlfix", "arjae"])
     # get_bar_scores("circle", ["recoder", "dlfix", "arjae"])
     # get_bar_scores("recoder", ["dlfix", "arjae"])
+
+    """"""
+    """"""
+    """"""
+
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    
+
+    tool_name = "dlfix"
+    selected_tool_patches = get_selected_tool_patches(tool_name)
+    correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
+    overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
+    print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
+
+
+    # Get detailed scores with baseline/added/both breakdown
+    results = []
+    results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
+    results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
+    results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
+    results.append(get_bar_scores_detailed("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"]))
+    
+    # Print summary
+    print("\n" + "="*80)
+    print("SUMMARY FOR STACKED BAR CHART")
+    print("="*80)
+    for r in results:
+        c_pct_base = 100*r['c_baseline_only']/r['c_total'] if r['c_total'] > 0 else 0
+        c_pct_added = 100*r['c_added_only']/r['c_total'] if r['c_total'] > 0 else 0
+        c_pct_both = 100*r['c_both']/r['c_total'] if r['c_total'] > 0 else 0
+        print(f"{r['tool']}: Correct baseline={c_pct_base:.1f}%, added={c_pct_added:.1f}%, both={c_pct_both:.1f}%")
