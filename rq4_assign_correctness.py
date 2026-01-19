@@ -916,6 +916,79 @@ def iterate_patches_arjae(bugs):
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
     patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
+def iterate_patches_t5apr(bugs):
+    tool = "t5apr"
+    base_search_path = os.path.join(RQ4_DATA_DIR, tool)
+    index = 0
+
+    developer_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, "cleaned-developer-patches.pkl"))
+    patches_list = []
+    for root, _, files in os.walk(base_search_path):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+
+            if not filename.endswith(".json"):
+                print(f"Skipping non-JSON file: {filepath}")
+                continue
+
+            components = filepath.split(os.sep)
+
+            bug_id = "-".join(components[-2].strip().split(" "))
+
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            try:
+                developer_patches.loc[f"{bug['uid']}-developer"]
+
+            except:
+                print(f"Developer patch not found for bug: {bug['uid']}")
+                continue
+
+            json_content = json.load(open(filepath, 'r'))
+
+            id = components[-1].split(".")[0]
+            uid = f"historian-{bug.name}-{tool}-{id}-{index}"
+
+            # ...
+            # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            correctness = json_content["correct"]
+
+            if correctness:
+                correctness = "Correct"
+            else:
+                correctness = "Overfitting"
+
+            location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
+
+            if not os.path.exists(location):  
+                raise FileNotFoundError(f"Patch file not found: {location}")
+
+            patch_dict = {
+                "uid": uid,
+                "bug_uid": bug.name,
+                "generator": tool,
+                "location": location,
+                "correctness": correctness,
+                "generator_id": tool,
+                "origin": "Historian",
+                "index": index
+            }
+
+            patches_list.append(patch_dict)
+
+
+            # copy_paste(tmp_dir, first_cleaned_location)
+
+            # # Remove temporary file
+            # os.remove(tmp_dir)
+            # ...
+
+            index += 1
+
+
+
 
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
@@ -931,7 +1004,8 @@ def iterate_patches(bugs):
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
-    iterate_patches_arjae(bugs)
+    # iterate_patches_arjae(bugs)
+    iterate_patches_t5apr(bugs)
 
     pass
 

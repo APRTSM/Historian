@@ -676,10 +676,6 @@ def iterate_patches_t5apr(bugs):
 
             bug_id = "-".join(components[-2].strip().split(" "))
 
-            if bug_id in ["Closure-63", "Closure-93"]:
-                deferred_files.append((filename, filepath, components))
-                continue
-
             bug = bugs.loc[f"defects4j-{bug_id}"].copy()
             bug['uid'] = bug.name
 
@@ -720,7 +716,7 @@ def iterate_patches_t5apr(bugs):
 
             first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
 
-            # copy_paste(tmp_dir, first_cleaned_location)
+            copy_paste(tmp_dir, first_cleaned_location)
 
             # Remove temporary file
             os.remove(tmp_dir)

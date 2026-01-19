@@ -1,0 +1,16 @@
+--- a/gson/src/main/java/com/google/gson/internal/bind/JsonTreeReader.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/JsonTreeReader.java
+@@ -259,9 +259,13 @@ public final class JsonTreeReader extends JsonReader {
+       pathNames[stackSize - 2] = "null";
+     } else {
+       popStack();
++     if (stackSize == 0) { return; }
+         pathNames[stackSize - 1] = "null";
++     if (stackSize == 0) { return; }
+     }
++     if (stackSize == 0) { return; }
+       pathIndices[stackSize - 1]++;
++     if (stackSize == 0) { return; }
+   }
+ 
+   @Override public String toString() {
