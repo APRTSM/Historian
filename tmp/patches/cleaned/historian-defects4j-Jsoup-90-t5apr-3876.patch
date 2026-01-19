@@ -1,0 +1,14 @@
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
+@@ -421,6 +421,8 @@ public class HttpConnection implements Connection {
+                     return false;
+                 }
+ 
++     if ((input[i] & 0xFF)!= 0xFF) { return false; }
++     if ((input[i] & 0xFF)!= 0xFF) { return false; }
+ 
+                 while (i < end) {
+                     i++;
+
+
+

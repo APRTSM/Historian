@@ -711,8 +711,8 @@ def iterate_patches_t5apr(bugs):
             with open(tmp_dir, 'w') as f:
                 f.write(modified_patch_content)
 
-            id = components[-1].split(".")[0]
-            uid = f"historian-{bug.name}-{tool}-{id}-{index}"
+            # id = components[-1].split(".")[0]
+            uid = f"historian-{bug.name}-{tool}-{index}"
 
             first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
 

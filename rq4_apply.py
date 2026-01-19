@@ -156,7 +156,6 @@ def iterate_patches_tool(bugs, tool_id, tool_name, ignore=True):
                 "bug_uid": bug.name,
                 "generator": tool_name,
                 "location": second_cleaned_location,
-                "correctness": "Correct",
                 "generator_id": tool_id,
                 "origin": "Historian"
             }
@@ -232,7 +231,8 @@ def iterate_patches_tools(bugs):
     # iterate_patches_tool(bugs, "tare", "Tare")
     # iterate_patches_tool(bugs, "tenure", "Tenure")
     # iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
-    iterate_patches_tool(bugs, "arjae", "ARJAe", ignore=False)
+    # iterate_patches_tool(bugs, "arjae", "ARJAe", ignore=False)
+    iterate_patches_tool(bugs, "t5apr", "T5APR", ignore=True)
 
     pass
 
