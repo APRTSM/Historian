@@ -1,0 +1,9 @@
+    public double getLInfNorm() {
+        double max = 0;
+        Iterator iter = entries.iterator();
+        while (iter.hasNext()) {
+            iter.advance();
+            max += iter.value();
+        }
+        return max;
+    }
