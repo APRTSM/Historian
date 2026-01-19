@@ -779,7 +779,7 @@ def get_method(patch: pd.Series, bugs: pd.DataFrame = None):
             source_method_dirs, target_method_dirs = get_java_modified_methods_git_repo(out_put_dir, TMP_CHECKOUTS_DIR, os.path.join(PROJECT_DIR, patch["location"]))
         else:
             source_method_dirs, target_method_dirs = get_java_modified_methods_git_repo(out_put_dir, repo_dir, os.path.join(PROJECT_DIR, patch["location"]))
-    except (javalang.parser.JavaSyntaxError, UnicodeDecodeError, unidiff.errors.UnidiffParseError):
+    except (javalang.parser.JavaSyntaxError, UnicodeDecodeError, unidiff.errors.UnidiffParseError, StopIteration):
         logging.info(f"Could not parse the patch while getting the method: {patch_uid}")
         shutil.rmtree(out_put_dir)
         shutil.rmtree(repo_dir, onerror=rmtree)
