@@ -14,22 +14,27 @@ plt.rcParams['hatch.linewidth'] = 0.5
 
 # Data from your results
 # Baseline = TMP_DEDUPLICATED_TOOL_PATHCES_PKL (500 correct, 13140 overfitting)
-# DLFix (2020) is baseline - 0% matches (it IS the reference set)
+# DLFix+ARJA-e (2020) is baseline
 
-tools = ['DLFix\n(2020)', 'Recoder\n(2021)', 'CIRCLE\n(2022)', 'TransplantFix\n(2023)', 'ITER\n(2024)']
+tools = ['DLFix+ARJA-e\n(2020)', 'Recoder\n(2021)', 'CIRCLE\n(2022)', 'TransplantFix\n(2023)', 'ITER\n(2024)']
 
-# Total patches
-correct_total = [40, 77, 66, 72, 74]
-overfitting_total = [0, 5, 0, 123, 0]
+# Total patches (DLFix: 40 correct, 0 overfit + ARJA-e: 36 correct, 62 overfit)
+correct_total = [40+36, 77, 66, 72, 74]  # 76
+overfitting_total = [0+62, 5, 0, 123, 0]  # 62
 
 # Breakdown: Baseline only, Both, Added only
-correct_baseline = [0, 9, 5, 7, 3]
-correct_both = [0, 27, 30, 12, 28]
-correct_added = [0, 2, 6, 1, 11]
+# DLFix: Baseline=35, Added=0, Both=0
+# ARJA-e: Baseline=0, Added=0, Both=0 (no baseline labels found)
+correct_baseline = [35+0, 9, 5, 7, 3]  # 35
+correct_both = [0+0, 27, 30, 12, 28]  # 0
+correct_added = [0+0, 2, 6, 1, 11]  # 0
 
-overfitting_baseline = [0, 3, 0, 10, 0]
-overfitting_both = [0, 0, 0, 1, 0]
-overfitting_added = [0, 0, 0, 2, 0]
+# Overfitting
+# DLFix: n=0
+# ARJA-e: Baseline=0, Added=0, Both=0
+overfitting_baseline = [0+0, 3, 0, 10, 0]  # 0
+overfitting_both = [0+0, 0, 0, 1, 0]  # 0
+overfitting_added = [0+0, 0, 0, 0, 0]  # 0
 
 # Calculate percentages
 def calc_pct(val, total):
@@ -47,8 +52,8 @@ overfitting_added_pct = [calc_pct(v, t) for v, t in zip(overfitting_added, overf
 baby_green = '#90EE90'
 baby_red = '#FFB6C1'
 
-# Create figure
-fig, ax = plt.subplots(figsize=(14, 7))
+# Create figure - smaller size as requested
+fig, ax = plt.subplots(figsize=(10, 6))
 
 x = np.arange(len(tools))
 width = 0.30
@@ -84,13 +89,13 @@ bars2_added = ax.bar(x + width/2 + gap/2, overfitting_added_pct, width,
                      hatch='////')
 
 # Customize the plot
-ax.set_ylabel('Percentage of Patches that are Clones (%)', fontsize=14)
-ax.set_xlabel('APR Tool (Year)', fontsize=14)
+ax.set_ylabel('Percentage of Patches that are Clones (%)', fontsize=12)
+ax.set_xlabel('APR Tool (Year)', fontsize=12)
 ax.set_xticks(x)
-ax.set_xticklabels(tools, fontsize=12)
+ax.set_xticklabels(tools, fontsize=10)
 ax.set_ylim(0, 100)
 ax.set_yticks(np.arange(0, 101, 10))
-ax.tick_params(axis='y', labelsize=12)
+ax.tick_params(axis='y', labelsize=10)
 
 # Remove top and right spines
 ax.spines['top'].set_visible(False)
@@ -105,51 +110,58 @@ added_patch = mpatches.Patch(facecolor='white', edgecolor='black', hatch='////',
 
 ax.legend(handles=[green_patch, red_patch, baseline_patch, both_patch, added_patch],
           loc='upper left', frameon=True, edgecolor='black', fancybox=False,
-          fontsize=11, title='Values: Base/Both/Added/Total', title_fontsize=10)
+          fontsize=9, title='Values: Base/Both/Added/Total', title_fontsize=8)
 
 # Add value labels on bars
 for i in range(len(tools)):
-    # Total percentages
-    c_total_pct = correct_baseline_pct[i] + correct_both_pct[i] + correct_added_pct[i]
-    o_total_pct = overfitting_baseline_pct[i] + overfitting_both_pct[i] + overfitting_added_pct[i]
+    # Calculate individual percentages
+    c_base_pct = correct_baseline_pct[i]
+    c_both_pct = correct_both_pct[i]
+    c_added_pct = correct_added_pct[i]
+    c_total_pct = c_base_pct + c_both_pct + c_added_pct
+    
+    o_base_pct = overfitting_baseline_pct[i]
+    o_both_pct = overfitting_both_pct[i]
+    o_added_pct = overfitting_added_pct[i]
+    o_total_pct = o_base_pct + o_both_pct + o_added_pct
     
     # Matched counts
     c_matched = correct_baseline[i] + correct_both[i] + correct_added[i]
     o_matched = overfitting_baseline[i] + overfitting_both[i] + overfitting_added[i]
     
-    # Correct patches label
+    # Correct patches label - 3 percentages and 4 numbers
     if c_total_pct > 0:
-        label = f'{c_total_pct:.1f}%\n{correct_baseline[i]}/{correct_both[i]}/{correct_added[i]}/{c_matched}'
+        label = f'{c_base_pct:.1f}%/{c_both_pct:.1f}%/{c_added_pct:.1f}%\n{correct_baseline[i]}/{correct_both[i]}/{correct_added[i]}/{c_matched}'
         ax.annotate(label,
                     xy=(x[i] - width/2 - gap/2, c_total_pct),
                     xytext=(0, 3), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=9)
+                    ha='center', va='bottom', fontsize=8)
     else:
         # Baseline - just show n
         label = f'n={correct_total[i]}'
         ax.annotate(label,
                     xy=(x[i] - width/2 - gap/2, 2),
                     xytext=(0, 0), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=9)
+                    ha='center', va='bottom', fontsize=8)
     
-    # Overfitting patches label
+    # Overfitting patches label - 3 percentages and 4 numbers
     if overfitting_total[i] > 0:
         if o_total_pct > 0:
-            label = f'{o_total_pct:.1f}%\n{overfitting_baseline[i]}/{overfitting_both[i]}/{overfitting_added[i]}/{o_matched}'
+            label = f'{o_base_pct:.1f}%/{o_both_pct:.1f}%/{o_added_pct:.1f}%\n{overfitting_baseline[i]}/{overfitting_both[i]}/{overfitting_added[i]}/{o_matched}'
             ax.annotate(label,
                         xy=(x[i] + width/2 + gap/2, o_total_pct),
                         xytext=(0, 3), textcoords="offset points",
-                        ha='center', va='bottom', fontsize=9)
+                        ha='center', va='bottom', fontsize=8)
         else:
             label = f'n={overfitting_total[i]}'
             ax.annotate(label,
                         xy=(x[i] + width/2 + gap/2, 2),
                         xytext=(0, 0), textcoords="offset points",
-                        ha='center', va='bottom', fontsize=9)
+                        ha='center', va='bottom', fontsize=8)
 
 # Add baseline info as text annotation
 ax.text(0.98, 0.98, 'Baseline: 500 correct, 13,140 overfitting patches',
-        transform=ax.transAxes, fontsize=10, verticalalignment='top',
+        transform=ax.transAxes, fontsize=9, verticalalignment='top',
         horizontalalignment='right', style='italic',
         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
@@ -166,8 +178,8 @@ print("Saved: rq4/temporal_redundancy.png")
 
 # Print data summary
 print("\nData summary:")
-print(f"{'Tool':<15} {'Correct':<8} {'Base':<6} {'Both':<6} {'Added':<6} {'Total%':<8}")
+print(f"{'Tool':<20} {'Correct':<8} {'Base':<6} {'Both':<6} {'Added':<6} {'Total%':<8}")
 for i, tool in enumerate(tools):
     tool_clean = tool.replace('\n', ' ')
     c_total_pct = correct_baseline_pct[i] + correct_both_pct[i] + correct_added_pct[i]
-    print(f"{tool_clean:<15} {correct_total[i]:<8} {correct_baseline[i]:<6} {correct_both[i]:<6} {correct_added[i]:<6} {c_total_pct:<8.1f}")
+    print(f"{tool_clean:<20} {correct_total[i]:<8} {correct_baseline[i]:<6} {correct_both[i]:<6} {correct_added[i]:<6} {c_total_pct:<8.1f}")

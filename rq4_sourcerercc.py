@@ -214,8 +214,8 @@ def get_bar_scores_detailed(tool_name, other_tools):
     
     print("="*60)
     print(f"Tool: {tool_name}")
-    print(f"CORRECT (n={c_total}): Baseline={c_baseline_only}, Added={c_added_only}, Both={c_both}, Total Matched={c_baseline_only+c_added_only+c_both}")
-    print(f"OVERFITTING (n={o_total}): Baseline={o_baseline_only}, Added={o_added_only}, Both={o_both}, Total Matched={o_baseline_only+o_added_only+o_both}")
+    print(f"CORRECT (n={c_total}): Baseline={c_baseline_only}, Added={c_added_only}, Both={c_both}, Total={len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}")
+    print(f"OVERFITTING (n={o_total}): Baseline={o_baseline_only}, Added={o_added_only}, Both={o_both}, Total={len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
     
     return {
         'tool': tool_name,
@@ -344,9 +344,16 @@ if __name__ == "__main__":
     overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
     print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
+    tool_name = "arjae"
+    selected_tool_patches = get_selected_tool_patches(tool_name)
+    correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
+    overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
+    print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
     # Get detailed scores with baseline/added/both breakdown
     results = []
+    results.append(get_bar_scores_detailed("dlfix", []))
+    results.append(get_bar_scores_detailed("arjae", []))
     results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
     results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
     results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
