@@ -1,4 +1,4 @@
-    public ElitisticListPopulation(final int populationLimit, final double elitismRate) {
-        super(populationLimit);
-        setElitismRate  (    elitismRate  )  ;
+    public static boolean verbose() {
+        cVerbose.set(Boolean.FALSE);
+        return cVerbose.get();
     }

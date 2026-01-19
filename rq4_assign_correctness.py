@@ -916,7 +916,7 @@ def iterate_patches_arjae(bugs):
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
     patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
-def iterate_patches_t5apr(bugs):
+def iterate_patches_t5apr(bugs, ignore=False):
     tool = "t5apr"
     base_search_path = os.path.join(RQ4_DATA_DIR, tool)
     index = 0
@@ -947,8 +947,8 @@ def iterate_patches_t5apr(bugs):
 
             json_content = json.load(open(filepath, 'r'))
 
-            id = components[-1].split(".")[0]
-            uid = f"historian-{bug.name}-{tool}-{id}-{index}"
+            # id = components[-1].split(".")[0]
+            uid = f"historian-{bug.name}-{tool}-{index}"
 
             # ...
             # first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
@@ -963,7 +963,14 @@ def iterate_patches_t5apr(bugs):
             location = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
             if not os.path.exists(location):  
+                if ignore:
+                    print(f"Patch file not found (ignored): {location}")
+                    index += 1
+                    
+                    continue
+
                 raise FileNotFoundError(f"Patch file not found: {location}")
+                
 
             patch_dict = {
                 "uid": uid,
@@ -987,6 +994,9 @@ def iterate_patches_t5apr(bugs):
 
             index += 1
 
+    patches_df = pd.DataFrame(patches_list).set_index("uid")
+    patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
 
 
@@ -1005,7 +1015,7 @@ def iterate_patches(bugs):
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
     # iterate_patches_arjae(bugs)
-    iterate_patches_t5apr(bugs)
+    iterate_patches_t5apr(bugs, ignore=True)
 
     pass
 
