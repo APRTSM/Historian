@@ -624,7 +624,7 @@ def iterate_patches_transplantfix(bugs):
                     copy_paste(filepath, first_cleaned_location)
                     index += 1
 
-def iterate_patches_arja(bugs):
+def iterate_patches_arjae(bugs):
     tool = "arjae"
     tool_path = os.path.join(RQ4_DATA_DIR, tool, "patches")
     index = 0
@@ -656,6 +656,81 @@ def iterate_patches_arja(bugs):
         index += 1
     
 
+def iterate_patches_t5apr(bugs):
+    tool = "t5apr"
+    base_search_path = os.path.join(RQ4_DATA_DIR, tool)
+    index = 0
+
+    developer_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, "cleaned-developer-patches.pkl"))
+
+    deferred_files = []
+    for root, _, files in os.walk(base_search_path):
+        for filename in files:
+            filepath = os.path.join(root, filename)
+
+            if not filename.endswith(".json"):
+                print(f"Skipping non-JSON file: {filepath}")
+                continue
+
+            components = filepath.split(os.sep)
+
+            bug_id = "-".join(components[-2].strip().split(" "))
+
+            if bug_id in ["Closure-63", "Closure-93"]:
+                deferred_files.append((filename, filepath, components))
+                continue
+
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+
+            try:
+                developer_patch = developer_patches.loc[f"{bug['uid']}-developer"]
+
+            except:
+                print(f"Developer patch not found for bug: {bug['uid']}")
+                continue
+            developer_patch_content = read_file(developer_patch['location'])
+
+            json_content = json.load(open(filepath, 'r'))
+
+            # Assuming developer_patch_content is a string
+            lines = developer_patch_content.splitlines()
+            new_lines = []
+
+            for line in lines:
+                # Check if first char is '+' and second is ' '
+                if line.startswith("+ "):
+                    # Keep the prefix "+ " and append the new patch content
+                    new_lines.append("+     " + json_content["patch"])
+                else:
+                    # Keep original line
+                    new_lines.append(line)
+
+            # Reassemble the string
+            modified_patch_content = "\n".join(new_lines)
+
+            tmp_dir = os.path.join(RQ4_META_DATA_DIR, "tmp")
+
+            # Write back to the same file (or a new file if preferred)
+            with open(tmp_dir, 'w') as f:
+                f.write(modified_patch_content)
+
+            id = components[-1].split(".")[0]
+            uid = f"historian-{bug.name}-{tool}-{id}-{index}"
+
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            # copy_paste(tmp_dir, first_cleaned_location)
+
+            # Remove temporary file
+            os.remove(tmp_dir)
+
+            index += 1
+
+
+
+    
+
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
@@ -670,7 +745,8 @@ def iterate_patches(bugs):
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
-    iterate_patches_arja(bugs)
+    # iterate_patches_arjae(bugs)
+    iterate_patches_t5apr(bugs)
 
     pass
 

@@ -1,3 +1,4 @@
-    public Iterator<Chromosome> iterator() {
-        return getChromosomes().iterator();
+    public ElitisticListPopulation(final int populationLimit, final double elitismRate) {
+        super(populationLimit);
+        setElitismRate  (    elitismRate  )  ;
     }

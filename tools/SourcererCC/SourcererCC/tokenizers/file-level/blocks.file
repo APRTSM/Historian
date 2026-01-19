@@ -1,2 +1,2 @@
-1,1,7,6,ef962d524de6e08ee58526dbfd7373c0@#@public@@::@@1,Iterator@@::@@1,Chromosome@@::@@1,iterator@@::@@2,return@@::@@1,getChromosomes@@::@@1
-2,2,7,6,ef962d524de6e08ee58526dbfd7373c0@#@public@@::@@1,Iterator@@::@@1,Chromosome@@::@@1,iterator@@::@@2,return@@::@@1,getChromosomes@@::@@1
+1,1,12,9,10ce2538605681332cde54123e8a1ae3@#@public@@::@@1,ElitisticListPopulation@@::@@1,final@@::@@2,int@@::@@1,populationLimit@@::@@2,double@@::@@1,elitismRate@@::@@2,super@@::@@1,setElitismRate@@::@@1
+2,2,57,20,8ff8261e37c7d1f6973963a40359d181@#@public@@::@@2,ElitisticListPopulation@@::@@2,final@@::@@5,int@@::@@2,populationLimit@@::@@4,double@@::@@2,elitismRate@@::@@12,super@@::@@2,if@@::@@2,0@@::@@4,1@@::@@4,throw@@::@@2,new@@::@@2,OutOfRangeException@@::@@2,LocalizedFormats@@::@@2,ELITISM_RATE@@::@@2,this@@::@@2,List@@::@@1,Chromosome@@::@@1,chromosomes@@::@@2

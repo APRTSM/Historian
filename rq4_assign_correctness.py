@@ -849,7 +849,7 @@ def iterate_patches_transplantfix(bugs):
     patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
     patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
-def iterate_patches_arja(bugs):
+def iterate_patches_arjae(bugs):
     tool = "arjae"
     tool_path = os.path.join(RQ4_DATA_DIR, tool, "patches")
     index = 0
@@ -931,7 +931,7 @@ def iterate_patches(bugs):
     # iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
-    iterate_patches_arja(bugs)
+    iterate_patches_arjae(bugs)
 
     pass
 
