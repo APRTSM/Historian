@@ -48,7 +48,8 @@ rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
     it is related to fixing 3000 broken patches from our initial dataset not new datset.
 
-
+rq4_plot* plot figures for RQ4 venn, upset, with pre, without pre
+    
 rq5 focuses on intersection of tool labels.
 
 rq5_historian_cache.py gets historian unknonw labels labeled by cache on 813 patches. (replace_other_apca_labels in _get_f1_type_binary in Experiment3Evaluator) (STARED)
@@ -89,7 +90,7 @@ aprenfl-defects4j-Math-95-ARJA-Patch_179_153.patch Math 95 patches all are missi
     Sometime you need to do cd .. and go back to checkout dir again to apply the patch.
 """
 
-""" RQ1
+""" RQ1 (Motivation)
 Motivation for incorrect patches. 
 I look for the time that results/rq1 first appeared or rq1.py appeared.
 
@@ -129,11 +130,16 @@ through simple inspection of the matched reference rather than extensive manual 
  saving substantial time in large-scale evaluations.
 """
 
-"""
+""" RQ3
 RQ3: Zero-Shot Performance of LLMs on Code Clone Detection
-rq3_zero_shot_plot_boxplot.py plots violin and box plot, calculates zero shot for those failed to regex detect. again 128 combination or sth
+rq3_zero_shot_plot_boxplot.py plots violin and box plot, calculates (runs) zero shot for those failed to regex detect again. again 128 combination or sth
 rq3_zeroshot.py calculates zero-shot accuracy and f1 json files and rq3_zeroshot_plots.py calculates the tables.
 
+rq3_manual.py manually labels 100 samples from the failed to regex detect patches.
+""" 
+
+""" RQ2 Oracle
+rq2_evidence.py votes etc
 
 """
 

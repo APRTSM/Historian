@@ -224,95 +224,99 @@ def get_bar_scores_detailed(tool_name, other_tools):
     }
 
 if __name__ == "__main__":
+
     bugs, developer_patches, tool_patches = init(configure=False)
 
-    # # selected_tool_name = "transplantfix"
-    # # selected_tool_name = "recoder"
-    # # selected_tool_name = "circle"
-    # # selected_tool_name = "dlfix"
-    # # selected_tool_name = "iter"
-    # selected_tool_name = "arjae"
+    # For Pre
+    # selected_tool_name = "transplantfix"
+    # selected_tool_name = "recoder"
+    # selected_tool_name = "circle"
+    # selected_tool_name = "dlfix"
+    # selected_tool_name = "iter"
+    selected_tool_name = "arjae"
+    # selected_tool_name = "t5apr"
 
-    # selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
+    selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
-    # print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
 
-    # selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches_cleaned.pkl"))
+    selected_tool_patches = clean_and_save_patches(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches_cleaned.pkl"))
     
-    # print(f"CLEANED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"CLEANED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
 
-    # selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_method_patches.pkl"))
+    selected_tool_patches = get_methods_and_save(bugs, selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_method_patches.pkl"))
     
-    # print(f"METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
 
-    # selected_tool_patches = normalize_names_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_normalized_patches.pkl"))
+    selected_tool_patches = normalize_names_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_normalized_patches.pkl"))
     
-    # print(f"NORMALIZED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"NORMALIZED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
     
-    # selected_tool_patches = get_single_methods_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_single_hunk_patches.pkl"))
+    selected_tool_patches = get_single_methods_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_single_hunk_patches.pkl"))
     
-    # print(f"SINGLE METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"SINGLE METHODS: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
     
-    # selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
+    selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
 
-    # print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
+    print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
 
-    # # Load deduplicated tool patches
-    # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    # print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    # Load deduplicated tool patches
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
     
-    # result_dir = os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl")
-    # if os.path.exists(result_dir):
-    #     print(f"✅ SourcererCC labels already exist for {selected_tool_name}.")
+    result_dir = os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl")
+    if os.path.exists(result_dir):
+        print(f"✅ SourcererCC labels already exist for {selected_tool_name}.")
     
-    # else:
-    #     results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
-    #     results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
-    #     results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+    else:
+        results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
+        results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
+        results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
 
     """"""
     """"""
     """"""
 
-    # Just force sudo
-    bugs, developer_patches, tool_patches = init(configure=False)
-    bug = bugs.loc['defects4j-Closure-63'].copy()
-    bug['uid'] = bug.name
-    checkout_dir = checkout_bug(bug)
-    if os.path.exists(checkout_dir):
-        shutil.rmtree(checkout_dir)
+    # # without pre
+    # # Just force sudo
+    # bugs, developer_patches, tool_patches = init(configure=False)
+    # bug = bugs.loc['defects4j-Closure-63'].copy()
+    # bug['uid'] = bug.name
+    # checkout_dir = checkout_bug(bug)
+    # if os.path.exists(checkout_dir):
+    #     shutil.rmtree(checkout_dir)
 
 
-    get_sourcerercc_labels("dlfix", "recoder")
-    get_sourcerercc_labels("dlfix", "circle")
-    get_sourcerercc_labels("dlfix", "transplantfix")
-    get_sourcerercc_labels("dlfix", "iter")
-    get_sourcerercc_labels("dlfix", "t5apr")
+    # get_sourcerercc_labels("dlfix", "recoder")
+    # get_sourcerercc_labels("dlfix", "circle")
+    # get_sourcerercc_labels("dlfix", "transplantfix")
+    # get_sourcerercc_labels("dlfix", "iter")
+    # get_sourcerercc_labels("dlfix", "t5apr")
 
-    get_sourcerercc_labels("arjae", "recoder")
-    get_sourcerercc_labels("arjae", "circle")
-    get_sourcerercc_labels("arjae", "transplantfix")
-    get_sourcerercc_labels("arjae", "iter")
-    get_sourcerercc_labels("arjae", "t5apr")
+    # get_sourcerercc_labels("arjae", "recoder")
+    # get_sourcerercc_labels("arjae", "circle")
+    # get_sourcerercc_labels("arjae", "transplantfix")
+    # get_sourcerercc_labels("arjae", "iter")
+    # get_sourcerercc_labels("arjae", "t5apr")
 
-    get_sourcerercc_labels("recoder", "circle")
-    get_sourcerercc_labels("recoder", "transplantfix")
-    get_sourcerercc_labels("recoder", "iter")
-    get_sourcerercc_labels("recoder", "t5apr")
+    # get_sourcerercc_labels("recoder", "circle")
+    # get_sourcerercc_labels("recoder", "transplantfix")
+    # get_sourcerercc_labels("recoder", "iter")
+    # get_sourcerercc_labels("recoder", "t5apr")
 
-    get_sourcerercc_labels("circle", "transplantfix")
-    get_sourcerercc_labels("circle", "iter")
-    get_sourcerercc_labels("circle", "t5apr")
+    # get_sourcerercc_labels("circle", "transplantfix")
+    # get_sourcerercc_labels("circle", "iter")
+    # get_sourcerercc_labels("circle", "t5apr")
 
-    get_sourcerercc_labels("transplantfix", "iter")
-    get_sourcerercc_labels("transplantfix", "t5apr")
+    # get_sourcerercc_labels("transplantfix", "iter")
+    # get_sourcerercc_labels("transplantfix", "t5apr")
 
 
     """"""
     """"""
     """"""
 
-    # # Quick checks
+    # # Quick checks Get Bars
     # tool_name = "dlfix"
     # selected_tool_patches = get_selected_tool_patches(tool_name)
     # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
@@ -334,6 +338,7 @@ if __name__ == "__main__":
     """"""
     """"""
 
+    # # Get overall stats
     # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
     # print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
     

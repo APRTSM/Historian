@@ -330,7 +330,7 @@ def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
     
     upset_data = from_contents(data)
     
-    fig = plt.figure(figsize=(16, 10))
+    fig = plt.figure(figsize=(12, 6))
     
     upset = UpSet(upset_data, 
                   subset_size='count', 
@@ -343,7 +343,7 @@ def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
     
     upset.plot(fig=fig)
     
-    fig.suptitle(f'{tool_name.upper()} - {patch_type} Patches', fontsize=18, fontweight='bold', y=1.02)
+    # fig.suptitle(f'{tool_name.upper()} - {patch_type} Patches', fontsize=18, fontweight='bold', y=1.02)
     
     filename = f'upset_{tool_name}_{patch_type.lower()}'
     pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
