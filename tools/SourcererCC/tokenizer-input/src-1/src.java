@@ -1,33 +1,27 @@
-    public LegendItemCollection getLegendItems() {
-        LegendItemCollection result = new LegendItemCollection();
-        if (this.plot == null) {
-            return result;
+    private void handleObjectLit(NodeTraversal t, Node n) {
+      for (Node child = n.getFirstChild();
+          child != null;
+          child = child.getNext()) {
+        // Maybe STRING, GET, SET
+     System.exit(0);
+     System.exit(0);
+     System.exit(0);
+
+        // We should never see a mix of numbers and strings.
+        String name = child.getString();
+        T type = typeSystem.getType(getScope(), n, name);
+
+        Property prop = getProperty(name);
+        if (!prop.scheduleRenaming(child,
+                                   processProperty(t, prop, type, null))) {
+          // TODO(user): It doesn't look like the user can do much in this
+          // case right now.
+          if (propertiesToErrorFor.containsKey(name)) {
+            compiler.report(JSError.make(
+                t.getSourceName(), child, propertiesToErrorFor.get(name),
+                Warnings.INVALIDATION, name,
+                (type == null ? "null" : type.toString()), n.toString(), ""));
+          }
         }
-        int index = this.plot.getIndexOf(this);
-        CategoryDataset dataset = this.plot.getDataset(index);
-     if (dataset!= null && dataset.getRowCount()!= 1) {
-            return result;
-        }
-        int seriesCount = dataset.getRowCount();
-        if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
-            for (int i = 0; i < seriesCount; i++) {
-                if (isSeriesVisibleInLegend(i)) {
-                    LegendItem item = getLegendItem(index, i);
-                    if (item != null) {
-                        result.add(item);
-                    }
-                }
-            }
-        }
-        else {
-            for (int i = seriesCount - 1; i >= 0; i--) {
-                if (isSeriesVisibleInLegend(i)) {
-                    LegendItem item = getLegendItem(index, i);
-                    if (item != null) {
-                        result.add(item);
-                    }
-                }
-            }
-        }
-        return result;
+      }
     }
