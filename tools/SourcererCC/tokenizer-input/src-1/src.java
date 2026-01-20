@@ -1,18 +1,33 @@
-    public long adjustOffset(long instant, boolean earlierOrLater) {
-        // a bit messy, but will work in all non-pathological cases
-        
-        // evaluate 3 hours before and after to work out if anything is happening
-        long instantBefore = convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
-        long instantAfter = convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
-        if (instantBefore == instantAfter) {
-            return instant;  // not an overlap (less than is a gap, equal is normal case)
+    public LegendItemCollection getLegendItems() {
+        LegendItemCollection result = new LegendItemCollection();
+        if (this.plot == null) {
+            return result;
         }
-        
-        // work out range of instants that have duplicate local times
-        long local = convertUTCToLocal(instant);
-        return convertLocalToUTC(local, false, earlierOrLater ? hashCode() : instantBefore);
-        
-        // calculate result
-          // currently in later offset
-          // currently in earlier offset
+        int index = this.plot.getIndexOf(this);
+        CategoryDataset dataset = this.plot.getDataset(index);
+     if (dataset!= null && dataset.getRowCount()!= 1) {
+            return result;
+        }
+        int seriesCount = dataset.getRowCount();
+        if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
+            for (int i = 0; i < seriesCount; i++) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        else {
+            for (int i = seriesCount - 1; i >= 0; i--) {
+                if (isSeriesVisibleInLegend(i)) {
+                    LegendItem item = getLegendItem(index, i);
+                    if (item != null) {
+                        result.add(item);
+                    }
+                }
+            }
+        }
+        return result;
     }
