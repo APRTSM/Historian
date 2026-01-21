@@ -1,0 +1,140 @@
+uid,gt_correctness,inferred_label,voting_details,total_pairs,correct_votes,overfitting_votes,unknown_votes
+aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,Correct,Correct,"'Unknown': 53 (49 not-clone, 4 type-3), 'Correct': 15 (15 type-1)",68,15,0,53
+aprenfl-defects4j-Chart-11-TBar-Patch_102_60,Correct,Correct,"'Unknown': 5 (5 type-3), 'Correct': 7 (7 type-1)",12,7,0,5
+aprenfl-defects4j-Chart-12-TBar-Patch_39_22,Overfitting,Overfitting,"'Unknown': 17 (16 not-clone, 1 type-3), 'Overfitting': 6 (3 type-4, 3 not-clone)",23,0,6,17
+aprenfl-defects4j-Chart-13-TBar-Patch_29_18,Overfitting,Overfitting,"'Unknown': 54 (51 not-clone, 3 type-3), 'Overfitting': 1 (1 not-clone)",55,0,1,54
+aprenfl-defects4j-Chart-14-TBar-Patch_2034_473,Overfitting,Overfitting,"'Unknown': 50 (39 not-clone, 11 type-3), 'Overfitting': 5 (4 not-clone, 1 type-2)",55,0,5,50
+aprenfl-defects4j-Chart-14-TBar-Patch_2631_615,Overfitting,Overfitting,"'Unknown': 50 (36 not-clone, 14 type-3), 'Overfitting': 5 (4 not-clone, 1 type-1)",55,0,5,50
+aprenfl-defects4j-Chart-14-TBar-Patch_2669_616,Overfitting,Overfitting,"'Unknown': 52 (39 not-clone, 13 type-3), 'Overfitting': 3 (2 not-clone, 1 type-2)",55,0,3,52
+aprenfl-defects4j-Chart-14-TBar-Patch_974_207,Overfitting,Overfitting,"'Unknown': 51 (35 not-clone, 16 type-3), 'Overfitting': 4 (3 not-clone, 1 type-4)",55,0,4,51
+aprenfl-defects4j-Chart-15-TBar-Patch_220_119,Overfitting,Overfitting,"'Unknown': 42 (31 type-3, 11 not-clone), 'Overfitting': 2 (2 type-1)",44,0,2,42
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Unknown,"'Unknown': 9 (7 type-3, 2 not-clone)",9,0,0,9
+aprenfl-defects4j-Chart-19-TBar-Patch_68_59,Correct,Correct,"'Unknown': 2 (2 not-clone), 'Correct': 7 (4 type-1, 3 type-4)",9,7,0,2
+aprenfl-defects4j-Chart-24-TBar-Patch_42_20,Correct,Correct,"'Unknown': 1 (1 not-clone), 'Correct': 11 (6 type-1, 5 type-4)",12,11,0,1
+aprenfl-defects4j-Chart-25-TBar-Patch_12_9,Overfitting,Overfitting,"'Unknown': 97 (66 not-clone, 31 type-3), 'Overfitting': 2 (2 type-1)",99,0,2,97
+aprenfl-defects4j-Chart-26-TBar-Patch_5751_2399,Overfitting,Overfitting,"'Unknown': 14 (12 type-3, 2 not-clone), 'Overfitting': 2 (2 not-clone)",16,0,2,14
+aprenfl-defects4j-Chart-3-TBar-Patch_440_242,Overfitting,Overfitting,"'Unknown': 14 (12 not-clone, 2 type-3), 'Overfitting': 6 (4 not-clone, 1 type-1, 1 type-4)",20,0,6,14
+aprenfl-defects4j-Chart-4-TBar-Patch_2689_1263,Correct,Correct,"'Unknown': 1 (1 not-clone), 'Correct': 3 (3 type-1)",4,3,0,1
+aprenfl-defects4j-Chart-5-TBar-Patch_52_1,Overfitting,Overfitting,"'Unknown': 19 (17 not-clone, 2 type-3), 'Overfitting': 4 (4 not-clone)",23,0,4,19
+aprenfl-defects4j-Chart-7-TBar-Patch_2_2,Overfitting,Overfitting,"'Unknown': 9 (9 not-clone), 'Overfitting': 11 (4 type-1, 4 type-4, 2 not-clone, 1 type-2)",20,0,11,9
+aprenfl-defects4j-Chart-9-TBar-Patch_497_311,Correct,Correct,"'Unknown': 7 (4 not-clone, 3 type-3), 'Correct': 3 (3 type-2)",10,3,0,7
+aprenfl-defects4j-Closure-107-TBar-Patch_356_164,Overfitting,Overfitting,"'Unknown': 1 (1 not-clone), 'Overfitting': 1 (1 not-clone)",2,0,1,1
+aprenfl-defects4j-Closure-109-TBar-Patch_270_73,Overfitting,Overfitting,"'Unknown': 4 (3 not-clone, 1 type-3), 'Overfitting': 2 (2 type-1)",6,0,2,4
+aprenfl-defects4j-Closure-115-TBar-Patch_704_253,Overfitting,Unknown,"'Unknown': 37 (36 type-3, 1 not-clone)",37,0,0,37
+aprenfl-defects4j-Closure-12-TBar-Patch_160_37,Overfitting,Overfitting,"'Unknown': 4 (4 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",7,0,3,4
+aprenfl-defects4j-Closure-126-TBar-Patch_6_3,Overfitting,Overfitting,"'Unknown': 32 (20 not-clone, 12 type-3), 'Overfitting': 12 (11 not-clone, 1 type-4)",44,0,12,32
+aprenfl-defects4j-Closure-133-TBar-Patch_433_171,Overfitting,Overfitting,"'Unknown': 4 (4 not-clone), 'Overfitting': 1 (1 not-clone)",5,0,1,4
+aprenfl-defects4j-Closure-21-TBar-Patch_260_40,Overfitting,Overfitting,"'Unknown': 51 (51 type-3), 'Overfitting': 2 (2 type-4)",53,0,2,51
+aprenfl-defects4j-Closure-22-TBar-Patch_5_5,Overfitting,Overfitting,"'Unknown': 68 (68 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",71,0,3,68
+aprenfl-defects4j-Closure-62-TBar-Patch_43_31,Correct,Correct,"'Unknown': 9 (9 type-3), 'Correct': 5 (5 type-1)",14,5,0,9
+aprenfl-defects4j-Closure-66-TBar-Patch_9_6,Overfitting,Overfitting,"'Unknown': 1 (1 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",4,0,3,1
+aprenfl-defects4j-Closure-73-TBar-Patch_146_58,Correct,Correct,"'Unknown': 1 (1 type-3), 'Correct': 9 (8 type-1, 1 type-2)",10,9,0,1
+aprenfl-defects4j-Lang-10-TBar-Patch_2435_1012,Correct,Correct,"'Unknown': 6 (3 not-clone, 3 type-3), 'Correct': 2 (2 type-4)",8,2,0,6
+aprenfl-defects4j-Lang-13-TBar-Patch_18_6,Overfitting,Overfitting,"'Unknown': 2 (2 not-clone), 'Overfitting': 2 (2 type-1)",4,0,2,2
+aprenfl-defects4j-Lang-18-TBar-Patch_5849_3524,Overfitting,Overfitting,"'Overfitting': 3 (2 type-1, 1 not-clone)",3,0,3,0
+aprenfl-defects4j-Lang-20-TBar-Patch_1220_617,Overfitting,Unknown,'Unknown': 6 (6 type-3),6,0,0,6
+aprenfl-defects4j-Lang-20-TBar-Patch_336_182,Overfitting,Unknown,'Unknown': 6 (6 type-3),6,0,0,6
+aprenfl-defects4j-Lang-22-TBar-Patch_1806_847,Overfitting,Unknown,'Unknown': 24 (24 type-3),24,0,0,24
+aprenfl-defects4j-Lang-24-TBar-Patch_2414_1931,Overfitting,Overfitting,"'Overfitting': 8 (6 not-clone, 2 type-1)",8,0,8,0
+aprenfl-defects4j-Lang-27-TBar-Patch_1259_919,Overfitting,Overfitting,"'Unknown': 15 (15 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",18,0,3,15
+aprenfl-defects4j-Lang-33-TBar-Patch_47_28,Correct,Unknown,'Unknown': 8 (8 type-3),8,0,0,8
+aprenfl-defects4j-Lang-39-TBar-Patch_1350_1039,Overfitting,Unknown,"'Unknown': 33 (32 type-3, 1 not-clone)",33,0,0,33
+aprenfl-defects4j-Lang-41-TBar-Patch_289_206,Overfitting,Overfitting,"'Unknown': 2 (2 type-3), 'Overfitting': 2 (2 type-1)",4,0,2,2
+aprenfl-defects4j-Lang-41-TBar-Patch_2958_1870,Overfitting,Overfitting,"'Unknown': 2 (2 type-3), 'Overfitting': 2 (2 type-1)",4,0,2,2
+aprenfl-defects4j-Lang-43-TBar-Patch_368_183,Overfitting,Overfitting,"'Unknown': 21 (19 not-clone, 2 type-3), 'Overfitting': 10 (8 not-clone, 2 type-1)",31,0,10,21
+aprenfl-defects4j-Lang-44-TBar-Patch_4046_2567,Overfitting,Overfitting,"'Unknown': 8 (7 not-clone, 1 type-3), 'Overfitting': 2 (2 not-clone)",10,0,2,8
+aprenfl-defects4j-Lang-45-TBar-Patch_310_221,Overfitting,Overfitting,"'Unknown': 8 (7 not-clone, 1 type-3), 'Overfitting': 7 (3 type-4, 2 type-1, 2 not-clone)",15,0,7,8
+aprenfl-defects4j-Lang-51-TBar-Patch_180_129,Overfitting,Overfitting,"'Unknown': 51 (50 type-3, 1 not-clone), 'Overfitting': 3 (2 not-clone, 1 type-4)",54,0,3,51
+aprenfl-defects4j-Lang-57-TBar-Patch_44_17,Correct,Correct,"'Unknown': 4 (4 type-3), 'Correct': 5 (3 type-1, 2 type-2)",9,5,0,4
+aprenfl-defects4j-Lang-58-TBar-Patch_1789_1078,Overfitting,Overfitting,"'Unknown': 14 (9 type-3, 5 not-clone), 'Overfitting': 2 (2 not-clone)",16,0,2,14
+aprenfl-defects4j-Lang-59-TBar-Patch_1657_1032,Correct,Correct,"'Unknown': 112 (112 type-3), 'Correct': 5 (5 type-1)",117,5,0,112
+aprenfl-defects4j-Lang-60-TBar-Patch_3262_1865,Overfitting,Overfitting,"'Unknown': 5 (5 not-clone), 'Overfitting': 1 (1 not-clone)",6,0,1,5
+aprenfl-defects4j-Lang-63-TBar-Patch_28_21,Overfitting,Unknown,'Unknown': 40 (40 not-clone),40,0,0,40
+aprenfl-defects4j-Lang-7-TBar-Patch_1504_1083,Correct,Correct,"'Unknown': 59 (56 type-3, 3 not-clone), 'Correct': 5 (3 type-4, 2 type-1)",64,5,0,59
+aprenfl-defects4j-Math-11-TBar-Patch_31_8,Correct,Unknown,'Unknown': 1 (1 type-3),1,0,0,1
+aprenfl-defects4j-Math-15-TBar-Patch_1163_932,Overfitting,Overfitting,'Overfitting': 2 (2 type-4),2,0,2,0
+aprenfl-defects4j-Math-2-TBar-Patch_468_285,Overfitting,Overfitting,"'Unknown': 95 (94 not-clone, 1 type-3), 'Overfitting': 1 (1 not-clone)",96,0,1,95
+aprenfl-defects4j-Math-5-TBar-Patch_2_2,Correct,Correct,"'Unknown': 18 (17 type-3, 1 not-clone), 'Correct': 12 (11 type-1, 1 type-2)",30,12,0,18
+aprenfl-defects4j-Math-50-TBar-Patch_1_1,Overfitting,Overfitting,"'Unknown': 100 (100 type-3), 'Overfitting': 3 (2 type-4, 1 not-clone)",103,0,3,100
+aprenfl-defects4j-Math-57-TBar-Patch_16_7,Correct,Correct,"'Unknown': 6 (5 not-clone, 1 type-3), 'Correct': 9 (9 type-1)",15,9,0,6
+aprenfl-defects4j-Math-6-TBar-Patch_5_2,Overfitting,Overfitting,"'Unknown': 1 (1 type-3), 'Overfitting': 6 (4 type-2, 2 type-1)",7,0,6,1
+aprenfl-defects4j-Math-62-TBar-Patch_261_142,Overfitting,Overfitting,"'Unknown': 1 (1 not-clone), 'Overfitting': 3 (2 type-1, 1 type-4)",4,0,3,1
+aprenfl-defects4j-Math-63-TBar-Patch_611_159,Overfitting,Overfitting,"'Unknown': 16 (15 not-clone, 1 type-3), 'Overfitting': 2 (2 not-clone)",18,0,2,16
+aprenfl-defects4j-Math-65-TBar-Patch_137_80,Correct,Unknown,'Unknown': 1 (1 type-3),1,0,0,1
+aprenfl-defects4j-Math-70-TBar-Patch_28_28,Correct,Correct,"'Unknown': 48 (47 type-3, 1 not-clone), 'Correct': 22 (22 type-1)",70,22,0,48
+aprenfl-defects4j-Math-75-TBar-Patch_3_1,Correct,Correct,'Correct': 12 (12 type-1),12,12,0,0
+aprenfl-defects4j-Math-79-TBar-Patch_293_124,Correct,Correct,"'Unknown': 1 (1 type-3), 'Correct': 5 (5 type-1)",6,5,0,1
+aprenfl-defects4j-Math-8-TBar-Patch_47_16,Overfitting,Overfitting,"'Unknown': 100 (99 not-clone, 1 type-3), 'Overfitting': 12 (11 type-4, 1 not-clone)",112,0,12,100
+aprenfl-defects4j-Math-80-TBar-Patch_931_596,Overfitting,Overfitting,"'Unknown': 95 (80 not-clone, 15 type-3), 'Overfitting': 3 (2 type-1, 1 type-2)",98,0,3,95
+aprenfl-defects4j-Math-81-TBar-Patch_75_45,Overfitting,Unknown,"'Unknown': 129 (82 not-clone, 47 type-3)",129,0,0,129
+aprenfl-defects4j-Math-82-TBar-Patch_1326_709,Overfitting,Overfitting,"'Unknown': 21 (14 type-3, 7 not-clone), 'Overfitting': 19 (10 type-4, 9 not-clone)",40,0,19,21
+aprenfl-defects4j-Math-84-TBar-Patch_114_72,Overfitting,Unknown,"'Unknown': 18 (9 not-clone, 9 type-3)",18,0,0,18
+aprenfl-defects4j-Math-85-TBar-Patch_3_1,Overfitting,Overfitting,"'Unknown': 41 (28 not-clone, 13 type-3), 'Overfitting': 18 (8 not-clone, 6 type-1, 4 type-4)",59,0,18,41
+aprenfl-defects4j-Math-88-TBar-Patch_593_301,Overfitting,Unknown,"'Unknown': 12 (7 type-3, 5 not-clone)",12,0,0,12
+aprenfl-defects4j-Math-89-TBar-Patch_14_12,Correct,Correct,"'Unknown': 4 (4 type-3), 'Correct': 3 (2 type-1, 1 type-2)",7,3,0,4
+aprenfl-defects4j-Math-96-TBar-Patch_439_157,Overfitting,Overfitting,'Overfitting': 1 (1 not-clone),1,0,1,0
+wangicse-defects4j-Chart-1-TBar-patch1,Correct,Correct,"'Unknown': 53 (50 type-3, 3 not-clone), 'Correct': 15 (15 type-1)",68,15,0,53
+wangicse-defects4j-Chart-11-TBar-patch1,Correct,Correct,"'Unknown': 5 (5 type-3), 'Correct': 7 (7 type-1)",12,7,0,5
+wangicse-defects4j-Chart-12-TBar-patch1,Overfitting,Overfitting,"'Unknown': 20 (10 type-3, 10 not-clone), 'Overfitting': 3 (3 not-clone)",23,0,3,20
+wangicse-defects4j-Chart-13-TBar-patch1,Overfitting,Overfitting,"'Unknown': 54 (51 not-clone, 3 type-3), 'Overfitting': 1 (1 not-clone)",55,0,1,54
+wangicse-defects4j-Chart-14-TBar-patch1,Overfitting,Overfitting,"'Unknown': 52 (36 not-clone, 16 type-3), 'Overfitting': 3 (3 not-clone)",55,0,3,52
+wangicse-defects4j-Chart-15-TBar-patch1,Overfitting,Overfitting,"'Unknown': 42 (31 type-3, 11 not-clone), 'Overfitting': 2 (2 type-1)",44,0,2,42
+wangicse-defects4j-Chart-24-TBar-patch1,Correct,Correct,"'Unknown': 1 (1 type-3), 'Correct': 11 (6 type-1, 5 type-4)",12,11,0,1
+wangicse-defects4j-Chart-25-TBar-patch1,Overfitting,Overfitting,"'Unknown': 97 (66 not-clone, 31 type-3), 'Overfitting': 2 (2 type-1)",99,0,2,97
+wangicse-defects4j-Chart-26-TBar-patch1,Overfitting,Overfitting,"'Unknown': 14 (13 type-3, 1 not-clone), 'Overfitting': 2 (2 not-clone)",16,0,2,14
+wangicse-defects4j-Chart-3-TBar-patch1,Overfitting,Overfitting,"'Unknown': 17 (9 not-clone, 8 type-3), 'Overfitting': 3 (2 type-1, 1 not-clone)",20,0,3,17
+wangicse-defects4j-Chart-5-TBar-patch1,Overfitting,Unknown,"'Unknown': 23 (19 type-3, 4 not-clone)",23,0,0,23
+wangicse-defects4j-Chart-7-TBar-patch1,Overfitting,Overfitting,"'Unknown': 14 (10 not-clone, 4 type-3), 'Overfitting': 6 (3 type-1, 2 not-clone, 1 type-2)",20,0,6,14
+wangicse-defects4j-Chart-9-TBar-patch1,Correct,Correct,"'Unknown': 7 (4 type-3, 3 not-clone), 'Correct': 3 (3 type-1)",10,3,0,7
+wangicse-defects4j-Closure-107-TBar-patch1,Overfitting,Unknown,'Unknown': 2 (2 type-3),2,0,0,2
+wangicse-defects4j-Closure-109-TBar-patch1,Overfitting,Overfitting,"'Unknown': 4 (3 not-clone, 1 type-3), 'Overfitting': 2 (2 type-1)",6,0,2,4
+wangicse-defects4j-Closure-115-TBar-patch1,Overfitting,Unknown,"'Unknown': 37 (36 type-3, 1 not-clone)",37,0,0,37
+wangicse-defects4j-Closure-12-TBar-patch1,Overfitting,Overfitting,"'Unknown': 4 (4 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",7,0,3,4
+wangicse-defects4j-Closure-126-TBar-patch1,Overfitting,Unknown,'Unknown': 44 (44 type-3),44,0,0,44
+wangicse-defects4j-Closure-133-TBar-patch1,Overfitting,Overfitting,"'Unknown': 4 (4 not-clone), 'Overfitting': 1 (1 not-clone)",5,0,1,4
+wangicse-defects4j-Closure-21-TBar-patch1,Overfitting,Unknown,'Unknown': 53 (53 type-3),53,0,0,53
+wangicse-defects4j-Closure-22-TBar-patch1,Overfitting,Overfitting,"'Unknown': 70 (70 type-3), 'Overfitting': 1 (1 type-1)",71,0,1,70
+wangicse-defects4j-Closure-62-TBar-patch1,Correct,Correct,"'Unknown': 9 (9 type-3), 'Correct': 5 (5 type-1)",14,5,0,9
+wangicse-defects4j-Closure-66-TBar-patch1,Overfitting,Overfitting,"'Unknown': 1 (1 not-clone), 'Overfitting': 3 (2 type-1, 1 not-clone)",4,0,3,1
+wangicse-defects4j-Closure-73-TBar-patch1,Correct,Correct,"'Unknown': 1 (1 type-3), 'Correct': 9 (8 type-1, 1 type-2)",10,9,0,1
+wangicse-defects4j-Lang-10-TBar-patch1,Correct,Correct,"'Unknown': 6 (5 type-3, 1 not-clone), 'Correct': 2 (2 type-1)",8,2,0,6
+wangicse-defects4j-Lang-13-TBar-patch1,Overfitting,Overfitting,"'Unknown': 2 (2 not-clone), 'Overfitting': 2 (2 type-1)",4,0,2,2
+wangicse-defects4j-Lang-18-TBar-patch1,Overfitting,Overfitting,"'Unknown': 1 (1 type-3), 'Overfitting': 2 (2 type-1)",3,0,2,1
+wangicse-defects4j-Lang-20-TBar-patch1,Overfitting,Unknown,'Unknown': 6 (6 type-3),6,0,0,6
+wangicse-defects4j-Lang-22-TBar-patch1,Overfitting,Unknown,'Unknown': 24 (24 type-3),24,0,0,24
+wangicse-defects4j-Lang-24-TBar-patch1,Overfitting,Overfitting,"'Overfitting': 8 (6 not-clone, 2 type-1)",8,0,8,0
+wangicse-defects4j-Lang-27-TBar-patch1,Overfitting,Overfitting,"'Unknown': 16 (16 type-3), 'Overfitting': 2 (2 type-1)",18,0,2,16
+wangicse-defects4j-Lang-33-TBar-patch1,Correct,Correct,"'Unknown': 7 (7 type-3), 'Correct': 1 (1 type-4)",8,1,0,7
+wangicse-defects4j-Lang-39-TBar-patch1,Overfitting,Unknown,"'Unknown': 33 (32 type-3, 1 not-clone)",33,0,0,33
+wangicse-defects4j-Lang-41-TBar-patch1,Overfitting,Overfitting,"'Unknown': 2 (2 not-clone), 'Overfitting': 2 (2 type-1)",4,0,2,2
+wangicse-defects4j-Lang-43-TBar-patch1,Overfitting,Overfitting,"'Unknown': 21 (11 type-3, 10 not-clone), 'Overfitting': 10 (8 not-clone, 2 type-1)",31,0,10,21
+wangicse-defects4j-Lang-44-TBar-patch1,Overfitting,Overfitting,"'Unknown': 9 (9 type-3), 'Overfitting': 1 (1 not-clone)",10,0,1,9
+wangicse-defects4j-Lang-45-TBar-patch1,Overfitting,Overfitting,"'Unknown': 13 (13 type-3), 'Overfitting': 2 (2 type-1)",15,0,2,13
+wangicse-defects4j-Lang-51-TBar-patch1,Overfitting,Unknown,'Unknown': 54 (54 type-3),54,0,0,54
+wangicse-defects4j-Lang-57-TBar-patch1,Correct,Correct,"'Unknown': 6 (6 type-3), 'Correct': 3 (3 type-1)",9,3,0,6
+wangicse-defects4j-Lang-58-TBar-patch1,Overfitting,Unknown,'Unknown': 16 (16 type-3),16,0,0,16
+wangicse-defects4j-Lang-59-TBar-patch1,Correct,Correct,"'Unknown': 111 (111 type-3), 'Correct': 6 (6 type-1)",117,6,0,111
+wangicse-defects4j-Lang-60-TBar-patch1,Overfitting,Overfitting,"'Unknown': 5 (5 not-clone), 'Overfitting': 1 (1 not-clone)",6,0,1,5
+wangicse-defects4j-Lang-63-TBar-patch1,Overfitting,Unknown,'Unknown': 40 (40 type-3),40,0,0,40
+wangicse-defects4j-Lang-7-TBar-patch1,Correct,Correct,"'Unknown': 60 (60 type-3), 'Correct': 4 (2 type-1, 2 type-4)",64,4,0,60
+wangicse-defects4j-Math-11-TBar-patch1,Correct,Correct,'Correct': 1 (1 type-2),1,1,0,0
+wangicse-defects4j-Math-15-TBar-patch1,Overfitting,Unknown,'Unknown': 2 (2 type-3),2,0,0,2
+wangicse-defects4j-Math-2-TBar-patch1,Overfitting,Overfitting,"'Unknown': 95 (94 not-clone, 1 type-3), 'Overfitting': 1 (1 not-clone)",96,0,1,95
+wangicse-defects4j-Math-5-TBar-patch1,Correct,Correct,"'Unknown': 17 (14 type-3, 3 not-clone), 'Correct': 13 (11 type-1, 2 type-2)",30,13,0,17
+wangicse-defects4j-Math-50-TBar-patch1,Overfitting,Unknown,'Unknown': 103 (103 type-3),103,0,0,103
+wangicse-defects4j-Math-57-TBar-patch1,Correct,Correct,"'Unknown': 6 (5 not-clone, 1 type-3), 'Correct': 9 (9 type-1)",15,9,0,6
+wangicse-defects4j-Math-6-TBar-patch1,Overfitting,Overfitting,"'Unknown': 5 (5 type-3), 'Overfitting': 2 (2 type-1)",7,0,2,5
+wangicse-defects4j-Math-62-TBar-patch1,Overfitting,Overfitting,"'Unknown': 2 (2 type-3), 'Overfitting': 2 (2 type-1)",4,0,2,2
+wangicse-defects4j-Math-63-TBar-patch1,Overfitting,Overfitting,"'Unknown': 16 (13 not-clone, 3 type-3), 'Overfitting': 2 (2 not-clone)",18,0,2,16
+wangicse-defects4j-Math-65-TBar-patch1,Correct,Unknown,'Unknown': 1 (1 type-3),1,0,0,1
+wangicse-defects4j-Math-70-TBar-patch1,Correct,Correct,"'Unknown': 48 (48 type-3), 'Correct': 22 (22 type-1)",70,22,0,48
+wangicse-defects4j-Math-75-TBar-patch1,Correct,Correct,'Correct': 12 (12 type-1),12,12,0,0
+wangicse-defects4j-Math-79-TBar-patch1,Correct,Correct,"'Unknown': 1 (1 type-3), 'Correct': 5 (5 type-1)",6,5,0,1
+wangicse-defects4j-Math-8-TBar-patch1,Overfitting,Unknown,'Unknown': 112 (112 type-3),112,0,0,112
+wangicse-defects4j-Math-80-TBar-patch1,Overfitting,Overfitting,"'Unknown': 96 (92 type-3, 4 not-clone), 'Overfitting': 2 (2 type-1)",98,0,2,96
+wangicse-defects4j-Math-81-TBar-patch1,Overfitting,Unknown,'Unknown': 129 (129 type-3),129,0,0,129
+wangicse-defects4j-Math-82-TBar-patch1,Overfitting,Unknown,'Unknown': 40 (40 type-3),40,0,0,40
+wangicse-defects4j-Math-84-TBar-patch1,Overfitting,Overfitting,"'Unknown': 17 (17 type-3), 'Overfitting': 1 (1 type-1)",18,0,1,17
+wangicse-defects4j-Math-85-TBar-patch1,Overfitting,Overfitting,"'Unknown': 53 (53 type-3), 'Overfitting': 6 (6 type-1)",59,0,6,53
+wangicse-defects4j-Math-88-TBar-patch1,Overfitting,Unknown,"'Unknown': 12 (7 type-3, 5 not-clone)",12,0,0,12
+wangicse-defects4j-Math-96-TBar-patch1,Overfitting,Unknown,'Unknown': 1 (1 type-3),1,0,0,1

@@ -1,0 +1,10 @@
+tbar_uid,tbar_gt,tbar_inferred,reference_uid,expert_label,ref_correctness,verdict
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,wangicse-defects4j-Chart-19-ACS-patch1,type-2,Correct,Correct
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-FixMiner-Patch_51_49,not-clone,Correct,Overfitting
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-kPAR-Patch_51_49,not-clone,Correct,Overfitting
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-AVATAR-Patch_81_49,not-clone,Correct,Overfitting
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,dl4pc2-defects4j-Chart-19-Arja-DifferentFilePatches-21,not-clone,Overfitting,Unknown
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,drr-defects4j-Chart-19-Arja-patch1,not-clone,Overfitting,Unknown
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-FixMiner-Patch_56_52,type-3,Correct,Unknown
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-kPAR-Patch_56_52,type-3,Correct,Unknown
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Overfitting,aprenfl-defects4j-Chart-19-AVATAR-Patch_164_98,type-3,Correct,Unknown

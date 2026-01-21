@@ -8,7 +8,7 @@ aprenfl-defects4j-Chart-14-TBar-Patch_2631_615,Overfitting,Overfitting
 aprenfl-defects4j-Chart-14-TBar-Patch_2669_616,Overfitting,Overfitting
 aprenfl-defects4j-Chart-14-TBar-Patch_974_207,Overfitting,Overfitting
 aprenfl-defects4j-Chart-15-TBar-Patch_220_119,Overfitting,Overfitting
-aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Correct,Correct
+aprenfl-defects4j-Chart-19-TBar-Patch_143_118,Unknown,Correct
 aprenfl-defects4j-Chart-19-TBar-Patch_68_59,Correct,Correct
 aprenfl-defects4j-Chart-24-TBar-Patch_42_20,Correct,Correct
 aprenfl-defects4j-Chart-25-TBar-Patch_12_9,Overfitting,Overfitting
@@ -29,7 +29,7 @@ aprenfl-defects4j-Closure-22-TBar-Patch_5_5,Overfitting,Overfitting
 aprenfl-defects4j-Closure-62-TBar-Patch_43_31,Correct,Correct
 aprenfl-defects4j-Closure-66-TBar-Patch_9_6,Overfitting,Overfitting
 aprenfl-defects4j-Closure-73-TBar-Patch_146_58,Correct,Correct
-aprenfl-defects4j-Lang-10-TBar-Patch_2435_1012,Unknown,Correct
+aprenfl-defects4j-Lang-10-TBar-Patch_2435_1012,Correct,Correct
 aprenfl-defects4j-Lang-13-TBar-Patch_18_6,Overfitting,Overfitting
 aprenfl-defects4j-Lang-18-TBar-Patch_5849_3524,Overfitting,Overfitting
 aprenfl-defects4j-Lang-20-TBar-Patch_1220_617,Unknown,Overfitting

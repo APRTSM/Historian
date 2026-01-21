@@ -261,6 +261,188 @@ for idx, row in overfitting_as_correct.iterrows():
     print(f"    Voting: {verdict_counts}")
 
 # ============================================================
+# DETAILED VOTING TABLE FOR ALL 139 PATCHES
+# ============================================================
+print("\n" + "="*60)
+print("DETAILED VOTING TABLE FOR ALL 139 PATCHES")
+print("="*60)
+
+def get_detailed_voting(uid, df):
+    """Get detailed voting breakdown for a patch"""
+    patch_pairs = df[df['uid'] == uid]
+    
+    # Count verdicts
+    verdict_counts = patch_pairs['verdict'].value_counts().to_dict()
+    
+    # For each verdict, get the breakdown by expert_label
+    verdict_details = {}
+    for verdict in ['Correct', 'Overfitting', 'Unknown']:
+        verdict_pairs = patch_pairs[patch_pairs['verdict'] == verdict]
+        if len(verdict_pairs) > 0:
+            label_counts = verdict_pairs['expert_label'].value_counts().to_dict()
+            verdict_details[verdict] = {
+                'total': len(verdict_pairs),
+                'breakdown': label_counts
+            }
+    
+    return verdict_details
+
+def format_verdict_details(details):
+    """Format verdict details as a string"""
+    parts = []
+    for verdict in ['Unknown', 'Overfitting', 'Correct']:
+        if verdict in details:
+            info = details[verdict]
+            breakdown_str = ', '.join([f"{count} {label}" for label, count in info['breakdown'].items()])
+            parts.append(f"'{verdict}': {info['total']} ({breakdown_str})")
+    return ', '.join(parts)
+
+# Build the detailed table
+detailed_rows = []
+for uid in voted_df['uid']:
+    row_data = voted_df[voted_df['uid'] == uid].iloc[0]
+    details = get_detailed_voting(uid, labeled_pairs)
+    
+    detailed_rows.append({
+        'uid': uid,
+        'gt_correctness': row_data['gt_correctness'],
+        'inferred_label': row_data['inferred_label'],
+        'voting_details': format_verdict_details(details),
+        'total_pairs': len(labeled_pairs[labeled_pairs['uid'] == uid]),
+        'correct_votes': details.get('Correct', {}).get('total', 0),
+        'overfitting_votes': details.get('Overfitting', {}).get('total', 0),
+        'unknown_votes': details.get('Unknown', {}).get('total', 0),
+        'details_dict': details  # Keep for later analysis
+    })
+
+detailed_df = pd.DataFrame(detailed_rows)
+
+# Print the table
+print("\n{:<70} | {:<12} | {:<12} | {:<6} | {}".format(
+    "Patch UID", "GT", "Inferred", "Pairs", "Voting Details"
+))
+print("-" * 180)
+
+for idx, row in detailed_df.iterrows():
+    print("{:<70} | {:<12} | {:<12} | {:<6} | {}".format(
+        row['uid'][:70],
+        row['gt_correctness'],
+        row['inferred_label'],
+        row['total_pairs'],
+        row['voting_details']
+    ))
+
+# Save detailed table to CSV (without the dict column)
+detailed_df_save = detailed_df.drop(columns=['details_dict'])
+detailed_df_save.to_csv("rq2/rq2_detailed_voting_table.csv", index=False)
+print(f"\nDetailed voting table saved to: rq2/rq2_detailed_voting_table.csv")
+
+# ============================================================
+# CONFLICTING VOTES ANALYSIS
+# ============================================================
+print("\n" + "="*60)
+print("CONFLICTING VOTES ANALYSIS")
+print("="*60)
+print("(Patches with BOTH 'Correct' and 'Overfitting' votes)")
+print("="*60)
+
+# Find patches with both Correct and Overfitting votes
+conflicting_patches = detailed_df[
+    (detailed_df['correct_votes'] > 0) & 
+    (detailed_df['overfitting_votes'] > 0)
+]
+
+print(f"\nTotal patches with conflicting votes: {len(conflicting_patches)}")
+
+if len(conflicting_patches) > 0:
+    print("\n{:<70} | {:<12} | {:<12} | {:<8} | {:<8} | {:<8} | {}".format(
+        "Patch UID", "GT", "Inferred", "Correct", "Overfit", "Unknown", "Voting Details"
+    ))
+    print("-" * 200)
+    
+    for idx, row in conflicting_patches.iterrows():
+        print("{:<70} | {:<12} | {:<12} | {:<8} | {:<8} | {:<8} | {}".format(
+            row['uid'][:70],
+            row['gt_correctness'],
+            row['inferred_label'],
+            row['correct_votes'],
+            row['overfitting_votes'],
+            row['unknown_votes'],
+            row['voting_details']
+        ))
+    
+    # Summary statistics for conflicting patches
+    print("\n--- Summary of Conflicting Patches ---")
+    print(f"Total conflicting patches: {len(conflicting_patches)}")
+    print(f"  - GT Correct: {len(conflicting_patches[conflicting_patches['gt_correctness'] == 'Correct'])}")
+    print(f"  - GT Overfitting: {len(conflicting_patches[conflicting_patches['gt_correctness'] == 'Overfitting'])}")
+    print(f"\nInferred labels for conflicting patches:")
+    print(conflicting_patches['inferred_label'].value_counts().to_string())
+    
+    # Check accuracy on conflicting patches
+    conflicting_covered = conflicting_patches[conflicting_patches['inferred_label'] != 'Unknown']
+    if len(conflicting_covered) > 0:
+        conflicting_correct = (conflicting_covered['gt_correctness'] == conflicting_covered['inferred_label']).sum()
+        print(f"\nAccuracy on conflicting patches (covered only): {conflicting_correct}/{len(conflicting_covered)} = {conflicting_correct/len(conflicting_covered)*100:.1f}%")
+    
+    # Save conflicting patches to separate CSV
+    conflicting_df_save = conflicting_patches.drop(columns=['details_dict'])
+    conflicting_df_save.to_csv("rq2/rq2_conflicting_votes.csv", index=False)
+    print(f"\nConflicting votes saved to: rq2/rq2_conflicting_votes.csv")
+
+else:
+    print("\nNo patches with conflicting votes found!")
+
+# ============================================================
+# DETAILED PAIRS FOR CONFLICTING PATCHES
+# ============================================================
+print("\n" + "="*60)
+print("DETAILED PAIRS FOR CONFLICTING PATCHES")
+print("="*60)
+print("(Showing TBar UID, Reference Patch UID, Expert Label, Ref Correctness, Verdict)")
+print("="*60)
+
+if len(conflicting_patches) > 0:
+    conflicting_pairs_rows = []
+    
+    for idx, row in conflicting_patches.iterrows():
+        tbar_uid = row['uid']
+        print(f"\n{'='*80}")
+        print(f"TBar Patch: {tbar_uid}")
+        print(f"GT: {row['gt_correctness']} | Inferred: {row['inferred_label']}")
+        print(f"Votes - Correct: {row['correct_votes']}, Overfitting: {row['overfitting_votes']}, Unknown: {row['unknown_votes']}")
+        print("-"*80)
+        
+        # Get all pairs for this TBar patch
+        patch_pairs = labeled_pairs[labeled_pairs['uid'] == tbar_uid].copy()
+        
+        # Sort by verdict to group them
+        patch_pairs = patch_pairs.sort_values(by=['verdict', 'expert_label'])
+        
+        print(f"{'Reference Patch UID':<70} | {'Expert Label':<12} | {'Ref GT':<12} | {'Verdict':<12}")
+        print("-"*120)
+        
+        for _, pair in patch_pairs.iterrows():
+            print(f"{pair['groundtruth_index']:<70} | {pair['expert_label']:<12} | {str(pair['ref_correctness']):<12} | {pair['verdict']:<12}")
+            
+            # Collect for CSV
+            conflicting_pairs_rows.append({
+                'tbar_uid': tbar_uid,
+                'tbar_gt': row['gt_correctness'],
+                'tbar_inferred': row['inferred_label'],
+                'reference_uid': pair['groundtruth_index'],
+                'expert_label': pair['expert_label'],
+                'ref_correctness': pair['ref_correctness'],
+                'verdict': pair['verdict']
+            })
+    
+    # Save detailed conflicting pairs to CSV
+    conflicting_pairs_df = pd.DataFrame(conflicting_pairs_rows)
+    conflicting_pairs_df.to_csv("rq2/rq2_conflicting_pairs_detailed.csv", index=False)
+    print(f"\n\nDetailed conflicting pairs saved to: rq2/rq2_conflicting_pairs_detailed.csv")
+    print(f"Total pairs in conflicting patches: {len(conflicting_pairs_df)}")
+
+# ============================================================
 # Save results
 # ============================================================
 voted_df.to_csv("rq2/rq2_expert_labeled_tbar_voted.csv", index=False)
