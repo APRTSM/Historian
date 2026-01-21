@@ -1,54 +1,114 @@
-    private Integer getPivotRow(SimplexTableau tableau, final int col) {
-        // create a list of all the rows that tie for the lowest score in the minimum ratio test
-        List<Integer> minRatioPositions = new ArrayList<Integer>();
-        double minRatio = Double.MAX_VALUE;
-        for (int i = tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
-            final double rhs = tableau.getEntry(i, tableau.getWidth() - 1);
-            final double entry = tableau.getEntry(i, col);
+    public static String formatPeriod(long startMillis, long endMillis, String format, boolean padWithZeros, 
+            TimeZone timezone) {
 
-            if (Precision.compareTo(entry, 0d, maxUlps) > 0) {
-                final double ratio = rhs / entry;
-                // check if the entry is strictly equal to the current min ratio
-                // do not use a ulp/epsilon check
-                final int cmp = Double.compare(ratio, minRatio);
-                if (cmp == 0) {
-                    minRatioPositions.add(i);
-                } else if (cmp < 0) {
-                    minRatio = ratio;
-                    minRatioPositions = new ArrayList<Integer>();
-                    minRatioPositions.add(i);
-                }
+        long millis = endMillis - startMillis;
+        if (millis < 28 * DateUtils.MILLIS_PER_DAY) {
+            return formatDuration(millis, format, padWithZeros);
+        }
+
+        Token[] tokens = lexx(format);
+
+        // timezones get funky around 0, so normalizing everything to GMT 
+        // stops the hours being off
+        Calendar start = Calendar.getInstance(timezone);
+        start.setTime(new Date(startMillis));
+        if (millis < 28 * DateUtils.MILLIS_PER_DAY) {
+			return formatDuration(millis, format, padWithZeros);
+		}
+		Calendar end = Calendar.getInstance(timezone);
+        end.setTime(new Date(endMillis));
+
+        // initial estimates
+        int milliseconds = end.get(Calendar.MILLISECOND) - start.get(Calendar.MILLISECOND);
+        int seconds = end.get(Calendar.SECOND) - start.get(Calendar.SECOND);
+        int minutes = end.get(Calendar.MINUTE) - start.get(Calendar.MINUTE);
+        int hours = end.get(Calendar.HOUR_OF_DAY) - start.get(Calendar.HOUR_OF_DAY);
+        int days = end.get(Calendar.DAY_OF_MONTH) - start.get(Calendar.DAY_OF_MONTH);
+        int months = end.get(Calendar.MONTH) - start.get(Calendar.MONTH);
+        int years = end.get(Calendar.YEAR) - start.get(Calendar.YEAR);
+
+        // each initial estimate is adjusted in case it is under 0
+        while (milliseconds < 0) {
+            milliseconds += 1000;
+            seconds -= 1;
+        }
+        while (seconds < 0) {
+            seconds += 60;
+            minutes -= 1;
+        }
+        while (minutes < 0) {
+            minutes += 60;
+            hours -= 1;
+        }
+        while (hours < 0) {
+            hours += 24;
+            days -= 1;
+        }
+        while (days < 0) {
+            days += 31;
+//days += 31; // TODO: Need tests to show this is bad and the new code is good.
+// HEN: It's a tricky subject. Jan 15th to March 10th. If I count days-first it is 
+// 1 month and 26 days, but if I count month-first then it is 1 month and 23 days.
+// Also it's contextual - if asked for no M in the format then I should probably 
+// be doing no calculating here.
+            months -= 1;
+        }
+        while (months < 0) {
+            months += 12;
+            years -= 1;
+        }
+        milliseconds -= reduceAndCorrect(start, end, Calendar.MILLISECOND, milliseconds);
+        seconds -= reduceAndCorrect(start, end, Calendar.SECOND, seconds);
+        minutes -= reduceAndCorrect(start, end, Calendar.MINUTE, minutes);
+        hours -= reduceAndCorrect(start, end, Calendar.HOUR_OF_DAY, hours);
+        days -= reduceAndCorrect(start, end, Calendar.DAY_OF_MONTH, days);
+        months -= reduceAndCorrect(start, end, Calendar.MONTH, months);
+        years -= reduceAndCorrect(start, end, Calendar.YEAR, years);
+
+        // This next block of code adds in values that 
+        // aren't requested. This allows the user to ask for the 
+        // number of months and get the real count and not just 0->11.
+        if (!Token.containsTokenWithValue(tokens, y)) {
+            if (Token.containsTokenWithValue(tokens, M)) {
+                months += 12 * years;
+                years = 0;
+            } else {
+                // TODO: this is a bit weak, needs work to know about leap years
+                days += 365 * years;
+                years = 0;
             }
         }
-
-        if (minRatioPositions.size() == 0) {
-            return null;
-        } else if (minRatioPositions.size() > 1) {
-            // there's a degeneracy as indicated by a tie in the minimum ratio test
-
-            // 2. apply Bland's rule to prevent cycling:
-            //    take the row for which the corresponding basic variable has the smallest index
-            //
-            // see http://www.stanford.edu/class/msande310/blandrule.pdf
-            // see http://en.wikipedia.org/wiki/Bland%27s_rule (not equivalent to the above paper)
-            //
-            // Additional heuristic: if we did not get a solution after half of maxIterations
-            //                       revert to the simple case of just returning the top-most row
-            // This heuristic is based on empirical data gathered while investigating MATH-828.
-                Integer minRow = null;
-                int minIndex = tableau.getWidth();
-                for (Integer row : minRatioPositions) {
-                    int i = tableau.getNumObjectiveFunctions();
-                    for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
-                        if (row == tableau.getBasicRow(i)) {
-                            if (i < minIndex) {
-                                minIndex = i;
-                                minRow = row;
-                            }
-                        }
-                    }
-                }
-                return minRow;
+        if (!Token.containsTokenWithValue(tokens, M)) {
+            days += end.get(Calendar.DAY_OF_YEAR) - start.get(Calendar.DAY_OF_YEAR);
+            months = 0;
         }
-        return minRatioPositions.get(0);
+        if (!Token.containsTokenWithValue(tokens, d)) {
+            hours += 24 * days;
+            days = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, H)) {
+            minutes += 60 * hours;
+            hours = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, m)) {
+            seconds += 60 * minutes;
+            minutes = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, s)) {
+            milliseconds += 1000 * seconds;
+            seconds = 0;
+        }
+
+        return format(tokens, years, months, days, hours, minutes, seconds, milliseconds, padWithZeros);
+    }
+    static int reduceAndCorrect(Calendar start, Calendar end, int field, int difference) {
+        end.add( field, -1 * difference );
+        int endValue = end.get(field);
+        int startValue = start.get(field);
+        if (endValue < startValue) {
+            int newdiff = startValue - endValue;
+            return newdiff;
+        } else {
+            return 0;
+        }
     }

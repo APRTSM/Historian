@@ -1,0 +1,3 @@
+uid,inferred_label,gt_correctness
+aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,Overfitting,Correct
+aprenfl-defects4j-Math-96-TBar-Patch_439_157,Correct,Overfitting
