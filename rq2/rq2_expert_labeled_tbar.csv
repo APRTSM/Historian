@@ -369,12 +369,12 @@ aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-DeepRepair-
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch6,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch4,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch1,not-clone
-aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch3,type-4
+aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch3,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Arja-patch2,type-3
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Jaid-patch3,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Jaid-patch2,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-Jaid-patch1,type-3
-aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-SketchFix-patch2,type-4
+aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-SketchFix-patch2,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-SketchFix-patch1,type-3
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-SequenceR-patch2,not-clone
 aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,drr-defects4j-Chart-1-SequenceR-patch4,not-clone
@@ -1089,7 +1089,7 @@ aprenfl-defects4j-Math-89-TBar-Patch_14_12,defectrepairing-defects4j-Math-89-ACS
 aprenfl-defects4j-Math-89-TBar-Patch_14_12,drr-defects4j-Math-89-ACS-patch1,type-3
 aprenfl-defects4j-Math-89-TBar-Patch_14_12,wangicse-defects4j-Math-89-ACS-patch1,type-3
 aprenfl-defects4j-Math-89-TBar-Patch_14_12,defects4j-Math-89-developer,type-2
-aprenfl-defects4j-Math-96-TBar-Patch_439_157,defects4j-Math-96-developer,type-4
+aprenfl-defects4j-Math-96-TBar-Patch_439_157,defects4j-Math-96-developer,not-clone
 aprenfl-defects4j-Math-75-TBar-Patch_3_1,aprenfl-defects4j-Math-75-FixMiner-Patch_7_4,type-1
 aprenfl-defects4j-Math-75-TBar-Patch_3_1,aprenfl-defects4j-Math-75-SimFix-Patch_8_8,type-1
 aprenfl-defects4j-Math-75-TBar-Patch_3_1,aprenfl-defects4j-Math-75-kPAR-Patch_7_4,type-1

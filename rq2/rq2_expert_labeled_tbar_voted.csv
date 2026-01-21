@@ -1,5 +1,5 @@
 uid,inferred_label,gt_correctness
-aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,Overfitting,Correct
+aprenfl-defects4j-Chart-1-TBar-Patch_2781_1214,Correct,Correct
 aprenfl-defects4j-Chart-11-TBar-Patch_102_60,Correct,Correct
 aprenfl-defects4j-Chart-12-TBar-Patch_39_22,Overfitting,Overfitting
 aprenfl-defects4j-Chart-13-TBar-Patch_29_18,Overfitting,Overfitting
@@ -72,7 +72,7 @@ aprenfl-defects4j-Math-84-TBar-Patch_114_72,Unknown,Overfitting
 aprenfl-defects4j-Math-85-TBar-Patch_3_1,Overfitting,Overfitting
 aprenfl-defects4j-Math-88-TBar-Patch_593_301,Unknown,Overfitting
 aprenfl-defects4j-Math-89-TBar-Patch_14_12,Correct,Correct
-aprenfl-defects4j-Math-96-TBar-Patch_439_157,Correct,Overfitting
+aprenfl-defects4j-Math-96-TBar-Patch_439_157,Overfitting,Overfitting
 wangicse-defects4j-Chart-1-TBar-patch1,Correct,Correct
 wangicse-defects4j-Chart-11-TBar-patch1,Correct,Correct
 wangicse-defects4j-Chart-12-TBar-patch1,Overfitting,Overfitting
