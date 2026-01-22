@@ -394,55 +394,6 @@ else:
     print("\nNo patches with conflicting votes found!")
 
 # ============================================================
-# DETAILED PAIRS FOR CONFLICTING PATCHES
-# ============================================================
-print("\n" + "="*60)
-print("DETAILED PAIRS FOR CONFLICTING PATCHES")
-print("="*60)
-print("(Showing TBar UID, Reference Patch UID, Expert Label, Ref Correctness, Verdict)")
-print("="*60)
-
-if len(conflicting_patches) > 0:
-    conflicting_pairs_rows = []
-    
-    for idx, row in conflicting_patches.iterrows():
-        tbar_uid = row['uid']
-        print(f"\n{'='*80}")
-        print(f"TBar Patch: {tbar_uid}")
-        print(f"GT: {row['gt_correctness']} | Inferred: {row['inferred_label']}")
-        print(f"Votes - Correct: {row['correct_votes']}, Overfitting: {row['overfitting_votes']}, Unknown: {row['unknown_votes']}")
-        print("-"*80)
-        
-        # Get all pairs for this TBar patch
-        patch_pairs = labeled_pairs[labeled_pairs['uid'] == tbar_uid].copy()
-        
-        # Sort by verdict to group them
-        patch_pairs = patch_pairs.sort_values(by=['verdict', 'expert_label'])
-        
-        print(f"{'Reference Patch UID':<70} | {'Expert Label':<12} | {'Ref GT':<12} | {'Verdict':<12}")
-        print("-"*120)
-        
-        for _, pair in patch_pairs.iterrows():
-            print(f"{pair['groundtruth_index']:<70} | {pair['expert_label']:<12} | {str(pair['ref_correctness']):<12} | {pair['verdict']:<12}")
-            
-            # Collect for CSV
-            conflicting_pairs_rows.append({
-                'tbar_uid': tbar_uid,
-                'tbar_gt': row['gt_correctness'],
-                'tbar_inferred': row['inferred_label'],
-                'reference_uid': pair['groundtruth_index'],
-                'expert_label': pair['expert_label'],
-                'ref_correctness': pair['ref_correctness'],
-                'verdict': pair['verdict']
-            })
-    
-    # Save detailed conflicting pairs to CSV
-    conflicting_pairs_df = pd.DataFrame(conflicting_pairs_rows)
-    conflicting_pairs_df.to_csv("rq2/rq2_conflicting_pairs_detailed.csv", index=False)
-    print(f"\n\nDetailed conflicting pairs saved to: rq2/rq2_conflicting_pairs_detailed.csv")
-    print(f"Total pairs in conflicting patches: {len(conflicting_pairs_df)}")
-
-# ============================================================
 # Save results
 # ============================================================
 voted_df.to_csv("rq2/rq2_expert_labeled_tbar_voted.csv", index=False)
@@ -450,4 +401,217 @@ voted_df.to_pickle("rq2/rq2_expert_labeled_tbar_voted.pkl")
 
 print("\n" + "="*60)
 print("Results saved!")
+print("="*60)
+
+# ============================================================
+# LATEX TABLE GENERATION
+# ============================================================
+print("\n" + "="*60)
+print("LATEX TABLE GENERATION")
+print("="*60)
+
+def escape_latex(text):
+    """Escape special LaTeX characters"""
+    replacements = {
+        '_': r'\_',
+        '&': r'\&',
+        '%': r'\%',
+        '#': r'\#',
+        '{': r'\{',
+        '}': r'\}',
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+def shorten_uid(uid):
+    """Shorten UID for display"""
+    parts = uid.split('-')
+    if 'defects4j' in uid:
+        try:
+            d4j_idx = parts.index('defects4j')
+            project = parts[d4j_idx + 1]
+            bug_num = parts[d4j_idx + 2]
+            patch_info = '-'.join(parts[d4j_idx + 3:])
+            return f"{project}-{bug_num}-{patch_info}"
+        except:
+            return uid[:50]
+    return uid[:50]
+
+def format_label_summary_latex(details):
+    """Format label counts for LaTeX"""
+    label_order = ['type-1', 'type-2', 'type-3', 'type-4', 'not-clone']
+    all_labels = {}
+    
+    for verdict, info in details.items():
+        for label, count in info['breakdown'].items():
+            if label not in all_labels:
+                all_labels[label] = 0
+            all_labels[label] += count
+    
+    parts = []
+    for label in label_order:
+        if label in all_labels:
+            short_label = label.replace('type-', 'T').replace('not-clone', 'NC')
+            parts.append(f"{short_label}:{all_labels[label]}")
+    
+    return ', '.join(parts)
+
+def format_verdict_summary_latex(details):
+    """Format verdict counts for LaTeX"""
+    parts = []
+    verdict_order = ['Correct', 'Overfitting', 'Unknown']
+    
+    for verdict in verdict_order:
+        if verdict in details:
+            short_verdict = verdict[0]
+            parts.append(f"{short_verdict}:{details[verdict]['total']}")
+    
+    return ', '.join(parts)
+
+# ============================================================
+# MAIN LATEX TABLE
+# ============================================================
+print("\n--- MAIN LATEX TABLE ---")
+
+latex_main = r"""\begin{table*}[t]
+\centering
+\caption{Oracle Experiment Results: Expert-Labeled Clone Types to Patch Correctness Verdicts for TBar Patches}
+\label{tab:oracle-results}
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|l|l|c}
+\hline
+\textbf{TBar Patch} & \textbf{Pairs} & \textbf{Clone Labels} & \textbf{Verdicts} & \textbf{Pred.} \\
+\hline
+"""
+
+for idx, row in detailed_df.iterrows():
+    short_uid = shorten_uid(row['uid'])
+    escaped_uid = escape_latex(short_uid)
+    
+    label_summary = format_label_summary_latex(row['details_dict'])
+    verdict_summary = format_verdict_summary_latex(row['details_dict'])
+    
+    predicted = row['inferred_label']
+    gt = row['gt_correctness']
+    
+    if predicted == 'Unknown':
+        pred_formatted = r'\textcolor{gray}{U}'
+    elif predicted == gt:
+        pred_formatted = r'\textcolor{green!60!black}{' + predicted[0] + '}'
+    else:
+        pred_formatted = r'\textcolor{red}{' + predicted[0] + '}'
+    
+    latex_main += f"{escaped_uid} & {row['total_pairs']} & {label_summary} & {verdict_summary} & {pred_formatted} \\\\\n"
+
+latex_main += r"""\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\\vspace{{1mm}}
+\textbf{Clone Labels:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Verdicts:} C: Correct, O: Overfitting, U: Unknown. \\
+\textcolor{green!60!black}{Green}: Correct prediction, \textcolor{red}{Red}: Wrong prediction, \textcolor{gray}{Gray}: Unknown.}
+\end{table*}
+"""
+
+print(latex_main)
+
+with open("rq2/latex_main_table.tex", "w") as f:
+    f.write(latex_main)
+print("\nMain LaTeX table saved to: rq2/latex_main_table.tex")
+
+# ============================================================
+# CHERRY-PICKED LATEX TABLES
+# ============================================================
+print("\n" + "="*60)
+print("CHERRY-PICKED LATEX TABLES")
+print("="*60)
+
+def generate_cherry_picked_latex(tbar_uid, labeled_pairs, voted_df):
+    """Generate a detailed LaTeX table for a specific TBar patch"""
+    
+    patch_pairs = labeled_pairs[labeled_pairs['uid'] == tbar_uid].copy()
+    patch_pairs = patch_pairs.sort_values(by=['verdict', 'expert_label'])
+    
+    tbar_info = voted_df[voted_df['uid'] == tbar_uid].iloc[0]
+    short_tbar = shorten_uid(tbar_uid)
+    
+    latex = f"""\\begin{{table}}[t]
+\\centering
+\\caption{{Cherry-Picked: {escape_latex(short_tbar)} (GT: {tbar_info['gt_correctness']}, Pred: {tbar_info['inferred_label']})}}
+\\label{{tab:cherry-{short_tbar.replace('-', '').replace('_', '')}}}
+\\footnotesize
+\\renewcommand{{\\arraystretch}}{{1.1}}
+\\setlength{{\\tabcolsep}}{{4pt}}
+\\begin{{tabular}}{{l|c|c|c}}
+\\hline
+\\textbf{{Reference Patch}} & \\textbf{{Type}} & \\textbf{{Ref. GT}} & \\textbf{{Verdict}} \\\\
+\\hline
+"""
+    
+    for _, pair in patch_pairs.iterrows():
+        ref_uid = shorten_uid(pair['groundtruth_index'])
+        escaped_ref = escape_latex(ref_uid)
+        
+        expert_label = pair['expert_label'].replace('type-', 'T').replace('not-clone', 'NC')
+        ref_gt = str(pair['ref_correctness'])[:1] if pd.notna(pair['ref_correctness']) else '-'
+        
+        verdict = pair['verdict']
+        if verdict == 'Correct':
+            verdict_formatted = r'\textcolor{green!60!black}{C}'
+        elif verdict == 'Overfitting':
+            verdict_formatted = r'\textcolor{orange}{O}'
+        else:
+            verdict_formatted = r'\textcolor{gray}{U}'
+        
+        latex += f"{escaped_ref} & {expert_label} & {ref_gt} & {verdict_formatted} \\\\\n"
+    
+    details = get_detailed_voting(tbar_uid, labeled_pairs)
+    verdict_summary = format_verdict_summary_latex(details)
+    
+    latex += f"""\\hline
+\\multicolumn{{3}}{{r|}}{{\\textbf{{Verdict Counts:}}}} & {verdict_summary} \\\\
+\\multicolumn{{3}}{{r|}}{{\\textbf{{Final Prediction:}}}} & \\textbf{{{tbar_info['inferred_label']}}} \\\\
+\\hline
+\\end{{tabular}}
+\\vspace{{1mm}}
+\\parbox{{\\linewidth}}{{\\centering\\footnotesize 
+\\vspace{{1mm}}
+\\textbf{{Type:}} T1-T4: Type-1 to Type-4, NC: Not-Clone. \\;
+\\textbf{{Ref. GT:}} C: Correct, O: Overfitting. \\\\
+\\textbf{{Verdict:}} \\textcolor{{green!60!black}}{{C}}: Correct, \\textcolor{{orange}}{{O}}: Overfitting, \\textcolor{{gray}}{{U}}: Unknown.}}
+\\end{{table}}
+"""
+    
+    return latex
+
+# Define cherry-picked patches - CHANGE THESE TO YOUR DESIRED PATCHES
+cherry_picked_patches = [
+    "aprenfl-defects4j-Chart-11-TBar-Patch_102_60",
+    "aprenfl-defects4j-Chart-26-TBar-Patch_5751_2399",
+]
+
+available_patches = voted_df['uid'].tolist()
+cherry_picked_patches = [p for p in cherry_picked_patches if p in available_patches]
+
+print(f"\nGenerating cherry-picked tables for {len(cherry_picked_patches)} patches:")
+
+all_cherry_latex = ""
+for i, tbar_uid in enumerate(cherry_picked_patches, 1):
+    print(f"\n{i}. {tbar_uid}")
+    
+    cherry_latex = generate_cherry_picked_latex(tbar_uid, labeled_pairs, voted_df)
+    all_cherry_latex += cherry_latex + "\n\n"
+    
+    print(cherry_latex)
+
+with open("rq2/latex_cherry_picked_tables.tex", "w") as f:
+    f.write(all_cherry_latex)
+print(f"\nCherry-picked LaTeX tables saved to: rq2/latex_cherry_picked_tables.tex")
+
+print("\n" + "="*60)
+print("ALL DONE!")
 print("="*60)
