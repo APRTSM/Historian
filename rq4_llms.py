@@ -139,7 +139,7 @@ rq3_manual.py manually labels 100 samples from the failed to regex detect patche
 """ 
 
 """ RQ2 Oracle
-rq2_evidence.py votes etc
+rq2_evidence.py votes etc Majority voting for TBar patch labels
 
 """
 
