@@ -133,9 +133,12 @@ through simple inspection of the matched reference rather than extensive manual 
 """ RQ3
 RQ3: Zero-Shot Performance of LLMs on Code Clone Detection
 rq3_zero_shot_plot_boxplot.py plots violin and box plot, calculates (runs) zero shot for those failed to regex detect again. again 128 combination or sth
+rq3_zero_shot_plot.py only uses the average acc and cov and prints them in a table
 rq3_zeroshot.py calculates zero-shot accuracy and f1 json files and rq3_zeroshot_plots.py calculates the tables.
 
-rq3_manual.py manually labels 100 samples from the failed to regex detect patches.
+rq3_manual.py manually labels 100 samples from the failed to regex detect patches. extracts samples
+rq3_llm_manual.py asks gemini to see if the llm has the right answer.
+rq3_accuracy_for_manual.py calculates accuracy of zero shot for 20 manual uses 
 """ 
 
 """ RQ2 Oracle

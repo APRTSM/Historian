@@ -4,7 +4,7 @@ import google.generativeai as genai
 import time
 
 # Configure Gemini
-genai.configure(api_key="AIzaSyC-J9-kYUpfiu_8ENKlm50oXm2AYkK1Edk")
+genai.configure(api_key="AIzaSyAb0MrEphjU_60Z1cHsIh_pDk764JYGnzs")
 
 # Load the CSV
 df = pd.read_csv("./rq3/stratified_samples_interleaved-v1.csv")
@@ -12,7 +12,8 @@ df = pd.read_csv("./rq3/stratified_samples_interleaved-v1.csv")
 # Initialize model
 model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
-PROMPT_TEMPLATE = """You are checking if a zero-shot classifier correctly extracted the label from an LLM response.
+PROMPT_TEMPLATE = """
+You are checking if a zero-shot classifier correctly extracted the label from an LLM response.
 
 ## IMPORTANT: Your job is NOT to evaluate if the LLM is correct about the code.
 ## Your job is ONLY to check: Does the zero-shot label match what the LLM is SAYING?
@@ -42,7 +43,8 @@ Examples:
 ## Answer with ONLY one word:
 - True (zero-shot label MATCHES what the LLM is saying)
 - False (zero-shot label does NOT MATCH what the LLM is saying)
-- Unclear (LLM response is ambiguous, contradictory, or gives no clear answer)"""
+- Unclear (not prefered answer, LLM response is ambiguous, contradictory, or gives no clear answer)
+"""
 
 
 def validate_label(row, retry_delay=5):
