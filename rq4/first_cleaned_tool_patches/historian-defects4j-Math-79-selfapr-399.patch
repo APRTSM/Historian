@@ -1,0 +1,6 @@
+Plausible   Math_79_MathUtils_2_2 
+src/main/java/org/apache/commons/math/util/MathUtils.java 1626 
+-  final int dp = p1[i] - p2[i]; 
++  final  float  dp  =  p1[i]  -  p2[i];
+[Human-written Patch]
++  final  double  dp  =  p1[i]  -  p2[i];

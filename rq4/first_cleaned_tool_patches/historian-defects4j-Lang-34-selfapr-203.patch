@@ -1,0 +1,6 @@
+Identical   Lang_34_ToStringStyle_2_2 
+src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java 164 
+-  return m.containsKey(value); 
++  return  m!=  null  &&  m.containsKey(value);
+[Human-written Patch]
++  return  m!=  null  &&  m.containsKey(value);

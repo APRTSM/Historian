@@ -1,0 +1,6 @@
+Plausible   Compress_14_TarUtils_1_1 
+src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java 65 
+-  boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) { 
++  boolean  allNUL  =  false;  for(int  i  =  start;  i  <  end;  i++)  {  if  (buffer[i]!=  0)  {  allNUL  =  false;  break;  }
+[Human-written Patch]
++  if  (buffer[start]  ==  0)  {

@@ -1,0 +1,6 @@
+Identical   Math_77_ArrayRealVector_1_1 
+src/main/java/org/apache/commons/math/linear/ArrayRealVector.java 721 
+-  max += Math.max(max, Math.abs(a)); 
++  max  =  Math.max(max,  Math.abs(a));
+[Human-written Patch]
++  max  =  Math.max(max,  Math.abs(a));

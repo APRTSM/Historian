@@ -723,8 +723,150 @@ def iterate_patches_t5apr(bugs):
 
             index += 1
 
-
-
+def iterate_patches_selfapr(bugs):
+    tool = "selfapr"
+    index = 0
+    developer_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, "cleaned-developer-patches.pkl"))
+    
+    selfapr_file = os.path.join(RQ4_DATA_DIR, tool, "defects4j-patches.txt")
+    with open(selfapr_file, 'r') as f:
+        content = f.read()
+    
+    # Split by the separator
+    patch_blocks = content.split('*' * 60)  # 60 asterisks as separator
+    
+    for block in patch_blocks:
+        block = block.strip()
+        if not block:
+            continue
+        
+        lines = block.split('\n')
+        
+        # Parse the block
+        # First line: "Identical   Codec_7_Base64_1_1" or "Plausible   Codec_7_Base64_1_1"
+        first_line = lines[0].strip()
+        if not first_line:
+            continue
+        
+        parts = first_line.split()
+        if len(parts) < 2:
+            continue
+        
+        full_id = parts[1]  # e.g., "Codec_7_Base64_1_1"
+        
+        # Extract bug_id: take project and number (e.g., "Codec-7" from "Codec_7_Base64_1_1")
+        id_parts = full_id.split('_')
+        if len(id_parts) >= 2:
+            bug_id = f"{id_parts[0]}-{id_parts[1]}"  # e.g., "Codec-7"
+        else:
+            print(f"Cannot parse bug_id from: {full_id}")
+            continue
+        
+        # Find [Human-written Patch] marker
+        human_patch_idx = None
+        for i, line in enumerate(lines):
+            if '[Human-written Patch]' in line:
+                human_patch_idx = i
+                break
+        
+        if human_patch_idx is None:
+            print(f"No [Human-written Patch] marker found in block for {bug_id}")
+            continue
+        
+        # Find minus line and plus line from our tool (before [Human-written Patch])
+        our_minus_line = None
+        our_plus_line = None
+        
+        for line in lines[1:human_patch_idx]:
+            line_stripped = line.strip()
+            if line_stripped.startswith('- '):
+                our_minus_line = line_stripped
+            elif line_stripped.startswith('+ '):
+                our_plus_line = line_stripped
+        
+        # Get bug info
+        try:
+            bug = bugs.loc[f"defects4j-{bug_id}"].copy()
+            bug['uid'] = bug.name
+        except:
+            print(f"Bug not found: defects4j-{bug_id}")
+            continue
+        
+        try:
+            developer_patch = developer_patches.loc[f"{bug['uid']}-developer"]
+        except:
+            print(f"Developer patch not found for bug: {bug['uid']}")
+            continue
+        
+        developer_patch_content = read_file(developer_patch['location'])
+        
+        # Check if developer patch has more than one minus or plus line
+        dev_lines = developer_patch_content.splitlines()
+        dev_minus_count = sum(1 for l in dev_lines if l.startswith('- '))
+        dev_plus_count = sum(1 for l in dev_lines if l.startswith('+ '))
+        
+        # Flag for keeping original content
+        keep_original = False
+        
+        if dev_minus_count > 1 or dev_plus_count > 1:
+            print(f"Multiple +/- lines in developer patch for {bug_id}, keeping original")
+            keep_original = True
+        
+        if not keep_original:
+            # Try to replace lines
+            new_lines = []
+            replaced_minus = False
+            replaced_plus = False
+            
+            for line in dev_lines:
+                if line.startswith('- ') and not replaced_minus:
+                    if our_minus_line:
+                        new_lines.append('- ' + our_minus_line[2:])
+                    else:
+                        new_lines.append(line)
+                    replaced_minus = True
+                elif line.startswith('+ ') and not replaced_plus:
+                    if our_plus_line:
+                        new_lines.append('+ ' + our_plus_line[2:])
+                    else:
+                        # No plus line from our tool (delete case), skip this line
+                        pass
+                    replaced_plus = True
+                else:
+                    new_lines.append(line)
+            
+            # Handle case where developer has no plus line but we have one
+            if our_plus_line and not replaced_plus and dev_plus_count == 0:
+                # Insert our plus line after the minus line
+                final_lines = []
+                for line in new_lines:
+                    final_lines.append(line)
+                    if line.startswith('- '):
+                        final_lines.append('+ ' + our_plus_line[2:])
+                new_lines = final_lines
+            
+            modified_patch_content = "\n".join(new_lines)
+            
+            # Check if [Delete] exists in modified content
+            if '[Delete]' in modified_patch_content:
+                print(f"[Delete] found in modified content for {bug_id}, keeping original")
+                keep_original = True
+        
+        if keep_original:
+            modified_patch_content = block
+        
+        # Write to temp file and copy
+        tmp_dir = os.path.join(RQ4_META_DATA_DIR, "tmp")
+        with open(tmp_dir, 'w') as f:
+            f.write(modified_patch_content)
+        
+        uid = f"historian-{bug.name}-{tool}-{index}"
+        first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+        copy_paste(tmp_dir, first_cleaned_location)
+        
+        os.remove(tmp_dir)
+        index += 1
+    
     
 
 def iterate_patches(bugs):
@@ -742,7 +884,8 @@ def iterate_patches(bugs):
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
     # iterate_patches_arjae(bugs)
-    iterate_patches_t5apr(bugs)
+    # iterate_patches_t5apr(bugs)
+    iterate_patches_selfapr(bugs)
 
     pass
 

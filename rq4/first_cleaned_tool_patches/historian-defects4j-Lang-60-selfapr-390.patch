@@ -1,0 +1,6 @@
+Identical   Lang_60_StrBuilder_2_2 
+src/java/org/apache/commons/lang/text/StrBuilder.java 1730 
+-  for (int i = startIndex; i < thisBuf.length; i++) { 
++  for(int  i  =  startIndex;  i  <  size;  i++)  {
+[Human-written Patch]
++  for  (int  i  =  startIndex;  i  <  size;  i++)  {

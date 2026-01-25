@@ -1,0 +1,6 @@
+Identical   Chart_7_TimePeriodValues_2_1 
+source/org/jfree/data/time/TimePeriodValues.java 300 
+-  long s = getDataItem(this.minMiddleIndex).getPeriod().getStart().getTime(); 
++  long  s  =  getDataItem(this.maxMiddleIndex).getPeriod().getStart().getTime();
+[Human-written Patch]
++  long  s  =  getDataItem(this.maxMiddleIndex).getPeriod().getStart().getTime();
