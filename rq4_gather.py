@@ -723,12 +723,17 @@ def iterate_patches_t5apr(bugs):
 
             index += 1
 
+
+
+
 def iterate_patches_selfapr(bugs):
     tool = "selfapr"
+    base_search_path = os.path.join(RQ4_DATA_DIR, tool)
     index = 0
     developer_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, "cleaned-developer-patches.pkl"))
     
-    selfapr_file = os.path.join(RQ4_DATA_DIR, tool, "defects4j-patches.txt")
+    # Read the single file containing all patches
+    selfapr_file = os.path.join(base_search_path, "defects4j-patches.txt")  # adjust filename as needed
     with open(selfapr_file, 'r') as f:
         content = f.read()
     
@@ -752,6 +757,7 @@ def iterate_patches_selfapr(bugs):
         if len(parts) < 2:
             continue
         
+        status = parts[0]  # Identical or Plausible
         full_id = parts[1]  # e.g., "Codec_7_Base64_1_1"
         
         # Extract bug_id: take project and number (e.g., "Codec-7" from "Codec_7_Base64_1_1")
@@ -761,28 +767,6 @@ def iterate_patches_selfapr(bugs):
         else:
             print(f"Cannot parse bug_id from: {full_id}")
             continue
-        
-        # Find [Human-written Patch] marker
-        human_patch_idx = None
-        for i, line in enumerate(lines):
-            if '[Human-written Patch]' in line:
-                human_patch_idx = i
-                break
-        
-        if human_patch_idx is None:
-            print(f"No [Human-written Patch] marker found in block for {bug_id}")
-            continue
-        
-        # Find minus line and plus line from our tool (before [Human-written Patch])
-        our_minus_line = None
-        our_plus_line = None
-        
-        for line in lines[1:human_patch_idx]:
-            line_stripped = line.strip()
-            if line_stripped.startswith('- '):
-                our_minus_line = line_stripped
-            elif line_stripped.startswith('+ '):
-                our_plus_line = line_stripped
         
         # Get bug info
         try:
@@ -800,60 +784,86 @@ def iterate_patches_selfapr(bugs):
         
         developer_patch_content = read_file(developer_patch['location'])
         
-        # Check if developer patch has more than one minus or plus line
-        dev_lines = developer_patch_content.splitlines()
-        dev_minus_count = sum(1 for l in dev_lines if l.startswith('- '))
-        dev_plus_count = sum(1 for l in dev_lines if l.startswith('+ '))
-        
-        # Flag for keeping original content
-        keep_original = False
-        
-        if dev_minus_count > 1 or dev_plus_count > 1:
-            print(f"Multiple +/- lines in developer patch for {bug_id}, keeping original")
-            keep_original = True
-        
-        if not keep_original:
-            # Try to replace lines
-            new_lines = []
-            replaced_minus = False
-            replaced_plus = False
+        # If Identical, just use developer patch directly
+        if status == "Identical":
+            modified_patch_content = developer_patch_content
+        else:
+            # Find [Human-written Patch] marker
+            human_patch_idx = None
+            for i, line in enumerate(lines):
+                if '[Human-written Patch]' in line:
+                    human_patch_idx = i
+                    break
             
-            for line in dev_lines:
-                if line.startswith('- ') and not replaced_minus:
-                    if our_minus_line:
-                        new_lines.append('- ' + our_minus_line[2:])
+            if human_patch_idx is None:
+                print(f"No [Human-written Patch] marker found in block for {bug_id}")
+                continue
+            
+            # Find minus line and plus line from our tool (before [Human-written Patch])
+            our_minus_line = None
+            our_plus_line = None
+            
+            for line in lines[1:human_patch_idx]:
+                line_stripped = line.strip()
+                if line_stripped.startswith('- '):
+                    our_minus_line = line_stripped
+                elif line_stripped.startswith('+ '):
+                    our_plus_line = line_stripped
+            
+            # Check if developer patch has more than one minus or plus line
+            dev_lines = developer_patch_content.splitlines()
+            dev_minus_count = sum(1 for l in dev_lines if l.startswith('- '))
+            dev_plus_count = sum(1 for l in dev_lines if l.startswith('+ '))
+            
+            # Flag for keeping original content
+            keep_original = False
+            
+            if dev_minus_count > 1 or dev_plus_count > 1:
+                print(f"Multiple +/- lines in developer patch for {bug_id}, keeping original")
+                keep_original = True
+            
+            if not keep_original:
+                # Try to replace lines
+                new_lines = []
+                replaced_minus = False
+                replaced_plus = False
+                
+                for line in dev_lines:
+                    if line.startswith('- ') and not replaced_minus:
+                        if our_minus_line:
+                            new_lines.append('- ' + our_minus_line[2:])
+                        else:
+                            new_lines.append(line)
+                        replaced_minus = True
+                    elif line.startswith('+ ') and not replaced_plus:
+                        if our_plus_line:
+                            new_lines.append('+ ' + our_plus_line[2:])
+                        else:
+                            # No plus line from our tool (delete case), skip this line
+                            pass
+                        replaced_plus = True
                     else:
                         new_lines.append(line)
-                    replaced_minus = True
-                elif line.startswith('+ ') and not replaced_plus:
-                    if our_plus_line:
-                        new_lines.append('+ ' + our_plus_line[2:])
-                    else:
-                        # No plus line from our tool (delete case), skip this line
-                        pass
-                    replaced_plus = True
-                else:
-                    new_lines.append(line)
+                
+                # Handle case where developer has no plus line but we have one
+                if our_plus_line and not replaced_plus and dev_plus_count == 0:
+                    # Insert our plus line after the minus line
+                    final_lines = []
+                    for line in new_lines:
+                        final_lines.append(line)
+                        if line.startswith('- '):
+                            final_lines.append('+ ' + our_plus_line[2:])
+                    new_lines = final_lines
+                
+                modified_patch_content = "\n".join(new_lines)
+                
+                # Check if [Delete] exists in modified content
+                if '[Delete]' in modified_patch_content:
+                    print(f"[Delete] found in modified content for {bug_id}, keeping original")
+                    keep_original = True
             
-            # Handle case where developer has no plus line but we have one
-            if our_plus_line and not replaced_plus and dev_plus_count == 0:
-                # Insert our plus line after the minus line
-                final_lines = []
-                for line in new_lines:
-                    final_lines.append(line)
-                    if line.startswith('- '):
-                        final_lines.append('+ ' + our_plus_line[2:])
-                new_lines = final_lines
-            
-            modified_patch_content = "\n".join(new_lines)
-            
-            # Check if [Delete] exists in modified content
-            if '[Delete]' in modified_patch_content:
-                print(f"[Delete] found in modified content for {bug_id}, keeping original")
-                keep_original = True
-        
-        if keep_original:
-            modified_patch_content = block
+            if keep_original:
+                modified_patch_content = block
         
         # Write to temp file and copy
         tmp_dir = os.path.join(RQ4_META_DATA_DIR, "tmp")
@@ -867,7 +877,7 @@ def iterate_patches_selfapr(bugs):
         os.remove(tmp_dir)
         index += 1
     
-    
+    print(f"Processed {index} patches for {tool}")
 
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)

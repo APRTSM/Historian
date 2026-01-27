@@ -1,0 +1,6 @@
+Plausible   Math_95_FDistributionImpl_1_1 
+src/java/org/apache/commons/math/distribution/FDistributionImpl.java 147 
+-  ret = d / (d - 2.0); 
++  ret  =  d  /(p  *  2.0);
+[Human-written Patch]
++  if  (d  >  2.0)  {  ret  =  d  /  (d  -  2.0);  }

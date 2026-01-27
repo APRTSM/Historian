@@ -1,0 +1,6 @@
+Plausible   Math_46_Complex_2_2 
+src/main/java/org/apache/commons/math/complex/Complex.java 297 
+-  return isZero ? NaN : INF; 
++  return  isZero?  NaN  :  NaN;
+[Human-written Patch]
++  return  NaN;

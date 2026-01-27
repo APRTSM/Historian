@@ -1,6 +1,14 @@
-Identical   Cli_27_OptionGroup_2_1 
-src/java/org/apache/commons/cli/OptionGroup.java 98 
--  if (selected == null || selected.equals(option.getOpt())) { 
-+  if(selected==  null  ||  selection.equals(option.getKey()))  {
-[Human-written Patch]
-+  if  (selected  ==  null  ||  selected.equals(option.getKey()))  {
+--- a/src/java/org/apache/commons/cli/OptionGroup.java
++++ b/src/java/org/apache/commons/cli/OptionGroup.java
+@@ -95,9 +95,9 @@ public class OptionGroup implements Serializable
+         // if no option has already been selected or the 
+         // same option is being reselected then set the
+         // selected member variable
+-        if (selected == null || selected.equals(option.getOpt()))
++        if (selected == null || selected.equals(option.getKey()))
+         {
+-            selected = option.getOpt();
++            selected = option.getKey();
+         }
+         else
+         {

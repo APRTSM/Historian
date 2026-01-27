@@ -1,0 +1,6 @@
+Plausible   Gson_6_JsonAdapterAnnotationTypeAdapterFactory_1_1 
+gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java 67 
+-  typeAdapter = typeAdapter.nullSafe(); 
++  typeAdapter  =(typeAdapter  ==  null?  null  :  typeAdapter.nullSafe());
+[Human-written Patch]
++  if  (typeAdapter!=  null)  {  typeAdapter  =  typeAdapter.nullSafe();  }

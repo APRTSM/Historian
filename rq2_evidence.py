@@ -404,7 +404,7 @@ print("Results saved!")
 print("="*60)
 
 # ============================================================
-# LATEX TABLE GENERATION
+# LATEX TABLE GENERATION (LONGTABLE WITH ORANGE FOR OVERFITTING)
 # ============================================================
 print("\n" + "="*60)
 print("LATEX TABLE GENERATION")
@@ -470,21 +470,44 @@ def format_verdict_summary_latex(details):
     return ', '.join(parts)
 
 # ============================================================
-# MAIN LATEX TABLE
+# MAIN LATEX TABLE (LONGTABLE VERSION)
 # ============================================================
-print("\n--- MAIN LATEX TABLE ---")
+print("\n--- MAIN LATEX TABLE (LONGTABLE) ---")
 
-latex_main = r"""\begin{table*}[t]
-\centering
+latex_main = r"""% Add to preamble:
+% \usepackage{longtable}
+% \usepackage{xcolor}
+
+\section{Appendix}
+\label{sec:appendix}
+
+\begin{longtable}{l|c|l|l|c}
 \caption{Oracle Experiment Results: Expert-Labeled Clone Types to Patch Correctness Verdicts for TBar Patches}
-\label{tab:oracle-results}
-\footnotesize
-\renewcommand{\arraystretch}{1.0}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{l|c|l|l|c}
+\label{tab:oracle-results} \\
 \hline
 \textbf{TBar Patch} & \textbf{Pairs} & \textbf{Clone Labels} & \textbf{Verdicts} & \textbf{Pred.} \\
 \hline
+\endfirsthead
+
+\multicolumn{5}{c}%
+{{\tablename\ \thetable{} -- continued from previous page}} \\
+\hline
+\textbf{TBar Patch} & \textbf{Pairs} & \textbf{Clone Labels} & \textbf{Verdicts} & \textbf{Pred.} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+
+\hline
+\multicolumn{5}{l}{\footnotesize 
+\textbf{Clone Labels:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \quad
+\textbf{Verdicts:} C: Correct, O: Overfitting, U: Unknown.} \\
+\multicolumn{5}{l}{\footnotesize 
+\textcolor{green!60!black}{Green}: Correct prediction, \textcolor{orange}{Orange}: Overfitting prediction, \textcolor{gray}{Gray}: Unknown.} \\
+\endlastfoot
+
 """
 
 for idx, row in detailed_df.iterrows():
@@ -497,24 +520,20 @@ for idx, row in detailed_df.iterrows():
     predicted = row['inferred_label']
     gt = row['gt_correctness']
     
+    # Color coding: Green for Correct, Orange for Overfitting, Gray for Unknown
     if predicted == 'Unknown':
         pred_formatted = r'\textcolor{gray}{U}'
-    elif predicted == gt:
-        pred_formatted = r'\textcolor{green!60!black}{' + predicted[0] + '}'
+    elif predicted == 'Correct':
+        pred_formatted = r'\textcolor{green!60!black}{C}'
+    elif predicted == 'Overfitting':
+        pred_formatted = r'\textcolor{orange}{O}'
     else:
-        pred_formatted = r'\textcolor{red}{' + predicted[0] + '}'
+        pred_formatted = predicted[0]
     
     latex_main += f"{escaped_uid} & {row['total_pairs']} & {label_summary} & {verdict_summary} & {pred_formatted} \\\\\n"
 
-latex_main += r"""\hline
-\end{tabular}
-\vspace{1mm}
-\parbox{\linewidth}{\centering\footnotesize 
-\\vspace{{1mm}}
-\textbf{Clone Labels:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
-\textbf{Verdicts:} C: Correct, O: Overfitting, U: Unknown. \\
-\textcolor{green!60!black}{Green}: Correct prediction, \textcolor{red}{Red}: Wrong prediction, \textcolor{gray}{Gray}: Unknown.}
-\end{table*}
+latex_main += r"""
+\end{longtable}
 """
 
 print(latex_main)

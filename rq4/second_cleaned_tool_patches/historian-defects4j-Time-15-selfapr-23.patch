@@ -1,0 +1,5 @@
+Plausible   Time_15_FieldUtils_1_1 
+src/main/java/org/joda/time/field/FieldUtils.java 138 
++  if(val1  <  val2)  {  throw  new  ArithmeticException( "Multiplication  overflows  a  long: "  +  val1  +   "  * "  +  val2);  }
+[Human-written Patch]
++  if  (val1  ==  Long.MIN_VALUE)  {  throw  new  ArithmeticException( "Multiplication  overflows  a  long: "  +  val1  + "  * "  +  val2);  }
