@@ -1,0 +1,10 @@
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+@@ -133,6 +133,7 @@ public class BrentSolver extends UnivariateRealSolverImpl {
+             return solve(f, initial, yInitial, max, yMax, initial, yInitial);
+         }
+ 
++       if(yInitial  *  yMax  <  0)  {  setResult(yMin,  0);  }  else  {  throw  new  IllegalArgumentException( " ");  }
+ 
+         // full Brent algorithm starting with provided initial guess
+         return solve(f, min, yMin, max, yMax, initial, yInitial);

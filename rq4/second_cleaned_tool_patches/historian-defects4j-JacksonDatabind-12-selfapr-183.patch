@@ -4,3 +4,16 @@ src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java 303
 +  return(_valueTypeDeserializer!=  null)&&(_ignorableProperties!=  null);
 [Human-written Patch]
 +  return  (_valueDeserializer  ==  null)  &&  (_keyDeserializer  ==  null)  &&  (_valueTypeDeserializer  ==  null)  &&  (_ignorableProperties  ==  null);
+
+
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-12/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-12-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java
+@@ -300,7 +300,7 @@ public class MapDeserializer
+         /* As per [databind#735], existence of value or key deserializer (only passed
+          * if annotated to use non-standard one) should also prevent caching.
+          */
+-        return (_valueTypeDeserializer == null)
++       return(_valueTypeDeserializer!=  null)&&(_ignorableProperties!=  null);
+                 && (_ignorableProperties == null);
+     }
+ 

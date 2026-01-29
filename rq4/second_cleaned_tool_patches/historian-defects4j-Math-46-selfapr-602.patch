@@ -1,6 +1,11 @@
-Plausible   Math_46_Complex_2_1 
-src/main/java/org/apache/commons/math/complex/Complex.java 260 
--  return isZero ? NaN : INF; 
-+  return  isZero?  NaN  :  NaN;
-[Human-written Patch]
-+  return  NaN;[FE]  null testElementSiblingIndexSameContent
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46/src/main/java/org/apache/commons/math/complex/Complex.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46-fixed/src/main/java/org/apache/commons/math/complex/Complex.java
+@@ -257,7 +257,7 @@ public class Complex implements FieldElement<Complex>, Serializable  {
+ 
+         if (divisor.isZero) {
+             // return isZero ? NaN : INF; // See MATH-657
+-            return isZero ? NaN : INF;
++            return  isZero?  NaN  :  NaN;
+         }
+ 
+         if (divisor.isInfinite() && !isInfinite()) {
