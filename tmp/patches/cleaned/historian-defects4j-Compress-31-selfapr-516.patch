@@ -1,5 +1,5 @@
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-31/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-31-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 @@ -132,9 +132,7 @@ public class TarUtils {
  
          for ( ;start < end; start++) {
