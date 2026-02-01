@@ -233,7 +233,8 @@ def iterate_patches_tools(bugs):
     # iterate_patches_tool(bugs, "transplantfix", "TransplantFix", ignore=False)
     # iterate_patches_tool(bugs, "arjae", "ARJAe", ignore=False)
     # iterate_patches_tool(bugs, "t5apr", "T5APR", ignore=True)
-    iterate_patches_tool(bugs, "selfapr", "SelfAPR", ignore=False)
+    # iterate_patches_tool(bugs, "selfapr", "SelfAPR", ignore=False)
+    iterate_patches_tool(bugs, "knod", "KNode", ignore=False)
 
     pass
 

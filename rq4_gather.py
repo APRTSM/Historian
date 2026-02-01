@@ -723,9 +723,6 @@ def iterate_patches_t5apr(bugs):
 
             index += 1
 
-
-
-
 def iterate_patches_selfapr(bugs):
     tool = "selfapr"
     base_search_path = os.path.join(RQ4_DATA_DIR, tool)
@@ -879,6 +876,7 @@ def iterate_patches_selfapr(bugs):
     
     print(f"Processed {index} patches for {tool}")
 
+
 def iterate_patches(bugs):
     # iterate_patches_circle(bugs)
     # iterate_patches_alpharepair(bugs)
@@ -886,7 +884,7 @@ def iterate_patches(bugs):
     # iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
     # iterate_patches_iter(bugs)
-    # iterate_patches_knod(bugs)
+    iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
     # iterate_patches_recoder(bugs)
     # iterate_patches_repilot(bugs)
@@ -895,7 +893,7 @@ def iterate_patches(bugs):
     # iterate_patches_transplantfix(bugs)
     # iterate_patches_arjae(bugs)
     # iterate_patches_t5apr(bugs)
-    iterate_patches_selfapr(bugs)
+    # iterate_patches_selfapr(bugs)
 
     pass
 

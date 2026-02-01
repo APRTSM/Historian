@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+@@ -390,3 +390,3 @@
+                 case Compiler.NODE_TYPE_NODE :
+-                    return (node instanceof Element) || (node instanceof Document);
++                    return node instanceof Element || !(node instanceof JXPathContext);
+                 case Compiler.NODE_TYPE_TEXT :
+

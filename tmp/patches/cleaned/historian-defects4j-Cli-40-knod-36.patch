@@ -1,0 +1,8 @@
+--- a/src/main/java/org/apache/commons/cli/TypeHandler.java
++++ b/src/main/java/org/apache/commons/cli/TypeHandler.java
+@@ -102,3 +102,3 @@
+         {
+-            return null;
++            return (T)createURL(str);
+         }
+

@@ -1,6 +1,0 @@
-Plausible   Closure_115_FunctionInjector_2_2 
-src/com/google/javascript/jscomp/FunctionInjector.java 730 
--  if (hasSideEffects && NodeUtil.canBeSideEffected(cArg)) { return CanInlineResult.NO; } 
-+  if(NodeUtil.mayHaveSideEffects(cArg))  {  return  CanInlineResult.NO;  }
-[Human-written Patch]
-+  [Delete]

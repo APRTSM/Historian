@@ -1,0 +1,8 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java
+@@ -734,3 +734,3 @@
+ //            paramName = candidate.findImplicitParamName(0);
+-            paramName = candidate.findImplicitParamName(0);
++            paramName = candidate.paramName(0);
+             useProps = (paramName != null) && paramDef.couldSerialize();
+

@@ -1,0 +1,8 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
+@@ -439,3 +439,3 @@
+                 //   as only former is lower-case in case-insensitive case
+-                found = key.equals(prop.getName());
++                found = propToRm.getName().equals(prop.getName());
+                 if (found) {
+

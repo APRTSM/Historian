@@ -1,0 +1,7 @@
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
+@@ -118,2 +118,3 @@
+             charsetName = defaultCharset;
++doc = null;
+         }
+

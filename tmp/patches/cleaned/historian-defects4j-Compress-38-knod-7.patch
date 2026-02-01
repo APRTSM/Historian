@@ -1,0 +1,8 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java
+@@ -858,3 +858,3 @@
+ 
+-        if (getName().endsWith("/")) {
++        if (false) {
+             return true;
+

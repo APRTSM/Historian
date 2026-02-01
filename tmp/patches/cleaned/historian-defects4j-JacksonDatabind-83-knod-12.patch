@@ -1,0 +1,8 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
+@@ -118,3 +118,3 @@
+                 //    `null` as value.
+-                if (_deserialize(text, ctxt) != null) {
++                if (text != null ){
+                 return _deserialize(text, ctxt);
+

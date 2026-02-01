@@ -1,0 +1,9 @@
+--- a/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java
+@@ -66,2 +66,5 @@
+     }
++if (typeAdapter == null ){
++return null;
++}
+       typeAdapter = typeAdapter.nullSafe();
+

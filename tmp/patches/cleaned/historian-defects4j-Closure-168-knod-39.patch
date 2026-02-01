@@ -1,0 +1,8 @@
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1995,3 +1995,3 @@
+ 
+-      if (t.getScopeDepth() <= 2) {
++      if (t.getScopeDepth() <= 1) {
+         // The first-order function analyzer looks at two types of variables:
+

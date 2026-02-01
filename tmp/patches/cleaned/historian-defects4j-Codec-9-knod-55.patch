@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
+@@ -826,3 +826,3 @@
+ 
+-        long len = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
++        long len = getEncodeLength(binaryData,0,CHUNK_SEPARATOR);
+         if (len > maxResultSize) {
+

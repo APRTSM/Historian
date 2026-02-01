@@ -1,6 +1,0 @@
-Plausible   Lang_10_FastDateParser_1_1 
-src/main/java/org/apache/commons/lang3/time/FastDateParser.java 304 
--  boolean wasWhite= false; if(Character.isWhitespace(c)) { if(!wasWhite) { wasWhite= true; regex.append("\\\\s*+"); } continue; } wasWhite= false; 
-+  boolean  wasWhite=  true;  for(int  i=  0;  i  <  value.length();  ++i)  {  char  c  =  value.charAt(i);  if(!Character.isWhitespace(c))  {
-[Human-written Patch]
-+

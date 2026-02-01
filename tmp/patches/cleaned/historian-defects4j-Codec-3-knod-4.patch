@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/codec/language/DoubleMetaphone.java
++++ b/src/java/org/apache/commons/codec/language/DoubleMetaphone.java
+@@ -454,3 +454,3 @@
+                 result.append('K');
+-            } else if (contains(value, index + 1, 4, "IER")) {
++            } else if (contains(value,index + 1,3,"IER")) {
+                 result.append('J');
+

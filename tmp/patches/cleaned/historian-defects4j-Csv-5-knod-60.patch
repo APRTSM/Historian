@@ -1,0 +1,9 @@
+--- a/src/main/java/org/apache/commons/csv/CSVPrinter.java
++++ b/src/main/java/org/apache/commons/csv/CSVPrinter.java
+@@ -324,2 +324,5 @@
+         final String recordSeparator = format.getRecordSeparator();
++if (recordSeparator == null ){
++return;
++}
+             out.append(recordSeparator);
+

@@ -1,0 +1,12 @@
+--- a/src/main/java/org/apache/commons/cli/HelpFormatter.java
++++ b/src/main/java/org/apache/commons/cli/HelpFormatter.java
+@@ -936,6 +936,6 @@
+         pos = startPos + width;
+-        while ((pos <= text.length()) && ((c = text.charAt(pos)) != ' ')
+-               && (c != '\n') && (c != '\r'))
++        while ((c = text.charAt(pos)) <= text.length())
+         {
+             ++pos;
++++pos;
+         }        
+

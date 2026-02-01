@@ -1,0 +1,8 @@
+--- a/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
++++ b/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+@@ -98,3 +98,3 @@
+   public Date read(JsonReader in) throws IOException {
+-    if (in.peek() != JsonToken.STRING) {
++    if (localFormat == null ){
+       throw new JsonParseException("The date should be a string value");
+

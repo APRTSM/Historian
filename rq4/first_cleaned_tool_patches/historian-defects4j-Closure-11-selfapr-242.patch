@@ -1,6 +1,0 @@
-Plausible   Closure_11_TypeCheck_1_1 
-src/com/google/javascript/jscomp/TypeCheck.java 1314 
--  } else if (n.getJSType() != null && parent.isAssign()) { 
-+  }  else  if(parent.getType()  ==  Token.NAME  &&  parent.isAssign())  {
-[Human-written Patch]
-+

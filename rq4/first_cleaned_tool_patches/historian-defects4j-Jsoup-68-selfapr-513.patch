@@ -1,6 +1,0 @@
-Plausible   Jsoup_68_HtmlTreeBuilder_1_1 
-src/main/java/org/jsoup/parser/HtmlTreeBuilder.java 468 
--  int bottom = stack.size() -1; if (bottom > MaxScopeSearchDepth) { bottom = MaxScopeSearchDepth; } 
-+  int  bottom  =  stack.size()  -1;  if(bottom  <  0)  {  bottom  =  0;  }
-[Human-written Patch]
-+  final  int  bottom  =  stack.size()  -1;

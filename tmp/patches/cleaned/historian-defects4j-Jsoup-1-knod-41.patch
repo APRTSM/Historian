@@ -1,0 +1,8 @@
+--- a/src/main/java/org/jsoup/nodes/Document.java
++++ b/src/main/java/org/jsoup/nodes/Document.java
+@@ -125,3 +125,3 @@
+             body().appendChild(new TextNode(" ", ""));
+-            body().appendChild(node);
++prependChild(node);
+         }
+

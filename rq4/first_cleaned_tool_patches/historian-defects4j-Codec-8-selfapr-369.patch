@@ -1,6 +1,0 @@
-Plausible   Codec_8_Base64InputStream_1_1 
-src/java/org/apache/commons/codec/binary/Base64InputStream.java 169 
--  if (c > 0 && b.length == len) { base64.setInitialBuffer(b, offset, len); } 
-+  if(c  >  0  &&  c  <  len)  {  base64.setInitialBuffer(buf,  offset,  len);  }
-[Human-written Patch]
-+  [Delete]

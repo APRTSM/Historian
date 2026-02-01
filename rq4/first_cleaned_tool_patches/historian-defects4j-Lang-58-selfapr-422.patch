@@ -1,6 +1,0 @@
-Plausible   Lang_58_NumberUtils_1_1 
-src/java/org/apache/commons/lang/math/NumberUtils.java 454 
--  && isDigits(numeric.substring(1)) && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) { 
-+  &&  isDigits(numeric.substring(1)+  1)&&  (numeric.charAt(0)  ==  '-'  ||  Character.isDigit(numeric.charAt(0))))  {
-[Human-written Patch]
-+  &&  (numeric.charAt(0)  ==  '-'  &&  isDigits(numeric.substring(1))  ||  isDigits(numeric)))  {

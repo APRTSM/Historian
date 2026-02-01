@@ -1,0 +1,9 @@
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+@@ -107,2 +107,5 @@
+                 String nodeNS = DOMNodePointer.getNamespaceURI(node);
++if (wildcard == false ){
++return true;
++}
+                 return equalStrings(namespaceURI, nodeNS);
+

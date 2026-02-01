@@ -1,0 +1,7 @@
+--- a/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/src/main/java/org/jsoup/parser/TokeniserState.java
+@@ -882,2 +882,3 @@
+                     t.error(this);
++r.unconsume();
+                     t.transition(BeforeAttributeName);
+

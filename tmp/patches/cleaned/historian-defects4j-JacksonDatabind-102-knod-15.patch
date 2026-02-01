@@ -1,0 +1,8 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+@@ -66,3 +66,3 @@
+         // for config overrides, in case of root value
+-        if (property == null) {
++        if (serializers == null ){
+             return this;
+

@@ -1,0 +1,9 @@
+--- a/src/java/org/apache/commons/cli/Util.java
++++ b/src/java/org/apache/commons/cli/Util.java
+@@ -35,2 +35,5 @@
+     {
++if (str == null ){
++return null;
++}
+         if (str.startsWith("--"))
+

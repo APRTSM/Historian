@@ -1,0 +1,9 @@
+--- a/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+@@ -168,2 +168,5 @@
+         if (_type == TYPE_OBJECT) {
++if (_currentName == null ){
++return STATUS_EXPECT_NAME;
++}
+             _gotName = false;
+

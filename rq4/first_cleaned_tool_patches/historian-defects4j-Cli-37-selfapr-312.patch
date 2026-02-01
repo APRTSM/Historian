@@ -1,6 +1,0 @@
-Plausible   Cli_37_DefaultParser_1_1 
-src/main/java/org/apache/commons/cli/DefaultParser.java 302 
--  return token.startsWith("-") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2)); 
-+  return  token.startsWith( "- ")||  token.length()  >=  2  &&  options.hasShortOption(token.substring(1));
-[Human-written Patch]
-+  if  (!token.startsWith( "- ")  ||  token.length()  ==  1)  {  return  false;  }  int  pos  =  token.indexOf( "= ");  String  optName  =  pos  ==  -1?  token.substring(1)  :  token.substring(1,  pos);  return  options.hasShort

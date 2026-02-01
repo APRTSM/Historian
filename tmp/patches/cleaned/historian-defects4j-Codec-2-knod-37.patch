@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
+@@ -445,3 +445,3 @@
+             }
+-            if (lineLength > 0) {
++            if (pos > 0 && lineLength > 0) {
+                 System.arraycopy(lineSeparator, 0, buf, pos, lineSeparator.length);
+

@@ -1,10 +1,11 @@
---- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
-+++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
-@@ -764,4 +764,4 @@
-	} else if (parent.getLastChild() == node){
-		if (cfa != null) {
-			for (Node finallyNode : cfa.finallyMap.get(parent)) {
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-14/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-14-fixed/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -764,7 +764,7 @@ final class ControlFlowAnalysis implements Callback, CompilerPass {
+         } else if (parent.getLastChild() == node){
+           if (cfa != null) {
+             for (Node finallyNode : cfa.finallyMap.get(parent)) {
 -              cfa.createEdge(fromNode, Branch.UNCOND, finallyNode);
-+              cfa.createEdge(fromNode,Branch.ON_EX,finallyNode);
++              cfa.createEdge(fromNode, Branch.ON_EX, finallyNode);
              }
-
+           }
+           return computeFollowNode(fromNode, parent, cfa);

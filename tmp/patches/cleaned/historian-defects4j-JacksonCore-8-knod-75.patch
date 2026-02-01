@@ -1,0 +1,10 @@
+--- a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+@@ -306,3 +306,5 @@
+         // Nope; but does it fit in just one segment?
+-        if (!_hasSegments)  return _currentSegment;
++        if (_resultString != null ){
++return _currentSegment;
++}
+         // Nope, need to have/create a non-segmented array and return it
+

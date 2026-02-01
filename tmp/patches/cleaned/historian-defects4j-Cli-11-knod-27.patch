@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/cli/HelpFormatter.java
++++ b/src/java/org/apache/commons/cli/HelpFormatter.java
+@@ -631,3 +631,3 @@
+         // if the Option has a value
+-        if (option.hasArg() && (option.getArgName() != null))
++        if (option.hasArg() && option.hasArgName())
+         {
+

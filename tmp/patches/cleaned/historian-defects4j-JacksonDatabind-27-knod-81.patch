@@ -1,0 +1,8 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+@@ -793,3 +793,3 @@
+                 //   since it is not the bean
+-                if (ext.handlePropertyValue(p, ctxt, propName, buffer)) {
++                if (ext.handlePropertyValue(p,ctxt,propName,_delegateDeserializer)) {
+                     ;
+

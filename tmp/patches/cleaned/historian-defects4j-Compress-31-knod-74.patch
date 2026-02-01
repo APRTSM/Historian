@@ -1,0 +1,8 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -134,3 +134,3 @@
+             final byte currentByte = buffer[start];
+-            if (currentByte == 0) {
++            if (BYTE_MASK == 0 ){
+                 break;
+

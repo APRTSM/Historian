@@ -1,6 +1,0 @@
-Plausible   Closure_109_JsDocInfoParser_1_1 
-src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java 1908 
--  return parseTypeName(token); 
-+  return  parseTypeExpression(token);
-[Human-written Patch]
-+  if  (token  ==  JsDocToken.QMARK)  {  return  newNode(Token.QMARK);  }  else  {  return  parseBasicTypeExpression(token);  }

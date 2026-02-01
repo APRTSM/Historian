@@ -1,0 +1,8 @@
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
+@@ -1174,3 +1174,3 @@
+ 
+-        return this == o;
++        return this != null && this != o;
+     }
+
