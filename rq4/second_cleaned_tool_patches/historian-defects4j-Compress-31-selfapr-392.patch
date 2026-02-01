@@ -1,6 +1,13 @@
-Plausible   Compress_31_TarUtils_1_1 
-src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java 135 
--  if (currentByte == 0) { break; } 
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-31/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-31-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -132,9 +132,7 @@ public class TarUtils {
+ 
+         for ( ;start < end; start++) {
+             final byte currentByte = buffer[start];
+-            if (currentByte == 0) {
+-                break;
+-            }
 +  if(currentByte  <  -1)  {  break;  }
-[Human-written Patch]
-+  [Delete]
+             // CheckStyle:MagicNumber OFF
+             if (currentByte < '0' || currentByte > '7'){
+                 throw new IllegalArgumentException(

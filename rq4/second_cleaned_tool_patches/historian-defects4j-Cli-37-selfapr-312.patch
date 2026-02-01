@@ -1,6 +1,15 @@
-Plausible   Cli_37_DefaultParser_1_1 
-src/main/java/org/apache/commons/cli/DefaultParser.java 302 
--  return token.startsWith("-") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2)); 
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37/src/main/java/org/apache/commons/cli/DefaultParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+index 6aeaebe..f34173e 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37/src/main/java/org/apache/commons/cli/DefaultParser.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+@@ -299,9 +299,9 @@ public class DefaultParser implements CommandLineParser
+     private boolean isShortOption(String token)
+     {
+         // short options (-S, -SV, -S=V, -SV1=V2, -S1S2)
+-        return token.startsWith("-") && token.length() >= 2 && options.hasShortOption(token.substring(1, 2));
 +  return  token.startsWith( "- ")||  token.length()  >=  2  &&  options.hasShortOption(token.substring(1));
-[Human-written Patch]
-+  if  (!token.startsWith( "- ")  ||  token.length()  ==  1)  {  return  false;  }  int  pos  =  token.indexOf( "= ");  String  optName  =  pos  ==  -1?  token.substring(1)  :  token.substring(1,  pos);  return  options.hasShort
+ 
+         // remove leading "-" and "=value"
+     }
+ 
+     /**

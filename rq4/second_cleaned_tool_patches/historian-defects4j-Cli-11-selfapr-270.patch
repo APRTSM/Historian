@@ -4,8 +4,9 @@
          }
  
          // if the Option has a value
--  if (option.hasArg() && (option.getArgName() != null)) {
-+  if(option.hasArgs()  &&(option.getArgName()!=  null))  {
+-  if (option.hasArg() && (option.getArgName() != null)) 
++  if(option.hasArgs()  &&(option.getArgName()!=  null))  
          {
              buff.append(" <").append(option.getArgName()).append(">");
          }
+         

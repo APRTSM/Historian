@@ -1,6 +1,13 @@
-Plausible   Codec_8_Base64InputStream_1_1 
-src/java/org/apache/commons/codec/binary/Base64InputStream.java 169 
--  if (c > 0 && b.length == len) { base64.setInitialBuffer(b, offset, len); } 
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8/src/java/org/apache/commons/codec/binary/Base64InputStream.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8-fixed/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+@@ -166,9 +166,7 @@ public class Base64InputStream extends FilterInputStream {
+                 if (!base64.hasData()) {
+                     byte[] buf = new byte[doEncode ? 4096 : 8192];
+                     int c = in.read(buf);
+-                    if (c > 0 && b.length == len) {
+-                        base64.setInitialBuffer(b, offset, len);
+-                    }
 +  if(c  >  0  &&  b.length  ==  4  &&  c  <=  0)  {  base64.setInitialBuffer(b,  offset,  4);  }
-[Human-written Patch]
-+  [Delete]
+                     if (doEncode) {
+                         base64.encode(buf, 0, c);
+                     } else {
