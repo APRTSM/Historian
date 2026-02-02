@@ -511,6 +511,82 @@ def iterate_patches_repilot(bugs):
             index += 1
 
 def iterate_patches_tare(bugs):
+    def fix_patch_content(patch_content):
+        # Trim the content
+        patch_content = patch_content.strip()
+        
+        lines = patch_content.split('\n')
+        
+        if not lines:
+            return patch_content
+        
+        # Get the first line which contains the file path
+        first_line = lines[0]
+        
+        # Extract the file path (everything after the first identifier like "nochangeClosure62/")
+        # Find the first slash to get the actual file path
+        first_slash_idx = first_line.find('/')
+        if first_slash_idx != -1:
+            file_path = first_line[first_slash_idx + 1:]
+        else:
+            file_path = first_line
+        
+        # Build new header lines
+        new_lines = []
+        new_lines.append(f"--- a/{file_path}")
+        new_lines.append(f"+++ b/{file_path}")
+        
+        # Process remaining lines (skip old --- and +++ lines)
+        i = 1
+        chunk_header_just_added = False
+        plus_plus_just_added = True  # Start true because we just added +++ line
+        
+        while i < len(lines):
+            line = lines[i]
+            stripped = line.strip()
+            
+            # Skip old --- and +++ lines
+            if stripped == '---' or stripped == '+++':
+                i += 1
+                continue
+            
+            # Skip empty lines right after +++ header or right after chunk header
+            if stripped == '' and (plus_plus_just_added or chunk_header_just_added):
+                i += 1
+                continue
+            
+            plus_plus_just_added = False
+            
+            # Check if it's a chunk header (starts with @@)
+            if stripped.startswith('@@'):
+                new_lines.append(stripped)  # Remove leading/trailing spaces from chunk header
+                chunk_header_just_added = True
+                i += 1
+                continue
+            
+            chunk_header_just_added = False
+            
+            # Process content lines
+            if line.startswith('+'):
+                # Check if character right after + is not a space (index 1 exists and is not space)
+                if len(line) > 1 and line[1] != ' ' and line[1] != '+':
+                    # Add a tab after the plus sign
+                    line = '+\t' + line[1:]
+            elif line.startswith('-'):
+                # Keep minus lines as is
+                pass
+            else:
+                # Context lines (no +/-) - keep as is
+                pass
+            
+            new_lines.append(line)
+            i += 1
+        
+        # Add free space at the end (new line characters)
+        result = '\n'.join(new_lines) + '\n\n'
+        
+        return result
+
     tool = "tare"
     tool_path = os.path.join(RQ4_DATA_DIR, tool)
 
@@ -541,8 +617,24 @@ def iterate_patches_tare(bugs):
             # Set locations
             first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
 
+            with open(filepath, 'r') as f:
+                patch_content = f.read()
+
+            modified_patch_content = fix_patch_content(patch_content)
+
             # Run this once to copy paste the first cleaned patches
-            copy_paste(filepath, first_cleaned_location)
+            tmp_dir = os.path.join(RQ4_META_DATA_DIR, "tmp")
+
+            with open(tmp_dir, 'w') as f:
+                f.write(modified_patch_content)
+
+            uid = f"historian-{bug.name}-{tool}-{index}"
+
+            first_cleaned_location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+
+            copy_paste(tmp_dir, first_cleaned_location)
+
+            os.remove(tmp_dir)
             index += 1
 
 def iterate_patches_tenure(bugs):
@@ -655,7 +747,6 @@ def iterate_patches_arjae(bugs):
 
         index += 1
     
-
 def iterate_patches_t5apr(bugs):
     tool = "t5apr"
     base_search_path = os.path.join(RQ4_DATA_DIR, tool)
@@ -884,11 +975,11 @@ def iterate_patches(bugs):
     # iterate_patches_dlfix(bugs)
     # iterate_patches_fitrepair(bugs)
     # iterate_patches_iter(bugs)
-    iterate_patches_knod(bugs)
+    # iterate_patches_knod(bugs)
     # iterate_patches_rapgen(bugs)
     # iterate_patches_recoder(bugs)
     # iterate_patches_repilot(bugs)
-    # iterate_patches_tare(bugs)
+    iterate_patches_tare(bugs)
     # iterate_patches_tenure(bugs)
     # iterate_patches_transplantfix(bugs)
     # iterate_patches_arjae(bugs)
