@@ -806,15 +806,13 @@ def iterate_patches_tare(bugs):
             patches_list.append(patch_dict)
             index += 1
 
-            
-
             # Run this once to copy paste the first cleaned patches
             # copy_paste(filepath, first_cleaned_location)
             # ..
 
-    # patches_df = pd.DataFrame(patches_list).set_index("uid")
-    # patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
-    # patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
+    patches_df = pd.DataFrame(patches_list).set_index("uid")
+    patches_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.pkl"))
+    patches_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool}_patches.html"))
 
 
 def iterate_patches_tenure(bugs):
