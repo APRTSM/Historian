@@ -85,7 +85,12 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         if uid_results[uid]:
             continue
         
-        label = match_type2(comp['selected_content'], comp['match_content'])
+        try:
+            label = match_type2(comp['selected_content'], comp['match_content'])
+        except:
+            logging.error(f"Error comparing UID {uid} with matching patch UID {comp['match_uid']}: {e}")
+            label = False
+
         logging.info(f"Comparing UID {uid} with matching patch UID {comp['match_uid']}: Clone={label}")
         
         if label:
@@ -272,8 +277,8 @@ if __name__ == "__main__":
     # selected_tool_name = "circle"
     # selected_tool_name = "dlfix"
     # selected_tool_name = "iter"
-    selected_tool_name = "arjae"
-    # selected_tool_name = "t5apr"
+    # selected_tool_name = "arjae"
+    selected_tool_name = "t5apr"
     # selected_tool_name = "selfapr"
     # selected_tool_name = "knod"
     # selected_tool_name = "tare"

@@ -26,78 +26,6 @@ def report_data(df):
     print(f"Correct Tool Patches: {len(df[df['correctness'] == 'Correct'])}, Overfitting: {len(df[df['correctness'] == 'Overfitting'])}")
 
 
-
-def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
-    """
-    Assigns SourcererCC clone labels to selected patches by comparing against
-    all patches with matching bug_uid in tool_patches.
-    Args:
-        tool_patches: DataFrame with all tool patches
-        selected_tool_patches: DataFrame with selected patches to label
-    Returns:
-        DataFrame with columns: 'uid', 'sourcerercc_label' (True/False)
-    """
-    logging.info("Assigning SourcererCC labels to selected patches...")
-    
-    # Ensure content is available
-    if 'content' not in tool_patches.columns:
-        tool_patches['content'] = tool_patches.apply(get_single_hunk_method, axis=1)
-    if 'content' not in selected_tool_patches.columns:
-        selected_tool_patches['content'] = selected_tool_patches.apply(get_single_hunk_method, axis=1)
-    
-    # Remove duplicate content within each bug_uid group from tool_patches
-    original_count = len(tool_patches)
-    tool_patches = tool_patches.drop_duplicates(subset=['bug_uid', 'content'], keep='first')
-    dedupe_count = len(tool_patches)
-    logging.info(f"Deduplicated tool_patches (REMOVE SAME BUG_UID CONTENT TO REDUCE COMPARISON SIZE): {original_count} -> {dedupe_count} (removed {original_count - dedupe_count} duplicates)")
-    print(f"Deduplicated tool_patches (REMOVE SAME BUG_UID CONTENT TO REDUCE COMPARISON SIZE): {original_count} -> {dedupe_count} (removed {original_count - dedupe_count} duplicates)")
-
-    # Pre-calculate all comparisons to get accurate total
-    comparisons = []
-    for _, row in selected_tool_patches.iterrows():
-        uid = row.name
-        bug_uid = row['bug_uid']
-        selected_content = row['content']
-        
-        matching_patches = tool_patches[tool_patches['bug_uid'] == bug_uid]
-        # if len(matching_patches) > 10:
-        #     matching_patches = matching_patches.head(10)
-        
-        for _, match_row in matching_patches.iterrows():
-            comparisons.append({
-                'uid': uid,
-                'selected_content': selected_content,
-                'match_uid': match_row.name,
-                'match_content': match_row['content']
-            })
-    
-    total_comparisons = len(comparisons)
-    logging.info(f"Total comparisons to perform: {total_comparisons}")
-    
-    # Track results per uid
-    uid_results = {row.name: False for _, row in selected_tool_patches.iterrows()}
-    
-    # Perform comparisons with accurate progress bar
-    for comp in tqdm(comparisons, total=total_comparisons, desc="Detecting SourcererCC clones"):
-        uid = comp['uid']
-        
-        # Skip if already found a clone for this uid
-        if uid_results[uid]:
-            continue
-        
-        label = sourcerercc_are_clones(comp['selected_content'], comp['match_content'])
-        logging.info(f"Comparing UID {uid} with matching patch UID {comp['match_uid']}: Clone={label}")
-        
-        if label:
-            uid_results[uid] = True
-    
-    # Build result DataFrame
-    results = [{'uid': uid, 'sourcerercc_label': is_clone} for uid, is_clone in uid_results.items()]
-    result_df = pd.DataFrame(results)
-    
-    logging.info(f"Completed! Processed {len(result_df)} patches with {total_comparisons} comparisons.")
-    return result_df
-
 def get_selected_tool_patches(selected_tool_name):
     bugs, developer_patches, tool_patches = init(configure=False)
 
@@ -114,23 +42,6 @@ def get_selected_tool_patches(selected_tool_name):
     selected_tool_patches = deduplicate_patches_and_save(selected_tool_patches, os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_deduplicated_patches.pkl"))
     # print(f"DEDUPLICATED: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
     return selected_tool_patches
-
-
-def get_sourcerercc_labels(tool_1_name, tool_2_name):
-    selected_tool_patches_1 = get_selected_tool_patches(tool_1_name)
-    report_data(selected_tool_patches_1)
-    selected_tool_patches_2 = get_selected_tool_patches(tool_2_name)
-    report_data(selected_tool_patches_2)
-
-    if os.path.exists(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl")):
-        print(f"✅ SourcererCC labels already exist for {tool_1_name} vs {tool_2_name}.")
-    
-    else:
-        results_df = assign_sourcerercc_labels(selected_tool_patches_1, selected_tool_patches_2)
-        results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.pkl"))
-        results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
-
-    print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{tool_1_name}_{tool_2_name}_sourcerercc_labels.html"))
 
 def get_bar_scores(tool_name, other_tools):
         selected_tool_patches = get_selected_tool_patches(tool_name).copy()

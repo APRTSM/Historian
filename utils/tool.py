@@ -300,11 +300,6 @@ def match_type2(code_1: str, code_2: str) -> bool:
     except ValueError:
         return False
 
-
-# =============================================================================
-# Type-2 Plus: Also ignores variable types and all literal types
-# =============================================================================
-
 def get_parse_tree_type2_plus(code: str) -> str:
     try:
         tree = javalang.parse.parse(code)
