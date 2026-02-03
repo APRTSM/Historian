@@ -1,7 +1,7 @@
 --- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
 +++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
 @@ -820,7 +820,8 @@
- 
+
              // Revert to scalar multiplication.
  
 -        final double[] prodHigh = new double[len];

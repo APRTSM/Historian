@@ -538,7 +538,7 @@ def iterate_patches_tare(bugs):
         
         # Process remaining lines (skip old --- and +++ lines)
         i = 1
-        chunk_header_just_added = False
+        skip_one_empty_after_chunk = False
         plus_plus_just_added = True  # Start true because we just added +++ line
         
         while i < len(lines):
@@ -550,21 +550,27 @@ def iterate_patches_tare(bugs):
                 i += 1
                 continue
             
-            # Skip empty lines right after +++ header or right after chunk header
-            if stripped == '' and (plus_plus_just_added or chunk_header_just_added):
+            # Skip empty lines right after +++ header
+            if stripped == '' and plus_plus_just_added:
                 i += 1
                 continue
             
             plus_plus_just_added = False
             
-            # Check if it's a chunk header (starts with @@)
-            if stripped.startswith('@@'):
-                new_lines.append(stripped)  # Remove leading/trailing spaces from chunk header
-                chunk_header_just_added = True
+            # Skip ONE empty line right after chunk header
+            if stripped == '' and skip_one_empty_after_chunk:
+                skip_one_empty_after_chunk = False  # Only skip one
                 i += 1
                 continue
             
-            chunk_header_just_added = False
+            skip_one_empty_after_chunk = False
+            
+            # Check if it's a chunk header (starts with @@)
+            if stripped.startswith('@@'):
+                new_lines.append(stripped)  # Remove leading/trailing spaces from chunk header
+                skip_one_empty_after_chunk = True  # Flag to skip ONE empty line after this
+                i += 1
+                continue
             
             # Process content lines
             if line.startswith('+'):

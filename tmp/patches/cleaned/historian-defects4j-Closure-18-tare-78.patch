@@ -1,7 +1,7 @@
 --- a/src/com/google/javascript/jscomp/Compiler.java
 +++ b/src/com/google/javascript/jscomp/Compiler.java
 @@ -1285,7 +1285,8 @@
- 
+
        // Check if the sources need to be re-ordered.
        boolean staleInputs = false;
 -      if (options.dependencyOptions.needsManagement() && options.closurePass) {

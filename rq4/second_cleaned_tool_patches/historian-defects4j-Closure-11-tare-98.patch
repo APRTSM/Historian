@@ -1,6 +1,7 @@
 --- a/src/com/google/javascript/jscomp/TypeCheck.java
 +++ b/src/com/google/javascript/jscomp/TypeCheck.java
 @@ -1311,7 +1311,7 @@
+ 
      if (childType.isDict()) {
        report(t, property, TypeValidator.ILLEGAL_PROPERTY_ACCESS, "'.'", "dict");
 -    } else if (n.getJSType() != null && parent.isAssign()) {
