@@ -223,22 +223,7 @@ def get_bar_scores_detailed(tool_name, other_tools):
         'o_total': o_total, 'o_baseline_only': o_baseline_only, 'o_added_only': o_added_only, 'o_both': o_both,
     }
 
-if __name__ == "__main__":
-
-    bugs, developer_patches, tool_patches = init(configure=False)
-
-    # For Pre
-    # selected_tool_name = "transplantfix"
-    # selected_tool_name = "recoder"
-    # selected_tool_name = "circle"
-    # selected_tool_name = "dlfix"
-    # selected_tool_name = "iter"
-    selected_tool_name = "arjae"
-    # selected_tool_name = "t5apr"
-    # selected_tool_name = "selfapr"
-    # selected_tool_name = "knod"
-    # selected_tool_name = "tare"
-
+def get_pre_matches(tool_name):
     selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
     print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")
@@ -269,12 +254,31 @@ if __name__ == "__main__":
     
     result_dir = os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl")
     if os.path.exists(result_dir):
-        print(f"✅ SourcererCC labels already exist for {selected_tool_name}.")
+        print(f"✅ SourcererCC labels already exist for {selected_tool_name}. Location: {result_dir} HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
     
     else:
         results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
         results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
         results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+        print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+
+if __name__ == "__main__":
+
+    bugs, developer_patches, tool_patches = init(configure=False)
+
+    # For Pre
+    # selected_tool_name = "transplantfix"
+    # selected_tool_name = "recoder"
+    # selected_tool_name = "circle"
+    # selected_tool_name = "dlfix"
+    # selected_tool_name = "iter"
+    selected_tool_name = "arjae"
+    # selected_tool_name = "t5apr"
+    # selected_tool_name = "selfapr"
+    # selected_tool_name = "knod"
+    # selected_tool_name = "tare"
+    get_pre_matches(selected_tool_name)
+
 
     """"""
     """"""
