@@ -1,0 +1,3 @@
+    public String getNamespaceURI(String prefix) {
+        return namespaceResolver.getNamespaceURI(prefix);
+    }

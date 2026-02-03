@@ -8,33 +8,28 @@ os.makedirs('rq4', exist_ok=True)
 
 # Set up the figure with academic styling
 plt.rcParams['font.family'] = 'serif'
-plt.rcParams['font.size'] = 14
-plt.rcParams['axes.linewidth'] = 0.8
-plt.rcParams['hatch.linewidth'] = 0.5
+plt.rcParams['font.size'] = 20
+plt.rcParams['axes.linewidth'] = 1.2
+plt.rcParams['hatch.linewidth'] = 0.7
 
 # Data from your results
-# Baseline = TMP_DEDUPLICATED_TOOL_PATHCES_PKL (500 correct, 13140 overfitting)
-# DLFix+ARJA-e (2020) is baseline
+# Baseline = 500 correct, 13140 overfitting
 
-tools = ['DLFix+ARJA-e\n(2020)', 'Recoder\n(2021)', 'CIRCLE\n(2022)', 'TransplantFix\n(2023)', 'ITER\n(2024)']
+tools = ['ARJA-e\n(2020)', 'Recoder\n(2021)', 'SelfAPR\n(2022)', 'KNOD\n(2023)', 'TARE\n(2023)', 'TransplantFix\n(2023)', 'T5APR\n(2024)']
 
-# Total patches (DLFix: 40 correct, 0 overfit + ARJA-e: 36 correct, 62 overfit)
-correct_total = [40+36, 77, 66, 72, 74]  # 76
-overfitting_total = [0+62, 5, 0, 123, 0]  # 62
+# Total patches
+correct_total = [36, 77, 69, 69, 124, 72, 415]
+overfitting_total = [62, 5, 428, 14, 134, 123, 1466]
 
 # Breakdown: Baseline only, Both, Added only
-# DLFix: Baseline=35, Added=0, Both=0
-# ARJA-e: Baseline=0, Added=0, Both=0 (no baseline labels found)
-correct_baseline = [35+0, 9, 5, 7, 3]  # 35
-correct_both = [0+0, 27, 30, 12, 28]  # 0
-correct_added = [0+0, 2, 6, 1, 11]  # 0
+correct_baseline = [21, 29, 9, 6, 9, 9, 2]
+correct_both = [0, 7, 22, 31, 29, 10, 68]
+correct_added = [0, 0, 4, 8, 23, 4, 54]
 
 # Overfitting
-# DLFix: n=0
-# ARJA-e: Baseline=0, Added=0, Both=0
-overfitting_baseline = [0+0, 3, 0, 10, 0]  # 0
-overfitting_both = [0+0, 0, 0, 1, 0]  # 0
-overfitting_added = [0+0, 0, 0, 0, 0]  # 0
+overfitting_baseline = [21, 3, 6, 0, 17, 10, 27]
+overfitting_both = [0, 0, 8, 1, 3, 1, 34]
+overfitting_added = [0, 0, 6, 1, 16, 1, 175]
 
 # Calculate percentages
 def calc_pct(val, total):
@@ -52,8 +47,8 @@ overfitting_added_pct = [calc_pct(v, t) for v, t in zip(overfitting_added, overf
 baby_green = '#90EE90'
 baby_red = '#FFB6C1'
 
-# Create figure - smaller size as requested
-fig, ax = plt.subplots(figsize=(10, 6))
+# Create figure - adjusted for more tools
+fig, ax = plt.subplots(figsize=(16, 9))
 
 x = np.arange(len(tools))
 width = 0.30
@@ -89,13 +84,13 @@ bars2_added = ax.bar(x + width/2 + gap/2, overfitting_added_pct, width,
                      hatch='////')
 
 # Customize the plot
-ax.set_ylabel('Percentage of Patches that are Clones (%)', fontsize=12)
-ax.set_xlabel('APR Tool (Year)', fontsize=12)
+ax.set_ylabel('Percentage of Patches that are Clones (%)', fontsize=18)
+ax.set_xlabel('APR Tool (Year)', fontsize=18)
 ax.set_xticks(x)
-ax.set_xticklabels(tools, fontsize=10)
+ax.set_xticklabels(tools, fontsize=14)
 ax.set_ylim(0, 100)
 ax.set_yticks(np.arange(0, 101, 10))
-ax.tick_params(axis='y', labelsize=10)
+ax.tick_params(axis='y', labelsize=14)
 
 # Remove top and right spines
 ax.spines['top'].set_visible(False)
@@ -109,8 +104,8 @@ both_patch = mpatches.Patch(facecolor='white', edgecolor='black', hatch='xxxx', 
 added_patch = mpatches.Patch(facecolor='white', edgecolor='black', hatch='////', label='Added Tools Only')
 
 ax.legend(handles=[green_patch, red_patch, baseline_patch, both_patch, added_patch],
-          loc='upper left', frameon=True, edgecolor='black', fancybox=False,
-          fontsize=9, title='Values: Base/Both/Added/Total', title_fontsize=8)
+          loc='upper right', frameon=True, edgecolor='black', fancybox=False,
+          fontsize=12, title='Values: Base/Both/Added/Total', title_fontsize=11)
 
 # Add value labels on bars
 for i in range(len(tools)):
@@ -135,14 +130,14 @@ for i in range(len(tools)):
         ax.annotate(label,
                     xy=(x[i] - width/2 - gap/2, c_total_pct),
                     xytext=(0, 3), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=8)
+                    ha='center', va='bottom', fontsize=10)
     else:
-        # Baseline - just show n
+        # Just show n
         label = f'n={correct_total[i]}'
         ax.annotate(label,
                     xy=(x[i] - width/2 - gap/2, 2),
                     xytext=(0, 0), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=8)
+                    ha='center', va='bottom', fontsize=10)
     
     # Overfitting patches label - 3 percentages and 4 numbers
     if overfitting_total[i] > 0:
@@ -151,18 +146,18 @@ for i in range(len(tools)):
             ax.annotate(label,
                         xy=(x[i] + width/2 + gap/2, o_total_pct),
                         xytext=(0, 3), textcoords="offset points",
-                        ha='center', va='bottom', fontsize=8)
+                        ha='center', va='bottom', fontsize=10)
         else:
             label = f'n={overfitting_total[i]}'
             ax.annotate(label,
                         xy=(x[i] + width/2 + gap/2, 2),
                         xytext=(0, 0), textcoords="offset points",
-                        ha='center', va='bottom', fontsize=8)
+                        ha='center', va='bottom', fontsize=10)
 
 # Add baseline info as text annotation
-ax.text(0.98, 0.98, 'Baseline: 500 correct, 13,140 overfitting patches',
-        transform=ax.transAxes, fontsize=9, verticalalignment='top',
-        horizontalalignment='right', style='italic',
+ax.text(0.02, 0.98, 'Baseline: 500 correct, 13,140 overfitting patches',
+        transform=ax.transAxes, fontsize=12, verticalalignment='top',
+        horizontalalignment='left', style='italic',
         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
 # Tight layout
@@ -183,3 +178,9 @@ for i, tool in enumerate(tools):
     tool_clean = tool.replace('\n', ' ')
     c_total_pct = correct_baseline_pct[i] + correct_both_pct[i] + correct_added_pct[i]
     print(f"{tool_clean:<20} {correct_total[i]:<8} {correct_baseline[i]:<6} {correct_both[i]:<6} {correct_added[i]:<6} {c_total_pct:<8.1f}")
+
+print(f"\n{'Tool':<20} {'Overfit':<8} {'Base':<6} {'Both':<6} {'Added':<6} {'Total%':<8}")
+for i, tool in enumerate(tools):
+    tool_clean = tool.replace('\n', ' ')
+    o_total_pct = overfitting_baseline_pct[i] + overfitting_both_pct[i] + overfitting_added_pct[i]
+    print(f"{tool_clean:<20} {overfitting_total[i]:<8} {overfitting_baseline[i]:<6} {overfitting_both[i]:<6} {overfitting_added[i]:<6} {o_total_pct:<8.1f}")
