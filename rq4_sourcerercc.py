@@ -85,7 +85,7 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         if uid_results[uid]:
             continue
         
-        label = sourcerercc_are_clones(comp['selected_content'], comp['match_content'])
+        label = match_type2(comp['selected_content'], comp['match_content'])
         logging.info(f"Comparing UID {uid} with matching patch UID {comp['match_uid']}: Clone={label}")
         
         if label:
@@ -235,6 +235,9 @@ if __name__ == "__main__":
     # selected_tool_name = "iter"
     selected_tool_name = "arjae"
     # selected_tool_name = "t5apr"
+    # selected_tool_name = "selfapr"
+    # selected_tool_name = "knod"
+    # selected_tool_name = "tare"
 
     selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
