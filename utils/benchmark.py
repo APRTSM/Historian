@@ -573,12 +573,12 @@ def configure_benchmarks():
 
 def get_bugs():
     bugs = []
-    bugs += get_bug_list_bugsjar()
+    # bugs += get_bug_list_bugsjar()
     bugs += get_bug_list_defects4j()
-    bugs += get_bug_list_bears()
-    bugs += get_bug_list_quixbugs_java()
+    # bugs += get_bug_list_bears()
+    # bugs += get_bug_list_quixbugs_java()
     # bugs += get_bug_list_quixbugs_python()
-    bugs += get_bug_list_introclassjava()
+    # bugs += get_bug_list_introclassjava()
 
     return bugs
 

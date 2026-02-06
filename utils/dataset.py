@@ -64,9 +64,9 @@ def get_dl4pc_exp2_dataset(bugs):
             bug = get_record(bugs, bug_info)
 
             if not bug:
-                logging.warning(f"No matching bug found for DL4PC second experiment patch: {bug_info}")
-                continue
+                raise Exception(f"Bug not found for APRE NFL patch: {bug_info}")
 
+    
             bug_uid = bug["uid"]
             
             # Set correctness
@@ -105,6 +105,58 @@ def get_apre_nfl_dataset(bugs):
     skipped = []  # To track missing ones
 
     for root, dirs, files in os.walk(nfl_dir):
+        for file in files:
+            tool, project_id_correctness = root.split('/')[-2:]
+            project_id, correctness = project_id_correctness.split('_')
+
+            if correctness == 'C':
+                correctness = "Correct"
+            else:
+                correctness = "Overfitting"
+
+            project, id = project_id.split('-')
+
+            bug_info = {"benchmark": "Defects4J", "project": project, "number": id}
+            bug = get_record(bugs, bug_info)
+
+            if not bug:
+                raise Exception(f"Bug not found for APRE NFL patch: {bug_info}")
+
+            bug_uid = bug["uid"]
+
+            # Remove `.txt` from name (if any)
+            patch_name = file[:-4] if file.endswith(".txt") else file
+
+            patch = {
+                "uid": f"aprenfl-{bug_uid}-{tool}-{patch_name}",
+                "bug_uid": bug_uid,
+                "generator": tool,
+                "location": os.path.relpath(os.path.join(root, file), PROJECT_DIR),
+                "correctness": correctness,
+                "origin": "APRE-NFL"
+            }
+            patches.append(patch)
+
+    no_correct_patches = len(get_objects_by_feature(patches, "correctness", "Correct"))
+    no_overfitting_patches = len(get_objects_by_feature(patches, "correctness", "Overfitting"))
+
+    logging.info(f"{no_correct_patches} Correct and {no_overfitting_patches} Overfitting patches extracted from APRE study (NFL).")
+    logging.info(f"{len(skipped)} patches skipped (no matching bug).")
+
+    # Log details of missing ones
+    for s in skipped:
+        logging.warning(f"Skipped: {s['project']}-{s['id']} ({s['file']}) in {s['root']}")
+
+    return patches
+
+def get_apre_pfl_dataset(bugs):
+    logging.info("Extracting APRE PFL patches ...")
+
+    patches = []
+    pfl_dir = os.path.join(APRE_PFL_DIR)
+    skipped = []  # To track missing ones
+
+    for root, dirs, files in os.walk(pfl_dir):
         for file in files:
             tool, project_id_correctness = root.split('/')[-2:]
             project_id, correctness = project_id_correctness.split('_')
@@ -456,11 +508,17 @@ def get_llm4pc_dataset(bugs):
 def get_patches(bugs):
     patches = []
     patches += get_dl4pc_exp2_dataset(bugs)
+    print(len(patches))
     patches += get_apre_nfl_dataset(bugs)
+    print(len(patches))
     patches += get_defectrepairing_dataset(bugs)
+    print(len(patches))
     patches += get_drr_dataset(bugs)
-    patches += get_wangicse_dataset(bugs)
+    print(len(patches))
+    # patches += get_wangicse_dataset(bugs)
+    # print(len(patches))
     patches += get_llm4pc_dataset(bugs)
+    print(len(patches))
 
     return patches
 

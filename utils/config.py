@@ -37,6 +37,7 @@ TMP_TYPE_BINARY_RESULTS_CSV_EXP5 = os.path.join(RQ5_DIR, "type-binary-results-ex
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")
 DL4PC2_DIR = os.path.join(DATASETS_DIR, "dl4pc2")
 APRE_NFL_DIR = os.path.join(DATASETS_DIR, "aprenfl")
+APRE_PFL_DIR = os.path.join(DATASETS_DIR, "aprepfl")
 DEFECTREPAIRING_DIR = os.path.join(DATASETS_DIR, "defectrepairing")
 DRR_DIR = os.path.join(DATASETS_DIR, "drr")
 WANGICSE_DIR = os.path.join(DATASETS_DIR, "wangicse")
