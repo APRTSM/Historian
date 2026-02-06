@@ -1,7 +1,7 @@
 \begin{table}[t]
 \centering
-\caption{Cherry-Picked: Chart-11-TBar-Patch\_102\_60 (GT: Correct, Pred: Correct)}
-\label{tab:cherry-Chart11TBarPatch10260}
+\caption{Cherry-Picked: Closure-107-TBar-Patch\_356\_164 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure107TBarPatch356164}
 \footnotesize
 \renewcommand{\arraystretch}{1.1}
 \setlength{\tabcolsep}{4pt}
@@ -9,21 +9,11 @@
 \hline
 \textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
 \hline
-Chart-11-FixMiner-Patch\_155\_50 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-AVATAR-Patch\_38\_34 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-SOFix-patch1 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-CapGen-patch1 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-FixMiner-patch1 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-Cardumen-patch1 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-AVATAR-patch1 & T1 & C & \textcolor{green!60!black}{C} \\
-Chart-11-SketchFix-patch1 & T3 & C & \textcolor{gray}{U} \\
-Chart-11-SequenceR-patch1 & T3 & C & \textcolor{gray}{U} \\
-Chart-11-Elixir-patch1 & T3 & C & \textcolor{gray}{U} \\
-Chart-11-CapGen-patch2 & T3 & C & \textcolor{gray}{U} \\
-Chart-11-developer & T3 & C & \textcolor{gray}{U} \\
+Closure-107-developer & NC & C & \textcolor{orange}{O} \\
+Closure-107-SimFix-patch1 & NC & O & \textcolor{gray}{U} \\
 \hline
-\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & C:7, U:5 \\
-\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Correct} \\
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:1, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
 \hline
 \end{tabular}
 \vspace{1mm}
@@ -37,8 +27,8 @@ Chart-11-developer & T3 & C & \textcolor{gray}{U} \\
 
 \begin{table}[t]
 \centering
-\caption{Cherry-Picked: Chart-26-TBar-Patch\_5751\_2399 (GT: Overfitting, Pred: Overfitting)}
-\label{tab:cherry-Chart26TBarPatch57512399}
+\caption{Cherry-Picked: Closure-109-TBar-Patch\_270\_73 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure109TBarPatch27073}
 \footnotesize
 \renewcommand{\arraystretch}{1.1}
 \setlength{\tabcolsep}{4pt}
@@ -46,24 +36,550 @@ Chart-11-developer & T3 & C & \textcolor{gray}{U} \\
 \hline
 \textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
 \hline
-Chart-26-Jaid-patch3 & NC & C & \textcolor{orange}{O} \\
-Chart-26-developer & NC & C & \textcolor{orange}{O} \\
-Chart-26-Kali-DifferentFilePatches-0 & NC & O & \textcolor{gray}{U} \\
-Chart-26-Nopol2015-Patch19 & NC & O & \textcolor{gray}{U} \\
-Chart-26-FixMiner-Patch\_2377\_1050 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-kPAR-Patch\_2377\_1050 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-AVATAR-Patch\_4159\_891 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-jKali-Patch18 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-Nopol2017-Patch93 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-Jaid-patch1 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-Jaid-patch2 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-FixMiner-patch1 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-Kali-patch1 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-kPAR-patch1 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-jMutRepair-patch1 & T3 & O & \textcolor{gray}{U} \\
-Chart-26-AVATAR-patch1 & T3 & O & \textcolor{gray}{U} \\
+Closure-109-kPAR-Patch\_172\_38 & T1 & O & \textcolor{orange}{O} \\
+Closure-109-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-109-Dynamoth-DifferentFilePatches-0 & NC & O & \textcolor{gray}{U} \\
+Closure-109-SimFix-Patch\_6\_6 & NC & O & \textcolor{gray}{U} \\
+Closure-109-SimFix-patch1 & NC & O & \textcolor{gray}{U} \\
+Closure-109-developer & T3 & C & \textcolor{gray}{U} \\
 \hline
-\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:14 \\
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:4 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-12-TBar-Patch\_160\_37 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure12TBarPatch16037}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-12-developer & NC & C & \textcolor{orange}{O} \\
+Closure-12-AVATAR-Patch\_37\_11 & T1 & O & \textcolor{orange}{O} \\
+Closure-12-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-12-Kali-DifferentFilePatches-0 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Arja-DifferentFilePatches-159 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Nopol2017-Patch101 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Kali-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3, U:4 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-133-TBar-Patch\_433\_171 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure133TBarPatch433171}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-133-developer & NC & C & \textcolor{orange}{O} \\
+Closure-133-Arja-DifferentFragPatches-292 & NC & O & \textcolor{gray}{U} \\
+Closure-133-Kali-DifferentFragPatches-0 & NC & O & \textcolor{gray}{U} \\
+Closure-133-Nopol2017-Patch149 & NC & O & \textcolor{gray}{U} \\
+Closure-133-Arja-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:1, U:4 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-66-TBar-Patch\_9\_6 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure66TBarPatch96}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-66-developer & NC & C & \textcolor{orange}{O} \\
+Closure-66-AVATAR-Patch\_15\_3 & T1 & O & \textcolor{orange}{O} \\
+Closure-66-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-66-Nopol2017-Patch128 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-13-TBar-Patch\_18\_6 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang13TBarPatch186}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-13-AVATAR-Patch\_78\_11 & T1 & O & \textcolor{orange}{O} \\
+Lang-13-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Lang-13-RSRepair-A-Patch\_165\_66 & NC & O & \textcolor{gray}{U} \\
+Lang-13-RSRepair-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:2 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-18-TBar-Patch\_5849\_3524 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang18TBarPatch58493524}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-18-developer & NC & C & \textcolor{orange}{O} \\
+Lang-18-kPAR-Patch\_2058\_1100 & T1 & O & \textcolor{orange}{O} \\
+Lang-18-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-24-TBar-Patch\_2414\_1931 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang24TBarPatch24141931}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-24-ACS-Patch\_1\_1 & NC & C & \textcolor{orange}{O} \\
+Lang-24-ACS-Patch191 & NC & C & \textcolor{orange}{O} \\
+Lang-24-DeepRepair-patch1 & NC & C & \textcolor{orange}{O} \\
+Lang-24-Elixir-patch1 & NC & C & \textcolor{orange}{O} \\
+Lang-24-ACS-patch1 & NC & C & \textcolor{orange}{O} \\
+Lang-24-developer & NC & C & \textcolor{orange}{O} \\
+Lang-24-kPAR-Patch\_6785\_5804 & T1 & O & \textcolor{orange}{O} \\
+Lang-24-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:8 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-41-TBar-Patch\_289\_206 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang41TBarPatch289206}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-41-kPAR-Patch\_223\_61 & T1 & O & \textcolor{orange}{O} \\
+Lang-41-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Lang-41-kPAR-Patch\_2305\_990 & T3 & O & \textcolor{gray}{U} \\
+Lang-41-SimFix-patch1 & T3 & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:2 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-41-TBar-Patch\_2958\_1870 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang41TBarPatch29581870}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-41-kPAR-Patch\_2305\_990 & T1 & O & \textcolor{orange}{O} \\
+Lang-41-SimFix-patch1 & T1 & O & \textcolor{orange}{O} \\
+Lang-41-kPAR-Patch\_223\_61 & T3 & O & \textcolor{gray}{U} \\
+Lang-41-kPAR-patch1 & T3 & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:2 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-60-TBar-Patch\_3262\_1865 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang60TBarPatch32621865}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-60-SimFix-patch1 & NC & C & \textcolor{orange}{O} \\
+Lang-60-Arja-DifferentFragPatches-16 & NC & O & \textcolor{gray}{U} \\
+Lang-60-Arja-DifferentFragPatches-17 & NC & O & \textcolor{gray}{U} \\
+Lang-60-Arja-DifferentFragPatches-14 & NC & O & \textcolor{gray}{U} \\
+Lang-60-Arja-DifferentFragPatches-19 & NC & O & \textcolor{gray}{U} \\
+Lang-60-Arja-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:1, U:5 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Math-15-TBar-Patch\_1163\_932 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Math15TBarPatch1163932}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Math-15-kPAR-Patch\_524\_360 & T4 & O & \textcolor{orange}{O} \\
+Math-15-kPAR-patch1 & T4 & O & \textcolor{orange}{O} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Math-6-TBar-Patch\_5\_2 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Math6TBarPatch52}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Math-6-AVATAR-Patch\_1\_1 & T1 & O & \textcolor{orange}{O} \\
+Math-6-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Math-6-SimFix-Patch\_2\_2 & T2 & O & \textcolor{orange}{O} \\
+Math-6-Arja-patch2 & T2 & O & \textcolor{orange}{O} \\
+Math-6-SimFix-patch1 & T2 & O & \textcolor{orange}{O} \\
+Math-6-SimFix-patch1 & T2 & O & \textcolor{orange}{O} \\
+Math-6-Arja-patch1 & T3 & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:6, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Math-62-TBar-Patch\_261\_142 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Math62TBarPatch261142}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Math-62-AVATAR-Patch\_354\_98 & T1 & O & \textcolor{orange}{O} \\
+Math-62-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Math-62-kPAR-Patch\_118\_71 & T4 & O & \textcolor{orange}{O} \\
+Math-62-kPAR-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Math-96-TBar-Patch\_439\_157 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Math96TBarPatch439157}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Math-96-developer & NC & C & \textcolor{orange}{O} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-109-TBar-patch1 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure109TBarpatch1}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-109-kPAR-Patch\_172\_38 & T1 & O & \textcolor{orange}{O} \\
+Closure-109-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-109-Dynamoth-DifferentFilePatches-0 & NC & O & \textcolor{gray}{U} \\
+Closure-109-SimFix-Patch\_6\_6 & NC & O & \textcolor{gray}{U} \\
+Closure-109-SimFix-patch1 & NC & O & \textcolor{gray}{U} \\
+Closure-109-developer & T3 & C & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:4 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-12-TBar-patch1 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure12TBarpatch1}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-12-developer & NC & C & \textcolor{orange}{O} \\
+Closure-12-AVATAR-Patch\_37\_11 & T1 & O & \textcolor{orange}{O} \\
+Closure-12-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-12-Kali-DifferentFilePatches-0 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Arja-DifferentFilePatches-159 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Nopol2017-Patch101 & NC & O & \textcolor{gray}{U} \\
+Closure-12-Kali-patch1 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3, U:4 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Closure-66-TBar-patch1 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Closure66TBarpatch1}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Closure-66-developer & NC & C & \textcolor{orange}{O} \\
+Closure-66-AVATAR-Patch\_15\_3 & T1 & O & \textcolor{orange}{O} \\
+Closure-66-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Closure-66-Nopol2017-Patch128 & NC & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:3, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Lang-18-TBar-patch1 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Lang18TBarpatch1}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Lang-18-kPAR-Patch\_2058\_1100 & T1 & O & \textcolor{orange}{O} \\
+Lang-18-kPAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Lang-18-developer & T3 & C & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:1 \\
+\multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize 
+\vspace{1mm}
+\textbf{Type:} T1-T4: Type-1 to Type-4, NC: Not-Clone. \;
+\textbf{Ref. GT:} C: Correct, O: Overfitting. \\
+\textbf{Verdict:} \textcolor{green!60!black}{C}: Correct, \textcolor{orange}{O}: Overfitting, \textcolor{gray}{U}: Unknown.}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Cherry-Picked: Math-6-TBar-patch1 (GT: Overfitting, Pred: Overfitting)}
+\label{tab:cherry-Math6TBarpatch1}
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l|c|c|c}
+\hline
+\textbf{Reference Patch} & \textbf{Type} & \textbf{Ref. GT} & \textbf{Verdict} \\
+\hline
+Math-6-AVATAR-Patch\_1\_1 & T1 & O & \textcolor{orange}{O} \\
+Math-6-AVATAR-patch1 & T1 & O & \textcolor{orange}{O} \\
+Math-6-SimFix-Patch\_2\_2 & T3 & O & \textcolor{gray}{U} \\
+Math-6-Arja-patch2 & T3 & O & \textcolor{gray}{U} \\
+Math-6-Arja-patch1 & T3 & O & \textcolor{gray}{U} \\
+Math-6-SimFix-patch1 & T3 & O & \textcolor{gray}{U} \\
+Math-6-SimFix-patch1 & T3 & O & \textcolor{gray}{U} \\
+\hline
+\multicolumn{3}{r|}{\textbf{Verdict Counts:}} & O:2, U:5 \\
 \multicolumn{3}{r|}{\textbf{Final Prediction:}} & \textbf{Overfitting} \\
 \hline
 \end{tabular}

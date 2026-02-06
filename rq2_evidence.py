@@ -425,6 +425,10 @@ def escape_latex(text):
     return text
 
 def shorten_uid(uid):
+    """Keep full UID for display - NO SHORTENING"""
+    return uid
+
+def shorten_uid(uid):
     """Shorten UID for display"""
     parts = uid.split('-')
     if 'defects4j' in uid:
@@ -511,8 +515,8 @@ latex_main = r"""% Add to preamble:
 """
 
 for idx, row in detailed_df.iterrows():
-    short_uid = shorten_uid(row['uid'])
-    escaped_uid = escape_latex(short_uid)
+    full_uid = shorten_uid(row['uid'])  # Now returns full UID
+    escaped_uid = escape_latex(full_uid)
     
     label_summary = format_label_summary_latex(row['details_dict'])
     verdict_summary = format_verdict_summary_latex(row['details_dict'])
@@ -556,12 +560,12 @@ def generate_cherry_picked_latex(tbar_uid, labeled_pairs, voted_df):
     patch_pairs = patch_pairs.sort_values(by=['verdict', 'expert_label'])
     
     tbar_info = voted_df[voted_df['uid'] == tbar_uid].iloc[0]
-    short_tbar = shorten_uid(tbar_uid)
+    full_tbar = shorten_uid(tbar_uid)  # Now returns full UID
     
     latex = f"""\\begin{{table}}[t]
 \\centering
-\\caption{{Cherry-Picked: {escape_latex(short_tbar)} (GT: {tbar_info['gt_correctness']}, Pred: {tbar_info['inferred_label']})}}
-\\label{{tab:cherry-{short_tbar.replace('-', '').replace('_', '')}}}
+\\caption{{Cherry-Picked: {escape_latex(full_tbar)} (GT: {tbar_info['gt_correctness']}, Pred: {tbar_info['inferred_label']})}}
+\\label{{tab:cherry-{full_tbar.replace('-', '').replace('_', '')}}}
 \\footnotesize
 \\renewcommand{{\\arraystretch}}{{1.1}}
 \\setlength{{\\tabcolsep}}{{4pt}}
@@ -572,7 +576,7 @@ def generate_cherry_picked_latex(tbar_uid, labeled_pairs, voted_df):
 """
     
     for _, pair in patch_pairs.iterrows():
-        ref_uid = shorten_uid(pair['groundtruth_index'])
+        ref_uid = shorten_uid(pair['groundtruth_index'])  # Now returns full UID
         escaped_ref = escape_latex(ref_uid)
         
         expert_label = pair['expert_label'].replace('type-', 'T').replace('not-clone', 'NC')
@@ -609,10 +613,33 @@ def generate_cherry_picked_latex(tbar_uid, labeled_pairs, voted_df):
 
 # Define cherry-picked patches - CHANGE THESE TO YOUR DESIRED PATCHES
 cherry_picked_patches = [
-    "aprenfl-defects4j-Chart-11-TBar-Patch_102_60",
-    "aprenfl-defects4j-Chart-26-TBar-Patch_5751_2399",
+    "aprenfl-defects4j-Closure-107-TBar-Patch_356_164",
+    "aprenfl-defects4j-Closure-109-TBar-Patch_270_73",
+    "aprenfl-defects4j-Closure-12-TBar-Patch_160_37",
+    "aprenfl-defects4j-Closure-133-TBar-Patch_433_171",
+    "aprenfl-defects4j-Closure-66-TBar-Patch_9_6",
+    "aprenfl-defects4j-Lang-13-TBar-Patch_18_6",
+    "aprenfl-defects4j-Lang-18-TBar-Patch_5849_3524",
+    "aprenfl-defects4j-Lang-24-TBar-Patch_2414_1931",
+    "aprenfl-defects4j-Lang-41-TBar-Patch_289_206",
+    "aprenfl-defects4j-Lang-41-TBar-Patch_2958_1870",
+    "aprenfl-defects4j-Lang-60-TBar-Patch_3262_1865",
+    "aprenfl-defects4j-Math-15-TBar-Patch_1163_932",
+    "aprenfl-defects4j-Math-6-TBar-Patch_5_2",
+    "aprenfl-defects4j-Math-62-TBar-Patch_261_142",
+    "aprenfl-defects4j-Math-96-TBar-Patch_439_157",
+    "wangicse-defects4j-Closure-109-TBar-patch1",
+    "wangicse-defects4j-Closure-12-TBar-patch1",
+    "wangicse-defects4j-Closure-130-TBar-patch1",
+    "wangicse-defects4j-Closure-66-TBar-patch1",
+    "wangicse-defects4j-Lang-12-TBar-patch1",
+    "wangicse-defects4j-Lang-18-TBar-patch1",
+    "wangicse-defects4j-Lang-23-TBar-patch1",
+    "wangicse-defects4j-Lang-40-TBar-patch1",
+    "wangicse-defects4j-Lang-61-TBar-patch1",
+    "wangicse-defects4j-Math-6-TBar-patch1",
+    "wangicse-defects4j-Math-61-TBar-patch1",
 ]
-
 available_patches = voted_df['uid'].tolist()
 cherry_picked_patches = [p for p in cherry_picked_patches if p in available_patches]
 

@@ -283,21 +283,28 @@ if __name__ == "__main__":
     # selected_tool_name = "knod"
     # selected_tool_name = "tare"
 
-    # get_pre_matches(selected_tool_name)
+    get_pre_matches("arjae")
+    get_pre_matches("recoder")
+    get_pre_matches("selfapr")
+    get_pre_matches("knod")
+    get_pre_matches("tare")
+    get_pre_matches("transplantfix")
+    get_pre_matches("t5apr")
+
 
 
     """"""
     """"""
     """"""
 
-    # without pre
-    # Just force sudo
-    bugs, developer_patches, tool_patches = init(configure=False)
-    bug = bugs.loc['defects4j-Closure-63'].copy()
-    bug['uid'] = bug.name
-    checkout_dir = checkout_bug(bug)
-    if os.path.exists(checkout_dir):
-        shutil.rmtree(checkout_dir)
+    # # without pre
+    # # Just force sudo
+    # bugs, developer_patches, tool_patches = init(configure=False)
+    # bug = bugs.loc['defects4j-Closure-63'].copy()
+    # bug['uid'] = bug.name
+    # checkout_dir = checkout_bug(bug)
+    # if os.path.exists(checkout_dir):
+    #     shutil.rmtree(checkout_dir)
 
 
     # get_sourcerercc_labels("dlfix", "recoder")
@@ -379,48 +386,48 @@ if __name__ == "__main__":
     """"""
     """"""
 
-    # Get overall stats
-    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    # # Get overall stats
+    # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    # print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
     
 
-    # tool_name = "dlfix"
+    # # tool_name = "dlfix"
+    # # selected_tool_patches = get_selected_tool_patches(tool_name)
+    # # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
+    # # overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
+    # # print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
+
+    # # # v2
+    # tool_name = "arjae"
     # selected_tool_patches = get_selected_tool_patches(tool_name)
     # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
     # overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
     # print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
-    # # v2
-    tool_name = "arjae"
-    selected_tool_patches = get_selected_tool_patches(tool_name)
-    correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
-    overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
-    print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
-
-    # Get detailed scores with baseline/added/both breakdown
-    results = []
-    # results.append(get_bar_scores_detailed("dlfix", []))
-    # results.append(get_bar_scores_detailed("arjae", []))
-    # results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
-    # results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
-    # results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
-    # results.append(get_bar_scores_detailed("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"]))
+    # # Get detailed scores with baseline/added/both breakdown
+    # results = []
+    # # results.append(get_bar_scores_detailed("dlfix", []))
+    # # results.append(get_bar_scores_detailed("arjae", []))
+    # # results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
+    # # results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
+    # # results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
+    # # results.append(get_bar_scores_detailed("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"]))
     
-    # # v2
-    results.append(get_bar_scores_detailed("arjae", []))
-    results.append(get_bar_scores_detailed("recoder", ["arjae"]))
-    results.append(get_bar_scores_detailed("selfapr", ["arjae", "recoder"]))
-    results.append(get_bar_scores_detailed("knod", ["arjae", "recoder", "selfapr"]))
-    results.append(get_bar_scores_detailed("tare", ["arjae", "recoder", "selfapr"]))
-    results.append(get_bar_scores_detailed("transplantfix", ["arjae", "recoder", "selfapr"]))
-    results.append(get_bar_scores_detailed("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"]))
+    # # # v2
+    # results.append(get_bar_scores_detailed("arjae", []))
+    # results.append(get_bar_scores_detailed("recoder", ["arjae"]))
+    # results.append(get_bar_scores_detailed("selfapr", ["arjae", "recoder"]))
+    # results.append(get_bar_scores_detailed("knod", ["arjae", "recoder", "selfapr"]))
+    # results.append(get_bar_scores_detailed("tare", ["arjae", "recoder", "selfapr"]))
+    # results.append(get_bar_scores_detailed("transplantfix", ["arjae", "recoder", "selfapr"]))
+    # results.append(get_bar_scores_detailed("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"]))
 
-    # Print summary
-    print("\n" + "="*80)
-    print("SUMMARY FOR STACKED BAR CHART")
-    print("="*80)
-    for r in results:
-        c_pct_base = 100*r['c_baseline_only']/r['c_total'] if r['c_total'] > 0 else 0
-        c_pct_added = 100*r['c_added_only']/r['c_total'] if r['c_total'] > 0 else 0
-        c_pct_both = 100*r['c_both']/r['c_total'] if r['c_total'] > 0 else 0
-        print(f"{r['tool']}: Correct baseline={c_pct_base:.1f}%, added={c_pct_added:.1f}%, both={c_pct_both:.1f}%")
+    # # Print summary
+    # print("\n" + "="*80)
+    # print("SUMMARY FOR STACKED BAR CHART")
+    # print("="*80)
+    # for r in results:
+    #     c_pct_base = 100*r['c_baseline_only']/r['c_total'] if r['c_total'] > 0 else 0
+    #     c_pct_added = 100*r['c_added_only']/r['c_total'] if r['c_total'] > 0 else 0
+    #     c_pct_both = 100*r['c_both']/r['c_total'] if r['c_total'] > 0 else 0
+    #     print(f"{r['tool']}: Correct baseline={c_pct_base:.1f}%, added={c_pct_added:.1f}%, both={c_pct_both:.1f}%")
