@@ -236,6 +236,14 @@ def deduplicate_patches_and_save(patches, path):
     return deduplicated_patches
 
 def preprocess_patches(bugs, patches, dirs_dict):
+    # Just force sudo
+    bug = bugs.loc['defects4j-Closure-63'].copy()
+    bug['uid'] = bug.name
+    checkout_dir = checkout_bug(bug)
+    if os.path.exists(checkout_dir):
+        shutil.rmtree(checkout_dir)
+
+
     cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
     method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
     file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
