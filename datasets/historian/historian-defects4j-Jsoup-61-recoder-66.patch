@@ -1,0 +1,12 @@
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-61/src/main/java/org/jsoup/nodes/Element.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-61-fixed/src/main/java/org/jsoup/nodes/Element.java
+@@ -1089,7 +1089,7 @@ public class Element extends Node {
+      */
+     // performance sensitive
+     public boolean hasClass(String className) {
+-        final String classAttr = attributes.get("class");
++        final String classAttr = attributes.getIgnoreCase("class");
+         final int len = classAttr.length();
+         final int wantLen = className.length();
+
+         

@@ -5,6 +5,3 @@
 -       return TernaryValue.TRUE;
 +       return TernaryValue.UNKNOWN;
     case ' ': // <SP>
-
-
-

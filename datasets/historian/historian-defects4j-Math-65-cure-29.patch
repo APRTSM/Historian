@@ -1,0 +1,35 @@
+--- a/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
+@@ -239,24 +239,24 @@
+   public double getRMS() {
+        }            
+                                
+        /**            
+        * Get a Chi-Square-like value assuming the N residuals follow N            
+        * distinct normal distributions centered on 0 and whose variances are            
+        * the reciprocal of the weights.            
+        * @return chi-square value            
+        */            
+        public double getChiSquare() {            
+        double chiSquare = 0;            
+        for (int i = 0; i < rows; ++i) {            
+        final double residual = residuals[i];
+- chiSquare += residual * residual / residualsWeights[i];
++ chiSquare += residual *residual *residualsWeights [ i ] ;
+                }            
+                return chiSquare;            
+                }            
+            
+                /**            
+                * Get the covariance matrix of optimized parameters.            
+                * @return covariance matrix            
+                * @exception FunctionEvaluationException if the function jacobian cannot            
+                * be evaluated            
+                * @exception OptimizationException if the covariance matrix
+
+
+
+
+Developer's patch:
+chiSquare += residual * residual * residualsWeights[i];
+

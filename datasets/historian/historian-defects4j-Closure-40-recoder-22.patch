@@ -5,6 +5,3 @@
 -        JsName name = getName(ns.name, false);
 +        JsName name = getName(ns.name, true);
            if (name != null) {
-
-
-

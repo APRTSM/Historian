@@ -9,6 +9,3 @@
                jsDocParameter = jsDocParameter.getNext();
              } else {
                defineSlot(astParameter, functionNode, null, true);
-
-
-

@@ -1,5 +1,5 @@
---- a/source/org/jfree/data/time/Week.java
-+++ b/source/org/jfree/data/time/Week.java
+--- /source/org/jfree/data/time/Week.java.buggy
++++ /source/org/jfree/data/time/Week.java.fixed
 @@ -172,7 +172,7 @@
      */
      public Week(Date time, TimeZone zone) {

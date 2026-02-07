@@ -9,6 +9,3 @@
                  - this.lowerBound) * 255.0);
          return new Color(g, g, g);
      }
-
-
-

@@ -9,6 +9,3 @@
              return (Math.abs(u) + Math.abs(v));
          }
          // keep u and v negative, as negative integers range down to
-
-
-

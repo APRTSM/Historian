@@ -25,40 +25,40 @@ SETUP_BUGS_DIR = {
 SETUP_DEVELOPER_PATCHES_DIR = {
     "__base__": "developer",
     "RAW": os.path.join(FOLDER_NAME, "developer_patches.pkl"),
-    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_developer_patches.pkl"),
-    "METHOD": os.path.join(FOLDER_NAME, "method_developer_patches.pkl"),
-    "FILES": os.path.join(FOLDER_NAME, "files_developer_patches.pkl"),
-    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_developer_patches.pkl"),
-    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_developer_patches.pkl"),
-    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_developer_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "developer_cleaned_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "developer_method_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "developer_files_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "developer_normalized_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "developer_single_method_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "developer_deduplicated_patches.pkl"),
 }
 
 SETUP_TOOL_PATCHES_DIR = {
     "__base__": "tool",
     "RAW": os.path.join(FOLDER_NAME, "tool_patches.pkl"),
-    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_tool_patches.pkl"),
-    "METHOD": os.path.join(FOLDER_NAME, "method_tool_patches.pkl"),
-    "FILES": os.path.join(FOLDER_NAME, "files_tool_patches.pkl"),
-    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_tool_patches.pkl"),
-    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_tool_patches.pkl"),
-    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_tool_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "tool_cleaned_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "tool_method_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "tool_files_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "tool_normalized_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "tool_single_method_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "tool_deduplicated_patches.pkl"),
 }
 
 SETUP_HISTORIAN_PATCHES_DIR = {
     "__base__": "historian",
     "RAW": os.path.join(FOLDER_NAME, "historian_patches.pkl"),
-    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_historian_patches.pkl"),
-    "METHOD": os.path.join(FOLDER_NAME, "method_historian_patches.pkl"),
-    "FILES": os.path.join(FOLDER_NAME, "files_historian_patches.pkl"),
-    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_historian_patches.pkl"),
-    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_historian_patches.pkl"),
-    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_historian_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "historian_cleaned_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "historian_method_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "historian_files_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "historian_normalized_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "historian_single_method_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "historian_deduplicated_patches.pkl"),
 }
 
 
 EXTRACT_FILES = False
-CONFIGURE_BENCHMARKS = False
-GET_SUDO = False
+CONFIGURE_BENCHMARKS = True
+GET_SUDO = True
 
 # Fetch data and preprocess
 def fetch_bugs():

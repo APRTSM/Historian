@@ -5,6 +5,3 @@
 -      if (fnType != null) {
 +       if(((fnType != null) && fnType.hasInstanceType())){
         visitParameterList(t, n, fnType);
-
-
-

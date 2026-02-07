@@ -9,6 +9,3 @@
                  final double ratio = rhs / entry;
                  if (ratio < minRatio) {
                      minRatio = ratio;
-
-
-

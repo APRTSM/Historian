@@ -3,7 +3,7 @@
 @@ -335,7 +335,7 @@
         if (categoryKeys == null) {
             throw new IllegalArgumentException("Null 'categoryKeys' argument.");
-         }
+         } 
 -       if (categoryKeys.length != this.startData[0].length) {
 +       if(categoryKeys.length!= getCategoryCount()){
             throw new IllegalArgumentException(

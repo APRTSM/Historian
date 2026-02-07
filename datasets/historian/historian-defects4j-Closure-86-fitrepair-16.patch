@@ -9,6 +9,3 @@
        case Token.FUNCTION:
        case Token.REGEXP:
        case Token.ARRAYLIT:
-
-
-

@@ -9,6 +9,3 @@
              }
              // last character is illegal
              return false;
-
-
-

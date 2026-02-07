@@ -7,5 +7,5 @@
 + if (r!= null) {
                       Collection c = r.getAnnotations();
                      Iterator i = c.iterator();
-                     while (i.hasNext()) {
+                     while (i.hasNext()) { 
                       

@@ -9,6 +9,3 @@
          appendQuoting(description);
          description.appendText(")");
      }
-
-
-

@@ -10,6 +10,3 @@
                          break;
                      default :
                          out.write(ch);
-
-
-

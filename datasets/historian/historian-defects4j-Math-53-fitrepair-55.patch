@@ -10,6 +10,3 @@
          return createComplex(real + rhs.getReal(),
              imaginary + rhs.getImaginary());
      }
-
-
-

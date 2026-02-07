@@ -5,6 +5,3 @@
 -            count += idx;
 +            count += 1;
              ++idx;
-
-
-

@@ -9,6 +9,3 @@
                  }
              } catch (ClassCastException ex) {
                  // ignore exception
-
-
-

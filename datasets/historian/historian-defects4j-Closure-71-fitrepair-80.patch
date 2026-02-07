@@ -9,6 +9,3 @@
 +          parent.getJSDocInfo()!= null &&
            parent.getType() == Token.ASSIGN &&
            parent.getFirstChild() == getprop;
-
-
-

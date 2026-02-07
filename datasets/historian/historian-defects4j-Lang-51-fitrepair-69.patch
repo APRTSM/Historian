@@ -9,6 +9,3 @@
              }
              case 4: {
                  char ch = str.charAt(0);
-
-
-

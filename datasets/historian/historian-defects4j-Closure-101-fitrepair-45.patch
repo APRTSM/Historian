@@ -10,6 +10,3 @@
      initOptionsFromFlags(options);
      return options;
    }
-
-
-

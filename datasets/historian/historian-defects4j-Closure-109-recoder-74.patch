@@ -7,6 +7,3 @@
 -          return parseTypeName(token);
 +        return parseAndRecordTypeNode(token);
     }
-
-
-

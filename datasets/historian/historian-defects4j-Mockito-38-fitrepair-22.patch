@@ -8,6 +8,3 @@
 +         return StringDescription.toString(m).equals(String.valueOf(arg));
      }
  }
-
-
-

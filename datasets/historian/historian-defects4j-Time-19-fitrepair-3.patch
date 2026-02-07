@@ -9,6 +9,3 @@
              long prev = previousTransition(instantAdjusted);
              if (prev < instantAdjusted) {
                  int offsetPrev = getOffset(prev);
-
-
-

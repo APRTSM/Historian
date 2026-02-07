@@ -9,6 +9,3 @@
  
          // http://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U#Normal_approximation
          final double EU = n1n2prod / 2.0;
-
-
-

@@ -1,0 +1,12 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
+@@ -526,8 +526,7 @@ public class X5455_ExtendedTimestamp implements ZipExtraField, Cloneable, Serial
+     }
+ 
+     private static ZipLong unixTimeToZipLong(long l) {
+-        final long TWO_TO_32 = 0x100000000L;
+-        if (l >= TWO_TO_32) {
++     final long TWO_TO_32 = Integer.MAX_VALUE; if (l >= TWO_TO_32) {
+             throw new IllegalArgumentException("X5455 timestamps must fit in a signed 32 bit integer: " + l);
+         }
+         return new ZipLong(l);

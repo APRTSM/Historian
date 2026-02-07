@@ -9,6 +9,3 @@
              if (zone.useDaylightTime()
                      && calendar.get(Calendar.DST_OFFSET) != 0) {
                  buffer.append(getTimeZoneDisplay(zone, true, mStyle, mLocale));
-
-
-

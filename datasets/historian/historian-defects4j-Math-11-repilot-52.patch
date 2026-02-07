@@ -9,6 +9,3 @@
              FastMath.pow(covarianceMatrixDeterminant, -0.5) *
              getExponentTerm(vals);
      }
-
-
-

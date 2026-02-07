@@ -5,6 +5,3 @@
 -    return chromosomes.iterator();
 +    return getChromosomes().iterator();
      }
-
-
-

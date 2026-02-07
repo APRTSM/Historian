@@ -9,6 +9,3 @@
          visitParameterList(t, n, fnType);
          ensureTyped(t, n, fnType.getInstanceType());
        } else {
-
-
-

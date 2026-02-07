@@ -9,6 +9,3 @@
            if (indexOfDot == -1) {
              // Any old place is fine.
              compiler.getNodeForCodeInsertion(minimumModule)
-
-
-

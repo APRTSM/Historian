@@ -1,8 +1,8 @@
 --- a/src/com/google/javascript/jscomp/Normalize.java
 +++ b/src/com/google/javascript/jscomp/Normalize.java
-@@ -86,12 +86,7 @@
-        @Override
-        public void process(Node externs, Node root) {
+@@ -86,12 +86,7 @@ 
+        @Override            
+        public void process(Node externs, Node root) {            
             NodeTraversal.traverse(compiler, root, this);
 - if (MAKE_LOCAL_NAMES_UNIQUE) {
 -     MakeDeclaredNamesUnique renamer = new MakeDeclaredNamesUnique();
@@ -11,15 +11,15 @@
 - }
 - removeDuplicateDeclarations(root);
 + removeDuplicateDeclarations( root ) ; if( MAKE_LOCAL_NAMES_UNIQUE ) { MakeDeclaredNamesUnique renamer = new MakeDeclaredNamesUnique( ) ; NodeTraversal t = new NodeTraversal( compiler , renamer ) ; t.traverseRoots( externs , root ) ; }
-                 new PropogateConstantAnnotations(compiler, assertOnChange)
-                                         .process(externs, root);
+                 new PropogateConstantAnnotations(compiler, assertOnChange)            
+                                         .process(externs, root);            
                                    }
 
 
 Developer's patch:
 removeDuplicateDeclarations(root);
 if (MAKE_LOCAL_NAMES_UNIQUE) {
-    MakeDeclaredNamesUnique renamer = new MakeDeclaredNamesUnique();
+    MakeDeclaredNamesUnique renamer = new MakeDeclaredNamesUnique(); 
     NodeTraversal t = new NodeTraversal(compiler, renamer);
     t.traverseRoots(externs, root);
 }

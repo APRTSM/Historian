@@ -8,6 +8,3 @@
                case Token.INC:
                case Token.DEC:
                  isSet = true;
-
-
-

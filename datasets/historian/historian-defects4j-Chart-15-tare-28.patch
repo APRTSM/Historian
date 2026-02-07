@@ -1,0 +1,12 @@
+--- a/source/org/jfree/chart/plot/PiePlot3D.java
++++ b/source/org/jfree/chart/plot/PiePlot3D.java
+@@ -227,6 +227,9 @@
+                      PlotRenderingInfo info) {
+ 
+         // adjust for insets...
++	if(!getDarkerSides()){
++	return;
++	}
+         RectangleInsets insets = getInsets();
+         insets.trim(plotArea);
+

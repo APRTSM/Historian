@@ -9,6 +9,3 @@
                  ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
              }
              k++;
-
-
-

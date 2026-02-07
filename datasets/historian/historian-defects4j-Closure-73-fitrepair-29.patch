@@ -9,6 +9,3 @@
                sb.append(c);
              } else {
                // Other characters can be misinterpreted by some js parsers,
-
-
-

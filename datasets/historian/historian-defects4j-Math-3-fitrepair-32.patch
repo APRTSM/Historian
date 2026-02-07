@@ -10,6 +10,3 @@
              // Revert to scalar multiplication.
  
          final double[] prodHigh = new double[len];
-
-
-

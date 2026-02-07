@@ -11,6 +11,3 @@
            refNodes.add(new ClassDefiningFunctionNode(
                name, n, parent, parent.getParent()));
            }
-
-
-

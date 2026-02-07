@@ -1,0 +1,24 @@
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+@@ -54,11 +54,19 @@ public abstract class CoreOperationCompare extends CoreOperation {
+ //            (l == null ? "null" : l.getClass().getName()) + " " +
+ //            (r == null ? "null" : r.getClass().getName()));
+ 
+-        if (l instanceof InitialContext || l instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++
++     if (l == null || l instanceof SelfContext) {
+             l = ((EvalContext) l).getSingleNodePointer();
+         }
+ 
+-        if (r instanceof InitialContext || r instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++     if (l == null || l instanceof SelfContext) {
++
++     if (l == null || l instanceof SelfContext) {
+             r = ((EvalContext) r).getSingleNodePointer();
+         }
+ 

@@ -8,6 +8,3 @@
              calendar = (Calendar) calendar.clone();
              calendar.setTimeZone(mTimeZone);
          }
-
-
-
