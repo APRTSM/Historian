@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-38/src/main/java/org/apache/commons/cli/DefaultParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-38-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+diff --git a/src/main/java/org/apache/commons/cli/DefaultParser.java b/src/main/java/org/apache/commons/cli/DefaultParser.java
 index 4bff7f3..2cee432 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-38/src/main/java/org/apache/commons/cli/DefaultParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-38-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+--- a/src/main/java/org/apache/commons/cli/DefaultParser.java
++++ b/src/main/java/org/apache/commons/cli/DefaultParser.java
 @@ -307,8 +307,12 @@ public class DefaultParser implements CommandLineParser
          // remove leading "-" and "=value"
          int pos = token.indexOf("=");

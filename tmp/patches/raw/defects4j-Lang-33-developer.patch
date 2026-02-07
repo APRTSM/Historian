@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-33/src/main/java/org/apache/commons/lang3/ClassUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-33-fixed/src/main/java/org/apache/commons/lang3/ClassUtils.java
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
 index 615e4a9..3998966 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-33/src/main/java/org/apache/commons/lang3/ClassUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-33-fixed/src/main/java/org/apache/commons/lang3/ClassUtils.java
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
 @@ -907,7 +907,7 @@ public class ClassUtils {
          }
          Class<?>[] classes = new Class[array.length];

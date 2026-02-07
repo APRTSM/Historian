@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
+diff --git a/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java b/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
 index 502d5ab..51dc1f3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
+--- a/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java
 @@ -159,6 +159,13 @@ public final class JsonTreeWriter extends JsonWriter {
      return this;
    }
@@ -16,10 +16,10 @@ index 502d5ab..51dc1f3 100644
  
    @Override public JsonWriter value(double value) throws IOException {
      if (!isLenient() && (Double.isNaN(value) || Double.isInfinite(value))) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+diff --git a/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java b/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
 index 0d6d013..23ab8a1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+--- a/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
 @@ -162,10 +162,6 @@ public final class TypeAdapters {
      }
      @Override
@@ -31,10 +31,10 @@ index 0d6d013..23ab8a1 100644
        out.value(value);
      }
    };
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 index a4178ee..e2fc196 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9/gson/src/main/java/com/google/gson/stream/JsonWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-9-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonWriter.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 @@ -473,6 +473,15 @@ public class JsonWriter implements Closeable, Flushable {
     *
     * @return this writer.

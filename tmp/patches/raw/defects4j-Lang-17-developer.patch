@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-17/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-17-fixed/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java b/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
 index 4cb581d..4d010ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-17/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-17-fixed/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
+--- a/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java
 @@ -80,26 +80,20 @@ public abstract class CharSequenceTranslator {
              return;
          }

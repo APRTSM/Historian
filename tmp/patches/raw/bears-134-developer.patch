@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TmgProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TmgProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/TmgProtocolDecoder.java b/src/org/traccar/protocol/TmgProtocolDecoder.java
 index a7ca35f70..5e852aff2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TmgProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TmgProtocolDecoder.java
+--- a/src/org/traccar/protocol/TmgProtocolDecoder.java
++++ b/src/org/traccar/protocol/TmgProtocolDecoder.java
 @@ -70,7 +70,7 @@ public class TmgProtocolDecoder extends BaseProtocolDecoder {
              .number("[^,]*,")                    // cid
              .number("(d+),")                     // rssi

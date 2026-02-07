@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
+diff --git a/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java b/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
 index 8e47a469d..b9997bc09 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
+--- a/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
++++ b/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLGenerator.java
 @@ -451,7 +451,21 @@ public class YAMLGenerator extends GeneratorBase
              _emitter.emit(new DocumentEndEvent(null, null, false));
              _emitter.emit(new StreamEndEvent(null, null));
@@ -25,10 +25,10 @@ index 8e47a469d..b9997bc09 100644
          }
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
+diff --git a/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java b/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
 index 3b446c817..22c8775a8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
+--- a/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
++++ b/yaml/src/main/java/com/fasterxml/jackson/dataformat/yaml/YAMLParser.java
 @@ -216,7 +216,16 @@ public class YAMLParser extends ParserBase
  
      @Override

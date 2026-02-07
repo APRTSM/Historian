@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-85/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-85-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 index df3205c..4b9312b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-85/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-85-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 @@ -64,34 +64,61 @@ public abstract class DateTimeSerializerBase<T>
  
          // 08-Jun-2017, tatu: With [databind#1648], this gets bit tricky..

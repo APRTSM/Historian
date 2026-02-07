@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-14/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-14-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
 index f717190..1544183 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-14/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-14-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreFunction.java
 @@ -653,18 +653,27 @@ public class CoreFunction extends Operation {
      protected Object functionFloor(EvalContext context) {
          assertArgCount(1);

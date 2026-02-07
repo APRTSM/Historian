@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
+diff --git a/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java b/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
 index e6056ecf2..ab44c78ff 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
+--- a/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
++++ b/src/main/java/edu/harvard/h2ms/service/utils/H2msRestUtils.java
 @@ -19,7 +19,8 @@ public class H2msRestUtils {
       *      "2018-03-21T17:58:05.742+0000"  --> "March (2018)"
       * @param events

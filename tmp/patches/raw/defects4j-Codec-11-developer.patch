@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-11/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-11-fixed/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
+diff --git a/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java b/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
 index 13291cd..ed09fec 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-11/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-11-fixed/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
+--- a/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
++++ b/src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java
 @@ -67,9 +67,12 @@ public class QuotedPrintableCodec implements BinaryEncoder, BinaryDecoder, Strin
  
      private static final byte SPACE = 32;

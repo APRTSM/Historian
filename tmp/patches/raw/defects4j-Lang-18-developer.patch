@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-18/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-18-fixed/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java b/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
 index e043323..51da48e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-18/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-18-fixed/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
+--- a/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDateFormat.java
 @@ -492,10 +492,10 @@ public class FastDateFormat extends Format {
                  rule = new TextField(Calendar.ERA, ERAs);
                  break;

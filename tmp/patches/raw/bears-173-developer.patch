@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+diff --git a/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java b/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
 index a87ffa655..54b2eaf33 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+--- a/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
++++ b/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
 @@ -228,6 +228,10 @@ public class CsvIterator implements CloseableIterator<Entity>
  		for (int i = 0; i < headers.length; ++i)
  		{
@@ -13,10 +13,10 @@ index a87ffa655..54b2eaf33 100644
  			columnIdx.put(header, i);
  		}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
+diff --git a/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java b/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
 index 53c585c89..85bf301b0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
+--- a/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
++++ b/molgenis-data-excel/src/main/java/org/molgenis/data/excel/ExcelRepository.java
 @@ -191,7 +191,16 @@ public class ExcelRepository extends AbstractRepository
  			try
  			{

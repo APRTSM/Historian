@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+diff --git a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 index 564d67f1a..41edede7b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+--- a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
++++ b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 @@ -73,6 +73,7 @@ public class ImportScannerImpl extends CtScanner implements ImportScanner {
  	protected CtTypeReference<?> targetType;
  	private Map<String, Boolean> namesPresentInJavaLang = new HashMap<>();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-18/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-18-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 index bef55f7..e5fb718 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-18/src/main/java/org/apache/commons/codec/binary/StringUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-18-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+--- a/src/main/java/org/apache/commons/codec/binary/StringUtils.java
++++ b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 @@ -78,7 +78,7 @@ public class StringUtils {
          if (cs1 instanceof String && cs2 instanceof String) {
              return cs1.equals(cs2);

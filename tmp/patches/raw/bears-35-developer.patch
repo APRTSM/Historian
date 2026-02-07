@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+diff --git a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 index 14baa95c5..f3dc890ee 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+--- a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
++++ b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 @@ -16,6 +16,7 @@
   */
  package spoon.reflect.visitor;
@@ -204,10 +204,10 @@ index 14baa95c5..f3dc890ee 100644
 +		return false;
 +	}
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
+diff --git a/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java b/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
 index 65c993938..912692f6c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
+--- a/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
++++ b/src/main/java/spoon/reflect/visitor/MinimalImportScanner.java
 @@ -16,94 +16,19 @@
   */
  package spoon.reflect.visitor;
@@ -380,10 +380,10 @@ index 65c993938..912692f6c 100644
  	}
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+diff --git a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 index 63f58e02d..2133fe568 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+--- a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
++++ b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 @@ -265,19 +265,27 @@ public class ElementPrinterHelper {
  			}
  			printer.writeln().writeln().writeTabs();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtBlockImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
+diff --git a/src/main/java/spoon/support/reflect/code/CtBlockImpl.java b/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
 index 1e289a5ce..64700e721 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
+--- a/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
++++ b/src/main/java/spoon/support/reflect/code/CtBlockImpl.java
 @@ -190,7 +190,23 @@ public class CtBlockImpl<R> extends CtStatementImpl implements CtBlock<R> {
  	@Override
  	public void removeStatement(CtStatement statement) {

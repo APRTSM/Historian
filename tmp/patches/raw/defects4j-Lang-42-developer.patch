@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-42/src/java/org/apache/commons/lang/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-42-fixed/src/java/org/apache/commons/lang/Entities.java
+diff --git a/src/java/org/apache/commons/lang/Entities.java b/src/java/org/apache/commons/lang/Entities.java
 index 900e1a8..0d8f7f4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-42/src/java/org/apache/commons/lang/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-42-fixed/src/java/org/apache/commons/lang/Entities.java
+--- a/src/java/org/apache/commons/lang/Entities.java
++++ b/src/java/org/apache/commons/lang/Entities.java
 @@ -825,10 +825,15 @@ class Entities {
      public void escape(Writer writer, String str) throws IOException {
          int len = str.length();

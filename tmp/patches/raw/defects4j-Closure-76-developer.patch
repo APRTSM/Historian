@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-76/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-76-fixed/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+diff --git a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
 index 63a7f29..aaab0d6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-76/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-76-fixed/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+--- a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
++++ b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
 @@ -297,26 +297,40 @@ class DeadAssignmentsElimination extends AbstractPostOrderCallback implements
            // If the currently node is the first child of
            // AND/OR, be conservative only consider the READs

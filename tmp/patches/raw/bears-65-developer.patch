@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+diff --git a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 index 91093fec4..e380bbbed 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+--- a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
++++ b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 @@ -217,10 +217,20 @@ public class JavaReflectionTreeBuilder extends JavaReflectionVisitorImpl {
  	}
  
@@ -25,10 +25,10 @@ index 91093fec4..e380bbbed 100644
  		super.visitAnnotation(annotation);
  		exit();
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
+diff --git a/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java b/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
 index 071161568..d4a7837c8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
+--- a/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
++++ b/src/main/java/spoon/support/visitor/java/JavaReflectionVisitorImpl.java
 @@ -154,6 +154,9 @@ class JavaReflectionVisitorImpl implements JavaReflectionVisitor {
  	public void visitAnnotation(Annotation annotation) {
  		if (annotation.annotationType() != null) {

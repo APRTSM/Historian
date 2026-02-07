@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/gumtree/spoon/diff/DiffImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/gumtree/spoon/diff/DiffImpl.java
+diff --git a/src/main/java/gumtree/spoon/diff/DiffImpl.java b/src/main/java/gumtree/spoon/diff/DiffImpl.java
 index c06b88288..976e2dbf8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/gumtree/spoon/diff/DiffImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/gumtree/spoon/diff/DiffImpl.java
+--- a/src/main/java/gumtree/spoon/diff/DiffImpl.java
++++ b/src/main/java/gumtree/spoon/diff/DiffImpl.java
 @@ -1,5 +1,12 @@
  package gumtree.spoon.diff;
  

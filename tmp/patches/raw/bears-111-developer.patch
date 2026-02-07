@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Tlt2hProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Tlt2hProtocolDecoder.java b/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
 index 9f0e8e888..1d6093b94 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
+--- a/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
++++ b/src/org/traccar/protocol/Tlt2hProtocolDecoder.java
 @@ -1,5 +1,5 @@
  /*
 - * Copyright 2013 Anton Tananaev (anton@traccar.org)

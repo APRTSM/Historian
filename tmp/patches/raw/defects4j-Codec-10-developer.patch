@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-10/src/java/org/apache/commons/codec/language/Caverphone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-10-fixed/src/java/org/apache/commons/codec/language/Caverphone.java
+diff --git a/src/java/org/apache/commons/codec/language/Caverphone.java b/src/java/org/apache/commons/codec/language/Caverphone.java
 index 5ac7e9c..2850557 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-10/src/java/org/apache/commons/codec/language/Caverphone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-10-fixed/src/java/org/apache/commons/codec/language/Caverphone.java
+--- a/src/java/org/apache/commons/codec/language/Caverphone.java
++++ b/src/java/org/apache/commons/codec/language/Caverphone.java
 @@ -73,7 +73,7 @@ public class Caverphone implements StringEncoder {
          txt = txt.replaceAll("^gn", "2n");
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-54/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-54-fixed/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java b/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
 index 9419871..2486332 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-54/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-54-fixed/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
 @@ -131,7 +131,7 @@ public class PropertyBuilder
              // always suppress nulls
              suppressNulls = true;

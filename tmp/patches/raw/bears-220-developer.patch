@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/underscore/lodash/Xml.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/underscore/lodash/Xml.java
+diff --git a/src/main/java/com/github/underscore/lodash/Xml.java b/src/main/java/com/github/underscore/lodash/Xml.java
 index f7ae88492..71906b870 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/underscore/lodash/Xml.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/underscore/lodash/Xml.java
+--- a/src/main/java/com/github/underscore/lodash/Xml.java
++++ b/src/main/java/com/github/underscore/lodash/Xml.java
 @@ -696,7 +696,15 @@ public final class Xml {
              if (localMap != null && localMap.size() == 1
                  && ((Map.Entry) localMap.entrySet().iterator().next()).getValue() instanceof List

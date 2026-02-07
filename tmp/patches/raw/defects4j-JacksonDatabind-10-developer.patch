@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10-fixed/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java b/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
 index 2cd7bb7..9fe4077 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10-fixed/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/AnyGetterWriter.java
 @@ -21,16 +21,20 @@ public class AnyGetterWriter
       */
      protected final AnnotatedMember _accessor;
@@ -54,10 +54,10 @@ index 2cd7bb7..9fe4077 100644
 +        }
      }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 index 25e7e3f..ec540cc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-10-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 @@ -392,8 +392,12 @@ public class BeanSerializerFactory
              TypeSerializer typeSer = createTypeSerializer(config, valueType);
              // last 2 nulls; don't know key, value serializers (yet)

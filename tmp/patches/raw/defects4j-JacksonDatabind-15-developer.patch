@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/JavaType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/JavaType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/JavaType.java b/src/main/java/com/fasterxml/jackson/databind/JavaType.java
 index c3d85c9..07b6ba9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/JavaType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/JavaType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/JavaType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/JavaType.java
 @@ -299,6 +299,7 @@ public abstract class JavaType
       *
       * @since 2.5
@@ -10,10 +10,10 @@ index c3d85c9..07b6ba9 100644
  
      /**
       * Accessor for checking whether handlers for dealing with values of
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 index a65f9d2..14e6d93 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 @@ -160,7 +160,7 @@ public class BeanSerializerFactory
              ser = findSerializerFromAnnotation(prov, beanDesc.getClassInfo());
          }
@@ -23,10 +23,10 @@ index a65f9d2..14e6d93 100644
              ser = _createSerializer2(prov, delegateType, beanDesc, true);
          }
          return new StdDelegatingSerializer(conv, delegateType, ser);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
 index e69205e..3e11648 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
 @@ -367,7 +367,8 @@ public abstract class BeanSerializerBase
                      Converter<Object,Object> conv = provider.converterInstance(prop.getMember(), convDef);
                      JavaType delegateType = conv.getOutputType(provider.getTypeFactory());
@@ -37,10 +37,10 @@ index e69205e..3e11648 100644
                      return new StdDelegatingSerializer(conv, delegateType, ser);
                  }
              }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
 index 3aeb4f3..6c52b73 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java
 @@ -118,13 +118,17 @@ public class StdDelegatingSerializer
              /* 02-Apr-2015, tatu: For "dynamic case", where type is only specified as
               *    java.lang.Object (or missing generic), [databind#731]
@@ -129,10 +129,10 @@ index 3aeb4f3..6c52b73 100644
 +        return serializers.findValueSerializer(value.getClass());
 +    }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
 index 53e0984..6089e6b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-15-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java
 @@ -259,7 +259,7 @@ public abstract class StdSerializer<T>
                      Converter<Object,Object> conv = provider.converterInstance(prop.getMember(), convDef);
                      JavaType delegateType = conv.getOutputType(provider.getTypeFactory());

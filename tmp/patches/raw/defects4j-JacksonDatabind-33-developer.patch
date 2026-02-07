@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-33/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-33-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 index 92b3ffa..5db1584 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-33/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-33-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 @@ -745,7 +745,10 @@ public class JacksonAnnotationIntrospector
                   */
              } else if (_hasAnnotation(a, JsonSerialize.class)

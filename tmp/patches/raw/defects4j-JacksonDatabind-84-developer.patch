@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-84/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-84-fixed/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java b/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
 index 3080783..12162c5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-84/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-84-fixed/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
 @@ -26,6 +26,13 @@ public class ResolvedRecursiveType extends TypeBase
          _referencedType = ref;
      }

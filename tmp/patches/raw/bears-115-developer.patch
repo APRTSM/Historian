@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/WatchProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/WatchProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/WatchProtocolDecoder.java b/src/org/traccar/protocol/WatchProtocolDecoder.java
 index f0d06a3cc..ad43215a2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/WatchProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/WatchProtocolDecoder.java
+--- a/src/org/traccar/protocol/WatchProtocolDecoder.java
++++ b/src/org/traccar/protocol/WatchProtocolDecoder.java
 @@ -65,7 +65,7 @@ public class WatchProtocolDecoder extends BaseProtocolDecoder {
              .number("d+,")                       // tumbles
              .number("(x+),")                     // status

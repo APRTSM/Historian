@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
+diff --git a/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java b/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
 index 4c1b91278..e31862994 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
+--- a/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
++++ b/src/main/java/hudson/plugins/ansicolor/AnsiColorConsoleLogFilter.java
 @@ -3,12 +3,16 @@ package hudson.plugins.ansicolor;
  import hudson.console.ConsoleLogFilter;
  import hudson.console.LineTransformationOutputStream;

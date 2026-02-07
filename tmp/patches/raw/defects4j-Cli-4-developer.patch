@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-4/src/java/org/apache/commons/cli/Parser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-4-fixed/src/java/org/apache/commons/cli/Parser.java
+diff --git a/src/java/org/apache/commons/cli/Parser.java b/src/java/org/apache/commons/cli/Parser.java
 index 35b025e..2843ef1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-4/src/java/org/apache/commons/cli/Parser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-4-fixed/src/java/org/apache/commons/cli/Parser.java
+--- a/src/java/org/apache/commons/cli/Parser.java
++++ b/src/java/org/apache/commons/cli/Parser.java
 @@ -295,7 +295,9 @@ public abstract class Parser implements CommandLineParser {
          if (requiredOptions.size() > 0)
          {

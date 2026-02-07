@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-33/src/org/mockito/internal/invocation/InvocationMatcher.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-33-fixed/src/org/mockito/internal/invocation/InvocationMatcher.java
+diff --git a/src/org/mockito/internal/invocation/InvocationMatcher.java b/src/org/mockito/internal/invocation/InvocationMatcher.java
 index 203413f..ffad2b1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-33/src/org/mockito/internal/invocation/InvocationMatcher.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-33-fixed/src/org/mockito/internal/invocation/InvocationMatcher.java
+--- a/src/org/mockito/internal/invocation/InvocationMatcher.java
++++ b/src/org/mockito/internal/invocation/InvocationMatcher.java
 @@ -95,8 +95,19 @@ public class InvocationMatcher implements PrintableInvocation, PrintingFriendlyI
          Method m1 = invocation.getMethod();
          Method m2 = candidate.getMethod();

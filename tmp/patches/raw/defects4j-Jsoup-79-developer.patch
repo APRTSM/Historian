@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-79/src/main/java/org/jsoup/nodes/LeafNode.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-79-fixed/src/main/java/org/jsoup/nodes/LeafNode.java
+diff --git a/src/main/java/org/jsoup/nodes/LeafNode.java b/src/main/java/org/jsoup/nodes/LeafNode.java
 index 0e068b5..ea3605d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-79/src/main/java/org/jsoup/nodes/LeafNode.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-79-fixed/src/main/java/org/jsoup/nodes/LeafNode.java
+--- a/src/main/java/org/jsoup/nodes/LeafNode.java
++++ b/src/main/java/org/jsoup/nodes/LeafNode.java
 @@ -2,9 +2,11 @@ package org.jsoup.nodes;
  
  import org.jsoup.helper.Validate;

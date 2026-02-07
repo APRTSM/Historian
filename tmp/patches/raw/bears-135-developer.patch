@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TmgFrameDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TmgFrameDecoder.java
+diff --git a/src/org/traccar/protocol/TmgFrameDecoder.java b/src/org/traccar/protocol/TmgFrameDecoder.java
 index 07b4162db..549c42466 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TmgFrameDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TmgFrameDecoder.java
+--- a/src/org/traccar/protocol/TmgFrameDecoder.java
++++ b/src/org/traccar/protocol/TmgFrameDecoder.java
 @@ -47,13 +47,13 @@ public class TmgFrameDecoder extends FrameDecoder {
              }
          });

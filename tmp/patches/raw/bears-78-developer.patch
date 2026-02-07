@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+diff --git a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 index b7bb8ad40..672c64cf6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+--- a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
++++ b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 @@ -780,7 +780,7 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
  				boolean isImportedField = importsContext.isImported(f.getVariable());
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+diff --git a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 index 136ee74d8..b0a9f5d53 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+--- a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
++++ b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 @@ -1188,7 +1188,7 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
  	@SuppressWarnings("rawtypes")
  	public <T> void visitCtNewArray(CtNewArray<T> newArray) {
@@ -23,10 +23,10 @@ index 136ee74d8..b0a9f5d53 100644
  		exitCtExpression(newArray);
  	}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+diff --git a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 index 7b08fac4a..0fe008d8c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+--- a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
++++ b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 @@ -336,7 +336,8 @@ public class ElementPrinterHelper {
  			}
  			final int line = element.getPosition().getLine();
@@ -37,10 +37,10 @@ index 7b08fac4a..0fe008d8c 100644
  				commentsToPrint.add(comment);
  			} else if (offset == CommentOffset.AFTER && comment.getPosition().getSourceStart() > sourceEnd) {
  				commentsToPrint.add(comment);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java b/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
 index d5473f14e..1b643a1ef 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
 @@ -142,6 +142,7 @@ class JDTCommentBuilder {
  	private CtElement addCommentToNear(final CtComment comment, final Collection<CtElement> elements) {
  		CtElement best = null;

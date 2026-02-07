@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java b/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
 index 3b481e339..93db29500 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/ContextBuilder.java
 @@ -87,7 +87,7 @@ public class ContextBuilder {
  	void enter(CtElement e, ASTNode node) {
  		stack.push(new ASTPair(e, node));

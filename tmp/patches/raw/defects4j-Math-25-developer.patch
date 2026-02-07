@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-25/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-25-fixed/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
 index 1da2c45..c7af9ae 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-25/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-25-fixed/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
 @@ -320,8 +320,11 @@ public class HarmonicFitter extends CurveFitter<HarmonicOscillator.Parametric> {
                  }
                  a = 0.5 * (yMax - yMin);

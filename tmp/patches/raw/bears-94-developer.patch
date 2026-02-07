@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
+diff --git a/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java b/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
 index 88a8a2fc4..798de32e0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
+--- a/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
++++ b/src/main/java/org/springframework/data/util/ParameterizedTypeInformation.java
 @@ -52,35 +52,6 @@ class ParameterizedTypeInformation<T> extends ParentTypeAwareTypeInformation<T>
  		this.type = type;
  	}
@@ -86,10 +86,10 @@ index 88a8a2fc4..798de32e0 100644
 +		return value == null ? source : flattenTypeVariable(value, variables);
 +	}
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/TypeDiscoverer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/TypeDiscoverer.java
+diff --git a/src/main/java/org/springframework/data/util/TypeDiscoverer.java b/src/main/java/org/springframework/data/util/TypeDiscoverer.java
 index f131ce2ab..b096ff842 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/TypeDiscoverer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/TypeDiscoverer.java
+--- a/src/main/java/org/springframework/data/util/TypeDiscoverer.java
++++ b/src/main/java/org/springframework/data/util/TypeDiscoverer.java
 @@ -134,7 +134,7 @@ class TypeDiscoverer<S> implements TypeInformation<S> {
  
  		if (fieldType instanceof TypeVariable) {
@@ -99,10 +99,10 @@ index f131ce2ab..b096ff842 100644
  		}
  
  		if (fieldType instanceof GenericArrayType) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
+diff --git a/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java b/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
 index 1314cc4e3..cc3db7a04 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
+--- a/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
++++ b/src/main/java/org/springframework/data/util/TypeVariableTypeInformation.java
 @@ -17,7 +17,6 @@ package org.springframework.data.util;
  
  import static org.springframework.util.ObjectUtils.*;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-18/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-18-fixed/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java b/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
 index 4198333..4193b3a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-18/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-18-fixed/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
+--- a/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
++++ b/src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java
 @@ -16,10 +16,12 @@
   */
  package org.apache.commons.jxpath.ri.axes;

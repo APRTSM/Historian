@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/EskyProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/EskyProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/EskyProtocolDecoder.java b/src/org/traccar/protocol/EskyProtocolDecoder.java
 index 0d3dcafb2..d524224af 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/EskyProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/EskyProtocolDecoder.java
+--- a/src/org/traccar/protocol/EskyProtocolDecoder.java
++++ b/src/org/traccar/protocol/EskyProtocolDecoder.java
 @@ -40,8 +40,8 @@ public class EskyProtocolDecoder extends BaseProtocolDecoder {
              .number("(d+)").text("+")            // satellites
              .number("(dd)(dd)(dd)")              // date

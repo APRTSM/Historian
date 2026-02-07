@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-64/src/com/google/javascript/jscomp/Compiler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-64-fixed/src/com/google/javascript/jscomp/Compiler.java
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
 index 71f76d8..45d88ba 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-64/src/com/google/javascript/jscomp/Compiler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-64-fixed/src/com/google/javascript/jscomp/Compiler.java
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
 @@ -1429,7 +1429,7 @@ public class Compiler extends AbstractCompiler {
  
          // if LanguageMode is ECMASCRIPT5_STRICT, only print 'use strict'

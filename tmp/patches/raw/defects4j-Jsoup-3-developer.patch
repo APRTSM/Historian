@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/nodes/Element.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/nodes/Element.java
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
 index 12c68ca..fef6f1c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/nodes/Element.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/nodes/Element.java
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
 @@ -267,7 +267,7 @@ public class Element extends Node {
      public Element append(String html) {
          Validate.notNull(html);
@@ -29,10 +29,10 @@ index 12c68ca..fef6f1c 100644
          Elements wrapChildren = wrapBody.children();
          Element wrap = wrapChildren.first();
          if (wrap == null) // nothing to wrap with; noop
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/parser/Parser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/parser/Parser.java
+diff --git a/src/main/java/org/jsoup/parser/Parser.java b/src/main/java/org/jsoup/parser/Parser.java
 index 0cedf8a..62b0fd3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/parser/Parser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/parser/Parser.java
+--- a/src/main/java/org/jsoup/parser/Parser.java
++++ b/src/main/java/org/jsoup/parser/Parser.java
 @@ -23,6 +23,7 @@ public class Parser {
      private final TokenQueue tq;
      private final Document doc;
@@ -78,10 +78,10 @@ index 0cedf8a..62b0fd3 100644
                  return true;
              }
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/parser/Tag.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/parser/Tag.java
+diff --git a/src/main/java/org/jsoup/parser/Tag.java b/src/main/java/org/jsoup/parser/Tag.java
 index 6dff9e7..24333e7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3/src/main/java/org/jsoup/parser/Tag.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-3-fixed/src/main/java/org/jsoup/parser/Tag.java
+--- a/src/main/java/org/jsoup/parser/Tag.java
++++ b/src/main/java/org/jsoup/parser/Tag.java
 @@ -25,6 +25,7 @@ public class Tag {
      private boolean empty = false; // can hold nothing; e.g. img
      private boolean preserveWhitespace = false; // for pre, textarea, script etc

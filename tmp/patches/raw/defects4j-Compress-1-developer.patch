@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-1/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-1-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
 index aada02e..e66f58a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-1/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-1-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
 @@ -343,6 +343,7 @@ public class CpioArchiveOutputStream extends ArchiveOutputStream implements
       */
      public void close() throws IOException {

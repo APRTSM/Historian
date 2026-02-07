@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-63/src/java/org/apache/commons/lang/time/DurationFormatUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-63-fixed/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
+diff --git a/src/java/org/apache/commons/lang/time/DurationFormatUtils.java b/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
 index 127b927..3a9d9f6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-63/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-63-fixed/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
+--- a/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
++++ b/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
 @@ -303,25 +303,20 @@ public class DurationFormatUtils {
              days -= 1;
          }

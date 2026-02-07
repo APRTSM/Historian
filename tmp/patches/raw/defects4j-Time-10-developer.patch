@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-10/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-10-fixed/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
+diff --git a/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java b/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
 index 91b2c5c..839d3b8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-10/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-10-fixed/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
+--- a/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
++++ b/src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java
 @@ -49,6 +49,7 @@ public abstract class BaseSingleFieldPeriod
      /** Serialization version. */
      private static final long serialVersionUID = 9386874258972L;

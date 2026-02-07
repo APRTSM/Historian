@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-40/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-40-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+diff --git a/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java b/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
 index 93dd3bb..59dc461 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-40/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-40-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
 @@ -232,10 +232,16 @@ public class BracketingNthOrderBrentSolver
              double targetY;
              if (agingA >= MAXIMAL_AGING) {

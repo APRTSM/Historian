@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-47/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-47-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
 index dd845b8..41e6940 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-47/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-47-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
 @@ -412,7 +412,8 @@ public class ZipArchiveInputStream extends ArchiveInputStream {
          if (ae instanceof ZipArchiveEntry) {
              final ZipArchiveEntry ze = (ZipArchiveEntry) ae;

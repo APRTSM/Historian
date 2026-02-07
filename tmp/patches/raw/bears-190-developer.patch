@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
+diff --git a/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java b/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
 index d37cf2660..a97f7f8c4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
+--- a/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
++++ b/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
 @@ -15,6 +15,7 @@
  package io.cassandrareaper.resources.view;
  

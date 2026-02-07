@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-65/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-65-fixed/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java b/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
 index 30ebfff..5a60da8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-65/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-65-fixed/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
+--- a/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
 @@ -237,12 +237,7 @@ public abstract class AbstractLeastSquaresOptimizer implements DifferentiableMul
       * @return RMS value
       */

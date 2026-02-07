@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46/src/main/java/org/apache/commons/math/complex/Complex.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46-fixed/src/main/java/org/apache/commons/math/complex/Complex.java
+diff --git a/src/main/java/org/apache/commons/math/complex/Complex.java b/src/main/java/org/apache/commons/math/complex/Complex.java
 index d55c25a..dd0b00a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46/src/main/java/org/apache/commons/math/complex/Complex.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-46-fixed/src/main/java/org/apache/commons/math/complex/Complex.java
+--- a/src/main/java/org/apache/commons/math/complex/Complex.java
++++ b/src/main/java/org/apache/commons/math/complex/Complex.java
 @@ -257,7 +257,7 @@ public class Complex implements FieldElement<Complex>, Serializable  {
  
          if (divisor.isZero) {

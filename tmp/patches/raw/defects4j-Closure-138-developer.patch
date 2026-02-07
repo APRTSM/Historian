@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138-fixed/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
+diff --git a/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
 index 720b60b..7bfbae5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138-fixed/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
+--- a/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java
 @@ -205,7 +205,6 @@ class ClosureReverseAbstractInterpreter
        Node param = condition.getLastChild();
        if (callee.getType() == GETPROP && param.isQualifiedName()) {
@@ -18,10 +18,10 @@ index 720b60b..7bfbae5 100644
            }
          }
        }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138/src/com/google/javascript/jscomp/TypeInference.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138-fixed/src/com/google/javascript/jscomp/TypeInference.java
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
 index 1b3755d..749eb6d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138/src/com/google/javascript/jscomp/TypeInference.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-138-fixed/src/com/google/javascript/jscomp/TypeInference.java
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
 @@ -629,21 +629,29 @@ class TypeInference
        return scope;
      } else {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-2/source/org/jfree/data/general/DatasetUtilities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-2-fixed/source/org/jfree/data/general/DatasetUtilities.java
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
 index 927cbad..548d684 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-2/source/org/jfree/data/general/DatasetUtilities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-2-fixed/source/org/jfree/data/general/DatasetUtilities.java
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
 @@ -752,12 +752,19 @@ public final class DatasetUtilities {
              for (int series = 0; series < seriesCount; series++) {
                  int itemCount = dataset.getItemCount(series);

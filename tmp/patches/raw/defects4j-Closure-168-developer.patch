@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-168/src/com/google/javascript/jscomp/TypedScopeCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-168-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 index cf87eaa..36f8346 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-168/src/com/google/javascript/jscomp/TypedScopeCreator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-168-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 @@ -1993,7 +1993,7 @@ final class TypedScopeCreator implements ScopeCreator {
          data.get(t.getScopeRoot()).recordNonEmptyReturn();
        }

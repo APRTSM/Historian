@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16/src/org/mockito/Mockito.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16-fixed/src/org/mockito/Mockito.java
+diff --git a/src/org/mockito/Mockito.java b/src/org/mockito/Mockito.java
 index 5eb16aa..980587d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16/src/org/mockito/Mockito.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16-fixed/src/org/mockito/Mockito.java
+--- a/src/org/mockito/Mockito.java
++++ b/src/org/mockito/Mockito.java
 @@ -824,7 +824,7 @@ public class Mockito extends Matchers {
       * @return mock object
       */
@@ -20,10 +20,10 @@ index 5eb16aa..980587d 100644
      }
  
      /**
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16/src/org/mockito/internal/MockitoCore.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16-fixed/src/org/mockito/internal/MockitoCore.java
+diff --git a/src/org/mockito/internal/MockitoCore.java b/src/org/mockito/internal/MockitoCore.java
 index 5321566..61acce8 100755
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16/src/org/mockito/internal/MockitoCore.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-16-fixed/src/org/mockito/internal/MockitoCore.java
+--- a/src/org/mockito/internal/MockitoCore.java
++++ b/src/org/mockito/internal/MockitoCore.java
 @@ -29,10 +29,11 @@ public class MockitoCore {
      private final MockUtil mockUtil = new MockUtil();
      private final MockingProgress mockingProgress = new ThreadSafeMockingProgress();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/zipkin2/src/main/java/zipkin2/Span.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/zipkin2/src/main/java/zipkin2/Span.java
+diff --git a/zipkin2/src/main/java/zipkin2/Span.java b/zipkin2/src/main/java/zipkin2/Span.java
 index f2775c3e5..defa6b6ad 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/zipkin2/src/main/java/zipkin2/Span.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/zipkin2/src/main/java/zipkin2/Span.java
+--- a/zipkin2/src/main/java/zipkin2/Span.java
++++ b/zipkin2/src/main/java/zipkin2/Span.java
 @@ -466,7 +466,7 @@ public final class Span implements Serializable { // for Spark and Flink jobs
  
      /** @see Span#debug */

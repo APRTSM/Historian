@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-104/src/java/org/apache/commons/math/special/Gamma.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-104-fixed/src/java/org/apache/commons/math/special/Gamma.java
+diff --git a/src/java/org/apache/commons/math/special/Gamma.java b/src/java/org/apache/commons/math/special/Gamma.java
 index 8c565cb..ba2c4db 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-104/src/java/org/apache/commons/math/special/Gamma.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-104-fixed/src/java/org/apache/commons/math/special/Gamma.java
+--- a/src/java/org/apache/commons/math/special/Gamma.java
++++ b/src/java/org/apache/commons/math/special/Gamma.java
 @@ -34,7 +34,7 @@ public class Gamma implements Serializable {
      private static final long serialVersionUID = -6587513359895466954L;
  

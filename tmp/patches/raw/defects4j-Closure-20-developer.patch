@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-20/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-20-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 index bfa1707..86521bd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-20/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-20-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 @@ -217,7 +217,8 @@ class PeepholeSubstituteAlternateSyntax
        // slightly different semantics than '' + (a). See
        // http://code.google.com/p/closure-compiler/issues/detail?id=759

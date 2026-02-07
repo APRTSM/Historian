@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-20/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-20-fixed/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
 index 2a08020..da75a61 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-20/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-20-fixed/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+--- a/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
 @@ -1327,7 +1327,16 @@ public abstract class JsonGenerator
       */
      public void writeEmbeddedObject(Object object) throws IOException {

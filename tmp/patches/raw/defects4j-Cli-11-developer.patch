@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-11/src/java/org/apache/commons/cli/HelpFormatter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-11-fixed/src/java/org/apache/commons/cli/HelpFormatter.java
+diff --git a/src/java/org/apache/commons/cli/HelpFormatter.java b/src/java/org/apache/commons/cli/HelpFormatter.java
 index 183cae3..9a841fd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-11/src/java/org/apache/commons/cli/HelpFormatter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-11-fixed/src/java/org/apache/commons/cli/HelpFormatter.java
+--- a/src/java/org/apache/commons/cli/HelpFormatter.java
++++ b/src/java/org/apache/commons/cli/HelpFormatter.java
 @@ -629,7 +629,7 @@ public class HelpFormatter {
          }
  

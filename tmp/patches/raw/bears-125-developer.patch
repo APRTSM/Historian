@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 index 37793a6ff..3bee39cc4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 @@ -614,7 +614,7 @@ public class Gl200TextProtocolDecoder extends BaseProtocolDecoder {
                  for (int i = 1; i <= deviceCount; i++) {
                      index++; // id

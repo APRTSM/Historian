@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-32/src/main/java/org/jsoup/nodes/Element.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-32-fixed/src/main/java/org/jsoup/nodes/Element.java
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
 index 7906822..95cde5f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-32/src/main/java/org/jsoup/nodes/Element.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-32-fixed/src/main/java/org/jsoup/nodes/Element.java
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
 @@ -1135,7 +1135,7 @@ public class Element extends Node {
      @Override
      public Element clone() {

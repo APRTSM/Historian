@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
+diff --git a/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java b/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
 index 69fa06578..4c3dcba46 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
+--- a/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
++++ b/src/main/java/com/shapesecurity/shift/es2017/parser/GenericParser.java
 @@ -2178,7 +2178,7 @@ public abstract class GenericParser<AdditionalStateT> extends Tokenizer {
                      return Either.right(this.finishNode(startState, toReturn));
                  }

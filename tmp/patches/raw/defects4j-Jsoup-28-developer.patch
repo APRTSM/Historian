@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/nodes/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/nodes/Entities.java
+diff --git a/src/main/java/org/jsoup/nodes/Entities.java b/src/main/java/org/jsoup/nodes/Entities.java
 index be73e32..a60fab8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/nodes/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/nodes/Entities.java
+--- a/src/main/java/org/jsoup/nodes/Entities.java
++++ b/src/main/java/org/jsoup/nodes/Entities.java
 @@ -1,5 +1,6 @@
  package org.jsoup.nodes;
  
@@ -54,10 +54,10 @@ index be73e32..a60fab8 100644
      }
  
      // xhtml has restricted entities
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/parser/Parser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/parser/Parser.java
+diff --git a/src/main/java/org/jsoup/parser/Parser.java b/src/main/java/org/jsoup/parser/Parser.java
 index ed700d9..eebce38 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/parser/Parser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/parser/Parser.java
+--- a/src/main/java/org/jsoup/parser/Parser.java
++++ b/src/main/java/org/jsoup/parser/Parser.java
 @@ -130,6 +130,10 @@ public class Parser {
       * @param inAttribute if the string is to be escaped in strict mode (as attributes are)
       * @return an unescaped string
@@ -69,10 +69,10 @@ index ed700d9..eebce38 100644
  
      /**
       * @param bodyHtml HTML to parse
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/parser/Tokeniser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+diff --git a/src/main/java/org/jsoup/parser/Tokeniser.java b/src/main/java/org/jsoup/parser/Tokeniser.java
 index 5c40cf7..3445855 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28/src/main/java/org/jsoup/parser/Tokeniser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-28-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+--- a/src/main/java/org/jsoup/parser/Tokeniser.java
++++ b/src/main/java/org/jsoup/parser/Tokeniser.java
 @@ -133,23 +133,14 @@ class Tokeniser {
          } else { // named
              // get as many letters as possible, and look for matching entities.

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-8/src/main/java/org/apache/commons/csv/CSVFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-8-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVFormat.java b/src/main/java/org/apache/commons/csv/CSVFormat.java
 index 22130bf..772aaf0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-8/src/main/java/org/apache/commons/csv/CSVFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-8-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+--- a/src/main/java/org/apache/commons/csv/CSVFormat.java
++++ b/src/main/java/org/apache/commons/csv/CSVFormat.java
 @@ -313,6 +313,12 @@ public final class CSVFormat implements Serializable {
          if (header == null) {
          	this.header = null;

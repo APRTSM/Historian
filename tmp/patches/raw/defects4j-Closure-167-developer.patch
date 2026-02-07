@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167-fixed/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
 index 9e70279..8165840 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167-fixed/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
 @@ -298,8 +298,8 @@ public class SemanticReverseAbstractInterpreter
      if (merged != null) {
        return maybeRestrictTwoNames(
@@ -65,10 +65,10 @@ index 9e70279..8165840 100644
      }
      return blindScope;
    }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167/src/com/google/javascript/rhino/jstype/JSType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167-fixed/src/com/google/javascript/rhino/jstype/JSType.java
+diff --git a/src/com/google/javascript/rhino/jstype/JSType.java b/src/com/google/javascript/rhino/jstype/JSType.java
 index 8f0a1f6..44d1e93 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167/src/com/google/javascript/rhino/jstype/JSType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-167-fixed/src/com/google/javascript/rhino/jstype/JSType.java
+--- a/src/com/google/javascript/rhino/jstype/JSType.java
++++ b/src/com/google/javascript/rhino/jstype/JSType.java
 @@ -880,6 +880,9 @@ public abstract class JSType implements Serializable {
     * method of types to get the restricted type.
     */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-31/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-31-fixed/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
+diff --git a/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java b/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
 index b881bb2..253f3c5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-31/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-31-fixed/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
+--- a/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
++++ b/src/main/java/org/apache/commons/math3/util/ContinuedFraction.java
 @@ -131,8 +131,6 @@ public abstract class ContinuedFraction {
  
          int n = 1;

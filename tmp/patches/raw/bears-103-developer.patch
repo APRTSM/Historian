@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/AquilaProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/AquilaProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/AquilaProtocolDecoder.java b/src/org/traccar/protocol/AquilaProtocolDecoder.java
 index e1cebd20d..11ab15c86 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/AquilaProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/AquilaProtocolDecoder.java
+--- a/src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ b/src/org/traccar/protocol/AquilaProtocolDecoder.java
 @@ -132,7 +132,7 @@ public class AquilaProtocolDecoder extends BaseProtocolDecoder {
  
          position.setSpeed(UnitsConverter.knotsFromKph(parser.nextDouble()));
@@ -11,10 +11,10 @@ index e1cebd20d..11ab15c86 100644
  
          if (parser.hasNext(9)) {
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 index 4862b4937..f5253566b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+--- a/src/org/traccar/protocol/MeitrackProtocolDecoder.java
++++ b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 @@ -124,7 +124,7 @@ public class MeitrackProtocolDecoder extends BaseProtocolDecoder {
  
          position.setAltitude(parser.nextDouble());
@@ -24,10 +24,10 @@ index 4862b4937..f5253566b 100644
          position.set("runtime", parser.next());
  
          position.setNetwork(new Network(
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TotemProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TotemProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/TotemProtocolDecoder.java b/src/org/traccar/protocol/TotemProtocolDecoder.java
 index 6a4b2052c..f36ef8143 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TotemProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TotemProtocolDecoder.java
+--- a/src/org/traccar/protocol/TotemProtocolDecoder.java
++++ b/src/org/traccar/protocol/TotemProtocolDecoder.java
 @@ -290,7 +290,7 @@ public class TotemProtocolDecoder extends BaseProtocolDecoder {
              position.setCourse(parser.nextDouble());
              position.setSpeed(parser.nextDouble());

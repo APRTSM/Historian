@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-28/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-28-fixed/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java b/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
 index c3cb869..a21671a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-28/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-28-fixed/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
+--- a/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
 @@ -60,7 +60,13 @@ public class NumericEntityUnescaper extends CharSequenceTranslator {
                  return 0;
              }

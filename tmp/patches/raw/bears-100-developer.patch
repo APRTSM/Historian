@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/events/IgnitionEventHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/events/IgnitionEventHandler.java
+diff --git a/src/org/traccar/events/IgnitionEventHandler.java b/src/org/traccar/events/IgnitionEventHandler.java
 index 8464c3aef..187b7ce73 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/events/IgnitionEventHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/events/IgnitionEventHandler.java
+--- a/src/org/traccar/events/IgnitionEventHandler.java
++++ b/src/org/traccar/events/IgnitionEventHandler.java
 @@ -39,20 +39,21 @@ public class IgnitionEventHandler extends BaseEventHandler {
  
          Collection<Event> result = null;

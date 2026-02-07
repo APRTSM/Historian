@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-1/src/java/org/apache/commons/cli/CommandLine.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-1-fixed/src/java/org/apache/commons/cli/CommandLine.java
+diff --git a/src/java/org/apache/commons/cli/CommandLine.java b/src/java/org/apache/commons/cli/CommandLine.java
 index af1118d..3c82942 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-1/src/java/org/apache/commons/cli/CommandLine.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-1-fixed/src/java/org/apache/commons/cli/CommandLine.java
+--- a/src/java/org/apache/commons/cli/CommandLine.java
++++ b/src/java/org/apache/commons/cli/CommandLine.java
 @@ -16,11 +16,11 @@
  package org.apache.commons.cli;
  

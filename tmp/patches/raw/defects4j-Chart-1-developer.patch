@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-1/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-1-fixed/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
 index 226b25a..4a54655 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-1/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-1-fixed/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
 @@ -1794,7 +1794,7 @@ public abstract class AbstractCategoryItemRenderer extends AbstractRenderer
          }
          int index = this.plot.getIndexOf(this);

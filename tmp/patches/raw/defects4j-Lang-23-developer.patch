@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-23/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-23-fixed/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
 index a2cc169..55ee7d1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-23/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-23-fixed/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
 @@ -70,6 +70,7 @@ import org.apache.commons.lang3.Validate;
   */
  public class ExtendedMessageFormat extends MessageFormat {

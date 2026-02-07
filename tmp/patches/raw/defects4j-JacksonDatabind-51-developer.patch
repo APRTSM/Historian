@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-51/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-51-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
 index 23380f0..cd9b155 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-51/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-51-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java
 @@ -181,7 +181,9 @@ public abstract class TypeDeserializerBase
                      //   generic type with custom type resolvers. If so, should try to retain them.
                      //  Whether this is sufficient to avoid problems remains to be seen, but for

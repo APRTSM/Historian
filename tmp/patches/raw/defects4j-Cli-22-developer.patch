@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-22/src/java/org/apache/commons/cli/PosixParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-22-fixed/src/java/org/apache/commons/cli/PosixParser.java
+diff --git a/src/java/org/apache/commons/cli/PosixParser.java b/src/java/org/apache/commons/cli/PosixParser.java
 index 47ad0f7..ca8b6c6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-22/src/java/org/apache/commons/cli/PosixParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-22-fixed/src/java/org/apache/commons/cli/PosixParser.java
+--- a/src/java/org/apache/commons/cli/PosixParser.java
++++ b/src/java/org/apache/commons/cli/PosixParser.java
 @@ -38,6 +38,7 @@ public class PosixParser extends Parser
      private boolean eatTheRest;
  

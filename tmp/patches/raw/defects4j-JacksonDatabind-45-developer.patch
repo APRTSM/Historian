@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-45/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-45-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 index eec386e..68dbf40 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-45/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-45-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 @@ -60,7 +60,8 @@ public abstract class DateTimeSerializerBase<T>
                      return withFormat(Boolean.TRUE, null);
                  }

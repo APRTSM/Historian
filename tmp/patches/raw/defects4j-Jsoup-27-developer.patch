@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-27/src/main/java/org/jsoup/helper/DataUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-27-fixed/src/main/java/org/jsoup/helper/DataUtil.java
+diff --git a/src/main/java/org/jsoup/helper/DataUtil.java b/src/main/java/org/jsoup/helper/DataUtil.java
 index f978141..a4d4f51 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-27/src/main/java/org/jsoup/helper/DataUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-27-fixed/src/main/java/org/jsoup/helper/DataUtil.java
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
 @@ -129,8 +129,9 @@ public class DataUtil {
          Matcher m = charsetPattern.matcher(contentType);
          if (m.find()) {

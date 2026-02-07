@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/CodeGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
 index 142e820..593ec05 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/CodeGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
 @@ -340,14 +340,20 @@ class CodeGenerator {
          Node body = fn.getLastChild();
  
@@ -85,10 +85,10 @@ index 142e820..593ec05 100644
  
    /**
     * @return Whether the name is an indirect eval.
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/RenamePrototypes.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/RenamePrototypes.java
+diff --git a/src/com/google/javascript/jscomp/RenamePrototypes.java b/src/com/google/javascript/jscomp/RenamePrototypes.java
 index 304c0e1..d7558d0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/RenamePrototypes.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/RenamePrototypes.java
+--- a/src/com/google/javascript/jscomp/RenamePrototypes.java
++++ b/src/com/google/javascript/jscomp/RenamePrototypes.java
 @@ -333,7 +333,7 @@ class RenamePrototypes implements CompilerPass {
                   child != null;
                   child = child.getNext()) {
@@ -107,10 +107,10 @@ index 304c0e1..d7558d0 100644
                 // May be STRING, GET, or SET
                  markPrototypePropertyCandidate(key, input);
                }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/parsing/IRFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/parsing/IRFactory.java
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
 index dcc3def..3d1db67 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157/src/com/google/javascript/jscomp/parsing/IRFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-157-fixed/src/com/google/javascript/jscomp/parsing/IRFactory.java
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
 @@ -252,9 +252,26 @@ public class IRFactory {
      return irNode;
    }

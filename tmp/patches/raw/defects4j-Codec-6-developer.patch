@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-6/src/java/org/apache/commons/codec/binary/Base64InputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-6-fixed/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+diff --git a/src/java/org/apache/commons/codec/binary/Base64InputStream.java b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
 index 583a584..479638b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-6/src/java/org/apache/commons/codec/binary/Base64InputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-6-fixed/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+--- a/src/java/org/apache/commons/codec/binary/Base64InputStream.java
++++ b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
 @@ -145,6 +145,7 @@ public class Base64InputStream extends FilterInputStream {
          } else if (len == 0) {
              return 0;

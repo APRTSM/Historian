@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-7/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-7-fixed/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+diff --git a/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
 index 0afabc8..fa7d47d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-7/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-7-fixed/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+--- a/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
 @@ -610,9 +610,13 @@ public abstract class ChainableReverseAbstractInterpreter
      public JSType caseObjectType(ObjectType type) {
        if (value.equals("function")) {

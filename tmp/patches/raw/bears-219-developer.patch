@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/SpoonPom.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/SpoonPom.java
+diff --git a/src/main/java/spoon/support/compiler/SpoonPom.java b/src/main/java/spoon/support/compiler/SpoonPom.java
 index 55d992ca8..7d6cdb9a7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/SpoonPom.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/SpoonPom.java
+--- a/src/main/java/spoon/support/compiler/SpoonPom.java
++++ b/src/main/java/spoon/support/compiler/SpoonPom.java
 @@ -256,7 +256,7 @@ public class SpoonPom implements SpoonResource {
  			javaVersion = getSourceVersion(model.getBuild());
  		}

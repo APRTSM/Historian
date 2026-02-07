@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
+diff --git a/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java b/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
 index 3828d8994..8ca8dcadf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
+--- a/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
++++ b/modules/activiti-engine/src/main/java/org/activiti/engine/impl/history/handler/ActivityInstanceEndHandler.java
 @@ -15,17 +15,36 @@ package org.activiti.engine.impl.history.handler;
  
  import org.activiti.engine.delegate.DelegateExecution;

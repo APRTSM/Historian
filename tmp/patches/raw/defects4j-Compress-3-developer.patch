@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-3/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-3-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 index 005e3e7..2dc3b26 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-3/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-3-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 @@ -52,6 +52,7 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
      private boolean closed = false;
  

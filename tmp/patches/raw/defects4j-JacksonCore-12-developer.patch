@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12-fixed/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java b/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
 index 60919c8..c2c413f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12-fixed/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
 @@ -619,7 +619,6 @@ public class ReaderBasedJsonParser // final in 2.3, earlier
          if (_parsingContext.expectComma()) {
              i = _skipComma(i);
@@ -92,10 +92,10 @@ index 60919c8..c2c413f 100644
                  getTokenColumnNr());
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
 index 589a34c..b0c007b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-12-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
 @@ -3619,7 +3619,7 @@ public class UTF8StreamJsonParser
                      _nameInputTotal, -1L, _nameInputRow, _tokenInputCol);
          }

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
 index 8ac4f11..01fa8ba 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
 @@ -71,6 +71,7 @@ final class FunctionTypeBuilder {
    private final Scope scope;
  
@@ -69,10 +69,10 @@ index 8ac4f11..01fa8ba 100644
            .withTypeOfThis(thisType)
            .withTemplateName(templateTypeName)
            .build();
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/jscomp/TypedScopeCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 index 8bf22fc..4be3b8d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/jscomp/TypedScopeCreator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 @@ -574,6 +574,7 @@ final class TypedScopeCreator implements ScopeCreator {
        Node fnRoot = isFnLiteral ? rValue : null;
        Node parametersNode = isFnLiteral ?
@@ -97,10 +97,10 @@ index 8bf22fc..4be3b8d 100644
              .buildAndRegister();
        }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/rhino/jstype/FunctionBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionBuilder.java b/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
 index 4a6596e..902f2e6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
+--- a/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionBuilder.java
 @@ -98,6 +98,11 @@ public final class FunctionBuilder {
    }
  
@@ -113,10 +113,10 @@ index 4a6596e..902f2e6 100644
  
    /** Sets an inferred return type. */
    public FunctionBuilder withInferredReturnType(JSType returnType) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/rhino/jstype/FunctionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
 index 0cae0e3..6a4d2f4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144/src/com/google/javascript/rhino/jstype/FunctionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-144-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
 @@ -514,7 +514,7 @@ public class FunctionType extends PrototypeObjectType {
  
    FunctionType cloneWithNewReturnType(JSType newReturnType, boolean inferred) {

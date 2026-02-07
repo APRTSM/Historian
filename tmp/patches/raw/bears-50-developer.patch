@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java b/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
 index 71a37d7f4..58ba2da04 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+--- a/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
++++ b/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
 @@ -415,16 +415,18 @@ public class JDTBasedSpoonCompiler implements spoon.SpoonModelBuilder {
  		JDTTreeBuilder builder = new JDTTreeBuilder(factory);
  		unitLoop:

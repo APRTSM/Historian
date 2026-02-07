@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-12/src/java/org/apache/commons/cli/GnuParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-12-fixed/src/java/org/apache/commons/cli/GnuParser.java
+diff --git a/src/java/org/apache/commons/cli/GnuParser.java b/src/java/org/apache/commons/cli/GnuParser.java
 index 0de035f..1590fc3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-12/src/java/org/apache/commons/cli/GnuParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-12-fixed/src/java/org/apache/commons/cli/GnuParser.java
+--- a/src/java/org/apache/commons/cli/GnuParser.java
++++ b/src/java/org/apache/commons/cli/GnuParser.java
 @@ -78,9 +78,14 @@ public class GnuParser extends Parser {
                  }
                  else

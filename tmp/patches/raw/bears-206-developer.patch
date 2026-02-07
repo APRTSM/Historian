@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
+diff --git a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
 index 63cc21367..8d3d535aa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
+--- a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
++++ b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/PageBox.java
 @@ -304,10 +304,10 @@ public class PageBox {
          }
          
@@ -15,10 +15,10 @@ index 63cc21367..8d3d535aa 100644
      }
      
      /**
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
+diff --git a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
 index c790942e8..6d638f73b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
+--- a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
++++ b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/PagedBoxCollector.java
 @@ -9,6 +9,7 @@ import java.util.ArrayList;
  import java.util.Collections;
  import java.util.List;
@@ -47,10 +47,10 @@ index c790942e8..6d638f73b 100644
          
          for (int i = 0; i < maxShadowPages; i++) {
              Rectangle shadowPageClip = pageResult.getShadowWindowOnDocument(basePageBox, c, i);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
+diff --git a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
 index d73d0079c..47c5aa38f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
+--- a/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
++++ b/openhtmltopdf-core/src/main/java/com/openhtmltopdf/render/displaylist/TransformCreator.java
 @@ -103,11 +103,7 @@ public class TransformCreator {
  	    
  	    Rectangle shadow = page.getDocumentCoordinatesContentBoundsForInsertedPage(c, shadowPageNumber);

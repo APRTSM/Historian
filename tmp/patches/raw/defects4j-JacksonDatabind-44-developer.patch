@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-44/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-44-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 index 09fae77..0273c70 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-44/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-44-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 @@ -129,15 +129,41 @@ public class SimpleType // note: until 2.6 was final
          // 15-Jan-2016, tatu: Almost yes, but there are some complications with
          //    placeholder values (`Void`, `NoClass`), so can not quite do yet.

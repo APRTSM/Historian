@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
+diff --git a/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java b/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
 index cd3923e79..54b3e66c0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
+--- a/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
++++ b/src/main/java/spoon/reflect/visitor/chain/CtQueryImpl.java
 @@ -279,7 +279,12 @@ public class CtQueryImpl implements CtQuery {
  		}
  

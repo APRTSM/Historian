@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-60/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-60-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
 index c7cb812..538796d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-60/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-60-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/JsonValueSerializer.java
 @@ -6,6 +6,7 @@ import java.lang.reflect.Type;
  import java.util.LinkedHashSet;
  import java.util.Set;

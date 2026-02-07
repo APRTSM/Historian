@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-2/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-2-fixed/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java b/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
 index ff8b1c4..caea328 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-2/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-2-fixed/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
 @@ -780,19 +780,39 @@ sb.append("NativeObjectIds=").append(_hasNativeObjectIds).append(",");
      @Override
      public void writeObject(Object value) throws IOException

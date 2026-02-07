@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-13/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-13-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
 index 88cf183..db07960 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-13/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-13-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java
 @@ -509,6 +509,10 @@ public class ZipArchiveEntry extends java.util.zip.ZipEntry
       * @param name the name to use
       */

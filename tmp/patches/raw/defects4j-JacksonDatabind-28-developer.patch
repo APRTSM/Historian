@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-28/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-28-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
 index 264ed20..d5eb017 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-28/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-28-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java
 @@ -94,14 +94,13 @@ public class JsonNodeDeserializer
          @Override
          public ObjectNode deserialize(JsonParser p, DeserializationContext ctxt) throws IOException

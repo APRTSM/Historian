@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-112/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-112-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
 index f50ca36..0bf2e12 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-112/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-112-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java
 @@ -104,8 +104,11 @@ public final class StringCollectionDeserializer
          JsonDeserializer<Object> delegate = null;
          if (_valueInstantiator != null) {

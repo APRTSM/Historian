@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-15/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-15-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 index 043c3bd..8148816 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-15/gson/src/main/java/com/google/gson/stream/JsonWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-15-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonWriter.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 @@ -492,7 +492,7 @@ public class JsonWriter implements Closeable, Flushable {
     */
    public JsonWriter value(double value) throws IOException {

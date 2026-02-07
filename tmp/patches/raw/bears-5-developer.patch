@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
 index 0e2b87490..d0ebabafb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
 @@ -373,6 +373,10 @@ public class BeanDeserializer
          for (; t == JsonToken.FIELD_NAME; t = p.nextToken()) {
              String propName = p.getCurrentName();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
 index 2462f2eba..369e65963 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
 @@ -207,6 +207,13 @@ public class StdKeySerializers
          protected JsonSerializer<Object> _findAndAddDynamic(PropertySerializerMap map,
                  Class<?> type, SerializerProvider provider) throws JsonMappingException

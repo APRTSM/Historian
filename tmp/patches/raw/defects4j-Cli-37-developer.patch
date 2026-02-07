@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37/src/main/java/org/apache/commons/cli/DefaultParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+diff --git a/src/main/java/org/apache/commons/cli/DefaultParser.java b/src/main/java/org/apache/commons/cli/DefaultParser.java
 index 6aeaebe..f34173e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37/src/main/java/org/apache/commons/cli/DefaultParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-37-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+--- a/src/main/java/org/apache/commons/cli/DefaultParser.java
++++ b/src/main/java/org/apache/commons/cli/DefaultParser.java
 @@ -299,9 +299,15 @@ public class DefaultParser implements CommandLineParser
      private boolean isShortOption(String token)
      {

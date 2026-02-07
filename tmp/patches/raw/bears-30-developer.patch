@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java b/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
 index b927920d1..61e0dc415 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
+--- a/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
++++ b/src/main/java/spoon/support/compiler/jdt/JDTTreeBuilderHelper.java
 @@ -17,9 +17,9 @@
  package spoon.support.compiler.jdt;
  

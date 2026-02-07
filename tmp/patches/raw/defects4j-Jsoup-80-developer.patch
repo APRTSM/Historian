@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-80/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-80-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 index 75374e4..aec5ba7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-80/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-80-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 @@ -88,9 +88,11 @@ public class XmlTreeBuilder extends TreeBuilder {
              String data = comment.getData();
              if (data.length() > 1 && (data.startsWith("!") || data.startsWith("?"))) {

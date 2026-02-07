@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-25/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-25-fixed/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
 index ab65ba3..6ff5e36 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-25/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-25-fixed/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
 @@ -256,6 +256,9 @@ public class StatisticalBarRenderer extends BarRenderer
  
          // BAR X

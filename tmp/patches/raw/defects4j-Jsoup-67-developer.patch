@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-67/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-67-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 index b07e47f..011a704 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-67/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-67-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 @@ -39,6 +39,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
          "section", "select", "style", "summary", "table", "tbody", "td", "textarea", "tfoot", "th", "thead",
          "title", "tr", "ul", "wbr", "xmp"});

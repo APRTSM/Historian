@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-7/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-7-fixed/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+diff --git a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
 index f24f87c..6e0237f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-7/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-7-fixed/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+--- a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
 @@ -343,8 +343,10 @@ public abstract class AbstractIntegrator implements FirstOrderIntegrator {
                  final double[] eventY = interpolator.getInterpolatedState().clone();
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-6/src/main/java/org/joda/time/chrono/GJChronology.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-6-fixed/src/main/java/org/joda/time/chrono/GJChronology.java
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
 index b970403..d1556f5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-6/src/main/java/org/joda/time/chrono/GJChronology.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-6-fixed/src/main/java/org/joda/time/chrono/GJChronology.java
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
 @@ -193,6 +193,10 @@ public final class GJChronology extends AssembledChronology {
              cutoverInstant = DEFAULT_CUTOVER;
          } else {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java b/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
 index 12162c57f..53e061c69 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java
 @@ -111,11 +111,22 @@ public class ResolvedRecursiveType extends TypeBase
      public boolean equals(Object o) {
          if (o == this) return true;

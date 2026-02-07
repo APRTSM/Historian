@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/nodes/DocumentType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/nodes/DocumentType.java
+diff --git a/src/main/java/org/jsoup/nodes/DocumentType.java b/src/main/java/org/jsoup/nodes/DocumentType.java
 index cd0c8df..4e7730b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/nodes/DocumentType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/nodes/DocumentType.java
+--- a/src/main/java/org/jsoup/nodes/DocumentType.java
++++ b/src/main/java/org/jsoup/nodes/DocumentType.java
 @@ -12,6 +12,7 @@ public class DocumentType extends Node {
      public static final String PUBLIC_KEY = "PUBLIC";
      public static final String SYSTEM_KEY = "SYSTEM";
@@ -49,10 +49,10 @@ index cd0c8df..4e7730b 100644
          if (has(SYSTEM_ID))
              accum.append(" \"").append(attr(SYSTEM_ID)).append('"');
          accum.append('>');
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 index 9a40814..c515462 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 @@ -20,7 +20,7 @@ enum HtmlTreeBuilderState {
                  // todo: quirk state check on doctype ids
                  Token.Doctype d = t.asDoctype();
@@ -62,10 +62,10 @@ index 9a40814..c515462 100644
                  tb.getDocument().appendChild(doctype);
                  if (d.isForceQuirks())
                      tb.getDocument().quirksMode(Document.QuirksMode.quirks);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/Token.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/Token.java
+diff --git a/src/main/java/org/jsoup/parser/Token.java b/src/main/java/org/jsoup/parser/Token.java
 index 0eccbbe..34baf19 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/Token.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/Token.java
+--- a/src/main/java/org/jsoup/parser/Token.java
++++ b/src/main/java/org/jsoup/parser/Token.java
 @@ -32,6 +32,7 @@ abstract class Token {
  
      static final class Doctype extends Token {
@@ -92,10 +92,10 @@ index 0eccbbe..34baf19 100644
  
          String getPublicIdentifier() {
              return publicIdentifier.toString();
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/TokeniserState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+diff --git a/src/main/java/org/jsoup/parser/TokeniserState.java b/src/main/java/org/jsoup/parser/TokeniserState.java
 index 24c2f89..6a97238 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/TokeniserState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+--- a/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/src/main/java/org/jsoup/parser/TokeniserState.java
 @@ -1192,8 +1192,10 @@ enum TokeniserState {
                  t.emitDoctypePending();
                  t.advanceTransition(Data);
@@ -107,10 +107,10 @@ index 24c2f89..6a97238 100644
                  t.transition(AfterDoctypeSystemKeyword);
              } else {
                  t.error(this);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 index 2ac525f..cfcb1a3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-56-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 @@ -97,7 +97,7 @@ public class XmlTreeBuilder extends TreeBuilder {
      }
  

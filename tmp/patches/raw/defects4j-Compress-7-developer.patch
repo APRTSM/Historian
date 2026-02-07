@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-7/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-7-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 index bca115f..8aba2e2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-7/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-7-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 @@ -95,10 +95,11 @@ public class TarUtils {
          int          end = offset + length;
  

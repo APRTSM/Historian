@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
+diff --git a/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java b/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
 index 5bb446fc8..fd63832ed 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
+--- a/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
++++ b/core/src/main/java/dk/alexandra/fresco/framework/util/StrictBitVector.java
 @@ -114,7 +114,8 @@ public class StrictBitVector implements BitVector {
     */
    @Override

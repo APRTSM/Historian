@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-26/src/java/org/apache/commons/cli/OptionBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-26-fixed/src/java/org/apache/commons/cli/OptionBuilder.java
+diff --git a/src/java/org/apache/commons/cli/OptionBuilder.java b/src/java/org/apache/commons/cli/OptionBuilder.java
 index 4d21b8b..60b4967 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-26/src/java/org/apache/commons/cli/OptionBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-26-fixed/src/java/org/apache/commons/cli/OptionBuilder.java
+--- a/src/java/org/apache/commons/cli/OptionBuilder.java
++++ b/src/java/org/apache/commons/cli/OptionBuilder.java
 @@ -345,8 +345,10 @@ public final class OptionBuilder
       */
      public static Option create(String opt) throws IllegalArgumentException

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-45/src/java/org/apache/commons/lang/WordUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-45-fixed/src/java/org/apache/commons/lang/WordUtils.java
+diff --git a/src/java/org/apache/commons/lang/WordUtils.java b/src/java/org/apache/commons/lang/WordUtils.java
 index 42bd883..91c6615 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-45/src/java/org/apache/commons/lang/WordUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-45-fixed/src/java/org/apache/commons/lang/WordUtils.java
+--- a/src/java/org/apache/commons/lang/WordUtils.java
++++ b/src/java/org/apache/commons/lang/WordUtils.java
 @@ -613,6 +613,9 @@ public class WordUtils {
  
          // if the lower value is greater than the length of the string,

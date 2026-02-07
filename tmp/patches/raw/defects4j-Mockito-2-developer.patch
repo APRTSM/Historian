@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-2/src/org/mockito/internal/util/Timer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-2-fixed/src/org/mockito/internal/util/Timer.java
+diff --git a/src/org/mockito/internal/util/Timer.java b/src/org/mockito/internal/util/Timer.java
 index 4a51e5c..907e545 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-2/src/org/mockito/internal/util/Timer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-2-fixed/src/org/mockito/internal/util/Timer.java
+--- a/src/org/mockito/internal/util/Timer.java
++++ b/src/org/mockito/internal/util/Timer.java
 @@ -1,5 +1,6 @@
  package org.mockito.internal.util;
  

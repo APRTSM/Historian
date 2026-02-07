@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-26/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-26-fixed/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
+diff --git a/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java b/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
 index 794677c..2b08d8a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-26/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-26-fixed/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
+--- a/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
++++ b/src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java
 @@ -274,7 +274,7 @@ public class MultiKey<K> implements Serializable {
       * only stable for the same process).
       * @return the instance with recalculated hash code

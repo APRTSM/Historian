@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-17/src/java/org/apache/commons/cli/PosixParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-17-fixed/src/java/org/apache/commons/cli/PosixParser.java
+diff --git a/src/java/org/apache/commons/cli/PosixParser.java b/src/java/org/apache/commons/cli/PosixParser.java
 index cafcede..1792c99 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-17/src/java/org/apache/commons/cli/PosixParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-17-fixed/src/java/org/apache/commons/cli/PosixParser.java
+--- a/src/java/org/apache/commons/cli/PosixParser.java
++++ b/src/java/org/apache/commons/cli/PosixParser.java
 @@ -300,6 +300,7 @@ public class PosixParser extends Parser {
              else if (stopAtNonOption)
              {

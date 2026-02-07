@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 index efc9c24db..a74d5ca62 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+--- a/src/org/traccar/protocol/MeitrackProtocolDecoder.java
++++ b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 @@ -219,13 +219,13 @@ public class MeitrackProtocolDecoder extends BaseProtocolDecoder {
  
          if (parser.hasNext()) {

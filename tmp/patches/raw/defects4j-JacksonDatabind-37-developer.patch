@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-37/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-37-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 index eca7e8e..1c741ec 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-37/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-37-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 @@ -132,7 +132,7 @@ public class SimpleType // note: until 2.6 was final
          }
          */

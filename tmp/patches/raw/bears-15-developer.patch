@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 index d74a2e99f..f2bc1cad7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 @@ -576,10 +576,13 @@ public class JacksonAnnotationIntrospector
      @Override
      public ObjectIdInfo findObjectReferenceInfo(Annotated ann, ObjectIdInfo objectIdInfo) {
@@ -19,10 +19,10 @@ index d74a2e99f..f2bc1cad7 100644
      }
  
      /*
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java b/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
 index 0457ec038..049ab3530 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java
 @@ -19,6 +19,11 @@ public class ObjectIdInfo
      protected final Class<?> _scope;
      protected final boolean _alwaysAsId;
@@ -46,10 +46,10 @@ index 0457ec038..049ab3530 100644
      public ObjectIdInfo withAlwaysAsId(boolean state) {
          if (_alwaysAsId == state) {
              return this;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
 index 658786da9..3b838cc8b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java
 @@ -429,15 +429,14 @@ public abstract class BeanSerializerBase
              if (objectIdInfo == null) {
                  // no ObjectId override, but maybe ObjectIdRef?

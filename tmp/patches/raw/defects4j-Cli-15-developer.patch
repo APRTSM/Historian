@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-15/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-15-fixed/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+diff --git a/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java b/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
 index 3ca952d..319f8c2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-15/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-15-fixed/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+--- a/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
++++ b/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
 @@ -114,17 +114,26 @@ public class WriteableCommandLineImpl
          List valueList = (List) values.get(option);
  

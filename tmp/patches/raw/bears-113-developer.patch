@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Pt502ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Pt502ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Pt502ProtocolDecoder.java b/src/org/traccar/protocol/Pt502ProtocolDecoder.java
 index eb86f01ff..b1851f8ca 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Pt502ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Pt502ProtocolDecoder.java
+--- a/src/org/traccar/protocol/Pt502ProtocolDecoder.java
++++ b/src/org/traccar/protocol/Pt502ProtocolDecoder.java
 @@ -1,5 +1,5 @@
  /*
 - * Copyright 2012 - 2016 Anton Tananaev (anton@traccar.org)

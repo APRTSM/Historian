@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-20/src/java/org/apache/commons/cli/PosixParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-20-fixed/src/java/org/apache/commons/cli/PosixParser.java
+diff --git a/src/java/org/apache/commons/cli/PosixParser.java b/src/java/org/apache/commons/cli/PosixParser.java
 index 7998f07..a93b73f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-20/src/java/org/apache/commons/cli/PosixParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-20-fixed/src/java/org/apache/commons/cli/PosixParser.java
+--- a/src/java/org/apache/commons/cli/PosixParser.java
++++ b/src/java/org/apache/commons/cli/PosixParser.java
 @@ -111,14 +111,19 @@ public class PosixParser extends Parser {
              // handle long option --foo or --foo=bar
              if (token.startsWith("--"))

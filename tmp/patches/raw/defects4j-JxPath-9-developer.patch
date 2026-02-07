@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
 index 26875b8..e083ab3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
 @@ -34,12 +34,20 @@ import org.apache.commons.jxpath.ri.axes.SelfContext;
   * @version $Revision$ $Date$
   */
@@ -74,10 +74,10 @@ index 26875b8..e083ab3 100644
      }
  
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
 index baca531..801e7fb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationEqual.java
 @@ -28,9 +28,6 @@ public class CoreOperationEqual extends CoreOperationCompare {
          super(arg1, arg2);
      }
@@ -88,10 +88,10 @@ index baca531..801e7fb 100644
      public String getSymbol() {
          return "=";
      }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
 index 6754f46..aad3f5f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-9-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationNotEqual.java
 @@ -25,12 +25,9 @@ package org.apache.commons.jxpath.ri.compiler;
  public class CoreOperationNotEqual extends CoreOperationCompare {
  

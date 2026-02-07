@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-10/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-10-fixed/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
 index bf6dd65..d5a3c18 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-10/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-10-fixed/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
 @@ -1416,6 +1416,7 @@ public class DSCompiler {
          }
  

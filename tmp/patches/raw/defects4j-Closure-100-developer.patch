@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-100/src/com/google/javascript/jscomp/CheckGlobalThis.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-100-fixed/src/com/google/javascript/jscomp/CheckGlobalThis.java
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalThis.java b/src/com/google/javascript/jscomp/CheckGlobalThis.java
 index 6390687..1b6c93f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-100/src/com/google/javascript/jscomp/CheckGlobalThis.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-100-fixed/src/com/google/javascript/jscomp/CheckGlobalThis.java
+--- a/src/com/google/javascript/jscomp/CheckGlobalThis.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalThis.java
 @@ -96,6 +96,13 @@ final class CheckGlobalThis implements Callback {
        // var a = function() { }; // or
        // function a() {} // or

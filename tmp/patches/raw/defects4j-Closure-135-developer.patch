@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135-fixed/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
+diff --git a/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java b/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
 index a42dc34..e7cfc6d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135-fixed/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
+--- a/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
++++ b/src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java
 @@ -359,6 +359,7 @@ class DevirtualizePrototypeMethods implements CompilerPass {
      for (Node child : node.children()) {
        if (NodeUtil.isThis(child)) {
@@ -10,10 +10,10 @@ index a42dc34..e7cfc6d 100644
          node.replaceChild(child, newName);
        } else {
          replaceReferencesToThis(child, name);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135/src/com/google/javascript/rhino/jstype/FunctionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
 index 3e8ab07..b318d8a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135/src/com/google/javascript/rhino/jstype/FunctionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-135-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
 @@ -409,6 +409,10 @@ public class FunctionType extends PrototypeObjectType {
      return super.hasProperty(name) || "prototype".equals(name);
    }

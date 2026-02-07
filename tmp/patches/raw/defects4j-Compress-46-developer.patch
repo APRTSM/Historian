@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-46/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-46-fixed/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java b/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
 index f7a7440..f050874 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-46/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-46-fixed/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java
 @@ -526,8 +526,7 @@ public class X5455_ExtendedTimestamp implements ZipExtraField, Cloneable, Serial
      }
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-6/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-6-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
 index 5058dd2..945cddb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-6/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-6-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java
 @@ -54,11 +54,19 @@ public abstract class CoreOperationCompare extends CoreOperation {
  //            (l == null ? "null" : l.getClass().getName()) + " " +
  //            (r == null ? "null" : r.getClass().getName()));

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-89/src/java/org/apache/commons/math/stat/Frequency.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-89-fixed/src/java/org/apache/commons/math/stat/Frequency.java
+diff --git a/src/java/org/apache/commons/math/stat/Frequency.java b/src/java/org/apache/commons/math/stat/Frequency.java
 index c8deca3..70d622d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-89/src/java/org/apache/commons/math/stat/Frequency.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-89-fixed/src/java/org/apache/commons/math/stat/Frequency.java
+--- a/src/java/org/apache/commons/math/stat/Frequency.java
++++ b/src/java/org/apache/commons/math/stat/Frequency.java
 @@ -107,7 +107,11 @@ public class Frequency implements Serializable {
       */
      @Deprecated

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-100/src/java/org/apache/commons/math/estimation/AbstractEstimator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-100-fixed/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
+diff --git a/src/java/org/apache/commons/math/estimation/AbstractEstimator.java b/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
 index ea5083d..8e5fe1a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-100/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-100-fixed/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
+--- a/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
++++ b/src/java/org/apache/commons/math/estimation/AbstractEstimator.java
 @@ -163,7 +163,7 @@ public abstract class AbstractEstimator implements Estimator {
  
          // compute transpose(J).J, avoiding building big intermediate matrices

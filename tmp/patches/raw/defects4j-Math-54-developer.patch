@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-54/src/main/java/org/apache/commons/math/dfp/Dfp.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-54-fixed/src/main/java/org/apache/commons/math/dfp/Dfp.java
+diff --git a/src/main/java/org/apache/commons/math/dfp/Dfp.java b/src/main/java/org/apache/commons/math/dfp/Dfp.java
 index 73f1ea3..54aabc4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-54/src/main/java/org/apache/commons/math/dfp/Dfp.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-54-fixed/src/main/java/org/apache/commons/math/dfp/Dfp.java
+--- a/src/main/java/org/apache/commons/math/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math/dfp/Dfp.java
 @@ -270,6 +270,9 @@ public class Dfp implements FieldElement<Dfp> {
              // Zero or sub-normal
              if (x == 0) {

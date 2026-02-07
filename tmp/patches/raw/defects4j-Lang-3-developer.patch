@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-3/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-3-fixed/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+diff --git a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
 index c584021..1e6ccdc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-3/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-3-fixed/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+--- a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
++++ b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
 @@ -590,18 +590,22 @@ public class NumberUtils {
          //Must be a Float, Double, BigDecimal
          final boolean allZeros = isAllZeros(mant) && isAllZeros(exp);

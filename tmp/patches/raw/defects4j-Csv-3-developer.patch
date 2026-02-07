@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-3/src/main/java/org/apache/commons/csv/Lexer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-3-fixed/src/main/java/org/apache/commons/csv/Lexer.java
+diff --git a/src/main/java/org/apache/commons/csv/Lexer.java b/src/main/java/org/apache/commons/csv/Lexer.java
 index 0a6a090..af99745 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-3/src/main/java/org/apache/commons/csv/Lexer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-3-fixed/src/main/java/org/apache/commons/csv/Lexer.java
+--- a/src/main/java/org/apache/commons/csv/Lexer.java
++++ b/src/main/java/org/apache/commons/csv/Lexer.java
 @@ -108,8 +108,11 @@ abstract class Lexer {
              throw new IOException("EOF whilst processing escape sequence");
          default:

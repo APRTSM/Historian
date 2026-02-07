@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
 index dbba25d3e..a3af8cc9a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java
 @@ -952,7 +952,9 @@ public class MapSerializer
          }
          // [databind#1411]: TreeMap does not like null key... (although note that

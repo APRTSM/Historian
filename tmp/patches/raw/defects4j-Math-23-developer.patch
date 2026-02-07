@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-23/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-23-fixed/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
 index 5136a14..25f2f50 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-23/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-23-fixed/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+--- a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
 @@ -148,6 +148,7 @@ public class BrentOptimizer extends BaseAbstractUnivariateOptimizer {
          UnivariatePointValuePair current
              = new UnivariatePointValuePair(x, isMinim ? fx : -fx);

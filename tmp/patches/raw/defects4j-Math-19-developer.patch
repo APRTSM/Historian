@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-19/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-19-fixed/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
 index 51d1c64..f6a4f28 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-19/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-19-fixed/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
 @@ -537,6 +537,19 @@ public class CMAESOptimizer
                  boundaries[1] = uB;
  

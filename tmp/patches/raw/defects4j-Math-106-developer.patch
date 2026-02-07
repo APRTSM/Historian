@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-106/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-106-fixed/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
+diff --git a/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java b/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
 index df2713d..a98b665 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-106/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-106-fixed/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
+--- a/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
++++ b/src/java/org/apache/commons/math/fraction/ProperFractionFormat.java
 @@ -162,7 +162,11 @@ public class ProperFractionFormat extends FractionFormat {
              return null;
          }

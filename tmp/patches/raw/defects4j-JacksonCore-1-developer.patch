@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1-fixed/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java b/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
 index 01c18d9..eb463b9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1-fixed/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+--- a/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
++++ b/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
 @@ -292,7 +292,11 @@ public final class NumberInput
  
      public static BigDecimal parseBigDecimal(String numStr) throws NumberFormatException
@@ -29,10 +29,10 @@ index 01c18d9..eb463b9 100644
 +        return new NumberFormatException("Value \""+str+"\" can not be represented as BigDecimal");
 +    }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 index a05410d..bab80e0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-1-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+--- a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 @@ -387,11 +387,11 @@ public final class TextBuffer
              return NumberInput.parseBigDecimal(_resultArray);
          }

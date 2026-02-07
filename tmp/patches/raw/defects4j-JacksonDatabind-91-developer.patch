@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-91/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-91-fixed/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java b/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
 index aae7e87..ded6b68 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-91/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-91-fixed/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java
 @@ -538,8 +538,16 @@ public final class DeserializerCache
              // First: value types may have both value and type handlers
              JavaType ct = t.getContentType();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-101/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-101-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
 index 8cdccde..88051e7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-101/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-101-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java
 @@ -768,12 +768,16 @@ public class BeanDeserializer
                      // if so, need to copy all remaining tokens into buffer
                      while (t == JsonToken.FIELD_NAME) {

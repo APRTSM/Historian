@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-40/src/main/java/org/apache/commons/compress/utils/BitInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-40-fixed/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/utils/BitInputStream.java b/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
 index 86dda14..35773b7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-40/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-40-fixed/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
+--- a/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
++++ b/src/main/java/org/apache/commons/compress/utils/BitInputStream.java
 @@ -82,7 +82,7 @@ public class BitInputStream implements Closeable {
          if (count < 0 || count > MAXIMUM_CACHE_SIZE) {
              throw new IllegalArgumentException("count must not be negative or greater than " + MAXIMUM_CACHE_SIZE);

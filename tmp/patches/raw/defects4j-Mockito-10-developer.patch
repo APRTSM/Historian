@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-10/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-10-fixed/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
+diff --git a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
 index e2ded55..3bb7636 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-10/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-10-fixed/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
+--- a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
++++ b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java
 @@ -14,6 +14,7 @@ import org.mockito.internal.stubbing.StubbedInvocationMatcher;
  import org.mockito.internal.util.MockUtil;
  import org.mockito.internal.util.reflection.GenericMetadataSupport;

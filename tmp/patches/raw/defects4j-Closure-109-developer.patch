@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-109/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-109-fixed/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
 index e30c350..c115e10 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-109/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-109-fixed/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
 @@ -1905,7 +1905,11 @@ public final class JsDocInfoParser {
     * For expressions on the right hand side of a this: or new:
     */

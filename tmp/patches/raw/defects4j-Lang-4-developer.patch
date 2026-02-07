@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-4/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-4-fixed/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java b/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
 index 8ed51bc..9cf45f8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-4/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-4-fixed/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
+--- a/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
 @@ -28,7 +28,7 @@ import java.util.HashMap;
   */
  public class LookupTranslator extends CharSequenceTranslator {

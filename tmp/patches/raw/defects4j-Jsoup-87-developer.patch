@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/nodes/Element.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/nodes/Element.java
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
 index 9652120..efbfced 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/nodes/Element.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/nodes/Element.java
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
 @@ -137,6 +137,9 @@ public class Element extends Node {
       * of the tag case preserving setting of the parser.
       * @return
@@ -12,10 +12,10 @@ index 9652120..efbfced 100644
  
      /**
       * Change the tag of this element. For example, convert a {@code <span>} to a {@code <div>} with
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 index 1bffec7..bea598d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 @@ -312,7 +312,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
      Element getFromStack(String elName) {
          for (int pos = stack.size() -1; pos >= 0; pos--) {
@@ -135,10 +135,10 @@ index 1bffec7..bea598d 100644
                  return next;
          }
          return null;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 index b51991f..a5532c7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 @@ -312,11 +312,11 @@ enum HtmlTreeBuilderState {
                          ArrayList<Element> stack = tb.getStack();
                          for (int i = stack.size() - 1; i > 0; i--) {
@@ -457,10 +457,10 @@ index b51991f..a5532c7 100644
                      tb.error(this);
                      return true;
                  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/Tag.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/Tag.java
+diff --git a/src/main/java/org/jsoup/parser/Tag.java b/src/main/java/org/jsoup/parser/Tag.java
 index 25488df..1808572 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87/src/main/java/org/jsoup/parser/Tag.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-87-fixed/src/main/java/org/jsoup/parser/Tag.java
+--- a/src/main/java/org/jsoup/parser/Tag.java
++++ b/src/main/java/org/jsoup/parser/Tag.java
 @@ -1,6 +1,7 @@
  package org.jsoup.parser;
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-21/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-21-fixed/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
 index 9a24c00..52a4436 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-21/src/main/java/org/apache/commons/lang3/time/DateUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-21-fixed/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
 @@ -262,7 +262,7 @@ public class DateUtils {
          return (cal1.get(Calendar.MILLISECOND) == cal2.get(Calendar.MILLISECOND) &&
                  cal1.get(Calendar.SECOND) == cal2.get(Calendar.SECOND) &&

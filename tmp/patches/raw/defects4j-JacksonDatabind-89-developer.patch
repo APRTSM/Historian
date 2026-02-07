@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-89/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-89-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
 index 1ae69f6..9301c66 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-89/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-89-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
 @@ -62,7 +62,13 @@ public class BeanDeserializerFactory
          // [databind#1680]: may or may not be problem, take no chance
          s.add("com.sun.rowset.JdbcRowSetImpl");

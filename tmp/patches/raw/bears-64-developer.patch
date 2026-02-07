@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+diff --git a/src/main/java/spoon/support/visitor/ClassTypingContext.java b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 index 36e5c588d..4cec5502e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+--- a/src/main/java/spoon/support/visitor/ClassTypingContext.java
++++ b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 @@ -42,6 +42,7 @@ import spoon.reflect.reference.CtWildcardReference;
  import spoon.reflect.visitor.chain.CtConsumer;
  import spoon.reflect.visitor.chain.ScanningMode;

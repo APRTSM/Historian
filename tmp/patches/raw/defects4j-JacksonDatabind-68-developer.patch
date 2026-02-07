@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-68/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-68-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
 index ac95adc..3c68604 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-68/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-68-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
 @@ -1189,9 +1189,10 @@ public abstract class BeanDeserializerBase
      protected Object deserializeFromObjectUsingNonDefault(JsonParser p,
              DeserializationContext ctxt) throws IOException

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
+diff --git a/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java b/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
 index c36e1ad04..9e64ebfa8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
+--- a/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
++++ b/src/main/java/org/springframework/data/mapping/model/AbstractPersistentProperty.java
 @@ -62,8 +62,9 @@ public abstract class AbstractPersistentProperty<P extends PersistentProperty<P>
  		Assert.notNull(owner, "Owner entity must not be null!");
  

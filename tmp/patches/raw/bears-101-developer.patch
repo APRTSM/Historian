@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gl200ProtocolDecoder.java b/src/org/traccar/protocol/Gl200ProtocolDecoder.java
 index 60addcd04..ab6507122 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200ProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gl200ProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gl200ProtocolDecoder.java
 @@ -32,6 +32,7 @@ import org.traccar.model.WifiAccessPoint;
  import java.net.SocketAddress;
  import java.util.LinkedList;

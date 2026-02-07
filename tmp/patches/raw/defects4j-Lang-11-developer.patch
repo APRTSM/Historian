@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-11/src/main/java/org/apache/commons/lang3/RandomStringUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-11-fixed/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+diff --git a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
 index a799057..9dfee22 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-11/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-11-fixed/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+--- a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
 @@ -242,6 +242,10 @@ public class RandomStringUtils {
                      start = ' ';                
                  }

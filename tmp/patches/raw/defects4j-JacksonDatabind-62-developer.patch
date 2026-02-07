@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-62/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-62-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
 index 7f58b7a..33d8878 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-62/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-62-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/CollectionDeserializer.java
 @@ -181,6 +181,14 @@ public class CollectionDeserializer
                              +") returned true for 'canCreateUsingDelegate()', but null for 'getDelegateType()'");
                  }

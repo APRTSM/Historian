@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-92/src/java/org/apache/commons/math/util/MathUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-92-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+diff --git a/src/java/org/apache/commons/math/util/MathUtils.java b/src/java/org/apache/commons/math/util/MathUtils.java
 index 1ae554c..03c92eb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-92/src/java/org/apache/commons/math/util/MathUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-92-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+--- a/src/java/org/apache/commons/math/util/MathUtils.java
++++ b/src/java/org/apache/commons/math/util/MathUtils.java
 @@ -181,30 +181,43 @@ public final class MathUtils {
          if ((k == 1) || (k == n - 1)) {
              return n;

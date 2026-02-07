@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-1/src/main/java/org/jsoup/nodes/Document.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-1-fixed/src/main/java/org/jsoup/nodes/Document.java
+diff --git a/src/main/java/org/jsoup/nodes/Document.java b/src/main/java/org/jsoup/nodes/Document.java
 index bc0f650..6ed4c12 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-1/src/main/java/org/jsoup/nodes/Document.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-1-fixed/src/main/java/org/jsoup/nodes/Document.java
+--- a/src/main/java/org/jsoup/nodes/Document.java
++++ b/src/main/java/org/jsoup/nodes/Document.java
 @@ -122,8 +122,8 @@ public class Document extends Element {
  
          for (Node node: toMove) {

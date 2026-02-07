@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+diff --git a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
 index 79f2247..d88520c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+--- a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
++++ b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
 @@ -23,7 +23,7 @@ import com.google.common.collect.Lists;
  import com.google.common.collect.Maps;
  import com.google.common.collect.Multiset;
@@ -211,10 +211,10 @@ index 79f2247..d88520c 100644
        if (!declarations.containsKey(name)) {
          declarations.put(name, getUniqueName(name));
        }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/NodeUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/NodeUtil.java
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
 index c69d9d1..6c3643a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/NodeUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/NodeUtil.java
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
 @@ -1040,6 +1040,9 @@ public final class NodeUtil {
     * @return Whether the name is a reference to a variable, function or
     *       function parameter (not a label or a empty anonymous function name).
@@ -225,10 +225,10 @@ index c69d9d1..6c3643a 100644
  
    /** @return Whether the node is a label name. */
    static boolean isLabelName(Node n) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/Normalize.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/Normalize.java
+diff --git a/src/com/google/javascript/jscomp/Normalize.java b/src/com/google/javascript/jscomp/Normalize.java
 index a8526b5..993b68d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137/src/com/google/javascript/jscomp/Normalize.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-137-fixed/src/com/google/javascript/jscomp/Normalize.java
+--- a/src/com/google/javascript/jscomp/Normalize.java
++++ b/src/com/google/javascript/jscomp/Normalize.java
 @@ -79,7 +79,6 @@ class Normalize implements CompilerPass {
    public void process(Node externs, Node root) {
      NodeTraversal.traverse(compiler, root,

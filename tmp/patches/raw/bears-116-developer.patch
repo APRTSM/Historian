@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SanavProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SanavProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/SanavProtocolDecoder.java b/src/org/traccar/protocol/SanavProtocolDecoder.java
 index c736b2ba3..151c55795 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SanavProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SanavProtocolDecoder.java
+--- a/src/org/traccar/protocol/SanavProtocolDecoder.java
++++ b/src/org/traccar/protocol/SanavProtocolDecoder.java
 @@ -38,7 +38,7 @@ public class SanavProtocolDecoder extends BaseProtocolDecoder {
              .number("(d+)")                      // imei
              .expression("&?rmc[:=]")

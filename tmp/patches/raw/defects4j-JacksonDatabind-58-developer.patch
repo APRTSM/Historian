@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-58/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-58-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
 index df86121..128e462 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-58/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-58-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java
 @@ -712,7 +712,12 @@ public class BeanDeserializerFactory
              // [databind#877]: explicitly prevent forced access to `cause` of `Throwable`;
              // never needed and attempts may cause problems on some platforms.

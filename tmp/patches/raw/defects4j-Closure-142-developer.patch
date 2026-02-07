@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142/src/com/google/javascript/jscomp/CoalesceVariableNames.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142-fixed/src/com/google/javascript/jscomp/CoalesceVariableNames.java
+diff --git a/src/com/google/javascript/jscomp/CoalesceVariableNames.java b/src/com/google/javascript/jscomp/CoalesceVariableNames.java
 index 78c27b3..e990c82 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142/src/com/google/javascript/jscomp/CoalesceVariableNames.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142-fixed/src/com/google/javascript/jscomp/CoalesceVariableNames.java
+--- a/src/com/google/javascript/jscomp/CoalesceVariableNames.java
++++ b/src/com/google/javascript/jscomp/CoalesceVariableNames.java
 @@ -105,6 +105,9 @@ class CoalesceVariableNames extends AbstractPostOrderCallback implements
      // a work-around for an IE bug where it throws an exception if you
      // write to the parameters of the callback in a sort(). See:
@@ -12,10 +12,10 @@ index 78c27b3..e990c82 100644
      liveness.analyze();
  
      UndiGraph<Var, Void> interferenceGraph =
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142-fixed/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
 index cdcd2ff..216740b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-142-fixed/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
 @@ -1165,6 +1165,8 @@ public final class JsDocInfoParser {
          case EOF:
            // When we're capturing a license block, annotations

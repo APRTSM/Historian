@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-73/src/main/java/org/jsoup/helper/W3CDom.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-73-fixed/src/main/java/org/jsoup/helper/W3CDom.java
+diff --git a/src/main/java/org/jsoup/helper/W3CDom.java b/src/main/java/org/jsoup/helper/W3CDom.java
 index f58a925..81ac932 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-73/src/main/java/org/jsoup/helper/W3CDom.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-73-fixed/src/main/java/org/jsoup/helper/W3CDom.java
+--- a/src/main/java/org/jsoup/helper/W3CDom.java
++++ b/src/main/java/org/jsoup/helper/W3CDom.java
 @@ -19,6 +19,7 @@ import javax.xml.transform.dom.DOMSource;
  import javax.xml.transform.stream.StreamResult;
  import java.io.StringWriter;

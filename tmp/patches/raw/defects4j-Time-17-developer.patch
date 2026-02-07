@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-17/src/main/java/org/joda/time/DateTimeZone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-17-fixed/src/main/java/org/joda/time/DateTimeZone.java
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
 index 74a3802..7219899 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-17/src/main/java/org/joda/time/DateTimeZone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-17-fixed/src/main/java/org/joda/time/DateTimeZone.java
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
 @@ -1164,19 +1164,32 @@ public abstract class DateTimeZone implements Serializable {
          // a bit messy, but will work in all non-pathological cases
          

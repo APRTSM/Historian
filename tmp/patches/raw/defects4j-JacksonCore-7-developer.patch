@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-7/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-7-fixed/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java b/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
 index 4ff12d7..a5706c8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-7/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-7-fixed/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
 @@ -166,6 +166,9 @@ public class JsonWriteContext extends JsonStreamContext
      public int writeValue() {
          // Most likely, object:

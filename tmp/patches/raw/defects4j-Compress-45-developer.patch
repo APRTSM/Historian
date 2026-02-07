@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-45/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-45-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 index 39ce5c1..d132d9d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-45/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-45-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 @@ -484,8 +484,9 @@ public class TarUtils {
  
          if (length < 9) {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-5/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-5-fixed/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
 index 6ff8d5f..8ba1c04 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-5/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-5-fixed/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/NodePointer.java
 @@ -662,9 +662,7 @@ public abstract class NodePointer implements Pointer {
          }
  

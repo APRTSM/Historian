@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8/src/java/org/apache/commons/codec/binary/Base64.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+diff --git a/src/java/org/apache/commons/codec/binary/Base64.java b/src/java/org/apache/commons/codec/binary/Base64.java
 index 76f14f5..2521c27 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8/src/java/org/apache/commons/codec/binary/Base64.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
 @@ -416,13 +416,6 @@ public class Base64 implements BinaryEncoder, BinaryDecoder {
          return eof ? -1 : 0;
      }
@@ -16,10 +16,10 @@ index 76f14f5..2521c27 100644
      /**
       * <p>
       * Encodes all of the provided data, starting at inPos, for inAvail bytes. Must be called at least twice: once with
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8/src/java/org/apache/commons/codec/binary/Base64InputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8-fixed/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+diff --git a/src/java/org/apache/commons/codec/binary/Base64InputStream.java b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
 index a706702..ad006f2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8/src/java/org/apache/commons/codec/binary/Base64InputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-8-fixed/src/java/org/apache/commons/codec/binary/Base64InputStream.java
+--- a/src/java/org/apache/commons/codec/binary/Base64InputStream.java
++++ b/src/java/org/apache/commons/codec/binary/Base64InputStream.java
 @@ -166,9 +166,6 @@ public class Base64InputStream extends FilterInputStream {
                  if (!base64.hasData()) {
                      byte[] buf = new byte[doEncode ? 4096 : 8192];

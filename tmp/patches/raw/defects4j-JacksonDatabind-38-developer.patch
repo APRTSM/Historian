@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java b/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
 index 39c1038..e0a7856 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java
 @@ -1,5 +1,6 @@
  package com.fasterxml.jackson.databind.type;
  
@@ -25,10 +25,10 @@ index 39c1038..e0a7856 100644
                  // !!! TODO: Wrong, does have supertypes, but:
                  _bogusSuperClass(rawType), null, elemT,
                  null, null, false);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/MapType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/MapType.java b/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
 index a11767f..e71abb6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/MapType.java
 @@ -1,5 +1,6 @@
  package com.fasterxml.jackson.databind.type;
  
@@ -53,10 +53,10 @@ index a11767f..e71abb6 100644
                  keyT, valueT, null, null, false);
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 index ceb0117..1174710 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-38-fixed/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java
 @@ -113,8 +113,9 @@ public class SimpleType // note: until 2.6 was final
          if (cls.isArray()) {
              throw new IllegalArgumentException("Can not construct SimpleType for an array (class: "+cls.getName()+")");

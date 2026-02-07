@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-11/source/org/jfree/chart/util/ShapeUtilities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-11-fixed/source/org/jfree/chart/util/ShapeUtilities.java
+diff --git a/source/org/jfree/chart/util/ShapeUtilities.java b/source/org/jfree/chart/util/ShapeUtilities.java
 index 31aa6c6..f49ecb5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-11/source/org/jfree/chart/util/ShapeUtilities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-11-fixed/source/org/jfree/chart/util/ShapeUtilities.java
+--- a/source/org/jfree/chart/util/ShapeUtilities.java
++++ b/source/org/jfree/chart/util/ShapeUtilities.java
 @@ -272,7 +272,7 @@ public class ShapeUtilities {
              return false;
          }

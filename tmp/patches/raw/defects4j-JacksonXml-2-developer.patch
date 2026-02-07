@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-2/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-2-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
+diff --git a/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java b/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
 index fe37ee9..5e03896 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-2/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-2-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
+--- a/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
++++ b/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java
 @@ -59,6 +59,7 @@ public class XmlTokenStream
       *
       * @since 2.8

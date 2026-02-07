@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-107/src/com/google/javascript/jscomp/CommandLineRunner.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-107-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
 index 93b3547..3aae2e7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-107/src/com/google/javascript/jscomp/CommandLineRunner.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-107-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
 @@ -859,6 +859,7 @@ public class CommandLineRunner extends
        // so we might as well inline it. But shut off the i18n warnings,
        // because the user didn't really ask for i18n.

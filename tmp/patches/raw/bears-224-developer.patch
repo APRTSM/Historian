@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/valuestreams/pipeline/Pipeline.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/valuestreams/pipeline/Pipeline.java
+diff --git a/src/main/java/valuestreams/pipeline/Pipeline.java b/src/main/java/valuestreams/pipeline/Pipeline.java
 index 94155080c..87f14a947 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/valuestreams/pipeline/Pipeline.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/valuestreams/pipeline/Pipeline.java
+--- a/src/main/java/valuestreams/pipeline/Pipeline.java
++++ b/src/main/java/valuestreams/pipeline/Pipeline.java
 @@ -109,19 +109,23 @@ public class Pipeline<I, O> {
       */
      @SuppressWarnings({"rawtypes", "unchecked"})

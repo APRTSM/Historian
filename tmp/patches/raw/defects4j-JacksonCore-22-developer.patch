@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-22/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-22-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 index 4dc7c9a..4459e7f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-22/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-22-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+--- a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
++++ b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 @@ -414,7 +414,7 @@ public class FilteringParserDelegate extends JsonParserDelegate
                  }
                  _itemFilter = f;

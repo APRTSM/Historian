@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-93/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-93-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
 index afc7c45..42273e0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-93/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-93-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
+--- a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
++++ b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
 @@ -80,8 +80,8 @@ public class SubTypeValidator
              // 18-Dec-2017, tatu: As per [databind#1855], need bit more sophisticated handling
              //    for some Spring framework types

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/factory/ExecutableFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+diff --git a/src/main/java/spoon/reflect/factory/ExecutableFactory.java b/src/main/java/spoon/reflect/factory/ExecutableFactory.java
 index d06fe9a42..e4ea1ff86 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/factory/ExecutableFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+--- a/src/main/java/spoon/reflect/factory/ExecutableFactory.java
++++ b/src/main/java/spoon/reflect/factory/ExecutableFactory.java
 @@ -114,6 +114,7 @@ public class ExecutableFactory extends SubFactory {
  		} else if (e instanceof CtAnonymousExecutable) {
  			return createReference(((CtAnonymousExecutable) e).getDeclaringType().getReference(), e.getType().clone(), executableName);
@@ -10,10 +10,10 @@ index d06fe9a42..e4ea1ff86 100644
  		return createReference(((CtConstructor<T>) e).getDeclaringType().getReference(), ((CtConstructor<T>) e).getType().clone(), CtExecutableReference.CONSTRUCTOR_NAME, refs);
  	}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ParentExiter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/ParentExiter.java b/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
 index 51bbfa304..f7fa778c0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
+--- a/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
++++ b/src/main/java/spoon/support/compiler/jdt/ParentExiter.java
 @@ -721,9 +721,7 @@ public class ParentExiter extends CtInheritanceScanner {
  	private <T> boolean hasChildEqualsToType(CtConstructorCall<T> ctConstructorCall) {
  		final AllocationExpression parent = (AllocationExpression) jdtTreeBuilder.getContextBuilder().stack.peek().node;
@@ -25,10 +25,10 @@ index 51bbfa304..f7fa778c0 100644
  	}
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java b/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
 index f873b1f94..a8c820834 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
 @@ -338,11 +338,14 @@ public class ReferenceBuilder {
  		if (exec == null) {
  			return null;

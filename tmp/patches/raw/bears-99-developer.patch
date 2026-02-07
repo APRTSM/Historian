@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02FrameDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02FrameDecoder.java
+diff --git a/src/org/traccar/protocol/H02FrameDecoder.java b/src/org/traccar/protocol/H02FrameDecoder.java
 index a22252a57..b2da64847 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02FrameDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02FrameDecoder.java
+--- a/src/org/traccar/protocol/H02FrameDecoder.java
++++ b/src/org/traccar/protocol/H02FrameDecoder.java
 @@ -1,5 +1,5 @@
  /*
 - * Copyright 2013 - 2016 Anton Tananaev (anton@traccar.org)
@@ -31,10 +31,10 @@ index a22252a57..b2da64847 100644
          }
  
          return null;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/H02ProtocolDecoder.java b/src/org/traccar/protocol/H02ProtocolDecoder.java
 index 431dd5c3c..c2a3b2b09 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02ProtocolDecoder.java
+--- a/src/org/traccar/protocol/H02ProtocolDecoder.java
++++ b/src/org/traccar/protocol/H02ProtocolDecoder.java
 @@ -1,5 +1,5 @@
  /*
 - * Copyright 2012 - 2016 Anton Tananaev (anton@traccar.org)

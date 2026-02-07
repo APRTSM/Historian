@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-21/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-21-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 index e6558fd..5274f33 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-21/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-21-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+--- a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
++++ b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 @@ -235,6 +235,7 @@ public class FilteringParserDelegate extends JsonParserDelegate
          // If all the conditions matches then check for scalar / non-scalar property
          if (!_allowMultipleMatches && (_currToken != null) && (_exposedContext == null)) {

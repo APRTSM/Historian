@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/WriteableCommandLine.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/WriteableCommandLine.java
+diff --git a/src/java/org/apache/commons/cli2/WriteableCommandLine.java b/src/java/org/apache/commons/cli2/WriteableCommandLine.java
 index d6aaf49..8bd6752 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/WriteableCommandLine.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/WriteableCommandLine.java
+--- a/src/java/org/apache/commons/cli2/WriteableCommandLine.java
++++ b/src/java/org/apache/commons/cli2/WriteableCommandLine.java
 @@ -99,6 +99,7 @@ public interface WriteableCommandLine extends CommandLine {
       *
       * @return the current option
@@ -16,10 +16,10 @@ index d6aaf49..8bd6752 100644
       */
 +    void setCurrentOption(Option currentOption);
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+diff --git a/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java b/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
 index 88d3286..8c5e29b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
+--- a/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
++++ b/src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java
 @@ -48,6 +48,8 @@ public class WriteableCommandLineImpl
      private final Map defaultSwitches = new HashMap();
      private final List normalised;
@@ -82,10 +82,10 @@ index 88d3286..8c5e29b 100644
      }
  
      public String toString() {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/option/GroupImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/option/GroupImpl.java
+diff --git a/src/java/org/apache/commons/cli2/option/GroupImpl.java b/src/java/org/apache/commons/cli2/option/GroupImpl.java
 index 75d87f7..fc5a82d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21/src/java/org/apache/commons/cli2/option/GroupImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-21-fixed/src/java/org/apache/commons/cli2/option/GroupImpl.java
+--- a/src/java/org/apache/commons/cli2/option/GroupImpl.java
++++ b/src/java/org/apache/commons/cli2/option/GroupImpl.java
 @@ -510,7 +510,13 @@ public class GroupImpl
       */
      private boolean looksLikeOption(final WriteableCommandLine commandLine,

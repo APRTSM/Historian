@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-2/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-2-fixed/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java b/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
 index 5f7dcd0..355c8e3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-2/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-2-fixed/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/Expression.java
 @@ -16,6 +16,7 @@
   */
  package org.apache.commons.jxpath.ri.compiler;

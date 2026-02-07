@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
+diff --git a/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java b/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
 index c9df10440..3a98fb911 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
+--- a/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
++++ b/molgenis-data-postgresql/src/main/java/org/molgenis/data/postgresql/PostgreSqlEntityFactory.java
 @@ -192,15 +192,15 @@ class PostgreSqlEntityFactory
  		{
  			EntityType entityType = attr.getRefEntity();

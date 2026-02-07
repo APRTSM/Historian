@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-102/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-102-fixed/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
+diff --git a/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java b/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
 index c87b010..984d56d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-102/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-102-fixed/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
+--- a/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
++++ b/src/java/org/apache/commons/math/stat/inference/ChiSquareTestImpl.java
 @@ -71,11 +71,28 @@ public class ChiSquareTestImpl implements UnknownDistributionChiSquareTest {
              throw new IllegalArgumentException(
                  "observed counts must be non-negative and expected counts must be postive");

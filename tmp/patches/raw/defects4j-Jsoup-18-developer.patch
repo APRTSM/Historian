@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-18/src/main/java/org/jsoup/parser/CharacterReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-18-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
 index a9a2683..d05c3cd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-18/src/main/java/org/jsoup/parser/CharacterReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-18-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
 @@ -15,6 +15,7 @@ class CharacterReader {
  
      CharacterReader(String input) {

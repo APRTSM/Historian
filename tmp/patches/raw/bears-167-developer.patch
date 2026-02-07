@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
+diff --git a/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java b/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
 index 7bd7d5874..28274271d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
+--- a/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
++++ b/address-controller/src/main/java/io/enmasse/controller/api/v1/AddressApiHelper.java
 @@ -9,6 +9,7 @@ import java.util.HashSet;
  import java.util.Optional;
  import java.util.Set;

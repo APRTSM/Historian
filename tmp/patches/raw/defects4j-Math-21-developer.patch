@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-21/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-21-fixed/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
+diff --git a/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
 index 04488e5..aba7b98 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-21/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-21-fixed/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
+--- a/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
 @@ -66,7 +66,6 @@ public class RectangularCholeskyDecomposition {
          final double[][] c = matrix.getData();
          final double[][] b = new double[order][order];

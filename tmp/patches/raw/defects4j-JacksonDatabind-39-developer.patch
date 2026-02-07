@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-39/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-39-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
 index 5bc789f..0453595 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-39/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-39-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/NullifyingDeserializer.java
 @@ -32,7 +32,17 @@ public class NullifyingDeserializer
      {
          // 29-Jan-2016, tatu: Simple skipping for all other tokens, but FIELD_NAME bit

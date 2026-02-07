@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-11/src/main/java/org/jsoup/select/Selector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-11-fixed/src/main/java/org/jsoup/select/Selector.java
+diff --git a/src/main/java/org/jsoup/select/Selector.java b/src/main/java/org/jsoup/select/Selector.java
 index 13341ce..e370de8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-11/src/main/java/org/jsoup/select/Selector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-11-fixed/src/main/java/org/jsoup/select/Selector.java
+--- a/src/main/java/org/jsoup/select/Selector.java
++++ b/src/main/java/org/jsoup/select/Selector.java
 @@ -107,6 +107,8 @@ public class Selector {
          if (tq.matchesAny(combinators)) { // if starts with a combinator, use root as elements
              elements.add(root);

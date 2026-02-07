@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-63/src/main/java/org/apache/commons/math/util/MathUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-63-fixed/src/main/java/org/apache/commons/math/util/MathUtils.java
+diff --git a/src/main/java/org/apache/commons/math/util/MathUtils.java b/src/main/java/org/apache/commons/math/util/MathUtils.java
 index 1361849..ab0fe33 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-63/src/main/java/org/apache/commons/math/util/MathUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-63-fixed/src/main/java/org/apache/commons/math/util/MathUtils.java
+--- a/src/main/java/org/apache/commons/math/util/MathUtils.java
++++ b/src/main/java/org/apache/commons/math/util/MathUtils.java
 @@ -414,7 +414,7 @@ public final class MathUtils {
       * @return {@code true} if the values are equal.
       */

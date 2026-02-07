@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
 index b43c092..5e353d3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java
 @@ -125,7 +125,8 @@ public class StdKeyDeserializer extends KeyDeserializer
                  return result;
              }
@@ -12,10 +12,10 @@ index b43c092..5e353d3 100644
          }
          if (_keyClass.isEnum() && ctxt.getConfig().isEnabled(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)) {
              return null;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java b/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
 index 27a115f..7f8e76d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-65-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/BasicBeanDescription.java
 @@ -522,7 +522,7 @@ public class BasicBeanDescription extends BeanDescription
          // So, of all single-arg static methods:
          for (AnnotatedMethod am : _classInfo.getStaticMethods()) {

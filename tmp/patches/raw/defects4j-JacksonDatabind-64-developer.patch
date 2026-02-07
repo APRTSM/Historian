@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-64/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-64-fixed/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java b/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
 index 2bd2405..6363421 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-64/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-64-fixed/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
 @@ -149,17 +149,22 @@ public class PropertyBuilder
              //    whereas for global defaults OR per-property overrides, we have more
              //    static definition. Sigh.

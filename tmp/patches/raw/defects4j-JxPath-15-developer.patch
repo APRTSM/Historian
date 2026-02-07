@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-15/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-15-fixed/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java b/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
 index 04adadf..80e111e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-15/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-15-fixed/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
+--- a/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
++++ b/src/java/org/apache/commons/jxpath/ri/axes/UnionContext.java
 @@ -17,8 +17,10 @@
  package org.apache.commons.jxpath.ri.axes;
  

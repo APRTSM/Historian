@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
+diff --git a/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java b/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
 index 14fa4535e..9246b3049 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
+--- a/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
++++ b/molgenis-semantic-mapper/src/main/java/org/molgenis/semanticmapper/service/impl/AlgorithmServiceImpl.java
 @@ -10,6 +10,7 @@ import org.molgenis.data.meta.model.EntityType;
  import org.molgenis.data.semantic.Relation;
  import org.molgenis.js.magma.JsMagmaScriptEvaluator;

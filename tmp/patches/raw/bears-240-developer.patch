@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
+diff --git a/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java b/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
 index f18fd1399..8d1e4c9dc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
+--- a/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
++++ b/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/context/CxJoined.java
 @@ -63,7 +63,7 @@ public final class CxJoined implements Context {
       * Ctor.
       * @param contexts Contexts
@@ -11,10 +11,10 @@ index f18fd1399..8d1e4c9dc 100644
          this(contexts, new CxSimple());
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
+diff --git a/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java b/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
 index b2ad0f95d..a2d3aee77 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
+--- a/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
++++ b/seeds-core/src/main/java/com/github/smallcreep/cucumber/seeds/suit/StDefault.java
 @@ -24,9 +24,12 @@
  
  package com.github.smallcreep.cucumber.seeds.suit;

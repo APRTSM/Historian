@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90-fixed/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java b/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
 index b721f69..fceac96 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90-fixed/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java
 @@ -69,7 +69,7 @@ public abstract class ValueInstantiator
       */
      public boolean canInstantiate() {
@@ -11,10 +11,10 @@ index b721f69..fceac96 100644
                  || canCreateFromObjectWith() || canCreateFromString()
                  || canCreateFromInt() || canCreateFromLong()
                  || canCreateFromDouble() || canCreateFromBoolean();
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
 index 917bdfe..9705770 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-90-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java
 @@ -229,6 +229,14 @@ public class StdValueInstantiator
          return (_withArgsCreator != null);
      }

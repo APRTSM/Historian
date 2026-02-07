@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-52/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-52-fixed/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
+diff --git a/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
 index 20f5b34..ada0a8f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-52/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-52-fixed/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
+--- a/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math/geometry/euclidean/threed/Rotation.java
 @@ -341,7 +341,8 @@ public class Rotation implements Serializable {
    Vector3D k     = v1Su1.crossProduct(v2Su2);
    Vector3D u3    = u1.crossProduct(u2);

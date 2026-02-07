@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/joo/libra/pointer/VariablePredicate.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/joo/libra/pointer/VariablePredicate.java
+diff --git a/src/main/java/org/joo/libra/pointer/VariablePredicate.java b/src/main/java/org/joo/libra/pointer/VariablePredicate.java
 index a7ad5baa5..9186475ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/joo/libra/pointer/VariablePredicate.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/joo/libra/pointer/VariablePredicate.java
+--- a/src/main/java/org/joo/libra/pointer/VariablePredicate.java
++++ b/src/main/java/org/joo/libra/pointer/VariablePredicate.java
 @@ -1,5 +1,7 @@
  package org.joo.libra.pointer;
  

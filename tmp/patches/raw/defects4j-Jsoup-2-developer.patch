@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-2/src/main/java/org/jsoup/parser/Parser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-2-fixed/src/main/java/org/jsoup/parser/Parser.java
+diff --git a/src/main/java/org/jsoup/parser/Parser.java b/src/main/java/org/jsoup/parser/Parser.java
 index da4bdce..e7284d5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-2/src/main/java/org/jsoup/parser/Parser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-2-fixed/src/main/java/org/jsoup/parser/Parser.java
+--- a/src/main/java/org/jsoup/parser/Parser.java
++++ b/src/main/java/org/jsoup/parser/Parser.java
 @@ -145,6 +145,7 @@ public class Parser {
          if (tag.isData()) {
              String data = tq.chompTo("</" + tagName);

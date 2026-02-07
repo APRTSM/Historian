@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
+diff --git a/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java b/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
 index 50a39b41c..c43be44c5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
+--- a/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
++++ b/pippo-session-parent/pippo-session/src/main/java/ro/pippo/session/ClassFilter.java
 @@ -9,7 +9,7 @@ public class ClassFilter {
      private ArrayList<String> WhiteList= null;
      public ClassFilter() {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30-fixed/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+diff --git a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
 index d53a8f8..3f39c07 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30-fixed/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+--- a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
++++ b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
 @@ -154,7 +154,7 @@ class FlowSensitiveInlineVariables extends AbstractPostOrderCallback
  
    @Override
@@ -11,10 +11,10 @@ index d53a8f8..3f39c07 100644
    }
  
    @Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30-fixed/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
 index 1487af3..589f673 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-30-fixed/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
 @@ -68,6 +68,7 @@ final class MustBeReachingVariableDef extends
    private static class Definition {
      final Node node;

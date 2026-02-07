@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-6/src/com/google/javascript/jscomp/TypeValidator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-6-fixed/src/com/google/javascript/jscomp/TypeValidator.java
+diff --git a/src/com/google/javascript/jscomp/TypeValidator.java b/src/com/google/javascript/jscomp/TypeValidator.java
 index 8cdb02a..12ce5b3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-6/src/com/google/javascript/jscomp/TypeValidator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-6-fixed/src/com/google/javascript/jscomp/TypeValidator.java
+--- a/src/com/google/javascript/jscomp/TypeValidator.java
++++ b/src/com/google/javascript/jscomp/TypeValidator.java
 @@ -363,9 +363,6 @@ class TypeValidator {
        JSType leftType, Node owner, String propName) {
      // The NoType check is a hack to make typedefs work OK.

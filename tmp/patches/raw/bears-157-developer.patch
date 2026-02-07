@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/runtime/src/main/java/org/corfudb/util/NodeLocator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/runtime/src/main/java/org/corfudb/util/NodeLocator.java
+diff --git a/runtime/src/main/java/org/corfudb/util/NodeLocator.java b/runtime/src/main/java/org/corfudb/util/NodeLocator.java
 index ea9b80583..d9efcd536 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/runtime/src/main/java/org/corfudb/util/NodeLocator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/runtime/src/main/java/org/corfudb/util/NodeLocator.java
+--- a/runtime/src/main/java/org/corfudb/util/NodeLocator.java
++++ b/runtime/src/main/java/org/corfudb/util/NodeLocator.java
 @@ -142,9 +142,9 @@ public class NodeLocator implements Serializable {
          if (otherNode.getNodeId() != null && otherNode.getNodeId().equals(getNodeId())) {
              return true;

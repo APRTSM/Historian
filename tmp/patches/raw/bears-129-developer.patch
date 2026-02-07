@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 index 988fd71c8..090e02812 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 @@ -65,7 +65,7 @@ public class Gl200TextProtocolDecoder extends BaseProtocolDecoder {
              .expression("(?:[0-9A-Z]{17},)?")    // vin
              .expression("(?:[^,]+)?,")           // device name

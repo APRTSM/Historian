@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-43/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-43-fixed/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
+diff --git a/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java b/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
 index 1203d51..da987cd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-43/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-43-fixed/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
+--- a/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
++++ b/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
 @@ -155,13 +155,13 @@ public class SummaryStatistics implements StatisticalSummary, Serializable {
          secondMoment.increment(value);
          // If mean, variance or geomean have been overridden,

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
+diff --git a/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java b/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
 index 775c88cfa..40fa53680 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
+--- a/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
++++ b/apollo-adminservice/src/main/java/com/ctrip/framework/apollo/adminservice/controller/ClusterController.java
 @@ -8,6 +8,7 @@ import com.ctrip.framework.apollo.common.exception.NotFoundException;
  import com.ctrip.framework.apollo.common.utils.BeanUtils;
  import com.ctrip.framework.apollo.common.utils.InputValidator;

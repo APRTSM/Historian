@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/helper/DataUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/helper/DataUtil.java
+diff --git a/src/main/java/org/jsoup/helper/DataUtil.java b/src/main/java/org/jsoup/helper/DataUtil.java
 index 99c7976..6567e36 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/helper/DataUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/helper/DataUtil.java
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
 @@ -109,13 +109,7 @@ public final class DataUtil {
                      foundCharset = getCharsetFromContentType(meta.attr("content"));
                  }
@@ -16,10 +16,10 @@ index 99c7976..6567e36 100644
                  }
              }
              // look for <?xml encoding='ISO-8859-1'?>
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/nodes/XmlDeclaration.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/nodes/XmlDeclaration.java
+diff --git a/src/main/java/org/jsoup/nodes/XmlDeclaration.java b/src/main/java/org/jsoup/nodes/XmlDeclaration.java
 index 24a9f16..619cd14 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/nodes/XmlDeclaration.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/nodes/XmlDeclaration.java
+--- a/src/main/java/org/jsoup/nodes/XmlDeclaration.java
++++ b/src/main/java/org/jsoup/nodes/XmlDeclaration.java
 @@ -43,29 +43,17 @@ public class XmlDeclaration extends Node {
       @return XML declaration
       */
@@ -55,10 +55,10 @@ index 24a9f16..619cd14 100644
              .append(">");
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 index 99807fc..3ccd7df 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-52-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 @@ -1,5 +1,6 @@
  package org.jsoup.parser;
  

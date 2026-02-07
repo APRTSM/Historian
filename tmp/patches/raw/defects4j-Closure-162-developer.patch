@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162/src/com/google/javascript/jscomp/Scope.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162-fixed/src/com/google/javascript/jscomp/Scope.java
+diff --git a/src/com/google/javascript/jscomp/Scope.java b/src/com/google/javascript/jscomp/Scope.java
 index b6037cb..8b6b1a5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162/src/com/google/javascript/jscomp/Scope.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162-fixed/src/com/google/javascript/jscomp/Scope.java
+--- a/src/com/google/javascript/jscomp/Scope.java
++++ b/src/com/google/javascript/jscomp/Scope.java
 @@ -565,6 +565,9 @@ public class Scope
    /**
     * Return an iterable over all of the variables declared in this scope.
@@ -12,10 +12,10 @@ index b6037cb..8b6b1a5 100644
  
    @Override
    public Iterable<Var> getReferences(Var var) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162/src/com/google/javascript/jscomp/ScopedAliases.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
 index 5acf25a..2b447cc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162/src/com/google/javascript/jscomp/ScopedAliases.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-162-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
 @@ -223,6 +223,7 @@ class ScopedAliases implements HotSwapCompilerPass {
        if (n != null && isCallToScopeMethod(n)) {
          transformation = transformationHandler.logAliasTransformation(

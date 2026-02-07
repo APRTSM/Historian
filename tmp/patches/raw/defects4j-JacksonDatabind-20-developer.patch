@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-20/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-20-fixed/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java b/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
 index 147ac71..1ca18f1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-20/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-20-fixed/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
+--- a/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
++++ b/src/main/java/com/fasterxml/jackson/databind/node/ObjectNode.java
 @@ -1,6 +1,7 @@
  package com.fasterxml.jackson.databind.node;
  

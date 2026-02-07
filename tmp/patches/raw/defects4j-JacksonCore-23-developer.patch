@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-23/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-23-fixed/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java b/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
 index 6515e2f..7e8250e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-23/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-23-fixed/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+--- a/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
 @@ -252,6 +252,10 @@ public class DefaultPrettyPrinter
  
      @Override

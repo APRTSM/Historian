@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
+diff --git a/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java b/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
 index 6321f1fca..02e6fb72f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
+--- a/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
++++ b/src/main/java/org/broadinstitute/dsde/consent/ontology/resources/SwaggerResource.java
 @@ -29,10 +29,18 @@ public class SwaggerResource {
              mediaType = getMediaTypeFromPath(path);
              if (path.endsWith("png") || path.endsWith("gif")) {

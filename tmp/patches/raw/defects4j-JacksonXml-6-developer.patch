@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-6/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-6-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
+diff --git a/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java b/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
 index 63e42a1..35d09f6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-6/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-6-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
+--- a/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java
 @@ -840,14 +840,67 @@ public final class ToXmlGenerator
          }
      }

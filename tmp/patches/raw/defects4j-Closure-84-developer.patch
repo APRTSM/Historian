@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-84/src/com/google/javascript/jscomp/parsing/IRFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-84-fixed/src/com/google/javascript/jscomp/parsing/IRFactory.java
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
 index cca8d9b..d2a4e5d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-84/src/com/google/javascript/jscomp/parsing/IRFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-84-fixed/src/com/google/javascript/jscomp/parsing/IRFactory.java
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
 @@ -338,6 +338,13 @@ public class IRFactory {
      @Override
      Node processAssignment(Assignment assignmentNode) {

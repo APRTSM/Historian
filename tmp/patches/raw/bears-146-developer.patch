@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
+diff --git a/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java b/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
 index 13fe3ba22..66c7dbf3e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
+--- a/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
++++ b/suite/spdz/src/main/java/dk/alexandra/fresco/suite/spdz/storage/SpdzMascotDataSupplier.java
 @@ -4,8 +4,8 @@ import dk.alexandra.fresco.framework.network.Network;
  import dk.alexandra.fresco.framework.util.Drbg;
  import dk.alexandra.fresco.framework.util.PaddingAesCtrDrbg;

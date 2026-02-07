@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-24/src/main/java/org/jsoup/parser/TokeniserState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-24-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+diff --git a/src/main/java/org/jsoup/parser/TokeniserState.java b/src/main/java/org/jsoup/parser/TokeniserState.java
 index e530264..e3013c7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-24/src/main/java/org/jsoup/parser/TokeniserState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-24-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+--- a/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/src/main/java/org/jsoup/parser/TokeniserState.java
 @@ -555,7 +555,6 @@ enum TokeniserState {
                  String name = r.consumeLetterSequence();
                  t.tagPending.appendTagName(name.toLowerCase());

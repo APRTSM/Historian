@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-13/src/main/java/org/jsoup/nodes/Node.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-13-fixed/src/main/java/org/jsoup/nodes/Node.java
+diff --git a/src/main/java/org/jsoup/nodes/Node.java b/src/main/java/org/jsoup/nodes/Node.java
 index 3d0bf2e..9456fc4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-13/src/main/java/org/jsoup/nodes/Node.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-13-fixed/src/main/java/org/jsoup/nodes/Node.java
+--- a/src/main/java/org/jsoup/nodes/Node.java
++++ b/src/main/java/org/jsoup/nodes/Node.java
 @@ -104,6 +104,11 @@ public abstract class Node implements Cloneable {
      public boolean hasAttr(String attributeKey) {
          Validate.notNull(attributeKey);

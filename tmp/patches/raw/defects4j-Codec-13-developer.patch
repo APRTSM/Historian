@@ -1,8 +1,8 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java b/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java
 new file mode 100644
 index 0000000..fe20eb0
 --- /dev/null
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java
++++ b/src/main/java/org/apache/commons/codec/binary/CharSequenceUtils.java
 @@ -0,0 +1,63 @@
 +package org.apache.commons.codec.binary;
 +
@@ -67,10 +67,10 @@ index 0000000..fe20eb0
 +        return true;
 +    }
 +}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 index b3c399f..8f1f57f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13/src/main/java/org/apache/commons/codec/binary/StringUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+--- a/src/main/java/org/apache/commons/codec/binary/StringUtils.java
++++ b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 @@ -67,6 +67,18 @@ public class StringUtils {
       * @return {@code true} if the CharSequences are equal (case-sensitive), or both {@code null}
       * @since 1.10
@@ -90,10 +90,10 @@ index b3c399f..8f1f57f 100644
  
      /**
       * Calls {@link String#getBytes(Charset)}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
+diff --git a/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java b/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
 index 125503a..6ccd3f2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-13-fixed/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
+--- a/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
++++ b/src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java
 @@ -19,6 +19,7 @@ package org.apache.commons.codec.language;
  
  import org.apache.commons.codec.EncoderException;

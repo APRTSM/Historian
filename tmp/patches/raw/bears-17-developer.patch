@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
 index 651b62d23..9cb8bec18 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
+--- a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
++++ b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java
 @@ -1,5 +1,6 @@
  package com.fasterxml.jackson.databind.jsontype.impl;
  

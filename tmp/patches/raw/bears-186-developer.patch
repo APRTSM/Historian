@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
+diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
 index ba0c837be..f48b4e340 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
+--- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
++++ b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/JavaJAXRSSpecServerCodegen.java
 @@ -85,6 +85,9 @@ public class JavaJAXRSSpecServerCodegen extends AbstractJavaJAXRSServerCodegen
          }
          if (additionalProperties.containsKey(INTERFACE_ONLY)) {

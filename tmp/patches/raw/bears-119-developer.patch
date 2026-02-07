@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/H02ProtocolDecoder.java b/src/org/traccar/protocol/H02ProtocolDecoder.java
 index b9b979c7d..aa3d47650 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/H02ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/H02ProtocolDecoder.java
+--- a/src/org/traccar/protocol/H02ProtocolDecoder.java
++++ b/src/org/traccar/protocol/H02ProtocolDecoder.java
 @@ -377,14 +377,19 @@ public class H02ProtocolDecoder extends BaseProtocolDecoder {
              case "*":
                  String sentence = buf.toString(StandardCharsets.US_ASCII);

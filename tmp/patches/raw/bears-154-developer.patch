@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
+diff --git a/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java b/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
 index a5ff2e61c..bb3b41322 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
+--- a/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
++++ b/foundations/foundation-config/src/main/java/org/apache/servicecomb/config/ConfigUtil.java
 @@ -130,17 +130,17 @@ public final class ConfigUtil {
      duplicateServiceCombConfigToCse(config,
          convertEnvVariable(new ConcurrentMapConfiguration(new EnvironmentConfiguration())),

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-85/src/com/google/javascript/jscomp/UnreachableCodeElimination.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-85-fixed/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+diff --git a/src/com/google/javascript/jscomp/UnreachableCodeElimination.java b/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
 index c2150b1..e6d4320 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-85/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-85-fixed/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+--- a/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
++++ b/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
 @@ -150,20 +150,7 @@ class UnreachableCodeElimination extends AbstractPostOrderCallback
        return n;
      }

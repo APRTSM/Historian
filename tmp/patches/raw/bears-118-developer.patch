@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/FilterHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/FilterHandler.java
+diff --git a/src/org/traccar/FilterHandler.java b/src/org/traccar/FilterHandler.java
 index 5e1214aba..f2a80a98f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/FilterHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/FilterHandler.java
+--- a/src/org/traccar/FilterHandler.java
++++ b/src/org/traccar/FilterHandler.java
 @@ -84,7 +84,9 @@ public class FilterHandler extends BaseDataHandler {
      }
  
@@ -13,10 +13,10 @@ index 5e1214aba..f2a80a98f 100644
      }
  
      private boolean filterZero(Position position) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/WondexProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/WondexProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/WondexProtocolDecoder.java b/src/org/traccar/protocol/WondexProtocolDecoder.java
 index 8249d2c68..8be5e09b8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/WondexProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/WondexProtocolDecoder.java
+--- a/src/org/traccar/protocol/WondexProtocolDecoder.java
++++ b/src/org/traccar/protocol/WondexProtocolDecoder.java
 @@ -78,7 +78,6 @@ public class WondexProtocolDecoder extends BaseProtocolDecoder {
              position.setProtocol(getProtocolName());
              position.setDeviceId(deviceSession.getDeviceId());

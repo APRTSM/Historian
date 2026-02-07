@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
+diff --git a/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java b/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
 index cd9296dbd..95fedb843 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
+--- a/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
++++ b/byte-buddy-dep/src/main/java/net/bytebuddy/implementation/bytecode/member/MethodInvocation.java
 @@ -317,9 +317,10 @@ public enum MethodInvocation {
          public StackManipulation virtual(TypeDescription invocationTarget) {
              if (methodDescription.isPrivate() || methodDescription.isConstructor() || methodDescription.isStatic()) {

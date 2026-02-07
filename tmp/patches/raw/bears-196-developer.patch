@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
+diff --git a/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java b/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
 index 9b06366e2..7d0a49913 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
+--- a/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
++++ b/code/spi-support/src/main/java/org/apache/tamaya/spisupport/EnumConverter.java
 @@ -24,7 +24,6 @@ import org.apache.tamaya.spi.PropertyConverter;
  
  import java.lang.reflect.InvocationTargetException;

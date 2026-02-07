@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
+diff --git a/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java b/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
 index eca92fcc2..762d4a293 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
+--- a/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
++++ b/navigation-formats/src/main/java/slash/navigation/csv/ExcelPosition.java
 @@ -20,6 +20,7 @@
  
  package slash.navigation.csv;

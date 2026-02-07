@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
+diff --git a/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java b/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
 index 67a647e98..35af9af64 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
+--- a/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
++++ b/src/main/java/org/imdea/vcd/queue/box/CommittedQueueBox.java
 @@ -35,7 +35,11 @@ public class CommittedQueueBox implements QueueBox<CommittedQueueBox> {
  
      public CommittedQueueBox(CommittedQueueBox commitDepBox) {

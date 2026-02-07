@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
+diff --git a/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java b/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
 index 21ddd4795..b57ee9110 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
+--- a/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
++++ b/activiti-cloud-app-service/src/main/java/org/activiti/cloud/app/configuration/ApplicationServiceAutoConfiguration.java
 @@ -6,6 +6,7 @@ import org.activiti.cloud.app.services.ApplicationsService;
  import org.activiti.cloud.app.services.DeploymentsService;
  import org.slf4j.Logger;

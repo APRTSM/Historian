@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/cash/count/service/impl/AccountManager.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/cash/count/service/impl/AccountManager.java
+diff --git a/src/main/java/org/cash/count/service/impl/AccountManager.java b/src/main/java/org/cash/count/service/impl/AccountManager.java
 index 38fdd410a..e3513d5ad 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/cash/count/service/impl/AccountManager.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/cash/count/service/impl/AccountManager.java
+--- a/src/main/java/org/cash/count/service/impl/AccountManager.java
++++ b/src/main/java/org/cash/count/service/impl/AccountManager.java
 @@ -105,7 +105,17 @@ public class AccountManager implements IAccountManager {
      public void disable(int accountId) {
          Optional<Account> wrappedAccount = accountRepository.findById(accountId);

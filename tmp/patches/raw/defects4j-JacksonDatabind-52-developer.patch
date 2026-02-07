@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
 index 8484caa..43445e2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52-fixed/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java
 @@ -609,7 +609,7 @@ public abstract class BeanDeserializerBase
          if (extTypes != null) {
              // 21-Jun-2016, tatu: related to [databind#999], may need to link type ids too,
@@ -11,10 +11,10 @@ index 8484caa..43445e2 100644
              // we consider this non-standard, to offline handling
              _nonStandardCreation = true;
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java b/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
 index e273c3b..30fb56f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-52-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java
 @@ -307,7 +307,21 @@ public class ExternalTypeHandler
           *
           * @since 2.8

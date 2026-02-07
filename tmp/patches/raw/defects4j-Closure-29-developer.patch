@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-29/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-29-fixed/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
 index 9f5c607..8c3159d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-29/src/com/google/javascript/jscomp/InlineObjectLiterals.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-29-fixed/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
 @@ -154,6 +154,7 @@ class InlineObjectLiterals implements CompilerPass {
       */
      private boolean isInlinableObject(List<Reference> refs) {

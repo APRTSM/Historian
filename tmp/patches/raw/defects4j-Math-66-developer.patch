@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-66/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-66-fixed/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
 index 9265415..46c4afa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-66/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-66-fixed/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
+--- a/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/univariate/BrentOptimizer.java
 @@ -41,10 +41,10 @@ public class BrentOptimizer extends AbstractUnivariateRealOptimizer {
       * Construct a solver.
       */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34/src/com/google/javascript/jscomp/CodeGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
 index f28378c..d50320a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34/src/com/google/javascript/jscomp/CodeGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
 @@ -119,9 +119,7 @@ class CodeGenerator {
          cc.addOp(opstr, true);
          addExpr(last, p, rhsContext);
@@ -22,10 +22,10 @@ index f28378c..d50320a 100644
        addExpr(current.getFirstChild().getNext(), rightPrecedence, rhsContext);
      } while (current != n);
    }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34/src/com/google/javascript/jscomp/CodePrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34-fixed/src/com/google/javascript/jscomp/CodePrinter.java
+diff --git a/src/com/google/javascript/jscomp/CodePrinter.java b/src/com/google/javascript/jscomp/CodePrinter.java
 index 52dfa9b..31c62d9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34/src/com/google/javascript/jscomp/CodePrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-34-fixed/src/com/google/javascript/jscomp/CodePrinter.java
+--- a/src/com/google/javascript/jscomp/CodePrinter.java
++++ b/src/com/google/javascript/jscomp/CodePrinter.java
 @@ -331,7 +331,7 @@ class CodePrinter {
      @Override
      void appendOp(String op, boolean binOp) {

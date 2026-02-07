@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+diff --git a/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java b/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
 index 68438c423..bad72384e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+--- a/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
++++ b/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
 @@ -236,11 +236,7 @@ public class CtExecutableReferenceImpl<T> extends CtReferenceImpl implements CtE
  		if (!isSame) {
  			return false;

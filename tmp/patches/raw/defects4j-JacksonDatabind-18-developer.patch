@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-18/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-18-fixed/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java b/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
 index b4ce3e9..c0e79c8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-18/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-18-fixed/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
+--- a/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
++++ b/src/main/java/com/fasterxml/jackson/databind/MappingIterator.java
 @@ -25,20 +25,24 @@ public class MappingIterator<T> implements Iterator<T>, Closeable
      /**
       * State in which iterator is closed

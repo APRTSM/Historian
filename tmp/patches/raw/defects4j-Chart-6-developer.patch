@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-6/source/org/jfree/chart/util/ShapeList.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-6-fixed/source/org/jfree/chart/util/ShapeList.java
+diff --git a/source/org/jfree/chart/util/ShapeList.java b/source/org/jfree/chart/util/ShapeList.java
 index 85f1c81..73ece1c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-6/source/org/jfree/chart/util/ShapeList.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-6-fixed/source/org/jfree/chart/util/ShapeList.java
+--- a/source/org/jfree/chart/util/ShapeList.java
++++ b/source/org/jfree/chart/util/ShapeList.java
 @@ -108,7 +108,14 @@ public class ShapeList extends AbstractObjectList {
          if (!(obj instanceof ShapeList)) {
              return false;

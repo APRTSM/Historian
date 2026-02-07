@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60/src/main/java/org/jsoup/parser/TokenQueue.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60-fixed/src/main/java/org/jsoup/parser/TokenQueue.java
+diff --git a/src/main/java/org/jsoup/parser/TokenQueue.java b/src/main/java/org/jsoup/parser/TokenQueue.java
 index fc22b04..ffcb4a4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60/src/main/java/org/jsoup/parser/TokenQueue.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60-fixed/src/main/java/org/jsoup/parser/TokenQueue.java
+--- a/src/main/java/org/jsoup/parser/TokenQueue.java
++++ b/src/main/java/org/jsoup/parser/TokenQueue.java
 @@ -286,6 +286,9 @@ public class TokenQueue {
              last = c;
          } while (depth > 0);
@@ -12,10 +12,10 @@ index fc22b04..ffcb4a4 100644
          return out;
      }
      
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60/src/main/java/org/jsoup/select/QueryParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60-fixed/src/main/java/org/jsoup/select/QueryParser.java
+diff --git a/src/main/java/org/jsoup/select/QueryParser.java b/src/main/java/org/jsoup/select/QueryParser.java
 index 923cfe9..d3a2041 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60/src/main/java/org/jsoup/select/QueryParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-60-fixed/src/main/java/org/jsoup/select/QueryParser.java
+--- a/src/main/java/org/jsoup/select/QueryParser.java
++++ b/src/main/java/org/jsoup/select/QueryParser.java
 @@ -35,8 +35,12 @@ public class QueryParser {
       * @return Evaluator
       */

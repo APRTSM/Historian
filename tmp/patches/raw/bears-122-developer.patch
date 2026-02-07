@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 index 63adb1c70..37793a6ff 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gl200TextProtocolDecoder.java
 @@ -76,7 +76,7 @@ public class Gl200TextProtocolDecoder extends BaseProtocolDecoder {
              .number("(?:d),")                    // led
              .number("(?:d)?,")                   // gps on need

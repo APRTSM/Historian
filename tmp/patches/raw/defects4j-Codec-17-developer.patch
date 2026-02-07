@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-17/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-17-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/StringUtils.java b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 index 5b14ca0..7bb15e3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-17/src/main/java/org/apache/commons/codec/binary/StringUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-17-fixed/src/main/java/org/apache/commons/codec/binary/StringUtils.java
+--- a/src/main/java/org/apache/commons/codec/binary/StringUtils.java
++++ b/src/main/java/org/apache/commons/codec/binary/StringUtils.java
 @@ -336,7 +336,7 @@ public class StringUtils {
       * @since As of 1.7, throws {@link NullPointerException} instead of UnsupportedEncodingException
       */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-14/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-14-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 index 8239480..d989b8a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-14/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-14-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 @@ -62,14 +62,7 @@ public class TarUtils {
              throw new IllegalArgumentException("Length "+length+" must be at least 2");
          }

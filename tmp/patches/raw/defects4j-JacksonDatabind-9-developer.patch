@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-9/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-9-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
 index 5fdf4eb..56fbbe1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-9/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-9-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializer.java
 @@ -24,10 +24,15 @@ public class StdKeySerializer extends StdSerializer<Object>
      @Override
      public void serialize(Object value, JsonGenerator jgen, SerializerProvider provider) throws IOException {

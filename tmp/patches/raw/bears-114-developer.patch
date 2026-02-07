@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/StarLinkProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/StarLinkProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/StarLinkProtocolDecoder.java b/src/org/traccar/protocol/StarLinkProtocolDecoder.java
 index 0e9840766..8fbecc35e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/StarLinkProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/StarLinkProtocolDecoder.java
+--- a/src/org/traccar/protocol/StarLinkProtocolDecoder.java
++++ b/src/org/traccar/protocol/StarLinkProtocolDecoder.java
 @@ -100,6 +100,9 @@ public class StarLinkProtocolDecoder extends BaseProtocolDecoder {
          int event = 0;
  

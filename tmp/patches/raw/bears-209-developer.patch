@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/example/holder/impl/LockHolderImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
+diff --git a/src/main/java/com/github/example/holder/impl/LockHolderImpl.java b/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
 index 6191dfc93..9dd8740e9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
+--- a/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
++++ b/src/main/java/com/github/example/holder/impl/LockHolderImpl.java
 @@ -3,6 +3,7 @@ package com.github.example.holder.impl;
  import com.github.example.exception.CouldNotAcquireLockException;
  import com.github.example.holder.LockHolder;

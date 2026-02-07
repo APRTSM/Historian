@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-28/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-28-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 index fe2c113..6f0c6a4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-28/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-28-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 @@ -580,11 +580,14 @@ public class TarArchiveInputStream extends ArchiveInputStream {
          numToRead = Math.min(numToRead, available());
          

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-67/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-67-fixed/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
+diff --git a/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java b/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
 index 30b19e0..4472638 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-67/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-67-fixed/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
+--- a/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
++++ b/src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java
 @@ -315,7 +315,7 @@ class AnalyzePrototypeProperties implements CompilerPass {
        Node n = assign.getFirstChild();
        if (n != null && NodeUtil.isVarOrSimpleAssignLhs(n, assign)

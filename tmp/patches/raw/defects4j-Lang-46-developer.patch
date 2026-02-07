@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-46/src/java/org/apache/commons/lang/StringEscapeUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-46-fixed/src/java/org/apache/commons/lang/StringEscapeUtils.java
+diff --git a/src/java/org/apache/commons/lang/StringEscapeUtils.java b/src/java/org/apache/commons/lang/StringEscapeUtils.java
 index 7b22e21..d4f98ec 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-46/src/java/org/apache/commons/lang/StringEscapeUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-46-fixed/src/java/org/apache/commons/lang/StringEscapeUtils.java
+--- a/src/java/org/apache/commons/lang/StringEscapeUtils.java
++++ b/src/java/org/apache/commons/lang/StringEscapeUtils.java
 @@ -83,7 +83,7 @@ public class StringEscapeUtils {
       * @return String with escaped values, <code>null</code> if null string input
       */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-36/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-36-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java b/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
 index 3e2113d..1056840 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-36/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-36-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
+--- a/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
++++ b/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java
 @@ -899,6 +899,9 @@ public class SevenZFile implements Closeable {
      }
      

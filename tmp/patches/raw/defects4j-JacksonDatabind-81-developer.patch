@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-81/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-81-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 index df4c2a7..19f52c6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-81/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-81-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java
 @@ -761,7 +761,9 @@ public class JacksonAnnotationIntrospector
                          type = tf.constructGeneralizedType(type, serClass);
                      } else if (currRaw.isAssignableFrom(serClass)) { // specialization, ok as well

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
+diff --git a/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java b/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
 index b81ebcd4b..39affcdd9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
+--- a/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
++++ b/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
 @@ -116,7 +116,7 @@ public enum ErrorCode {
       * @return the Axon Framework exception
       */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
+diff --git a/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java b/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
 index a97f7f8c4..9d35544a4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
+--- a/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
++++ b/src/server/src/main/java/io/cassandrareaper/resources/view/NodesStatus.java
 @@ -41,8 +41,10 @@ public final class NodesStatus {
    private static final List<Pattern> ENDPOINT_HOSTID_PATTERNS = Lists.newArrayList();
    private static final List<Pattern> ENDPOINT_TOKENS_PATTERNS = Lists.newArrayList();

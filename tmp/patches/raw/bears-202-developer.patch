@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/github/classgraph/ClassGraph.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/github/classgraph/ClassGraph.java
+diff --git a/src/main/java/io/github/classgraph/ClassGraph.java b/src/main/java/io/github/classgraph/ClassGraph.java
 index f8a2e9693..5ac712754 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/github/classgraph/ClassGraph.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/github/classgraph/ClassGraph.java
+--- a/src/main/java/io/github/classgraph/ClassGraph.java
++++ b/src/main/java/io/github/classgraph/ClassGraph.java
 @@ -862,7 +862,7 @@ public class ClassGraph {
          if (jarLeafNames.length == 0) {
              // Blacklist all lib or ext jars

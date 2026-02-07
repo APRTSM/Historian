@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-47/src/main/java/org/jsoup/nodes/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-47-fixed/src/main/java/org/jsoup/nodes/Entities.java
+diff --git a/src/main/java/org/jsoup/nodes/Entities.java b/src/main/java/org/jsoup/nodes/Entities.java
 index 08cf311..aa1f946 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-47/src/main/java/org/jsoup/nodes/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-47-fixed/src/main/java/org/jsoup/nodes/Entities.java
+--- a/src/main/java/org/jsoup/nodes/Entities.java
++++ b/src/main/java/org/jsoup/nodes/Entities.java
 @@ -119,7 +119,7 @@ public class Entities {
                          break;
                      case '<':

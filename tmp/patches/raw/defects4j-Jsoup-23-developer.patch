@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23/src/main/java/org/jsoup/parser/CharacterReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
 index e07f7de..4db4d79 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23/src/main/java/org/jsoup/parser/CharacterReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
 @@ -115,7 +115,25 @@ class CharacterReader {
          return input.substring(start, pos);
      }
@@ -28,10 +28,10 @@ index e07f7de..4db4d79 100644
  
      String consumeHexSequence() {
          int start = pos;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23/src/main/java/org/jsoup/parser/Tokeniser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+diff --git a/src/main/java/org/jsoup/parser/Tokeniser.java b/src/main/java/org/jsoup/parser/Tokeniser.java
 index d1e3ee6..d53a49b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23/src/main/java/org/jsoup/parser/Tokeniser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-23-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+--- a/src/main/java/org/jsoup/parser/Tokeniser.java
++++ b/src/main/java/org/jsoup/parser/Tokeniser.java
 @@ -132,7 +132,7 @@ class Tokeniser {
              }
          } else { // named

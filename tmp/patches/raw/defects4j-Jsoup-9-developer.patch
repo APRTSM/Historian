@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-9/src/main/java/org/jsoup/nodes/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-9-fixed/src/main/java/org/jsoup/nodes/Entities.java
+diff --git a/src/main/java/org/jsoup/nodes/Entities.java b/src/main/java/org/jsoup/nodes/Entities.java
 index a4c173b..786b1bf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-9/src/main/java/org/jsoup/nodes/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-9-fixed/src/main/java/org/jsoup/nodes/Entities.java
+--- a/src/main/java/org/jsoup/nodes/Entities.java
++++ b/src/main/java/org/jsoup/nodes/Entities.java
 @@ -35,7 +35,7 @@ public class Entities {
      private static final Map<Character, String> xhtmlByVal;
      private static final Map<Character, String> baseByVal;

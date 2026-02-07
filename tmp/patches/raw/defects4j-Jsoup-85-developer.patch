@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-85/src/main/java/org/jsoup/nodes/Attribute.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-85-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+diff --git a/src/main/java/org/jsoup/nodes/Attribute.java b/src/main/java/org/jsoup/nodes/Attribute.java
 index 612fdeb..e321b6a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-85/src/main/java/org/jsoup/nodes/Attribute.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-85-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+--- a/src/main/java/org/jsoup/nodes/Attribute.java
++++ b/src/main/java/org/jsoup/nodes/Attribute.java
 @@ -41,8 +41,9 @@ public class Attribute implements Map.Entry<String, String>, Cloneable  {
       * @see #createFromEncoded*/
      public Attribute(String key, String val, Attributes parent) {

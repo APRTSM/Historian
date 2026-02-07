@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-94/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-94-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
 index 9865b1a..777637a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-94/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-94-fixed/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
+--- a/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
++++ b/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java
 @@ -20,6 +20,7 @@ public class SubTypeValidator
  {
      protected final static String PREFIX_SPRING = "org.springframework.";

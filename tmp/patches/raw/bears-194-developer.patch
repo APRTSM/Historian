@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
+diff --git a/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java b/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
 index c78faf2f6..d93425e7c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
+--- a/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
++++ b/src/main/java/com/gdssecurity/pmd/rules/dfa/DfaSecurityRule.java
 @@ -544,6 +544,9 @@ public class DfaSecurityRule extends BaseSecurityRule implements Executable {
  	private boolean isAnyArgumentTainted(Node simpleNode) {
  		ASTArgumentList argListNode = simpleNode.getFirstDescendantOfType(ASTArgumentList.class);

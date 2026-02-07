@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78-fixed/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+diff --git a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
 index c5ef4b0..1afb7a8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-78-fixed/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
 @@ -708,14 +708,12 @@ class PeepholeFoldConstants extends AbstractPeepholeOptimization {
          break;
        case Token.MOD:

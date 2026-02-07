@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
+diff --git a/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java b/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
 index b1b75e060..709de9067 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
+--- a/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
++++ b/src/main/java/client/presenter/controller/messages/LoginResponseMessage.java
 @@ -24,4 +24,14 @@ public class LoginResponseMessage extends ViewMessage {
      this.success = success;
      this.nickname = nickname;
@@ -17,10 +17,10 @@ index b1b75e060..709de9067 100644
 +  }
 +
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
+diff --git a/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java b/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
 index 3832c7a45..d73e2b6e8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
+--- a/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
++++ b/src/main/java/client/presenter/controller/messages/MenuMessageResponse.java
 @@ -2,6 +2,7 @@ package client.presenter.controller.messages;
  
  import client.presenter.controller.MenuMessageTypes;
@@ -43,10 +43,10 @@ index 3832c7a45..d73e2b6e8 100644
 +    return menuType.equals(other.menuType) && Arrays.equals(information, other.information);
 +  }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
+diff --git a/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java b/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
 index fc45993a5..dc1dc50c6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
+--- a/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
++++ b/src/main/java/client/presenter/controller/messages/RegisterResponseMessage.java
 @@ -1,6 +1,7 @@
  package client.presenter.controller.messages;
  
@@ -69,10 +69,10 @@ index fc45993a5..dc1dc50c6 100644
 +    return success == other.success && Arrays.equals(messages, other.messages);
 +  }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
+diff --git a/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java b/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
 index bd91fd3a9..9c4b164b1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
+--- a/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
++++ b/src/main/java/client/presenter/controller/messages/UnregisterResponseMessage.java
 @@ -1,6 +1,7 @@
  package client.presenter.controller.messages;
  
@@ -95,10 +95,10 @@ index bd91fd3a9..9c4b164b1 100644
 +    return success == other.success && Arrays.equals(messages, other.messages);
 +  }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
+diff --git a/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java b/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
 index 0db79adb2..d0ffd5601 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
+--- a/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
++++ b/src/main/java/client/presenter/controller/messages/ViewValidMovesResponse.java
 @@ -1,6 +1,7 @@
  package client.presenter.controller.messages;
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 index 16f81db..3fe076a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 @@ -224,12 +224,11 @@ public class HtmlTreeBuilder extends TreeBuilder {
          insertNode(el);
          if (startTag.isSelfClosing()) {
@@ -18,10 +18,10 @@ index 16f81db..3fe076a 100644
          }
          return el;
      }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63/src/main/java/org/jsoup/parser/Tokeniser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+diff --git a/src/main/java/org/jsoup/parser/Tokeniser.java b/src/main/java/org/jsoup/parser/Tokeniser.java
 index 29fe4cc..b047940 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63/src/main/java/org/jsoup/parser/Tokeniser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-63-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+--- a/src/main/java/org/jsoup/parser/Tokeniser.java
++++ b/src/main/java/org/jsoup/parser/Tokeniser.java
 @@ -33,7 +33,6 @@ final class Tokeniser {
      Token.Doctype doctypePending = new Token.Doctype(); // doctype building up
      Token.Comment commentPending = new Token.Comment(); // comment building up

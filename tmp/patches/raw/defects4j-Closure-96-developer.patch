@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-96/src/com/google/javascript/jscomp/TypeCheck.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-96-fixed/src/com/google/javascript/jscomp/TypeCheck.java
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
 index 8077e0d..b05fbc4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-96/src/com/google/javascript/jscomp/TypeCheck.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-96-fixed/src/com/google/javascript/jscomp/TypeCheck.java
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
 @@ -1406,10 +1406,13 @@ public class TypeCheck implements NodeTraversal.Callback, CompilerPass {
      Node parameter = null;
      Node argument = null;

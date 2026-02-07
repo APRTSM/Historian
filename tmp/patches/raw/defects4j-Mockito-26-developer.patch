@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-26/src/org/mockito/internal/util/Primitives.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-26-fixed/src/org/mockito/internal/util/Primitives.java
+diff --git a/src/org/mockito/internal/util/Primitives.java b/src/org/mockito/internal/util/Primitives.java
 index b44b825..5a91f3a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-26/src/org/mockito/internal/util/Primitives.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-26-fixed/src/org/mockito/internal/util/Primitives.java
+--- a/src/org/mockito/internal/util/Primitives.java
++++ b/src/org/mockito/internal/util/Primitives.java
 @@ -63,6 +63,6 @@ public class Primitives {
          primitiveValues.put(int.class, 0);
          primitiveValues.put(long.class, 0L);

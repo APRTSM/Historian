@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-17/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-17-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
 index 4f4394c..a638519 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-17/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-17-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
 @@ -525,17 +525,33 @@ public class UTF8JsonGenerator
          final char[] buf = _charBuffer;
  

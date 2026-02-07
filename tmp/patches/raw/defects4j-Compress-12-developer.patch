@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-12/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-12-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 index bb670f3..34e7355 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-12/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-12-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 @@ -195,7 +195,13 @@ public class TarArchiveInputStream extends ArchiveInputStream {
              return null;
          }

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-61/src/java/org/apache/commons/lang/text/StrBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-61-fixed/src/java/org/apache/commons/lang/text/StrBuilder.java
+diff --git a/src/java/org/apache/commons/lang/text/StrBuilder.java b/src/java/org/apache/commons/lang/text/StrBuilder.java
 index 0e88989..c7cbfb3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-61/src/java/org/apache/commons/lang/text/StrBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-61-fixed/src/java/org/apache/commons/lang/text/StrBuilder.java
+--- a/src/java/org/apache/commons/lang/text/StrBuilder.java
++++ b/src/java/org/apache/commons/lang/text/StrBuilder.java
 @@ -1773,7 +1773,7 @@ public class StrBuilder implements Cloneable {
              return -1;
          }

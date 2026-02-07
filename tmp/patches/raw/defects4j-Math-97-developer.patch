@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-97/src/java/org/apache/commons/math/analysis/BrentSolver.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-97-fixed/src/java/org/apache/commons/math/analysis/BrentSolver.java
+diff --git a/src/java/org/apache/commons/math/analysis/BrentSolver.java b/src/java/org/apache/commons/math/analysis/BrentSolver.java
 index 766d87e..57f64a9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-97/src/java/org/apache/commons/math/analysis/BrentSolver.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-97-fixed/src/java/org/apache/commons/math/analysis/BrentSolver.java
+--- a/src/java/org/apache/commons/math/analysis/BrentSolver.java
++++ b/src/java/org/apache/commons/math/analysis/BrentSolver.java
 @@ -135,17 +135,31 @@ public class BrentSolver extends UnivariateRealSolverImpl {
          
          // Verify bracketing

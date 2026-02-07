@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-23/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-23-fixed/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+diff --git a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
 index bbd5ddb..d2b24c6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-23/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-23-fixed/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+--- a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
++++ b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
 @@ -432,6 +432,25 @@ public class MinMaxCategoryRenderer extends AbstractCategoryItemRenderer {
       *
       * @since 1.0.7

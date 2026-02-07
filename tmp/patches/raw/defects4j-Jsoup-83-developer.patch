@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83/src/main/java/org/jsoup/parser/CharacterReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
 index 80dffcd..6993524 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83/src/main/java/org/jsoup/parser/CharacterReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
 @@ -251,7 +251,7 @@ public final class CharacterReader {
  
          while (bufPos < remaining) {
@@ -11,10 +11,10 @@ index 80dffcd..6993524 100644
                  break;
              bufPos++;
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83/src/main/java/org/jsoup/parser/TokeniserState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+diff --git a/src/main/java/org/jsoup/parser/TokeniserState.java b/src/main/java/org/jsoup/parser/TokeniserState.java
 index 4980f15..95b326c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83/src/main/java/org/jsoup/parser/TokeniserState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-83-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+--- a/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/src/main/java/org/jsoup/parser/TokeniserState.java
 @@ -158,6 +158,9 @@ enum TokeniserState {
                  case '/':
                      t.transition(SelfClosingStartTag);

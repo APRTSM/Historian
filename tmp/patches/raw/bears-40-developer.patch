@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
+diff --git a/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java b/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
 index 95dfeb29a..4d39fac44 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
+--- a/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
++++ b/src/main/java/spoon/support/reflect/reference/CtTypeReferenceImpl.java
 @@ -264,6 +264,22 @@ public class CtTypeReferenceImpl<T> extends CtReferenceImpl implements CtTypeRef
  		}
  	}

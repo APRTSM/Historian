@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-7/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-7-fixed/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java b/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
 index 21a6b28..58d3e08 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-7/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-7-fixed/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java
 @@ -402,11 +402,23 @@ public class TokenBuffer
       */
      public TokenBuffer deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-64/src/java/org/apache/commons/lang/enums/ValuedEnum.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-64-fixed/src/java/org/apache/commons/lang/enums/ValuedEnum.java
+diff --git a/src/java/org/apache/commons/lang/enums/ValuedEnum.java b/src/java/org/apache/commons/lang/enums/ValuedEnum.java
 index 6aca541..419a0ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-64/src/java/org/apache/commons/lang/enums/ValuedEnum.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-64-fixed/src/java/org/apache/commons/lang/enums/ValuedEnum.java
+--- a/src/java/org/apache/commons/lang/enums/ValuedEnum.java
++++ b/src/java/org/apache/commons/lang/enums/ValuedEnum.java
 @@ -180,6 +180,16 @@ public abstract class ValuedEnum extends Enum {
       * @throws NullPointerException if other is <code>null</code>
       */

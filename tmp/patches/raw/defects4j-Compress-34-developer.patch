@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-34/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-34-fixed/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java b/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
 index 14aebab..e325b56 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-34/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-34-fixed/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/X7875_NewUnix.java
 @@ -55,6 +55,7 @@ import static org.apache.commons.compress.archivers.zip.ZipUtil.unsignedIntToSig
   */
  public class X7875_NewUnix implements ZipExtraField, Cloneable, Serializable {

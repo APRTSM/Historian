@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-31/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-31-fixed/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+diff --git a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
 index 10d3b0f..4942d7c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-31/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-31-fixed/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+--- a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
++++ b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
 @@ -6,6 +6,7 @@ package org.mockito.internal.stubbing.defaultanswers;
  
  import java.io.Serializable;

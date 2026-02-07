@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java b/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
 index a414839..128fbcf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+--- a/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
++++ b/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
 @@ -50,6 +50,7 @@ public abstract class GeneratorBase extends JsonGenerator
       * 
       * @since 2.7.7
@@ -27,10 +27,10 @@ index a414839..128fbcf 100644
          return value.toString();
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
 index cf6ca3a..5524691 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
 @@ -907,10 +907,7 @@ public class UTF8JsonGenerator
          if (value == null) {
              _writeNull();
@@ -43,10 +43,10 @@ index cf6ca3a..5524691 100644
          } else {
              writeRaw(_asString(value));
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java b/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
 index 156d997..2340ea2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-18-fixed/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
 @@ -684,10 +684,7 @@ public final class WriterBasedJsonGenerator
          if (value == null) {
              _writeNull();

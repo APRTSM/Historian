@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-16/gson/src/main/java/com/google/gson/internal/$Gson$Types.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-16-fixed/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+diff --git a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
 index 17ed0ff..f66ac15 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-16/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-16-fixed/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+--- a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
++++ b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
 @@ -339,7 +339,12 @@ public final class $Gson$Types {
      while (true) {
        if (toResolve instanceof TypeVariable) {

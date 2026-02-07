@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-15/source/org/jfree/chart/plot/PiePlot.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-15-fixed/source/org/jfree/chart/plot/PiePlot.java
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
 index f575e72..7c3cd04 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-15/source/org/jfree/chart/plot/PiePlot.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-15-fixed/source/org/jfree/chart/plot/PiePlot.java
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
 @@ -1375,6 +1375,9 @@ public class PiePlot extends Plot implements Cloneable, Serializable {
       * @return The percent.
       */

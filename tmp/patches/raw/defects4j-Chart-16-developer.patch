@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-16/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-16-fixed/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+diff --git a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
 index 2efdfcb..bde3922 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-16/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-16-fixed/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+--- a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
++++ b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
 @@ -204,8 +204,8 @@ public class DefaultIntervalCategoryDataset extends AbstractSeriesDataset
  
              }

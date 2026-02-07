@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-17/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-17-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 index c553249..0a38336 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-17/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-17-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
 @@ -132,8 +132,9 @@ public class TarUtils {
          }
          // May have additional NULs or spaces

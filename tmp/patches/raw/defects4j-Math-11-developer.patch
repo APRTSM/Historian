@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-11/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-11-fixed/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
+diff --git a/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java b/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
 index 1570681..fd18c28 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-11/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-11-fixed/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
+--- a/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java
 @@ -180,7 +180,7 @@ public class MultivariateNormalDistribution
              throw new DimensionMismatchException(vals.length, dim);
          }

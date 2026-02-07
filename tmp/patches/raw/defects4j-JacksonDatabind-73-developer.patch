@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java b/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
 index 3d36b0f..fd6a613 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java
 @@ -4,6 +4,7 @@ import java.lang.reflect.Modifier;
  import java.util.*;
  
@@ -22,10 +22,10 @@ index 3d36b0f..fd6a613 100644
          }
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java b/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
 index 954f5dd..b9a403c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-73-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java
 @@ -641,7 +641,7 @@ public class POJOPropertyBuilder
       * @param inferMutators Whether mutators can be "pulled in" by visible
       *    accessors or not. 

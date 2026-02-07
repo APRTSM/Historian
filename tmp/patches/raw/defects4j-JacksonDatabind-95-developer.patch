@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 index 41ffafb..46910eb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 @@ -352,7 +352,7 @@ public final class TypeFactory
          // also: if we start from untyped, not much to save
          do { // bogus loop to be able to break
@@ -29,10 +29,10 @@ index 41ffafb..46910eb 100644
          }
          return constructParametricType(parametrized, pt);
      }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
 index c3697f5..1817e0a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-95-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java
 @@ -56,7 +56,7 @@ public class TypeParser
              // can be comma that separates types, or closing '>'
              tokens.pushBack(token);

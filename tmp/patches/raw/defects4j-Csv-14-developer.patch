@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-14/src/main/java/org/apache/commons/csv/CSVFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-14-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVFormat.java b/src/main/java/org/apache/commons/csv/CSVFormat.java
 index 35ee86a..eee099d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-14/src/main/java/org/apache/commons/csv/CSVFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-14-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+--- a/src/main/java/org/apache/commons/csv/CSVFormat.java
++++ b/src/main/java/org/apache/commons/csv/CSVFormat.java
 @@ -1036,7 +1036,7 @@ public final class CSVFormat implements Serializable {
                  char c = value.charAt(pos);
  

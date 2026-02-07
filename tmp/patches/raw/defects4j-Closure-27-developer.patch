@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-27/src/com/google/javascript/rhino/IR.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-27-fixed/src/com/google/javascript/rhino/IR.java
+diff --git a/src/com/google/javascript/rhino/IR.java b/src/com/google/javascript/rhino/IR.java
 index 081f01f..002acd6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-27/src/com/google/javascript/rhino/IR.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-27-fixed/src/com/google/javascript/rhino/IR.java
+--- a/src/com/google/javascript/rhino/IR.java
++++ b/src/com/google/javascript/rhino/IR.java
 @@ -108,6 +108,9 @@ public class IR {
      return block;
    }

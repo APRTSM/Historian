@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47-fixed/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
 index d67dc10..5ee9108 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47-fixed/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
 @@ -486,8 +486,8 @@ public class SourceMapConsumerV3 implements SourceMapConsumer,
        // Adjust the line/column here to be start at 1.
        Builder x = OriginalMapping.newBuilder()
@@ -13,10 +13,10 @@ index d67dc10..5ee9108 100644
        if (entry.getNameId() != UNMAPPED) {
          x.setIdentifier(names[entry.getNameId()]);
        }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47/src/com/google/javascript/jscomp/SourceMap.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47-fixed/src/com/google/javascript/jscomp/SourceMap.java
+diff --git a/src/com/google/javascript/jscomp/SourceMap.java b/src/com/google/javascript/jscomp/SourceMap.java
 index 835dfa4..7192408 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47/src/com/google/javascript/jscomp/SourceMap.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-47-fixed/src/com/google/javascript/jscomp/SourceMap.java
+--- a/src/com/google/javascript/jscomp/SourceMap.java
++++ b/src/com/google/javascript/jscomp/SourceMap.java
 @@ -135,10 +135,15 @@ public class SourceMap {
      // zero based.
      // We don't change this for the v1 or v2 source maps but for

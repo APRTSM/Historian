@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
+diff --git a/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java b/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
 index 4338726da..aec7e6842 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
+--- a/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
++++ b/spring-cloud-gcp-data-spanner/src/main/java/org/springframework/cloud/gcp/data/spanner/repository/query/SqlSpannerQuery.java
 @@ -18,7 +18,6 @@ package org.springframework.cloud.gcp.data.spanner.repository.query;
  
  import java.util.ArrayList;

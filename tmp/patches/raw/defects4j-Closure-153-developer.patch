@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153/src/com/google/javascript/jscomp/Normalize.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153-fixed/src/com/google/javascript/jscomp/Normalize.java
+diff --git a/src/com/google/javascript/jscomp/Normalize.java b/src/com/google/javascript/jscomp/Normalize.java
 index 4c99858..c14ac8f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153/src/com/google/javascript/jscomp/Normalize.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153-fixed/src/com/google/javascript/jscomp/Normalize.java
+--- a/src/com/google/javascript/jscomp/Normalize.java
++++ b/src/com/google/javascript/jscomp/Normalize.java
 @@ -628,6 +628,7 @@ class Normalize implements CompilerPass {
    private final class DuplicateDeclarationHandler implements
        SyntacticScopeCreator.RedeclarationHandler {
@@ -53,10 +53,10 @@ index 4c99858..c14ac8f 100644
        }
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153/src/com/google/javascript/jscomp/SyntacticScopeCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153-fixed/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+diff --git a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
 index 9494792..eb6e1ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-153-fixed/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+--- a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
++++ b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
 @@ -91,7 +91,7 @@ class SyntacticScopeCreator implements ScopeCreator {
        // been declared in the outer scope.
        String fnName = fnNameNode.getString();

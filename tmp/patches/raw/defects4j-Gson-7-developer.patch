@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-7/gson/src/main/java/com/google/gson/stream/JsonReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-7-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonReader.java b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 index d375ba1..7a5e9cb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-7/gson/src/main/java/com/google/gson/stream/JsonReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-7-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonReader.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 @@ -951,8 +951,12 @@ public class JsonReader implements Closeable {
      if (p == PEEKED_NUMBER) {
        peekedString = new String(buffer, pos, peekedNumberLength);

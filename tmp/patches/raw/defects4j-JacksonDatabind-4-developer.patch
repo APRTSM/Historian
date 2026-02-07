@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-4/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-4-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
 index d4a0b05..be9bf44 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-4/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-4-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java
 @@ -56,6 +56,7 @@ public final class StringArrayDeserializer
          int ix = 0;
          JsonToken t;

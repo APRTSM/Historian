@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-72/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-72-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java b/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
 index 021a3cf..4a9ca99 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-72/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-72-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
 @@ -90,6 +90,8 @@ public final class InnerClassProperty
      @Override
      public int getPropertyIndex() { return _delegate.getPropertyIndex(); }

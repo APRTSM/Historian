@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
+diff --git a/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java b/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
 index f65118b37..adfdffc28 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
+--- a/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
++++ b/jgrapht-core/src/main/java/org/jgrapht/generate/WattsStrogatzGraphGenerator.java
 @@ -166,7 +166,7 @@ public class WattsStrogatzGraphGenerator<V, E>
  
          for (int i = 0; i < n; i++) {

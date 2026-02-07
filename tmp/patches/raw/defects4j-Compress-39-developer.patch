@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-39/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-39-fixed/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
+diff --git a/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java b/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
 index 0a755ce..cd0165f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-39/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-39-fixed/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
+--- a/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
++++ b/src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java
 @@ -28,6 +28,7 @@ import org.apache.commons.compress.archivers.ArchiveEntry;
   */
  public class ArchiveUtils {

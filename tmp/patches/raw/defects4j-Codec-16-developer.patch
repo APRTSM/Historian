@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-16/src/main/java/org/apache/commons/codec/binary/Base32.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-16-fixed/src/main/java/org/apache/commons/codec/binary/Base32.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/Base32.java b/src/main/java/org/apache/commons/codec/binary/Base32.java
 index bb28514..e40d652 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-16/src/main/java/org/apache/commons/codec/binary/Base32.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-16-fixed/src/main/java/org/apache/commons/codec/binary/Base32.java
+--- a/src/main/java/org/apache/commons/codec/binary/Base32.java
++++ b/src/main/java/org/apache/commons/codec/binary/Base32.java
 @@ -96,7 +96,7 @@ public class Base32 extends BaseNCodec {
              -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, // 20-2f
               0,  1,  2,  3,  4,  5,  6,  7,  8,  9, -1, -1, -1, -1, -1, -1, // 30-3f 2-7

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-47/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-47-fixed/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java b/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
 index dab3227..3966997 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-47/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-47-fixed/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
+--- a/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
++++ b/src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java
 @@ -813,10 +813,19 @@ public abstract class AnnotationIntrospector
                  //    static typing this way
                  type = type.withStaticTyping();

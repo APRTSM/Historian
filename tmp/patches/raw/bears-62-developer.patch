@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+diff --git a/src/main/java/spoon/support/visitor/ClassTypingContext.java b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 index f5ce92120..36e5c588d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+--- a/src/main/java/spoon/support/visitor/ClassTypingContext.java
++++ b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 @@ -17,6 +17,7 @@
  package spoon.support.visitor;
  
@@ -30,10 +30,10 @@ index f5ce92120..36e5c588d 100644
  				if (thisType.equals(thatType) == false) {
  					return false;
  				}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/template/Substitution.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/template/Substitution.java
+diff --git a/src/main/java/spoon/template/Substitution.java b/src/main/java/spoon/template/Substitution.java
 index 966fbd43d..825c7dff5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/template/Substitution.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/template/Substitution.java
+--- a/src/main/java/spoon/template/Substitution.java
++++ b/src/main/java/spoon/template/Substitution.java
 @@ -41,6 +41,7 @@ import spoon.support.template.SubstitutionVisitor;
  
  import java.lang.reflect.Field;

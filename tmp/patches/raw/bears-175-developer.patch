@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
+diff --git a/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java b/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
 index f1374dbe6..e20630a42 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
+--- a/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
++++ b/molgenis-data-import/src/main/java/org/molgenis/data/importer/DataPersisterImpl.java
 @@ -2,10 +2,7 @@ package org.molgenis.data.importer;
  
  import com.google.common.collect.ImmutableMap;

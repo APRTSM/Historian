@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-10/src/main/java/org/apache/commons/lang3/time/FastDateParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-10-fixed/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
 index a01159b..8df302f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-10/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-10-fixed/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+--- a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
 @@ -301,17 +301,8 @@ public class FastDateParser implements DateParser, Serializable {
       * @return The <code>StringBuilder</code>
       */

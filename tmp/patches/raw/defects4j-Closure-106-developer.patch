@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106/src/com/google/javascript/jscomp/GlobalNamespace.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106-fixed/src/com/google/javascript/jscomp/GlobalNamespace.java
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
 index d7e85df..47ea27a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106/src/com/google/javascript/jscomp/GlobalNamespace.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106-fixed/src/com/google/javascript/jscomp/GlobalNamespace.java
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
 @@ -904,6 +904,10 @@ class GlobalNamespace {
        // Don't try to collapse if the one global set is a twin reference.
        // We could theoretically handle this case in CollapseProperties, but
@@ -13,10 +13,10 @@ index d7e85df..47ea27a 100644
  
        if (isClassOrEnum) {
          return true;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106/src/com/google/javascript/rhino/JSDocInfoBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106-fixed/src/com/google/javascript/rhino/JSDocInfoBuilder.java
+diff --git a/src/com/google/javascript/rhino/JSDocInfoBuilder.java b/src/com/google/javascript/rhino/JSDocInfoBuilder.java
 index 1311638..bdfc2e8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106/src/com/google/javascript/rhino/JSDocInfoBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-106-fixed/src/com/google/javascript/rhino/JSDocInfoBuilder.java
+--- a/src/com/google/javascript/rhino/JSDocInfoBuilder.java
++++ b/src/com/google/javascript/rhino/JSDocInfoBuilder.java
 @@ -186,9 +186,7 @@ final public class JSDocInfoBuilder {
     * @return {@code true} if the description was recorded.
     */

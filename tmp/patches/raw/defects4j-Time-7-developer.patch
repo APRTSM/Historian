@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-7/src/main/java/org/joda/time/format/DateTimeFormatter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-7-fixed/src/main/java/org/joda/time/format/DateTimeFormatter.java
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatter.java b/src/main/java/org/joda/time/format/DateTimeFormatter.java
 index 447674a..913d036 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-7/src/main/java/org/joda/time/format/DateTimeFormatter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-7-fixed/src/main/java/org/joda/time/format/DateTimeFormatter.java
+--- a/src/main/java/org/joda/time/format/DateTimeFormatter.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatter.java
 @@ -705,9 +705,9 @@ public class DateTimeFormatter {
          
          long instantMillis = instant.getMillis();

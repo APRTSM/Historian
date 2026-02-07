@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+diff --git a/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java b/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
 index e4a5fccc5..a87ffa655 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
+--- a/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
++++ b/molgenis-data-csv/src/main/java/org/molgenis/data/csv/CsvIterator.java
 @@ -21,6 +21,8 @@ import java.util.zip.ZipFile;
  
  import static java.lang.String.format;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-22/src/com/google/javascript/jscomp/CheckSideEffects.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-22-fixed/src/com/google/javascript/jscomp/CheckSideEffects.java
+diff --git a/src/com/google/javascript/jscomp/CheckSideEffects.java b/src/com/google/javascript/jscomp/CheckSideEffects.java
 index b9aa412..722d225 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-22/src/com/google/javascript/jscomp/CheckSideEffects.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-22-fixed/src/com/google/javascript/jscomp/CheckSideEffects.java
+--- a/src/com/google/javascript/jscomp/CheckSideEffects.java
++++ b/src/com/google/javascript/jscomp/CheckSideEffects.java
 @@ -98,44 +98,20 @@ final class CheckSideEffects extends AbstractPostOrderCallback
      // Do not try to remove a block or an expr result. We already handle
      // these cases when we visit the child, and the peephole passes will

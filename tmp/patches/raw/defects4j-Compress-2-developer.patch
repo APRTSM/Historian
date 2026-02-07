@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-2/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-2-fixed/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
 index acfe327..76e2866 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-2/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-2-fixed/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveInputStream.java
 @@ -39,10 +39,12 @@ public class ArArchiveInputStream extends ArchiveInputStream {
       * If getNextEnxtry has been called, the entry metadata is stored in
       * currentEntry.

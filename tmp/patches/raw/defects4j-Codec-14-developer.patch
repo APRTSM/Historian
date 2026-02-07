@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/Lang.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/Lang.java
+diff --git a/src/main/java/org/apache/commons/codec/language/bm/Lang.java b/src/main/java/org/apache/commons/codec/language/bm/Lang.java
 index e9c2e72..a7ebba6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/Lang.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/Lang.java
+--- a/src/main/java/org/apache/commons/codec/language/bm/Lang.java
++++ b/src/main/java/org/apache/commons/codec/language/bm/Lang.java
 @@ -95,11 +95,11 @@ public class Lang {
  
      private static final Map<NameType, Lang> Langs = new EnumMap<NameType, Lang>(NameType.class);
@@ -16,10 +16,10 @@ index e9c2e72..a7ebba6 100644
          }
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
+diff --git a/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java b/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
 index 97cedb2..44a3f03 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
+--- a/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
++++ b/src/main/java/org/apache/commons/codec/language/bm/PhoneticEngine.java
 @@ -28,7 +28,7 @@ import java.util.List;
  import java.util.Locale;
  import java.util.Map;
@@ -60,10 +60,10 @@ index 97cedb2..44a3f03 100644
      }
  
      /**
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/Rule.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/Rule.java
+diff --git a/src/main/java/org/apache/commons/codec/language/bm/Rule.java b/src/main/java/org/apache/commons/codec/language/bm/Rule.java
 index f96ff7c..659d2df 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/java/org/apache/commons/codec/language/bm/Rule.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/java/org/apache/commons/codec/language/bm/Rule.java
+--- a/src/main/java/org/apache/commons/codec/language/bm/Rule.java
++++ b/src/main/java/org/apache/commons/codec/language/bm/Rule.java
 @@ -155,6 +155,9 @@ public class Rule {
           * @param lang the language set to merge
           * @return a new Phoneme
@@ -74,10 +74,10 @@ index f96ff7c..659d2df 100644
  
          @Override
          public String toString() {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
+diff --git a/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt b/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
 index e69de29..59b802f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
+--- a/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
++++ b/src/main/resources/org/apache/commons/codec/language/bm/ash_lang.txt
 @@ -0,0 +1,206 @@
 +/*
 + * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -285,10 +285,10 @@ index e69de29..59b802f 100644
 +q hungarian+polish+russian+romanian false
 +sch hungarian+polish+french+spanish false
 +^h russian false
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
+diff --git a/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt b/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
 index e69de29..7c66dc1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
+--- a/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
++++ b/src/main/resources/org/apache/commons/codec/language/bm/gen_lang.txt
 @@ -0,0 +1,295 @@
 +/*
 + * Licensed to the Apache Software Foundation (ASF) under one or more
@@ -585,10 +585,10 @@ index e69de29..7c66dc1 100644
 +sc[ei] french false
 +sch hungarian+polish+french+spanish false
 +^h russian false
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
+diff --git a/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt b/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
 index e69de29..bd61f46 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-14-fixed/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
+--- a/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
++++ b/src/main/resources/org/apache/commons/codec/language/bm/sep_lang.txt
 @@ -0,0 +1,105 @@
 +/*
 + * Licensed to the Apache Software Foundation (ASF) under one or more

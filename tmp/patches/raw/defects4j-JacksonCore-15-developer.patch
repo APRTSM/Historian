@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-15/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-15-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 index e2de6f8..bf68cd7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-15/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-15-fixed/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+--- a/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
++++ b/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
 @@ -224,9 +224,18 @@ public class FilteringParserDelegate extends JsonParserDelegate
      	//Check for _allowMultipleMatches - false and atleast there is one token - which is _currToken
      	// check for no buffered context _exposedContext - null

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1/src/main/java/org/apache/commons/math3/fraction/BigFraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1-fixed/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
+diff --git a/src/main/java/org/apache/commons/math3/fraction/BigFraction.java b/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
 index ed4108d..4ca33eb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1-fixed/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
+--- a/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
++++ b/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
 @@ -303,6 +303,9 @@ public class BigFraction
              if ((p2 > overflow) || (q2 > overflow)) {
                  // in maxDenominator mode, if the last fraction was very close to the actual value
@@ -12,10 +12,10 @@ index ed4108d..4ca33eb 100644
                  throw new FractionConversionException(value, p2, q2);
              }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+diff --git a/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
 index 8065885..002dae9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1/src/main/java/org/apache/commons/math3/fraction/Fraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-1-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+--- a/src/main/java/org/apache/commons/math3/fraction/Fraction.java
++++ b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
 @@ -212,6 +212,9 @@ public class Fraction
              if ((FastMath.abs(p2) > overflow) || (FastMath.abs(q2) > overflow)) {
                  // in maxDenominator mode, if the last fraction was very close to the actual value

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
+diff --git a/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java b/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
 index c5dd9599d..b2a8e1361 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
+--- a/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
++++ b/debezium-connector-mysql/src/main/java/io/debezium/connector/mysql/MySqlDdlParser.java
 @@ -1297,7 +1297,9 @@ public class MySqlDdlParser extends DdlParser {
          } else if (tokens.canConsume("REORGANIZE", "PARTITION")) {
              parsePartitionNames(start);

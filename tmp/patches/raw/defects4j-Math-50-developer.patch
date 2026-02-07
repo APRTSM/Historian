@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-50/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-50-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+diff --git a/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java b/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
 index e47d982..c781a90 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-50/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-50-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
 @@ -184,10 +184,6 @@ public abstract class BaseSecantSolver
                      break;
                  case REGULA_FALSI:

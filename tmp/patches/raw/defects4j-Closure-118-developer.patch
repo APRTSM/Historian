@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-118/src/com/google/javascript/jscomp/DisambiguateProperties.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-118-fixed/src/com/google/javascript/jscomp/DisambiguateProperties.java
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
 index b34921e..01293c9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-118/src/com/google/javascript/jscomp/DisambiguateProperties.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-118-fixed/src/com/google/javascript/jscomp/DisambiguateProperties.java
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
 @@ -492,6 +492,9 @@ class DisambiguateProperties<T> implements CompilerPass {
            child != null;
            child = child.getNext()) {

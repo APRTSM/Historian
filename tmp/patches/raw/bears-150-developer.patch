@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
+diff --git a/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java b/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
 index 3b1a547d9..601818464 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
+--- a/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
++++ b/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleHandle.java
 @@ -54,64 +54,17 @@ import java.util.Locale;
   * Handle for a locale object.
   */
@@ -76,10 +76,10 @@ index 3b1a547d9..601818464 100644
 +        return new Locale(language, country, variant);
      }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
+diff --git a/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java b/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
 index 86f6cb0f3..6555e4a6b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
+--- a/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
++++ b/hessian-lite/src/main/java/com/alibaba/com/caucho/hessian/io/LocaleSerializer.java
 @@ -68,7 +68,7 @@ public class LocaleSerializer extends AbstractSerializer {
          else {
              Locale locale = (Locale) obj;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/StarLinkProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/StarLinkProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/StarLinkProtocolDecoder.java b/src/org/traccar/protocol/StarLinkProtocolDecoder.java
 index 8d35ea5ba..97091257f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/StarLinkProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/StarLinkProtocolDecoder.java
+--- a/src/org/traccar/protocol/StarLinkProtocolDecoder.java
++++ b/src/org/traccar/protocol/StarLinkProtocolDecoder.java
 @@ -151,10 +151,14 @@ public class StarLinkProtocolDecoder extends BaseProtocolDecoder {
                      position.set(Position.PREFIX_OUT + 4, Integer.parseInt(data[i]));
                      break;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-9/src/main/java/org/joda/time/DateTimeZone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-9-fixed/src/main/java/org/joda/time/DateTimeZone.java
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
 index 3ad5cfe..afa75d7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-9/src/main/java/org/joda/time/DateTimeZone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-9-fixed/src/main/java/org/joda/time/DateTimeZone.java
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
 @@ -93,6 +93,7 @@ public abstract class DateTimeZone implements Serializable {
      /** The time zone for Universal Coordinated Time */
      public static final DateTimeZone UTC = new FixedDateTimeZone("UTC", "UTC", 0, 0);

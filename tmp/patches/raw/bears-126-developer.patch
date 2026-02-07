@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gt06ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gt06ProtocolDecoder.java b/src/org/traccar/protocol/Gt06ProtocolDecoder.java
 index d8da7e6de..5c83f9348 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gt06ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gt06ProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gt06ProtocolDecoder.java
 @@ -182,6 +182,9 @@ public class Gt06ProtocolDecoder extends BaseProtocolDecoder {
          }
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/BaseProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/BaseProtocolDecoder.java
+diff --git a/src/org/traccar/BaseProtocolDecoder.java b/src/org/traccar/BaseProtocolDecoder.java
 index 7a393727b..cde858671 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/BaseProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/BaseProtocolDecoder.java
+--- a/src/org/traccar/BaseProtocolDecoder.java
++++ b/src/org/traccar/BaseProtocolDecoder.java
 @@ -106,7 +106,7 @@ public abstract class BaseProtocolDecoder extends ExtendedObjectDecoder {
      }
  

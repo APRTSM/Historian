@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-8/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-8-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
 index c6e0041..3711fb9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-8/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-8-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
 @@ -73,7 +73,13 @@ public abstract class CoreOperationRelationalExpression extends CoreOperation {
              return containsMatch((Iterator) right, left);
          }

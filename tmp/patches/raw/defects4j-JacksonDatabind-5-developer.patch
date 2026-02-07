@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-5/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-5-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java b/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
 index d6e44ab..fa379b1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-5/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-5-fixed/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
+--- a/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
++++ b/src/main/java/com/fasterxml/jackson/databind/introspect/AnnotatedClass.java
 @@ -655,7 +655,12 @@ public final class AnnotatedClass
                       */
                  } else {

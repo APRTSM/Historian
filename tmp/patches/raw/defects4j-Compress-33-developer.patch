@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33-fixed/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
+diff --git a/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java b/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
 index 935283a..8dc3c52 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33-fixed/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
+--- a/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
++++ b/src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java
 @@ -237,6 +237,9 @@ public class CompressorStreamFactory {
                  return new ZCompressorInputStream(in);
              }
@@ -12,10 +12,10 @@ index 935283a..8dc3c52 100644
  
              if (XZUtils.matches(signature, signatureLength) &&
                  XZUtils.isXZCompressionAvailable()) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33-fixed/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java b/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
 index 98d8ec1..b8ed198 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-33-fixed/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
+--- a/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
++++ b/src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java
 @@ -30,6 +30,11 @@ import org.apache.commons.compress.compressors.CompressorInputStream;
   * @since 1.9
   */

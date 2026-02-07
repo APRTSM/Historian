@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90-fixed/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
 index 99c9fce..3394fa6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90-fixed/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
 @@ -181,7 +181,7 @@ final class FunctionTypeBuilder {
        // create interfaces JSType, ObjectType, FunctionType etc and have
        // separate implementation instead of the class hierarchy, so that
@@ -11,10 +11,10 @@ index 99c9fce..3394fa6 100644
                typeRegistry.getNativeType(OBJECT_TYPE))) {
          reportWarning(THIS_TYPE_NON_OBJECT, type.toString());
          return false;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90/src/com/google/javascript/rhino/jstype/FunctionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
 index 3f0d245..de1d1c2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90/src/com/google/javascript/rhino/jstype/FunctionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-90-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
 @@ -877,6 +877,9 @@ public class FunctionType extends PrototypeObjectType {
      // mean "nullable Foo". For certain tags (like @extends) we de-nullify
      // the name for them.

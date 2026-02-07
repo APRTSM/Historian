@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
 index 3666aba..6752f20 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java
 @@ -299,8 +299,11 @@ name, i, t.getRawClass()));
       *
       * @since 2.8
@@ -61,10 +61,10 @@ index 3666aba..6752f20 100644
 +        }
 +    }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 index c3fc79f..a27097e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-53-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 @@ -114,7 +114,7 @@ public final class TypeFactory
       * actual generic types), we will use small cache to avoid repetitive
       * resolution of core types

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/factory/ExecutableFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+diff --git a/src/main/java/spoon/reflect/factory/ExecutableFactory.java b/src/main/java/spoon/reflect/factory/ExecutableFactory.java
 index 662c89f59..0499eca0a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/factory/ExecutableFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/factory/ExecutableFactory.java
+--- a/src/main/java/spoon/reflect/factory/ExecutableFactory.java
++++ b/src/main/java/spoon/reflect/factory/ExecutableFactory.java
 @@ -118,7 +118,7 @@ public class ExecutableFactory extends SubFactory {
  			return createReference(((CtMethod<T>) e).getDeclaringType().getReference(), isStatic, ((CtMethod<T>) e).getType().clone(), executableName, refs);
  		} else if (e instanceof CtLambda) {
@@ -11,10 +11,10 @@ index 662c89f59..0499eca0a 100644
  		} else if (e instanceof CtAnonymousExecutable) {
  			return createReference(((CtAnonymousExecutable) e).getDeclaringType().getReference(), e.getType().clone(), executableName);
  		}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+diff --git a/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java b/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
 index 01af41fe9..b93915f3a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+--- a/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
++++ b/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
 @@ -52,6 +52,7 @@ import spoon.support.UnsettableProperty;
  import spoon.support.compiler.SnippetCompilationHelper;
  import spoon.support.util.QualifiedNameBasedSortedSet;
@@ -47,10 +47,10 @@ index 01af41fe9..b93915f3a 100644
  			}
  		});
  		return Collections.unmodifiableSet(l);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+diff --git a/src/main/java/spoon/support/visitor/ClassTypingContext.java b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 index 4cec5502e..f1481517c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+--- a/src/main/java/spoon/support/visitor/ClassTypingContext.java
++++ b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 @@ -423,6 +423,9 @@ public class ClassTypingContext extends AbstractTypingContext {
  	 */
  	@Override

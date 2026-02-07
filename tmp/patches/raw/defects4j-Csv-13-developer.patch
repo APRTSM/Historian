@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13/src/main/java/org/apache/commons/csv/CSVFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVFormat.java b/src/main/java/org/apache/commons/csv/CSVFormat.java
 index 847f30a..8c71f3a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13/src/main/java/org/apache/commons/csv/CSVFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13-fixed/src/main/java/org/apache/commons/csv/CSVFormat.java
+--- a/src/main/java/org/apache/commons/csv/CSVFormat.java
++++ b/src/main/java/org/apache/commons/csv/CSVFormat.java
 @@ -316,7 +316,7 @@ public final class CSVFormat implements Serializable {
       *      http://dev.mysql.com/doc/refman/5.1/en/load-data.html</a>
       */
@@ -11,10 +11,10 @@ index 847f30a..8c71f3a 100644
  
      /**
       * Returns true if the given character is a line break character.
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13/src/main/java/org/apache/commons/csv/CSVPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13-fixed/src/main/java/org/apache/commons/csv/CSVPrinter.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVPrinter.java b/src/main/java/org/apache/commons/csv/CSVPrinter.java
 index ac4234b..0e9a2de 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13/src/main/java/org/apache/commons/csv/CSVPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-13-fixed/src/main/java/org/apache/commons/csv/CSVPrinter.java
+--- a/src/main/java/org/apache/commons/csv/CSVPrinter.java
++++ b/src/main/java/org/apache/commons/csv/CSVPrinter.java
 @@ -136,7 +136,9 @@ public final class CSVPrinter implements Flushable, Closeable {
          if (!newRecord) {
              out.append(format.getDelimiter());

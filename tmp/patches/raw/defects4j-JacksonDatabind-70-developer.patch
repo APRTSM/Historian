@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-70/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-70-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java b/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
 index dc79189..8031ee0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-70/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-70-fixed/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java
 @@ -437,7 +437,7 @@ System.err.println("And new propr #"+slot+" '"+key+"'");
              if (!found) {
                  // 09-Jan-2017, tatu: Important: must check name slot and NOT property name,

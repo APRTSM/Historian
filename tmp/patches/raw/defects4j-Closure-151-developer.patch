@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-151/src/com/google/javascript/jscomp/CommandLineRunner.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-151-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
 index ebf4b51..609df79 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-151/src/com/google/javascript/jscomp/CommandLineRunner.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-151-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
 @@ -298,6 +298,9 @@ public class CommandLineRunner extends
          + "a manifest for each module.")
      private String output_manifest = "";

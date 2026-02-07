@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-5/src/main/java/org/apache/commons/lang3/LocaleUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-5-fixed/src/main/java/org/apache/commons/lang3/LocaleUtils.java
+diff --git a/src/main/java/org/apache/commons/lang3/LocaleUtils.java b/src/main/java/org/apache/commons/lang3/LocaleUtils.java
 index bc779d0..a7a6051 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-5/src/main/java/org/apache/commons/lang3/LocaleUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-5-fixed/src/main/java/org/apache/commons/lang3/LocaleUtils.java
+--- a/src/main/java/org/apache/commons/lang3/LocaleUtils.java
++++ b/src/main/java/org/apache/commons/lang3/LocaleUtils.java
 @@ -94,6 +94,26 @@ public class LocaleUtils {
              throw new IllegalArgumentException("Invalid locale format: " + str);
          }

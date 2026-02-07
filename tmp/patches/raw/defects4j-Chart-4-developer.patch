@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-4/source/org/jfree/chart/plot/XYPlot.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-4-fixed/source/org/jfree/chart/plot/XYPlot.java
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
 index ec26162..6536d1d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-4/source/org/jfree/chart/plot/XYPlot.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-4-fixed/source/org/jfree/chart/plot/XYPlot.java
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
 @@ -4490,6 +4490,7 @@ public class XYPlot extends Plot implements ValueAxisPlot, Pannable,
                      }
                  }

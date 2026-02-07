@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/SuntechProtocolDecoder.java b/src/org/traccar/protocol/SuntechProtocolDecoder.java
 index 55d5c224a..e19335cb0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+--- a/src/org/traccar/protocol/SuntechProtocolDecoder.java
++++ b/src/org/traccar/protocol/SuntechProtocolDecoder.java
 @@ -31,11 +31,13 @@ import java.util.TimeZone;
  public class SuntechProtocolDecoder extends BaseProtocolDecoder {
  

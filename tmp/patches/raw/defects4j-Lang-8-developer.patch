@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-8/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-8-fixed/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
 index 5c0edda..c952309 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-8/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-8-fixed/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
 @@ -1095,7 +1095,6 @@ public class FastDatePrinter implements DatePrinter, Serializable {
      private static class TimeZoneNameRule implements Rule {
          private final Locale mLocale;

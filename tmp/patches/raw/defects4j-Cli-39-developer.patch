@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-39/src/main/java/org/apache/commons/cli/TypeHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-39-fixed/src/main/java/org/apache/commons/cli/TypeHandler.java
+diff --git a/src/main/java/org/apache/commons/cli/TypeHandler.java b/src/main/java/org/apache/commons/cli/TypeHandler.java
 index 93c0b73..68b4f02 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-39/src/main/java/org/apache/commons/cli/TypeHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-39-fixed/src/main/java/org/apache/commons/cli/TypeHandler.java
+--- a/src/main/java/org/apache/commons/cli/TypeHandler.java
++++ b/src/main/java/org/apache/commons/cli/TypeHandler.java
 @@ -89,7 +89,7 @@ public class TypeHandler
          }
          else if (PatternOptionBuilder.EXISTING_FILE_VALUE == clazz)

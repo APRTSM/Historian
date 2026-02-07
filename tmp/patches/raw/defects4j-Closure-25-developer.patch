@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-25/src/com/google/javascript/jscomp/TypeInference.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-25-fixed/src/com/google/javascript/jscomp/TypeInference.java
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
 index 7e218d8..74728ee 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-25/src/com/google/javascript/jscomp/TypeInference.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-25-fixed/src/com/google/javascript/jscomp/TypeInference.java
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
 @@ -1033,9 +1033,9 @@ class TypeInference
    }
  

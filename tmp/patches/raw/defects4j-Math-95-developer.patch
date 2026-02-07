@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-95/src/java/org/apache/commons/math/distribution/FDistributionImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-95-fixed/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
+diff --git a/src/java/org/apache/commons/math/distribution/FDistributionImpl.java b/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
 index e19e97a..59aeb07 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-95/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-95-fixed/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
+--- a/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
++++ b/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
 @@ -141,10 +141,12 @@ public class FDistributionImpl
       * @return initial domain value
       */

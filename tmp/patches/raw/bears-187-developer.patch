@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
+diff --git a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
 index b07d88fe5..e946e7ece 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
+--- a/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
++++ b/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages/SwaggerYamlGenerator.java
 @@ -60,7 +60,9 @@ public class SwaggerYamlGenerator extends DefaultCodegen implements CodegenConfi
      @Override
      public void processSwagger(Swagger swagger) {

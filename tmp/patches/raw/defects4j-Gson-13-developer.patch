@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-13/gson/src/main/java/com/google/gson/stream/JsonReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-13-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonReader.java b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 index 877742b..9cbc62f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-13/gson/src/main/java/com/google/gson/stream/JsonReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-13-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonReader.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 @@ -728,7 +728,7 @@ public class JsonReader implements Closeable {
      }
  

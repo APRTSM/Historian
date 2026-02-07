@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/common/src/main/java/slash/common/helpers/JAXBHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/common/src/main/java/slash/common/helpers/JAXBHelper.java
+diff --git a/common/src/main/java/slash/common/helpers/JAXBHelper.java b/common/src/main/java/slash/common/helpers/JAXBHelper.java
 index e17f794e1..f351a1aa5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/common/src/main/java/slash/common/helpers/JAXBHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/common/src/main/java/slash/common/helpers/JAXBHelper.java
+--- a/common/src/main/java/slash/common/helpers/JAXBHelper.java
++++ b/common/src/main/java/slash/common/helpers/JAXBHelper.java
 @@ -23,6 +23,7 @@ package slash.common.helpers;
  import javax.xml.bind.JAXBContext;
  import javax.xml.bind.JAXBException;

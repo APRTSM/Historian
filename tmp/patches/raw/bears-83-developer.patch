@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/template/Substitution.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/template/Substitution.java
+diff --git a/src/main/java/spoon/template/Substitution.java b/src/main/java/spoon/template/Substitution.java
 index d413e1b8c..b60f1ad60 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/template/Substitution.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/template/Substitution.java
+--- a/src/main/java/spoon/template/Substitution.java
++++ b/src/main/java/spoon/template/Substitution.java
 @@ -671,29 +671,31 @@ public abstract class Substitution {
  			Parameter templateParamAnnotation = f.getAnnotation(Parameter.class);
  			if (templateParamAnnotation != null && !templateParamAnnotation.value().equals("")) {

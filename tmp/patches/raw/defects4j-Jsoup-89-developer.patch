@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-89/src/main/java/org/jsoup/nodes/Attribute.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-89-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+diff --git a/src/main/java/org/jsoup/nodes/Attribute.java b/src/main/java/org/jsoup/nodes/Attribute.java
 index 4ff695d..8a51d10 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-89/src/main/java/org/jsoup/nodes/Attribute.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-89-fixed/src/main/java/org/jsoup/nodes/Attribute.java
+--- a/src/main/java/org/jsoup/nodes/Attribute.java
++++ b/src/main/java/org/jsoup/nodes/Attribute.java
 @@ -85,8 +85,9 @@ public class Attribute implements Map.Entry<String, String>, Cloneable  {
       @param val the new attribute value; must not be null
       */

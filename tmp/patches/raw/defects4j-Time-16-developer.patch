@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-16/src/main/java/org/joda/time/format/DateTimeFormatter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-16-fixed/src/main/java/org/joda/time/format/DateTimeFormatter.java
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatter.java b/src/main/java/org/joda/time/format/DateTimeFormatter.java
 index a4b1612..baa276a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-16/src/main/java/org/joda/time/format/DateTimeFormatter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-16-fixed/src/main/java/org/joda/time/format/DateTimeFormatter.java
+--- a/src/main/java/org/joda/time/format/DateTimeFormatter.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatter.java
 @@ -706,7 +706,7 @@ public class DateTimeFormatter {
          chrono = selectChronology(chrono);
          

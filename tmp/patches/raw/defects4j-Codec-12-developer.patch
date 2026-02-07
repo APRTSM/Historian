@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-12/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-12-fixed/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
+diff --git a/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java b/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
 index 02cb18a..d1eb77b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-12/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-12-fixed/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
+--- a/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
++++ b/src/main/java/org/apache/commons/codec/binary/BaseNCodecInputStream.java
 @@ -139,9 +139,31 @@ public class BaseNCodecInputStream extends FilterInputStream {
       *
       * @throws IllegalArgumentException if the provided skip length is negative

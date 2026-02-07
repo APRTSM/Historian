@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-33/src/main/java/org/apache/commons/cli/HelpFormatter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-33-fixed/src/main/java/org/apache/commons/cli/HelpFormatter.java
+diff --git a/src/main/java/org/apache/commons/cli/HelpFormatter.java b/src/main/java/org/apache/commons/cli/HelpFormatter.java
 index 3322f76..4329a8b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-33/src/main/java/org/apache/commons/cli/HelpFormatter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-33-fixed/src/main/java/org/apache/commons/cli/HelpFormatter.java
+--- a/src/main/java/org/apache/commons/cli/HelpFormatter.java
++++ b/src/main/java/org/apache/commons/cli/HelpFormatter.java
 @@ -727,7 +727,7 @@ public class HelpFormatter
      {
          StringBuffer sb = new StringBuffer(text.length());

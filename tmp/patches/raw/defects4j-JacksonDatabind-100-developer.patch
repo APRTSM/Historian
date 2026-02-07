@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-100/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-100-fixed/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java b/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
 index 9d2f74b..40bf3d3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-100/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-100-fixed/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+--- a/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
++++ b/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
 @@ -360,16 +360,10 @@ public class TreeTraversingParser extends ParserMinimalBase
          if (n != null) {
              // [databind#2096]: although `binaryValue()` works for real binary node

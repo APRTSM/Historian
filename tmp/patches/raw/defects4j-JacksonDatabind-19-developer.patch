@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-19/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-19-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 index 8ebffc8..4fa88cd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-19/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-19-fixed/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java
 @@ -1018,6 +1018,9 @@ public final class TypeFactory
      private JavaType _mapType(Class<?> rawClass)
      {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-3/source/org/jfree/data/time/TimeSeries.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-3-fixed/source/org/jfree/data/time/TimeSeries.java
+diff --git a/source/org/jfree/data/time/TimeSeries.java b/source/org/jfree/data/time/TimeSeries.java
 index 795d791..72bb2ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-3/source/org/jfree/data/time/TimeSeries.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-3-fixed/source/org/jfree/data/time/TimeSeries.java
+--- a/source/org/jfree/data/time/TimeSeries.java
++++ b/source/org/jfree/data/time/TimeSeries.java
 @@ -1054,6 +1054,8 @@ public class TimeSeries extends Series implements Cloneable, Serializable {
              throw new IllegalArgumentException("Requires start <= end.");
          }

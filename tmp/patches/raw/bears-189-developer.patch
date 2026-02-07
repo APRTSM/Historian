@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/Main.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/Main.java
+diff --git a/src/main/java/hu/oe/nik/szfmv/Main.java b/src/main/java/hu/oe/nik/szfmv/Main.java
 index afc03a279..116975ab3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/Main.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/Main.java
+--- a/src/main/java/hu/oe/nik/szfmv/Main.java
++++ b/src/main/java/hu/oe/nik/szfmv/Main.java
 @@ -32,10 +32,6 @@ public class Main {
  
          // create the world
@@ -13,10 +13,10 @@ index afc03a279..116975ab3 100644
          // create an automated car
          AutomatedCar car = new AutomatedCar(carX, carY, "car_2_white.png");
          // add car to the world
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
+diff --git a/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java b/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
 index a3eec6993..b82e0419c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
+--- a/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
++++ b/src/main/java/hu/oe/nik/szfmv/automatedcar/AutomatedCar.java
 @@ -7,6 +7,7 @@ import hu.oe.nik.szfmv.automatedcar.bus.packets.input.ReadOnlyInputPacket;
  import hu.oe.nik.szfmv.automatedcar.bus.powertrain.ReadOnlyPowertrainPacket;
  import hu.oe.nik.szfmv.automatedcar.sensors.UltrasonicSensor;
@@ -33,10 +33,10 @@ index a3eec6993..b82e0419c 100644
          new Driver(virtualFunctionBus);
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/environment/World.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/environment/World.java
+diff --git a/src/main/java/hu/oe/nik/szfmv/environment/World.java b/src/main/java/hu/oe/nik/szfmv/environment/World.java
 index 4632d0a43..6c57c6c70 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/hu/oe/nik/szfmv/environment/World.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/hu/oe/nik/szfmv/environment/World.java
+--- a/src/main/java/hu/oe/nik/szfmv/environment/World.java
++++ b/src/main/java/hu/oe/nik/szfmv/environment/World.java
 @@ -14,6 +14,7 @@ public class World implements IWorld {
      private int width = 0;
      private int height = 0;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-132/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-132-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 index ae568e8..520c592 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-132/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-132-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 @@ -779,7 +779,9 @@ class PeepholeSubstituteAlternateSyntax
                // evaluates LHS before cond]
                // NOTE - there are some circumstances where we can

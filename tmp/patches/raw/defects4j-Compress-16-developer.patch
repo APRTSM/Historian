@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-16/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-16-fixed/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
 index 37dfbe0..90820df 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-16/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-16-fixed/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+--- a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
++++ b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
 @@ -241,8 +241,9 @@ public class ArchiveStreamFactory {
                  try {
                      TarArchiveInputStream tais = new TarArchiveInputStream(new ByteArrayInputStream(tarheader));

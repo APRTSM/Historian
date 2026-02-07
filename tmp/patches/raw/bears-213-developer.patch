@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
+diff --git a/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java b/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
 index 547cc8917..60b278e3a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
+--- a/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
++++ b/src/main/java/org/springframework/data/ebean/repository/query/EbeanQueryWrapper.java
 @@ -183,6 +183,7 @@ public class EbeanQueryWrapper<T> {
      void setMaxRows(int maxRows) {
          if (queryType == QUERY) {

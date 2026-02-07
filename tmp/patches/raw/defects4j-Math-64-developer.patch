@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-64/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-64-fixed/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
 index 5091493..b41456e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-64/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-64-fixed/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+--- a/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
 @@ -255,6 +255,8 @@ public class LevenbergMarquardtOptimizer extends AbstractLeastSquaresOptimizer {
          double[] diag    = new double[cols];
          double[] oldX    = new double[cols];

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-105/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-105-fixed/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
+diff --git a/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java b/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
 index dcf512b..d9fa592 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-105/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-105-fixed/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
+--- a/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
++++ b/src/java/org/apache/commons/math/stat/regression/SimpleRegression.java
 @@ -261,7 +261,7 @@ public class SimpleRegression implements Serializable {
       * @return sum of squared errors associated with the regression model
       */

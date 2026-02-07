@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-26/src/com/google/javascript/jscomp/ProcessCommonJSModules.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-26-fixed/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
+diff --git a/src/com/google/javascript/jscomp/ProcessCommonJSModules.java b/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
 index 1744a58..fa01cd9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-26/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-26-fixed/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
+--- a/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
++++ b/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
 @@ -125,6 +125,7 @@ public class ProcessCommonJSModules implements CompilerPass {
        AbstractPostOrderCallback {
  

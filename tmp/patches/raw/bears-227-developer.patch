@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
+diff --git a/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java b/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
 index 0d1759a1a..034fefd1f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
+--- a/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
++++ b/core/src/main/java/feign/querymap/FieldQueryMapEncoder.java
 @@ -17,6 +17,7 @@ import feign.QueryMapEncoder;
  import feign.codec.EncodeException;
  import java.lang.reflect.Field;

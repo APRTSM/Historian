@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-53/src/main/java/org/jsoup/parser/TokenQueue.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-53-fixed/src/main/java/org/jsoup/parser/TokenQueue.java
+diff --git a/src/main/java/org/jsoup/parser/TokenQueue.java b/src/main/java/org/jsoup/parser/TokenQueue.java
 index 269a755..47947fa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-53/src/main/java/org/jsoup/parser/TokenQueue.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-53-fixed/src/main/java/org/jsoup/parser/TokenQueue.java
+--- a/src/main/java/org/jsoup/parser/TokenQueue.java
++++ b/src/main/java/org/jsoup/parser/TokenQueue.java
 @@ -262,11 +262,16 @@ public class TokenQueue {
          int end = -1;
          int depth = 0;

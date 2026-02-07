@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ProcessingVisitor.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ProcessingVisitor.java
+diff --git a/src/main/java/spoon/support/visitor/ProcessingVisitor.java b/src/main/java/spoon/support/visitor/ProcessingVisitor.java
 index 268b27f81..07212e592 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ProcessingVisitor.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ProcessingVisitor.java
+--- a/src/main/java/spoon/support/visitor/ProcessingVisitor.java
++++ b/src/main/java/spoon/support/visitor/ProcessingVisitor.java
 @@ -45,10 +45,11 @@ public class ProcessingVisitor extends CtScanner {
  		if (!factory.getEnvironment().isProcessingStopped()
  				&& processor.getProcessedElementTypes() != null) {

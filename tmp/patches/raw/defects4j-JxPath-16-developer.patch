@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 index fcc1f18..55c2b98 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 @@ -144,8 +144,7 @@ public class DOMNodePointer extends NodePointer {
              int nodeType = node.getNodeType();
              switch (((NodeTypeTest) test).getNodeType()) {
@@ -12,10 +12,10 @@ index fcc1f18..55c2b98 100644
                  case Compiler.NODE_TYPE_TEXT :
                      return nodeType == Node.CDATA_SECTION_NODE
                          || nodeType == Node.TEXT_NODE;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 index 601db7c..4ff42c7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-16-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 @@ -388,7 +388,7 @@ public class JDOMNodePointer extends NodePointer {
          if (test instanceof NodeTypeTest) {
              switch (((NodeTypeTest) test).getNodeType()) {

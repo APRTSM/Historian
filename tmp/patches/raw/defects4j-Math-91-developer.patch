@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-91/src/java/org/apache/commons/math/fraction/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-91-fixed/src/java/org/apache/commons/math/fraction/Fraction.java
+diff --git a/src/java/org/apache/commons/math/fraction/Fraction.java b/src/java/org/apache/commons/math/fraction/Fraction.java
 index 0706f8c..d6d2f18 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-91/src/java/org/apache/commons/math/fraction/Fraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-91-fixed/src/java/org/apache/commons/math/fraction/Fraction.java
+--- a/src/java/org/apache/commons/math/fraction/Fraction.java
++++ b/src/java/org/apache/commons/math/fraction/Fraction.java
 @@ -256,8 +256,8 @@ public class Fraction extends Number implements Comparable<Fraction> {
       *         than <tt>object</tt>, 0 if they are equal.
       */

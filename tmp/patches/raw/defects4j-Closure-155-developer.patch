@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/InlineVariables.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/InlineVariables.java
+diff --git a/src/com/google/javascript/jscomp/InlineVariables.java b/src/com/google/javascript/jscomp/InlineVariables.java
 index 18c9fbe..7d99778 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/InlineVariables.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/InlineVariables.java
+--- a/src/com/google/javascript/jscomp/InlineVariables.java
++++ b/src/com/google/javascript/jscomp/InlineVariables.java
 @@ -196,6 +196,8 @@ class InlineVariables implements CompilerPass {
      private void doInlinesForScope(NodeTraversal t,
          Map<Var, ReferenceCollection> referenceMap) {
@@ -67,10 +67,10 @@ index 18c9fbe..7d99778 100644
            !staleVars.contains(v) && referenceInfo.isWellDefined() &&
            referenceInfo.isAssignedOnceInLifetime()) {
          List<Reference> refs = referenceInfo.references;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+diff --git a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
 index e3edbb4..4c00d60 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+--- a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
++++ b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
 @@ -120,7 +120,12 @@ class ReferenceCollectingCallback implements ScopedCallback, CompilerPass {
     */
    public void visit(NodeTraversal t, Node n, Node parent) {
@@ -85,10 +85,10 @@ index e3edbb4..4c00d60 100644
        if (v != null && varFilter.apply(v)) {
          addReference(t, v,
              new Reference(n, parent, t, blockStack.peek()));
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/Scope.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/Scope.java
+diff --git a/src/com/google/javascript/jscomp/Scope.java b/src/com/google/javascript/jscomp/Scope.java
 index 806ca27..19ac9d2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155/src/com/google/javascript/jscomp/Scope.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-155-fixed/src/com/google/javascript/jscomp/Scope.java
+--- a/src/com/google/javascript/jscomp/Scope.java
++++ b/src/com/google/javascript/jscomp/Scope.java
 @@ -60,6 +60,7 @@ public class Scope implements StaticScope<JSType> {
    /** Whether this is a bottom scope for the purposes of type inference. */
    private final boolean isBottom;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/json/ignore/JsonIgnoreFields.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/json/ignore/JsonIgnoreFields.java
+diff --git a/src/main/java/com/json/ignore/JsonIgnoreFields.java b/src/main/java/com/json/ignore/JsonIgnoreFields.java
 index f22ad181b..cacc33ee1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/json/ignore/JsonIgnoreFields.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/json/ignore/JsonIgnoreFields.java
+--- a/src/main/java/com/json/ignore/JsonIgnoreFields.java
++++ b/src/main/java/com/json/ignore/JsonIgnoreFields.java
 @@ -130,7 +130,7 @@ public class JsonIgnoreFields {
      }
  

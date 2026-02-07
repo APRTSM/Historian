@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-2/src/java/org/apache/commons/codec/binary/Base64.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-2-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+diff --git a/src/java/org/apache/commons/codec/binary/Base64.java b/src/java/org/apache/commons/codec/binary/Base64.java
 index c00fbe5..dc2ecfc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-2/src/java/org/apache/commons/codec/binary/Base64.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Codec-2-fixed/src/java/org/apache/commons/codec/binary/Base64.java
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
 @@ -443,7 +443,7 @@ public class Base64 implements BinaryEncoder, BinaryDecoder {
                      }
                      break;

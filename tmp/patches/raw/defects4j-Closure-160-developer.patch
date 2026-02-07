@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-160/src/com/google/javascript/jscomp/Compiler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-160-fixed/src/com/google/javascript/jscomp/Compiler.java
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
 index 1185021..a4a41a8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-160/src/com/google/javascript/jscomp/Compiler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-160-fixed/src/com/google/javascript/jscomp/Compiler.java
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
 @@ -265,6 +265,7 @@ public class Compiler extends AbstractCompiler {
              getDiagnosticGroups().getRegisteredGroups()));
      guards.add(options.getWarningsGuard());

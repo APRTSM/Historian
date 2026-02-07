@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+diff --git a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 index 2781fcda4..2749c9795 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+--- a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
++++ b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 @@ -1796,12 +1796,14 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
  	@Override
  	public void calculate(CompilationUnit sourceCompilationUnit, List<CtType<?>> types) {
@@ -18,10 +18,10 @@ index 2781fcda4..2749c9795 100644
  		Set<CtReference> imports = new HashSet<>();
  		for (CtType<?> t : types) {
  			imports.addAll(computeImports(t));
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+diff --git a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 index 614a6f93e..68e4f28a1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
+--- a/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
++++ b/src/main/java/spoon/reflect/visitor/ImportScannerImpl.java
 @@ -20,7 +20,6 @@ import spoon.reflect.code.CtBlock;
  import spoon.reflect.code.CtCatchVariable;
  import spoon.reflect.code.CtFieldAccess;

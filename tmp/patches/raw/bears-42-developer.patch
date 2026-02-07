@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java b/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
 index 12d93e40a..842b070d0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
+--- a/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
 @@ -70,7 +70,7 @@ public class PotentialVariableDeclarationFunction implements CtConsumableFunctio
  
  		CtElement scopeElement = input;

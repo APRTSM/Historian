@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-56/src/java/org/apache/commons/lang/time/FastDateFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-56-fixed/src/java/org/apache/commons/lang/time/FastDateFormat.java
+diff --git a/src/java/org/apache/commons/lang/time/FastDateFormat.java b/src/java/org/apache/commons/lang/time/FastDateFormat.java
 index 89d8073..756290f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-56/src/java/org/apache/commons/lang/time/FastDateFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-56-fixed/src/java/org/apache/commons/lang/time/FastDateFormat.java
+--- a/src/java/org/apache/commons/lang/time/FastDateFormat.java
++++ b/src/java/org/apache/commons/lang/time/FastDateFormat.java
 @@ -137,11 +137,11 @@ public class FastDateFormat extends Format {
      /**
       * The parsed rules.

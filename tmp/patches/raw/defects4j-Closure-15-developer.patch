@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-15/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-15-fixed/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+diff --git a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
 index a8e92fc..20196bf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-15/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-15-fixed/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+--- a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
++++ b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
 @@ -99,6 +99,9 @@ class FlowSensitiveInlineVariables extends AbstractPostOrderCallback
            return true;
          }

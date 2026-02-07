@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java b/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
 index 37c6503..fbca28e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+--- a/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
++++ b/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
 @@ -389,6 +389,9 @@ public abstract class ParserMinimalBase extends JsonParser
          if (_currToken == JsonToken.VALUE_STRING) {
              return getText();
@@ -22,10 +22,10 @@ index 37c6503..fbca28e 100644
          if (_currToken == null || _currToken == JsonToken.VALUE_NULL || !_currToken.isScalarValue()) {
              return defaultValue;
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java b/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
 index b5b0051..4f0f753 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
 @@ -250,6 +250,9 @@ public class ReaderBasedJsonParser // final in 2.3, earlier
              }
              return _textBuffer.contentsAsString();
@@ -46,10 +46,10 @@ index b5b0051..4f0f753 100644
          return super.getValueAsString(defValue);
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java b/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
 index 2fe3683..2b83d18 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-9-fixed/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+--- a/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
 @@ -302,6 +302,9 @@ public class UTF8StreamJsonParser
              }
              return _textBuffer.contentsAsString();

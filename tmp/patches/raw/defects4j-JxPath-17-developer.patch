@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
 index a2ee4db..a979a10 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
 @@ -81,18 +81,14 @@ public class DOMAttributeIterator implements NodeIterator {
          if (testLocalName.equals("*") || testLocalName.equals(nodeLocalName)) {
              String testPrefix = name.getPrefix();
@@ -33,10 +33,10 @@ index a2ee4db..a979a10 100644
 -}
 +}
 \ No newline at end of file
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
 index db0b14d..d7b7a30 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-17-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
 @@ -67,11 +67,9 @@ public class JDOMAttributeIterator implements NodeIterator {
              String lname = name.getName();
              if (!lname.equals("*")) {

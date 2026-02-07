@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-7/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-7-fixed/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+diff --git a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
 index 2d6c07b..80bd908 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-7/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-7-fixed/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+--- a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
++++ b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
 @@ -376,6 +376,7 @@ public abstract class GenericMetadataSupport {
              for (Type type : typeVariable.getBounds()) {
                  registerTypeVariablesOn(type);

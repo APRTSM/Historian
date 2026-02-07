@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-41/src/main/java/org/jsoup/nodes/Element.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-41-fixed/src/main/java/org/jsoup/nodes/Element.java
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
 index cd2e86a..c07018e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-41/src/main/java/org/jsoup/nodes/Element.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-41-fixed/src/main/java/org/jsoup/nodes/Element.java
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
 @@ -1172,7 +1172,7 @@ public class Element extends Node {
  
          Element element = (Element) o;

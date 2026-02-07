@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-26/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-26-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+diff --git a/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
 index f81ff0a..08d3b95 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-26/src/main/java/org/apache/commons/math3/fraction/Fraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-26-fixed/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+--- a/src/main/java/org/apache/commons/math3/fraction/Fraction.java
++++ b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
 @@ -178,7 +178,7 @@ public class Fraction
          long overflow = Integer.MAX_VALUE;
          double r0 = value;

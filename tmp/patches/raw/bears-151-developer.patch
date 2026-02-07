@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
+diff --git a/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java b/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
 index c4bc848e2..fe1c61bbb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
+--- a/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
++++ b/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/util/PropertySourcesUtils.java
 @@ -52,9 +52,7 @@ public abstract class PropertySourcesUtils {
                      if (name.startsWith(normalizedPrefix)) {
                          String subName = name.substring(normalizedPrefix.length());

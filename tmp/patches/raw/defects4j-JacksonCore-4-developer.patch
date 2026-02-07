@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-4/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-4-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 index f97a083..a677376 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-4/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-4-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+--- a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 @@ -582,8 +582,11 @@ public final class TextBuffer
          final char[] curr = _currentSegment;
          // Let's grow by 50% by default

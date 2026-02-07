@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/CguardProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/CguardProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/CguardProtocolDecoder.java b/src/org/traccar/protocol/CguardProtocolDecoder.java
 index 19144017a..f1d593944 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/CguardProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/CguardProtocolDecoder.java
+--- a/src/org/traccar/protocol/CguardProtocolDecoder.java
++++ b/src/org/traccar/protocol/CguardProtocolDecoder.java
 @@ -35,13 +35,13 @@ public class CguardProtocolDecoder extends BaseProtocolDecoder {
      private static final Pattern PATTERN_NV = new PatternBuilder()
              .text("NV:")

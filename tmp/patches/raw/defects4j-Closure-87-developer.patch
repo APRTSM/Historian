@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-87/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-87-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 index 9498fa6..6c4ee4a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-87/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-87-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 @@ -520,17 +520,29 @@ public class PeepholeSubstituteAlternateSyntax
      if (n.getType() == Token.BLOCK) {
        if (n.hasOneChild()) {

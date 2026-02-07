@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-21/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-21-fixed/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
+diff --git a/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java b/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
 index 0cc8226..9f0201a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-21/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-21-fixed/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
+--- a/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
++++ b/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
 @@ -14,18 +14,23 @@ public class ConstructorInstantiator implements Instantiator {
          if (outerClassInstance == null) {
              return noArgConstructor(cls);

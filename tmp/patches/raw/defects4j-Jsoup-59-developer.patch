@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-59/src/main/java/org/jsoup/parser/Token.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-59-fixed/src/main/java/org/jsoup/parser/Token.java
+diff --git a/src/main/java/org/jsoup/parser/Token.java b/src/main/java/org/jsoup/parser/Token.java
 index 7dcfa2b..af51432 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-59/src/main/java/org/jsoup/parser/Token.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-59-fixed/src/main/java/org/jsoup/parser/Token.java
+--- a/src/main/java/org/jsoup/parser/Token.java
++++ b/src/main/java/org/jsoup/parser/Token.java
 @@ -104,6 +104,7 @@ abstract class Token {
              if (pendingAttributeName != null) {
                  // the tokeniser has skipped whitespace control chars, but trimming could collapse to empty for other control codes, so verify here

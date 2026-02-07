@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java b/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
 index 1e52b9e..981e796 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
+--- a/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
++++ b/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
 @@ -866,9 +866,11 @@ public abstract class ParserBase extends ParserMinimalBase
      // @since 2.9.8
      protected void _reportTooLongIntegral(int expType, String rawNum) throws IOException
@@ -26,10 +26,10 @@ index 1e52b9e..981e796 100644
              }
              _numberInt = result;
          } else if ((_numTypesValid & NR_BIGINT) != 0) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java b/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
 index c83ade9..fe9a047 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-24-fixed/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+--- a/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
++++ b/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
 @@ -562,11 +562,15 @@ public abstract class ParserMinimalBase extends JsonParser
  
      // @since 2.10

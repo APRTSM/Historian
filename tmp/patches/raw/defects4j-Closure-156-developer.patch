@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-156/src/com/google/javascript/jscomp/CollapseProperties.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-156-fixed/src/com/google/javascript/jscomp/CollapseProperties.java
+diff --git a/src/com/google/javascript/jscomp/CollapseProperties.java b/src/com/google/javascript/jscomp/CollapseProperties.java
 index 01295cd..abe0159 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-156/src/com/google/javascript/jscomp/CollapseProperties.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-156-fixed/src/com/google/javascript/jscomp/CollapseProperties.java
+--- a/src/com/google/javascript/jscomp/CollapseProperties.java
++++ b/src/com/google/javascript/jscomp/CollapseProperties.java
 @@ -452,8 +452,8 @@ class CollapseProperties implements CompilerPass {
      boolean canCollapseChildNames = n.canCollapseUnannotatedChildNames();
  

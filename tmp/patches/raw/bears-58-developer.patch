@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+diff --git a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 index 443981115..698632227 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+--- a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
++++ b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 @@ -282,7 +282,7 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
  			context.elementStack.push(e);
  			if (env.isPreserveLineNumbers()) {
@@ -73,10 +73,10 @@ index 443981115..698632227 100644
  		}
  	}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+diff --git a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 index 0882ead28..0f50d2a7c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
+--- a/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
++++ b/src/main/java/spoon/reflect/visitor/printer/ElementPrinterHelper.java
 @@ -88,7 +88,7 @@ public class ElementPrinterHelper {
  	public void visitCtNamedElement(CtNamedElement namedElement, CompilationUnit sourceCompilationUnit) {
  		writeAnnotations(namedElement);
@@ -94,10 +94,10 @@ index 0882ead28..0f50d2a7c 100644
  			}
  			// writing the header package
  			if (!types.get(0).getPackage().isUnnamedPackage()) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
+diff --git a/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java b/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
 index 9b19bc3a1..e4c01edfd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
+--- a/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
++++ b/src/main/java/spoon/reflect/visitor/printer/PrinterHelper.java
 @@ -16,7 +16,6 @@
   */
  package spoon.reflect.visitor.printer;
@@ -145,10 +145,10 @@ index 9b19bc3a1..e4c01edfd 100644
  	}
  
  	public void undefineLine() {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java b/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
 index ff14d0424..d9e128bc3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
+--- a/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
++++ b/src/main/java/spoon/support/compiler/jdt/JDTBasedSpoonCompiler.java
 @@ -504,6 +504,7 @@ public class JDTBasedSpoonCompiler implements spoon.SpoonModelBuilder {
  
  				IOUtils.copy(is, new FileOutputStream(file));

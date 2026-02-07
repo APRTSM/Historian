@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-23/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-23-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
 index c11155e..05f7b78 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-23/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-23-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
 @@ -51,6 +51,7 @@ public class NumberSerializers
      protected abstract static class Base<T> extends StdScalarSerializer<T>
          implements ContextualSerializer

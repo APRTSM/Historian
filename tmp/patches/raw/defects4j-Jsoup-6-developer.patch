@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-6/src/main/java/org/jsoup/nodes/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-6-fixed/src/main/java/org/jsoup/nodes/Entities.java
+diff --git a/src/main/java/org/jsoup/nodes/Entities.java b/src/main/java/org/jsoup/nodes/Entities.java
 index 4daf720..739897c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-6/src/main/java/org/jsoup/nodes/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-6-fixed/src/main/java/org/jsoup/nodes/Entities.java
+--- a/src/main/java/org/jsoup/nodes/Entities.java
++++ b/src/main/java/org/jsoup/nodes/Entities.java
 @@ -67,9 +67,9 @@ public class Entities {
  
              if (charval != -1 || charval > 0xFFFF) { // out of range

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-40/src/main/java/org/jsoup/nodes/DocumentType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-40-fixed/src/main/java/org/jsoup/nodes/DocumentType.java
+diff --git a/src/main/java/org/jsoup/nodes/DocumentType.java b/src/main/java/org/jsoup/nodes/DocumentType.java
 index 4b4a5e9..fc1ca23 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-40/src/main/java/org/jsoup/nodes/DocumentType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-40-fixed/src/main/java/org/jsoup/nodes/DocumentType.java
+--- a/src/main/java/org/jsoup/nodes/DocumentType.java
++++ b/src/main/java/org/jsoup/nodes/DocumentType.java
 @@ -19,7 +19,6 @@ public class DocumentType extends Node {
      public DocumentType(String name, String publicId, String systemId, String baseUri) {
          super(baseUri);

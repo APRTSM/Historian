@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/ArrowType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/ArrowType.java
+diff --git a/src/com/google/javascript/rhino/jstype/ArrowType.java b/src/com/google/javascript/rhino/jstype/ArrowType.java
 index c4109b0..8919efa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/ArrowType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/ArrowType.java
+--- a/src/com/google/javascript/rhino/jstype/ArrowType.java
++++ b/src/com/google/javascript/rhino/jstype/ArrowType.java
 @@ -174,7 +174,7 @@ final class ArrowType extends JSType {
     * @return True if our parameter spec is equal to {@code that}'s parameter
     *     spec.
@@ -36,11 +36,11 @@ index c4109b0..8919efa 100644
    }
  
    @Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java
+diff --git a/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java b/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java
 new file mode 100644
 index 0000000..b6c3744
 --- /dev/null
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java
++++ b/src/com/google/javascript/rhino/jstype/EquivalenceMethod.java
 @@ -0,0 +1,83 @@
 +/*
 + *
@@ -125,10 +125,10 @@ index 0000000..b6c3744
 +   */
 +  INVARIANT
 +}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/FunctionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
 index e354e56..4c62e15 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/FunctionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/FunctionType.java
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
 @@ -789,7 +789,7 @@ public class FunctionType extends PrototypeObjectType {
    private FunctionType tryMergeFunctionPiecewise(
        FunctionType other, boolean leastSuper) {
@@ -168,10 +168,10 @@ index e354e56..4c62e15 100644
    }
  
    /**
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/JSType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/JSType.java
+diff --git a/src/com/google/javascript/rhino/jstype/JSType.java b/src/com/google/javascript/rhino/jstype/JSType.java
 index 081a3d7..9c8e989 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/JSType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/JSType.java
+--- a/src/com/google/javascript/rhino/jstype/JSType.java
++++ b/src/com/google/javascript/rhino/jstype/JSType.java
 @@ -489,7 +489,7 @@ public abstract class JSType implements Serializable {
     * Checks if two types are equivalent.
     */
@@ -284,10 +284,10 @@ index 081a3d7..9c8e989 100644
      }
  
      // Relies on the fact that for the base {@link JSType}, only one
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/RecordType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/RecordType.java
+diff --git a/src/com/google/javascript/rhino/jstype/RecordType.java b/src/com/google/javascript/rhino/jstype/RecordType.java
 index 50423d5..d70db70 100755
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/RecordType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/RecordType.java
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
 @@ -115,7 +115,7 @@ class RecordType extends PrototypeObjectType {
    }
  
@@ -332,10 +332,10 @@ index 50423d5..d70db70 100755
          }
        }
      }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/UnionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/UnionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/UnionType.java b/src/com/google/javascript/rhino/jstype/UnionType.java
 index 5a81698..0fd8b24 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169/src/com/google/javascript/rhino/jstype/UnionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-169-fixed/src/com/google/javascript/rhino/jstype/UnionType.java
+--- a/src/com/google/javascript/rhino/jstype/UnionType.java
++++ b/src/com/google/javascript/rhino/jstype/UnionType.java
 @@ -331,22 +331,22 @@ public class UnionType extends JSType {
     * and all alternates are equal.
     */

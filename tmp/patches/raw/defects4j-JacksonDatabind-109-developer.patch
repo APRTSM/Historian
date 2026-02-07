@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
 index dc4906e..56b3073 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
 @@ -34,6 +34,7 @@ public class NumberSerializer
      /**
       * Copied from `jackson-core` class `GeneratorBase`
@@ -78,10 +78,10 @@ index dc4906e..56b3073 100644
 +        }
 +    }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
 index 8af633d..8fd2b87 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-109-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializers.java
 @@ -2,6 +2,7 @@ package com.fasterxml.jackson.databind.ser.std;
  
  import java.io.IOException;

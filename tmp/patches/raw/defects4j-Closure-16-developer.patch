@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-16/src/com/google/javascript/jscomp/ScopedAliases.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-16-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
 index 26fb230..e2f0538 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-16/src/com/google/javascript/jscomp/ScopedAliases.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-16-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
 @@ -167,17 +167,23 @@ class ScopedAliases implements HotSwapCompilerPass {
  
    private class AliasedTypeNode implements AliasUsage {

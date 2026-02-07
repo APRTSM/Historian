@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-8/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-8-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 index e6f1cbc..c67f325 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-8/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-8-fixed/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+--- a/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
 @@ -304,7 +304,7 @@ public final class TextBuffer
              return (_resultArray = _resultString.toCharArray());
          }

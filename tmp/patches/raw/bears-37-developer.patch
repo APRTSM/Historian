@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+diff --git a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 index 6ce5723f9..fe82d9360 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+--- a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
++++ b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 @@ -245,6 +245,7 @@ public class JavaReflectionTreeBuilder extends JavaReflectionVisitorImpl {
  		ctMethod.setSimpleName(method.getName());
  		ctMethod.setBody(factory.Core().createBlock());
@@ -10,10 +10,10 @@ index 6ce5723f9..fe82d9360 100644
  
  		enter(new ExecutableRuntimeBuilderContext(ctMethod));
  		super.visitMethod(method);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
+diff --git a/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java b/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
 index 727969e56..d33761f6b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
+--- a/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
++++ b/src/main/java/spoon/support/visitor/java/reflect/RtMethod.java
 @@ -17,12 +17,15 @@
  package spoon.support.visitor.java.reflect;
  

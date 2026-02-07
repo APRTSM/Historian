@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30/src/main/java/org/apache/commons/cli/DefaultParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+diff --git a/src/main/java/org/apache/commons/cli/DefaultParser.java b/src/main/java/org/apache/commons/cli/DefaultParser.java
 index bfea0e4..2f957b1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30/src/main/java/org/apache/commons/cli/DefaultParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30-fixed/src/main/java/org/apache/commons/cli/DefaultParser.java
+--- a/src/main/java/org/apache/commons/cli/DefaultParser.java
++++ b/src/main/java/org/apache/commons/cli/DefaultParser.java
 @@ -147,12 +147,18 @@ public class DefaultParser implements CommandLineParser
          {
              String option = e.nextElement().toString();
@@ -23,10 +23,10 @@ index bfea0e4..2f957b1 100644
                  // get the value from the properties
                  String value = properties.getProperty(option);
                  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30/src/main/java/org/apache/commons/cli/Parser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30-fixed/src/main/java/org/apache/commons/cli/Parser.java
+diff --git a/src/main/java/org/apache/commons/cli/Parser.java b/src/main/java/org/apache/commons/cli/Parser.java
 index 913922d..ba4b6bc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30/src/main/java/org/apache/commons/cli/Parser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-30-fixed/src/main/java/org/apache/commons/cli/Parser.java
+--- a/src/main/java/org/apache/commons/cli/Parser.java
++++ b/src/main/java/org/apache/commons/cli/Parser.java
 @@ -260,12 +260,18 @@ public abstract class Parser implements CommandLineParser
          {
              String option = e.nextElement().toString();

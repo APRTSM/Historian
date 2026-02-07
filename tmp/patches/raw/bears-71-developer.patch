@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java b/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
 index 3e81dbc25..d7797f1bb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/ReferenceBuilder.java
 @@ -632,6 +632,7 @@ public class ReferenceBuilder {
  				ref = getTypeReference(binding.actualType());
  			} else {
@@ -25,10 +25,10 @@ index 3e81dbc25..d7797f1bb 100644
  
  				// if the type parameter has a super interface, then we'll get it too, as a superclass
  				// type parameter can only extends an interface or a class, so we don't make the distinction
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+diff --git a/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java b/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
 index 8dddb381c..12ad83e51 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
+--- a/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
++++ b/src/main/java/spoon/support/reflect/reference/CtExecutableReferenceImpl.java
 @@ -150,7 +150,10 @@ public class CtExecutableReferenceImpl<T> extends CtReferenceImpl implements CtE
  	@SuppressWarnings("unchecked")
  	public CtExecutable<T> getDeclaration() {
@@ -41,10 +41,10 @@ index 8dddb381c..12ad83e51 100644
  	}
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/AbstractTypingContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/AbstractTypingContext.java
+diff --git a/src/main/java/spoon/support/visitor/AbstractTypingContext.java b/src/main/java/spoon/support/visitor/AbstractTypingContext.java
 index 46d998261..1cbb2ea12 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/AbstractTypingContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/AbstractTypingContext.java
+--- a/src/main/java/spoon/support/visitor/AbstractTypingContext.java
++++ b/src/main/java/spoon/support/visitor/AbstractTypingContext.java
 @@ -71,9 +71,6 @@ abstract class AbstractTypingContext implements GenericTypeAdapter {
  			return adaptTypeParameterReferenceBoundingType(typeParamRef, typeParamRef.getBoundingType());
  		}
@@ -55,10 +55,10 @@ index 46d998261..1cbb2ea12 100644
  		return typeRefAdapted;
  	}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+diff --git a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 index e380bbbed..3f410c139 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
+--- a/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
++++ b/src/main/java/spoon/support/visitor/java/JavaReflectionTreeBuilder.java
 @@ -329,7 +329,12 @@ public class JavaReflectionTreeBuilder extends JavaReflectionVisitorImpl {
  
  	@Override

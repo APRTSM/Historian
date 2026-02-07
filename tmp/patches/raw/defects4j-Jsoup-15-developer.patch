@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-15/src/main/java/org/jsoup/parser/TreeBuilderState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-15-fixed/src/main/java/org/jsoup/parser/TreeBuilderState.java
+diff --git a/src/main/java/org/jsoup/parser/TreeBuilderState.java b/src/main/java/org/jsoup/parser/TreeBuilderState.java
 index e82eed5..4ae01e1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-15/src/main/java/org/jsoup/parser/TreeBuilderState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-15-fixed/src/main/java/org/jsoup/parser/TreeBuilderState.java
+--- a/src/main/java/org/jsoup/parser/TreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/TreeBuilderState.java
 @@ -280,7 +280,7 @@ enum TreeBuilderState {
                              if (!html.hasAttr(attribute.getKey()))
                                  html.attributes().put(attribute);

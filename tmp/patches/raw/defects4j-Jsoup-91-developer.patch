@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91/src/main/java/org/jsoup/UncheckedIOException.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91-fixed/src/main/java/org/jsoup/UncheckedIOException.java
+diff --git a/src/main/java/org/jsoup/UncheckedIOException.java b/src/main/java/org/jsoup/UncheckedIOException.java
 index 4cab9f4..e7a9cc3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91/src/main/java/org/jsoup/UncheckedIOException.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91-fixed/src/main/java/org/jsoup/UncheckedIOException.java
+--- a/src/main/java/org/jsoup/UncheckedIOException.java
++++ b/src/main/java/org/jsoup/UncheckedIOException.java
 @@ -7,6 +7,9 @@ public class UncheckedIOException extends RuntimeException {
          super(cause);
      }
@@ -12,10 +12,10 @@ index 4cab9f4..e7a9cc3 100644
  
      public IOException ioException() {
          return (IOException) getCause();
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91/src/main/java/org/jsoup/parser/CharacterReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
 index 187f9e9..7f163dd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91/src/main/java/org/jsoup/parser/CharacterReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-91-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
 @@ -34,6 +34,9 @@ public final class CharacterReader {
          charBuf = new char[sz > maxBufferLen ? maxBufferLen : sz];
          bufferUp();

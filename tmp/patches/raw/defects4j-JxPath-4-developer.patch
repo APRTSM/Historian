@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 index 5236867..1ad9324 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 @@ -293,12 +293,11 @@ public class DOMNodePointer extends NodePointer {
                  : current.toUpperCase().startsWith(lang.toUpperCase());
      }
@@ -72,10 +72,10 @@ index 5236867..1ad9324 100644
      }
  
      /**
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 index 975dbc4..a26f118 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-4-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 @@ -237,7 +237,14 @@ public class JDOMNodePointer extends NodePointer {
  
      public Object getValue() {

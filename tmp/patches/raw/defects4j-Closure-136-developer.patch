@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136/src/com/google/javascript/jscomp/MethodCompilerPass.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136-fixed/src/com/google/javascript/jscomp/MethodCompilerPass.java
+diff --git a/src/com/google/javascript/jscomp/MethodCompilerPass.java b/src/com/google/javascript/jscomp/MethodCompilerPass.java
 index cd39b6e..5e0268f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136/src/com/google/javascript/jscomp/MethodCompilerPass.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136-fixed/src/com/google/javascript/jscomp/MethodCompilerPass.java
+--- a/src/com/google/javascript/jscomp/MethodCompilerPass.java
++++ b/src/com/google/javascript/jscomp/MethodCompilerPass.java
 @@ -99,30 +99,10 @@ abstract class MethodCompilerPass implements CompilerPass {
     * itself or the name of a function).
     */
@@ -34,10 +34,10 @@ index cd39b6e..5e0268f 100644
        nonMethodProperties.add(name);
      }
    }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136/src/com/google/javascript/jscomp/RenameVars.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136-fixed/src/com/google/javascript/jscomp/RenameVars.java
+diff --git a/src/com/google/javascript/jscomp/RenameVars.java b/src/com/google/javascript/jscomp/RenameVars.java
 index 29f4d7a..fb13e4d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136/src/com/google/javascript/jscomp/RenameVars.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-136-fixed/src/com/google/javascript/jscomp/RenameVars.java
+--- a/src/com/google/javascript/jscomp/RenameVars.java
++++ b/src/com/google/javascript/jscomp/RenameVars.java
 @@ -200,7 +200,15 @@ final class RenameVars implements CompilerPass {
  
        // Check if we can rename this.

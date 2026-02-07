@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-102/src/com/google/javascript/jscomp/Normalize.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-102-fixed/src/com/google/javascript/jscomp/Normalize.java
+diff --git a/src/com/google/javascript/jscomp/Normalize.java b/src/com/google/javascript/jscomp/Normalize.java
 index 4aa4555..1db94e2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-102/src/com/google/javascript/jscomp/Normalize.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-102-fixed/src/com/google/javascript/jscomp/Normalize.java
+--- a/src/com/google/javascript/jscomp/Normalize.java
++++ b/src/com/google/javascript/jscomp/Normalize.java
 @@ -86,12 +86,12 @@ class Normalize implements CompilerPass, Callback {
    @Override
    public void process(Node externs, Node root) {

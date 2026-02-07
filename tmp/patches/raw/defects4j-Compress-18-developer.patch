@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-18/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-18-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 index 4c57133..5a7e4a3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-18/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-18-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 @@ -454,8 +454,11 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
      void writePaxHeaders(String entryName,
                           Map<String, String> headers) throws IOException {

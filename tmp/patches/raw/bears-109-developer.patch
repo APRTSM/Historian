@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/SuntechProtocolDecoder.java b/src/org/traccar/protocol/SuntechProtocolDecoder.java
 index e19335cb0..42e81f60c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/SuntechProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/SuntechProtocolDecoder.java
+--- a/src/org/traccar/protocol/SuntechProtocolDecoder.java
++++ b/src/org/traccar/protocol/SuntechProtocolDecoder.java
 @@ -67,7 +67,9 @@ public class SuntechProtocolDecoder extends BaseProtocolDecoder {
          }
          position.setDeviceId(deviceSession.getDeviceId());

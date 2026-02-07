@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-3/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-3-fixed/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java b/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
 index 8cbd118..b9c02bf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-3/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-3-fixed/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/beans/NullPropertyPointer.java
 @@ -16,6 +16,8 @@
   */
  package org.apache.commons.jxpath.ri.model.beans;

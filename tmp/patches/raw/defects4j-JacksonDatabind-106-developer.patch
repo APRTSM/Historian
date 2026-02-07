@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-106/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-106-fixed/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java b/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
 index 2e2b100..151aefa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-106/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-106-fixed/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
+--- a/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
++++ b/src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java
 @@ -305,12 +305,18 @@ public class TreeTraversingParser extends ParserMinimalBase
      @Override
      public int getIntValue() throws IOException {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-8/src/main/java/org/joda/time/DateTimeZone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-8-fixed/src/main/java/org/joda/time/DateTimeZone.java
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
 index 7d1719b..a127604 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-8/src/main/java/org/joda/time/DateTimeZone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-8-fixed/src/main/java/org/joda/time/DateTimeZone.java
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
 @@ -276,14 +276,17 @@ public abstract class DateTimeZone implements Serializable {
          if (hoursOffset < -23 || hoursOffset > 23) {
              throw new IllegalArgumentException("Hours out of range: " + hoursOffset);

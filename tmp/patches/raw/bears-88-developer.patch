@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
+diff --git a/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java b/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
 index 1020be8b8..0e6f4b808 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
+--- a/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
++++ b/src/main/java/org/springframework/data/repository/config/RepositoryBeanNameGenerator.java
 @@ -1,5 +1,5 @@
  /*
 - * Copyright 2012 the original author or authors.

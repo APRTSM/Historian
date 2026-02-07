@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-8/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-8-fixed/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
+diff --git a/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java b/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
 index 5cb0e43..879eb2a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-8/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-8-fixed/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
+--- a/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java
 @@ -178,13 +178,13 @@ public class DiscreteDistribution<T> {
       * @throws NotStrictlyPositiveException if {@code sampleSize} is not
       * positive.

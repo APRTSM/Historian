@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77-fixed/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
+diff --git a/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
 index 37c4417..22d0a28 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77-fixed/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
+--- a/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
 @@ -718,7 +718,7 @@ public class ArrayRealVector extends AbstractRealVector implements Serializable
      public double getLInfNorm() {
          double max = 0;
@@ -11,10 +11,10 @@ index 37c4417..22d0a28 100644
          }
          return max;
      }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77-fixed/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
+diff --git a/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java b/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
 index e025960..eb5be1b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-77-fixed/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
+--- a/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
++++ b/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
 @@ -495,15 +495,6 @@ public class OpenMapRealVector extends AbstractRealVector implements SparseRealV
          return max;
      }

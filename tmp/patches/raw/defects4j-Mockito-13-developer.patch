@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-13/src/org/mockito/internal/MockHandler.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-13-fixed/src/org/mockito/internal/MockHandler.java
+diff --git a/src/org/mockito/internal/MockHandler.java b/src/org/mockito/internal/MockHandler.java
 index 6f2e4bc..8962ceb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-13/src/org/mockito/internal/MockHandler.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-13-fixed/src/org/mockito/internal/MockHandler.java
+--- a/src/org/mockito/internal/MockHandler.java
++++ b/src/org/mockito/internal/MockHandler.java
 @@ -74,12 +74,14 @@ public class MockHandler<T> implements MockitoInvocationHandler, MockHandlerInte
          if (verificationMode != null) {
              //We need to check if verification was started on the correct mock 

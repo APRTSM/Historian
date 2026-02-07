@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-11/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-11-fixed/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
 index f19acc7..d9e6c4f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-11/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-11-fixed/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+--- a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
++++ b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
 @@ -879,6 +879,7 @@ public final class ByteQuadsCanonicalizer
              _hashShared = false;
              // 09-Sep-2015, tatu: As per [jackson-core#216], also need to ensure

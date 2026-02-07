@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtComment.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtComment.java
+diff --git a/src/main/java/spoon/reflect/code/CtComment.java b/src/main/java/spoon/reflect/code/CtComment.java
 index 7bf0ac7a8..aff4a8cb2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtComment.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtComment.java
+--- a/src/main/java/spoon/reflect/code/CtComment.java
++++ b/src/main/java/spoon/reflect/code/CtComment.java
 @@ -51,6 +51,13 @@ public interface CtComment extends CtStatement {
  		BLOCK
  	}
@@ -16,10 +16,10 @@ index 7bf0ac7a8..aff4a8cb2 100644
  	/**
  	 * Get the content of the comment
  	 * @return the content of the comment
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+diff --git a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 index b810ccc45..3b5c8df9a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
+--- a/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
++++ b/src/main/java/spoon/reflect/visitor/DefaultJavaPrettyPrinter.java
 @@ -168,11 +168,6 @@ public class DefaultJavaPrettyPrinter implements CtVisitor, PrettyPrinter {
  	 */
  	public static final String BLOCK_COMMENT_START = "/* ";
@@ -50,10 +50,10 @@ index b810ccc45..3b5c8df9a 100644
  				for (int i = 0; i < lines.length; i++) {
  					String com = lines[i];
  					if (comment.getCommentType() == CtComment.CommentType.BLOCK) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java b/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
 index f4b45c808..842eac9b8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/JDTCommentBuilder.java
 @@ -20,6 +20,8 @@ import org.apache.log4j.Logger;
  import org.eclipse.jdt.core.compiler.CharOperation;
  import org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration;

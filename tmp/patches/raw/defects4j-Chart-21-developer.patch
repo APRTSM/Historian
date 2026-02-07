@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-21/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-21-fixed/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
 index 7fd86f4..a973da9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-21/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-21-fixed/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
 @@ -154,6 +154,7 @@ public class DefaultBoxAndWhiskerCategoryDataset extends AbstractDataset
                  && this.minimumRangeValueColumn == c))  {
              updateBounds();

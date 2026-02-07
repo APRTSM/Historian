@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-12/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-12-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 index de50adf..03efb68 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-12/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-12-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 @@ -105,7 +105,8 @@ public class DOMNodePointer extends NodePointer {
                  || testName.getName()
                          .equals(DOMNodePointer.getLocalName(node))) {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-108/src/com/google/javascript/jscomp/ScopedAliases.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-108-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
 index 1e22c9e..b2a1690 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-108/src/com/google/javascript/jscomp/ScopedAliases.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-108-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
 @@ -256,6 +256,7 @@ class ScopedAliases implements HotSwapCompilerPass {
      private final Map<String, Var> aliases = Maps.newHashMap();
  

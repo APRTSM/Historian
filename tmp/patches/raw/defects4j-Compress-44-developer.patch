@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-44/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-44-fixed/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java b/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
 index 10c7d68..4a408a5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-44/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-44-fixed/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
+--- a/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
++++ b/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
 @@ -32,7 +32,13 @@ public class ChecksumCalculatingInputStream extends InputStream {
  
      public ChecksumCalculatingInputStream(final Checksum checksum, final InputStream in) {

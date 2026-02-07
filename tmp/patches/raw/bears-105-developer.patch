@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TelicProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TelicProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/TelicProtocolDecoder.java b/src/org/traccar/protocol/TelicProtocolDecoder.java
 index bbd4b0574..8207e5956 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TelicProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TelicProtocolDecoder.java
+--- a/src/org/traccar/protocol/TelicProtocolDecoder.java
++++ b/src/org/traccar/protocol/TelicProtocolDecoder.java
 @@ -54,7 +54,7 @@ public class TelicProtocolDecoder extends BaseProtocolDecoder {
              .expression("(?:[^,]*,){7}")
              .number("(d+),")                     // battery

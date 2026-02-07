@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-1/gson/src/main/java/com/google/gson/TypeInfoFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-1-fixed/gson/src/main/java/com/google/gson/TypeInfoFactory.java
+diff --git a/gson/src/main/java/com/google/gson/TypeInfoFactory.java b/gson/src/main/java/com/google/gson/TypeInfoFactory.java
 index eaf3a10..3085e8a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-1/gson/src/main/java/com/google/gson/TypeInfoFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-1-fixed/gson/src/main/java/com/google/gson/TypeInfoFactory.java
+--- a/gson/src/main/java/com/google/gson/TypeInfoFactory.java
++++ b/gson/src/main/java/com/google/gson/TypeInfoFactory.java
 @@ -90,8 +90,16 @@ final class TypeInfoFactory {
          int indexOfActualTypeArgument = getIndex(classTypeVariables, fieldTypeVariable);
          Type[] actualTypeArguments = objParameterizedType.getActualTypeArguments();

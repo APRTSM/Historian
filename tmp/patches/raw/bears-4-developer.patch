@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java b/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
 index 311802e60..4a9ca99b9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java
 @@ -83,6 +83,15 @@ public final class InnerClassProperty
      public InnerClassProperty withValueDeserializer(JsonDeserializer<?> deser) {
          return new InnerClassProperty(this, deser);

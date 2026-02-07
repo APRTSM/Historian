@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-44/src/java/org/apache/commons/lang/NumberUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-44-fixed/src/java/org/apache/commons/lang/NumberUtils.java
+diff --git a/src/java/org/apache/commons/lang/NumberUtils.java b/src/java/org/apache/commons/lang/NumberUtils.java
 index 18a05ef..c5ca8cd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-44/src/java/org/apache/commons/lang/NumberUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-44-fixed/src/java/org/apache/commons/lang/NumberUtils.java
+--- a/src/java/org/apache/commons/lang/NumberUtils.java
++++ b/src/java/org/apache/commons/lang/NumberUtils.java
 @@ -142,6 +142,9 @@ public final class NumberUtils {
          if (val.length() == 0) {
              throw new NumberFormatException("\"\" is not a valid number.");

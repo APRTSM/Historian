@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/StandardEnvironment.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/StandardEnvironment.java
+diff --git a/src/main/java/spoon/support/StandardEnvironment.java b/src/main/java/spoon/support/StandardEnvironment.java
 index 2d52b1fde..0698044a3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/StandardEnvironment.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/StandardEnvironment.java
+--- a/src/main/java/spoon/support/StandardEnvironment.java
++++ b/src/main/java/spoon/support/StandardEnvironment.java
 @@ -353,11 +353,22 @@ public class StandardEnvironment implements Serializable, Environment {
  		if (aClassLoader instanceof URLClassLoader) {
  			final URL[] urls = ((URLClassLoader) aClassLoader).getURLs();

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/JsAst.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/JsAst.java
+diff --git a/src/com/google/javascript/jscomp/JsAst.java b/src/com/google/javascript/jscomp/JsAst.java
 index 9f7bf8a..ff71d94 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/JsAst.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/JsAst.java
+--- a/src/com/google/javascript/jscomp/JsAst.java
++++ b/src/com/google/javascript/jscomp/JsAst.java
 @@ -79,6 +79,7 @@ public class JsAst implements SourceAst {
    }
  
@@ -23,10 +23,10 @@ index 9f7bf8a..ff71d94 100644
        // There was a parse error or IOException, so use a dummy block.
        root = IR.script();
      } else {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/NodeUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/NodeUtil.java
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
 index c4f7f8d..4facea3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/NodeUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/NodeUtil.java
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
 @@ -2364,9 +2364,12 @@ public final class NodeUtil {
      if (nameNode.isName()) {
        result = IR.var(nameNode, value);
@@ -41,10 +41,10 @@ index c4f7f8d..4facea3 100644
      }
      return result;
    }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/ScopedAliases.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
 index a4e503d..3a771c9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174/src/com/google/javascript/jscomp/ScopedAliases.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-174-fixed/src/com/google/javascript/jscomp/ScopedAliases.java
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
 @@ -353,8 +353,8 @@ class ScopedAliases implements HotSwapCompilerPass {
        for (Var v : scope.getVarIterable()) {
          Node n = v.getNode();

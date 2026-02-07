@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/repository/support/Repositories.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/repository/support/Repositories.java
+diff --git a/src/main/java/org/springframework/data/repository/support/Repositories.java b/src/main/java/org/springframework/data/repository/support/Repositories.java
 index 42692124c..63398ab30 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/repository/support/Repositories.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/repository/support/Repositories.java
+--- a/src/main/java/org/springframework/data/repository/support/Repositories.java
++++ b/src/main/java/org/springframework/data/repository/support/Repositories.java
 @@ -121,7 +121,9 @@ public class Repositories implements Iterable<Class<?>> {
  
  		Assert.notNull(domainClass, DOMAIN_TYPE_MUST_NOT_BE_NULL);

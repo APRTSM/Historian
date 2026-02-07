@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-76/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-76-fixed/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
+diff --git a/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java b/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
 index 1436881..e418c08 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-76/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-76-fixed/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
+--- a/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
++++ b/src/main/java/org/apache/commons/math/linear/SingularValueDecompositionImpl.java
 @@ -159,24 +159,27 @@ public class SingularValueDecompositionImpl implements SingularValueDecompositio
              if (m >= n) {
                  // the tridiagonal matrix is Bt.B, where B is upper bidiagonal

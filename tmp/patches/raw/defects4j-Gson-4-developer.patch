@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4/gson/src/main/java/com/google/gson/stream/JsonReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonReader.java b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 index e3ad50e..838355c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4/gson/src/main/java/com/google/gson/stream/JsonReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4-fixed/gson/src/main/java/com/google/gson/stream/JsonReader.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonReader.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonReader.java
 @@ -571,9 +571,6 @@ public class JsonReader implements Closeable {
        checkLenient();
        return peeked = PEEKED_SINGLE_QUOTED;
@@ -22,10 +22,10 @@ index e3ad50e..838355c 100644
  
      int result = peekKeyword();
      if (result != PEEKED_NONE) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonWriter.java b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 index d76f7c1..9bf2d22 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4/gson/src/main/java/com/google/gson/stream/JsonWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-4-fixed/gson/src/main/java/com/google/gson/stream/JsonWriter.java
+--- a/gson/src/main/java/com/google/gson/stream/JsonWriter.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonWriter.java
 @@ -322,7 +322,7 @@ public class JsonWriter implements Closeable, Flushable {
     * bracket.
     */

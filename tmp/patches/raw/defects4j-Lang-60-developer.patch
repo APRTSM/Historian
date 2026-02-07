@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-60/src/java/org/apache/commons/lang/text/StrBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-60-fixed/src/java/org/apache/commons/lang/text/StrBuilder.java
+diff --git a/src/java/org/apache/commons/lang/text/StrBuilder.java b/src/java/org/apache/commons/lang/text/StrBuilder.java
 index c7cbfb3..886d424 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-60/src/java/org/apache/commons/lang/text/StrBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-60-fixed/src/java/org/apache/commons/lang/text/StrBuilder.java
+--- a/src/java/org/apache/commons/lang/text/StrBuilder.java
++++ b/src/java/org/apache/commons/lang/text/StrBuilder.java
 @@ -1670,7 +1670,7 @@ public class StrBuilder implements Cloneable {
       */
      public boolean contains(char ch) {

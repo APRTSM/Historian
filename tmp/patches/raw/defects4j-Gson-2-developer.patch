@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-2/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-2-fixed/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+diff --git a/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java b/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
 index dea7af7..0268aa8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-2/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-2-fixed/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+--- a/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
 @@ -830,8 +830,20 @@ public final class TypeAdapters {
          if (!clazz.isAssignableFrom(requestedType)) {
            return null;

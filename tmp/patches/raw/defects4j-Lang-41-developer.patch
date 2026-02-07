@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-41/src/java/org/apache/commons/lang/ClassUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-41-fixed/src/java/org/apache/commons/lang/ClassUtils.java
+diff --git a/src/java/org/apache/commons/lang/ClassUtils.java b/src/java/org/apache/commons/lang/ClassUtils.java
 index d5de42b..478b377 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-41/src/java/org/apache/commons/lang/ClassUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-41-fixed/src/java/org/apache/commons/lang/ClassUtils.java
+--- a/src/java/org/apache/commons/lang/ClassUtils.java
++++ b/src/java/org/apache/commons/lang/ClassUtils.java
 @@ -188,10 +188,23 @@ public class ClassUtils {
              return StringUtils.EMPTY;
          }

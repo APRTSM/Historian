@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TotemFrameDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TotemFrameDecoder.java
+diff --git a/src/org/traccar/protocol/TotemFrameDecoder.java b/src/org/traccar/protocol/TotemFrameDecoder.java
 index 6940d7b46..6c9b14559 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/TotemFrameDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/TotemFrameDecoder.java
+--- a/src/org/traccar/protocol/TotemFrameDecoder.java
++++ b/src/org/traccar/protocol/TotemFrameDecoder.java
 @@ -42,8 +42,8 @@ public class TotemFrameDecoder extends FrameDecoder {
  
          int length;

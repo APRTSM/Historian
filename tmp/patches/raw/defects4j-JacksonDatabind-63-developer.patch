@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-63/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-63-fixed/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java b/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
 index 482622b..00896ea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-63/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-63-fixed/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
+--- a/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
++++ b/src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java
 @@ -127,12 +127,22 @@ public class JsonMappingException
                      // butt-ugly for arrays.
                      // 06-Oct-2016, tatu: as per [databind#1403], `getSimpleName()` not so good

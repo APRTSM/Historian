@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java b/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
 index d11477e52..2c64708e7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
+--- a/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/LocalVariableReferenceFunction.java
 @@ -17,7 +17,10 @@
  package spoon.reflect.visitor.filter;
  
@@ -51,10 +51,10 @@ index d11477e52..2c64708e7 100644
  			.forEach(outputConsumer);
  	}
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java b/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
 index f72fab4b8..1c2cfc8d3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
+--- a/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/LocalVariableScopeFunction.java
 @@ -16,15 +16,9 @@
   */
  package spoon.reflect.visitor.filter;
@@ -95,11 +95,11 @@ index f72fab4b8..1c2cfc8d3 100644
 +		localVariable.map(new SiblingsFunction().mode(SiblingsFunction.Mode.NEXT).includingSelf(true)).filterChildren(null).forEach(outputConsumer);
  	}
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java b/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
 new file mode 100644
 index 000000000..12d93e40a
 --- /dev/null
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/PotentialVariableDeclarationFunction.java
 @@ -0,0 +1,112 @@
 +/**
 + * Copyright (C) 2006-2017 INRIA and contributors
@@ -213,11 +213,11 @@ index 000000000..12d93e40a
 +		return this;
 +	}
 +}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java b/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java
 new file mode 100644
 index 000000000..50752460a
 --- /dev/null
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/SiblingsFunction.java
 @@ -0,0 +1,90 @@
 +/**
 + * Copyright (C) 2006-2017 INRIA and contributors
@@ -309,10 +309,10 @@ index 000000000..50752460a
 +		});
 +	}
 +}
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
+diff --git a/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java b/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
 index 6711d3383..3bd525901 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
+--- a/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
++++ b/src/main/java/spoon/support/reflect/reference/CtLocalVariableReferenceImpl.java
 @@ -17,15 +17,13 @@
  package spoon.support.reflect.reference;
  

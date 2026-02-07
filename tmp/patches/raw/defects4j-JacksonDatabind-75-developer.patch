@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-75/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-75-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
 index 75c12b5..dae384a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-75/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-75-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java
 @@ -83,7 +83,7 @@ public class EnumSerializer
           *   handle toString() case dynamically (for example)
           */

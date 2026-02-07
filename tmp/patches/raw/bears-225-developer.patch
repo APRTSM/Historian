@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
+diff --git a/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java b/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
 index 7540f73f3..3d14f1e6f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
+--- a/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
++++ b/src/main/java/io/lettuce/core/dynamic/DeclaredCommandMethod.java
 @@ -79,8 +79,7 @@ public class DeclaredCommandMethod implements CommandMethod {
  
          ResolvableType actualReturnType = this.returnType;
@@ -12,10 +12,10 @@ index 7540f73f3..3d14f1e6f 100644
              ResolvableType[] generics = actualReturnType.getGenerics();
  
              if (generics.length != 1) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
+diff --git a/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java b/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
 index 1def7e6a4..e4d4247be 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
+--- a/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
++++ b/src/main/java/io/lettuce/core/dynamic/ReactiveCommandSegmentCommandFactory.java
 @@ -31,7 +31,7 @@ class ReactiveCommandSegmentCommandFactory extends CommandSegmentCommandFactory
  
      private boolean streamingExecution;

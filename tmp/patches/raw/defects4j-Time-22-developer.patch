@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-22/src/main/java/org/joda/time/base/BasePeriod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-22-fixed/src/main/java/org/joda/time/base/BasePeriod.java
+diff --git a/src/main/java/org/joda/time/base/BasePeriod.java b/src/main/java/org/joda/time/base/BasePeriod.java
 index 679b734..a5dcb74 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-22/src/main/java/org/joda/time/base/BasePeriod.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-22-fixed/src/main/java/org/joda/time/base/BasePeriod.java
+--- a/src/main/java/org/joda/time/base/BasePeriod.java
++++ b/src/main/java/org/joda/time/base/BasePeriod.java
 @@ -219,8 +219,13 @@ public abstract class BasePeriod
       * @param duration  the duration, in milliseconds
       */

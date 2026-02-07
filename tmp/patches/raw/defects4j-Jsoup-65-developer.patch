@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 index 6ada343..041dcbd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 @@ -357,11 +357,11 @@ public class HtmlTreeBuilder extends TreeBuilder {
      }
  
@@ -16,10 +16,10 @@ index 6ada343..041dcbd 100644
      }
  
      private void clearStackToContext(String... nodeNames) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 index aaf6041..c4924e4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-65-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 @@ -1033,7 +1033,9 @@ enum HtmlTreeBuilderState {
                  case StartTag:
                      Token.StartTag startTag = t.asStartTag();

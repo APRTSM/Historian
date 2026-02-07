@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-50/src/java/org/apache/commons/lang/time/FastDateFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-50-fixed/src/java/org/apache/commons/lang/time/FastDateFormat.java
+diff --git a/src/java/org/apache/commons/lang/time/FastDateFormat.java b/src/java/org/apache/commons/lang/time/FastDateFormat.java
 index 8a26f28..d1caaa8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-50/src/java/org/apache/commons/lang/time/FastDateFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-50-fixed/src/java/org/apache/commons/lang/time/FastDateFormat.java
+--- a/src/java/org/apache/commons/lang/time/FastDateFormat.java
++++ b/src/java/org/apache/commons/lang/time/FastDateFormat.java
 @@ -282,16 +282,14 @@ public class FastDateFormat extends Format {
              key = new Pair(key, timeZone);
          }

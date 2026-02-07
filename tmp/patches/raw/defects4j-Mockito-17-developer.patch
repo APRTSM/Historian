@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17/src/org/mockito/internal/creation/MockSettingsImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17-fixed/src/org/mockito/internal/creation/MockSettingsImpl.java
+diff --git a/src/org/mockito/internal/creation/MockSettingsImpl.java b/src/org/mockito/internal/creation/MockSettingsImpl.java
 index bf2cf3b..5285d90 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17/src/org/mockito/internal/creation/MockSettingsImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17-fixed/src/org/mockito/internal/creation/MockSettingsImpl.java
+--- a/src/org/mockito/internal/creation/MockSettingsImpl.java
++++ b/src/org/mockito/internal/creation/MockSettingsImpl.java
 @@ -17,9 +17,11 @@ public class MockSettingsImpl implements MockSettings {
      private Object spiedInstance;
      private Answer<Object> defaultAnswer;
@@ -24,10 +24,10 @@ index bf2cf3b..5285d90 100644
      }
  
      public void initiateMockName(Class classToMock) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17/src/org/mockito/internal/util/MockUtil.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17-fixed/src/org/mockito/internal/util/MockUtil.java
+diff --git a/src/org/mockito/internal/util/MockUtil.java b/src/org/mockito/internal/util/MockUtil.java
 index d2d042f..b8ed8b4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17/src/org/mockito/internal/util/MockUtil.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-17-fixed/src/org/mockito/internal/util/MockUtil.java
+--- a/src/org/mockito/internal/util/MockUtil.java
++++ b/src/org/mockito/internal/util/MockUtil.java
 @@ -16,6 +16,7 @@ import org.mockito.internal.creation.MockSettingsImpl;
  import org.mockito.internal.creation.jmock.ClassImposterizer;
  import org.mockito.internal.util.reflection.LenientCopyTool;

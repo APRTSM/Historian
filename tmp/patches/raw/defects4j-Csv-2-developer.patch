@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-2/src/main/java/org/apache/commons/csv/CSVRecord.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-2-fixed/src/main/java/org/apache/commons/csv/CSVRecord.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVRecord.java b/src/main/java/org/apache/commons/csv/CSVRecord.java
 index dc52017..fd633c2 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-2/src/main/java/org/apache/commons/csv/CSVRecord.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-2-fixed/src/main/java/org/apache/commons/csv/CSVRecord.java
+--- a/src/main/java/org/apache/commons/csv/CSVRecord.java
++++ b/src/main/java/org/apache/commons/csv/CSVRecord.java
 @@ -82,7 +82,14 @@ public class CSVRecord implements Serializable, Iterable<String> {
                      "No header mapping was specified, the record values can't be accessed by name");
          }

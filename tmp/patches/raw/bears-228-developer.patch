@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
+diff --git a/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java b/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
 index fc54a7c67..3dc57efd8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
+--- a/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
++++ b/api/src/main/java/org/openmrs/module/htmlformentry/element/EncounterDetailSubmissionElement.java
 @@ -4,6 +4,7 @@ import org.apache.commons.beanutils.PropertyUtils;
  import org.apache.commons.lang.StringEscapeUtils;
  import org.apache.commons.logging.Log;

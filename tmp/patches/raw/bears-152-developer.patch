@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
+diff --git a/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java b/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
 index 13000a778..0e7a52431 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
+--- a/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
++++ b/dubbo-config/dubbo-config-api/src/main/java/com/alibaba/dubbo/config/ProtocolConfig.java
 @@ -20,7 +20,6 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
  import com.alibaba.dubbo.common.serialize.Serialization;
  import com.alibaba.dubbo.common.status.StatusChecker;
@@ -26,10 +26,10 @@ index 13000a778..0e7a52431 100644
  
          ExtensionLoader<Protocol> loader = ExtensionLoader.getExtensionLoader(Protocol.class);
          for (String protocolName : loader.getLoadedExtensions()) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
+diff --git a/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java b/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
 index e14fc4b97..bbb75d9ef 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
+--- a/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
++++ b/dubbo-config/dubbo-config-spring/src/main/java/com/alibaba/dubbo/config/spring/AnnotationBean.java
 @@ -111,13 +111,18 @@ public class AnnotationBean extends AbstractConfig implements DisposableBean, Be
  
      @Override
@@ -56,10 +56,10 @@ index e14fc4b97..bbb75d9ef 100644
          for (ReferenceConfig<?> referenceConfig : referenceConfigs.values()) {
              try {
                  referenceConfig.destroy();
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
+diff --git a/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java b/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
 index 2a09c5de1..2ab32f008 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
+--- a/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
++++ b/dubbo-remoting/dubbo-remoting-api/src/main/java/com/alibaba/dubbo/remoting/exchange/support/header/HeaderExchangeServer.java
 @@ -29,8 +29,6 @@ import com.alibaba.dubbo.remoting.Server;
  import com.alibaba.dubbo.remoting.exchange.ExchangeChannel;
  import com.alibaba.dubbo.remoting.exchange.ExchangeServer;

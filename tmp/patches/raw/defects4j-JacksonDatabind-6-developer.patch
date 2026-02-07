@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-6/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-6-fixed/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java b/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
 index e04380c..6c9d6b3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-6/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-6-fixed/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
+--- a/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
++++ b/src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java
 @@ -403,10 +403,26 @@ public class StdDateFormat
                  // Milliseconds partial or missing; and even seconds are optional
                  len = dateStr.length();

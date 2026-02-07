@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-48/src/main/java/org/jsoup/helper/HttpConnection.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-48-fixed/src/main/java/org/jsoup/helper/HttpConnection.java
+diff --git a/src/main/java/org/jsoup/helper/HttpConnection.java b/src/main/java/org/jsoup/helper/HttpConnection.java
 index f8fd9dd..a215b56 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-48/src/main/java/org/jsoup/helper/HttpConnection.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-48-fixed/src/main/java/org/jsoup/helper/HttpConnection.java
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
 @@ -770,8 +770,18 @@ public class HttpConnection implements Connection {
                              cookie(cookieName, cookieVal);
                      }

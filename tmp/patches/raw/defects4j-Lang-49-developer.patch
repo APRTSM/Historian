@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-49/src/java/org/apache/commons/lang/math/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-49-fixed/src/java/org/apache/commons/lang/math/Fraction.java
+diff --git a/src/java/org/apache/commons/lang/math/Fraction.java b/src/java/org/apache/commons/lang/math/Fraction.java
 index 5f8e565..3347689 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-49/src/java/org/apache/commons/lang/math/Fraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-49-fixed/src/java/org/apache/commons/lang/math/Fraction.java
+--- a/src/java/org/apache/commons/lang/math/Fraction.java
++++ b/src/java/org/apache/commons/lang/math/Fraction.java
 @@ -463,6 +463,9 @@ public final class Fraction extends Number implements Comparable {
       * @return a new reduced fraction instance, or this if no simplification possible
       */

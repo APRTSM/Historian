@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
+diff --git a/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java b/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
 index 3f9d99978..b563912c9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
+--- a/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
++++ b/src/main/java/spoon/reflect/annotations/MetamodelPropertyField.java
 @@ -33,5 +33,5 @@ import java.lang.annotation.Target;
  @Retention(RetentionPolicy.RUNTIME)
  @Target({ ElementType.FIELD })
@@ -9,10 +9,10 @@ index 3f9d99978..b563912c9 100644
 -	CtRole role();
 +	CtRole[] role();
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtCase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtCase.java
+diff --git a/src/main/java/spoon/reflect/code/CtCase.java b/src/main/java/spoon/reflect/code/CtCase.java
 index 5a92571cf..c0de36932 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtCase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtCase.java
+--- a/src/main/java/spoon/reflect/code/CtCase.java
++++ b/src/main/java/spoon/reflect/code/CtCase.java
 @@ -19,8 +19,7 @@ package spoon.reflect.code;
  import spoon.reflect.annotations.PropertyGetter;
  import spoon.reflect.annotations.PropertySetter;
@@ -39,10 +39,10 @@ index 5a92571cf..c0de36932 100644
  	<T extends CtCase<S>> T setCaseExpression(CtExpression<S> caseExpression);
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtCatch.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtCatch.java
+diff --git a/src/main/java/spoon/reflect/code/CtCatch.java b/src/main/java/spoon/reflect/code/CtCatch.java
 index c7dd808be..6436d2806 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtCatch.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtCatch.java
+--- a/src/main/java/spoon/reflect/code/CtCatch.java
++++ b/src/main/java/spoon/reflect/code/CtCatch.java
 @@ -46,7 +46,7 @@ public interface CtCatch extends CtCodeElement, CtBodyHolder {
  	 * Gets the catch's body.
  	 */
@@ -52,10 +52,10 @@ index c7dd808be..6436d2806 100644
  	CtBlock<?> getBody();
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtConstructorCall.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtConstructorCall.java
+diff --git a/src/main/java/spoon/reflect/code/CtConstructorCall.java b/src/main/java/spoon/reflect/code/CtConstructorCall.java
 index 4771ef3d8..f375817e3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtConstructorCall.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtConstructorCall.java
+--- a/src/main/java/spoon/reflect/code/CtConstructorCall.java
++++ b/src/main/java/spoon/reflect/code/CtConstructorCall.java
 @@ -75,6 +75,6 @@ public interface CtConstructorCall<T> extends CtTargetedExpression<T, CtExpressi
  
  	@Override
@@ -64,10 +64,10 @@ index 4771ef3d8..f375817e3 100644
 +	@PropertyGetter(role = TYPE)
  	CtTypeReference<T> getType();
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtNewClass.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtNewClass.java
+diff --git a/src/main/java/spoon/reflect/code/CtNewClass.java b/src/main/java/spoon/reflect/code/CtNewClass.java
 index fb53fd0d1..2b5141c31 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/code/CtNewClass.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/code/CtNewClass.java
+--- a/src/main/java/spoon/reflect/code/CtNewClass.java
++++ b/src/main/java/spoon/reflect/code/CtNewClass.java
 @@ -16,17 +16,17 @@
   */
  package spoon.reflect.code;
@@ -105,10 +105,10 @@ index fb53fd0d1..2b5141c31 100644
  	<N extends CtNewClass> N setAnonymousClass(CtClass<?> anonymousClass);
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
+diff --git a/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java b/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
 index bada4f297..5745164a4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
+--- a/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
++++ b/src/main/java/spoon/reflect/declaration/CtCodeSnippet.java
 @@ -36,13 +36,13 @@ public interface CtCodeSnippet {
  	/**
  	 * Sets the textual value of the code.
@@ -125,10 +125,10 @@ index bada4f297..5745164a4 100644
  	String getValue();
  
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/declaration/CtModifiable.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/declaration/CtModifiable.java
+diff --git a/src/main/java/spoon/reflect/declaration/CtModifiable.java b/src/main/java/spoon/reflect/declaration/CtModifiable.java
 index 9053509b7..f7bb50501 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/declaration/CtModifiable.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/declaration/CtModifiable.java
+--- a/src/main/java/spoon/reflect/declaration/CtModifiable.java
++++ b/src/main/java/spoon/reflect/declaration/CtModifiable.java
 @@ -18,6 +18,7 @@ package spoon.reflect.declaration;
  
  import spoon.reflect.annotations.PropertyGetter;
@@ -145,10 +145,10 @@ index 9053509b7..f7bb50501 100644
 +	@DerivedProperty
  	ModifierKind getVisibility();
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtCaseImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
+diff --git a/src/main/java/spoon/support/reflect/code/CtCaseImpl.java b/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
 index a90388099..534d6c80b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
+--- a/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
++++ b/src/main/java/spoon/support/reflect/code/CtCaseImpl.java
 @@ -34,7 +34,7 @@ import static spoon.reflect.ModelElementContainerDefaultCapacities.CASE_STATEMEN
  public class CtCaseImpl<E> extends CtStatementImpl implements CtCase<E> {
  	private static final long serialVersionUID = 1L;
@@ -158,10 +158,10 @@ index a90388099..534d6c80b 100644
  	CtExpression<E> caseExpression;
  
  	@MetamodelPropertyField(role = CtRole.STATEMENT)
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
+diff --git a/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java b/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
 index c51463989..d2fd19137 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
+--- a/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
++++ b/src/main/java/spoon/support/reflect/code/CtNewClassImpl.java
 @@ -25,7 +25,7 @@ import spoon.reflect.annotations.MetamodelPropertyField;
  public class CtNewClassImpl<T> extends CtConstructorCallImpl<T> implements CtNewClass<T> {
  	private static final long serialVersionUID = 1L;
@@ -171,10 +171,10 @@ index c51463989..d2fd19137 100644
  	CtClass<?> anonymousClass;
  
  	@Override
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+diff --git a/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java b/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
 index b93915f3a..70011464c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
+--- a/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
++++ b/src/main/java/spoon/support/reflect/declaration/CtTypeImpl.java
 @@ -82,7 +82,7 @@ public abstract class CtTypeImpl<T> extends CtNamedElementImpl implements CtType
  	@MetamodelPropertyField(role = CtRole.MODIFIER)
  	Set<ModifierKind> modifiers = emptySet();

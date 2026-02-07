@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
+diff --git a/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java b/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
 index 52860b5ab..3b3ee202e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
+--- a/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
++++ b/src/main/java/org/springframework/data/jpa/util/JpaMetamodel.java
 @@ -76,7 +76,7 @@ public class JpaMetamodel {
  	public boolean isSingleIdAttribute(Class<?> entity, String name, Class<?> attributeType) {
  

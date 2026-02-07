@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
+diff --git a/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java b/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
 index 9863261fb..ab89dc540 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
+--- a/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
++++ b/src/main/java/org/springframework/data/jpa/repository/query/NativeJpaQuery.java
 @@ -34,6 +34,7 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
   * 
   * @author Thomas Darimont

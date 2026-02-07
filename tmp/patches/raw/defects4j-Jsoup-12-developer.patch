@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-12/src/main/java/org/jsoup/select/Selector.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-12-fixed/src/main/java/org/jsoup/select/Selector.java
+diff --git a/src/main/java/org/jsoup/select/Selector.java b/src/main/java/org/jsoup/select/Selector.java
 index 0e52007..691b1cf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-12/src/main/java/org/jsoup/select/Selector.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-12-fixed/src/main/java/org/jsoup/select/Selector.java
+--- a/src/main/java/org/jsoup/select/Selector.java
++++ b/src/main/java/org/jsoup/select/Selector.java
 @@ -136,7 +136,7 @@ public class Selector {
      
      private void combinator(char combinator) {

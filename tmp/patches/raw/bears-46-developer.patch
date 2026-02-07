@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
+diff --git a/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java b/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
 index 465902d64..c7750769d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
+--- a/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
++++ b/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
 @@ -386,6 +386,9 @@ public abstract class CtElementImpl implements CtElement, Serializable {
  
  	@Override

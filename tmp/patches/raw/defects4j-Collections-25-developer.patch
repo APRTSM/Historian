@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-25/src/main/java/org/apache/commons/collections4/IteratorUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-25-fixed/src/main/java/org/apache/commons/collections4/IteratorUtils.java
+diff --git a/src/main/java/org/apache/commons/collections4/IteratorUtils.java b/src/main/java/org/apache/commons/collections4/IteratorUtils.java
 index 40f9989..b3b1be0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-25/src/main/java/org/apache/commons/collections4/IteratorUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-25-fixed/src/main/java/org/apache/commons/collections4/IteratorUtils.java
+--- a/src/main/java/org/apache/commons/collections4/IteratorUtils.java
++++ b/src/main/java/org/apache/commons/collections4/IteratorUtils.java
 @@ -602,7 +602,9 @@ public class IteratorUtils {
      public static <E> Iterator<E> collatedIterator(final Comparator<? super E> comparator,
                                                     final Iterator<? extends E> iterator1,

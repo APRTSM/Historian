@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-34/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-34-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
 index 5624624..13118a0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-34/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-34-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java
 @@ -78,7 +78,7 @@ public class NumberSerializer
          } else {
              Class<?> h = handledType();

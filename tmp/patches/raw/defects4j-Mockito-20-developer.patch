@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-20/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-20-fixed/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
+diff --git a/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java b/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
 index 9dc44e6..d5f77b6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-20/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-20-fixed/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
+--- a/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
++++ b/src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java
 @@ -29,9 +29,10 @@ public class ByteBuddyMockMaker implements MockMaker {
                  settings.getTypeToMock(),
                  settings.getExtraInterfaces()

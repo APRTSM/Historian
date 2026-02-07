@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/MeitrackProtocolDecoder.java b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 index 1fd1bb3ac..259283c19 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/MeitrackProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/MeitrackProtocolDecoder.java
+--- a/src/org/traccar/protocol/MeitrackProtocolDecoder.java
++++ b/src/org/traccar/protocol/MeitrackProtocolDecoder.java
 @@ -259,7 +259,7 @@ public class MeitrackProtocolDecoder extends BaseProtocolDecoder {
              boolean started = data[0].charAt(0) == '0';
              position.set("taximeterOn", started);

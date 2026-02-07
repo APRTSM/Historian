@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-6/src/main/java/com/fasterxml/jackson/core/JsonPointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-6-fixed/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/JsonPointer.java b/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
 index ab37c3b..ff84f5e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-6/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-6-fixed/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
+--- a/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
++++ b/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
 @@ -190,8 +190,15 @@ public class JsonPointer
              return -1;
          }

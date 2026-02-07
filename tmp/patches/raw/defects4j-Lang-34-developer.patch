@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-34/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-34-fixed/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
 index aa1f448..26214ed 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-34/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-34-fixed/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
 @@ -145,7 +145,7 @@ public abstract class ToStringStyle implements Serializable {
       * @return Set the registry of objects being traversed
       */

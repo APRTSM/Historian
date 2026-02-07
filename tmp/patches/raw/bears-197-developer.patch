@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
+diff --git a/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java b/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
 index 5cff27fde..eb354beea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
+--- a/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
++++ b/cas-client-core/src/main/java/org/jasig/cas/client/util/CommonUtils.java
 @@ -257,17 +257,7 @@ public final class CommonUtils {
  
          return serverNames[0];
@@ -50,10 +50,10 @@ index 5cff27fde..eb354beea 100644
  
          final List<String> serviceParameterNames = Arrays.asList(serviceParameterName.split(","));
          if (!serviceParameterNames.isEmpty() && !originalRequestUrl.getQueryParams().isEmpty()) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
+diff --git a/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java b/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
 index f4c0b1a11..5e73dd109 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
+--- a/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
++++ b/cas-client-core/src/main/java/org/jasig/cas/client/util/URIBuilder.java
 @@ -523,6 +523,10 @@ public final class URIBuilder {
          return this.path;
      }

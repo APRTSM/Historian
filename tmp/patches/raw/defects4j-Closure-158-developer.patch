@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
 index 3a7f427..e2e102c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
 @@ -194,12 +194,11 @@ abstract class AbstractCommandLineRunner<A extends Compiler,
        throws FlagUsageException, IOException {
      DiagnosticGroups diagnosticGroups = getDiagnosticGroups();
@@ -78,10 +78,10 @@ index 3a7f427..e2e102c 100644
 +    }
 +  }
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/CommandLineRunner.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
 index d9a381b..b1a7472 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/CommandLineRunner.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/CommandLineRunner.java
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
 @@ -23,6 +23,7 @@ import com.google.common.collect.Maps;
  import com.google.common.collect.Sets;
  import com.google.common.io.Files;
@@ -199,10 +199,10 @@ index d9a381b..b1a7472 100644
            .setDefine(flags.define)
            .setCharset(flags.charset)
            .setManageClosureDependencies(flags.manage_closure_dependencies)
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/DiagnosticGroups.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/DiagnosticGroups.java
+diff --git a/src/com/google/javascript/jscomp/DiagnosticGroups.java b/src/com/google/javascript/jscomp/DiagnosticGroups.java
 index d2d38c5..cf0beda 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158/src/com/google/javascript/jscomp/DiagnosticGroups.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-158-fixed/src/com/google/javascript/jscomp/DiagnosticGroups.java
+--- a/src/com/google/javascript/jscomp/DiagnosticGroups.java
++++ b/src/com/google/javascript/jscomp/DiagnosticGroups.java
 @@ -182,12 +182,10 @@ public class DiagnosticGroups {
    /**
     * Adds warning levels by name.

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-17/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-17-fixed/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+diff --git a/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java b/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
 index 1ab606c..3ce97fe 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-17/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-17-fixed/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+--- a/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
++++ b/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
 @@ -96,8 +96,9 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
  
    @Override

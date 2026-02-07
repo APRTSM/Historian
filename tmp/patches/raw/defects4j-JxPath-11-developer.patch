@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
 index f4c2ac6..f9785f6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java
 @@ -19,6 +19,7 @@ package org.apache.commons.jxpath.ri.model.dom;
  import java.util.ArrayList;
  import java.util.List;
@@ -21,10 +21,10 @@ index f4c2ac6..f9785f6 100644
          }
  
          if (testNS != null) {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
 index cfa6da3..84c0afd 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-11-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java
 @@ -20,6 +20,7 @@ import java.util.ArrayList;
  import java.util.Collections;
  import java.util.List;

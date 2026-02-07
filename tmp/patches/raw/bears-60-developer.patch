@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
+diff --git a/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java b/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
 index c7750769d..9b9083063 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
+--- a/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
++++ b/src/main/java/spoon/support/reflect/declaration/CtElementImpl.java
 @@ -31,8 +31,8 @@ import spoon.reflect.visitor.DefaultJavaPrettyPrinter;
  import spoon.reflect.visitor.Filter;
  import spoon.reflect.visitor.ModelConsistencyChecker;

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-64/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-64-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 index f4b56f7..a9a9583 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-64/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-64-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
 @@ -1486,10 +1486,10 @@ enum HtmlTreeBuilderState {
      }
  

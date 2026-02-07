@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
+diff --git a/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java b/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
 index 573a8c26e..94735e814 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
+--- a/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
++++ b/src/main/java/spoon/support/compiler/jdt/PositionBuilder.java
 @@ -16,16 +16,20 @@
   */
  package spoon.support.compiler.jdt;

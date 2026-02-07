@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-19/source/org/jfree/chart/plot/CategoryPlot.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-19-fixed/source/org/jfree/chart/plot/CategoryPlot.java
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
 index cf3f52f..ec31907 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-19/source/org/jfree/chart/plot/CategoryPlot.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Chart-19-fixed/source/org/jfree/chart/plot/CategoryPlot.java
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
 @@ -695,6 +695,9 @@ public class CategoryPlot extends Plot implements ValueAxisPlot,
       * @since 1.0.3
       */

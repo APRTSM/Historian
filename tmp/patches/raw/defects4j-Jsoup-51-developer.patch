@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-51/src/main/java/org/jsoup/parser/CharacterReader.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-51-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+diff --git a/src/main/java/org/jsoup/parser/CharacterReader.java b/src/main/java/org/jsoup/parser/CharacterReader.java
 index 6b0b9fb..a34311a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-51/src/main/java/org/jsoup/parser/CharacterReader.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-51-fixed/src/main/java/org/jsoup/parser/CharacterReader.java
+--- a/src/main/java/org/jsoup/parser/CharacterReader.java
++++ b/src/main/java/org/jsoup/parser/CharacterReader.java
 @@ -297,7 +297,7 @@ final class CharacterReader {
          if (isEmpty())
              return false;

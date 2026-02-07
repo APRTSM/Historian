@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
+diff --git a/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java b/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
 index 7e241c9f4..2806bfbf9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
+--- a/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
++++ b/cxx-checks/src/main/java/org/sonar/cxx/checks/naming/MethodNameCheck.java
 @@ -19,10 +19,11 @@
   */
  package org.sonar.cxx.checks.naming;

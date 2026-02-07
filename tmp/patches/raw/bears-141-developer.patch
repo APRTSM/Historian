@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/domain/core/User.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/domain/core/User.java
+diff --git a/src/main/java/edu/harvard/h2ms/domain/core/User.java b/src/main/java/edu/harvard/h2ms/domain/core/User.java
 index db6f76aa1..ff0d57fd6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/domain/core/User.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/domain/core/User.java
+--- a/src/main/java/edu/harvard/h2ms/domain/core/User.java
++++ b/src/main/java/edu/harvard/h2ms/domain/core/User.java
 @@ -94,7 +94,7 @@ public class User implements UserDetails {
          this.firstName = firstName;
          this.middleName = middleName;
@@ -21,10 +21,10 @@ index db6f76aa1..ff0d57fd6 100644
      }
  
      public String getNotificationFrequency() {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
+diff --git a/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java b/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
 index 66f61f304..7288dfa38 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
+--- a/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
++++ b/src/main/java/edu/harvard/h2ms/service/UserDetailsServiceImpl.java
 @@ -16,7 +16,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
  
      @Override

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-48/src/java/org/apache/commons/lang/builder/EqualsBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-48-fixed/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
+diff --git a/src/java/org/apache/commons/lang/builder/EqualsBuilder.java b/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
 index a783b35..6901c8e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-48/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-48-fixed/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
+--- a/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
++++ b/src/java/org/apache/commons/lang/builder/EqualsBuilder.java
 @@ -377,8 +377,12 @@ public class EqualsBuilder {
          }
          Class lhsClass = lhs.getClass();

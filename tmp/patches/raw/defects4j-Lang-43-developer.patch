@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-43/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-43-fixed/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+diff --git a/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java b/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
 index 404be49..4af3955 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-43/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-43-fixed/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+--- a/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
++++ b/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
 @@ -419,6 +419,7 @@ public class ExtendedMessageFormat extends MessageFormat {
          int start = pos.getIndex();
          char[] c = pattern.toCharArray();

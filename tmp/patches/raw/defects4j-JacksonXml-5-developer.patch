@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-5/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-5-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
+diff --git a/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java b/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
 index b139d09..a50e1a8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-5/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-5-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
+--- a/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
++++ b/src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java
 @@ -56,7 +56,7 @@ public class XmlSerializerProvider extends DefaultSerializerProvider
          super(src);
          // 21-May-2018, tatu: As per [dataformat-xml#282], should NOT really copy

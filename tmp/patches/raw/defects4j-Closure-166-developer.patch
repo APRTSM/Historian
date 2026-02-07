@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-166/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-166-fixed/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
+diff --git a/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java b/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
 index 3df8216..41cddd5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-166/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-166-fixed/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
+--- a/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
++++ b/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
 @@ -570,6 +570,12 @@ class PrototypeObjectType extends ObjectType {
      // properties on this object.
      if (constraint.isRecordType()) {

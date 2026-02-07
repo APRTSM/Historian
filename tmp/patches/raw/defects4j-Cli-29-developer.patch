@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-29/src/java/org/apache/commons/cli/Util.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-29-fixed/src/java/org/apache/commons/cli/Util.java
+diff --git a/src/java/org/apache/commons/cli/Util.java b/src/java/org/apache/commons/cli/Util.java
 index 40f66f1..bceee25 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-29/src/java/org/apache/commons/cli/Util.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-29-fixed/src/java/org/apache/commons/cli/Util.java
+--- a/src/java/org/apache/commons/cli/Util.java
++++ b/src/java/org/apache/commons/cli/Util.java
 @@ -62,14 +62,10 @@ class Util
       */
      static String stripLeadingAndTrailingQuotes(String str)

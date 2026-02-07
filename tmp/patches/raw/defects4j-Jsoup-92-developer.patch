@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/nodes/Attributes.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/nodes/Attributes.java
+diff --git a/src/main/java/org/jsoup/nodes/Attributes.java b/src/main/java/org/jsoup/nodes/Attributes.java
 index a716abc..85dabcf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/nodes/Attributes.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/nodes/Attributes.java
+--- a/src/main/java/org/jsoup/nodes/Attributes.java
++++ b/src/main/java/org/jsoup/nodes/Attributes.java
 @@ -3,6 +3,7 @@ package org.jsoup.nodes;
  import org.jsoup.SerializationException;
  import org.jsoup.helper.Validate;
@@ -59,10 +59,10 @@ index a716abc..85dabcf 100644
  
      private static class Dataset extends AbstractMap<String, String> {
          private final Attributes attributes;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 index e51f5f3..099859d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilder.java
 @@ -196,6 +196,12 @@ public class HtmlTreeBuilder extends TreeBuilder {
  
      Element insert(final Token.StartTag startTag) {
@@ -76,10 +76,10 @@ index e51f5f3..099859d 100644
  
          // handle empty unknown tags
          // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/ParseSettings.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/ParseSettings.java
+diff --git a/src/main/java/org/jsoup/parser/ParseSettings.java b/src/main/java/org/jsoup/parser/ParseSettings.java
 index 1378978..18c685a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/ParseSettings.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/ParseSettings.java
+--- a/src/main/java/org/jsoup/parser/ParseSettings.java
++++ b/src/main/java/org/jsoup/parser/ParseSettings.java
 @@ -35,6 +35,9 @@ public class ParseSettings {
      /**
       * Returns true if preserving attribute case.
@@ -90,10 +90,10 @@ index 1378978..18c685a 100644
  
      /**
       * Define parse settings.
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/Token.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/Token.java
+diff --git a/src/main/java/org/jsoup/parser/Token.java b/src/main/java/org/jsoup/parser/Token.java
 index 9b0b7c2..ca26404 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/Token.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/Token.java
+--- a/src/main/java/org/jsoup/parser/Token.java
++++ b/src/main/java/org/jsoup/parser/Token.java
 @@ -113,7 +113,7 @@ abstract class Token {
                      else
                          value = null;
@@ -103,10 +103,10 @@ index 9b0b7c2..ca26404 100644
                  }
              }
              pendingAttributeName = null;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 index 01dbcef..7fbe251 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-92-fixed/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
 @@ -75,6 +75,7 @@ public class XmlTreeBuilder extends TreeBuilder {
      Element insert(Token.StartTag startTag) {
          Tag tag = Tag.valueOf(startTag.name(), settings);

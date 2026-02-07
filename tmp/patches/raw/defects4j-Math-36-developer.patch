@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-36/src/main/java/org/apache/commons/math/fraction/BigFraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-36-fixed/src/main/java/org/apache/commons/math/fraction/BigFraction.java
+diff --git a/src/main/java/org/apache/commons/math/fraction/BigFraction.java b/src/main/java/org/apache/commons/math/fraction/BigFraction.java
 index 6181ec3..a6672e4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-36/src/main/java/org/apache/commons/math/fraction/BigFraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-36-fixed/src/main/java/org/apache/commons/math/fraction/BigFraction.java
+--- a/src/main/java/org/apache/commons/math/fraction/BigFraction.java
++++ b/src/main/java/org/apache/commons/math/fraction/BigFraction.java
 @@ -683,8 +683,14 @@ public class BigFraction
      @Override
      public double doubleValue() {

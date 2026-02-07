@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-45/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-45-fixed/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
+diff --git a/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java b/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
 index 174eda6..f05c878 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-45/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-45-fixed/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
+--- a/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
++++ b/src/main/java/org/apache/commons/math/linear/OpenMapRealMatrix.java
 @@ -47,6 +47,11 @@ public class OpenMapRealMatrix extends AbstractRealMatrix
       */
      public OpenMapRealMatrix(int rowDimension, int columnDimension) {

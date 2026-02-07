@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/DateTimeZone.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/DateTimeZone.java
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
 index 9edb188..23f70a5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/DateTimeZone.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/DateTimeZone.java
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
 @@ -933,6 +933,15 @@ public abstract class DateTimeZone implements Serializable {
       * @throws IllegalArgumentException if the zone has no equivalent local time
       * @since 2.0
@@ -18,10 +18,10 @@ index 9edb188..23f70a5 100644
  
      /**
       * Converts a local instant to a standard UTC instant with the same
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/chrono/ZonedChronology.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/chrono/ZonedChronology.java
+diff --git a/src/main/java/org/joda/time/chrono/ZonedChronology.java b/src/main/java/org/joda/time/chrono/ZonedChronology.java
 index f165f3d..819f64e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/chrono/ZonedChronology.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/chrono/ZonedChronology.java
+--- a/src/main/java/org/joda/time/chrono/ZonedChronology.java
++++ b/src/main/java/org/joda/time/chrono/ZonedChronology.java
 @@ -433,7 +433,7 @@ public final class ZonedChronology extends AssembledChronology {
              } else {
                 long localInstant = iZone.convertUTCToLocal(instant);
@@ -84,10 +84,10 @@ index f165f3d..819f64e 100644
              }
          }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/field/LenientDateTimeField.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/field/LenientDateTimeField.java
+diff --git a/src/main/java/org/joda/time/field/LenientDateTimeField.java b/src/main/java/org/joda/time/field/LenientDateTimeField.java
 index 450a4ef..6cf4c71 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26/src/main/java/org/joda/time/field/LenientDateTimeField.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-26-fixed/src/main/java/org/joda/time/field/LenientDateTimeField.java
+--- a/src/main/java/org/joda/time/field/LenientDateTimeField.java
++++ b/src/main/java/org/joda/time/field/LenientDateTimeField.java
 @@ -72,6 +72,6 @@ public class LenientDateTimeField extends DelegatedDateTimeField {
          long localInstant = iBase.getZone().convertUTCToLocal(instant);
          long difference = FieldUtils.safeSubtract(value, get(instant));

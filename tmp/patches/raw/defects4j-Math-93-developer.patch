@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-93/src/java/org/apache/commons/math/util/MathUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-93-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+diff --git a/src/java/org/apache/commons/math/util/MathUtils.java b/src/java/org/apache/commons/math/util/MathUtils.java
 index 7d8aa4d..1389d5a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-93/src/java/org/apache/commons/math/util/MathUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-93-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+--- a/src/java/org/apache/commons/math/util/MathUtils.java
++++ b/src/java/org/apache/commons/math/util/MathUtils.java
 @@ -342,8 +342,10 @@ public final class MathUtils {
       * @throws IllegalArgumentException if n < 0
       */

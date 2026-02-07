@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
+diff --git a/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java b/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
 index 2aa981bed..15e59d4d1 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
+--- a/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
++++ b/src/main/java/spoon/reflect/visitor/filter/SuperInheritanceHierarchyFunction.java
 @@ -56,6 +56,47 @@ public class SuperInheritanceHierarchyFunction implements CtConsumableFunction<C
  	private CtScannerListener listener;
  	private boolean returnTypeReferences = false;
@@ -199,10 +199,10 @@ index 2aa981bed..15e59d4d1 100644
  		}
  	}
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+diff --git a/src/main/java/spoon/support/visitor/ClassTypingContext.java b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 index e876c5fd8..f382483cc 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/spoon/support/visitor/ClassTypingContext.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/spoon/support/visitor/ClassTypingContext.java
+--- a/src/main/java/spoon/support/visitor/ClassTypingContext.java
++++ b/src/main/java/spoon/support/visitor/ClassTypingContext.java
 @@ -24,7 +24,6 @@ import java.util.Map;
  import java.util.Set;
  

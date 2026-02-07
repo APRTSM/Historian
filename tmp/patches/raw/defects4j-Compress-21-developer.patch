@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-21/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-21-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java b/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
 index 05912b9..317d778 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-21/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-21-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
+--- a/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
++++ b/src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java
 @@ -636,14 +636,13 @@ public class SevenZOutputFile {
          int shift = 7;
          for (int i = 0; i < length; i++) {

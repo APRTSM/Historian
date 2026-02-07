@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-19/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-19-fixed/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java b/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
 index 68891ac..3d4c238 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-19/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-19-fixed/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
+--- a/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java
 @@ -37,7 +37,7 @@ public class NumericEntityUnescaper extends CharSequenceTranslator {
      public int translate(CharSequence input, int index, Writer out) throws IOException {
          int seqEnd = input.length();

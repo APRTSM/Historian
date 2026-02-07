@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-72/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-72-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+diff --git a/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java b/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
 index e0cb427..7fc090e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-72/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-72-fixed/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+--- a/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
++++ b/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
 @@ -112,7 +112,7 @@ public class BrentSolver extends UnivariateRealSolverImpl {
          // return the first endpoint if it is good enough
          double yMin = f.value(min);

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-83/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-83-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java b/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
 index 4f4eb67..0d01e78 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-83/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-83-fixed/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
+--- a/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
++++ b/src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java
 @@ -116,9 +116,7 @@ public abstract class FromStringDeserializer<T> extends StdScalarDeserializer<T>
                  // 19-May-2017, tatu: Used to require non-null result (assuming `null`
                  //    indicated error; but that seems wrong. Should be able to return

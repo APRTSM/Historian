@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-55/src/main/java/org/apache/commons/math/geometry/Vector3D.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-55-fixed/src/main/java/org/apache/commons/math/geometry/Vector3D.java
+diff --git a/src/main/java/org/apache/commons/math/geometry/Vector3D.java b/src/main/java/org/apache/commons/math/geometry/Vector3D.java
 index 3c741e9..2d915e5 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-55/src/main/java/org/apache/commons/math/geometry/Vector3D.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-55-fixed/src/main/java/org/apache/commons/math/geometry/Vector3D.java
+--- a/src/main/java/org/apache/commons/math/geometry/Vector3D.java
++++ b/src/main/java/org/apache/commons/math/geometry/Vector3D.java
 @@ -456,9 +456,21 @@ public class Vector3D implements Serializable {
     */
    public static Vector3D crossProduct(final Vector3D v1, final Vector3D v2) {

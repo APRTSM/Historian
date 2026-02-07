@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-5/src/main/java/org/joda/time/Period.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-5-fixed/src/main/java/org/joda/time/Period.java
+diff --git a/src/main/java/org/joda/time/Period.java b/src/main/java/org/joda/time/Period.java
 index f404793..5ea67a7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-5/src/main/java/org/joda/time/Period.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Time-5-fixed/src/main/java/org/joda/time/Period.java
+--- a/src/main/java/org/joda/time/Period.java
++++ b/src/main/java/org/joda/time/Period.java
 @@ -1625,13 +1625,19 @@ public final class Period
          int years = getYears();
          int months = getMonths();

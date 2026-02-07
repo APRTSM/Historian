@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-4/src/main/java/org/jsoup/nodes/Entities.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-4-fixed/src/main/java/org/jsoup/nodes/Entities.java
+diff --git a/src/main/java/org/jsoup/nodes/Entities.java b/src/main/java/org/jsoup/nodes/Entities.java
 index 4d016ff..ad825d3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-4/src/main/java/org/jsoup/nodes/Entities.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-4-fixed/src/main/java/org/jsoup/nodes/Entities.java
+--- a/src/main/java/org/jsoup/nodes/Entities.java
++++ b/src/main/java/org/jsoup/nodes/Entities.java
 @@ -61,7 +61,7 @@ public class Entities {
                  } catch (NumberFormatException e) {
                  } // skip

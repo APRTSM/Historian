@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171/src/com/google/javascript/jscomp/TypeInference.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171-fixed/src/com/google/javascript/jscomp/TypeInference.java
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
 index 9367b32..4a03b1e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171/src/com/google/javascript/jscomp/TypeInference.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171-fixed/src/com/google/javascript/jscomp/TypeInference.java
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
 @@ -728,12 +728,7 @@ class TypeInference
      // See CodingConvention#getObjectLiteralCase and goog.object.reflect.
      // Ignore these types of literals.
@@ -16,10 +16,10 @@ index 9367b32..4a03b1e 100644
        return scope;
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171/src/com/google/javascript/jscomp/TypedScopeCreator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 index e9e8486..ef02b9c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171/src/com/google/javascript/jscomp/TypedScopeCreator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-171-fixed/src/com/google/javascript/jscomp/TypedScopeCreator.java
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
 @@ -1666,6 +1666,9 @@ final class TypedScopeCreator implements ScopeCreator {
        }
  

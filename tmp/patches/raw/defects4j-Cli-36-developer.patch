@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36/src/main/java/org/apache/commons/cli/OptionGroup.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36-fixed/src/main/java/org/apache/commons/cli/OptionGroup.java
+diff --git a/src/main/java/org/apache/commons/cli/OptionGroup.java b/src/main/java/org/apache/commons/cli/OptionGroup.java
 index 322053f..dc6d5db 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36/src/main/java/org/apache/commons/cli/OptionGroup.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36-fixed/src/main/java/org/apache/commons/cli/OptionGroup.java
+--- a/src/main/java/org/apache/commons/cli/OptionGroup.java
++++ b/src/main/java/org/apache/commons/cli/OptionGroup.java
 @@ -19,8 +19,8 @@ package org.apache.commons.cli;
  
  import java.io.Serializable;
@@ -21,10 +21,10 @@ index 322053f..dc6d5db 100644
  
      /** the name of the selected option */
      private String selected;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36/src/main/java/org/apache/commons/cli/Options.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36-fixed/src/main/java/org/apache/commons/cli/Options.java
+diff --git a/src/main/java/org/apache/commons/cli/Options.java b/src/main/java/org/apache/commons/cli/Options.java
 index 721baaf..796fe5c 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36/src/main/java/org/apache/commons/cli/Options.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Cli-36-fixed/src/main/java/org/apache/commons/cli/Options.java
+--- a/src/main/java/org/apache/commons/cli/Options.java
++++ b/src/main/java/org/apache/commons/cli/Options.java
 @@ -57,7 +57,7 @@ public class Options implements Serializable
      private final List<Object> requiredOpts = new ArrayList<Object>();
  

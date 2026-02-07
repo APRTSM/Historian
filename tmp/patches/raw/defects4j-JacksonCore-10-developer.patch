@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-10/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-10-fixed/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
 index 976ef6e..7c37ffa 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-10/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-10-fixed/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+--- a/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
++++ b/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
 @@ -922,7 +922,8 @@ public final class ByteQuadsCanonicalizer
          /* 31-Jul-2015, tatu: Note that spillover area does NOT end at end of array,
           *   since "long names" area follows. Instead, need to calculate from hash size.

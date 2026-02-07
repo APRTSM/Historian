@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-11/src/org/mockito/internal/creation/DelegatingMethod.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-11-fixed/src/org/mockito/internal/creation/DelegatingMethod.java
+diff --git a/src/org/mockito/internal/creation/DelegatingMethod.java b/src/org/mockito/internal/creation/DelegatingMethod.java
 index 349719b..034694f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-11/src/org/mockito/internal/creation/DelegatingMethod.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-11-fixed/src/org/mockito/internal/creation/DelegatingMethod.java
+--- a/src/org/mockito/internal/creation/DelegatingMethod.java
++++ b/src/org/mockito/internal/creation/DelegatingMethod.java
 @@ -52,11 +52,19 @@ public class DelegatingMethod implements MockitoMethod {
       */
      @Override

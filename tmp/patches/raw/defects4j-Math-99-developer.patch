@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-99/src/java/org/apache/commons/math/util/MathUtils.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-99-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+diff --git a/src/java/org/apache/commons/math/util/MathUtils.java b/src/java/org/apache/commons/math/util/MathUtils.java
 index d51ec7a..806c888 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-99/src/java/org/apache/commons/math/util/MathUtils.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-99-fixed/src/java/org/apache/commons/math/util/MathUtils.java
+--- a/src/java/org/apache/commons/math/util/MathUtils.java
++++ b/src/java/org/apache/commons/math/util/MathUtils.java
 @@ -540,6 +540,11 @@ public final class MathUtils {
          int u = p;
          int v = q;

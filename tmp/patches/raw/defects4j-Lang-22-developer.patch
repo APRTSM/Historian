@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-22/src/main/java/org/apache/commons/lang3/math/Fraction.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-22-fixed/src/main/java/org/apache/commons/lang3/math/Fraction.java
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
 index b36a156..bf15a49 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-22/src/main/java/org/apache/commons/lang3/math/Fraction.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Lang-22-fixed/src/main/java/org/apache/commons/lang3/math/Fraction.java
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
 @@ -580,8 +580,14 @@ public final class Fraction extends Number implements Comparable<Fraction> {
       */
      private static int greatestCommonDivisor(int u, int v) {

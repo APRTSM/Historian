@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-126/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-126-fixed/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
 index 4146f17..bc9befe 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-126/src/com/google/javascript/jscomp/MinimizeExitPoints.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-126-fixed/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
 @@ -138,10 +138,6 @@ class MinimizeExitPoints
         * can cause problems if it changes the completion type of the finally
         * block. See ECMA 262 Sections 8.9 & 12.14

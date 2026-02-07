@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
 index 6bd8f03..c73e665 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
+--- a/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
++++ b/src/main/java/org/apache/commons/compress/archivers/ArchiveStreamFactory.java
 @@ -294,7 +294,11 @@ public class ArchiveStreamFactory {
              }
          }
@@ -26,10 +26,10 @@ index 6bd8f03..c73e665 100644
              } else if (SevenZFile.matches(signature, signatureLength)) {
                  throw new StreamingNotSupportedException(SEVEN_Z);
              }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
 index 1ad5f10..915b56e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java
 @@ -94,6 +94,7 @@ public class CpioArchiveInputStream extends ArchiveInputStream implements
      private final ZipEncoding zipEncoding;
  
@@ -46,10 +46,10 @@ index 1ad5f10..915b56e 100644
          this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
 index d2d1282..fc829ff 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java
 @@ -95,6 +95,7 @@ public class CpioArchiveOutputStream extends ArchiveOutputStream implements
      private final ZipEncoding zipEncoding;
  
@@ -66,10 +66,10 @@ index d2d1282..fc829ff 100644
          this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
      }
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
 index 84c7839..09431a4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/dump/DumpArchiveInputStream.java
 @@ -77,6 +77,7 @@ public class DumpArchiveInputStream extends ArchiveInputStream {
      private final ZipEncoding zipEncoding;
  
@@ -86,10 +86,10 @@ index 84c7839..09431a4 100644
          this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
  
          try {
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 index b3cd0d6..c557007 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 @@ -76,6 +76,7 @@ public class TarArchiveInputStream extends ArchiveInputStream {
      private final ZipEncoding zipEncoding;
  
@@ -106,10 +106,10 @@ index b3cd0d6..c557007 100644
          this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
          this.recordSize = recordSize;
          this.blockSize = blockSize;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 index 96ec740..43525c8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
 @@ -87,6 +87,7 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
      private final ZipEncoding zipEncoding;
  
@@ -126,10 +126,10 @@ index 96ec740..43525c8 100644
          this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
  
          this.assemLen = 0;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
 index 711c149..7a69141 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-29-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java
 @@ -62,6 +62,7 @@ public class ZipArchiveInputStream extends ArchiveInputStream {
      private final ZipEncoding zipEncoding;
  

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-104/src/com/google/javascript/rhino/jstype/UnionType.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-104-fixed/src/com/google/javascript/rhino/jstype/UnionType.java
+diff --git a/src/com/google/javascript/rhino/jstype/UnionType.java b/src/com/google/javascript/rhino/jstype/UnionType.java
 index a9c9a0a..6f0d798 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-104/src/com/google/javascript/rhino/jstype/UnionType.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-104-fixed/src/com/google/javascript/rhino/jstype/UnionType.java
+--- a/src/com/google/javascript/rhino/jstype/UnionType.java
++++ b/src/com/google/javascript/rhino/jstype/UnionType.java
 @@ -288,7 +288,7 @@ public class UnionType extends JSType {
        builder.addAlternate(that);
      }

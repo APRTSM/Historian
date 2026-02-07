@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/domain/core/User.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/domain/core/User.java
+diff --git a/src/main/java/edu/harvard/h2ms/domain/core/User.java b/src/main/java/edu/harvard/h2ms/domain/core/User.java
 index 2b574b8ec..0facfd47b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/edu/harvard/h2ms/domain/core/User.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/edu/harvard/h2ms/domain/core/User.java
+--- a/src/main/java/edu/harvard/h2ms/domain/core/User.java
++++ b/src/main/java/edu/harvard/h2ms/domain/core/User.java
 @@ -36,7 +36,7 @@ public class User implements UserDetails {
    @Column(name = "ID")
    private Long id;

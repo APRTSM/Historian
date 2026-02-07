@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-10/src/main/java/org/jsoup/nodes/Node.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-10-fixed/src/main/java/org/jsoup/nodes/Node.java
+diff --git a/src/main/java/org/jsoup/nodes/Node.java b/src/main/java/org/jsoup/nodes/Node.java
 index 5e6eb8f..513c0ee 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-10/src/main/java/org/jsoup/nodes/Node.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-10-fixed/src/main/java/org/jsoup/nodes/Node.java
+--- a/src/main/java/org/jsoup/nodes/Node.java
++++ b/src/main/java/org/jsoup/nodes/Node.java
 @@ -170,6 +170,8 @@ public abstract class Node implements Cloneable {
                      return abs.toExternalForm();
                  }

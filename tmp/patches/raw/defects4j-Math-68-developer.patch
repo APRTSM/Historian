@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-68/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-68-fixed/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+diff --git a/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
 index d1b36ea..28aee43 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-68/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-68-fixed/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
+--- a/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java
 @@ -163,6 +163,7 @@ public class LevenbergMarquardtOptimizer extends AbstractLeastSquaresOptimizer {
          setMaxIterations(1000);
  

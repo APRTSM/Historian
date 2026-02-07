@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+diff --git a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
 index 67126af..c17f961 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+--- a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
++++ b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
 @@ -111,7 +111,7 @@ public class PropertyAndSetterInjection extends MockInjectionStrategy {
      private boolean injectMockCandidatesOnFields(Set<Object> mocks, Object instance, boolean injectionOccurred, List<Field> orderedInstanceFields) {
          for (Iterator<Field> it = orderedInstanceFields.iterator(); it.hasNext(); ) {
@@ -11,10 +11,10 @@ index 67126af..c17f961 100644
              if (injected != null) {
                  injectionOccurred |= true;
                  mocks.remove(injected);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
+diff --git a/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java b/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
 index 7bd7073..aebf6f7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
+--- a/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
++++ b/src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java
 @@ -10,6 +10,7 @@ import org.mockito.internal.util.reflection.FieldSetter;
  
  import java.lang.reflect.Field;
@@ -32,10 +32,10 @@ index 7bd7073..aebf6f7 100644
          if(mocks.size() == 1) {
              final Object matchingMock = mocks.iterator().next();
  
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
+diff --git a/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java b/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
 index 7a2c087..81a168b 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
+--- a/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
++++ b/src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java
 @@ -6,13 +6,14 @@ package org.mockito.internal.configuration.injection.filter;
  
  import java.lang.reflect.Field;
@@ -52,10 +52,10 @@ index 7a2c087..81a168b 100644
      );
  
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
+diff --git a/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java b/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
 index b95f31a..abc5d67 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
+--- a/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
++++ b/src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java
 @@ -20,7 +20,7 @@ public class NameBasedCandidateFilter implements MockCandidateFilter {
  	}
  
@@ -99,10 +99,10 @@ index b95f31a..abc5d67 100644
 +		return next.filterCandidate(mocks, field, fields, fieldInstance);
  	}
  }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
+diff --git a/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java b/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
 index dd79991..ce7a349 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-19-fixed/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
+--- a/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
++++ b/src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java
 @@ -17,7 +17,7 @@ public class TypeBasedCandidateFilter implements MockCandidateFilter {
          this.next = next;
      }

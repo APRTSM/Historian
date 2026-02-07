@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-10/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-10-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
 index b968cd5..a09afa8 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-10/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-10-fixed/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
+--- a/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
++++ b/src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java
 @@ -39,7 +39,7 @@ public abstract class CoreOperationRelationalExpression extends CoreOperation {
      }
  

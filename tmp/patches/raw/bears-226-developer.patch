@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
+diff --git a/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java b/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
 index ab6545038..db7b6e17e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
+--- a/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
++++ b/src/main/java/com/milaboratory/core/alignment/batch/BatchAlignerWithBaseParameters.java
 @@ -30,9 +30,11 @@ import com.milaboratory.primitivio.annotations.Serializable;
   */
  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, isGetterVisibility = JsonAutoDetect.Visibility.NONE,

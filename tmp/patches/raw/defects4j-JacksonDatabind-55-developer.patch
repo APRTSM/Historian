@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-55/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-55-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
 index 7f55a3f..7afcc55 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-55/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-55-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/StdKeySerializers.java
 @@ -7,6 +7,7 @@ import java.util.Date;
  import com.fasterxml.jackson.core.*;
  import com.fasterxml.jackson.databind.*;

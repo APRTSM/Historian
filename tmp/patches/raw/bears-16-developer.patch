@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java b/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
 index 89f51b54a..4307709cf 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
+--- a/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
++++ b/src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java
 @@ -1155,7 +1155,7 @@ public abstract class SerializerProvider
              String msg, Object... msgArgs) throws JsonMappingException {
          String beanDesc = "N/A";
@@ -20,10 +20,10 @@ index 89f51b54a..4307709cf 100644
          }
          message = String.format("Invalid definition for property %s (of type %s): %s",
                  propName, beanDesc, message);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
 index 95613e12d..c89d380f4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerBuilder.java
 @@ -37,7 +37,7 @@ public class BeanSerializerBuilder
      /**
       * Bean properties, in order of serialization
@@ -88,10 +88,10 @@ index 95613e12d..c89d380f4 100644
          if (_anyGetter != null) {
              _anyGetter.fixAccess(_config);
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 index f0fa9c5c8..50436bb46 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 @@ -520,7 +520,13 @@ public class BeanSerializerFactory
              }
          }

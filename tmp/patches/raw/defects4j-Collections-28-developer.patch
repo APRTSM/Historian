@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-28/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-28-fixed/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
+diff --git a/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java b/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
 index 41f8535..bd11f75 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-28/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Collections-28-fixed/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
+--- a/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
++++ b/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java
 @@ -2259,6 +2259,16 @@ abstract class AbstractPatriciaTrie<K, V> extends AbstractBitwiseTrie<K, V> {
              return new RangeEntryMap(fromKey, fromInclusive, toKey, toInclusive);
          }

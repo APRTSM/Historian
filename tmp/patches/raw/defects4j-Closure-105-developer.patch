@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-105/src/com/google/javascript/jscomp/FoldConstants.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-105-fixed/src/com/google/javascript/jscomp/FoldConstants.java
+diff --git a/src/com/google/javascript/jscomp/FoldConstants.java b/src/com/google/javascript/jscomp/FoldConstants.java
 index f6d6a27..657ee0a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-105/src/com/google/javascript/jscomp/FoldConstants.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-105-fixed/src/com/google/javascript/jscomp/FoldConstants.java
+--- a/src/com/google/javascript/jscomp/FoldConstants.java
++++ b/src/com/google/javascript/jscomp/FoldConstants.java
 @@ -1474,22 +1474,24 @@ class FoldConstants extends AbstractPostOrderCallback
  
      String joinString = NodeUtil.getStringValue(right);

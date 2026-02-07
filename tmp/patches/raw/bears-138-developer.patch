@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gt06ProtocolDecoder.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+diff --git a/src/org/traccar/protocol/Gt06ProtocolDecoder.java b/src/org/traccar/protocol/Gt06ProtocolDecoder.java
 index 0fdd5ba10..adce11eab 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/org/traccar/protocol/Gt06ProtocolDecoder.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/org/traccar/protocol/Gt06ProtocolDecoder.java
+--- a/src/org/traccar/protocol/Gt06ProtocolDecoder.java
++++ b/src/org/traccar/protocol/Gt06ProtocolDecoder.java
 @@ -554,14 +554,14 @@ public class Gt06ProtocolDecoder extends BaseProtocolDecoder {
              getLastLocation(position, dateBuilder.getDate());
  

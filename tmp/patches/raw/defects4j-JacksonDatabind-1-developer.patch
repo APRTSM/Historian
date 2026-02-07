@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-1/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-1-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
 index 45db172..32ce099 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-1/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-1-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
 @@ -589,6 +589,7 @@ public class BeanPropertyWriter
              } else { // can NOT suppress entries in tabular output
                  jgen.writeNull();

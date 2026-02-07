@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-86/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-86-fixed/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
+diff --git a/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java b/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
 index acd9222..67e372f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-86/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Math-86-fixed/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
+--- a/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
++++ b/src/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java
 @@ -111,9 +111,6 @@ public class CholeskyDecompositionImpl implements CholeskyDecomposition {
  
              final double[] lI = lTData[i];

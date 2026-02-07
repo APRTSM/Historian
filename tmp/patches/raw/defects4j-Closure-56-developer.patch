@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-56/src/com/google/javascript/jscomp/SourceFile.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-56-fixed/src/com/google/javascript/jscomp/SourceFile.java
+diff --git a/src/com/google/javascript/jscomp/SourceFile.java b/src/com/google/javascript/jscomp/SourceFile.java
 index fc0cf3f..22414f6 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-56/src/com/google/javascript/jscomp/SourceFile.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-56-fixed/src/com/google/javascript/jscomp/SourceFile.java
+--- a/src/com/google/javascript/jscomp/SourceFile.java
++++ b/src/com/google/javascript/jscomp/SourceFile.java
 @@ -239,7 +239,11 @@ public class SourceFile implements StaticSourceFile, Serializable {
        // If next new line cannot be found, there are two cases
        // 1. pos already reaches the end of file, then null should be returned

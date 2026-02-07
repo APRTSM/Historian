@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-69/src/main/java/org/jsoup/nodes/FormElement.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-69-fixed/src/main/java/org/jsoup/nodes/FormElement.java
+diff --git a/src/main/java/org/jsoup/nodes/FormElement.java b/src/main/java/org/jsoup/nodes/FormElement.java
 index e498975..f5c59d3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-69/src/main/java/org/jsoup/nodes/FormElement.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-69-fixed/src/main/java/org/jsoup/nodes/FormElement.java
+--- a/src/main/java/org/jsoup/nodes/FormElement.java
++++ b/src/main/java/org/jsoup/nodes/FormElement.java
 @@ -46,6 +46,11 @@ public class FormElement extends Element {
          return this;
      }

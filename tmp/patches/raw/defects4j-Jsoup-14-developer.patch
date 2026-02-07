@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14/src/main/java/org/jsoup/parser/Tokeniser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+diff --git a/src/main/java/org/jsoup/parser/Tokeniser.java b/src/main/java/org/jsoup/parser/Tokeniser.java
 index 6d729cf..316cbea 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14/src/main/java/org/jsoup/parser/Tokeniser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14-fixed/src/main/java/org/jsoup/parser/Tokeniser.java
+--- a/src/main/java/org/jsoup/parser/Tokeniser.java
++++ b/src/main/java/org/jsoup/parser/Tokeniser.java
 @@ -194,6 +194,9 @@ class Tokeniser {
          return tagPending.tagName.equals(lastStartTag.tagName);
      }
@@ -12,10 +12,10 @@ index 6d729cf..316cbea 100644
  
      boolean isTrackErrors() {
          return trackErrors;
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14/src/main/java/org/jsoup/parser/TokeniserState.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+diff --git a/src/main/java/org/jsoup/parser/TokeniserState.java b/src/main/java/org/jsoup/parser/TokeniserState.java
 index ca27ea0..8774823 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14/src/main/java/org/jsoup/parser/TokeniserState.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Jsoup-14-fixed/src/main/java/org/jsoup/parser/TokeniserState.java
+--- a/src/main/java/org/jsoup/parser/TokeniserState.java
++++ b/src/main/java/org/jsoup/parser/TokeniserState.java
 @@ -215,8 +215,13 @@ enum TokeniserState {
              if (r.matches('/')) {
                  t.createTempBuffer();

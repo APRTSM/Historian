@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-102/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-102-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 index 492cd98..572d23e 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-102/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-102-fixed/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
 @@ -64,9 +64,6 @@ public abstract class DateTimeSerializerBase<T>
      {
          // Note! Should not skip if `property` null since that'd skip check

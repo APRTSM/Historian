@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-43/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-43-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
 index df1f63c..63aeba7 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-43/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-43-fixed/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java
 @@ -1031,7 +1031,7 @@ public class ZipArchiveOutputStream extends ArchiveOutputStream {
  
          final long localHeaderStart = streamCompressor.getTotalBytesWritten();

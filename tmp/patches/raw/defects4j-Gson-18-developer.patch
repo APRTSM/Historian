@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-18/gson/src/main/java/com/google/gson/internal/$Gson$Types.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-18-fixed/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+diff --git a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
 index f86ad36..adea605 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-18/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Gson-18-fixed/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+--- a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
++++ b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
 @@ -275,7 +275,10 @@ public final class $Gson$Types {
     * @param supertype a superclass of, or interface implemented by, this.
     */

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/julianps/modelmapper/ValueConverter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
+diff --git a/src/main/java/com/github/julianps/modelmapper/ValueConverter.java b/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
 index fc59b7232..e33572aa3 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
+--- a/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
++++ b/src/main/java/com/github/julianps/modelmapper/ValueConverter.java
 @@ -1,36 +1,40 @@
  package com.github.julianps.modelmapper;
  

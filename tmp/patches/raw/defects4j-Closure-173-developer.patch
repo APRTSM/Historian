@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173/src/com/google/javascript/jscomp/CodeGenerator.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
 index 35a93af..d9ac019 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173/src/com/google/javascript/jscomp/CodeGenerator.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173-fixed/src/com/google/javascript/jscomp/CodeGenerator.java
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
 @@ -127,12 +127,7 @@ class CodeGenerator {
        // the IN_FOR_INIT_CLAUSE one.
        Context rhsContext = getContextForNoInOperator(context);
@@ -16,10 +16,10 @@ index 35a93af..d9ac019 100644
          // Assignments are the only right-associative binary operators
          addExpr(first, p, context);
          cc.addOp(opstr, true);
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 index 2c13724..2015f05 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Closure-173-fixed/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
 @@ -99,12 +99,40 @@ class PeepholeSubstituteAlternateSyntax
        case Token.ARRAYLIT:
          return tryMinimizeArrayLiteral(node);

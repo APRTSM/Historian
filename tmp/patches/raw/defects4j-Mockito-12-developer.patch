@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-12/src/org/mockito/internal/util/reflection/GenericMaster.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-12-fixed/src/org/mockito/internal/util/reflection/GenericMaster.java
+diff --git a/src/org/mockito/internal/util/reflection/GenericMaster.java b/src/org/mockito/internal/util/reflection/GenericMaster.java
 index 64bf154..4df9f7a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-12/src/org/mockito/internal/util/reflection/GenericMaster.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-12-fixed/src/org/mockito/internal/util/reflection/GenericMaster.java
+--- a/src/org/mockito/internal/util/reflection/GenericMaster.java
++++ b/src/org/mockito/internal/util/reflection/GenericMaster.java
 @@ -17,8 +17,12 @@ public class GenericMaster {
          Type generic = field.getGenericType();
          if (generic != null && generic instanceof ParameterizedType) {

@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-16/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-16-fixed/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+diff --git a/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java b/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
 index 9dadc51..0c9c4eb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-16/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonCore-16-fixed/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+--- a/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
++++ b/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
 @@ -32,6 +32,7 @@ public class JsonParserSequence extends JsonParserDelegate
       *
       * @since 2.8

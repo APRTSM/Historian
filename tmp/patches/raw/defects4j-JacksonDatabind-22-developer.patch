@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
 index 732f631..302a385 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java
 @@ -577,30 +577,35 @@ public abstract class BasicSerializerFactory
               */
              JsonSerializer<Object> keySerializer = _findKeySerializer(prov, beanDesc.getClassInfo());
@@ -153,10 +153,10 @@ index 732f631..302a385 100644
          JsonSerializer<?> ser = null;
  
          for (Serializers serializers : customSerializers()) { // (1) Custom
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 index 992b364..063b0ff 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-22-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
 @@ -171,10 +171,7 @@ public class BeanSerializerFactory
              JavaType type, BeanDescription beanDesc, boolean staticTyping)
          throws JsonMappingException

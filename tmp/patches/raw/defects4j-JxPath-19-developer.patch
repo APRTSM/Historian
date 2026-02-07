@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 index 3300d03..8e3b775 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19-fixed/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java
 @@ -557,17 +557,21 @@ public class DOMNodePointer extends NodePointer {
          int count = 1;
          Node n = node.getPreviousSibling();
@@ -28,10 +28,10 @@ index 3300d03..8e3b775 100644
  
      /**
       * Get relative position of this among all siblings.
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+diff --git a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 index 7df3ace..4b40a39 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JxPath-19-fixed/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
 @@ -693,8 +693,7 @@ public class JDOMNodePointer extends NodePointer {
              String name = ((Element) node).getQualifiedName();
              for (int i = 0; i < children.size(); i++) {

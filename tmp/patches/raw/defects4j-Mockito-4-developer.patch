@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-4/src/org/mockito/exceptions/Reporter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-4-fixed/src/org/mockito/exceptions/Reporter.java
+diff --git a/src/org/mockito/exceptions/Reporter.java b/src/org/mockito/exceptions/Reporter.java
 index 9581a54..d57e33d 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-4/src/org/mockito/exceptions/Reporter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Mockito-4-fixed/src/org/mockito/exceptions/Reporter.java
+--- a/src/org/mockito/exceptions/Reporter.java
++++ b/src/org/mockito/exceptions/Reporter.java
 @@ -421,7 +421,7 @@ public class Reporter {
          throw new NoInteractionsWanted(join(
                  "No interactions wanted here:",

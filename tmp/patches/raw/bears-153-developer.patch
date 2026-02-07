@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
+diff --git a/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java b/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
 index 295592d39..fad8bf998 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_source/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/.diff_target/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
+--- a/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
++++ b/service-registry/src/main/java/org/apache/servicecomb/serviceregistry/api/registry/MicroserviceFactory.java
 @@ -56,7 +56,7 @@ public class MicroserviceFactory {
      microservice.setAppId(configuration.getString(CONFIG_APPLICATION_ID_KEY, DEFAULT_APPLICATION_ID));
      microservice.setVersion(configuration.getString(CONFIG_QUALIFIED_MICROSERVICE_VERSION_KEY,

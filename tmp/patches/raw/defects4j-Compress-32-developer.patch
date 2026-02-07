@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-32/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-32-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 index c557007..41acf2a 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-32/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-32-fixed/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java
 @@ -498,11 +498,11 @@ public class TarArchiveInputStream extends ArchiveInputStream {
              } else if ("linkpath".equals(key)){
                  currEntry.setLinkName(val);

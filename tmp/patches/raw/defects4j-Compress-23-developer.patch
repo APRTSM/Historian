@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-23/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-23-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
+diff --git a/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java b/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
 index 0bc5a1e..5e4f3e9 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-23/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Compress-23-fixed/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
+--- a/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
++++ b/src/main/java/org/apache/commons/compress/archivers/sevenz/Coders.java
 @@ -109,7 +109,7 @@ class Coders {
              byte propsByte = coder.properties[0];
              long dictSize = coder.properties[1];

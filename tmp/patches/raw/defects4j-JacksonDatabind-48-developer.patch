@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48-fixed/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java b/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
 index e01b7dd..58487eb 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48-fixed/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
+--- a/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
++++ b/src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java
 @@ -777,6 +777,12 @@ public final class DeserializationConfig
          if (!isEnabled(MapperFeature.AUTO_DETECT_CREATORS)) {
              vchecker = vchecker.withCreatorVisibility(Visibility.NONE);
@@ -15,10 +15,10 @@ index e01b7dd..58487eb 100644
          if (!isEnabled(MapperFeature.AUTO_DETECT_FIELDS)) {
              vchecker = vchecker.withFieldVisibility(Visibility.NONE);
          }
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48-fixed/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java b/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
 index da192ee..bf0c3f0 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-48-fixed/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
+--- a/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
++++ b/src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java
 @@ -862,6 +862,12 @@ public final class SerializationConfig
      {
          VisibilityChecker<?> vchecker = super.getDefaultVisibilityChecker();

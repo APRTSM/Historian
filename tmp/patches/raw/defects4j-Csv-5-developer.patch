@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-5/src/main/java/org/apache/commons/csv/CSVPrinter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-5-fixed/src/main/java/org/apache/commons/csv/CSVPrinter.java
+diff --git a/src/main/java/org/apache/commons/csv/CSVPrinter.java b/src/main/java/org/apache/commons/csv/CSVPrinter.java
 index 3255360..a8aa33f 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-5/src/main/java/org/apache/commons/csv/CSVPrinter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-Csv-5-fixed/src/main/java/org/apache/commons/csv/CSVPrinter.java
+--- a/src/main/java/org/apache/commons/csv/CSVPrinter.java
++++ b/src/main/java/org/apache/commons/csv/CSVPrinter.java
 @@ -322,7 +322,9 @@ public final class CSVPrinter implements Flushable, Closeable {
       */
      public void println() throws IOException {

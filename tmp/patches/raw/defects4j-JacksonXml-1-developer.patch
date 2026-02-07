@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-1/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-1-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
+diff --git a/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java b/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
 index 91b14dd..58618b4 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-1/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonXml-1-fixed/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
+--- a/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
++++ b/src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java
 @@ -509,8 +509,13 @@ public class FromXmlParser
              // Simple, except that if this is a leaf, need to suppress end:
              if (_mayBeLeaf) {

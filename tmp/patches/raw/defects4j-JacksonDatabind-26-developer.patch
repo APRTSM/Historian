@@ -1,7 +1,7 @@
-diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-26/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-26-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+diff --git a/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java b/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
 index 2093b7b..acaa178 100644
---- a/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-26/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
-+++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/defects4j-JacksonDatabind-26-fixed/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
 @@ -36,9 +36,11 @@ import com.fasterxml.jackson.databind.util.NameTransformer;
   */
  @JacksonStdImpl // since 2.6. NOTE: sub-classes typically are not
