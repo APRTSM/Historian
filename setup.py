@@ -28,6 +28,7 @@ SETUP_DEVELOPER_PATCHES_DIR = {
     "CLEANED": os.path.join(FOLDER_NAME, "cleaned_developer_patches.pkl"),
     "METHOD": os.path.join(FOLDER_NAME, "method_developer_patches.pkl"),
     "FILES": os.path.join(FOLDER_NAME, "files_developer_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_developer_patches.pkl"),
     "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_developer_patches.pkl"),
     "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_developer_patches.pkl"),
 }
@@ -38,6 +39,7 @@ SETUP_TOOL_PATCHES_DIR = {
     "CLEANED": os.path.join(FOLDER_NAME, "cleaned_tool_patches.pkl"),
     "METHOD": os.path.join(FOLDER_NAME, "method_tool_patches.pkl"),
     "FILES": os.path.join(FOLDER_NAME, "files_tool_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_tool_patches.pkl"),
     "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_tool_patches.pkl"),
     "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_tool_patches.pkl"),
 }
@@ -48,6 +50,7 @@ SETUP_HISTORIAN_PATCHES_DIR = {
     "CLEANED": os.path.join(FOLDER_NAME, "cleaned_historian_patches.pkl"),
     "METHOD": os.path.join(FOLDER_NAME, "method_historian_patches.pkl"),
     "FILES": os.path.join(FOLDER_NAME, "files_historian_patches.pkl"),
+    "NORMALIZED": os.path.join(FOLDER_NAME, "normalized_historian_patches.pkl"),
     "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_historian_patches.pkl"),
     "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_historian_patches.pkl"),
 }
@@ -225,12 +228,13 @@ def deduplicate_patches_and_save(patches, path):
 def preprocess_patches(bugs, patches, dirs_dict):
     cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
     method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
-    normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
+    file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
+    normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
     single_method_patches = get_single_methods_and_save(normalized_patches, dirs_dict["SINGLE_METHOD"])
     deduplicated_patches = deduplicate_patches_and_save(single_method_patches, dirs_dict["DEDUPLICATED"])
 
     logging.info(f"Finished preprocessing patches for {dirs_dict['__base__']}. Final count: {len(deduplicated_patches)}")
-    logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
+    logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, File patches: {len(file_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
 
     return deduplicated_patches
 
