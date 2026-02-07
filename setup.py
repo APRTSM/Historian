@@ -55,11 +55,16 @@ SETUP_HISTORIAN_PATCHES_DIR = {
     "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_historian_patches.pkl"),
 }
 
+
+EXTRACT_FILES = False
+CONFIGURE_BENCHMARKS = False
+GET_SUDO = False
+
 # Fetch data and preprocess
-def fetch_bugs(configure=True):
+def fetch_bugs():
     logging.info("Fetching bugs ...")
 
-    if configure:
+    if CONFIGURE_BENCHMARKS:
         configure_benchmarks()
 
     if os.path.exists(SETUP_BUGS_DIR["RAW"]):
@@ -236,33 +241,35 @@ def deduplicate_patches_and_save(patches, path):
     return deduplicated_patches
 
 def preprocess_patches(bugs, patches, dirs_dict):
-    # Just force sudo
-    bug = bugs.loc['defects4j-Closure-63'].copy()
-    bug['uid'] = bug.name
-    checkout_dir = checkout_bug(bug)
-    if os.path.exists(checkout_dir):
-        shutil.rmtree(checkout_dir)
+    if GET_SUDO:
+        # Just force sudo
+        bug = bugs.loc['defects4j-Closure-63'].copy()
+        bug['uid'] = bug.name
+        checkout_dir = checkout_bug(bug)
+        if os.path.exists(checkout_dir):
+            shutil.rmtree(checkout_dir)
 
 
     cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
     method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
+    
+    if EXTRACT_FILES:
+        file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
+        normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
 
-    # file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
-    # normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
-
-    normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
+    else:
+        normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
 
     single_method_patches = get_single_methods_and_save(normalized_patches, dirs_dict["SINGLE_METHOD"])
     deduplicated_patches = deduplicate_patches_and_save(single_method_patches, dirs_dict["DEDUPLICATED"])
 
     logging.info(f"Finished preprocessing patches for {dirs_dict['__base__']}. Final count: {len(deduplicated_patches)}")
-    # logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, File patches: {len(file_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
     logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
 
     return deduplicated_patches
 
 def get_data():
-    bugs = fetch_bugs(True)
+    bugs = fetch_bugs()
     print(f"Fetched {len(bugs)} bugs.")
     
     developer_patches = fetch_patches(bugs, SETUP_DEVELOPER_PATCHES_DIR)
@@ -398,13 +405,13 @@ if __name__=="__main__":
         Tool Patches: {len(tool_patches)},
         Historian Patches: {len(historian_patches)},
         ===========================
-        Prompts:  {prompts},
+        Prompts:  {len(prompts)},
         ===========================
-        Models: {models},
+        Models: {len(models)},
         ===========================
-        Temperatures: {temperatures},
+        Temperatures: {len(temperatures)},
         ===========================
-        Patch Processors: {patch_processors}
+        Patch Processors: {len(patch_processors)}
         """
     )
 
