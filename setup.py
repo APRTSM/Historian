@@ -75,10 +75,10 @@ def fetch_bugs(configure=True):
 
     return bugs
 
-def fetch_patches(bugs_list, dirs_dict):
+def fetch_patches(bugs_df, dirs_dict):
 
     # make bugs a dictionary from dataframe
-    bugs_with_uid = bugs_list.reset_index()  # This makes 'uid' a regular column
+    bugs_with_uid = bugs_df.reset_index()  # This makes 'uid' a regular column
     bugs = bugs_with_uid.to_dict('records')
 
     if os.path.exists(dirs_dict["RAW"]):
@@ -91,7 +91,7 @@ def fetch_patches(bugs_list, dirs_dict):
         elif dirs_dict["__base__"] == "tool":
             patches = pd.DataFrame(get_patches(bugs)).set_index("uid")
         elif dirs_dict["__base__"] == "historian":
-            patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
+            patches = pd.DataFrame(get_historian_dataset(bugs_df)).set_index("uid")
         else:
             raise ValueError(f"Invalid base type: {dirs_dict['__base__']}")
         
@@ -246,13 +246,18 @@ def preprocess_patches(bugs, patches, dirs_dict):
 
     cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
     method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
-    file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
-    normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
+
+    # file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
+    # normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
+
+    normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
+
     single_method_patches = get_single_methods_and_save(normalized_patches, dirs_dict["SINGLE_METHOD"])
     deduplicated_patches = deduplicate_patches_and_save(single_method_patches, dirs_dict["DEDUPLICATED"])
 
     logging.info(f"Finished preprocessing patches for {dirs_dict['__base__']}. Final count: {len(deduplicated_patches)}")
-    logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, File patches: {len(file_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
+    # logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, File patches: {len(file_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
+    logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
 
     return deduplicated_patches
 
