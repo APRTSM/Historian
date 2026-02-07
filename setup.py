@@ -203,6 +203,10 @@ def deduplicate_patches_and_save(patches, path):
 
     deduplicated_patches = patches.copy()
     deduplicated_patches['content'] = deduplicated_patches.apply(get_single_hunk_method, axis=1)
+
+    # Remove all white sapces from content for deduplication
+    deduplicated_patches['content'] = deduplicated_patches['content'].apply(lambda x: re.sub(r'\s+', '', x) if isinstance(x, str) else x)
+
     # deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if len(x) == 1 else None)
     
     # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
@@ -216,6 +220,12 @@ def deduplicate_patches_and_save(patches, path):
 
     # Perform deduplication
     deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
+
+    # Log number of duplicates removed
+    num_duplicates = len(patches) - len(deduplicated_patches)
+    logging.info(f"Removed {num_duplicates} duplicate patches")
+    logging.info(f"Original patches: {len(patches)}, Deduplicated patches: {len(deduplicated_patches)}")
+
 
     # Save to HTML files
     # duplicates.to_html('removed_duplicates.html', index=False, escape=False)

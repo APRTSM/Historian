@@ -916,7 +916,7 @@ def get_single_hunk_method(patch: pd.Series):
     if len(target_method_dirs) != 1:
         raise ValueError(f"The patch is not single hunk. {target_method_dirs}")
 
-    return read_patch(target_method_dirs[0])
+    return read_file(target_method_dirs[0])
 
 def are_single_hunks(patch: pd.Series, developer_patches: pd.DataFrame) -> bool:
     _, target_method_dirs = get_method(patch)

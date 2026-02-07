@@ -509,17 +509,12 @@ def get_llm4pc_dataset(bugs):
 def get_patches(bugs):
     patches = []
     patches += get_dl4pc_exp2_dataset(bugs)
-    print(len(patches))
     patches += get_apre_nfl_dataset(bugs)
-    print(len(patches))
+    patches += get_apre_pfl_dataset(bugs)
     patches += get_defectrepairing_dataset(bugs)
-    print(len(patches))
     patches += get_drr_dataset(bugs)
-    print(len(patches))
     # patches += get_wangicse_dataset(bugs)
-    # print(len(patches))
     patches += get_llm4pc_dataset(bugs)
-    print(len(patches))
 
     return patches
 
