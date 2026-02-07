@@ -415,4 +415,14 @@ if __name__=="__main__":
         """
     )
 
+    print(
+        f"""
+        ============================
+        Tools: {tool_patches["generator_id"].unique()},
+        ============================
+        Historian Patches Generators: {historian_patches["generator_id"].unique()},
+        ============================
+        """    
+    )
+
     

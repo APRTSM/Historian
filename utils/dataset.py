@@ -514,7 +514,7 @@ def get_patches(bugs):
     patches += get_defectrepairing_dataset(bugs)
     patches += get_drr_dataset(bugs)
     # patches += get_wangicse_dataset(bugs)
-    patches += get_llm4pc_dataset(bugs)
+    # patches += get_llm4pc_dataset(bugs)
 
     return patches
 
