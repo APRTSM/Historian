@@ -64,8 +64,8 @@ def get_dl4pc_exp2_dataset(bugs):
             bug = get_record(bugs, bug_info)
 
             if not bug:
-                raise Exception(f"Bug not found for APRE NFL patch: {bug_info}")
-
+                logging.info(f"Bug not found for APRE NFL patch: {bug_info}")
+                continue
     
             bug_uid = bug["uid"]
             
@@ -120,7 +120,8 @@ def get_apre_nfl_dataset(bugs):
             bug = get_record(bugs, bug_info)
 
             if not bug:
-                raise Exception(f"Bug not found for APRE NFL patch: {bug_info}")
+                logging.info(f"Bug not found for APRE NFL patch: {bug_info}")
+                continue
 
             bug_uid = bug["uid"]
 

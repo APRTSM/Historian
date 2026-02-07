@@ -15,138 +15,266 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-SETUP_BUGS_PKL = os.path.join("setup", "bugs.pkl")
-SETUP_RAW_DEVELOPER_PATHCES_PKL = os.path.join("setup", "developer_patches.pkl")
-SETUP_RAW_TOOL_PATHCES_PKL = os.path.join("setup", "tool_patches.pkl")
+FOLDER_NAME = "setup"
 
+SETUP_BUGS_DIR = {
+    "__base__": "bugs",
+    "RAW": os.path.join(FOLDER_NAME, "bugs.pkl")
+}
+
+SETUP_DEVELOPER_PATCHES_DIR = {
+    "__base__": "developer",
+    "RAW": os.path.join(FOLDER_NAME, "developer_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_developer_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "method_developer_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "files_developer_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_developer_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_developer_patches.pkl"),
+}
+
+SETUP_TOOL_PATCHES_DIR = {
+    "__base__": "tool",
+    "RAW": os.path.join(FOLDER_NAME, "tool_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_tool_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "method_tool_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "files_tool_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_tool_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_tool_patches.pkl"),
+}
+
+SETUP_HISTORIAN_PATCHES_DIR = {
+    "__base__": "historian",
+    "RAW": os.path.join(FOLDER_NAME, "historian_patches.pkl"),
+    "CLEANED": os.path.join(FOLDER_NAME, "cleaned_historian_patches.pkl"),
+    "METHOD": os.path.join(FOLDER_NAME, "method_historian_patches.pkl"),
+    "FILES": os.path.join(FOLDER_NAME, "files_historian_patches.pkl"),
+    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "single_method_historian_patches.pkl"),
+    "DEDUPLICATED": os.path.join(FOLDER_NAME, "deduplicated_historian_patches.pkl"),
+}
+
+# Fetch data and preprocess
 def fetch_bugs(configure=True):
     logging.info("Fetching bugs ...")
 
     if configure:
         configure_benchmarks()
 
-    if os.path.exists(SETUP_BUGS_PKL):
+    if os.path.exists(SETUP_BUGS_DIR["RAW"]):
         logging.info("Using the bugs data in TMP ...")
-        bugs = pd.read_pickle(SETUP_BUGS_PKL)
+        bugs = pd.read_pickle(SETUP_BUGS_DIR["RAW"])
     else:
         logging.info("Fetching bugs data ...")
         bugs_list = get_bugs()
         bugs = pd.DataFrame(bugs_list).set_index("uid")
-        bugs.to_pickle(SETUP_BUGS_PKL)
+        bugs.to_pickle(SETUP_BUGS_DIR["RAW"])
 
     logging.info(f"Successfully fetched bugs. No of bugs: {len(bugs)}")
 
     return bugs
 
-def fetch_developer_patches(bugs_list):
-    logging.info("Fetching developer patches ...")
-    
+def fetch_patches(bugs_list, dirs_dict):
+
     # make bugs a dictionary from dataframe
     bugs_with_uid = bugs_list.reset_index()  # This makes 'uid' a regular column
     bugs = bugs_with_uid.to_dict('records')
 
-    if os.path.exists(SETUP_RAW_DEVELOPER_PATHCES_PKL):
-        logging.info("Using the developer patches data in TMP ...")
-        developer_patches = pd.read_pickle(SETUP_RAW_DEVELOPER_PATHCES_PKL)
+    if os.path.exists(dirs_dict["RAW"]):
+        logging.info(f"Using the patches data in TMP for {dirs_dict['__base__']} ...")
+        patches = pd.read_pickle(dirs_dict["RAW"])
     else:
-        logging.info("Fetching developer patches data ...")
-        developer_patches = pd.DataFrame(get_developer_patches(bugs)).set_index("uid")
-        developer_patches.to_pickle(SETUP_RAW_DEVELOPER_PATHCES_PKL)
+        logging.info(f"Fetching patches data for {dirs_dict['__base__']} ...")
+        if dirs_dict["__base__"] == "developer":
+            patches = pd.DataFrame(get_developer_patches(bugs)).set_index("uid")
+        elif dirs_dict["__base__"] == "tool":
+            patches = pd.DataFrame(get_patches(bugs)).set_index("uid")
+        elif dirs_dict["__base__"] == "historian":
+            patches = pd.DataFrame(get_historian_dataset(bugs)).set_index("uid")
+        else:
+            raise ValueError(f"Invalid base type: {dirs_dict['__base__']}")
+        
+        patches.to_pickle(dirs_dict["RAW"])
 
-    logging.info(f"Successfully fetched developer patches. No of developer patches: {len(developer_patches)}")
+    logging.info(f"Successfully fetched patches for {dirs_dict['__base__']}. No of patches: {len(patches)}")
+
+    return patches
+
+def clean_and_save_patches(bugs, patches, path):
+    if os.path.exists(path):
+        cleaned_patches = pd.read_pickle(path)
+        return cleaned_patches
+
+    logging.info(f"Cleaning and saving patches to {path} ...") 
+
+    cleaned_patches = patches.copy()
+    tqdm.pandas(desc=f"Fixing patches.")
+    cleaned_patches["location"] = cleaned_patches.progress_apply(fix_patch, args=(bugs, ), axis=1)
+    tqdm.pandas(desc="Unknown Process.")
+    cleaned_patches.dropna(subset=['location'], inplace=True)
+    cleaned_patches.to_pickle(path)
+
+    no_cleaned_patches = len(cleaned_patches)
+
+    logging.info(f"Successfully cleaned and saved patches: \n{no_cleaned_patches}") 
+
+    return cleaned_patches
+
+def get_methods_and_save(bugs, patches, path):
+    if os.path.exists(path):
+        cleaned_patches = pd.read_pickle(path)
+        return cleaned_patches
+    logging.info(f"Getting methods and saving patches to {path} ...")
+    patches[['source_methods', 'target_methods']] = patches.progress_apply(lambda row: get_method(row, bugs), axis=1, result_type='expand')
+    tqdm.pandas(desc="Unknown Process.")
+
+    logging.info(f"Successfully fetched methods. No Methgod Patches: {len(patches)}")
+    logging.info("Dropping patches with no methods ...")
+
+    patches.dropna(subset=['target_methods'], inplace=True)
+    patches.to_pickle(path)
+
+    return patches
+
+def get_files_and_save(bugs, patches, path):
+    """
+    Extract changed files from patches and save them, with caching support.
     
-    return developer_patches
-
-def fetch_tool_patches(bugs):
-    logging.info("Fetching tool patches ...")
-
-    # make bugs a dictionary from dataframe
-    bugs_with_uid = bugs.reset_index()  # This makes 'uid' a regular column
-    bugs = bugs_with_uid.to_dict('records')
-
-    if os.path.exists(SETUP_RAW_TOOL_PATHCES_PKL):
-        logging.info("Using the tool patches data in TMP ...")
-        tool_patches = pd.read_pickle(SETUP_RAW_TOOL_PATHCES_PKL)
-    else:
-        logging.info("Fetching tool patches data ...")
-        tool_patches = pd.DataFrame(get_patches(bugs)).set_index("uid")
-        tool_patches.to_pickle(SETUP_RAW_TOOL_PATHCES_PKL)
-
-    logging.info(f"Successfully fetched tool patches. No of tool patches: {len(tool_patches)}")
-
-    return tool_patches
-
-
-# Configure Benchmarks, Get Initial Data (Bugs, Developer Patches, Tool Patches)
-def init(configure=True):
-    bugs = fetch_bugs(configure)
-    developer_patches = fetch_developer_patches(bugs)
-    tool_patches = fetch_tool_patches(bugs)
-    print(len(tool_patches))
-
-    return bugs, developer_patches, tool_patches
-
-def clean_patches(bugs, developer_patches, tool_patches):
-    logging.info("Testing tool patches ...") 
-
-    if os.path.exists(TMP_CLEANED_DEVELOPER_PATHCES_PKL):
-        cleaned_developer_patches = pd.read_pickle(TMP_CLEANED_DEVELOPER_PATHCES_PKL)
+    Args:
+        bugs: DataFrame containing bug information
+        patches: DataFrame containing patch information
+        path: Path to save/load the cached results
     
-    else:
-        cleaned_developer_patches = developer_patches.copy()
-        tqdm.pandas(desc=f"Fixing developer patches.")
-        cleaned_developer_patches["location"] = cleaned_developer_patches.progress_apply(fix_patch, args=(bugs, ), axis=1)
-        tqdm.pandas(desc="Unknown Process.")
-        cleaned_developer_patches.dropna(subset=['location'], inplace=True)
-        cleaned_developer_patches.to_pickle(TMP_CLEANED_DEVELOPER_PATHCES_PKL)
-
-    if os.path.exists(TMP_CLEANED_TOOL_PATHCES_PKL):
-        cleaned_tool_patches = pd.read_pickle(TMP_CLEANED_TOOL_PATHCES_PKL)
+    Returns:
+        DataFrame: Updated patches DataFrame with source_files and target_files columns
+    """
+    if os.path.exists(path):
+        cleaned_patches = pd.read_pickle(path)
+        return cleaned_patches
     
-    else:
-        cleaned_tool_patches = tool_patches.copy()
-        tqdm.pandas(desc=f"Fixing tool patches.")
-        cleaned_tool_patches["location"] = cleaned_tool_patches.progress_apply(fix_patch, args=(bugs, ), axis=1)
-        tqdm.pandas(desc="Unknown Process.")
-        cleaned_tool_patches.dropna(subset=['location'], inplace=True)
-        cleaned_tool_patches.to_pickle(TMP_CLEANED_TOOL_PATHCES_PKL)
-
-    no_cleaned_developer_patches = len(cleaned_developer_patches)
-    no_cleaned_tool_patches = len(cleaned_tool_patches)
-
-    logging.info(f"Successfully tested tool patches: \n{no_cleaned_developer_patches} \n{no_cleaned_tool_patches}") 
-
-    return cleaned_developer_patches, cleaned_tool_patches
-
-# Returns methods
-def get_methods(developer_patches: pd.DataFrame, tool_patches: pd.DataFrame, bugs: pd.DataFrame):
-    if os.path.exists(TMP_METHOD_DEVELOPER_PATHCES_PKL):
-        developer_patches = pd.read_pickle(TMP_METHOD_DEVELOPER_PATHCES_PKL)
-        tool_patches = pd.read_pickle(TMP_METHOD_TOOL_PATHCES_PKL)
-
-        return developer_patches, tool_patches
+    logging.info(f"Getting files and saving patches to {path} ...")
     
+    # Add progress bar for applying get_file function
+    tqdm.pandas(desc="Extracting Files")
+    patches[['source_files', 'target_files']] = patches.progress_apply(
+        lambda row: get_file(row, bugs), axis=1, result_type='expand'
+    )
+    
+    logging.info(f"Successfully fetched files. Total patches processed: {len(patches)}")
+    logging.info("Dropping patches with no files ...")
+    
+    # Drop patches where file extraction failed
+    patches.dropna(subset=['target_files'], inplace=True)
+    
+    logging.info(f"Remaining patches after filtering: {len(patches)}")
+    
+    # Save the results
+    patches.to_pickle(path)
+    return patches
+
+def get_single_methods_and_save(patches: pd.DataFrame, path: str) -> pd.DataFrame:
+    if os.path.exists(path):
+        single_method_patches = pd.read_pickle(path)
+        return single_method_patches
+    
+    single_method_patches = patches[patches.apply(is_single_hunk, axis=1)]
+    single_method_patches.to_pickle(path)
+    return single_method_patches
+
+def normalize_names_and_save(patches, path):
+    if os.path.exists(path):
+        normalized_patches = pd.read_pickle(path)
+        return normalized_patches
+    
+    # Normalize generator names
+    patches['generator_id'] = patches['generator'].str.lower().apply(lambda x: '-'.join(x.split('-')[:-1]) if '-' in x else x)
+
+    # Save normalized patches
+    patches.to_pickle(path)
+
+    return patches
+
+def deduplicate_patches_and_save(patches, path):
+    logging.info("Deduplicating developer patches ...")
+    if os.path.exists(path):
+        deduplicated_patches = pd.read_pickle(path)
+        return deduplicated_patches
+
+    deduplicated_patches = patches.copy()
+    deduplicated_patches['content'] = deduplicated_patches.apply(get_single_hunk_method, axis=1)
+    # deduplicated_patches['content'] = deduplicated_patches['target_methods'].apply(lambda x: read_file(x[0]) if len(x) == 1 else None)
+    
+    # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
+    # If there is None raise error
+    # if deduplicated_patches['content'].isnull().any():
+    #     raise ValueError("There are patches with no single method content.")
+
+    # write removed patches dataframe to html 
+    # Find the duplicates before deduplication (for comparison)
+    # duplicates = deduplicated_patches[deduplicated_patches.duplicated(subset=['bug_uid', 'generator_id', 'content'], keep=False)]
+
+    # Perform deduplication
+    deduplicated_patches = deduplicated_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content'])
+
+    # Save to HTML files
+    # duplicates.to_html('removed_duplicates.html', index=False, escape=False)
+    # deduplicated_patches.to_html('deduplicated_patches.html', index=False, escape=False)
+
+    deduplicated_patches = deduplicated_patches.drop(columns=['content'])
+    deduplicated_patches.to_pickle(path)
+    return deduplicated_patches
+
+def preprocess_patches(bugs, patches, dirs_dict):
+    cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
+    method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
+    normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
+    single_method_patches = get_single_methods_and_save(normalized_patches, dirs_dict["SINGLE_METHOD"])
+    deduplicated_patches = deduplicate_patches_and_save(single_method_patches, dirs_dict["DEDUPLICATED"])
+
+    logging.info(f"Finished preprocessing patches for {dirs_dict['__base__']}. Final count: {len(deduplicated_patches)}")
+    logging.info(f"Cleaned patches: {len(cleaned_patches)}, Method patches: {len(method_patches)}, Normalized patches: {len(normalized_patches)}, Single method patches: {len(single_method_patches)}, Deduplicated patches: {len(deduplicated_patches)}")
+
+    return deduplicated_patches
+
+def get_data():
+    bugs = fetch_bugs(True)
+    
+    developer_patches = fetch_patches(bugs, SETUP_DEVELOPER_PATCHES_DIR)
+    developer_patches = preprocess_patches(bugs, developer_patches, SETUP_DEVELOPER_PATCHES_DIR)
+
+    tool_patches = fetch_patches(bugs, SETUP_TOOL_PATCHES_DIR)
+    tool_patches = preprocess_patches(bugs, tool_patches, SETUP_TOOL_PATCHES_DIR)
+    
+    historian_patches = fetch_patches(bugs, SETUP_HISTORIAN_PATCHES_DIR)
+    historian_patches = preprocess_patches(bugs, historian_patches, SETUP_HISTORIAN_PATCHES_DIR)
+
+
+    return bugs, developer_patches, tool_patches, historian_patches
+
+# Get all parameters and apply passed params
+def get_tool_settings():
+    logging.info("Fetching tool settings.")
+
+    if os.path.exists(TMP_OLLAMA_DIR):
+        with open(TMP_OLLAMA_PROMPTS_JSON, 'r') as file:
+            ollama_prompts = json.load(file)   
+
+        with open(TMP_OLLAMA_MODELS_JSON, 'r') as file:
+            ollama_models = json.load(file)  
+
+        with open(TMP_OLLAMA_TEMPERATURES_JSON, 'r') as file:
+            ollama_temperatures = json.load(file)  
+
     else:
-        tqdm.pandas(desc=f"Getting methods for developer patches.")
-        tool_patches[['source_methods', 'target_methods']] = tool_patches.progress_apply(lambda row: get_method(row, bugs), axis=1, result_type='expand')
-        tqdm.pandas(desc="Unknown Process.")
+        ollama_prompts, ollama_models, ollama_temperatures = ollama_get_settings()
 
-        tqdm.pandas(desc=f"Getting methods for tool patches.")
-        developer_patches[['source_methods', 'target_methods']] = developer_patches.progress_apply(lambda row: get_method(row, bugs), axis=1, result_type='expand')
-        tqdm.pandas(desc="Unknown Process.")
+        os.mkdir(TMP_OLLAMA_DIR)
 
-        logging.info(f"Successfully fetched methods. No Methgod Developer Patches: {len(developer_patches)}, No Method Tool Patches: {len(tool_patches)}")
-        logging.info("Dropping patches with no methods ...")
+        shutil.copy(OLLAMA_PROMPTS_JSON, TMP_OLLAMA_PROMPTS_JSON)
+        shutil.copy(OLLAMA_MODELS_JSON, TMP_OLLAMA_MODELS_JSON)
+        shutil.copy(OLLAMA_TEMPERATURES_JSON, TMP_OLLAMA_TEMPERATURES_JSON)
 
-        cleaned_developer_patches.dropna(subset=['target_methods'], inplace=True)
-        cleaned_tool_patches.dropna(subset=['target_methods'], inplace=True)
+    logging.info(f"Successfully fetched tool settings. \n OllamaPrompts: \n {ollama_prompts}, \n OllamaModels: \n {ollama_models}, \n OllamaTemperatures: \n {ollama_temperatures}")
 
-        logging.info(f"Successfully dropped patches with no methods. No Methgod Developer Patches: {len(developer_patches)}, No Method Tool Patches: {len(tool_patches)}")
-
-        cleaned_developer_patches.to_pickle(TMP_METHOD_DEVELOPER_PATHCES_PKL)
-        cleaned_tool_patches.to_pickle(TMP_METHOD_TOOL_PATHCES_PKL)
-
-        return developer_patches, tool_patches
+    return ollama_prompts, ollama_models, ollama_temperatures
 
 def get_patch_processors():
     logging.info("Listing Patch Processors.")
@@ -184,96 +312,6 @@ def get_patch_processors():
 
     return patch_processors
 
-def get_tool_settings():
-    logging.info("Fetching tool settings.")
-
-    if os.path.exists(TMP_OLLAMA_DIR):
-        with open(TMP_OLLAMA_PROMPTS_JSON, 'r') as file:
-            ollama_prompts = json.load(file)   
-
-        with open(TMP_OLLAMA_MODELS_JSON, 'r') as file:
-            ollama_models = json.load(file)  
-
-        with open(TMP_OLLAMA_TEMPERATURES_JSON, 'r') as file:
-            ollama_temperatures = json.load(file)  
-
-    else:
-        ollama_prompts, ollama_models, ollama_temperatures = ollama_get_settings()
-
-        os.mkdir(TMP_OLLAMA_DIR)
-
-        shutil.copy(OLLAMA_PROMPTS_JSON, TMP_OLLAMA_PROMPTS_JSON)
-        shutil.copy(OLLAMA_MODELS_JSON, TMP_OLLAMA_MODELS_JSON)
-        shutil.copy(OLLAMA_TEMPERATURES_JSON, TMP_OLLAMA_TEMPERATURES_JSON)
-
-    logging.info(f"Successfully fetched tool settings. \n OllamaPrompts: \n {ollama_prompts}, \n OllamaModels: \n {ollama_models}, \n OllamaTemperatures: \n {ollama_temperatures}")
-
-    return ollama_prompts, ollama_models, ollama_temperatures
-
-def normalaize_names(developer_patches, tool_patches):
-    if os.path.exists(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL) and os.path.exists(TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL):
-        developer_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
-        tool_patches = pd.read_pickle(TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
-
-        return developer_patches, tool_patches
-    
-    # Normalize generator names
-    tool_patches['generator_id'] = tool_patches['generator'].str.lower().apply(lambda x: '-'.join(x.split('-')[:-1]) if '-' in x else x)
-    developer_patches['generator_id'] = developer_patches['generator'].str.lower().apply(lambda x: '-'.join(x.split('-')[:-1]) if '-' in x else x)
-
-    # Save normalized patches
-    developer_patches.to_pickle(TMP_GENERATOR_NORMALIZED_DEVELOPER_PATHCES_PKL)
-    tool_patches.to_pickle(TMP_GENERATOR_NORMALIZED_TOOL_PATHCES_PKL)
-
-    return developer_patches, tool_patches
-
-def deduplicate_patches(cleaned_tool_patches):
-    logging.info("Deduplicating developer patches ...")
-    
-    if os.path.exists(TMP_DEDUPLICATED_TOOL_PATHCES_PKL):
-        cleaned_tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-
-    else:
-        cleaned_tool_patches = cleaned_tool_patches.copy()
-        cleaned_tool_patches['content'] = cleaned_tool_patches['target_methods'].apply(lambda x: read_file(x[0]) if isinstance(x, list) and len(x) > 0 else None)
-        # cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
-        if cleaned_tool_patches['content'].isnull().any():
-            raise ValueError("There are patches with no single method content.")
-        tqdm.pandas(desc="Deduplicating patches")
-        tqdm.pandas(desc="Deduplicating patches")
-        cleaned_tool_patches = cleaned_tool_patches.drop_duplicates(subset=['bug_uid', 'generator_id', 'content']) 
-        cleaned_tool_patches = cleaned_tool_patches.drop(columns=['content'])
-        cleaned_tool_patches.to_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-
-    logging.info(f"Filtered tool patches to only include Defects4J bugs. No of tool patches: {cleaned_tool_patches[cleaned_tool_patches['bug_uid'].str.contains('defects4j', case=False, na=False)]}")
-
-    return cleaned_tool_patches
-
-def second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches):
-    logging.info("Second deduplicating developer patches ...")
-    
-    if os.path.exists(TMP_SECOND_DEDUPLICATED_TOOL_PATHCES_PKL):
-        cleaned_tool_patches = pd.read_pickle(TMP_SECOND_DEDUPLICATED_TOOL_PATHCES_PKL)
-
-    else:
-        cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
-        tqdm.pandas(desc="Deduplicating patches")
-        cleaned_tool_patches = cleaned_tool_patches.drop_duplicates(subset=['bug_uid', 'content']) 
-        cleaned_tool_patches = cleaned_tool_patches.drop(columns=['content'])
-
-        # Deduplicate tool patches against developer patches
-        cleaned_developer_patches['content'] = cleaned_developer_patches['location'].apply(read_patch)
-        cleaned_tool_patches['content'] = cleaned_tool_patches['location'].apply(read_patch)
-        tqdm.pandas(desc="Deduplicating tool patches against developer patches")
-        cleaned_tool_patches = cleaned_tool_patches[~cleaned_tool_patches.apply(lambda row: ((cleaned_developer_patches['bug_uid'] == row['bug_uid']) & (cleaned_developer_patches['content'] == row['content'])).any(), axis=1)]
-        cleaned_tool_patches = cleaned_tool_patches.drop(columns=['content'])
-        cleaned_developer_patches = cleaned_developer_patches.drop(columns=['content'])
-
-        cleaned_tool_patches.to_pickle(TMP_SECOND_DEDUPLICATED_TOOL_PATHCES_PKL)
-
-    return cleaned_developer_patches, cleaned_tool_patches
-
-# Arguments
 def parse_args():
     parser = argparse.ArgumentParser(description="Run build.py with specific prompt, model, and processor.")
     parser.add_argument('--prompt', type=str, help='UID of the prompt to use')
@@ -297,144 +335,7 @@ def apply_params(args, prompts, models, patch_processors):
     
     return prompts, models, patch_processors
 
-# Select TBar and Select Patches to manually label
-def experiment_2(developer_patches, tool_patches, models, prompts, temperatures, patch_processors):
-    def get_response(groundtruth_patch, tool_patch, prompt, temperature, model, processor):
-        tool_patch_content = processor["function"](tool_patch) 
-
-        # Select the developer patch with same bug_uid
-        groundtruth_patch_content = processor["function"](groundtruth_patch) 
-
-        prompt_content = prompt["content"]
-
-        content = f"""
-            {prompt_content}
-
-            Patch 1: {groundtruth_patch_content}
-
-            Patch 2: {tool_patch_content}
-        """
-        response = ollama.chat(model=model["uid"], keep_alive=-1, options=ollama.Options(temperature=temperature["uid"]), messages=[
-            {
-                "role": "system",
-                "content": content,
-            },
-        ])
-
-        # Continue before this
-        label = {
-            "tool_patch_uid": tool_patch.name,
-            "groundtruth_patch_uid": groundtruth_patch.name,
-            "processor": processor["uid"],
-            "model": model["uid"],
-            "temperature": temperature["uid"],
-            "prompt": prompt["uid"],
-            "response": response["message"]["content"],
-            "time": int(time.time())
-        }
-
-        return pd.Series(label)
-    
-    def compare_groundtruth(tool_patch, groundtruth, prompt, temperature, model, processor):
-        groundtruth_selected_bug = groundtruth.loc[groundtruth["bug_uid"] == tool_patch["bug_uid"]]
-
-        logging.info(f"tool_patch: {tool_patch.name}, no_selected_bug_groundtruth_patches: {len(groundtruth_selected_bug)}")
-
-        results = groundtruth_selected_bug.apply(lambda row: get_response(row, tool_patch, prompt, temperature, model, processor), axis=1)
-
-        return results
-
-    # Exclude Selected Tool
-    selected_tool = "tbar"
-    selected_tool_patches = tool_patches[tool_patches["generator_id"].str.lower().str.contains(selected_tool)]
-    tool_patches = tool_patches[~tool_patches["generator_id"].str.lower().str.contains(selected_tool)]
-
-    # # Exclude overfitting patches
-    # tool_patches = tool_patches[tool_patches["correctness"] == "Correct"]
-
-    logging.info(f"------------------------------------")
-    logging.info(f"Tool Generated Patches: {len(tool_patches)}")
-    logging.info(f"Developer Patches: {len(developer_patches)}")
-    logging.info(f"Selected Patches: {len(selected_tool_patches)}")
-    logging.info(f"------------------------------------")
-
-    # Keep single hunks
-    tool_patches = tool_patches[tool_patches.apply(is_single_hunk, axis=1)]
-    developer_patches = developer_patches[developer_patches.apply(is_single_hunk, axis=1)]
-    selected_tool_patches = selected_tool_patches[selected_tool_patches.apply(is_single_hunk, axis=1)]
-
-    logging.info(f"------------------------------------")
-    logging.info(f"Single Hunk Tool Generated Patches: {len(tool_patches)}")
-    logging.info(f"Single Hunk Developer Patches: {len(developer_patches)}")
-    logging.info(f"Single Hunk Selected Patches: {len(selected_tool_patches)}")
-    logging.info(f"------------------------------------")
-
-    # Create extended groundtruth
-    groundtruth_patches = pd.concat([tool_patches, developer_patches], axis=0)
-
-    no_groundtruth_patches = len(groundtruth_patches)
-    no_selected_tool_patches = len(selected_tool_patches)
-    no_models = len(models)
-    no_prompts = len(prompts)
-    no_temperatures = len(temperatures)
-    logging.info(f"Running experiment 2 ... selected_tool: {selected_tool}, no_models: {no_models}, no_prompts: {no_prompts}, no_correct_patches: {no_groundtruth_patches}, no_selected_tool_patches: {no_selected_tool_patches}, temperature: {no_temperatures}")
-
-    comparison_indices = selected_tool_patches.apply(
-        lambda tool_patch: pd.Series(
-            groundtruth_patches[groundtruth_patches["bug_uid"] == tool_patch["bug_uid"]].index,
-            name=tool_patch.name
-        ),
-        axis=1
-    ).stack().reset_index(level=1, drop=True).reset_index(name='groundtruth_index')
-
-    comparison_indices.to_pickle(os.path.join(TMP_EXPERT_LABEL_DIR, f"EXP2-unlabeled-{selected_tool}.pkl"))
-
-    for processor in patch_processors:
-        for model in models:
-            for temperature in temperatures:
-                for prompt in prompts:
-                    prompt_uid = prompt["uid"]
-                    temperature_value = temperature["uid"]
-                    model_uid = model["uid"]
-                    processor_uid = processor["uid"]
-                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP2-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
-
-                    if os.path.exists(result_file):
-                        logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} \n Skipping to the next one.")
-                        
-                        continue
-
-                    for i, (_, tool_patch) in enumerate(tqdm(selected_tool_patches.iterrows(), total=len(selected_tool_patches), desc=f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}")):
-                        result_file = os.path.join(TMP_RESULTS_DIR, f"EXP2-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
-
-                        if os.path.exists(result_file):
-                            logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} index: {i} \n Skipping to the next one.")
-                            
-                            continue
-
-                        logging.info(f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}, index: {i}")
-
-                        results = compare_groundtruth(tool_patch, groundtruth_patches, prompt, temperature, model, processor)
-                        results.to_pickle(result_file)
-
-            ollama.generate(model=model["uid"], keep_alive=0)
-
-
-
-if __name__=="__main__": 
-    logging.info("Running build.py ...")
-
-    # Initial Data
-    bugs, developer_patches, tool_patches = init(configure=False)
-
-
-    raise
-    # Patch Cleaning
-    cleaned_developer_patches, cleaned_tool_patches = clean_patches(bugs, developer_patches, tool_patches)
-
-    # Fetch Methods
-    cleaned_developer_patches, cleaned_tool_patches = get_methods(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
+def get_params():
     # Patch Processings
     patch_processors = get_patch_processors()
 
@@ -445,50 +346,33 @@ if __name__=="__main__":
     args = parse_args()
     prompts, models, patch_processors = apply_params(args, prompts, models, patch_processors)
 
-    # Normalaize Names, Last step for Developer Patches, Formatting generator_id
-    cleaned_developer_patches, cleaned_tool_patches = normalaize_names(cleaned_developer_patches, cleaned_tool_patches)
+    return prompts, models, temperatures, patch_processors
 
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
-    # Get Single Hunk Patches (Same as Get Single Methods Until 15 June)
-    cleaned_tool_patches = get_single_hunks(cleaned_tool_patches, cleaned_developer_patches)
-
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-    # print(cleaned_tool_patches)
-
-    # Deduplicating Same bug, same tool, same content (Now looks for Methods), Last step for Tool Patches
-    cleaned_tool_patches = deduplicate_patches(cleaned_tool_patches)
-    # print(cleaned_tool_patches)
-
-    report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
-    cleaned_tool_patches.to_html("tmp.html")
     
-    # """ Standard Upto Here Next Main """
+if __name__=="__main__": 
+    logging.info("Running build.py ...")
 
-    # # Deduplicating Second
-    # # cleaned_developer_patches, cleaned_tool_patches = second_deduplicate_patches(cleaned_developer_patches, cleaned_tool_patches)
+    # Initial Data
+    bugs, developer_patches, tool_patches, historian_patches = get_data()
+    prompts, models, temperatures, patch_processors = get_params()
 
-    # # report_dataset(cleaned_developer_patches, cleaned_tool_patches, bugs)
-
-    # # experiment_1(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
-
-    # experiment_2(cleaned_developer_patches, cleaned_tool_patches, models, prompts, temperatures, patch_processors)
-
-    # # experiment_5(cleaned_developer_patches, cleaned_tool_patches, models, temperatures, patch_processors)
-
-    # # experiment_7(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
-
-    # # experiment_8(cleaned_developer_patches, cleaned_tool_patches, [procesessor for procesessor in patch_processors if procesessor["uid"] == "method"][0])
-
-    # tools = [
-    #     'Arja', 'Jaid', 'TBar', 'FixMiner', 'jKali', 'Nopol', 'HDRepair', 'ACS',
-    #     'jGenProg', 'SketchFix', 'SimFix', 'AVATAR', 'GenProg', 'kPAR', 'Cardumen',
-    #     'SequenceR', 'Kali', 'DynaMoth', 'SOFix', 'CapGen', 'jMutRepair', 'RSRepair'
-    # ]
-    # for tool in tools:
-    #     experiment_3(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
-
-
+    print(
+        f"""
+        Successfully fetched and preprocessed data. Summary:
+        ===========================
+        Bugs: {len(bugs)},
+        Developer Patches: {len(developer_patches)},
+        Tool Patches: {len(tool_patches)},
+        Historian Patches: {len(historian_patches)},
+        ===========================
+        Prompts:  {prompts},
+        ===========================
+        Models: {models},
+        ===========================
+        Temperatures: {temperatures},
+        ===========================
+        Patch Processors: {patch_processors}
+        """
+    )
 
     
