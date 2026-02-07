@@ -258,16 +258,22 @@ def preprocess_patches(bugs, patches, dirs_dict):
 
 def get_data():
     bugs = fetch_bugs(True)
+    print(f"Fetched {len(bugs)} bugs.")
     
     developer_patches = fetch_patches(bugs, SETUP_DEVELOPER_PATCHES_DIR)
+    print(f"Fetched {len(developer_patches)} developer patches.")
     developer_patches = preprocess_patches(bugs, developer_patches, SETUP_DEVELOPER_PATCHES_DIR)
+    print(f"Preprocessed developer patches. Final count: {len(developer_patches)}")
 
     tool_patches = fetch_patches(bugs, SETUP_TOOL_PATCHES_DIR)
+    print(f"Fetched {len(tool_patches)} tool patches.")
     tool_patches = preprocess_patches(bugs, tool_patches, SETUP_TOOL_PATCHES_DIR)
+    print(f"Preprocessed tool patches. Final count: {len(tool_patches)}")
     
     historian_patches = fetch_patches(bugs, SETUP_HISTORIAN_PATCHES_DIR)
+    print(f"Fetched {len(historian_patches)} historian patches.")
     historian_patches = preprocess_patches(bugs, historian_patches, SETUP_HISTORIAN_PATCHES_DIR)
-
+    print(f"Preprocessed historian patches. Final count: {len(historian_patches)}")
 
     return bugs, developer_patches, tool_patches, historian_patches
 
