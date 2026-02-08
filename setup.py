@@ -44,16 +44,16 @@ SETUP_TOOL_PATCHES_DIR = {
     "DEDUPLICATED": os.path.join(FOLDER_NAME, "tool_deduplicated_patches.pkl"),
 }
 
-SETUP_HISTORIAN_PATCHES_DIR = {
-    "__base__": "historian",
-    "RAW": os.path.join(FOLDER_NAME, "historian_patches.pkl"),
-    "CLEANED": os.path.join(FOLDER_NAME, "historian_cleaned_patches.pkl"),
-    "METHOD": os.path.join(FOLDER_NAME, "historian_method_patches.pkl"),
-    "FILES": os.path.join(FOLDER_NAME, "historian_files_patches.pkl"),
-    "NORMALIZED": os.path.join(FOLDER_NAME, "historian_normalized_patches.pkl"),
-    "SINGLE_METHOD": os.path.join(FOLDER_NAME, "historian_single_method_patches.pkl"),
-    "DEDUPLICATED": os.path.join(FOLDER_NAME, "historian_deduplicated_patches.pkl"),
-}
+# SETUP_HISTORIAN_PATCHES_DIR = {
+#     "__base__": "historian",
+#     "RAW": os.path.join(FOLDER_NAME, "historian_patches.pkl"),
+#     "CLEANED": os.path.join(FOLDER_NAME, "historian_cleaned_patches.pkl"),
+#     "METHOD": os.path.join(FOLDER_NAME, "historian_method_patches.pkl"),
+#     "FILES": os.path.join(FOLDER_NAME, "historian_files_patches.pkl"),
+#     "NORMALIZED": os.path.join(FOLDER_NAME, "historian_normalized_patches.pkl"),
+#     "SINGLE_METHOD": os.path.join(FOLDER_NAME, "historian_single_method_patches.pkl"),
+#     "DEDUPLICATED": os.path.join(FOLDER_NAME, "historian_deduplicated_patches.pkl"),
+# }
 
 
 EXTRACT_FILES = False
@@ -282,12 +282,12 @@ def get_data():
     tool_patches = preprocess_patches(bugs, tool_patches, SETUP_TOOL_PATCHES_DIR)
     print(f"Preprocessed tool patches. Final count: {len(tool_patches)}")
     
-    historian_patches = fetch_patches(bugs, SETUP_HISTORIAN_PATCHES_DIR)
-    print(f"Fetched {len(historian_patches)} historian patches.")
-    historian_patches = preprocess_patches(bugs, historian_patches, SETUP_HISTORIAN_PATCHES_DIR)
-    print(f"Preprocessed historian patches. Final count: {len(historian_patches)}")
+    # historian_patches = fetch_patches(bugs, SETUP_HISTORIAN_PATCHES_DIR)
+    # print(f"Fetched {len(historian_patches)} historian patches.")
+    # historian_patches = preprocess_patches(bugs, historian_patches, SETUP_HISTORIAN_PATCHES_DIR)
+    # print(f"Preprocessed historian patches. Final count: {len(historian_patches)}")
 
-    return bugs, developer_patches, tool_patches, historian_patches
+    return bugs, developer_patches, tool_patches
 
 # Get all parameters and apply passed params
 def get_tool_settings():
@@ -393,7 +393,7 @@ if __name__=="__main__":
     logging.info("Running build.py ...")
 
     # Initial Data
-    bugs, developer_patches, tool_patches, historian_patches = get_data()
+    bugs, developer_patches, tool_patches = get_data()
     prompts, models, temperatures, patch_processors = get_params()
 
     print(
@@ -403,7 +403,6 @@ if __name__=="__main__":
         Bugs: {len(bugs)},
         Developer Patches: {len(developer_patches)},
         Tool Patches: {len(tool_patches)},
-        Historian Patches: {len(historian_patches)},
         ===========================
         Prompts:  {len(prompts)},
         ===========================
@@ -419,8 +418,6 @@ if __name__=="__main__":
         f"""
         ============================
         Tools: {tool_patches["generator_id"].unique()},
-        ============================
-        Historian Patches Generators: {historian_patches["generator_id"].unique()},
         ============================
         """    
     )
