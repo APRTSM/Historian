@@ -57,8 +57,8 @@ SETUP_TOOL_PATCHES_DIR = {
 
 
 EXTRACT_FILES = False
-CONFIGURE_BENCHMARKS = True
-GET_SUDO = True
+CONFIGURE_BENCHMARKS = False
+GET_SUDO = False
 
 # Fetch data and preprocess
 def fetch_bugs():
