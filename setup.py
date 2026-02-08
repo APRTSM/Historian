@@ -388,7 +388,78 @@ def get_params():
 
     return prompts, models, temperatures, patch_processors
 
+# Reports
+def report_tool_patches():
+    logging.info(f"Reporting tool patches ...")
+    raw_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["RAW"])
+    cleaned_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["CLEANED"])
+    method_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["METHOD"])
     
+    if EXTRACT_FILES:
+        file_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["FILES"])
+    
+    normalized_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["NORMALIZED"])
+    single_method_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["SINGLE_METHOD"])
+    deduplicated_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["DEDUPLICATED"])
+
+    tools = tool_patches["generator_id"].unique()
+    print(
+        f"""
+        ============================
+        Tools: {tools},
+        ============================
+        # Tools: {len(tools)},
+        ============================
+        """    
+    )
+
+    for tool in tools:
+        selected_tool_patches = raw_tool_patches[raw_tool_patches["generator_id"] == tool]
+        print(
+            f"""
+            ============================
+            Selected tool: {tool},
+            ============================
+            Raw: 
+            No of correct patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            Cleaned:
+            No of correct patches: {len(cleaned_tool_patches[cleaned_tool_patches['generator_id'] == tool][cleaned_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(cleaned_tool_patches[cleaned_tool_patches['generator_id'] == tool][cleaned_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            Method:
+            No of correct patches: {len(method_tool_patches[method_tool_patches['generator_id'] == tool][method_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(method_tool_patches[method_tool_patches['generator_id'] == tool][method_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            Normalized:
+            No of correct patches: {len(normalized_tool_patches[normalized_tool_patches['generator_id'] == tool][normalized_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(normalized_tool_patches[normalized_tool_patches['generator_id'] == tool][normalized_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            Single Method:
+            No of correct patches: {len(single_method_tool_patches[single_method_tool_patches['generator_id'] == tool][single_method_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(single_method_tool_patches[single_method_tool_patches['generator_id'] == tool][single_method_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            Deduplicated:
+            No of correct patches: {len(deduplicated_tool_patches[deduplicated_tool_patches['generator_id'] == tool][deduplicated_tool_patches['correctness'] == 'Correct'])}
+            No of overfitting patches: {len(deduplicated_tool_patches[deduplicated_tool_patches['generator_id'] == tool][deduplicated_tool_patches['correctness'] == 'Overfitting'])}
+            ============================
+            """
+        )
+
+        if EXTRACT_FILES:
+            file_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["FILES"])
+            print(
+                f"""
+                Files:
+                No of correct patches: {len(file_tool_patches[file_tool_patches['generator_id'] == tool][file_tool_patches['correctness'] == 'Correct'])}
+                No of overfitting patches: {len(file_tool_patches[file_tool_patches['generator_id'] == tool][file_tool_patches['correctness'] == 'Overfitting'])}
+                ============================
+                """
+            )
+
+
+
 if __name__=="__main__": 
     logging.info("Running build.py ...")
 
@@ -414,12 +485,4 @@ if __name__=="__main__":
         """
     )
 
-    print(
-        f"""
-        ============================
-        Tools: {tool_patches["generator_id"].unique()},
-        ============================
-        """    
-    )
-
-    
+    report_tool_patches()
