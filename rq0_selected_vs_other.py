@@ -135,6 +135,6 @@ if __name__ == "__main__":
     prompts, models, temperatures, patch_processors = get_params()
     tool = "tbar"
 
-    print(f"Number of Prompts: {len(prompts)}, Models: {models}, Temperatures: {temperatures}, Patch Processors: {patch_processors}")
-    experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
+    # print(f"Number of Prompts: {len(prompts)}, Models: {models}, Temperatures: {temperatures}, Patch Processors: {patch_processors}")
+    # experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
 
