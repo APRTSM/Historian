@@ -60,7 +60,7 @@ EXTRACT_FILES = False
 CONFIGURE_BENCHMARKS = False
 GET_SUDO = False
 
-# Fetch data and preprocess
+# Fetch data 
 def fetch_bugs():
     logging.info("Fetching bugs ...")
 
@@ -106,6 +106,7 @@ def fetch_patches(bugs_df, dirs_dict):
 
     return patches
 
+# Preprocess patches
 def clean_and_save_patches(bugs, patches, path):
     if os.path.exists(path):
         cleaned_patches = pd.read_pickle(path)
@@ -250,17 +251,17 @@ def preprocess_patches(bugs, patches, dirs_dict):
             shutil.rmtree(checkout_dir)
 
 
-    cleaned_patches = clean_and_save_patches(bugs, patches, dirs_dict["CLEANED"])
+    normalized_patches = normalize_names_and_save(patches, dirs_dict["NORMALIZED"])
+    cleaned_patches = clean_and_save_patches(bugs, normalized_patches, dirs_dict["CLEANED"])
     method_patches = get_methods_and_save(bugs, cleaned_patches, dirs_dict["METHOD"])
     
     if EXTRACT_FILES:
         file_patches = get_files_and_save(bugs, method_patches, dirs_dict["FILES"])
-        normalized_patches = normalize_names_and_save(file_patches, dirs_dict["NORMALIZED"])
+        single_method_patches = get_single_methods_and_save(file_patches, dirs_dict["SINGLE_METHOD"])
 
     else:
-        normalized_patches = normalize_names_and_save(method_patches, dirs_dict["NORMALIZED"])
+        single_method_patches = get_single_methods_and_save(method_patches, dirs_dict["SINGLE_METHOD"])
 
-    single_method_patches = get_single_methods_and_save(normalized_patches, dirs_dict["SINGLE_METHOD"])
     deduplicated_patches = deduplicate_patches_and_save(single_method_patches, dirs_dict["DEDUPLICATED"])
 
     logging.info(f"Finished preprocessing patches for {dirs_dict['__base__']}. Final count: {len(deduplicated_patches)}")
