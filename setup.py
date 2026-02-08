@@ -392,14 +392,13 @@ def get_params():
 # Reports
 def report_tool_patches():
     logging.info(f"Reporting tool patches ...")
-    raw_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["RAW"])
+    normalized_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["NORMALIZED"])
     cleaned_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["CLEANED"])
     method_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["METHOD"])
     
     if EXTRACT_FILES:
         file_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["FILES"])
     
-    normalized_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["NORMALIZED"])
     single_method_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["SINGLE_METHOD"])
     deduplicated_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["DEDUPLICATED"])
 
@@ -415,50 +414,103 @@ def report_tool_patches():
     )
 
     for tool in tools:
-        selected_tool_patches = raw_tool_patches[raw_tool_patches["generator_id"] == tool]
+        # Calculate counts for normalized patches
+        normalized_correct = len(normalized_tool_patches[
+            (normalized_tool_patches['generator_id'] == tool) & 
+            (normalized_tool_patches['correctness'] == 'Correct')
+        ])
+        normalized_overfitting = len(normalized_tool_patches[
+            (normalized_tool_patches['generator_id'] == tool) & 
+            (normalized_tool_patches['correctness'] == 'Overfitting')
+        ])
+        
+        # Calculate counts for cleaned patches
+        cleaned_correct = len(cleaned_tool_patches[
+            (cleaned_tool_patches['generator_id'] == tool) & 
+            (cleaned_tool_patches['correctness'] == 'Correct')
+        ])
+        cleaned_overfitting = len(cleaned_tool_patches[
+            (cleaned_tool_patches['generator_id'] == tool) & 
+            (cleaned_tool_patches['correctness'] == 'Overfitting')
+        ])
+        
+        # Calculate counts for method patches
+        method_correct = len(method_tool_patches[
+            (method_tool_patches['generator_id'] == tool) & 
+            (method_tool_patches['correctness'] == 'Correct')
+        ])
+        method_overfitting = len(method_tool_patches[
+            (method_tool_patches['generator_id'] == tool) & 
+            (method_tool_patches['correctness'] == 'Overfitting')
+        ])
+        
+        # Calculate counts for single method patches
+        single_method_correct = len(single_method_tool_patches[
+            (single_method_tool_patches['generator_id'] == tool) & 
+            (single_method_tool_patches['correctness'] == 'Correct')
+        ])
+        single_method_overfitting = len(single_method_tool_patches[
+            (single_method_tool_patches['generator_id'] == tool) & 
+            (single_method_tool_patches['correctness'] == 'Overfitting')
+        ])
+        
+        # Calculate counts for deduplicated patches
+        deduplicated_correct = len(deduplicated_tool_patches[
+            (deduplicated_tool_patches['generator_id'] == tool) & 
+            (deduplicated_tool_patches['correctness'] == 'Correct')
+        ])
+        deduplicated_overfitting = len(deduplicated_tool_patches[
+            (deduplicated_tool_patches['generator_id'] == tool) & 
+            (deduplicated_tool_patches['correctness'] == 'Overfitting')
+        ])
+    
         print(
             f"""
             ============================
-            Selected tool: {tool},
+            Selected tool: {tool}
             ============================
-            Raw: 
-            No of correct patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}
+            Normalized: 
+            No of correct patches: {normalized_correct}
+            No of overfitting patches: {normalized_overfitting}
             ============================
             Cleaned:
-            No of correct patches: {len(cleaned_tool_patches[cleaned_tool_patches['generator_id'] == tool][cleaned_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(cleaned_tool_patches[cleaned_tool_patches['generator_id'] == tool][cleaned_tool_patches['correctness'] == 'Overfitting'])}
+            No of correct patches: {cleaned_correct}
+            No of overfitting patches: {cleaned_overfitting}
             ============================
             Method:
-            No of correct patches: {len(method_tool_patches[method_tool_patches['generator_id'] == tool][method_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(method_tool_patches[method_tool_patches['generator_id'] == tool][method_tool_patches['correctness'] == 'Overfitting'])}
-            ============================
-            Normalized:
-            No of correct patches: {len(normalized_tool_patches[normalized_tool_patches['generator_id'] == tool][normalized_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(normalized_tool_patches[normalized_tool_patches['generator_id'] == tool][normalized_tool_patches['correctness'] == 'Overfitting'])}
+            No of correct patches: {method_correct}
+            No of overfitting patches: {method_overfitting}
             ============================
             Single Method:
-            No of correct patches: {len(single_method_tool_patches[single_method_tool_patches['generator_id'] == tool][single_method_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(single_method_tool_patches[single_method_tool_patches['generator_id'] == tool][single_method_tool_patches['correctness'] == 'Overfitting'])}
+            No of correct patches: {single_method_correct}
+            No of overfitting patches: {single_method_overfitting}
             ============================
             Deduplicated:
-            No of correct patches: {len(deduplicated_tool_patches[deduplicated_tool_patches['generator_id'] == tool][deduplicated_tool_patches['correctness'] == 'Correct'])}
-            No of overfitting patches: {len(deduplicated_tool_patches[deduplicated_tool_patches['generator_id'] == tool][deduplicated_tool_patches['correctness'] == 'Overfitting'])}
+            No of correct patches: {deduplicated_correct}
+            No of overfitting patches: {deduplicated_overfitting}
             ============================
             """
         )
-
+        
         if EXTRACT_FILES:
-            file_tool_patches = pd.read_pickle(SETUP_TOOL_PATCHES_DIR["FILES"])
+            # Calculate counts for file patches
+            file_correct = len(file_tool_patches[
+                (file_tool_patches['generator_id'] == tool) & 
+                (file_tool_patches['correctness'] == 'Correct')
+            ])
+            file_overfitting = len(file_tool_patches[
+                (file_tool_patches['generator_id'] == tool) & 
+                (file_tool_patches['correctness'] == 'Overfitting')
+            ])
+            
             print(
                 f"""
                 Files:
-                No of correct patches: {len(file_tool_patches[file_tool_patches['generator_id'] == tool][file_tool_patches['correctness'] == 'Correct'])}
-                No of overfitting patches: {len(file_tool_patches[file_tool_patches['generator_id'] == tool][file_tool_patches['correctness'] == 'Overfitting'])}
+                No of correct patches: {file_correct}
+                No of overfitting patches: {file_overfitting}
                 ============================
                 """
             )
-
 
 
 if __name__=="__main__": 
