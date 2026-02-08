@@ -6,9 +6,6 @@
         "uid": "codellama:7b-instruct"
     },
     {
-        "uid": "codellama:13b-instruct"
-    },
-    {
         "uid": "deepseek-coder:6.7b"
     },
     {
@@ -25,8 +22,5 @@
     },
     {
         "uid": "hermes3:8b"
-    },    
-    {
-        "uid": "gemini-flash"
     }
 ]
