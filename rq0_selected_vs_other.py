@@ -12,6 +12,9 @@ import ollama
 import pandas as pd
 import numpy as np
 
+FOLDER_NAME = "rq0"
+INDICIES_FOR_EXPERT_LABELS_FILE = os.path.join(FOLDER_NAME, f"indices-for-expert-labels.pkl")
+
 
 # Compare patches of the selected tool Our EXP3 working with command parameters.
 def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, selected_tool):
@@ -60,35 +63,12 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
 
         return results
 
-    # # Exclude Selected Tool
-    # selected_tool = "tbar"
-
-    # Remove 2017, 2015, ...
-    selected_tool_patches = tool_patches[tool_patches["generator"] == selected_tool]
-    tool_patches = tool_patches[tool_patches["generator"] != selected_tool]
-
-    # # Exclude overfitting patches
-    # tool_patches = tool_patches[tool_patches["correctness"] == "Correct"]
-
-    # # Keep single hunks
-    # tool_patches = tool_patches[tool_patches.apply(is_single_hunk, axis=1)]
-    # developer_patches = developer_patches[developer_patches.apply(is_single_hunk, axis=1)]
-
-    logging.info(f"------------------------------------")
-    logging.info(f"Single Hunk Tool Generated Patches: {len(tool_patches)}")
-    logging.info(f"Single Hunk Developer Patches: {len(developer_patches)}")
-    logging.info(f"Selected Patches: {len(selected_tool_patches)}")
-    logging.info(f"------------------------------------")
+    # Exclude Selected Tool
+    selected_tool_patches = tool_patches[tool_patches["generator_id"] == selected_tool]
+    tool_patches = tool_patches[tool_patches["generator_id"] != selected_tool]
 
     # Create extended groundtruth
     groundtruth_patches = pd.concat([tool_patches, developer_patches], axis=0)
-
-    no_groundtruth_patches = len(groundtruth_patches)
-    no_selected_tool_patches = len(selected_tool_patches)
-    no_models = len(models)
-    no_prompts = len(prompts)
-    no_temperatures = len(temperatures)
-    logging.info(f"Running experiment 3 ... selected_tool: {selected_tool}, no_models: {no_models}, no_prompts: {no_prompts}, no_correct_patches: {no_groundtruth_patches}, no_selected_tool_patches: {no_selected_tool_patches}, temperature: {no_temperatures}")
 
     comparison_indices = selected_tool_patches.apply(
         lambda tool_patch: pd.Series(
@@ -98,7 +78,19 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
         axis=1
     ).stack().reset_index(level=1, drop=True).reset_index(name='groundtruth_index')
 
-    comparison_indices.to_pickle(os.path.join(TMP_EXPERT_LABEL_DIR, f"EXP3-unlabeled-{selected_tool}.pkl"))
+    comparison_indices.to_pickle(INDICIES_FOR_EXPERT_LABELS_FILE)
+
+    print(
+        f"""
+        Selected tool: {selected_tool}
+        Number of groundtruth patches: {len(groundtruth_patches)}
+        Number of selected tool patches: {len(selected_tool_patches)}
+        Number of models: {len(models)}
+        Number of prompts: {len(prompts)}
+        Number of temperatures: {len(temperatures)}   
+        Total number of comparisons: {len(groundtruth_patches) * len(selected_tool_patches) * len(models) * len(prompts) * len(temperatures)}
+        """
+    )    
 
     for processor in patch_processors:
         for model in models:
@@ -108,28 +100,34 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
                     temperature_value = temperature["uid"]
                     model_uid = model["uid"]
                     processor_uid = processor["uid"]
-                    result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
+                    result_file = os.path.join(FOLDER_NAME, f"RQ0-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
 
                     if os.path.exists(result_file):
                         logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} \n Skipping to the next one.")
                         
                         continue
 
+                    all_results = []
+                    
                     for i, (_, tool_patch) in enumerate(tqdm(selected_tool_patches.iterrows(), total=len(selected_tool_patches), desc=f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}")):
-                        result_file = os.path.join(TMP_RESULTS_DIR, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
+                        individual_file = os.path.join(FOLDER_NAME, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
 
-                        if os.path.exists(result_file):
-                            logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} index: {i} \n Skipping to the next one.")
-                            
-                            continue
-
-                        logging.info(f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}, index: {i}")
-
-                        results = compare_groundtruth(tool_patch, groundtruth_patches, prompt, temperature, model, processor)
-                        results.to_pickle(result_file)
+                        if os.path.exists(individual_file):
+                            logging.info(f"Loading existing results for index: {i}")
+                            results = pd.read_pickle(individual_file)
+                        else:
+                            logging.info(f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}, index: {i}")
+                            results = compare_groundtruth(tool_patch, groundtruth_patches, prompt, temperature, model, processor)
+                            results.to_pickle(individual_file)
+                        
+                        all_results.append(results)
+                    
+                    # Merge all results into one DataFrame
+                    merged_results = pd.concat(all_results, ignore_index=True)
+                    merged_results.to_pickle(result_file)
+                    logging.info(f"Merged results saved to {result_file}")
 
             ollama.generate(model=model["uid"], keep_alive=0)
-
 
     
 
@@ -139,20 +137,6 @@ if __name__ == "__main__":
     prompts, models, temperatures, patch_processors = get_params()
     tool = "tbar"
 
-    report_selected_tool(tool_patches, tool)
-    print(f"TBar Raw patches: {len(tool_patches[tool_patches['generator'] == tool])}")
-    print(f"TBar final patches: {len(tool_patches[tool_patches['generator_id'] == tool])}")
-    print(f"TBar correct patches: {len(tool_patches[(tool_patches['generator_id'] == tool) & (tool_patches['correctness'] == 'Correct')])}")
-    print(f"Tbar Overfitting patches: {len(tool_patches[(tool_patches['generator_id'] == tool) & (tool_patches['correctness'] == 'Overfitting')])}")
 
-    print(
-        f"""
-        ============================
-        Tools: {tool_patches["generator_id"].unique()},
-        ============================
-        # Tools: {len(tool_patches["generator_id"].unique())},
-        """    
-    )
-
-    # experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
+    experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
 
