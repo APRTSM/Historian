@@ -236,6 +236,77 @@ def get_venn_data_both(tool_name, reference_tools):
 
 
 
+def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
+    display_names = {
+        'arjae': 'ARJA-e (2020)',
+        'recoder': 'Recoder (2021)',
+        'selfapr': 'SelfAPR (2022)',
+        'knod': 'Knod (2023)',
+        'tare': 'TARE (2023)',
+        'transplantfix': 'TransplantFix (2023)',
+        't5apr': 'T5APR (2024)',
+    }
+    
+    # Define the category order: top to bottom in the UpSet matrix
+    # UpSet plots the first category at the bottom, last at the top of the matrix,
+    # so we reverse: we want ARJA-e at top, TransplantFix at bottom
+    category_order = [
+        'ARJA-e (2020)',
+        'Recoder (2021)',
+        'SelfAPR (2022)',
+        'Knod (2023)',
+        'TARE (2023)',
+        'TransplantFix (2023)',
+    ]
+    
+    data = {display_names.get(ref_tool, ref_tool.upper()): match_sets[ref_tool] 
+            for ref_tool in reference_tools}
+    
+    upset_data = from_contents(data)
+    
+    # Filter category_order to only include tools actually present
+    ordered_cats = [c for c in category_order if c in upset_data.index.names]
+    
+    fig = plt.figure(figsize=(14, 6))
+    
+    upset = UpSet(upset_data, 
+                  subset_size='count', 
+                  show_counts=True,
+                  show_percentages=False,
+                  sort_by='degree',
+                  sort_categories_by=None,  # disable auto-sorting to use our custom order
+                  facecolor='black',
+                  element_size=46)
+    
+    # Reorder categories manually
+    upset._category_order = ordered_cats
+    
+    upset.plot(fig=fig)
+    
+    filename = f'upset_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
     display_names = {
@@ -247,29 +318,52 @@ def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
         'transplantfix': 'TransplantFix (2023)',
         't5apr': 'T5APR (2024)',
     }
-
+    
+    # Define the category order: top to bottom in the UpSet matrix
+    # UpSet plots the first category at the bottom, last at the top of the matrix,
+    # so we reverse: we want ARJA-e at top, TransplantFix at bottom
+    category_order = [
+        'TransplantFix (2023)',
+        'TARE (2023)',
+        'Knod (2023)',
+        'SelfAPR (2022)',
+        'Recoder (2021)',
+        'ARJA-e (2020)',
+    ]
+    
     data = {display_names.get(ref_tool, ref_tool.upper()): match_sets[ref_tool] 
             for ref_tool in reference_tools}
-
-    # Degree-0: patches in none of the reference tools
-    all_matched = set.union(*match_sets.values()) if any(match_sets.values()) else set()
-    degree_0 = all_uids - all_matched
-
-    print(f"\n--- {patch_type} Degree Analysis ---")
-    print(f"Total patches: {len(all_uids)}")
-    print(f"Degree 0 (only in {tool_name}, no match): {len(degree_0)}")
     
-    # Print degree breakdown from the upset data
     upset_data = from_contents(data)
-    for degree in sorted(upset_data.index.to_frame().sum(axis=1).unique()):
-        count = upset_data[upset_data.index.to_frame().sum(axis=1) == degree].sum()
-        print(f"Degree {degree}: {count} patches")
     
-    print(f"Sum (degree>=1): {len(all_matched)}")
-    print(f"Degree 0 + Sum = {len(degree_0) + len(all_matched)} (should equal {len(all_uids)})")
-
-
-
+    # Filter category_order to only include tools actually present
+    ordered_cats = [c for c in category_order if c in upset_data.index.names]
+    
+    fig = plt.figure(figsize=(14, 6))
+    
+    upset = UpSet(upset_data, 
+                  subset_size='count', 
+                  show_counts=True,
+                  show_percentages=False,
+                  sort_by='degree',
+                  sort_categories_by=None,  # disable auto-sorting to use our custom order
+                  facecolor='black',
+                  element_size=46)
+    
+    # Reorder categories manually
+    upset._category_order = ordered_cats
+    
+    upset.plot(fig=fig)
+    
+    filename = f'upset_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
 
 
 
