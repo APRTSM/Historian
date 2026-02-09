@@ -224,47 +224,287 @@ def get_venn_data_both(tool_name, reference_tools):
             set(correct_patches.index), set(overfitting_patches.index))
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
-    """
-    Plot an UpSet diagram - clear visualization for 5+ sets.
-    """
     display_names = {
-        'dlfix': 'DLFix',
-        'arjae': 'ARJA-e', 
-        'recoder': 'Recoder',
-        'circle': 'CIRCLE',
-        'transplantfix': 'TransplantFix'
+        'arjae': 'ARJA-e (2020)',
+        'recoder': 'Recoder (2021)',
+        'selfapr': 'SelfAPR (2022)',
+        'knod': 'Knod (2023)',
+        'tare': 'TARE (2023)',
+        'transplantfix': 'TransplantFix (2023)',
+        't5apr': 'T5APR (2024)',
     }
-    
+
     data = {display_names.get(ref_tool, ref_tool.upper()): match_sets[ref_tool] 
             for ref_tool in reference_tools}
+
+    # Degree-0: patches in none of the reference tools
+    all_matched = set.union(*match_sets.values()) if any(match_sets.values()) else set()
+    degree_0 = all_uids - all_matched
+
+    print(f"\n--- {patch_type} Degree Analysis ---")
+    print(f"Total patches: {len(all_uids)}")
+    print(f"Degree 0 (only in {tool_name}, no match): {len(degree_0)}")
     
+    # Print degree breakdown from the upset data
+    upset_data = from_contents(data)
+    for degree in sorted(upset_data.index.to_frame().sum(axis=1).unique()):
+        count = upset_data[upset_data.index.to_frame().sum(axis=1) == degree].sum()
+        print(f"Degree {degree}: {count} patches")
+    
+    print(f"Sum (degree>=1): {len(all_matched)}")
+    print(f"Degree 0 + Sum = {len(degree_0) + len(all_matched)} (should equal {len(all_uids)})")
+
+
+
+
+
+
+
+def plot_upset_all_degree(match_sets, all_uids, tool_name, patch_type, reference_tools):
+    display_names = {
+        'arjae': 'ARJA-e (2020)',
+        'recoder': 'Recoder (2021)',
+        'selfapr': 'SelfAPR (2022)',
+        'knod': 'Knod (2023)',
+        'tare': 'TARE (2023)',
+        'transplantfix': 'TransplantFix (2023)',
+        't5apr': 'T5APR (2024)',
+    }
+
+    category_order = [
+        'ARJA-e (2020)',
+        'Recoder (2021)',
+        'SelfAPR (2022)',
+        'Knod (2023)',
+        'TARE (2023)',
+        'TransplantFix (2023)',
+    ]
+
+    data = {display_names.get(ref_tool, ref_tool.upper()): match_sets[ref_tool] 
+            for ref_tool in reference_tools}
+
+    # Degree-0: patches in none of the reference tools
+    all_matched = set.union(*match_sets.values()) if any(match_sets.values()) else set()
+    degree_0 = all_uids - all_matched
+    degree_0_count = len(degree_0)
+
+    print(f"\n--- {patch_type} Degree Analysis ---")
+    print(f"Total patches: {len(all_uids)}")
+    print(f"Degree 0 (only in {tool_name}, no match): {degree_0_count}")
+
     upset_data = from_contents(data)
     
-    fig = plt.figure(figsize=(12, 6))
-    
+    # Print degree breakdown
+    degrees = upset_data.index.to_frame().sum(axis=1)
+    for d in sorted(degrees.unique()):
+        count = (degrees == d).sum()
+        print(f"Degree {d}: {count} patches")
+    print(f"Sum (degree>=1): {len(all_matched)}")
+    print(f"Degree 0 + Sum = {degree_0_count + len(all_matched)} (should equal {len(all_uids)})")
+
+    # Filter category_order to only include tools actually present
+    ordered_cats = [c for c in category_order if c in upset_data.index.names]
+
+    fig = plt.figure(figsize=(14, 6))
+
     upset = UpSet(upset_data, 
                   subset_size='count', 
                   show_counts=True,
                   show_percentages=False,
-                  sort_by='cardinality',
-                  sort_categories_by='cardinality',
-                  facecolor='steelblue',
+                  sort_by='degree',
+                  sort_categories_by=None,
+                  facecolor='black',
                   element_size=46)
+
+    upset._category_order = ordered_cats
+
+    axes = upset.plot(fig=fig)
     
-    upset.plot(fig=fig)
+    # Get axes
+    intersections_ax = axes['intersections']
+    matrix_ax = axes['matrix']
     
-    # fig.suptitle(f'{tool_name.upper()} - {patch_type} Patches', fontsize=18, fontweight='bold', y=1.02)
+    # Get current bars
+    bars = intersections_ax.patches
+    n_bars = len(bars)
     
-    filename = f'upset_{tool_name}_{patch_type.lower()}'
+    # Shift every bar's x position by 1 to make room for degree-0
+    for bar in bars:
+        bar.set_x(bar.get_x() + 1)
+    
+    # Shift existing count text labels
+    for txt in intersections_ax.texts:
+        txt.set_x(txt.get_position()[0] + 1)
+    
+    # Add the degree-0 bar at position 0
+    bar_width = bars[0].get_width() if bars else 0.5
+    intersections_ax.bar(0, degree_0_count, width=bar_width, color='black')
+    intersections_ax.text(0, degree_0_count, str(degree_0_count), 
+                          ha='center', va='bottom', fontsize=9)
+    
+    # Shift PathCollections (scatter dots) to the right
+    from matplotlib.collections import LineCollection, PathCollection
+    for collection in matrix_ax.collections:
+        if isinstance(collection, PathCollection):
+            offsets = collection.get_offsets()
+            if len(offsets) > 0:
+                offsets[:, 0] += 1
+                collection.set_offsets(offsets)
+        elif isinstance(collection, LineCollection):
+            segments = collection.get_segments()
+            new_segments = []
+            for seg in segments:
+                seg = np.array(seg)
+                seg[:, 0] += 1
+                new_segments.append(seg)
+            collection.set_segments(new_segments)
+    
+    # Shift Line2D objects
+    for line in matrix_ax.lines:
+        xdata = np.array(line.get_xdata())
+        line.set_xdata(xdata + 1)
+    
+    # Add empty circles (all unfilled) at x=0 for degree-0
+    n_cats = len(ordered_cats)
+    for i in range(n_cats):
+        matrix_ax.plot(0, i, 'o', color='lightgrey', markersize=8, zorder=5)
+    
+    # Adjust x-limits for both axes
+    intersections_ax.set_xlim(-0.5, n_bars + 0.5)
+    matrix_ax.set_xlim(-0.5, n_bars + 0.5)
+
+    filename = f'upset_all_{tool_name}_{patch_type.lower()}'
     pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
     png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
     plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
     plt.savefig(png_path, dpi=300, bbox_inches='tight')
     plt.close()
-    
+
     print(f"Saved: {pdf_path}")
     print(f"Saved: {png_path}")
+
+
+
+
+
+
+
+
+
+
+
+# pip install supervenn
+
+from supervenn import supervenn
+
+def plot_supervenn(match_sets, all_uids, tool_name, patch_type, reference_tools):
+    display_names = {
+        'dlfix': 'DLFix',
+        'arjae': 'ARJA-e', 
+        'recoder': 'Recoder',
+        'circle': 'CIRCLE',
+        'transplantfix': 'TransplantFix',
+        'selfapr': 'SelfAPR',
+        'knod': 'Knod',
+        'tare': 'TARE',
+    }
+    
+    sets = [match_sets[ref_tool] for ref_tool in reference_tools]
+    labels = [display_names.get(ref_tool, ref_tool.upper()) for ref_tool in reference_tools]
+    
+    fig, ax = plt.subplots(figsize=(16, 8))
+    supervenn(sets, labels, 
+             ax=ax,
+             side_plots=True,
+             chunks_ordering='size',
+             sets_ordering='size',
+             widths_minmax_ratio=0.05,
+             color_cycle=['black'],
+             fontsize=12)
+    
+    ax.set_title(f'{tool_name.upper()} - {patch_type} Patches', fontsize=16, fontweight='bold')
+    
+    filename = f'supervenn_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
+
+
+
+
+
+
+# pip install venn
+
+from venn import venn
+
+def plot_venn6(match_sets, all_uids, tool_name, patch_type, reference_tools):
+    display_names = {
+        'dlfix': 'DLFix',
+        'arjae': 'ARJA-e', 
+        'recoder': 'Recoder',
+        'circle': 'CIRCLE',
+        'transplantfix': 'TransplantFix',
+        'selfapr': 'SelfAPR',
+        'knod': 'Knod',
+        'tare': 'TARE',
+    }
+    
+    data = {display_names.get(ref_tool, ref_tool.upper()): match_sets[ref_tool] 
+            for ref_tool in reference_tools}
+    
+    fig, ax = plt.subplots(figsize=(12, 10))
+    venn(data, ax=ax, fontsize=10)
+    ax.set_title(f'{tool_name.upper()} - {patch_type} Patches', fontsize=16, fontweight='bold')
+    
+    filename = f'venn_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def analyze_and_plot(tool_name, reference_tools):
@@ -293,6 +533,9 @@ def analyze_and_plot(tool_name, reference_tools):
         print(f"Novel (no match): {len(all_correct_uids) - total_correct_matched}")
         
         plot_upset(correct_match_sets, all_correct_uids, tool_name, 'Correct', reference_tools)
+        plot_supervenn(correct_match_sets, all_correct_uids, tool_name, 'Correct', reference_tools)
+        plot_venn6(correct_match_sets, all_correct_uids, tool_name, 'Correct', reference_tools)
+        plot_upset_all_degree(correct_match_sets, all_correct_uids, tool_name, 'Correct', reference_tools)
     else:
         print("No correct patches - skipping diagram.")
     
@@ -309,6 +552,9 @@ def analyze_and_plot(tool_name, reference_tools):
         print(f"Novel (no match): {len(all_overfitting_uids) - total_overfitting_matched}")
         
         plot_upset(overfitting_match_sets, all_overfitting_uids, tool_name, 'Overfitting', reference_tools)
+        plot_supervenn(overfitting_match_sets, all_overfitting_uids, tool_name, 'Overfitting', reference_tools)
+        plot_venn6(overfitting_match_sets, all_overfitting_uids, tool_name, 'Overfitting', reference_tools) 
+        plot_upset_all_degree(overfitting_match_sets, all_overfitting_uids, tool_name, 'Overfitting', reference_tools)
     else:
         print("No overfitting patches - skipping diagram.")
 
@@ -316,3 +562,35 @@ def analyze_and_plot(tool_name, reference_tools):
 if __name__ == "__main__":
     # analyze_and_plot("iter", ["dlfix", "arjae", "recoder", "circle", "transplantfix"])
     analyze_and_plot("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"])
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
