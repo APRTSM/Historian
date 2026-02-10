@@ -13,6 +13,7 @@ import pandas as pd
 import numpy as np
 
 FOLDER_NAME = "rq0"
+DATA_DIR = os.path.join(FOLDER_NAME, "data")
 INDICIES_FOR_EXPERT_LABELS_FILE = os.path.join(FOLDER_NAME, f"indices-for-expert-labels.pkl")
 
 
@@ -108,7 +109,7 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
                     temperature_value = temperature["uid"]
                     model_uid = model["uid"]
                     processor_uid = processor["uid"]
-                    result_file = os.path.join(FOLDER_NAME, f"RQ0-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
+                    result_file = os.path.join(DATA_DIR, f"RQ0-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}.pkl")
 
                     if os.path.exists(result_file):
                         logging.info(f"Results already exist. SelectedTool: {selected_tool} PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid} \n Skipping to the next one.")
@@ -118,7 +119,7 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
                     all_results = []
                     
                     for i, (_, tool_patch) in enumerate(tqdm(selected_tool_patches.iterrows(), total=len(selected_tool_patches), desc=f"Processing the patch ... selected_tool: {selected_tool}, PatchProcessor: {processor_uid} model: {model_uid} temperature: {temperature_value} prompt: {prompt_uid}")):
-                        individual_file = os.path.join(FOLDER_NAME, f"EXP3-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
+                        individual_file = os.path.join(DATA_DIR, f"RQ0-incomplete-{selected_tool}-{processor_uid}-{model_uid}-{temperature_value}-{prompt_uid}-{i}.pkl")
 
                         if os.path.exists(individual_file):
                             logging.info(f"Loading existing results for index: {i}")
