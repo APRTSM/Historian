@@ -93,9 +93,17 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
     )    
 
     for processor in patch_processors:
+        # Filter prompts based on processor type
+        if processor["uid"] == "defaultpatch":
+            filtered_prompts = [p for p in prompts if p["input"] == "patches"]
+        elif processor["uid"] == "method":
+            filtered_prompts = [p for p in prompts if p["input"] == "code"]
+        else:
+            filtered_prompts = prompts
+
         for model in models:
             for temperature in temperatures:
-                for prompt in prompts:
+                for prompt in filtered_prompts:
                     prompt_uid = prompt["uid"]
                     temperature_value = temperature["uid"]
                     model_uid = model["uid"]
