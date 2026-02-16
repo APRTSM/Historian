@@ -263,10 +263,10 @@ def get_pre_matches(selected_tool_name):
         print(f"✅ SourcererCC labels already exist for {selected_tool_name}. Location: {result_dir} HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
     
     else:
-    results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
-    results_df.to_pickle(os.path.join(result_dir))
-    results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
-    print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+        results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
+        results_df.to_pickle(os.path.join(result_dir))
+        results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+        print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
 
 if __name__ == "__main__":
 
