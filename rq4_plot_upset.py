@@ -653,9 +653,9 @@ def analyze_and_plot(tool_name, reference_tools):
         print("No overfitting patches - skipping diagram.")
 
 
-if __name__ == "__main__":
-    # analyze_and_plot("iter", ["dlfix", "arjae", "recoder", "circle", "transplantfix"])
-    analyze_and_plot("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"])
+# if __name__ == "__main__":
+#     # analyze_and_plot("iter", ["dlfix", "arjae", "recoder", "circle", "transplantfix"])
+#     analyze_and_plot("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"])
 
     
 
@@ -688,3 +688,229 @@ if __name__ == "__main__":
 
 
 
+
+
+
+
+
+
+
+
+def plot_upset(match_sets, all_uids, tool_name, patch_type, reference_tools):
+    display_names = {
+        'arjae': 'ARJA-e (2020)',
+        'recoder': 'Recoder (2021)',
+        'selfapr': 'SelfAPR (2022)',
+        'knod': 'Knod (2023)',
+        'tare': 'TARE (2023)',
+        'transplantfix': 'TransplantFix (2023)',
+        't5apr': 'T5APR (2024)',
+    }
+
+    category_order = [
+        'T5APR (2024)',
+        'TransplantFix (2023)',
+        'TARE (2023)',
+        'Knod (2023)',
+        'SelfAPR (2022)',
+        'Recoder (2021)',
+        'ARJA-e (2020)',
+    ]
+
+    # Make IDs unique within each category by appending occurrence count
+    # e.g. if "patch-123" appears 3 times in arjae, they become
+    # "patch-123__dup0", "patch-123__dup1", "patch-123__dup2"
+    data = {}
+    for ref_tool in reference_tools:
+        display_name = display_names.get(ref_tool, ref_tool.upper())
+        uid_list = match_sets[ref_tool]
+        unique_list = []
+        counts = {}
+        for uid in uid_list:
+            if uid not in counts:
+                counts[uid] = 0
+            else:
+                counts[uid] += 1
+            unique_list.append(f"{uid}__dup{counts[uid]}")
+        data[display_name] = unique_list
+
+    upset_data = from_contents(data)
+
+    # Filter category_order to only include tools actually present
+    ordered_cats = [c for c in category_order if c in upset_data.index.names]
+
+    fig = plt.figure(figsize=(14, 6))
+
+    upset = UpSet(upset_data, 
+                  subset_size='count', 
+                  show_counts=True,
+                  show_percentages=False,
+                  sort_by='degree',
+                  sort_categories_by=None,
+                  facecolor='black',
+                  element_size=46)
+
+    upset._category_order = ordered_cats
+
+    upset.plot(fig=fig)
+
+    filename = f'upset_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
+
+
+
+
+def get_venn_data_both_baseline(reference_tools):
+    """
+    Get lists of baseline pre-uids matched by each reference tool.
+    Uses lists (not sets) to preserve duplicates.
+    Correctness is determined by the selected tool's patch, not the baseline patch.
+    
+    Algorithm:
+    1. Load baseline tool_patches (from TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    2. For each reference tool, load {tool}_sourcerercc_labels.pkl
+       - This has columns: uid, pre-uid, sourcerercc_label
+    3. For each tool, get selected_tool_patches to know correctness of each uid
+    4. For rows where sourcerercc_label == True, classify the pre-uid as correct/overfitting
+       based on the selected tool's uid correctness
+    5. The UpSet diagram shows intersections of these pre-uid lists across tools
+    """
+    # Load baseline tool patches (just for the full set of pre-uids)
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    all_pre_uids = list(tool_patches.index)
+    
+    print(f"Baseline tool patches: Total={len(all_pre_uids)}")
+    
+    correct_match_sets = {}
+    overfitting_match_sets = {}
+    all_correct_pre_uids = set()
+    all_overfitting_pre_uids = set()
+    
+    for ref_tool in reference_tools:
+        baseline_labels_path = os.path.join(RQ4_META_DATA_DIR, f"{ref_tool}_sourcerercc_labels.pkl")
+        if not os.path.exists(baseline_labels_path):
+            raise FileNotFoundError(f"Missing file: {baseline_labels_path}")
+        
+        results_df = pd.read_pickle(baseline_labels_path)
+        
+        # Get selected tool patches to know correctness of each uid
+        selected_tool_patches = get_selected_tool_patches(ref_tool).copy()
+        
+        correct_selected = set(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'].index)
+        overfitting_selected = set(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'].index)
+        
+        # Filter to matched rows only
+        matched_rows = results_df[results_df['sourcerercc_label'] == True]
+        
+        print(f"  {ref_tool}: total matched rows = {len(matched_rows)}")
+        
+        # Split pre-uids based on the selected tool's uid correctness
+        correct_matched = []
+        overfitting_matched = []
+        
+        for _, row in matched_rows.iterrows():
+            uid = row['uid']
+            pre_uid = row['pre-uid']
+            
+            if uid in correct_selected:
+                correct_matched.append(pre_uid)
+                all_correct_pre_uids.add(pre_uid)
+            elif uid in overfitting_selected:
+                overfitting_matched.append(pre_uid)
+                all_overfitting_pre_uids.add(pre_uid)
+        
+        correct_match_sets[ref_tool] = correct_matched
+        overfitting_match_sets[ref_tool] = overfitting_matched
+        
+        print(f"  {ref_tool}: matched pre-uids "
+              f"(correct={len(correct_matched)}, overfitting={len(overfitting_matched)})")
+    
+    # all_uids for the plot = all pre-uids that were matched by at least one tool (per correctness)
+    # Use the full baseline set so degree-0 is visible if needed
+    all_correct_uids = list(all_correct_pre_uids)
+    all_overfitting_uids = list(all_overfitting_pre_uids)
+    
+    return (correct_match_sets, overfitting_match_sets, 
+            all_correct_uids, all_overfitting_uids)
+
+
+
+
+
+
+
+
+
+
+
+def analyze_and_plot(tool_name, reference_tools):
+    """
+    Analyze a tool and create UpSet diagrams for both correct and overfitting patches.
+    If tool_name is 'baseline', uses pre-match labels against baseline tool patches.
+    """
+    print(f"\n{'='*60}")
+    print(f"Diagram Analysis for {tool_name.upper()}")
+    print(f"Reference tools: {', '.join(reference_tools)}")
+    print(f"Output directory: {os.path.abspath(OUTPUT_DIR)}")
+    print(f"{'='*60}")
+    
+    if tool_name == "baseline":
+        (correct_match_sets, overfitting_match_sets, 
+         all_correct_uids, all_overfitting_uids) = get_venn_data_both_baseline(reference_tools)
+    else:
+        (correct_match_sets, overfitting_match_sets, 
+         all_correct_uids, all_overfitting_uids) = get_venn_data_both(tool_name, reference_tools)
+    
+    # --- CORRECT PATCHES ---
+    print(f"\n--- CORRECT PATCHES ---")
+    print(f"Total correct patches: {len(all_correct_uids)}")
+    
+    if len(all_correct_uids) > 0:
+        print("Matches per reference tool:")
+        for ref_tool in reference_tools:
+            print(f"  {ref_tool}: {len(correct_match_sets[ref_tool])}")
+        all_correct_matched = []
+        for v in correct_match_sets.values():
+            all_correct_matched.extend(v)
+        total_correct_matched = len(all_correct_matched)
+        unique_correct_matched = len(set(all_correct_matched))
+        print(f"Total matches (with duplicates): {total_correct_matched}")
+        print(f"Total unique matches: {unique_correct_matched}")
+        print(f"Novel (no match): {len(all_correct_uids) - unique_correct_matched}")
+        
+        plot_upset(correct_match_sets, all_correct_uids, tool_name, 'Correct', reference_tools)
+    else:
+        print("No correct patches - skipping diagram.")
+    
+    # --- OVERFITTING PATCHES ---
+    print(f"\n--- OVERFITTING PATCHES ---")
+    print(f"Total overfitting patches: {len(all_overfitting_uids)}")
+    
+    if len(all_overfitting_uids) > 0:
+        print("Matches per reference tool:")
+        for ref_tool in reference_tools:
+            print(f"  {ref_tool}: {len(overfitting_match_sets[ref_tool])}")
+        all_overfitting_matched = []
+        for v in overfitting_match_sets.values():
+            all_overfitting_matched.extend(v)
+        total_overfitting_matched = len(all_overfitting_matched)
+        unique_overfitting_matched = len(set(all_overfitting_matched))
+        print(f"Total matches (with duplicates): {total_overfitting_matched}")
+        print(f"Total unique matches: {unique_overfitting_matched}")
+        print(f"Novel (no match): {len(all_overfitting_uids) - unique_overfitting_matched}")
+        
+        plot_upset(overfitting_match_sets, all_overfitting_uids, tool_name, 'Overfitting', reference_tools)
+    else:
+        print("No overfitting patches - skipping diagram.")
+
+
+if __name__ == "__main__":
+    # Baseline (pre) as base, all tools including T5APR as reference tools
+    analyze_and_plot("baseline", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix", "t5apr"])

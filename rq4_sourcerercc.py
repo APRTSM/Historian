@@ -75,14 +75,14 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
     logging.info(f"Total comparisons to perform: {total_comparisons}")
     
     # Track results per uid
-    uid_results = {row.name: False for _, row in selected_tool_patches.iterrows()}
+    uid_results = {row.name: (False, None) for _, row in selected_tool_patches.iterrows()}
     
     # Perform comparisons with accurate progress bar
     for comp in tqdm(comparisons, total=total_comparisons, desc="Detecting SourcererCC clones"):
         uid = comp['uid']
         
         # Skip if already found a clone for this uid
-        if uid_results[uid]:
+        if uid_results[uid][0]:
             continue
         
         try:
@@ -94,10 +94,10 @@ def assign_sourcerercc_labels(tool_patches, selected_tool_patches):
         logging.info(f"Comparing UID {uid} with matching patch UID {comp['match_uid']}: Clone={label}")
         
         if label:
-            uid_results[uid] = True
+            uid_results[uid] = (True, comp['match_uid'])
     
     # Build result DataFrame
-    results = [{'uid': uid, 'sourcerercc_label': is_clone} for uid, is_clone in uid_results.items()]
+    results = [{'uid': uid, "pre-uid": matching_uid, 'sourcerercc_label': is_clone} for uid, (is_clone, matching_uid) in uid_results.items()]
     result_df = pd.DataFrame(results)
     
     logging.info(f"Completed! Processed {len(result_df)} patches with {total_comparisons} comparisons.")
@@ -259,14 +259,14 @@ def get_pre_matches(selected_tool_name):
     print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
     
     result_dir = os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl")
-    if os.path.exists(result_dir):
-        print(f"✅ SourcererCC labels already exist for {selected_tool_name}. Location: {result_dir} HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+    # if os.path.exists(result_dir):
+    #     print(f"✅ SourcererCC labels already exist for {selected_tool_name}. Location: {result_dir} HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
     
-    else:
-        results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
-        results_df.to_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.pkl"))
-        results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
-        print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+    # else:
+    results_df = assign_sourcerercc_labels(tool_patches, selected_tool_patches)
+    results_df.to_pickle(os.path.join(result_dir))
+    results_df.to_html(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
+    print("HTML file saved. Location: " + os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_sourcerercc_labels.html"))
 
 if __name__ == "__main__":
 
@@ -283,13 +283,13 @@ if __name__ == "__main__":
     # selected_tool_name = "knod"
     # selected_tool_name = "tare"
 
-    get_pre_matches("arjae")
-    get_pre_matches("recoder")
-    get_pre_matches("selfapr")
-    get_pre_matches("knod")
-    get_pre_matches("tare")
-    get_pre_matches("transplantfix")
-    get_pre_matches("t5apr")
+    # get_pre_matches("arjae")
+    # get_pre_matches("recoder")
+    # get_pre_matches("selfapr")
+    # get_pre_matches("knod")
+    # get_pre_matches("tare")
+    # get_pre_matches("transplantfix")
+    # get_pre_matches("t5apr")
 
 
 
@@ -386,48 +386,48 @@ if __name__ == "__main__":
     """"""
     """"""
 
-    # # Get overall stats
-    # tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
-    # print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
+    # Get overall stats
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    print(f"Correct Tool Patches: {len(tool_patches[tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(tool_patches[tool_patches['correctness'] == 'Overfitting'])}")
     
 
-    # # tool_name = "dlfix"
-    # # selected_tool_patches = get_selected_tool_patches(tool_name)
-    # # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
-    # # overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
-    # # print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
-
-    # # # v2
-    # tool_name = "arjae"
+    # tool_name = "dlfix"
     # selected_tool_patches = get_selected_tool_patches(tool_name)
     # correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
     # overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
     # print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
-    # # Get detailed scores with baseline/added/both breakdown
-    # results = []
-    # # results.append(get_bar_scores_detailed("dlfix", []))
-    # # results.append(get_bar_scores_detailed("arjae", []))
-    # # results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
-    # # results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
-    # # results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
-    # # results.append(get_bar_scores_detailed("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"]))
-    
-    # # # v2
-    # results.append(get_bar_scores_detailed("arjae", []))
-    # results.append(get_bar_scores_detailed("recoder", ["arjae"]))
-    # results.append(get_bar_scores_detailed("selfapr", ["arjae", "recoder"]))
-    # results.append(get_bar_scores_detailed("knod", ["arjae", "recoder", "selfapr"]))
-    # results.append(get_bar_scores_detailed("tare", ["arjae", "recoder", "selfapr"]))
-    # results.append(get_bar_scores_detailed("transplantfix", ["arjae", "recoder", "selfapr"]))
-    # results.append(get_bar_scores_detailed("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"]))
+    # # v2
+    tool_name = "arjae"
+    selected_tool_patches = get_selected_tool_patches(tool_name)
+    correct_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Correct']
+    overfitting_tool_patches = selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting']
+    print(f"{tool_name}: Correct Patches: {len(correct_tool_patches)}, Overfitting Patches: {len(overfitting_tool_patches)}")
 
-    # # Print summary
-    # print("\n" + "="*80)
-    # print("SUMMARY FOR STACKED BAR CHART")
-    # print("="*80)
-    # for r in results:
-    #     c_pct_base = 100*r['c_baseline_only']/r['c_total'] if r['c_total'] > 0 else 0
-    #     c_pct_added = 100*r['c_added_only']/r['c_total'] if r['c_total'] > 0 else 0
-    #     c_pct_both = 100*r['c_both']/r['c_total'] if r['c_total'] > 0 else 0
-    #     print(f"{r['tool']}: Correct baseline={c_pct_base:.1f}%, added={c_pct_added:.1f}%, both={c_pct_both:.1f}%")
+    # Get detailed scores with baseline/added/both breakdown
+    results = []
+    # results.append(get_bar_scores_detailed("dlfix", []))
+    # results.append(get_bar_scores_detailed("arjae", []))
+    # results.append(get_bar_scores_detailed("recoder", ["dlfix", "arjae"]))
+    # results.append(get_bar_scores_detailed("circle", ["recoder", "dlfix", "arjae"]))
+    # results.append(get_bar_scores_detailed("transplantfix", ["recoder", "circle", "dlfix", "arjae"]))
+    # results.append(get_bar_scores_detailed("iter", ["recoder", "circle", "dlfix", "arjae", "transplantfix"]))
+    
+    # # v2
+    results.append(get_bar_scores_detailed("arjae", []))
+    results.append(get_bar_scores_detailed("recoder", ["arjae"]))
+    results.append(get_bar_scores_detailed("selfapr", ["arjae", "recoder"]))
+    results.append(get_bar_scores_detailed("knod", ["arjae", "recoder", "selfapr"]))
+    results.append(get_bar_scores_detailed("tare", ["arjae", "recoder", "selfapr"]))
+    results.append(get_bar_scores_detailed("transplantfix", ["arjae", "recoder", "selfapr"]))
+    results.append(get_bar_scores_detailed("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"]))
+
+    # Print summary
+    print("\n" + "="*80)
+    print("SUMMARY FOR STACKED BAR CHART")
+    print("="*80)
+    for r in results:
+        c_pct_base = 100*r['c_baseline_only']/r['c_total'] if r['c_total'] > 0 else 0
+        c_pct_added = 100*r['c_added_only']/r['c_total'] if r['c_total'] > 0 else 0
+        c_pct_both = 100*r['c_both']/r['c_total'] if r['c_total'] > 0 else 0
+        print(f"{r['tool']}: Correct baseline={c_pct_base:.1f}%, added={c_pct_added:.1f}%, both={c_pct_both:.1f}%")

@@ -15,6 +15,8 @@ plt.rcParams['hatch.linewidth'] = 0.7
 # Data from your results
 # Baseline = 500 correct, 13140 overfitting
 
+# Data from your results
+# Baseline = 500 correct, 13140 overfitting
 tools = ['ARJA-e\n(2020)', 'Recoder\n(2021)', 'SelfAPR\n(2022)', 'KNOD\n(2023)', 'TARE\n(2023)', 'TransplantFix\n(2023)', 'T5APR\n(2024)']
 
 # Total patches
@@ -22,12 +24,12 @@ correct_total = [36, 77, 69, 69, 124, 72, 415]
 overfitting_total = [62, 5, 428, 14, 134, 123, 1466]
 
 # Breakdown: Baseline only, Both, Added only
-correct_baseline = [21, 29, 9, 6, 9, 9, 2]
-correct_both = [0, 7, 22, 31, 29, 10, 68]
-correct_added = [0, 0, 4, 8, 23, 4, 54]
+correct_baseline = [18, 28, 9, 6, 9, 9, 2]
+correct_both = [0, 7, 22, 31, 29, 9, 68]
+correct_added = [0, 0, 4, 8, 23, 5, 54]
 
 # Overfitting
-overfitting_baseline = [21, 3, 6, 0, 17, 10, 27]
+overfitting_baseline = [22, 3, 6, 0, 17, 12, 27]
 overfitting_both = [0, 0, 8, 1, 3, 1, 34]
 overfitting_added = [0, 0, 6, 1, 16, 1, 175]
 
