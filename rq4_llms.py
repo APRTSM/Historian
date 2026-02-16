@@ -45,6 +45,9 @@ rq4_assign_correctness.py assignes correctness after applying patches in rq4_app
     
 rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get rq1 (sourcerercc and etc...) labels. BOTH DELETED
 
+rq4_sourcerercc.py not only assign match labels for upset diagrams but also analyze number of patches in each cleaning process get_pre_matches 
+
+
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
     it is related to fixing 3000 broken patches from our initial dataset not new datset.
 
