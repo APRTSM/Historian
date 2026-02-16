@@ -653,9 +653,9 @@ def analyze_and_plot(tool_name, reference_tools):
         print("No overfitting patches - skipping diagram.")
 
 
-# if __name__ == "__main__":
-#     # analyze_and_plot("iter", ["dlfix", "arjae", "recoder", "circle", "transplantfix"])
-#     analyze_and_plot("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"])
+if __name__ == "__main__":
+    # analyze_and_plot("iter", ["dlfix", "arjae", "recoder", "circle", "transplantfix"])
+    analyze_and_plot("t5apr", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix"])
 
     
 
