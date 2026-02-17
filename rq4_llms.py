@@ -47,6 +47,7 @@ rq4_dataset_analyzer.py and rq4_cc.py look like the same. They are trying to get
 
 rq4_sourcerercc.py not only assign match labels for upset diagrams but also analyze number of patches in each cleaning process get_pre_matches 
 
+rq4_sourcerercc_all.py against each patch should only keep defects4j patches first
 
 rq4_tmp_broken_patches.py gets the id from rq4/failed_patches.txt and cp them to rq4/failed_patches/
     it is related to fixing 3000 broken patches from our initial dataset not new datset.

@@ -230,6 +230,10 @@ def get_bar_scores_detailed(tool_name, other_tools):
 
 def get_pre_matches(selected_tool_name):
     bugs, developer_patches, tool_patches = init(configure=False)
+
+    # Only keep Defects4J bugs for the selected tool No need for this bicause we are comparing each patch of historian which are all in D4J
+    # tool_patches = tool_patches[tool_patches['bug_uid'].str.startswith("defects4j")]
+    
     selected_tool_patches = pd.read_pickle(os.path.join(RQ4_META_DATA_DIR, f"{selected_tool_name}_patches.pkl"))
 
     print(f"READ: Correct Selected Tool Patches: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'])}, Overfitting: {len(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'])}")

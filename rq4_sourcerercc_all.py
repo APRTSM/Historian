@@ -61,6 +61,8 @@ def load_baseline_patches():
     """
     df = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
 
+    df = df[df['bug_uid'].str.startswith("defects4j")]
+
     if 'content' not in df.columns:
         df['content'] = df.apply(get_single_hunk_method, axis=1)
 
