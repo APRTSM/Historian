@@ -283,13 +283,13 @@ if __name__ == "__main__":
     # selected_tool_name = "knod"
     # selected_tool_name = "tare"
 
-    # get_pre_matches("arjae")
-    # get_pre_matches("recoder")
-    # get_pre_matches("selfapr")
-    # get_pre_matches("knod")
-    # get_pre_matches("tare")
-    # get_pre_matches("transplantfix")
-    # get_pre_matches("t5apr")
+    get_pre_matches("arjae")
+    get_pre_matches("recoder")
+    get_pre_matches("selfapr")
+    get_pre_matches("knod")
+    get_pre_matches("tare")
+    get_pre_matches("transplantfix")
+    get_pre_matches("t5apr")
 
 
 

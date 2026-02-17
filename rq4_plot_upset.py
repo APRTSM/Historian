@@ -842,14 +842,6 @@ def get_venn_data_both_baseline(reference_tools):
 
 
 
-
-
-
-
-
-
-
-
 def analyze_and_plot(tool_name, reference_tools):
     """
     Analyze a tool and create UpSet diagrams for both correct and overfitting patches.
@@ -914,3 +906,222 @@ def analyze_and_plot(tool_name, reference_tools):
 if __name__ == "__main__":
     # Baseline (pre) as base, all tools including T5APR as reference tools
     analyze_and_plot("baseline", ["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix", "t5apr"])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def get_venn_data_all_eight(reference_tools):
+    """
+    Treat baseline and all reference tools as 8 equal groups.
+    For each group, collect the set of bug-ids (or pre-uids) that have
+    correct/overfitting patches, then plot their intersections.
+    
+    - Baseline group: all pre-uids from deduplicated baseline tool_patches
+    - Each reference tool group: all pre-uids that the tool's patches matched to
+      (via sourcerercc_labels), split by the tool's own correctness labels.
+    """
+    # Load baseline tool patches
+    tool_patches = pd.read_pickle(TMP_DEDUPLICATED_TOOL_PATHCES_PKL)
+    
+    # Baseline correctness
+    baseline_correct_uids = set(tool_patches[tool_patches['correctness'] == 'Correct'].index)
+    baseline_overfitting_uids = set(tool_patches[tool_patches['correctness'] == 'Overfitting'].index)
+    
+    print(f"Baseline: Correct={len(baseline_correct_uids)}, Overfitting={len(baseline_overfitting_uids)}")
+    
+    # Initialize match sets with baseline as one of the groups
+    correct_match_sets = {'baseline': list(baseline_correct_uids)}
+    overfitting_match_sets = {'baseline': list(baseline_overfitting_uids)}
+    
+    for ref_tool in reference_tools:
+        baseline_labels_path = os.path.join(RQ4_META_DATA_DIR, f"{ref_tool}_sourcerercc_labels.pkl")
+        if not os.path.exists(baseline_labels_path):
+            raise FileNotFoundError(f"Missing file: {baseline_labels_path}")
+        
+        results_df = pd.read_pickle(baseline_labels_path)
+        
+        # Get the reference tool's own patches for correctness
+        selected_tool_patches = get_selected_tool_patches(ref_tool).copy()
+        correct_selected = set(selected_tool_patches[selected_tool_patches['correctness'] == 'Correct'].index)
+        overfitting_selected = set(selected_tool_patches[selected_tool_patches['correctness'] == 'Overfitting'].index)
+        
+        matched_rows = results_df[results_df['sourcerercc_label'] == True]
+        
+        # Collect pre-uids matched by this tool, split by correctness
+        correct_matched = []
+        overfitting_matched = []
+        
+        for _, row in matched_rows.iterrows():
+            uid = row['uid']
+            pre_uid = row['pre-uid']
+            if uid in correct_selected:
+                correct_matched.append(pre_uid)
+            elif uid in overfitting_selected:
+                overfitting_matched.append(pre_uid)
+        
+        correct_match_sets[ref_tool] = correct_matched
+        overfitting_match_sets[ref_tool] = overfitting_matched
+        
+        print(f"  {ref_tool}: correct_matched={len(correct_matched)}, overfitting_matched={len(overfitting_matched)}")
+    
+    # All unique pre-uids across all 8 groups
+    all_correct = set()
+    for v in correct_match_sets.values():
+        all_correct.update(v)
+    all_overfitting = set()
+    for v in overfitting_match_sets.values():
+        all_overfitting.update(v)
+    
+    return (correct_match_sets, overfitting_match_sets,
+            list(all_correct), list(all_overfitting))
+
+
+def plot_upset_8groups(match_sets, all_uids, tool_name, patch_type, all_tools):
+    """
+    UpSet plot where all 8 groups (including baseline) are categories.
+    match_sets keys include 'baseline' plus the 7 reference tool keys.
+    """
+    display_names = {
+        'baseline': 'Baseline',
+        'arjae': 'ARJA-e (2020)',
+        'recoder': 'Recoder (2021)',
+        'selfapr': 'SelfAPR (2022)',
+        'knod': 'Knod (2023)',
+        'tare': 'TARE (2023)',
+        'transplantfix': 'TransplantFix (2023)',
+        't5apr': 'T5APR (2024)',
+    }
+
+    category_order = [
+        'T5APR (2024)',
+        'TransplantFix (2023)',
+        'TARE (2023)',
+        'Knod (2023)',
+        'SelfAPR (2022)',
+        'Recoder (2021)',
+        'ARJA-e (2020)',
+        'Baseline',
+    ]
+
+    # Make IDs unique within each category (handle duplicate pre-uids)
+    data = {}
+    for tool_key in all_tools:
+        display_name = display_names.get(tool_key, tool_key.upper())
+        uid_list = match_sets[tool_key]
+        unique_list = []
+        counts = {}
+        for uid in uid_list:
+            if uid not in counts:
+                counts[uid] = 0
+            else:
+                counts[uid] += 1
+            unique_list.append(f"{uid}__dup{counts[uid]}")
+        data[display_name] = unique_list
+
+    upset_data = from_contents(data)
+
+    ordered_cats = [c for c in category_order if c in upset_data.index.names]
+
+    fig = plt.figure(figsize=(18, 7))
+
+    upset = UpSet(upset_data,
+                  subset_size='count',
+                  show_counts=True,
+                  show_percentages=False,
+                  sort_by='degree',
+                  sort_categories_by=None,
+                  facecolor='black',
+                  element_size=46)
+
+    upset._category_order = ordered_cats
+    upset.plot(fig=fig)
+
+    filename = f'upset_8groups_{tool_name}_{patch_type.lower()}'
+    pdf_path = os.path.join(OUTPUT_DIR, f'{filename}.pdf')
+    png_path = os.path.join(OUTPUT_DIR, f'{filename}.png')
+    plt.savefig(pdf_path, dpi=300, bbox_inches='tight')
+    plt.savefig(png_path, dpi=300, bbox_inches='tight')
+    plt.close()
+
+    print(f"Saved: {pdf_path}")
+    print(f"Saved: {png_path}")
+
+
+def analyze_and_plot_8groups(reference_tools):
+    """
+    Create UpSet diagrams with all 8 groups (baseline + 7 tools) as equal categories.
+    """
+    print(f"\n{'='*60}")
+    print(f"8-Group UpSet Analysis (Baseline as a group)")
+    print(f"Reference tools: {', '.join(reference_tools)}")
+    print(f"{'='*60}")
+
+    (correct_match_sets, overfitting_match_sets,
+     all_correct_uids, all_overfitting_uids) = get_venn_data_all_eight(reference_tools)
+
+    # all_tools includes baseline as one of the groups
+    all_tools = ['baseline'] + list(reference_tools)
+
+    # --- CORRECT ---
+    print(f"\n--- CORRECT PATCHES ---")
+    if len(all_correct_uids) > 0:
+        for t in all_tools:
+            print(f"  {t}: {len(correct_match_sets[t])}")
+        plot_upset_8groups(correct_match_sets, all_correct_uids, 'all', 'Correct', all_tools)
+    else:
+        print("No correct patches.")
+
+    # --- OVERFITTING ---
+    print(f"\n--- OVERFITTING PATCHES ---")
+    if len(all_overfitting_uids) > 0:
+        for t in all_tools:
+            print(f"  {t}: {len(overfitting_match_sets[t])}")
+        plot_upset_8groups(overfitting_match_sets, all_overfitting_uids, 'all', 'Overfitting', all_tools)
+    else:
+        print("No overfitting patches.")
+
+
+if __name__ == "__main__":
+    analyze_and_plot_8groups(["arjae", "recoder", "selfapr", "knod", "tare", "transplantfix", "t5apr"])
