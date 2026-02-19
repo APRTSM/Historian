@@ -55,6 +55,7 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
                         },
                     ],
                 )
+                logging.info(f"Received response for model {model['uid']} on attempt {attempt} response: {response['message']['content']}")
                 break
             except Exception as e:
                 logging.warning(f"[WARN] Retry {attempt+1}/3 for model {model['uid']}: {e}")
