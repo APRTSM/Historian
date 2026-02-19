@@ -8,13 +8,18 @@ import os
 import logging
 import re
 import json
+import time
 import ollama
 import pandas as pd
 import numpy as np
+from ollama import Client
+
 
 FOLDER_NAME = "rq0"
 DATA_DIR = os.path.join(FOLDER_NAME, "data")
 INDICIES_FOR_EXPERT_LABELS_FILE = os.path.join(FOLDER_NAME, f"indices-for-expert-labels.pkl")
+
+client = Client(timeout=60)  # 5 minute max wait per request
 
 
 # Compare patches of the selected tool Our EXP3 working with command parameters.
@@ -34,12 +39,26 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
 
             Patch 2: {tool_patch_content}
         """
-        response = ollama.chat(model=model["uid"], keep_alive=-1, options=ollama.Options(temperature=temperature["uid"]), messages=[
-            {
-                "role": "system",
-                "content": content,
-            },
-        ])
+
+        # Timeout + Retry block
+        attempt = 1
+        while True:
+            try:
+                response = client.chat(
+                    model=model["uid"],
+                    keep_alive=-1,
+                    options={"temperature": temperature["uid"]},
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": content,
+                        },
+                    ],
+                )
+                break
+            except Exception as e:
+                logging.warning(f"[WARN] Retry {attempt+1}/3 for model {model['uid']}: {e}")
+                time.sleep(5)
 
         # Continue before this
         label = {
@@ -60,9 +79,12 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
 
         logging.info(f"tool_patch: {tool_patch.name}, no_selected_bug_groundtruth_patches: {len(groundtruth_selected_bug)}")
 
-        results = groundtruth_selected_bug.apply(lambda row: get_response(row, tool_patch, prompt, temperature, model, processor), axis=1)
+        # Sequential iteration instead of .apply() to avoid burst requests to Ollama
+        results = []
+        for _, row in groundtruth_selected_bug.iterrows():
+            results.append(get_response(row, tool_patch, prompt, temperature, model, processor))
 
-        return results
+        return pd.DataFrame(results)
 
     # Exclude Selected Tool
     selected_tool_patches = tool_patches[tool_patches["generator_id"] == selected_tool]
@@ -136,7 +158,8 @@ def experiment_selected_tool_vs_other(developer_patches, tool_patches, models, p
                     merged_results.to_pickle(result_file)
                     logging.info(f"Merged results saved to {result_file}")
 
-            ollama.generate(model=model["uid"], keep_alive=0)
+            # Use timed client to unload model after each model loop
+            client.generate(model=model["uid"], keep_alive=0)
 
     
 if __name__ == "__main__":
@@ -146,4 +169,3 @@ if __name__ == "__main__":
 
     print(f"Number of Prompts: {len(prompts)}, Models: {models}, Temperatures: {temperatures}, Patch Processors: {patch_processors}")
     experiment_selected_tool_vs_other(developer_patches, tool_patches, models, prompts, temperatures, patch_processors, tool)
-
