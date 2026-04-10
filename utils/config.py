@@ -12,26 +12,32 @@ JAVA_8_HOME = "/usr/lib/jvm/java-8-openjdk-amd64"
 """ Directories """
 PROJECT_DIR = os.getcwd()
 
-# RESEARCH QUESTIONS
-RQ4_DIR = os.path.join(PROJECT_DIR, "rq4")
-RQ4_DATA_DIR = os.path.join(RQ4_DIR, "tool_patches")
-RQ4_FIRST_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "first_cleaned_tool_patches")
-RQ4_SECOND_CLEANED_DATA_DIR = os.path.join(RQ4_DIR, "second_cleaned_tool_patches")
-RQ4_META_DATA_DIR = os.path.join(RQ4_DIR, "patches_metadata")
-TMP_CLEANED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "cleaned_new_patches.pkl")
-TMP_METHOD_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "method_new_patches.pkl")
-TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "generator_normalized_new_patches.pkl")
-TMP_SINGLE_HUNK_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "single_hunk_new_patches.pkl")
-TMP_DEDUPLICATED_NEW_PATHCES_PKL = os.path.join(RQ4_DIR, "deduplicated_new_patches.pkl")
+# RESEARCH QUESTIONS (paper-aligned)
+# RQ1 — Oracle experiment (TBar expert labels)        -> rq1/
+# RQ2 — Sensitivity (LLM x prompt x representation)   -> rq2/
+# RQ3 — Leave-One-Tool-Out (22 APR tools)             -> (shared corpus, no dedicated data dir)
+# RQ4 — Historian as a filter for APCA tools          -> rq4/
+# RQ5 — Longitudinal redundancy (2020-2024)           -> rq5/
 
 RQ5_DIR = os.path.join(PROJECT_DIR, "rq5")
-TMP_CLEANED_LLM4PC_PATCHES_PKL = os.path.join(RQ5_DIR, "cleaned_llm4pc_patches.pkl")
-TMP_LLM4PC_METHODS_PKL = os.path.join(RQ5_DIR, "llm4pc_methods.pkl")
-TMP_LLM4PC_NORMALIZED_NAMES_PKL = os.path.join(RQ5_DIR, "llm4pc_normalized_names.pkl")
-TMP_LLM4PC_SINGLE_METHODS_PKL = os.path.join(RQ5_DIR, "llm4pc_single_methods.pkl")
-TMP_LLM4PC_FILES_PKL = os.path.join(RQ5_DIR, "llm4pc_files.pkl")
-LLM4PC_TOOL_PATCHES_DIR = os.path.join(RQ5_DIR, "tool-patches.pkl")
-TMP_TYPE_BINARY_RESULTS_CSV_EXP5 = os.path.join(RQ5_DIR, "type-binary-results-exp5.csv")
+RQ5_DATA_DIR = os.path.join(RQ5_DIR, "tool_patches")
+RQ5_FIRST_CLEANED_DATA_DIR = os.path.join(RQ5_DIR, "first_cleaned_tool_patches")
+RQ5_SECOND_CLEANED_DATA_DIR = os.path.join(RQ5_DIR, "second_cleaned_tool_patches")
+RQ5_META_DATA_DIR = os.path.join(RQ5_DIR, "patches_metadata")
+TMP_CLEANED_NEW_PATHCES_PKL = os.path.join(RQ5_DIR, "cleaned_new_patches.pkl")
+TMP_METHOD_NEW_PATHCES_PKL = os.path.join(RQ5_DIR, "method_new_patches.pkl")
+TMP_GENERATOR_NORMALIZED_NEW_PATHCES_PKL = os.path.join(RQ5_DIR, "generator_normalized_new_patches.pkl")
+TMP_SINGLE_HUNK_NEW_PATHCES_PKL = os.path.join(RQ5_DIR, "single_hunk_new_patches.pkl")
+TMP_DEDUPLICATED_NEW_PATHCES_PKL = os.path.join(RQ5_DIR, "deduplicated_new_patches.pkl")
+
+RQ4_DIR = os.path.join(PROJECT_DIR, "rq4")
+TMP_CLEANED_LLM4PC_PATCHES_PKL = os.path.join(RQ4_DIR, "cleaned_llm4pc_patches.pkl")
+TMP_LLM4PC_METHODS_PKL = os.path.join(RQ4_DIR, "llm4pc_methods.pkl")
+TMP_LLM4PC_NORMALIZED_NAMES_PKL = os.path.join(RQ4_DIR, "llm4pc_normalized_names.pkl")
+TMP_LLM4PC_SINGLE_METHODS_PKL = os.path.join(RQ4_DIR, "llm4pc_single_methods.pkl")
+TMP_LLM4PC_FILES_PKL = os.path.join(RQ4_DIR, "llm4pc_files.pkl")
+LLM4PC_TOOL_PATCHES_DIR = os.path.join(RQ4_DIR, "tool-patches.pkl")
+TMP_TYPE_BINARY_RESULTS_CSV_EXP5 = os.path.join(RQ4_DIR, "type-binary-results-exp5.csv")
 
 # DATASETS
 DATASETS_DIR = os.path.join(PROJECT_DIR, "datasets")
@@ -81,12 +87,11 @@ TMP_DATA_DIR = os.path.join(TMP_DIR, "data")
 TMP_RESULTS_DIR = os.path.join(TMP_DIR, "results")
 TMP_PLOTS_DIR = os.path.join(TMP_DIR, "plots")
 
-TMP_RQ1_DATA_DIR = os.path.join(TMP_DATA_DIR, "rq1")
+TMP_MOTIVATION_DATA_DIR = os.path.join(TMP_DATA_DIR, "motivation")
 
 
 ## Initial Data
-TMP_RQ1_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq1")
-TMP_RQ2_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "rq2")
+TMP_MOTIVATION_RESULTS_DIR = os.path.join(TMP_RESULTS_DIR, "motivation")
 
 TMP_FORMATTED_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "cleaned")
 TMP_DEVELOPER_PATCH_DIR = os.path.join(TMP_PATCHES_DIR, "raw")
@@ -151,7 +156,6 @@ TMP_TYPE_BINARY_RESULTS_CSV_EXP3 = os.path.join(TMP_PLOTS_DIR, f"type-binary-res
 TMP_TYPE_BINARY_RESULTS_CSV_EXP4 = os.path.join(TMP_PLOTS_DIR, f"type-binary-results-exp4.csv")
 
 TMP_RQ2_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq2")
-TMP_RQ3_PLOTS_DIR = os.path.join(TMP_PLOTS_DIR, "rq3")
 
 LOG_DIR = os.path.join(TMP_DIR, "logs")
 LOG_FILE = os.path.join(LOG_DIR, f"{FORMATTED_DATE_TIME}.log")

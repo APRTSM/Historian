@@ -1,8 +1,0 @@
---- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
-+++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
-@@ -1742,4 +1742,4 @@
-           for (Node astParameter : astParameters.children()) {
-             if (jsDocParameter != null) {
--           jsDocParameter.getJSType(), true);
-+           jsDocParameter.getJSType(), false);
-            jsDocParameter = jsDocParameter.getNext();

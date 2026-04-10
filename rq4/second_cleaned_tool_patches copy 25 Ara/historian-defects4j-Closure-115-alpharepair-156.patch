@@ -1,7 +1,0 @@
---- a/src/com/google/javascript/jscomp/FunctionInjector.java
-+++ b/src/com/google/javascript/jscomp/FunctionInjector.java
-@@ -694,4 +694,3 @@
-             
-                                     Node block = fnNode.getLastChild();            
-                     
-- return CanInlineResult.NO;

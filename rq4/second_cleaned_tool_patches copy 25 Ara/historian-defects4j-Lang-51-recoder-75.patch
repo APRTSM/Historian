@@ -1,6 +1,0 @@
---- a/src/java/org/apache/commons/lang/BooleanUtils.java
-+++ b/src/java/org/apache/commons/lang/BooleanUtils.java
-@@ -683,2 +683,3 @@
-                case 4: {
--                char ch = str.charAt(0);
-+           break;

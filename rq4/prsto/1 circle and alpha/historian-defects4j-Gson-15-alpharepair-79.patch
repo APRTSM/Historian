@@ -1,2 +1,0 @@
-- if (Double.isNaN(value) || Double.isInfinite(value)) {
-+ if (Double.isNaN(value) || Double.isInfinite(value)) { if (!lenient)

@@ -1,8 +1,0 @@
---- a/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
-+++ b/src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
-@@ -162,3 +162,3 @@
-                         varianceImpl.increment(value);            
-                                         }
-- if (!(geoMeanImpl instanceof GeometricMean)) {
-+ if (geoMeanImpl != geoMean) {
-

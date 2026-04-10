@@ -1,5 +1,0 @@
---- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
-+++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
-@@ -717,2 +717,1 @@ 
-                    if (rval == 0) {
-- error(DiagnosticType.error(JSC_DIVIDE_BY_0_ERROR, Divide by 0), right);

@@ -1,6 +1,0 @@
---- a/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
-+++ b/src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java
-@@ -257,2 +257,2 @@
-                         final double residual = residuals[i];
-- chiSquare += residual * residual / residualsWeights[i];
-+ chiSquare += residual * residual * residualsWeights[i];

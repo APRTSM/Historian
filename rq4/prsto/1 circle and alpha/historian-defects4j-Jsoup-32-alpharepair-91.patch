@@ -1,2 +1,0 @@
-- clone.classNames();
-+ clone.classNames = null;

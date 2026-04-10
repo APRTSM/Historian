@@ -1,2 +1,0 @@
-- attributes.remove(attrKey);
-+ it.remove();

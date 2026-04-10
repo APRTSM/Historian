@@ -1,9 +1,0 @@
---- a/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
-+++ b/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
-@@ -556,4 +556,4 @@
-     // We only want to match contraints on anonymous types.
--      for (String prop : constraintObj.getOwnPropertyNames()) {
-+       if(hasReferenceName()){
-        return;
-        }
-        

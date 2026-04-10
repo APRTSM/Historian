@@ -1,8 +1,0 @@
---- a/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
-+++ b/src/java/org/apache/commons/lang/time/DurationFormatUtils.java
-@@ -429,5 +424,5 @@
-         }            
-             return buffer.toString();            
-            }
--        if (endValue < startValue) {
-+       if(endValue < endValue) {

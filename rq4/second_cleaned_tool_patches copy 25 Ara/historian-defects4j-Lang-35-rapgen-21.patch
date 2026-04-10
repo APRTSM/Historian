@@ -1,8 +1,0 @@
---- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
-+++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
-@@ -3292,4 +3292,4 @@
-            } else if (element != null) {            
-            type = element.getClass();            
-            } else {
--               type = Object.class;
-+               throw new IllegalArgumentException("");

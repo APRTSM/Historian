@@ -1,8 +1,0 @@
---- a/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
-+++ b/src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
-@@ -380,7 +380,7 @@ 
-                 public OpenMapRealVector ebeMultiply(double[] v) {            
-                                         checkVectorDimensions(v.length);            
-                                         OpenMapRealVector res = new OpenMapRealVector(this);
--       Iterator iter = res.entries.iterator();
-+       Iterator iter = entries.iterator();

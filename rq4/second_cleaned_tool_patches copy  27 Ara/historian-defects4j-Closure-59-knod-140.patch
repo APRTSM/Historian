@@ -1,7 +1,0 @@
---- /src/com/google/javascript/jscomp/Compiler.java
-+++ /src/com/google/javascript/jscomp/Compiler.java
-@@ -254,3 +254,3 @@
- 
--    if (options.checkGlobalThisLevel.isOn()) {
-+    if (options.checkGlobalThisLevel.isOn() && !isTypeCheckingEnabled()) {
-       options.setWarningLevel(

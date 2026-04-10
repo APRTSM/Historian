@@ -513,7 +513,7 @@ def iterate_patches(rq4_data_dir, bugs):
                     bug = bugs.loc[f"defects4j-{filename.split('.')[0]}"].copy()
                     bug['uid'] = bug.name
                     uid = f"historian-{bug.name}-{tool}-{index}"
-                    location = os.path.join(RQ4_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
+                    location = os.path.join(RQ5_FIRST_CLEANED_DATA_DIR, f"{uid}.patch")
                     formatted_patch_dir = os.path.join(TMP_FORMATTED_PATCH_DIR, f"{uid}.patch")
 
 
