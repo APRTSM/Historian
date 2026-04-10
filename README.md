@@ -276,7 +276,7 @@ Raw LLM responses are stored under `tmp/results/` as pickle files. To regenerate
 
 ## Datasets and LLMs
 
-- **Historical Reference Set**: merged from five peer-reviewed APCA datasets — Xiong et al., Liu et al., Tian et al., Ye et al., Wang et al. — yielding 704 bugs / 1,351 correct / 20,403 overfitting patches after single-method and deduplication filters. See Table 3 in the paper.
+- **Historical Reference Set**: merged from five peer-reviewed APCA datasets, Xiong et al., Liu et al., Tian et al., Ye et al., Wang et al., then applied single-method and deduplication filters. See Table 3 in the paper.
 - **LLMs evaluated**: Magicoder 7B, CodeLlama 7B, DeepSeek-Coder 6.7B, CodeGemma 7B, Qwen 2.5 7B, Qwen 2.5 Coder 7B, Yi Coder 9B, Hermes 3 8B, and Gemini 2.0 Flash (commercial baseline).
 - **Zero-shot fallback parser**: `facebook/bart-large-mnli` (NLI-based label extraction when regex parsing is ambiguous).
 
