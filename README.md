@@ -59,16 +59,16 @@ Scripts and data directories are named after the RQ they reproduce in the paper.
 ├── rq5_llms.py              Core LLM runner library (shared by most RQ scripts;
 │                            script entry point drives the RQ5 longitudinal run)
 │
-│   # §2.1 Empirical Motivation — redundancy and diversity of tool-generated patches
+│   # §2.1 Empirical Motivation, redundancy and diversity of tool-generated patches
 ├── motivation.py               Cluster patches by equivalence (Exact → SourcererCC → AST → manual)
 ├── motivation_plots.py         Cluster size distribution (Fig. 2)
 ├── motivation_cache_small.py   Variant used for the Cache-subset motivation analysis
 │
-│   # Paper RQ1 — Oracle experiment on expert-labeled TBar pairs (§5.1)
+│   # Paper RQ1, Oracle experiment on expert-labeled TBar pairs (§5.1)
 ├── rq1/                     Expert-labeled TBar pairs, voted verdicts, paper tables
 ├── rq1_oracle.py            Two-stage Evidence-Based Inference Logic → Tables 5–6, Fig. 4
 │
-│   # Paper RQ2 — Sensitivity across LLM × prompt × representation (§5.2)
+│   # Paper RQ2, Sensitivity across LLM × prompt × representation (§5.2)
 ├── rq2/                     Stratified samples, manual labels, zero-shot accuracy stats
 ├── rq2_zeroshot.py                 Runs the 128 LLM×prompt×representation configurations
 ├── rq2_manual.py                   Draws stratified samples for manual validation of the parser
@@ -77,13 +77,13 @@ Scripts and data directories are named after the RQ they reproduce in the paper.
 ├── rq2_zero_shot_plot.py           Violin plots (SS/SE binary tasks)
 ├── rq2_zero_shot_plot_boxplot.py   Clone-type (CC) plots
 │
-│   # Paper RQ3 — Leave-One-Tool-Out on 22 tools / 825 patches (§5.3)
+│   # Paper RQ3, Leave-One-Tool-Out on 22 tools / 825 patches (§5.3)
 │   # (Reuses the unified corpus built by build.py; no dedicated data dir.)
 │   # The 22-fold LOTO verdicts are computed inside the rq4_historian_*
 │   # scripts via the Experiment3Results helper, then majority-voted by
-│   # results.py — see "Reproducing the Paper" below.
+│   # results.py, see "Reproducing the Paper" below.
 │
-│   # Paper RQ4 — Historian as a pre-filter for standalone APCA tools (§5.4)
+│   # Paper RQ4, Historian as a pre-filter for standalone APCA tools (§5.4)
 ├── rq4/                     ODS/Quatrain/Cache inputs, per-tool predictions, hybrid results
 ├── rq4_dataset_fix.py                Sanitizes the LLM4PC dataset
 ├── rq4_dataset_analysis.py           Dataset statistics for the integration study
@@ -94,7 +94,7 @@ Scripts and data directories are named after the RQ they reproduce in the paper.
 ├── rq4_historian_quatrain_tocsv.py       Quatrain predictions export
 ├── rq4_historian_cache.py            Historian → Cache hybrid pipeline
 │
-│   # Paper RQ5 — Longitudinal redundancy analysis 2020–2024 (§5.5)
+│   # Paper RQ5, Longitudinal redundancy analysis 2020–2024 (§5.5)
 ├── rq5/                     Longitudinal corpus + plots (Venn, UpSet, temporal redundancy)
 │     ├── tool_patches/                      Raw per-tool patch dumps for the post-2020 tools
 │     ├── first_cleaned_tool_patches/        Auto-cleaned patches (rq5_gather.py output)
@@ -114,7 +114,7 @@ Scripts and data directories are named after the RQ they reproduce in the paper.
 
 ## Quick Start
 
-**Step 1 — Assemble the unified patch corpus.** This is a mandatory
+**Step 1, Assemble the unified patch corpus.** This is a mandatory
 prerequisite for every RQ (§2.1 motivation, RQ1, RQ2, RQ3, RQ4, and
 RQ5). All RQ scripts load the cached pickles produced by `build.py`
 (`tmp/data/*.pkl`, `tmp/bugs.pkl`, etc.), and `setup.py` performs the
@@ -129,7 +129,7 @@ python build.py                     # Clean → extract methods → normalize �
 identifiers, and deduplicates per tool. Intermediate pickles are cached
 under `tmp/data/` and `setup/`, so subsequent runs are incremental.
 
-**Step 2 — (Optional) report dataset statistics.** Reproduces the
+**Step 2, (Optional) report dataset statistics.** Reproduces the
 Correct/Overfitting × benchmark × generator breakdown reported as
 Table 3 in the paper.
 
@@ -137,7 +137,7 @@ Table 3 in the paper.
 python dataset_analyzer.py          # Summary table (Table 3)
 ```
 
-**Step 3 — Start Ollama and pull the required models.**
+**Step 3, Start Ollama and pull the required models.**
 
 ```bash
 ollama pull qwen2.5-coder:7b
@@ -149,7 +149,7 @@ ollama pull deepseek-coder:6.7b
 
 The scripts are grouped below by the RQ in the paper (not by their filename prefix). Unless stated otherwise, outputs land in `tmp/plots/` and each RQ's data directory.
 
-### §2.1 Empirical Motivation — Redundancy and Solution Diversity
+### §2.1 Empirical Motivation, Redundancy and Solution Diversity
 
 Recreates Figure 2 and the cluster statistics (245 → 96 unique solution
 clusters). Requires the unified corpus from `build.py`.
@@ -160,7 +160,7 @@ python motivation_plots.py          # Cluster size distribution plot (Fig. 2)
 python motivation_cache_small.py    # Optional: Cache-subset variant of the same clustering analysis
 ```
 
-### RQ1 — Performance Ceiling (TBar oracle)
+### RQ1, Performance Ceiling (TBar oracle)
 
 Applies the two-stage Evidence-Based Inference Logic to 4,248 expert-annotated pairwise relationships for 139 TBar candidates. Produces Tables 5–6 and Figure 4.
 
@@ -171,7 +171,7 @@ python rq1_oracle.py
 Expert labels: `rq1/rq1_expert_labeled_tbar.csv`.
 Voted verdicts and confusion matrix: `rq1/rq1_expert_labeled_tbar_voted.{csv,pkl}`.
 
-### RQ2 — Sensitivity (LLM × Prompt × Representation)
+### RQ2, Sensitivity (LLM × Prompt × Representation)
 
 Runs all 128 configurations (8 models × 8 prompts × 2 representations)
 and evaluates the two-stage parser. The scripts below form a pipeline
@@ -196,7 +196,7 @@ python rq2_zero_shot_plot.py              # Violin plots for SS/SI binary tasks
 python rq2_zero_shot_plot_boxplot.py      # Boxplots for the CC clone-type task
 ```
 
-### RQ3 — Leave-One-Tool-Out (22 APR tools)
+### RQ3, Leave-One-Tool-Out (22 APR tools)
 
 Simulates assessment of each tool with the Historical Reference Set
 dynamically reconstructed from the remaining 21 tools. Reproduces
@@ -220,16 +220,16 @@ python rq4_historian_ods.py        # Drives 22-fold LOTO via Experiment3Results 
 python results.py                  # Aggregates majority-voted verdicts → Table 13
 ```
 
-If you are going to reproduce RQ4 anyway, you can skip this block — the
+If you are going to reproduce RQ4 anyway, you can skip this block, the
 RQ4 reproduction below runs all three `rq4_historian_*` scripts and
 will produce everything needed for Table 13 as a side-effect.
 
-### RQ4 — Historian as a Pre-Filter for APCA Tools
+### RQ4, Historian as a Pre-Filter for APCA Tools
 
 Integrates Historian with three representative APCA tools (ODS,
 Quatrain, Cache). Reproduces Tables 14–15. The Quatrain branch has
 extra preprocessing and export steps because Quatrain consumes
-bug-report text and produces per-patch CSV predictions — these must
+bug-report text and produces per-patch CSV predictions, these must
 bracket the main `rq4_historian_quatrain.py` run.
 
 ```bash
@@ -250,7 +250,7 @@ python rq4_historian_quatrain_tocsv.py         # Export Quatrain predictions to 
 python rq4_historian_cache.py                  # Historian → Cache hybrid
 ```
 
-### RQ5 — Longitudinal Redundancy (2020–2024)
+### RQ5, Longitudinal Redundancy (2020–2024)
 
 Chronologically introduces seven recent tools (ARJA-e → T5APR) into the reference set and measures redundancy using deterministic (textual / SourcererCC / AST) clone detection. Reproduces Tables 17–18 and the temporal redundancy figure.
 
