@@ -1,8 +1,8 @@
-# Historian — Replication Package
+# Historian, Replication Package
 
 Replication package for **_Historian: Reducing Manual Validation in APR Benchmarking via Evidence-Based Assessment_**.
 
-Historian reformulates Automated Patch Correctness Assessment (APCA) as a multi-reference semantic equivalence detection problem. For each candidate patch, it uses an LLM to perform exhaustive pairwise comparisons against a Historical Reference Set of previously validated tool patches, then applies a two-stage Evidence-Based Inference Logic (pairwise inference + majority voting) to produce a traceable `Correct` / `Overfitting` / `Unknown` verdict.
+Historian reformulates Automated Patch Correctness Assessment as a multi-reference semantic equivalence detection problem. For each candidate patch, it uses an LLM to perform exhaustive pairwise comparisons against a Historical Reference Set of previously validated tool patches, then applies a two-stage Evidence-Based Inference Logic (pairwise inference + majority voting) to produce a traceable `Correct` / `Overfitting` / `Unknown` verdict.
 
 <p align="center">
   <img src="extra/method.png" alt="Historian Overview" width="700">
@@ -12,7 +12,7 @@ Historian reformulates Automated Patch Correctness Assessment (APCA) as a multi-
 
 - **Multi-reference, evidence-based verdicts.** Every `Correct` / `Overfitting` label is linked to concrete historical reference patches, not an opaque classifier score.
 - **Conservative abstention.** Candidate patches without sufficient historical precedent are marked `Unknown` and routed to manual review.
-- **Strong empirical results.** In a 22-fold leave-one-tool-out evaluation on Defects4J, Historian reaches **95.0% coverage** with **88.4% accuracy**, and as a pre-filter boosts standalone APCA tools (ODS, Quatrain, Cache) by up to **+21.8 accuracy points**.
+- **empirical results.** In a 22-fold leave-one-tool-out evaluation on Defects4J, Historian reaches **95.0% coverage** with **88.4% accuracy**, and as a pre-filter boosts standalone APCA tools (ODS, Quatrain, Cache) by up to **+21.8 accuracy points**.
 - **Sustainable.** A longitudinal analysis (2020–2024) shows ~39.6% of recent correct tool patches independently rediscover fixes already in the historical record.
 
 ## Requirements
