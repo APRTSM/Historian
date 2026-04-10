@@ -280,6 +280,4 @@ Raw LLM responses are stored under `tmp/results/` as pickle files. To regenerate
 - **LLMs evaluated**: Magicoder 7B, CodeLlama 7B, DeepSeek-Coder 6.7B, CodeGemma 7B, Qwen 2.5 7B, Qwen 2.5 Coder 7B, Yi Coder 9B, Hermes 3 8B, and Gemini 2.0 Flash (commercial baseline).
 - **Zero-shot fallback parser**: `facebook/bart-large-mnli` (NLI-based label extraction when regex parsing is ambiguous).
 
-## License
 
-Released under the terms of the `LICENSE` file at the repository root.
