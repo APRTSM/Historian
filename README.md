@@ -14,11 +14,6 @@ Historian reformulates Automated Patch Correctness Assessment as a multi-referen
 - **Conservative abstention.** Candidate patches without sufficient historical precedent are marked `Unknown` and routed to manual review.
 - **empirical results.** In a 22-fold leave-one-tool-out evaluation on Defects4J, Historian reaches **95.0% coverage** with **88.4% accuracy**, and as a pre-filter boosts standalone APCA tools (ODS, Quatrain, Cache) by up to **+21.8 accuracy points**.
 - **Sustainable.** A longitudinal analysis (2020–2024) shows ~39.6% of recent correct tool patches independently rediscover fixes already in the historical record.
-- **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
-
-<p align="center">
-  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/extra/main-results.png" alt="Performance Figure">
-</p>
 
 
 
