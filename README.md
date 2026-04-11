@@ -2,7 +2,7 @@
 
 Replication package for **_Historian: Reducing Manual Validation in APR Benchmarking via Evidence-Based Assessment_**.
 
-Historian reformulates Automated Patch Correctness Assessment as a multi-reference semantic equivalence detection problem. For each candidate patch, it uses an LLM to perform exhaustive pairwise comparisons against a Historical Reference Set of previously validated tool patches, then applies a two-stage Evidence-Based Inference Logic (pairwise inference + majority voting) to produce a traceable `Correct` / `Overfitting` / `Unknown` verdict.
+Historian reformulates Automated Patch Correctness Assessment as a multi-reference semantic equivalence detection problem. For each candidate patch, it perform pairwise comparisons against a Historical Reference Set of previously validated tool patches, then applies a two-stage Evidence-Based Inference Logic (pairwise inference + majority voting) to produce a traceable `Correct` / `Overfitting` / `Unknown` verdict.
 
 <p align="center">
   <img src="extra/method.png" alt="Historian Overview" width="700">
@@ -14,6 +14,13 @@ Historian reformulates Automated Patch Correctness Assessment as a multi-referen
 - **Conservative abstention.** Candidate patches without sufficient historical precedent are marked `Unknown` and routed to manual review.
 - **empirical results.** In a 22-fold leave-one-tool-out evaluation on Defects4J, Historian reaches **95.0% coverage** with **88.4% accuracy**, and as a pre-filter boosts standalone APCA tools (ODS, Quatrain, Cache) by up to **+21.8 accuracy points**.
 - **Sustainable.** A longitudinal analysis (2020–2024) shows ~39.6% of recent correct tool patches independently rediscover fixes already in the historical record.
+- **Performance**: Historian demonstrates superior performance compared to existing SOTA methods (Acc/F1 W. Avg. 88.4/0.91 in Table 6 compared to 84.0/0.88 of SOTA in Table 7).
+
+<p align="center">
+  <img src="https://anonymous.4open.science/api/repo/Historian-Artifact/file/extra/main-results.png" alt="Performance Figure">
+</p>
+
+
 
 ## Requirements
 
@@ -147,7 +154,7 @@ ollama pull deepseek-coder:6.7b
 
 ## Reproducing the Paper
 
-The scripts are grouped below by the RQ in the paper (not by their filename prefix). Unless stated otherwise, outputs land in `tmp/plots/` and each RQ's data directory.
+The scripts are grouped below by the RQ in the paper. Unless stated otherwise, outputs land in `tmp/plots/` and each RQ's data directory.
 
 ### §2.1 Empirical Motivation, Redundancy and Solution Diversity
 
@@ -204,8 +211,7 @@ Table 13. The candidate patches and their Correct/Overfitting labels
 come from the unified corpus already assembled by `build.py`, so no
 separate gather/apply/assign step is needed.
 
-**Where the LOTO actually runs.** There is no dedicated `rq3_*` driver
-in the repository. The 22-fold leave-one-tool-out verdicts are computed
+**Where the LOTO actually runs.** The 22-fold leave-one-tool-out verdicts are computed
 inside the `rq4_historian_*` scripts: each of them instantiates the
 shared `Experiment3Results` helper over the 22-tool reference set
 *before* its APCA-filter hybrid step, so the raw LOTO predictions fall
