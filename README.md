@@ -15,8 +15,6 @@ Historian reformulates Automated Patch Correctness Assessment as a multi-referen
 - **empirical results.** In a 22-fold leave-one-tool-out evaluation on Defects4J, Historian reaches **95.0% coverage** with **88.4% accuracy**, and as a pre-filter boosts standalone APCA tools (ODS, Quatrain, Cache) by up to **+21.8 accuracy points**.
 - **Sustainable.** A longitudinal analysis (2020–2024) shows ~39.6% of recent correct tool patches independently rediscover fixes already in the historical record.
 
-
-
 ## Requirements
 
 - Python 3.10
