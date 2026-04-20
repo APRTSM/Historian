@@ -1,0 +1,9 @@
+--- a/src/main/java/org/jsoup/nodes/Attribute.java
++++ b/src/main/java/org/jsoup/nodes/Attribute.java
+@@ -79,2 +79,5 @@
+     public String getValue() {
++if (val == null ){
++return "";
++}
+         return val;
+

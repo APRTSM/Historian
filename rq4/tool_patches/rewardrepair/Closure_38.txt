@@ -1,0 +1,9 @@
+Closure_38
+FL: com.google.javascript.jscomp.CodeConsumer,245,0.025
+Semantical equivalent to human-written patches  replace line(s)
+-  if  (x  <   0  &&  prev  ==  '-')  {
++  if  (x  <=  0  &&  prev  ==  '-')  {
+developer patch:
++  if  ((x  <  0  ||  negativeZero)  &&  prev  ==  '-')  {
+Same correct patch as CURE: https://github.com/lin-tan/CURE/blob/master/Bugs_CURE_fixed/Defects4J/Closure_38.txt
+

@@ -1,0 +1,12 @@
+--- a/src/java/org/apache/commons/math/complex/Complex.java
++++ b/src/java/org/apache/commons/math/complex/Complex.java
+@@ -296,7 +296,7 @@
+     * @return the real part
+     */
+    public double getReal() {
+-        return real;
++       return (real + 0);
+    }
+    
+    /**
+

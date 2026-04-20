@@ -1,0 +1,11 @@
+Closure 38
+src/com/google/javascript/jscomp/CodeConsumer.java
+245 - 245
+###    buggy:  ###
+- if (x < 0 && prev == '-') {
+### developer: ###
++ if ((x < 0 || negativeZero) && prev == '-') {
+###    ours:   ###
++ if ((x<0 || isNegativeZero(x)) && prev == '-'){
+
+// Equivalence: '{' pairs the '}' of if statement.

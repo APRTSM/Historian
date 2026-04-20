@@ -1,0 +1,5 @@
+    public int getLength() {
+        Object value = getBaseValue();
+return value == null ? 1 : ValueUtils.getLength(value);
+
+    }

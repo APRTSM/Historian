@@ -1,0 +1,11 @@
+Jsoup_43_Element_1_1
+src/main/java/org/jsoup/nodes/Element.java 574
+
+Buggy Line:
+if (element.equals(search))
+
+Developer's Fix:
+if (element == search)
+
+[success] RAP-Gen's Repair:
+if(element == search || element.equals(search)) {

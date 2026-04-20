@@ -1,0 +1,4 @@
+jsoup-26
+Jsoup2643avaj.renaelCytefaspuosjgroavajniamcrsyggub
+-            copySafeNodes(dirtyDocument.body(), clean.body());
++copySafeNodes(dirtyDocument, clean.body());

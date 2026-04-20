@@ -1,0 +1,12 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java
+@@ -64,6 +64,8 @@
+     {
+         // Note! Should not skip if `property` null since that'd skip check
+         // for config overrides, in case of root value
++if (_useTimestamp != null)  
++
+         if (property == null) {
+             return this;
+         }
+

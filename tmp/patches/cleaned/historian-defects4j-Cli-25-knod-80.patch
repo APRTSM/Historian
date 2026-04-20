@@ -1,0 +1,8 @@
+--- a/src/java/org/apache/commons/cli/HelpFormatter.java
++++ b/src/java/org/apache/commons/cli/HelpFormatter.java
+@@ -824,3 +824,3 @@
+             // stops infinite loop happening
+-            nextLineTabStop = width - 1;
++            nextLineTabStop = 1;
+         }
+

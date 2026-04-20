@@ -1,0 +1,7 @@
+--- a/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java
+@@ -370,2 +370,3 @@
+       case NUMBER:
++case STRING: in.toString();
+         return new LazilyParsedNumber(in.nextString());
+

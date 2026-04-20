@@ -1,0 +1,6 @@
+Closure_70
+FL: com.google.javascript.jscomp.TypedScopeCreator,1744,0.05
+Identical to human-written patches  replace line(s)
+-      defineSlot(astParameter, functionNode, jsDocParameter.getJSType(),    true);    
++      defineSlot(astParameter, functionNode, jsDocParameter.getJSType(), false);
+

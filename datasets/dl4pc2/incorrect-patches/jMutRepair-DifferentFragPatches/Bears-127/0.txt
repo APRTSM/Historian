@@ -1,0 +1,13 @@
+/var/lib/oar/.batch_job_bashrc: line 5: /home/tdurieux/.bashrc: No such file or directory
+--- org/traccar/protocol/EelinkProtocolDecoder.java
++++ org/traccar/protocol/EelinkProtocolDecoder.java
+@@ -131,7 +131,7 @@
+ 
+ 		position.setValid((((buf.readUnsignedByte()) & 1) != 0));
+ 
+-		if (type == (org.traccar.protocol.EelinkProtocolDecoder.MSG_GPS)) {
++		if (type != (org.traccar.protocol.EelinkProtocolDecoder.MSG_GPS)) {
+ 
+ 			if ((buf.readableBytes()) >= 2) {
+ 				decodeStatus(position, buf.readUnsignedShort());
+

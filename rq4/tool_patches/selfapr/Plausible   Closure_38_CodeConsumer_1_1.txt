@@ -1,0 +1,6 @@
+Plausible   Closure_38_CodeConsumer_1_1 
+src/com/google/javascript/jscomp/CodeConsumer.java 245 
+-  if (x < 0 && prev == '-') { 
++  if( (x  <=  0)  &&  prev  ==  '-')  {
+[Human-written Patch]
++  if  (x  <=  0  &&  prev  ==  '-')  {

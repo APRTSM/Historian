@@ -1,0 +1,16 @@
+
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -138,10 +138,11 @@ class MinimizeExitPoints
+        * can cause problems if it changes the completion type of the finally
+        * block. See ECMA 262 Sections 8.9 & 12.14
+        */
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock = n.getLastChild();
+-        tryMinimizeExits(finallyBlock, exitType, labelName);
++       tryMinimizeExits(n, exitType, labelName);
++       if(finallyBlock == null) { tryMinimizeExits(n, exitType, labelName); } 
+      }
+     }
+ 
+     // Just a 'label'.

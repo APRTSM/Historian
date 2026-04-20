@@ -1,0 +1,11 @@
+Closure_18_Compiler_1_1
+src/com/google/javascript/jscomp/Compiler.java 1288
+
+Buggy Line:
+if (options.dependencyOptions.needsManagement() && options.closurePass) {
+
+Developer's Fix:
+if (options.dependencyOptions.needsManagement()) {
+
+[success] RAP-Gen's Repair:
+if(options.dependencyOptions.needsManagement()){

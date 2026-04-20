@@ -1,0 +1,32 @@
+[
+    {
+        "uid": "dl4pc2",
+        "name": "DL4PC-E2",
+        "description": "Second Experiment of DL4PC Study",
+        "link": "https://github.com/TruX-DTF/DL4PatchCorrectness"
+    },
+    {
+        "uid": "aprenfl",
+        "name": "APRE-NFL",
+        "description": "NFL Patches of APR-Efficiency Study",
+        "link": "https://github.com/TruX-DTF/APR-Efficiency"
+    },
+    {
+        "uid": "defectsreparing",
+        "name": "DefectRepairing",
+        "description": "",
+        "link": "https://github.com/Ultimanecat/DefectRepairing"
+    },
+    {
+        "uid": "drr",
+        "name": "DRR",
+        "description": "",
+        "link": "https://github.com/ASSERT-KTH/drr"
+    },
+    {
+        "uid": "wangicse",
+        "name": "WangICSE",
+        "description": "",
+        "link": "https://zenodo.org/records/3730599"
+    }
+]

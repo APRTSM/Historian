@@ -1,0 +1,6 @@
+Identical   Cli_8_HelpFormatter_1_1 
+src/java/org/apache/commons/cli/HelpFormatter.java 812 
+-  pos = findWrapPos(text, width, nextLineTabStop); 
++  pos  =  findWrapPos(text,  width,  0);
+[Human-written Patch]
++  pos  =  findWrapPos(text,  width,  0);

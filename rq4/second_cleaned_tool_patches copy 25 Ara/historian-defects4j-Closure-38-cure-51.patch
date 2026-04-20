@@ -1,0 +1,27 @@
+--- a/src/com/google/javascript/jscomp/CodeConsumer.java
++++ b/src/com/google/javascript/jscomp/CodeConsumer.java
+@@ -242,7 +242,7 @@ 
+                // x--4 (which is a syntax error).            
+                char prev = getLastChar();            
+                boolean negativeZero = isNegativeZero(x);
+- if (x < 0 && prev == '-') {
++ if( x <=0&& prev == '-') {
+                   add(" ");            
+                                     }            
+                     
+
+
+
+Developer's patch:
+if ((x < 0 || negativeZero) && prev == '-') {
+
+
+Explanation:
+CURE's patch is equivalent to developer's patch.
+
+Given boolean negativeZero = isNegativeZero(x),
+and isNegativeZero() method as follow:
+static boolean isNegativeZero(double x) {
+    return x == 0.0 && Math.copySign(1, x) == -1.0;
+}
+if x is 0 and prev (i.e. the sign of x) is '-', negativeZero will be true.

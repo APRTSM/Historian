@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Cli_34_Option_1_1
+src/main/java/org/apache/commons/cli/Option.java 72
+
+Buggy Line:
+private Class type;
+
+Developer's Fix:
+private Class type = String.class;
+
+[success] RAP-Gen's Repair:
+private Class type = String.class;

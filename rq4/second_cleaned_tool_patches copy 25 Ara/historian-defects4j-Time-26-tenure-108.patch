@@ -1,0 +1,11 @@
+--- a/src/main/java/org/joda/time/chrono/ZonedChronology.java
++++ b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+@@ -461,7 +461,7 @@
+                         }            
+                }            
+        
+                public long set(long instant, int value) {            
+                    long localInstant = iZone.convertUTCToLocal(instant);            
+                    localInstant = iField.set(localInstant, value);
+- long result = iZone.convertLocalToUTC(localInstant, false);
++ long result = iZone.convertLocalToUTC(localInstant, false, instant);

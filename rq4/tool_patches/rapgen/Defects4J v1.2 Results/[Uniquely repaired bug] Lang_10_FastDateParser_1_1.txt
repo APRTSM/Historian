@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Lang_10_FastDateParser_1_1
+src/main/java/org/apache/commons/lang3/time/FastDateParser.java 304
+
+Buggy Line:
+boolean wasWhite= false; if(Character.isWhitespace(c)) { if(!wasWhite) { wasWhite= true; regex.append("\\\\\\\\s*+"); } continue; } wasWhite= false;
+
+Developer's Fix:
+[Delete]
+
+[success] RAP-Gen's Repair:
+[Delete] or ;

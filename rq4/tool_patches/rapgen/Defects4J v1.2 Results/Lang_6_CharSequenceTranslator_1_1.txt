@@ -1,0 +1,11 @@
+Lang_6_CharSequenceTranslator_1_1
+src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java 95
+
+Buggy Line:
+pos += Character.charCount(Character.codePointAt(input, pos));
+
+Developer's Fix:
+pos += Character.charCount(Character.codePointAt(input, pt));
+
+[success] RAP-Gen's Repair:
+pos += Character.charCount(Character.codePointAt(input, pt));

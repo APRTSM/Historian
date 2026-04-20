@@ -1,0 +1,168 @@
+    public JavaType resolveSubType(JavaType baseType, String subClass)
+        throws JsonMappingException
+    {
+        // 30-Jan-2010, tatu: Most ids are basic class names; so let's first
+        //    check if any generics info is added; and only then ask factory
+        //    to do translation when necessary
+        if (subClass.indexOf('<') > 0) {
+            // note: may want to try combining with specialization (esp for EnumMap)?
+            // 17-Aug-2017, tatu: As per [databind#1735] need to ensure assignment
+            //    compatibility -- needed later anyway, and not doing so may open
+            //    security issues.
+            JavaType t = getTypeFactory().constructFromCanonical(subClass);
+            if (t.isTypeOrSubTypeOf(baseType.getRawClass())) {
+                return t;
+            }
+        } else {
+            Class<?> cls;
+            try {
+                cls =  getTypeFactory().findClass(subClass);
+            } catch (ClassNotFoundException e) { // let caller handle this problem
+                return null;
+            } catch (Exception e) {
+                throw invalidTypeIdException(baseType, subClass, String.format(
+                        "problem: (%s) %s",
+                        e.getClass().getName(),
+                        ClassUtil.exceptionMessage(e)));
+            }
+            if (baseType.isTypeOrSuperTypeOf(cls)) {
+                return getTypeFactory().constructSpecializedType(baseType, cls);
+            }
+        }
+        throw invalidTypeIdException(baseType, subClass, "Not a subtype");
+    }
+    public Date parseDate(String dateStr) throws IllegalArgumentException
+    {
+        try {
+            DateFormat df = getDateFormat();
+            return df.parse(dateStr);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException(String.format(
+                    "Failed to parse Date value '%s': %s", dateStr,
+                    ClassUtil.exceptionMessage(e)));
+        }
+    }
+    public JsonMappingException instantiationException(Class<?> instClass, Throwable cause) {
+        // Most likely problem with Creator definition, right?
+        final JavaType type = constructType(instClass);
+        String excMsg;
+        if (cause == null) {
+            excMsg = "N/A";
+        } else if ((excMsg = ClassUtil.exceptionMessage(cause)) == null) {
+            excMsg = ClassUtil.nameOf(cause.getClass());
+        }
+        String msg = String.format("Cannot construct instance of %s, problem: %s",
+                ClassUtil.nameOf(instClass), excMsg);
+        InvalidDefinitionException e = InvalidDefinitionException.from(_parser, msg, type);
+        e.initCause(cause);
+        return e;
+    }
+    public static JsonMappingException fromUnexpectedIOE(IOException src) {
+        return new JsonMappingException(null,
+                String.format("Unexpected IOException (of type %s): %s",
+                        src.getClass().getName(),
+                        ClassUtil.exceptionMessage(src)));
+    }
+    public static JsonMappingException wrapWithPath(Throwable src, Reference ref)
+    {
+        JsonMappingException jme;
+        if (src instanceof JsonMappingException) {
+            jme = (JsonMappingException) src;
+        } else {
+            // [databind#2128]: try to avoid duplication
+            String msg = ClassUtil.exceptionMessage(src);
+            // Let's use a more meaningful placeholder if all we have is null
+            if (msg == null || msg.length() == 0) {
+                msg = "(was "+src.getClass().getName()+")";
+            }
+            // 17-Aug-2015, tatu: Let's also pass the processor (parser/generator) along
+            Closeable proc = null;
+            if (src instanceof JsonProcessingException) {
+                Object proc0 = ((JsonProcessingException) src).getProcessor();
+                if (proc0 instanceof Closeable) {
+                    proc = (Closeable) proc0;
+                }
+            }
+            jme = new JsonMappingException(proc, msg, src);
+        }
+        jme.prependPath(ref);
+        return jme;
+    }
+    protected JsonSerializer<Object> _createAndCacheUntypedSerializer(JavaType type)
+        throws JsonMappingException
+    {        
+        JsonSerializer<Object> ser;
+        try {
+            ser = _createUntypedSerializer(type);
+        } catch (IllegalArgumentException iae) {
+            // We better only expose checked exceptions, since those
+            // are what caller is expected to handle
+            ser = null;
+            reportMappingProblem(iae, ClassUtil.exceptionMessage(iae));
+        }
+    
+        if (ser != null) {
+            // 21-Dec-2015, tatu: Should we also cache using raw key?
+            _serializerCache.addAndResolveNonTypedSerializer(type, ser, this);
+        }
+        return ser;
+    }
+    protected JsonSerializer<Object> _createAndCacheUntypedSerializer(Class<?> rawType)
+        throws JsonMappingException
+    {
+        JavaType fullType = _config.constructType(rawType);
+        JsonSerializer<Object> ser;
+        try {
+            ser = _createUntypedSerializer(fullType);
+        } catch (IllegalArgumentException iae) {
+            // We better only expose checked exceptions, since those
+            // are what caller is expected to handle
+            ser = null; // doesn't matter but compiler whines otherwise
+            reportMappingProblem(iae, ClassUtil.exceptionMessage(iae));
+        }
+
+        if (ser != null) {
+            // 21-Dec-2015, tatu: Best to cache for both raw and full-type key
+            _serializerCache.addAndResolveNonTypedSerializer(rawType, fullType, ser, this);
+        }
+        return ser;
+    }
+    public TypeDeserializer findTypeDeserializer(DeserializationConfig config,
+            JavaType baseType)
+        throws JsonMappingException
+    {
+        BeanDescription bean = config.introspectClassAnnotations(baseType.getRawClass());
+        AnnotatedClass ac = bean.getClassInfo();
+        AnnotationIntrospector ai = config.getAnnotationIntrospector();
+        TypeResolverBuilder<?> b = ai.findTypeResolver(config, ac, baseType);
+
+        // Ok: if there is no explicit type info handler, we may want to
+        // use a default. If so, config object knows what to use.
+        Collection<NamedType> subtypes = null;
+        if (b == null) {
+            b = config.getDefaultTyper(baseType);
+            if (b == null) {
+                return null;
+            }
+        } else {
+            subtypes = config.getSubtypeResolver().collectAndResolveSubtypesByTypeId(config, ac);
+        }
+        // May need to figure out default implementation, if none found yet
+        // (note: check for abstract type is not 100% mandatory, more of an optimization)
+        if ((b.getDefaultImpl() == null) && baseType.isAbstract()) {
+            JavaType defaultType = mapAbstractType(config, baseType);
+            if ((defaultType != null) && !defaultType.hasRawClass(baseType.getRawClass())) {
+                b = b.defaultImpl(defaultType.getRawClass());
+            }
+        }
+        // 05-Apt-2018, tatu: Since we get non-mapping exception due to various limitations,
+        //    map to better type here
+        try {
+            return b.buildTypeDeserializer(config, baseType, subtypes);
+        } catch (IllegalArgumentException e0) {
+            InvalidDefinitionException e = InvalidDefinitionException.from((JsonParser) null,
+                    ClassUtil.exceptionMessage(e0), baseType);
+            e.initCause(e0);
+            throw e;
+        }
+    }

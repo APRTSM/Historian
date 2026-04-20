@@ -1,0 +1,6 @@
+Plausible   JacksonCore_25_ReaderBasedJsonParser_1_1 
+src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java 1963 
+-  if (i <= maxCode) { 
++  if(_inputPtr  >=  _inputEnd)  {
+[Human-written Patch]
++  if  (i  <  maxCode)  {

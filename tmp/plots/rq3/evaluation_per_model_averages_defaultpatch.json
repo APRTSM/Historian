@@ -1,0 +1,56 @@
+{
+    "magicoder:7b-s-cl": {
+        "avg_regex_portion_yes_no": 0.1688437207122774,
+        "avg_regex_portion_clone_type": 0.050726335520149955,
+        "avg_zero_shot_acc_yes_no": 0.9194360436203503,
+        "avg_zero_shot_acc_clone_type": 0.32909930715935337
+    },
+    "codellama:7b-instruct": {
+        "avg_regex_portion_yes_no": 0.32306379472693036,
+        "avg_regex_portion_clone_type": 0.1663135593220339,
+        "avg_zero_shot_acc_yes_no": 0.9342932845420018,
+        "avg_zero_shot_acc_clone_type": 0.49256900212314225
+    },
+    "codellama:13b-instruct": {
+        "avg_regex_portion_yes_no": 0.4708980696798494,
+        "avg_regex_portion_clone_type": 0.3957156308851224,
+        "avg_zero_shot_acc_yes_no": 0.9413732749001987,
+        "avg_zero_shot_acc_clone_type": 0.9950746268656716
+    },
+    "deepseek-coder:6.7b": {
+        "avg_regex_portion_yes_no": 0.4801082862523541,
+        "avg_regex_portion_clone_type": 0.2677730696798493,
+        "avg_zero_shot_acc_yes_no": 0.9210289799021327,
+        "avg_zero_shot_acc_clone_type": 0.47802197802197804
+    },
+    "codegemma:7b-instruct": {
+        "avg_regex_portion_yes_no": 0.7564147834274954,
+        "avg_regex_portion_clone_type": 0.4870527306967985,
+        "avg_zero_shot_acc_yes_no": 0.9512393478436443,
+        "avg_zero_shot_acc_clone_type": 0.49975833736104397
+    },
+    "qwen2.5:7b": {
+        "avg_regex_portion_yes_no": 0.8511064030131826,
+        "avg_regex_portion_clone_type": 0.1178201506591337,
+        "avg_zero_shot_acc_yes_no": 0.9031076570156471,
+        "avg_zero_shot_acc_clone_type": 0.474025974025974
+    },
+    "qwen2.5-coder:7b": {
+        "avg_regex_portion_yes_no": 0.7496468926553671,
+        "avg_regex_portion_clone_type": 0.10240112994350282,
+        "avg_zero_shot_acc_yes_no": 0.9622747721897702,
+        "avg_zero_shot_acc_clone_type": 0.5
+    },
+    "yi-coder:9b": {
+        "avg_regex_portion_yes_no": 0.5567780276260841,
+        "avg_regex_portion_clone_type": 0.06954706071313844,
+        "avg_zero_shot_acc_yes_no": 0.9797187436378854,
+        "avg_zero_shot_acc_clone_type": 0.09815242494226328
+    },
+    "hermes3:8b": {
+        "avg_regex_portion_yes_no": 0.6762888418079097,
+        "avg_regex_portion_clone_type": 0.4856403013182674,
+        "avg_zero_shot_acc_yes_no": 0.9529653332862968,
+        "avg_zero_shot_acc_clone_type": 0.9761602261557583
+    }
+}

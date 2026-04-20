@@ -1,0 +1,13 @@
+--- a/gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java
+@@ -235,8 +235,7 @@
+                          */
+                         String cleaned = act.replace(":", "");
+                         if (!cleaned.equals(timezoneId)) {
+-                            throw new IndexOutOfBoundsException("Mismatching time zone indicator: "+timezoneId+" given, resolves to "
+-                                    +timezone.getID());
++                            
+                         }
+                     }
+                 }
+

@@ -1,0 +1,10 @@
+Closure 86
+src/com/google/javascript/jscomp/NodeUtil.java
+2465 - 2465
+###    buggy:  ###
+- return true;
+### developer: ###
++ return false;
+###    ours:   ###
++ return false;
+

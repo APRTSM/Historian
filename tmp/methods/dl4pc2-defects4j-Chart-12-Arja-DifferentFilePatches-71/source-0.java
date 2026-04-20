@@ -1,0 +1,3 @@
+    public LegendTitle getLegend() {
+        return getLegend(0);
+    }

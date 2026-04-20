@@ -1,0 +1,11 @@
+    public void setTitle(TextTitle title) {
+        if (this.title != null) {
+            this.title.removeChangeListener(this);
+        }
+        this.renderingHints = renderingHints;
+        if (title != null) {
+            this.borderStroke = new BasicStroke(1.0f);
+			title.addChangeListener(this);
+        }
+        fireChartChanged();
+    }

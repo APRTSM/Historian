@@ -1,0 +1,6 @@
+JacksonDatabind_57   
+FL: com.fasterxml.jackson.databind.ObjectReader,1441,0.178
+Identical to human-written patches  replace 1 line(s)
+-   return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src),  
++   return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src, offset, length),
+   

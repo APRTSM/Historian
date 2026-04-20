@@ -1,0 +1,37 @@
+    private double doRemove(int index) {
+        keys[index]   = 0;
+        states[index] = REMOVED;
+        final double previous = values[index];
+        values[index] = missingEntries;
+        --size;
+        return previous;
+    }
+    public void setEntry(int index, double value) {
+        checkIndex(index);
+        if (!isDefaultValue(value)) {
+            entries.put(index, value);
+        } else {
+			Entry thisE = null;
+			if (entries.containsKey(index)) {
+				entries.remove(index);
+			}
+		}
+    }
+    public OpenMapRealVector ebeMultiply(RealVector v) {
+        OpenMapRealVector res = new OpenMapRealVector(this);
+        Iterator iter = res.entries.iterator();
+        while (iter.hasNext()) {
+            iter.advance();
+            res.setEntry(iter.key(), iter.value() * v.getEntry(iter.key()));
+        }
+        return res;
+    }
+    private OpenIntToDoubleHashMap getEntries() {
+        String fullClassName = getClass().getName();
+		return entries;
+    }
+    public double getEntry(int index) {
+        int maxIndex = -1;
+		checkIndex(index);
+        return entries.get(index);
+    }

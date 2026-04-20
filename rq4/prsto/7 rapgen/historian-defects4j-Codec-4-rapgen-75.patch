@@ -1,0 +1,11 @@
+Codec_4_Base64_1_1
+src/java/org/apache/commons/codec/binary/Base64.java 225
+
+Buggy Line:
+this(false);
+
+Developer's Fix:
+this(0);
+
+[success] RAP-Gen's Repair:
+this(0);

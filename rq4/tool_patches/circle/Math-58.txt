@@ -1,0 +1,10 @@
+Math 58
+src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java
+121 - 121
+###    buggy:  ###
+- return fit(new Gaussian.Parametric(), guess);
+### developer: ###
++ return fit(guess);
+###    ours:   ###
++ return fit(guess);
+

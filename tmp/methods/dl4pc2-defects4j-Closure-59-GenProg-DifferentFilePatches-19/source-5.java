@@ -1,0 +1,93 @@
+  private static void addVerboseWarnings(CompilerOptions options) {
+    addDefaultWarnings(options);
+
+    // checkSuspiciousCode needs to be enabled for CheckGlobalThis to get run.
+    options.checkSuspiciousCode = true;
+    options.checkGlobalThisLevel = CheckLevel.WARNING;
+    options.checkSymbols = true;
+    options.checkMissingReturn = CheckLevel.WARNING;
+
+    // checkTypes has the side-effect of asserting that the
+    // correct number of arguments are passed to a function.
+    // Because the CodingConvention used with the web service does not provide a
+    // way for optional arguments to be specified, these warnings may result in
+    // false positives.
+    options.checkTypes = true;
+    options.checkGlobalNamesLevel = CheckLevel.WARNING;
+    options.aggressiveVarCheck = CheckLevel.WARNING;
+    options.setWarningLevel(
+        DiagnosticGroups.MISSING_PROPERTIES, CheckLevel.WARNING);
+    options.setWarningLevel(
+        DiagnosticGroups.DEPRECATED, CheckLevel.WARNING);
+  }
+    private boolean canBeRedeclared(Node n, Scope s) {
+      if (!NodeUtil.isExprAssign(n)) {
+        return false;
+      }
+      Node assign = n.getFirstChild();
+      Node lhs = assign.getFirstChild();
+
+      if (!NodeUtil.isName(lhs)) {
+        return false;
+      }
+
+      Var var = s.getVar(lhs.getString());
+      return var != null &&
+          var.getScope() == s && !blacklistedVars.contains(var);
+    }
+  public ReverseAbstractInterpreter getReverseAbstractInterpreter() {
+    if (abstractInterpreter == null) {
+      ChainableReverseAbstractInterpreter interpreter =
+          new SemanticReverseAbstractInterpreter(
+              getCodingConvention(), getTypeRegistry());
+      if (options.closurePass) {
+        interpreter = new ClosureReverseAbstractInterpreter(
+            getCodingConvention(), getTypeRegistry())
+            .append(interpreter).getFirst();
+      }
+      abstractInterpreter = interpreter;
+    }
+    return abstractInterpreter;
+  }
+  public void printSummary() {
+    if (summaryDetailLevel >= 3 ||
+        (summaryDetailLevel >= 1 && getErrorCount() + getWarningCount() > 0) ||
+        (summaryDetailLevel >= 2 && getTypedPercent() > 0.0)) {
+      if (getTypedPercent() > 0.0) {
+        stream.format("%d error(s), %d warning(s), %.1f%% typed%n",
+            getErrorCount(), getWarningCount(), getTypedPercent());
+      } else {
+        stream.format("%d error(s), %d warning(s)%n", getErrorCount(),
+            getWarningCount());
+      }
+    }
+  }
+  private JSType explicitReturnExpected(Node scope) {
+    JSType scopeType = scope.getJSType();
+
+    if (!(scopeType instanceof FunctionType)) {
+      return null;
+    }
+
+    if (isEmptyFunction(scope)) {
+      return null;
+    }
+
+    JSType returnType = ((FunctionType) scopeType).getReturnType();
+
+    if (returnType == null) {
+      return null;
+    }
+
+    if (!isVoidOrUnknown(returnType)) {
+      return returnType;
+    }
+
+    return null;
+  }
+  void setWarningLevel(CompilerOptions options,
+      String name, CheckLevel level) {
+    DiagnosticGroup group = forName(name);
+    Preconditions.checkNotNull(group, "No warning class for name: " + name);
+    options.setWarningLevel(group, level);
+  }

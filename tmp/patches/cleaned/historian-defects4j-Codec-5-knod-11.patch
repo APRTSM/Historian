@@ -1,0 +1,7 @@
+--- a/src/java/org/apache/commons/codec/binary/Base64.java
++++ b/src/java/org/apache/commons/codec/binary/Base64.java
+@@ -585,2 +585,3 @@
+         if (eof && modulus != 0) {
++resizeBuffer();
+             
+

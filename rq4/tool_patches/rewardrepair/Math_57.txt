@@ -1,0 +1,6 @@
+Math_57
+FL: org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer,175,0.408
+Identical to human-written patches  replace line(s)
+-     int    sum    =    0;    
++     double sum = 0;
+

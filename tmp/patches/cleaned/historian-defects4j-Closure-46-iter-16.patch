@@ -1,0 +1,13 @@
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
+@@ -137,7 +137,7 @@ class RecordType extends PrototypeObjectType {
+         propertyNode);
+   }
+ 
+  @Override
+  public JSType getLeastSupertype(JSType that) {
+-    if (!that.isRecordType()) {
++ if(that!=  null  ||!that.isRecordType())  { 
+      return super.getLeastSupertype(that);
+    }
+    RecordTypeBuilder builder = new RecordTypeBuilder(registry);

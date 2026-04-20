@@ -1,0 +1,6 @@
+Cli_27   
+FL: org.apache.commons.cli.OptionGroup,98,0.433
+Identical to human-written patches  replace 2 line(s)
+-   if  (selected  ==  null  ||  selected.equals(option.getOpt()))  selected  =  option.getOpt();  
++     if (selected == null || selected.equals(option.getKey())) selected = option.getKey();
+

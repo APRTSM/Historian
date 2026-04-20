@@ -1,0 +1,10 @@
+Mockito 5
+src/org/mockito/internal/verification/VerificationOverTimeImpl.java
+91 - 91
+###    buggy:  ###
+- catch (org.mockito.exceptions.verification.junit.ArgumentsAreDifferent e) {
+### developer: ###
++ catch (AssertionError e) {
+###    ours:   ###
++ catch (AssertionError e){
+

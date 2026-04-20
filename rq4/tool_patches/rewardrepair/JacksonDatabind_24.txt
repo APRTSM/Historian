@@ -1,0 +1,5 @@
+JacksonDatabind_24   src/main/java/com/fasterxml/jackson/databind/cfg/BaseSettings.java:234
+Identical to human-written patches  replace 2 line(s)
+-   TimeZone  tz  =  (df  ==  null)  ?  _timeZone  :  df.getTimeZone();  tz,  _defaultBase64);  
++     _timeZone, _defaultBase64);
+

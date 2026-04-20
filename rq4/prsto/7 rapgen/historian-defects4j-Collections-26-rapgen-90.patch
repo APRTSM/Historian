@@ -1,0 +1,11 @@
+Collections_26_MultiKey_1_1
+src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java 277
+
+Buggy Line:
+private Object readResolve() {
+
+Developer's Fix:
+protected Object readResolve() {
+
+[success] RAP-Gen's Repair:
+protected Object readResolve() {

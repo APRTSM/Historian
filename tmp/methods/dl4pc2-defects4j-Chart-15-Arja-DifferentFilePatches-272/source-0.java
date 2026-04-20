@@ -1,0 +1,3 @@
+    public double getLabelGap() {
+        return this.labelGap;   
+    }

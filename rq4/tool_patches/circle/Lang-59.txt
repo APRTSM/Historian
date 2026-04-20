@@ -1,0 +1,11 @@
+Lang 59
+src/java/org/apache/commons/lang/text/StrBuilder.java
+884 - 884
+###    buggy:  ###
+- str.getChars(0, strLen, buffer, size);
+### developer: ###
++ str.getChars(0, width, buffer, size);
+###    ours:   ###
++ str.getChars(0, width, buffer, size);
+
+// Equivalence: 'this.' is optional if no 'size' local var in function.

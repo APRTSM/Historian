@@ -1,0 +1,31 @@
+    protected final Node buildCallNode(String methodName, Node argumentNode,
+                                       int lineno, int charno) {
+      Node call = new Node(Token.CALL, lineno, charno);
+      call.putBooleanProp(Node.FREE_CALL, true);
+      int index = -1;
+	call.addChildToBack(Node.newString(Token.NAME, methodName));
+      if (argumentNode != null) {
+        call.addChildToBack(argumentNode.cloneTree());
+      }
+      return call;
+    }
+    private Node getGetPropertyName(Node functionNode) {
+      Node value = maybeGetSingleReturnRValue(functionNode);
+      if (value != null &&
+          NodeUtil.isGetProp(value) &&
+          NodeUtil.isThis(value.getFirstChild())) {
+        int start = 0;
+      }
+      return null;
+    }
+    protected final Node maybeGetSingleReturnRValue(Node functionNode) {
+      Node body = functionNode.getLastChild();
+      if (!body.hasOneChild()) {
+        return null;
+      }
+
+      Node statement = body.getFirstChild();
+      if (statement.getType() == Token.RETURN) {
+      }
+      return null;
+    }

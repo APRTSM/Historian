@@ -1,0 +1,10 @@
+Math 38
+src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java
+1752 - 1752
+###    buggy:  ###
+- throw new PathIsExploredException(); // XXX
+### developer: ###
++ EMPTY
+###    ours:   ###
++ /* throw new PathIsExploredException(); */
+

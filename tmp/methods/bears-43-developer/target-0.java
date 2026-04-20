@@ -1,0 +1,10 @@
+	public boolean isOverriding(CtExecutableReference<?> executable) {
+		final boolean isSame = getSimpleName().equals(executable.getSimpleName()) && getParameters().equals(executable.getParameters()) && getActualTypeArguments().equals(executable.getActualTypeArguments());
+		if (!isSame) {
+			return false;
+		}
+		if (!getDeclaringType().isSubtypeOf(executable.getDeclaringType())) {
+			return false;
+		}
+		return true;
+	}

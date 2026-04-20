@@ -1,0 +1,124 @@
+2026-03-30 13:39:38 - root - INFO - Fetching bugs ...
+2026-03-30 13:39:38 - root - INFO - Using the bugs data in TMP ...
+2026-03-30 13:39:38 - root - INFO - Successfully fetched bugs. No of bugs: 837
+2026-03-30 13:39:38 - root - INFO - Using the patches data in TMP for developer ...
+2026-03-30 13:39:38 - root - INFO - Successfully fetched patches for developer. No of patches: 837
+2026-03-30 13:39:38 - root - INFO - Deduplicating developer patches ...
+2026-03-30 13:39:38 - root - INFO - Finished preprocessing patches for developer. Final count: 706
+2026-03-30 13:39:38 - root - INFO - Cleaned patches: 836, Method patches: 830, Normalized patches: 837, Single method patches: 706, Deduplicated patches: 706
+2026-03-30 13:39:38 - root - INFO - Using the patches data in TMP for tool ...
+2026-03-30 13:39:39 - root - INFO - Successfully fetched patches for tool. No of patches: 39287
+2026-03-30 13:39:40 - root - INFO - Deduplicating developer patches ...
+2026-03-30 13:39:40 - root - INFO - Finished preprocessing patches for tool. Final count: 9310
+2026-03-30 13:39:40 - root - INFO - Cleaned patches: 38997, Method patches: 38936, Normalized patches: 39287, Single method patches: 21883, Deduplicated patches: 9310
+2026-03-30 13:39:40 - root - INFO - Listing Patch Processors.
+2026-03-30 13:39:40 - root - INFO - 
+ PatchProcessors: 
+ [{'uid': 'defaultpatch', 'function': <function get_raw_patch at 0x7f2800a4fa30>}, {'uid': 'method', 'function': <function get_single_hunk_method at 0x7f2800a4fb50>}].
+2026-03-30 13:39:40 - root - INFO - Fetching tool settings.
+2026-03-30 13:39:40 - root - INFO - Successfully fetched tool settings. 
+ OllamaPrompts: 
+ [{'uid': 'CC_SCC_patches', 'content': "Please analyze the following two patches and determine if they are code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'patches'}, {'uid': 'CC_SCC_code', 'content': "Please analyze the following two code snippets and determine if they are code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'code'}, {'uid': 'CC_I_patches', 'content': "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'patches'}, {'uid': 'CC_I_code', 'content': "Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'code'}, {'uid': 'SS_S_patches', 'content': "Please analyze the following two patches and determine if they are semantically similar. Respond with 'yes' if they are semantically similar or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_S_code', 'content': "Please analyze the following two code snippets and determine if they are semantically similar. Respond with 'yes' if they are semantically similar or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SS_R_patches', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with ‘yes’ if the patches are semantically similar or ‘no’ if they are not.', 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_R_code', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two code snippets. Based on your analysis, respond with ‘yes’ if the code snippets are semantically similar or ‘no’ if they are not.', 'type': 'boolean', 'input': 'code'}, {'uid': 'SS_LS_patches', 'content': "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then, based on the report, please answer whether these two patches are semantically similar. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_LS_code', 'content': "Please analyze the following two code snippets for semantic similarity. You should first report which lines of code are more similar. Then, based on the report, please answer whether these two code snippets are semantically similar. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_S_patches', 'content': "Please analyze the following two patches and determine if they are semantically equivalent. Respond with 'yes' if they are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_S_code', 'content': "Please analyze the following two code snippets and determine if they are semantically equivalent. Respond with 'yes' if they are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_R_patches', 'content': "Please provide a detailed reasoning process for detecting semantic equivalence in the following two patches. Based on your analysis, respond with 'yes' if the patches are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_R_code', 'content': "Please provide a detailed reasoning process for detecting semantic equivalence in the following two code snippets. Based on your analysis, respond with 'yes' if the code snippets are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_LS_patches', 'content': "Please analyze the following two patches for semantic equivalence. You should first report which lines of patches are more similar. Then, based on the report, please answer whether these two patches are semantically equivalent. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_LS_code', 'content': "Please analyze the following two code snippets for semantic equivalence. You should first report which lines of code are more similar. Then, based on the report, please answer whether these two code snippets are semantically equivalent. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'code'}], 
+ OllamaModels: 
+ [{'uid': 'magicoder:7b-s-cl'}, {'uid': 'codellama:7b-instruct'}, {'uid': 'deepseek-coder:6.7b'}, {'uid': 'codegemma:7b-instruct'}, {'uid': 'qwen2.5:7b'}, {'uid': 'qwen2.5-coder:7b'}, {'uid': 'yi-coder:9b'}, {'uid': 'hermes3:8b'}], 
+ OllamaTemperatures: 
+ [{'uid': 0.1}]
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 0
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 1
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 2
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 3
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 4
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 5
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 6
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 7
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 8
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 9
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 10
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 11
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 12
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 13
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 14
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 15
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 16
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 17
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 18
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 19
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 20
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 21
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 22
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 23
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 24
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 25
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 26
+2026-03-30 13:39:41 - root - INFO - Loading existing r2026-03-30 13:39:41 -2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 28
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 29
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 30
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 31
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 32
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 33
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 34
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 35
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 36
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 37
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 38
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 39
+2026-03-30 13:39:41 - root - INFO - Loading existing r2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 38
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 39
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 40
+2026-03-30 13:39:41 -2026-03-30 13:39:41 - root - INFO - Loading existing r2026-03-30 13:39:41 -2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 45
+2026-03-30 13:39:41 - root - INFO - Loading existing r2026-03-30 13:39:41 -2026-03-30 13:39:41 - root - INFO - Loading existing r2026-03-30 13:39:41 -2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 48
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 49
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 50
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 51
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 52
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 53
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 54
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 55
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 56
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 57
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 58
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 59
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 60
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 61
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 62
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 63
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 64
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 65
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 66
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 67
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 68
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 69
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 70
+2026-03-30 13:39:41 - root - INFO - Processing the patch ... selected_tool: tbar, PatchProcessor: method model: deepseek-coder:6.7b temperature: 0.1 prompt: CC_SCC_code, index: 71
+2026-03-30 13:39:41 - root - INFO - tool_patch: aprenfl-defects4j-Chart-15-TBar-Patch_220_119, no_selected_bug_groundtruth_patches: 107
+2026-03-30 13:39:41 - root - INFO - Getting method of the patch: tmp/patches/cleaned/aprenfl-defects4j-Chart-15-TBar-Patch_220_119.patch
+2026-03-30 13:39:41 - root - INFO - Methods already exist for the patch: aprenfl-defects4j-Chart-15-TBar-Patch_220_119
+2026-03-30 13:39:41 - root - INFO - Getting method of the patch: tmp/patches/cleaned/dl4pc2-defects4j-Chart-15-RSRepair-DifferentFilePatches-0.patch
+2026-03-30 13:39:41 - root - INFO - Methods already exist for the patch: dl4pc2-defects4j-Chart-15-RSRep2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 82
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 83
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 84
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 85
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 86
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 87
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 88
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 89
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 90
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 91
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 92
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 93
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 94
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 95
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 96
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 97
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 98
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 99
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 100
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 101
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 102
+2026-03-30 13:39:41 - root - INFO - Loading existing results for index: 103
+2026-03-30 13:39:41 - root - INFO - Processing the patch ... selected_tool: tbar, PatchProcessor: method model: codellama:7b-instruct temperature: 0.1 prompt: CC_SCC_code, index: 104
+2026-03-30 13:39:41 - root - INFO - tool_patch: aprenfl-defects4j-Math-81-TBar-Patch_844_620, no_selected_bug_groundtruth_patches: 1175
+2026-03-30 13:39:41 - root - INFO - Getting method of the patch: tmp/patches/cleaned/aprenfl-defects4j-Math-81-TBar-Patch_844_620.patch
+2026-03-30 13:39:41 - root - INFO - Methods already exist for the patch: aprenfl-defects4j-Math-81-TBar-Patch_844_620
+2026-03-30 13:39:41 - root - INFO - Getting method of the patch: tmp/patches/cleaned/dl4pc2-defects4j-Math-81-Arja-DifferentFragPatches-292.patch
+2026-03-30 13:39:41 - root - INFO - Methods already exist for the patch: dl4pc2-defects4j-Math-81-Arja-DifferentFragPatches-292

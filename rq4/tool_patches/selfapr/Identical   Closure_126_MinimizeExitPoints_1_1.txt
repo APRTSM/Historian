@@ -1,0 +1,6 @@
+Identical   Closure_126_MinimizeExitPoints_1_1 
+src/com/google/javascript/jscomp/MinimizeExitPoints.java 141 
+-  if (NodeUtil.hasFinally(n)) { Node finallyBlock = n.getLastChild(); tryMinimizeExits(finallyBlock, exitType, labelName); } 
++  [Delete]
+[Human-written Patch]
++

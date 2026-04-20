@@ -1,0 +1,9 @@
+--- a/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
++++ b/src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNodePointer.java
+@@ -375,2 +375,5 @@
+                 case Compiler.NODE_TYPE_NODE :
++if (node != null ){
++return true;
++}
+                     return node instanceof Element;
+

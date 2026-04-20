@@ -1,0 +1,16 @@
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
+@@ -137,13 +137,6 @@
+                     propertyNode);            
+                                   }            
+                     
+- public JSType getLeastSupertype(JSType that) {
+-     if (!that.isRecordType()) {
+-         return super.getLeastSupertype(that);
+-     }
+-     ...
+-     return builder.build();
+- }
+               JSType getGreatestSubtypeHelper(JSType that) {            
+                                     if (that.isRecordType()) {            
+                                       RecordType thatRecord = that.toMaybeRecordType();

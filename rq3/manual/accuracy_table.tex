@@ -1,0 +1,42 @@
+\begin{table*}[t]
+\centering
+\caption{Zero-Shot Classification Accuracy (Manual Evaluation)}
+\label{tab:manual_zeroshot_accuracy}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{l|ccc|ccc|ccc|ccc|cc|cc|c}
+\multirow{4}{*}{\textbf{Model}}
+& \multicolumn{6}{c|}{\textbf{SS (Yes/No)}}
+& \multicolumn{6}{c|}{\textbf{SI (Yes/No)}}
+& \multicolumn{4}{c|}{\textbf{CC (No/Clone-Type)}}
+& \multirow{4}{*}{\textbf{Avg.}} \\
+\cline{2-7}\cline{8-13}\cline{14-17}
+& \multicolumn{3}{c|}{\textbf{Method}} & \multicolumn{3}{c|}{\textbf{Diff}}
+& \multicolumn{3}{c|}{\textbf{Method}} & \multicolumn{3}{c|}{\textbf{Diff}}
+& \multicolumn{2}{c|}{\textbf{Method}} & \multicolumn{2}{c|}{\textbf{Diff}} & \\
+\cline{2-4}\cline{5-7}\cline{8-10}\cline{11-13}\cline{14-15}\cline{16-17}
+& S & R & LS & S & R & LS & S & R & LS & S & R & LS & SCC & I & SCC & I & \\
+\hline
+MC7B & 0.80 & 0.65 & 0.75 & 0.50 & 0.50 & 0.80 & 0.95 & 0.55 & 0.60 & 0.50 & 0.60 & 0.70 & \cellcolor{blue!15}1.00 & 0.50 & 0.95 & 0.90 & 0.70 \\
+\hline
+CL7B & 0.90 & 0.75 & 0.55 & 0.45 & 0.55 & 0.75 & 0.80 & 0.75 & 0.65 & \cellcolor{blue!15}1.00 & 0.65 & 0.95 & 0.95 & 0.70 & 0.70 & 0.50 & 0.73 \\
+\hline
+DSC6.7B & 0.80 & 0.80 & 0.85 & 0.40 & 0.70 & 0.65 & 0.80 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.35 & 0.60 & 0.90 & 0.90 & 0.50 & 0.55 & 0.35 & 0.70 \\
+\hline
+CG7B & 0.95 & 0.80 & \cellcolor{blue!15}1.00 & 0.95 & 0.70 & 0.85 & 0.95 & 0.80 & \cellcolor{blue!15}1.00 & 0.90 & 0.95 & 0.90 & 0.95 & 0.60 & 0.95 & 0.70 & 0.87 \\
+\hline
+QW7B & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.95 & 0.95 & \cellcolor{blue!15}1.00 & 0.95 & 0.95 & \cellcolor{blue!15}1.00 & 0.95 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.90 & \cellcolor{blue!15}1.00 & 0.50 & 0.95 \\
+\hline
+QWC7B & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.95 & \cellcolor{blue!15}1.00 & 0.95 & 0.90 & \cellcolor{blue!15}1.00 & 0.95 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.85 & \cellcolor{blue!15}1.00 & 0.80 & \cellcolor{blue!15}1.00 & 0.55 & 0.93 \\
+\hline
+YC9B & 0.75 & 0.90 & \cellcolor{blue!15}1.00 & 0.95 & 0.90 & 0.90 & 0.80 & 0.95 & 0.90 & 0.60 & 0.70 & \cellcolor{blue!15}1.00 & 0.85 & 0.85 & \cellcolor{blue!15}1.00 & 0.60 & 0.85 \\
+\hline
+H8B & \cellcolor{blue!15}1.00 & 0.95 & 0.95 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & \cellcolor{blue!15}1.00 & 0.95 & \cellcolor{blue!15}1.00 & 0.85 & 0.90 & \cellcolor{blue!15}1.00 & 0.65 & \cellcolor{blue!15}1.00 & 0.35 & 0.91 \\
+\hline
+\textbf{Avg.} & 0.90 & 0.86 & 0.88 & 0.78 & 0.78 & 0.85 & 0.91 & 0.87 & 0.88 & 0.79 & 0.79 & 0.90 & 0.96 & 0.69 & 0.89 & 0.56 & 0.83 \\
+\bottomrule
+\end{tabular}
+\vspace{1mm}
+\parbox{\linewidth}{\centering\footnotesize \colorbox{blue!15}{Blue} indicates the best value(s) for each model.}
+\end{table*}

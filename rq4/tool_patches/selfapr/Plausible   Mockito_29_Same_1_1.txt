@@ -1,0 +1,6 @@
+Plausible   Mockito_29_Same_1_1 
+src/org/mockito/internal/matchers/Same.java 29 
+-  description.appendText(wanted.toString()); 
++  if(wanted!=  null)  {  description.appendText(wanted.toString());  }  else  {  appendQuoting(description);  }
+[Human-written Patch]
++  description.appendText(wanted  ==  null? "null "  :  wanted.toString());

@@ -1,0 +1,21 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/DEPTH_FIRST_SEARCH.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_DEPTH_FIRST_SEARCH.java
+index b2dca5e..262bedf 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/DEPTH_FIRST_SEARCH.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_DEPTH_FIRST_SEARCH.java
+@@ -5,6 +5,8 @@ import java.util.*;
+  * and open the template in the editor.
+  */
+ 
++import java_programs.Node;
++
+ /**
+  *
+  * @author derricklin
+@@ -19,6 +21,7 @@ public class DEPTH_FIRST_SEARCH {
+                 } else if (node == goalnode) {
+                     return true;
+                 } else {
++                        nodesvisited.add(node);
+                     for (Node successornodes : node.getSuccessors()) {
+                         if (search(successornodes)) { return true; }
+                     }

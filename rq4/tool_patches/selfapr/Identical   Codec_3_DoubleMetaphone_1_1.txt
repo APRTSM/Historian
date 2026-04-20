@@ -1,0 +1,6 @@
+Identical   Codec_3_DoubleMetaphone_1_1 
+src/java/org/apache/commons/codec/language/DoubleMetaphone.java 455 
+-  } else if (contains(value, index + 1, 4, "IER")) { 
++  }  else  if(contains(value,  index  +  1,  3,   "IER "))  {
+[Human-written Patch]
++  }  else  if  (contains(value,  index  +  1,  3, "IER "))  {

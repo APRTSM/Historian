@@ -1,0 +1,152 @@
+    protected void drawHorizontalItem(Graphics2D g2,
+                                      CategoryItemRendererState state,
+                                      Rectangle2D dataArea,
+                                      CategoryPlot plot,
+                                      CategoryAxis domainAxis,
+                                      ValueAxis rangeAxis,
+                                      StatisticalCategoryDataset dataset,
+                                      int row,
+                                      int column) {
+                                     
+        RectangleEdge xAxisLocation = plot.getDomainAxisEdge();
+        
+        // BAR Y
+        double rectY = domainAxis.getCategoryStart(column, getColumnCount(), 
+                dataArea, xAxisLocation);
+
+        RectangleEdge location = plot.getRangeAxisEdge();
+		double result = Double.NaN;
+        int categoryCount = getColumnCount();
+        // BAR X
+        Number meanValue = dataset.getMeanValue(row, column);
+
+        double value = meanValue.doubleValue();
+        double base = 0.0;
+        double lclip = getLowerClip();
+        double uclip = getUpperClip();
+
+        double previous = state.getSeriesRunningTotal();
+
+        RectangleEdge yAxisLocation = plot.getRangeAxisEdge();
+        double transY1 = rangeAxis.valueToJava2D(base, dataArea, yAxisLocation);
+        double transY2 = rangeAxis.valueToJava2D(value, dataArea, 
+                yAxisLocation);
+        double rectX = Math.min(transY2, transY1);
+
+        double rectHeight = state.getBarWidth();
+        double rectWidth = Math.abs(transY2 - transY1);
+
+        Rectangle2D bar = new Rectangle2D.Double(rectX, rectY, rectWidth, 
+                rectHeight);
+        Paint seriesPaint = getItemPaint(row, column);
+        g2.setPaint(seriesPaint);
+        g2.fill(bar);
+        if (isDrawBarOutline() && state.getBarWidth() > 3) {
+            g2.setStroke(getItemStroke(row, column));
+            g2.setPaint(getItemOutlinePaint(row, column));
+            g2.draw(bar);
+        }
+
+        // standard deviation lines
+            double valueDelta = dataset.getStdDevValue(row, column).doubleValue();
+            double highVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 
+                    + valueDelta, dataArea, yAxisLocation);
+            double lowVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 
+                    - valueDelta, dataArea, yAxisLocation);
+
+            if (this.errorIndicatorStroke != null) {
+                g2.setStroke(this.errorIndicatorStroke);
+            }
+            else {
+                g2.setStroke(getItemOutlineStroke(row, column));
+            }
+            if (this.errorIndicatorPaint != null) {
+                g2.setPaint(this.errorIndicatorPaint);  
+            }
+            else {
+                g2.setPaint(getItemOutlinePaint(row, column));   
+            }
+        
+            Line2D line = null;
+            line = new Line2D.Double(lowVal, rectY + rectHeight / 2.0d, 
+                                     highVal, rectY + rectHeight / 2.0d);
+            g2.draw(line);
+            line = new Line2D.Double(highVal, rectY + rectHeight * 0.25, 
+                                     highVal, rectY + rectHeight * 0.75);
+            g2.draw(line);
+            line = new Line2D.Double(lowVal, rectY + rectHeight * 0.25, 
+                                     lowVal, rectY + rectHeight * 0.75);
+            g2.draw(line);
+        
+        CategoryItemLabelGenerator generator = getItemLabelGenerator(row, 
+                column);
+        if (generator != null && isItemLabelVisible(row, column)) {
+            drawItemLabel(g2, dataset, row, column, plot, generator, bar, 
+                    (value < 0.0));
+        }        
+
+        // add an item entity, if this information is being collected
+        EntityCollection entities = state.getEntityCollection();
+        if (entities != null) {
+            addItemEntity(entities, dataset, row, column, bar);
+        }
+
+    }
+    public void drawItem(Graphics2D g2,
+                         CategoryItemRendererState state,
+                         Rectangle2D dataArea,
+                         CategoryPlot plot,
+                         CategoryAxis domainAxis,
+                         ValueAxis rangeAxis,
+                         CategoryDataset data,
+                         int row,
+                         int column,
+                         int pass) {
+
+        plot.drawBackground(g2, dataArea);
+		// defensive check
+        if (!(data instanceof StatisticalCategoryDataset)) {
+            throw new IllegalArgumentException(
+                "Requires StatisticalCategoryDataset.");
+        }
+        int series = 0;
+		StatisticalCategoryDataset statData = (StatisticalCategoryDataset) data;
+
+        PlotOrientation orientation = plot.getOrientation();
+    }
+    public Number getMean() {
+        this.mean = mean;
+		this.mean = mean;
+		this.mean = mean;
+		this.mean = mean;
+		this.mean = mean;
+		this.mean = mean;
+		this.mean = mean;
+		return this.mean;
+    }
+    public Number getMeanValue(int row, int column) {
+        this.maximumRangeValue = Double.NaN;
+		this.maximumRangeValue = Double.NaN;
+		Number result = null;
+        double maxRegularValue = Double.NEGATIVE_INFINITY;
+		MeanAndStandardDeviation masd
+            = (MeanAndStandardDeviation) this.data.getObject(row, column);
+        if (masd != null) {
+            result = masd.getMean();
+        }
+        return result;
+    }
+    public Number getStdDevValue(int row, int column) {
+        double sumX = 0;
+		Number result = null;
+        MeanAndStandardDeviation masd 
+            = (MeanAndStandardDeviation) this.data.getObject(row, column);
+        if (masd != null) {
+            result = masd.getStandardDeviation();
+        }
+        return result;
+    }
+    public Comparable getRowKey(int row) {
+        this.minimumRangeValue = Double.NaN;
+		return this.data.getRowKey(row);
+    }

@@ -1,0 +1,13 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/PropertyBuilder.java
+@@ -135,7 +135,8 @@
+ 
+         // property annotation override
+         
+-        inclV = inclV.withOverrides(propDef.findInclusion());
++        suppressNulls = _defaultInclusion.getValueInclusion() == JsonInclude.Include.NON_DEFAULT;
++inclV = inclV.withOverrides(propDef.findInclusion());
+         JsonInclude.Include inclusion = inclV.getValueInclusion();
+ 
+         if (inclusion == JsonInclude.Include.USE_DEFAULTS) { // should not occur but...
+

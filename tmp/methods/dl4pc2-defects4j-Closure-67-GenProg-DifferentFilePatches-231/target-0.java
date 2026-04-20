@@ -1,0 +1,29 @@
+  private void removeUnusedSymbols(Collection<NameInfo> allNameInfo) {
+    boolean changed = false;
+    for (NameInfo nameInfo : allNameInfo) {
+      if (!nameInfo.isReferenced()) {
+        for (Symbol declaration : nameInfo.getDeclarations()) {
+          boolean canRemove = false;
+
+          if (specializationState == null) {
+            break;
+          } else {
+            Node specializableFunction =
+              getSpecializableFunctionFromSymbol(declaration);
+
+            if (specializableFunction != null) {
+              specializationState.reportRemovedFunction(
+                  specializableFunction, null);
+              canRemove = true;
+            }
+          }
+        }
+
+        return;
+      }
+    }
+
+    if (changed) {
+      compiler.reportCodeChange();
+    }
+  }

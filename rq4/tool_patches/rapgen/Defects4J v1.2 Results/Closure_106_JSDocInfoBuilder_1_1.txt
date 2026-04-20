@@ -1,0 +1,11 @@
+Closure_106_JSDocInfoBuilder_1_1
+src/com/google/javascript/rhino/JSDocInfoBuilder.java 189
+
+Buggy Line:
+if (parseDocumentation) { populated = true; }
+
+Developer's Fix:
+populated = true;
+
+[success] RAP-Gen's Repair:
+populated = true;

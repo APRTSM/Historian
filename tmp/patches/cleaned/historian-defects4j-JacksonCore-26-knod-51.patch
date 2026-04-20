@@ -1,0 +1,7 @@
+--- a/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
++++ b/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
+@@ -107,2 +107,3 @@
+         // And then update buffer settings
++_currBufferStart = start;
+         _inputBuffer = buf;
+

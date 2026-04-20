@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/sahand.moslemi/Historian/rq0_selected_vs_other.py", line 1, in <module>
+    from setup import get_data, get_params
+  File "/home/sahand.moslemi/Historian/setup.py", line 5, in <module>
+    import ollama
+  File "/home/sahand.moslemi/.local/lib/python3.10/site-packages/ollama/__init__.py", line 1, in <module>
+    from ollama._client import AsyncClient, Client
+  File "/home/sahand.moslemi/.local/lib/python3.10/site-packages/ollama/_client.py", line 25, in <module>
+    import anyio
+  File "/home/sahand.moslemi/.local/lib/python3.10/site-packages/anyio/__init__.py", line 12, in <module>
+    from ._core._exceptions import BrokenResourceError as BrokenResourceError
+  File "/home/sahand.moslemi/.local/lib/python3.10/site-packages/anyio/_core/_exceptions.py", line 9, in <module>
+    from exceptiongroup import BaseExceptionGroup
+  File "/home/sahand.moslemi/.local/lib/python3.10/site-packages/exceptiongroup/__init__.py", line 20, in <module>
+    from ._formatting import (
+ModuleNotFoundError: No module named 'exceptiongroup._formatting'

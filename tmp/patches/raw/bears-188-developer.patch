@@ -1,0 +1,13 @@
+diff --git a/src/main/java/hu/oe/nik/szfmv/visualization/Dashboard.java b/src/main/java/hu/oe/nik/szfmv/visualization/Dashboard.java
+index f75f81d20..4ba52c431 100644
+--- a/src/main/java/hu/oe/nik/szfmv/visualization/Dashboard.java
++++ b/src/main/java/hu/oe/nik/szfmv/visualization/Dashboard.java
+@@ -56,7 +56,7 @@ public class Dashboard extends JPanel {
+         breakProgressBar.setValue(inputPacket.getBreakPedalPosition());
+         speedAngle = calculateSpeedometer(0);
+         rpmAngle = calculateTachometer(0);
+-        paintComponent(getGraphics());
++        repaint();
+     }
+ 
+     /**

@@ -1,0 +1,13 @@
+diff --git a/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java b/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
+index b81ebcd4b..39affcdd9 100644
+--- a/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
++++ b/axon-server-connector/src/main/java/org/axonframework/axonserver/connector/ErrorCode.java
+@@ -116,7 +116,7 @@ public enum ErrorCode {
+      * @return the Axon Framework exception
+      */
+     public AxonException convert(Throwable throwable){
+-        return convert(null, throwable);
++        return convert("", throwable);
+     }
+ 
+     /**

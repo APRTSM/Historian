@@ -1,0 +1,819 @@
+2026-03-21 16:21:38 - root - INFO - Fetching bugs ...
+2026-03-21 16:21:38 - root - INFO - Using the bugs data in TMP ...
+2026-03-21 16:21:38 - root - INFO - Successfully fetched bugs. No of bugs: 837
+2026-03-21 16:21:38 - root - INFO - Using the patches data in TMP for developer ...
+2026-03-21 16:21:38 - root - INFO - Successfully fetched patches for developer. No of patches: 837
+2026-03-21 16:21:38 - root - INFO - Deduplicating developer patches ...
+2026-03-21 16:21:38 - root - INFO - Finished preprocessing patches for developer. Final count: 706
+2026-03-21 16:21:38 - root - INFO - Cleaned patches: 836, Method patches: 830, Normalized patches: 837, Single method patches: 706, Deduplicated patches: 706
+2026-03-21 16:21:38 - root - INFO - Using the patches data in TMP for tool ...
+2026-03-21 16:21:38 - root - INFO - Successfully fetched patches for tool. No of patches: 39287
+2026-03-21 16:21:39 - root - INFO - Deduplicating developer patches ...
+2026-03-21 16:21:39 - root - INFO - Finished preprocessing patches for tool. Final count: 9310
+2026-03-21 16:21:39 - root - INFO - Cleaned patches: 38997, Method patches: 38936, Normalized patches: 39287, Single method patches: 21883, Deduplicated patches: 9310
+2026-03-21 16:21:39 - root - INFO - Listing Patch Processors.
+2026-03-21 16:21:39 - root - INFO - 
+ PatchProcessors: 
+ [{'uid': 'defaultpatch', 'function': <function get_raw_patch at 0x7fa12dfffa30>}, {'uid': 'method', 'function': <function get_single_hunk_method at 0x7fa12dfffb50>}].
+2026-03-21 16:21:39 - root - INFO - Fetching tool settings.
+2026-03-21 16:21:39 - root - INFO - Successfully fetched tool settings. 
+ OllamaPrompts: 
+ [{'uid': 'CC_SCC_patches', 'content': "Please analyze the following two patches and determine if they are code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'patches'}, {'uid': 'CC_SCC_code', 'content': "Please analyze the following two code snippets and determine if they are code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'code'}, {'uid': 'CC_I_patches', 'content': "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'patches'}, {'uid': 'CC_I_code', 'content': "Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones. Respond with 'yes' if they are clones or 'no' if not. If 'yes', please report the clone type: Type-1, Type-2, Type-3, or Type-4.", 'type': 'type', 'input': 'code'}, {'uid': 'SS_S_patches', 'content': "Please analyze the following two patches and determine if they are semantically similar. Respond with 'yes' if they are semantically similar or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_S_code', 'content': "Please analyze the following two code snippets and determine if they are semantically similar. Respond with 'yes' if they are semantically similar or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SS_R_patches', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with ‘yes’ if the patches are semantically similar or ‘no’ if they are not.', 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_R_code', 'content': 'Please provide a detailed reasoning process for detecting semantic similarity in the following two code snippets. Based on your analysis, respond with ‘yes’ if the code snippets are semantically similar or ‘no’ if they are not.', 'type': 'boolean', 'input': 'code'}, {'uid': 'SS_LS_patches', 'content': "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then, based on the report, please answer whether these two patches are semantically similar. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SS_LS_code', 'content': "Please analyze the following two code snippets for semantic similarity. You should first report which lines of code are more similar. Then, based on the report, please answer whether these two code snippets are semantically similar. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_S_patches', 'content': "Please analyze the following two patches and determine if they are semantically equivalent. Respond with 'yes' if they are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_S_code', 'content': "Please analyze the following two code snippets and determine if they are semantically equivalent. Respond with 'yes' if they are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_R_patches', 'content': "Please provide a detailed reasoning process for detecting semantic equivalence in the following two patches. Based on your analysis, respond with 'yes' if the patches are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_R_code', 'content': "Please provide a detailed reasoning process for detecting semantic equivalence in the following two code snippets. Based on your analysis, respond with 'yes' if the code snippets are semantically equivalent or 'no' if they are not.", 'type': 'boolean', 'input': 'code'}, {'uid': 'SE_LS_patches', 'content': "Please analyze the following two patches for semantic equivalence. You should first report which lines of patches are more similar. Then, based on the report, please answer whether these two patches are semantically equivalent. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'patches'}, {'uid': 'SE_LS_code', 'content': "Please analyze the following two code snippets for semantic equivalence. You should first report which lines of code are more similar. Then, based on the report, please answer whether these two code snippets are semantically equivalent. The response should be 'yes' or 'no'.", 'type': 'boolean', 'input': 'code'}], 
+ OllamaModels: 
+ [{'uid': 'magicoder:7b-s-cl'}, {'uid': 'codellama:7b-instruct'}, {'uid': 'deepseek-coder:6.7b'}, {'uid': 'codegemma:7b-instruct'}, {'uid': 'qwen2.5:7b'}, {'uid': 'qwen2.5-coder:7b'}, {'uid': 'yi-coder:9b'}, {'uid': 'hermes3:8b'}], 
+ OllamaTemperatures: 
+ [{'uid': 0.1}]
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 0
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 1
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 2
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 3
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 4
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 5
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 6
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 7
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 8
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 9
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 10
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 11
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 12
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 13
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 14
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 15
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 16
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 17
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 18
+2026-03-21 16:21:40 - root - INFO - Loading existing results for index: 19
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 20
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 21
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 22
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 23
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 24
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 25
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 26
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 27
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 28
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 29
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 30
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 31
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 32
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 33
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 34
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 35
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 36
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 37
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 38
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 39
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 40
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 41
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 42
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 43
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 44
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 45
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 46
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 47
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 48
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 49
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 50
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 51
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 52
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 53
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 54
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 55
+2026-03-21 16:21:41 - root - INFO - Loading existing results for index: 56
+2026-03-21 16:21:41 - root - INFO - Loading existing results for2026-03-21 16:22:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:23:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:24:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:25:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:27:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:28:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:29:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:30:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:31:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:32:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:33:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:34:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:35:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:36:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:37:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:38:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:40:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:41:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:42:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:43:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:44:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:45:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:46:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:47:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:48:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:49:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:50:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:51:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:53:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:54:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:55:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:56:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:57:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:58:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 16:59:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:00:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:01:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:02:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:03:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:04:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:06:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:07:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:08:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:09:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:10:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:11:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:12:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:13:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:14:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:15:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:16:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:17:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:19:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:20:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:21:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:22:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:23:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:24:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:25:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:26:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:27:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:28:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:29:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:31:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:32:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:33:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:34:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:35:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:36:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:37:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:38:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:39:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:40:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:41:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:42:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:44:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:45:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:46:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:47:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:48:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:49:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:50:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:51:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:52:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:53:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:54:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:55:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:57:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:58:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 17:59:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:00:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:01:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:02:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:03:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:04:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:05:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:06:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:07:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:08:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:10:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:11:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:12:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:13:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:14:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:15:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:16:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:17:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:18:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:19:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:20:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:21:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:23:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:24:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:25:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:26:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:27:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:28:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:29:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:30:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:31:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:32:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:33:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:34:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:36:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:37:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:38:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:39:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:40:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:41:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:42:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:43:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:44:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:45:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:46:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:47:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:49:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:50:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:51:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:52:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:53:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:54:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:55:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:56:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:57:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:58:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 18:59:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:01:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:02:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:03:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:04:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:05:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:06:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:07:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:08:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:09:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:10:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:11:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:12:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:14:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:15:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:16:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:17:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:18:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:19:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:20:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:21:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:22:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:23:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:24:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:25:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:27:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:28:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:29:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:30:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:31:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:32:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:33:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:34:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:35:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:36:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:37:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:38:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:40:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:41:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:42:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:43:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:44:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:45:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:46:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:47:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:48:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:49:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:50:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:51:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:53:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:54:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:55:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:56:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:57:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:58:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 19:59:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:00:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:01:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:02:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:03:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:04:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:06:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:07:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:08:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:09:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:10:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:11:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:12:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:13:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:14:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:15:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:16:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:18:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:19:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:20:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:21:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:22:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:23:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:24:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:25:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:26:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:27:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:28:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:29:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:31:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:32:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:33:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:34:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:35:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:36:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:37:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:38:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:39:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:40:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:41:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:42:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:44:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:45:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:46:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:47:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:48:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:49:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:50:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:51:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:52:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:53:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:54:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:55:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:57:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:58:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 20:59:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:00:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:01:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:02:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:03:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:04:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:05:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:06:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:07:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:08:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:10:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:11:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:12:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:13:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:14:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:15:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:16:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:17:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:18:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:19:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:20:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:21:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:23:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:24:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:25:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:26:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:27:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:28:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:29:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:30:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:31:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:32:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:33:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:35:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:36:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:37:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:38:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:39:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:40:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:41:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:42:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:43:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:44:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:45:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:46:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:48:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:49:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:50:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:51:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:52:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:53:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:54:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:55:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:56:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:57:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:58:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 21:59:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:01:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:02:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:03:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:04:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:05:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:06:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:07:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:08:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:09:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:10:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:11:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:12:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:14:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:15:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:16:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:17:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:18:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:19:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:20:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:21:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:22:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:23:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:24:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:25:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:27:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:28:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:29:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:30:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:31:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:32:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:33:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:34:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:35:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:36:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:37:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:38:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:40:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:41:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:42:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:43:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:44:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:45:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:46:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:47:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:48:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:49:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:50:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:51:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:53:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:54:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:55:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:56:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:57:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:58:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 22:59:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:00:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:01:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:02:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:03:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:05:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:06:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:07:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:08:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:09:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:10:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:11:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:12:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:13:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:14:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:15:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:16:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:18:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:19:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:20:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:21:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:22:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:23:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:24:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:25:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:26:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:27:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:28:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:29:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:31:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:32:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:33:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:34:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:35:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:36:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:37:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:38:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:39:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:40:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:41:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:42:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:44:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:45:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:46:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:47:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:48:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:49:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:50:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:51:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:52:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:53:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:54:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:55:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:57:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:58:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-21 23:59:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:00:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:01:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:02:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:03:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:04:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:05:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:06:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:07:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:08:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:10:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:11:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:12:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:13:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:14:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:15:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:16:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:17:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:18:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:19:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:20:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:22:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:23:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:24:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:25:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:26:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:27:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:28:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:29:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:30:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:31:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:32:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:33:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:35:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:36:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:37:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:38:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:39:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:40:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:41:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:42:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:43:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:44:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:45:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:46:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:48:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:49:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:50:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:51:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:52:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:53:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:54:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:55:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:56:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:57:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:58:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 00:59:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:01:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:02:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:03:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:04:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:05:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:06:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:07:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:08:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:09:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:10:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:11:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:12:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:14:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:15:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:16:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:17:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:18:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:19:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:20:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:21:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:22:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:23:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:24:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:25:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:27:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:28:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:29:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:30:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:31:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:32:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:33:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:34:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:35:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:36:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:37:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:38:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:40:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:41:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:42:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:43:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:44:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:45:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:46:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:47:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:48:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:49:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:50:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:52:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:53:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:54:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:55:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:56:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:57:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:58:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 01:59:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:00:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:01:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:02:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:03:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:05:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:06:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:07:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:08:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:09:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:10:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:11:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:12:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:13:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:14:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:15:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:16:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:18:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:19:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:20:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:21:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:22:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:23:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:24:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:25:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:26:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:27:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:28:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:29:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:31:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:32:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:33:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:34:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:35:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:36:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:37:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:38:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:39:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:40:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:41:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:42:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:44:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:45:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:46:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:47:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:48:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:49:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:50:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:51:39 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:52:44 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:53:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:54:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:55:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:57:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:58:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 02:59:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:00:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:01:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:02:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:03:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:04:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:05:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:06:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:07:55 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:09:00 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:10:05 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:11:10 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:12:15 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:13:20 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:14:25 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:15:30 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:16:35 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:17:40 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:18:45 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:19:50 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:20:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:22:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:23:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:24:11 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:25:16 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:26:21 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:27:26 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:28:31 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:29:36 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:30:41 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:31:46 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:32:51 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:33:56 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:35:01 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:36:06 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:37:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:38:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:39:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:40:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:41:32 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:42:37 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:43:42 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:44:47 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:45:52 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:46:57 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:48:02 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:49:07 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:50:12 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:51:17 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:52:22 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:53:27 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:54:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:55:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:56:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:57:48 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:58:53 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 03:59:58 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:01:03 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:02:08 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:03:13 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:04:18 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:05:23 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:06:28 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:07:33 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:08:38 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:09:43 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:10:49 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:11:54 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:12:59 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:14:04 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:15:09 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:16:14 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:17:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:18:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:19:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:20:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+ed out
+2026-03-22 04:17:19 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:18:24 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:19:29 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+2026-03-22 04:20:34 - root - WARNING - [WARN] Retry 2/3 for model magicoder:7b-s-cl: timed out
+ - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:51:17 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:52:22 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:53:27 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:54:33 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:55:38 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:56:43 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:57:48 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:58:53 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 03:59:58 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:01:03 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:02:08 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:03:13 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:04:18 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:05:23 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:06:28 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:07:33 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:08:38 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:09:43 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:10:49 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:11:54 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:12:59 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:14:04 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:15:09 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:16:14 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:17:19 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:18:24 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:19:29 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+2026-03-22 04:20:34 - root - WARNING - [WARN] Retry 2/3 for model deepseek-coder:6.7b: timed out
+t: timed out
+2026-03-22 04:10:48 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:11:53 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:12:58 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:14:03 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:15:08 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:16:13 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:17:18 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:18:23 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:19:28 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:20:33 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+a:7b-instruct: timed out
+2026-03-22 03:51:17 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:52:22 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:53:27 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:54:32 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:55:37 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:56:42 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:57:47 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:58:52 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 03:59:57 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:01:02 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:02:07 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:03:13 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:04:18 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:05:23 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:06:28 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:07:33 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:08:38 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:09:43 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:10:48 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:11:53 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:12:58 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:14:03 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:15:08 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:16:13 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:17:18 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:18:23 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:19:28 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out
+2026-03-22 04:20:34 - root - WARNING - [WARN] Retry 2/3 for model codellama:7b-instruct: timed out

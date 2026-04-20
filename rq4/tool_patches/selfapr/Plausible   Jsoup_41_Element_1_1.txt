@@ -1,0 +1,6 @@
+Plausible   Jsoup_41_Element_1_1 
+src/main/java/org/jsoup/nodes/Element.java 1175 
+-  return this == o; 
++  return  element  ==  null?  element.equals(o):  element.equals(o);
+[Human-written Patch]
++  return  tag.equals(element.tag);

@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/QUICKSORT.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_QUICKSORT.java
+index 82304b0..e160dd3 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/QUICKSORT.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_QUICKSORT.java
+@@ -23,7 +23,7 @@ public class QUICKSORT {
+         for (Integer x : arr.subList(1, arr.size())) {
+             if (x < pivot) {
+                 lesser.add(x);
+-            } else if (x > pivot) {
++            } else if (x >= pivot) {
+                 greater.add(x);
+             }
+         }

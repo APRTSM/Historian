@@ -1,0 +1,119 @@
+[
+    {
+        "uid": "llm4cc-simple_prompt", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two code snippets and determine if they are code clones. Respond with ‘yes’ if the code snippets are clones or ‘no’ if not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-clone_type", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two code snippets and determine if they are code clones. Respond with ‘yes’ if the code snippets are clones or ‘no’ if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+        "type": "type"
+    },
+    {
+        "uid": "llm4cc-similarity", 
+        "origin": "LLM4CC",
+        "content": "Please assess the similarity of the following two code snippets and provide a similarity score between 0 and 10. A higher score indicates that the two codes are more similar. Output the similarity score.",
+        "type": "score"
+    },
+    {
+        "uid": "llm4cc-reasoning", 
+        "origin": "LLM4CC",
+        "content": "Please provide a detailed reasoning process for detecting code clones in the following two code snippets. Based on your analysis, respond with ‘yes’ if the code snippets are clones or ‘no’ if they are not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-similarity_line", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two code snippets for code clone detection. You should first report which lines of code are more similar. Then based on the report, please answer whether these two codes are a clone pair. The response should be ‘yes’ or ‘no’.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-integrated", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two code snippets to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+        "type": "integrated"
+    },
+
+    {
+        "uid": "llm4cc-simple_prompt-patch", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches and determine if they are code clones. Respond with ‘yes’ if the patches are clones or ‘no’ if not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-clone_type-patch", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches and determine if they are code clones. Respond with ‘yes’ if the patches are clones or ‘no’ if not. If the answer is yes, please report the specific clone type (i.e., Type-1, Type-2, Type-3, or Type-4).",
+        "type": "type"
+    },
+    {
+        "uid": "llm4cc-similarity-patch", 
+        "origin": "LLM4CC",
+        "content": "Please assess the similarity of the following two patches and provide a similarity score between 0 and 10. A higher score indicates that the two patches are more similar. Output the similarity score.",
+        "type": "score"
+    },
+    {
+        "uid": "llm4cc-reasoning-patch", 
+        "origin": "LLM4CC",
+        "content": "Please provide a detailed reasoning process for detecting code clones in the following two patches. Based on your analysis, respond with ‘yes’ if the patches are clones or ‘no’ if they are not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-similarity_line-patch", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches for code clone detection. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are a clone pair. The response should be ‘yes’ or ‘no’.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-integrated-patch", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches to assess their similarity and determine if they are code clones. Provide a similarity score between 0 and 10, where a higher score indicates more similarity. Additionally, identify the type of code clone they represent and present a detailed reasoning process for detecting code clones.",
+        "type": "integrated"
+    },
+
+    {
+        "uid": "llm4cc-simple_prompt-semantical", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches and determine if they are semantically similar. Respond with ‘yes’ if the patches are semantically similar or ‘no’ if not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-similarity-patch-semantical", 
+        "origin": "LLM4CC",
+        "content": "Please assess the semantic similarity of the following two patches and provide a semantic similarity score between 0 and 10. A higher score indicates that the two patches are more semantically similar. Output the semantic similarity score.",
+        "type": "score"
+    },
+    {
+        "uid": "llm4cc-reasoning-patch-semantical", 
+        "origin": "LLM4CC",
+        "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with ‘yes’ if the patches are semantically similar or ‘no’ if they are not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-similarity_line-patch-semantical", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically similar. The response should be ‘yes’ or ‘no’.",
+        "type": "boolean"
+    },
+    
+    {
+        "uid": "llm4cc-simple_prompt-identical", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches and determine if they are semantically identical. Respond with ‘yes’ if the patches are semantically identical or ‘no’ if not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-reasoning-patch-identical", 
+        "origin": "LLM4CC",
+        "content": "Please provide a detailed reasoning process for detecting semantic similarity in the following two patches. Based on your analysis, respond with ‘yes’ if the patches are semantically identical or ‘no’ if they are not.",
+        "type": "boolean"
+    },
+    {
+        "uid": "llm4cc-similarity_line-patch-identical", 
+        "origin": "LLM4CC",
+        "content": "Please analyze the following two patches for semantic similarity. You should first report which lines of patches are more similar. Then based on the report, please answer whether these two patches are semantically identical. The response should be ‘yes’ or ‘no’.",
+        "type": "boolean"
+    }
+]

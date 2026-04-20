@@ -1,0 +1,11 @@
+[Uniquely repaired bug] Jsoup_45_HtmlTreeBuilder_1_1
+src/main/java/org/jsoup/parser/HtmlTreeBuilder.java 394
+
+Buggy Line:
+} else if (("td".equals(name) || "td".equals(name) && !last)) {
+
+Developer's Fix:
+} else if (("td".equals(name) || "th".equals(name) && !last)) {
+
+[success] RAP-Gen's Repair:
+} else if("td".equals(name)||"th".equals(name)&&!last){

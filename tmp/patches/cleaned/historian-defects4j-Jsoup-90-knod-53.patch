@@ -1,0 +1,9 @@
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
+@@ -423,2 +423,5 @@
+ 
++if (end > 0 ){
++return false;
++}
+ 
+

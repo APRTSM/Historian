@@ -1,0 +1,10 @@
+Math 43
+src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java
+164 - 164
+###    buggy:  ###
+- if (!(geoMeanImpl instanceof GeometricMean)) {
+### developer: ###
++ if (geoMeanImpl != geoMean) {
+###    ours:   ###
++ if (geoMeanImpl != geoMean) {
+

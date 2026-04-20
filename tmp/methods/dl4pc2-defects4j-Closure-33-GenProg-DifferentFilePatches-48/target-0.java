@@ -1,0 +1,18 @@
+  public boolean isEquivalentTo(JSType other) {
+    if (!other.isRecordType()) {
+      return false;
+    }
+
+    // Compare properties.
+    RecordType otherRecord = other.toMaybeRecordType();
+    if (otherRecord == this) {
+      return true;
+    }
+
+    Set<String> keySet = properties.keySet();
+    Map<String, JSType> otherProps = otherRecord.properties;
+    if (!otherProps.keySet().equals(keySet)) {
+      return false;
+    }
+    return true;
+  }

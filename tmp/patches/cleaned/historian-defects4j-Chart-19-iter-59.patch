@@ -1,0 +1,13 @@
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -970,6 +970,7 @@ 
+      * @since 1.0.7
+      */
+     public int getRangeAxisIndex(ValueAxis axis) {
+         int result = this.rangeAxes.indexOf(axis);
++     if  (axis==null)  {  throw  new  IllegalArgumentException  ( "   ");  } 
+         if (result < 0) { // try the parent plot
+             Plot parent = getParent();
+
+
+

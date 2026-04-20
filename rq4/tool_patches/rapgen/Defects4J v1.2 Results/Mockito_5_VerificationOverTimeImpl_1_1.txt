@@ -1,0 +1,11 @@
+Mockito_5_VerificationOverTimeImpl_1_1
+src/org/mockito/internal/verification/VerificationOverTimeImpl.java 91
+
+Buggy Line:
+catch (org.mockito.exceptions.verification.junit.ArgumentsAreDifferent e) {
+
+Developer's Fix:
+catch (AssertionError e) {
+
+[success] RAP-Gen's Repair:
+catch(AssertionError e){

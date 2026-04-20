@@ -1,0 +1,12 @@
+--- a/src/main/java/org/apache/commons/csv/CSVRecord.java
++++ b/src/main/java/org/apache/commons/csv/CSVRecord.java
+@@ -181,4 +181,8 @@
+             final int col = entry.getValue().intValue();
++                try{
+                 map.put(entry.getKey(), values[col]);
+         }
++catch ( Exception e) {
++}
++        }
+         return map;
+

@@ -1,0 +1,13 @@
+Closure 31
+src/com/google/javascript/jscomp/Compiler.java
+1284 - 1286
+###    buggy:  ###
+- if (options.dependencyOptions.needsManagement() &&
+-           !options.skipAllPasses &&
+-           options.closurePass) {
+### developer: ###
++ if (options.dependencyOptions.needsManagement() &&
++     options.closurePass) {
+###    ours:   ###
++ if (options.dependencyOptions.needsManagement() && options.closurePass){
+

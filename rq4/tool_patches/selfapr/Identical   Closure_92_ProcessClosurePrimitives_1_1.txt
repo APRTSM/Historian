@@ -1,0 +1,5 @@
+Identical   Closure_92_ProcessClosurePrimitives_1_1 
+src/com/google/javascript/jscomp/ProcessClosurePrimitives.java 789 
++  int  indexOfDot  =  namespace.lastIndexOf('.');
+[Human-written Patch]
++  int  indexOfDot  =  namespace.lastIndexOf('.');

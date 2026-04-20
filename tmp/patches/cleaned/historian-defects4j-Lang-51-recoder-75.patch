@@ -1,0 +1,12 @@
+--- a/src/java/org/apache/commons/lang/BooleanUtils.java
++++ b/src/java/org/apache/commons/lang/BooleanUtils.java
+@@ -681,7 +681,7 @@
+                }
+            }
+            case 4: {
+-                char ch = str.charAt(0);
++           break;
+                if (ch == 't') {
+                return 
+                (str.charAt(1) == 'r' || str.charAt(1) == 'R') &&
+                

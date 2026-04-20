@@ -1,0 +1,15 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+@@ -384,10 +384,7 @@
+     @Override
+     public void write(byte[] wBuf, int wOffset, int numToWrite) throws IOException {
+         if ((currBytes + numToWrite) > currSize) {
+-            throw new IOException("request to write '" + numToWrite
+-                                  + "' bytes exceeds size in header of '"
+-                                  + currSize + "' bytes for entry '"
+-                                  + currName + "'");
++            
+ 
+             //
+             // We have to deal with assembly!!!
+

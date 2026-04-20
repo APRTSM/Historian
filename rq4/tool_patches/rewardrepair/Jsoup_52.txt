@@ -1,0 +1,5 @@
+Jsoup_52   src/main/java/org/jsoup/helper/DataUtil.java:112
+Identical to human-written patches  remove 6 line(s)
+-   try  {  if  (Charset.isSupported(meta.attr( "charset ")))  {  }  }  catch  (IllegalCharsetNameException  e)  {  foundCharset  =  null;  }  
++     
+

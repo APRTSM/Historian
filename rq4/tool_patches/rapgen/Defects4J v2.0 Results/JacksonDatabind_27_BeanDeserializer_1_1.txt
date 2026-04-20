@@ -1,0 +1,11 @@
+JacksonDatabind_27_BeanDeserializer_1_1
+src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java 794
+
+Buggy Line:
+if (ext.handlePropertyValue(p, ctxt, propName, buffer)) {
+
+Developer's Fix:
+if (ext.handlePropertyValue(p, ctxt, propName, null)) {
+
+[success] RAP-Gen's Repair:
+if(ext.handlePropertyValue(p, ctxt, propName, null)) {

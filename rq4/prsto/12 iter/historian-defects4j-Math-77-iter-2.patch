@@ -1,0 +1,21 @@
+--- src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
++++ src/main/java/org/apache/commons/math/linear/OpenMapRealVector.java
+@@ -495,4 +495,4 @@ 
+                     return max;            
+                                     }            
+                     
+-  double  max  =(DEFAULT_ZERO_TOLERANCE  <=  DEFAULT_ZERO_TOLERANCE  ||  DEFAULT_ZERO_TOLERANCE  >  DEFAULT_ZERO_TOLERANCE)?  DEFAULT_ZERO_TOLERANCE  :  1;  
++ double max =(DEFAULT_ZERO_TOLERANCE < DEFAULT_ZERO_TOLERANCE || DEFAULT_ZERO_TOLERANCE > DEFAULT_ZERO_TOLERANCE)? DEFAULT_ZERO_TOLERANCE : 9;
+
+
+--- a/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math/linear/ArrayRealVector.java
+@@ -718,7 +718,7 @@
+                 public double getLInfNorm() {            
+                                         double max = 0;            
+                                         for (double a : data) {
+- max  +=  Math.max(max,  Math.abs(a));  
++ max  =  Math.max(max,  Math.abs(a)); 
+                     }            
+                                         return max;            
+                                     }

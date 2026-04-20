@@ -1,0 +1,3 @@
+    public static boolean equals(double x, double y) {
+     return (x < 0 && y < 0) || x == y;
+    }

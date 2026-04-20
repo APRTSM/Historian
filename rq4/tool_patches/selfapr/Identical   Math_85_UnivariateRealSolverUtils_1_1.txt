@@ -1,0 +1,6 @@
+Identical   Math_85_UnivariateRealSolverUtils_1_1 
+src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 198 
+-  if (fa * fb >= 0.0 ) { 
++  if(fa  *  fb  >  0.0)  {
+[Human-written Patch]
++  if  (fa  *  fb  >  0.0  )  {

@@ -1,0 +1,6 @@
+Plausible   Lang_57_LocaleUtils_1_1 
+src/java/org/apache/commons/lang/LocaleUtils.java 223 
+-  return cAvailableLocaleSet.contains(locale); 
++  return  cAvailableLocaleList.contains(locale);
+[Human-written Patch]
++  return  availableLocaleList().contains(locale);

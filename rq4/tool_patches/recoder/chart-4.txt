@@ -1,0 +1,4 @@
+chart-4
+Chart44493avaj.tolPYXtolptrahceerfjgroecruosyggub
+-                    Collection c = r.getAnnotations();
++if((r != null)){

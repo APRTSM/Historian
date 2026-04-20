@@ -1,0 +1,3 @@
+    public boolean isCircular() {
+        return this.circular;
+    }

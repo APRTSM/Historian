@@ -1,0 +1,8 @@
+Closure_126 
+FL: com.google.javascript.jscomp.MinimizeExitPoints,142,0.707
+com.google.javascript.jscomp.MinimizeExitPoints,143,0.707
+Identical to human-written patches  replace line(s)
+-     Node    finallyBlock    =    n.getLastChild();    tryMinimizeExits(finallyBlock,    exitType,    labelName);        
++  
+
+

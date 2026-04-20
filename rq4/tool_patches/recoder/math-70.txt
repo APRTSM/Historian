@@ -1,0 +1,4 @@
+math-70
+Math7072avaj.revloSnoitcesiBsrevlossisylanahtamsnommocehcapagroavajniamcrsyggub
+-        return solve(min, max);
++return solve(f, min, max);

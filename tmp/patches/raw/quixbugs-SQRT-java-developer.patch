@@ -1,0 +1,13 @@
+diff --git a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/SQRT.java b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_SQRT.java
+index 972ad4a..d80bde6 100644
+--- a/home/sahand/Desktop/CC4APCA/CC4APCA/benchmarks/quixbugs/java_programs/SQRT.java
++++ b/home/sahand/Desktop/CC4APCA/CC4APCA/tmp/checkouts/correct_SQRT.java
+@@ -13,7 +13,7 @@ import java.util.*;
+ public class SQRT {
+     public static double sqrt(double x, double epsilon) {
+         double approx = x / 2d;
+-        while (Math.abs(x-approx) > epsilon) {
++        while (Math.abs(x-approx*approx) > epsilon) {
+             approx = 0.5d * (approx + x / approx);
+         }
+         return approx;

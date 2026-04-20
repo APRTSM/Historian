@@ -1,0 +1,14 @@
+--- a/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
++++ b/src/java/org/apache/commons/math/distribution/FDistributionImpl.java
+@@ -141,9 +141,9 @@ public class FDistributionImpl
+      * @return initial domain value
+      */
+     protected double getInitialDomain(double p) {
+        double ret;
+         double d = getDenominatorDegreesOfFreedom();
+             // use mean
+-             ret = d / (d - 2.0);
++  ret  =  d  /  denominatorDegreesOfFreedom;
+         return ret;
+     }
+     

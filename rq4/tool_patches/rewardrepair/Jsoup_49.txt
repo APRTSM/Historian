@@ -1,0 +1,8 @@
+Jsoup_49   src/main/java/org/jsoup/nodes/Node.java:445
+Identical to human-written patches  add  line(s)
+-    
++    reindexChildren(index);
+src/main/java/org/jsoup/nodes/Node.java:447
+-  reindexChildren(index);
++ 
+

@@ -1,0 +1,6 @@
+Chart_1
+FL: org.jfree.chart.renderer.category.AbstractCategoryItemRenderer,1797,0.162
+Identical to human-written patches  replace line(s)
+-     if    (dataset    !=    null)    {    
++     if (dataset == null) {
+

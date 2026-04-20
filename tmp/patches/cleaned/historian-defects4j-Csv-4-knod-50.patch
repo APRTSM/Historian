@@ -1,0 +1,9 @@
+--- a/src/main/java/org/apache/commons/csv/CSVParser.java
++++ b/src/main/java/org/apache/commons/csv/CSVParser.java
+@@ -287,2 +287,5 @@
+     public Map<String, Integer> getHeaderMap() {
++if (headerMap == null ){
++return null;
++}
+         return new LinkedHashMap<String, Integer>(this.headerMap);
+

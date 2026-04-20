@@ -1,0 +1,35 @@
+    public double getNorm() {
+        double sum = 0;
+        Iterator<Entry> it = sparseIterator();
+        Entry e;
+        while (it.hasNext() && (e = it.next()) != null) {
+            final double value = e.getValue();
+            sum += value * value;
+        }
+        return Math.sqrt(sum);
+    }
+    public double getLInfNorm() {
+        double norm = 0;
+        Iterator<Entry> it = sparseIterator();
+        Entry e;
+        while (it.hasNext() && (e = it.next()) != null) {
+            norm = Math.max(norm, Math.abs(e.getValue()));
+        }
+        return norm;
+    }
+    public double getL1Norm() {
+        double norm = 0;
+        Iterator<Entry> it = sparseIterator();
+        Entry e;
+        while (it.hasNext() && (e = it.next()) != null) {
+            norm += Math.abs(e.getValue());
+        }
+        return norm;
+    }
+    public double getLInfNorm() {
+        double max = 0;
+        for (double a : data) {
+            max = Math.max(max, Math.abs(a));
+        }
+        return max;
+    }

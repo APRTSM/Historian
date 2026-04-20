@@ -1,0 +1,13 @@
+--- a/src/java/org/apache/commons/cli/Parser.java
++++ b/src/java/org/apache/commons/cli/Parser.java
+@@ -289,4 +289,9 @@
+                     // option to the CommandLine
++                    if (options == null ){
+                     break;
+                 }
++else {
++continue  ;
++}
++                }
+ 
+

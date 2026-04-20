@@ -1,0 +1,6 @@
+Plausible   JacksonDatabind_16_AnnotationMap_1_1 
+src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java 112 
+-  return (previous != null) && previous.equals(ann); 
++  return(previous  ==  null)||  previous.equals(ann);
+[Human-written Patch]
++  return  (previous  ==  null)  ||!previous.equals(ann);

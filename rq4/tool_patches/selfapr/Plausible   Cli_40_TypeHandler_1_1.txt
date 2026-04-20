@@ -1,0 +1,6 @@
+Plausible   Cli_40_TypeHandler_1_1 
+src/main/java/org/apache/commons/cli/TypeHandler.java 103 
+-  return null; 
++  return(PatternOptionBuilder.URL_VALUE!=  clazz)?  (T)createURL(str):  null;
+[Human-written Patch]
++  throw  new  ParseException( "Unable  to  handle  the  class: "  +  clazz);

@@ -1,0 +1,11 @@
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+@@ -132,5 +132,4 @@
+         }
+-        if (start == end) {
+-            throw new IllegalArgumentException(
+-                    exceptionMessage(buffer, offset, length, start, trailer));
++        if (start == BYTE_MASK ){
++throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+         }
+

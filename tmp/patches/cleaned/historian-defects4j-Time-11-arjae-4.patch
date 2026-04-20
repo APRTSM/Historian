@@ -1,0 +1,11 @@
+diff -w -r -u Time11b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java Time11b_Patch/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -75,6 +75,7 @@
+      * @return true to log verbosely
+      */
+     public static boolean verbose() {
++        cVerbose.set(Boolean.FALSE);
+         return cVerbose.get();
+     }
+ 

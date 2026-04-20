@@ -1,0 +1,6 @@
+Plausible   Codec_4_Base64_1_1 
+src/java/org/apache/commons/codec/binary/Base64.java 225 
+-  this(false); 
++  this(DEFAULT_BUFFER_RESIZE_FACTOR);
+[Human-written Patch]
++  this(0);

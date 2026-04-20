@@ -1,0 +1,13 @@
+--- a/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
++++ b/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+@@ -205,7 +205,8 @@
+                             final double t, final double[] y)
+         throws DerivativeException, IntegratorException {
+ 
+-        final int n = y0.length;
++        setMaxGrowth(10.0);
++final int n = y0.length;
+         sanityChecks(equations, t0, y0, t, y);
+         setEquations(equations);
+         resetEvaluations();
+

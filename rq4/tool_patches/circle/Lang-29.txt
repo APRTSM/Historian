@@ -1,0 +1,11 @@
+Lang 29
+src/main/java/org/apache/commons/lang3/SystemUtils.java
+1672 - 1672
+###    buggy:  ###
+- static float toJavaVersionInt(String version
+### developer: ###
++ static int toJavaVersionInt(String version) {
+###    ours:   ###
++ static int toJavaVersionInt(String version) {
+
+// Equivalence: do same thing.

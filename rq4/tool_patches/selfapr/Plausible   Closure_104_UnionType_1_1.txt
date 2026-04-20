@@ -1,0 +1,6 @@
+Plausible   Closure_104_UnionType_1_1 
+src/com/google/javascript/rhino/jstype/UnionType.java 291 
+-  if (result != null) { 
++  if(result!=  null  &&!result.isUnknownType()  &&!result.equals(getNativeType(JSTypeNative.NO_TYPE)))  {
+[Human-written Patch]
++  if  (!result.isNoType())  {

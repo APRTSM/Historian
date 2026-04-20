@@ -1,0 +1,69 @@
+    protected void doConfigure() {
+        boolean setRoot = false;
+        boolean setLoggers = false;
+        if (rootNode.hasChildren() && rootNode.getChildren().get(0).getName().equalsIgnoreCase("Properties")) {
+            Node first = rootNode.getChildren().get(0);
+            createConfiguration(first, null);
+            if (first.getObject() != null) {
+                subst.setVariableResolver((StrLookup) first.getObject());
+            }
+        } else {
+            final Map<String, String> map = (Map<String, String>) componentMap.get(CONTEXT_PROPERTIES);
+            final StrLookup lookup = map == null ? null : new MapLookup(map);
+            subst.setVariableResolver(new Interpolator(lookup));
+        }
+
+        for (final Node child : rootNode.getChildren()) {
+            if (child.getName().equalsIgnoreCase("Properties")) {
+                if (tempLookup == subst.getVariableResolver()) {
+                    LOGGER.error("Properties declaration must be the first element in the configuration");
+                }
+                continue;
+            }
+            createConfiguration(child, null);
+            if (child.getObject() == null) {
+                continue;
+            }
+            if (child.getName().equalsIgnoreCase("Appenders")) {
+                appenders = (ConcurrentMap<String, Appender>) child.getObject();
+            } else if (child.getObject() instanceof Filter) {
+                addFilter((Filter) child.getObject());
+            } else if (child.getName().equalsIgnoreCase("Loggers")) {
+                final Loggers l = (Loggers) child.getObject();
+                loggers = l.getMap();
+                setLoggers = true;
+                if (l.getRoot() != null) {
+                    root = l.getRoot();
+                    setRoot = true;
+                }
+            } else {
+                LOGGER.error("Unknown object \"" + child.getName() + "\" of type " +
+                    child.getObject().getClass().getName() + " is ignored");
+            }
+        }
+
+        if (!setLoggers) {
+            LOGGER.warn("No Loggers were configured, using default. Is the Loggers element missing?");
+            setToDefault();
+            return;
+        } else if (!setRoot) {
+            LOGGER.warn("No Root logger was configured, creating default ERROR-level Root logger with Console appender");
+            setToDefault();
+            // return; // LOG4J2-219: creating default root=ok, but don't exclude configured Loggers
+        }
+
+        for (final Map.Entry<String, LoggerConfig> entry : loggers.entrySet()) {
+            final LoggerConfig l = entry.getValue();
+            for (final AppenderRef ref : l.getAppenderRefs()) {
+                final Appender app = appenders.get(ref.getRef());
+                if (app != null) {
+                    l.addAppender(app, ref.getLevel(), ref.getFilter());
+                } else {
+                    LOGGER.error("Unable to locate appender " + ref.getRef() + " for logger " + l.getName());
+                }
+            }
+
+        }
+
+        setParents();
+    }

@@ -1,0 +1,6 @@
+Identical   JacksonDatabind_34_NumberSerializer_1_1 
+src/main/java/com/fasterxml/jackson/databind/ser/std/NumberSerializer.java 81 
+-  visitFloatFormat(visitor, typeHint, JsonParser.NumberType.BIG_INTEGER); 
++  visitFloatFormat(visitor,  typeHint,  JsonParser.NumberType.BIG_DECIMAL);
+[Human-written Patch]
++  visitFloatFormat(visitor,  typeHint,  JsonParser.NumberType.BIG_DECIMAL);

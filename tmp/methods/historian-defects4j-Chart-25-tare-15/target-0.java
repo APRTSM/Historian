@@ -1,0 +1,11 @@
+    public Number getMeanValue(int row, int column) {
+	if((row == 0)){
+	return null;}
+        Number result = null;
+        MeanAndStandardDeviation masd 
+            = (MeanAndStandardDeviation) this.data.getObject(row, column);
+        if (masd != null) {
+            result = masd.getMean();
+        }
+        return result;
+    }

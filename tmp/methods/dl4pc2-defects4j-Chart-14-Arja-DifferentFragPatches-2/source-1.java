@@ -1,0 +1,26 @@
+    public boolean removeDomainMarker(int index, Marker marker, Layer layer) {
+    	return removeDomainMarker(index, marker, layer, true);
+    }
+    public ValueAxis getRangeAxis(int index) {
+        ValueAxis result = null;
+        if (index < this.rangeAxes.size()) {
+            result = (ValueAxis) this.rangeAxes.get(index);
+        }
+        if (result == null) {
+            Plot parent = getParent();
+            if (parent instanceof CategoryPlot) {
+                CategoryPlot cp = (CategoryPlot) parent;
+                result = cp.getRangeAxis(index);
+            }
+        }
+        return result;
+    }
+    public boolean removeRangeMarker(Marker marker) {
+        return removeRangeMarker(marker, Layer.FOREGROUND);
+    }
+    public boolean removeRangeMarker(Marker marker, Layer layer) {
+        return removeRangeMarker(0, marker, layer);
+    }
+    public boolean removeDomainMarker(Marker marker, Layer layer) {
+        return removeDomainMarker(0, marker, layer);
+    }

@@ -1,0 +1,6 @@
+Plausible   Closure_31_Compiler_1_1 
+src/com/google/javascript/jscomp/Compiler.java 1285 
+-  if (options.dependencyOptions.needsManagement() && !options.skipAllPasses && options.closurePass) { 
++  !options.skipAllPasses  ||
+[Human-written Patch]
++

@@ -1,0 +1,1 @@
+ret = (this.real == rhs.real && this.imaginary == rhs.imaginary);

@@ -1,0 +1,8 @@
+--- a/src/com/google/javascript/jscomp/FunctionInjector.java
++++ b/src/com/google/javascript/jscomp/FunctionInjector.java
+@@ -694,4 +694,4 @@
+             
+                                     Node block = fnNode.getLastChild();            
+                     
+- hasSideEffects = NodeUtil.mayHaveSideEffects(stmt.getFirstChild(), compiler);
++ hasSideEffects  = false;

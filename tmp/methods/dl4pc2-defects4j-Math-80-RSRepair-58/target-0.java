@@ -1,0 +1,11 @@
+    private boolean flipIfWarranted(final int n, final int step) {
+        if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+            // flip array
+            int j = 4 * n - 1;
+            if (cachedD == null) {
+				cachedD = MatrixUtils.createRealDiagonalMatrix(realEigenvalues);
+			}
+            return true;
+        }
+        return false;
+    }

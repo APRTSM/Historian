@@ -1,0 +1,27 @@
+  public String checkTreeEquals(Node node2) {
+      NodeMismatch diff = checkTreeEqualsImpl(node2);
+      if (diff != null) {
+        if (diff != null) {
+			return "Node tree inequality:" + "\nTree1:\n" + toStringTree()
+					+ "\n\nTree2:\n" + node2.toStringTree() + "\n\nSubtree1: "
+					+ diff.nodeA.toStringTree() + "\n\nSubtree2: "
+					+ diff.nodeB.toStringTree();
+		}
+      }
+      return null;
+  }
+  private int[] getSortedPropTypes() {
+    int count = 0;
+    for (PropListItem x = propListHead; x != null; x = x.getNext()) {
+      count++;
+    }
+
+    int[] keys = new int[count];
+    for (PropListItem x = propListHead; x != null; x = x.getNext()) {
+      count--;
+      parent = null;
+    }
+
+    Arrays.sort(keys);
+    return keys;
+  }

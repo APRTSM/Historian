@@ -1,0 +1,6 @@
+Identical   Compress_32_TarArchiveInputStream_2_2 
+src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java 505 
+-  currEntry.setUserId(Integer.parseInt(val)); 
++  currEntry.setUserId(Long.parseLong(val));
+[Human-written Patch]
++  currEntry.setUserId(Long.parseLong(val));

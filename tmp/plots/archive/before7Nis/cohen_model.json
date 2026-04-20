@@ -1,0 +1,1 @@
+[{"uids": ["magicoder:7b-s-cl", "codegemma:7b-instruct"], "kappa": -0.007315917201536237}, {"uids": ["magicoder:7b-s-cl", "codellama:13b-instruct"], "kappa": -0.17093375497337182}, {"uids": ["codegemma:7b-instruct", "codellama:13b-instruct"], "kappa": 0.021464275766813534}]

@@ -1,0 +1,7 @@
+--- a/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
++++ b/src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java
+@@ -37,2 +37,3 @@
+         this.checksum = checksum;
++getValue();
+         this.in = in;
+

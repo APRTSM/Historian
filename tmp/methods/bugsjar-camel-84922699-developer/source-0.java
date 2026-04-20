@@ -1,0 +1,170 @@
+    public Object getManagedObjectForProcessor(CamelContext context, Processor processor,
+                                               ProcessorDefinition<?> definition, Route route) {
+        ManagedProcessor answer = null;
+
+        if (definition instanceof RecipientListDefinition) {
+            // special for RecipientListDefinition, as the processor is wrapped in a pipeline as last
+            Pipeline pipeline = (Pipeline) processor;
+            Iterator<Processor> it = pipeline.getProcessors().iterator();
+            while (it.hasNext()) {
+                processor = it.next();
+            }
+        } else if (definition instanceof ThreadsDefinition) {
+            // special for ThreadsDefinition, as the processor is wrapped in a pipeline as first
+            Pipeline pipeline = (Pipeline) processor;
+            Iterator<Processor> it = pipeline.getProcessors().iterator();
+            processor = it.next();
+        }
+
+        // unwrap delegates as we want the real target processor
+        Processor target = processor;
+        while (target != null) {
+
+            // skip error handlers
+            if (target instanceof ErrorHandler) {
+                return false;
+            }
+
+            if (target instanceof ConvertBodyProcessor) {
+                answer = new ManagedConvertBody(context, (ConvertBodyProcessor) target, definition);
+            } else if (target instanceof ChoiceProcessor) {
+                answer = new ManagedChoice(context, (ChoiceProcessor) target, definition);
+            } else if (target instanceof Delayer) {
+                answer = new ManagedDelayer(context, (Delayer) target, definition);
+            } else if (target instanceof Throttler) {
+                answer = new ManagedThrottler(context, (Throttler) target, definition);
+            } else if (target instanceof DynamicRouter) {
+                answer = new ManagedDynamicRouter(context, (DynamicRouter) target, (org.apache.camel.model.DynamicRouterDefinition) definition);
+            } else if (target instanceof RoutingSlip) {
+                answer = new ManagedRoutingSlip(context, (RoutingSlip) target, (org.apache.camel.model.RoutingSlipDefinition) definition);
+            } else if (target instanceof FilterProcessor) {
+                answer = new ManagedFilter(context, (FilterProcessor) target, (org.apache.camel.model.FilterDefinition) definition);
+            } else if (target instanceof LogProcessor) {
+                answer = new ManagedLog(context, (LogProcessor) target, definition);
+            } else if (target instanceof LoopProcessor) {
+                answer = new ManagedLoop(context, (LoopProcessor) target, (org.apache.camel.model.LoopDefinition) definition);
+            } else if (target instanceof MarshalProcessor) {
+                answer = new ManagedMarshal(context, (MarshalProcessor) target, (org.apache.camel.model.MarshalDefinition) definition);
+            } else if (target instanceof UnmarshalProcessor) {
+                answer = new ManagedUnmarshal(context, (UnmarshalProcessor) target, (org.apache.camel.model.UnmarshalDefinition) definition);
+            } else if (target instanceof CircuitBreakerLoadBalancer) {
+                answer = new ManagedCircuitBreakerLoadBalancer(context, (CircuitBreakerLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof FailOverLoadBalancer) {
+                answer = new ManagedFailoverLoadBalancer(context, (FailOverLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof RandomLoadBalancer) {
+                answer = new ManagedRandomLoadBalancer(context, (RandomLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof RoundRobinLoadBalancer) {
+                answer = new ManagedRoundRobinLoadBalancer(context, (RoundRobinLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof StickyLoadBalancer) {
+                answer = new ManagedStickyLoadBalancer(context, (StickyLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof TopicLoadBalancer) {
+                answer = new ManagedTopicLoadBalancer(context, (TopicLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof WeightedLoadBalancer) {
+                answer = new ManagedWeightedLoadBalancer(context, (WeightedLoadBalancer) target, (org.apache.camel.model.LoadBalanceDefinition) definition);
+            } else if (target instanceof RecipientList) {
+                answer = new ManagedRecipientList(context, (RecipientList) target, (RecipientListDefinition) definition);
+            } else if (target instanceof Splitter) {
+                answer = new ManagedSplitter(context, (Splitter) target, (org.apache.camel.model.SplitDefinition) definition);
+            } else if (target instanceof MulticastProcessor) {
+                answer = new ManagedMulticast(context, (MulticastProcessor) target, definition);
+            } else if (target instanceof SamplingThrottler) {
+                answer = new ManagedSamplingThrottler(context, (SamplingThrottler) target, definition);
+            } else if (target instanceof Resequencer) {
+                answer = new ManagedResequencer(context, (Resequencer) target, definition);
+            } else if (target instanceof RollbackProcessor) {
+                answer = new ManagedRollback(context, (RollbackProcessor) target, definition);
+            } else if (target instanceof StreamResequencer) {
+                answer = new ManagedResequencer(context, (StreamResequencer) target, definition);
+            } else if (target instanceof SetBodyProcessor) {
+                answer = new ManagedSetBody(context, (SetBodyProcessor) target, (org.apache.camel.model.SetBodyDefinition) definition);
+            } else if (target instanceof RemoveHeaderProcessor) {
+                answer = new ManagedRemoveHeader(context, (RemoveHeaderProcessor) target, definition);
+            } else if (target instanceof RemoveHeadersProcessor) {
+                answer = new ManagedRemoveHeaders(context, (RemoveHeadersProcessor) target, definition);
+            } else if (target instanceof SetHeaderProcessor) {
+                answer = new ManagedSetHeader(context, (SetHeaderProcessor) target, (org.apache.camel.model.SetHeaderDefinition) definition);
+            } else if (target instanceof RemovePropertyProcessor) {
+                answer = new ManagedRemoveProperty(context, (RemovePropertyProcessor) target, definition);
+            } else if (target instanceof RemovePropertiesProcessor) {
+                answer = new ManagedRemoveProperties(context, (RemovePropertiesProcessor) target, definition);
+            } else if (target instanceof SetPropertyProcessor) {
+                answer = new ManagedSetProperty(context, (SetPropertyProcessor) target, (org.apache.camel.model.SetPropertyDefinition) definition);
+            } else if (target instanceof ExchangePatternProcessor) {
+                answer = new ManagedSetExchangePattern(context, (ExchangePatternProcessor) target, definition);
+            } else if (target instanceof ScriptProcessor) {
+                answer = new ManagedScript(context, (ScriptProcessor) target, (org.apache.camel.model.ScriptDefinition) definition);
+            } else if (target instanceof StopProcessor) {
+                answer = new ManagedStop(context, (StopProcessor) target, definition);
+            } else if (target instanceof ThreadsProcessor) {
+                answer = new ManagedThreads(context, (ThreadsProcessor) target, definition);
+            } else if (target instanceof ThrowExceptionProcessor) {
+                answer = new ManagedThrowException(context, (ThrowExceptionProcessor) target, definition);
+            } else if (target instanceof TransformProcessor) {
+                answer = new ManagedTransformer(context, (TransformProcessor) target, (org.apache.camel.model.TransformDefinition) definition);
+            } else if (target instanceof PredicateValidatingProcessor) {
+                answer = new ManagedValidate(context, (PredicateValidatingProcessor) target, (org.apache.camel.model.ValidateDefinition) definition);
+            } else if (target instanceof WireTapProcessor) {
+                answer = new ManagedWireTapProcessor(context, (WireTapProcessor) target, definition);
+            } else if (target instanceof SendDynamicProcessor) {
+                answer = new ManagedSendDynamicProcessor(context, (SendDynamicProcessor) target, definition);
+            } else if (target instanceof SendProcessor) {
+                SendProcessor sp = (SendProcessor) target;
+                // special for sending to throughput logger
+                if (sp.getDestination() instanceof LogEndpoint) {
+                    LogEndpoint le = (LogEndpoint) sp.getDestination();
+                    if (le.getLogger() instanceof ThroughputLogger) {
+                        ThroughputLogger tl = (ThroughputLogger) le.getLogger();
+                        answer = new ManagedThroughputLogger(context, tl, definition);
+                    }
+                }
+                // regular send processor
+                if (answer == null) {
+                    answer = new ManagedSendProcessor(context, (SendProcessor) target, definition);
+                }
+            } else if (target instanceof BeanProcessor) {
+                answer = new ManagedBeanProcessor(context, (BeanProcessor) target, definition);
+            } else if (target instanceof IdempotentConsumer) {
+                answer = new ManagedIdempotentConsumer(context, (IdempotentConsumer) target, (org.apache.camel.model.IdempotentConsumerDefinition) definition);
+            } else if (target instanceof AggregateProcessor) {
+                answer = new ManagedAggregateProcessor(context, (AggregateProcessor) target, (org.apache.camel.model.AggregateDefinition) definition);
+            } else if (target instanceof Enricher) {
+                answer = new ManagedEnricher(context, (Enricher) target, (org.apache.camel.model.EnrichDefinition) definition);
+            } else if (target instanceof PollEnricher) {
+                answer = new ManagedPollEnricher(context, (PollEnricher) target, (org.apache.camel.model.PollEnrichDefinition) definition);
+            } else if (target instanceof org.apache.camel.spi.ManagementAware) {
+                return ((org.apache.camel.spi.ManagementAware<Processor>) target).getManagedObject(processor);
+            }
+
+            // special for custom load balancer
+            if (definition instanceof LoadBalanceDefinition) {
+                LoadBalanceDefinition lb = (LoadBalanceDefinition) definition;
+                if (lb.getLoadBalancerType() instanceof CustomLoadBalancerDefinition) {
+                    answer = new ManagedCustomLoadBalancer(context, (LoadBalancer) target, (LoadBalanceDefinition) definition);
+                }
+            }
+
+            if (answer != null) {
+                // break out as we found an answer
+                break;
+            }
+
+            // no answer yet, so unwrap any delegates and try again
+            if (target instanceof DelegateProcessor) {
+                target = ((DelegateProcessor) target).getProcessor();
+            } else {
+                // no delegate so we dont have any target to try next
+                break;
+            }
+        }
+
+        if (answer == null && definition instanceof ProcessDefinition) {
+            answer = new ManagedProcess(context, target, (ProcessDefinition) definition);
+        } else if (answer == null) {
+            // fallback to a generic processor
+            answer = new ManagedProcessor(context, target, definition);
+        }
+
+        answer.setRoute(route);
+        answer.init(context.getManagementStrategy());
+        return answer;
+    }

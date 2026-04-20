@@ -1,0 +1,6 @@
+Time_19
+FL: org.joda.time.DateTimeZone,900,0.121
+Identical to human-written patches  replace line(s)
+-     }    else    if    (offsetLocal    >    0)    {    
++     } else if (offsetLocal >= 0) {
+

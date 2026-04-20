@@ -1,0 +1,6 @@
+Plausible   Csv_4_CSVParser_1_1 
+src/main/java/org/apache/commons/csv/CSVParser.java 288 
+-  return new LinkedHashMap<String, Integer>(this.headerMap); 
++  return(this.headerMap  ==  null)?  null  :  new  LinkedHashMap  <  String,  Integer>(this.headerMap);
+[Human-written Patch]
++  return  this.headerMap  ==  null?  null  :  new  LinkedHashMap  <  String,  Integer>(this.headerMap);

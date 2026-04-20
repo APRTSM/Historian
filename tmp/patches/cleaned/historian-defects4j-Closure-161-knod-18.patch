@@ -1,0 +1,9 @@
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -1282,2 +1282,5 @@
+     //    "[][0] += 1"
++if (!mayHaveSideEffects(parent) ){
++return n;
++}
+ 
+

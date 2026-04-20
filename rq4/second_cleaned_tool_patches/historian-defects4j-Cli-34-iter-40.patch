@@ -1,0 +1,11 @@
+--- a/src/main/java/org/apache/commons/cli/OptionBuilder.java
++++ b/src/main/java/org/apache/commons/cli/OptionBuilder.java
+@@ -224,7 +224,7 @@
+     */
+    public static OptionBuilder hasArgs()
+    {
+-        OptionBuilder.numberOfArgs = Option.UNLIMITED_VALUES;
++ OptionBuilder.numberOfArgs  =(instance  ==  null?  Option.UNLIMITED_VALUES  :  Integer.MAX_VALUE); 
+
+        return instance;
+    }

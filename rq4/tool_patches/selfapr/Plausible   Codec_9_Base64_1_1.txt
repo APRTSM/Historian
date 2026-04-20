@@ -1,0 +1,6 @@
+Plausible   Codec_9_Base64_1_1 
+src/java/org/apache/commons/codec/binary/Base64.java 827 
+-  long len = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR); 
++  long  len  =  getEncodeLength(binaryData,  binaryData.length,  CHUNK_SEPARATOR);
+[Human-written Patch]
++  long  len  =  getEncodeLength(binaryData,  isChunked?  MIME_CHUNK_SIZE  :  0,  CHUNK_SEPARATOR);

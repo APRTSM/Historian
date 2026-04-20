@@ -1,0 +1,26 @@
+  private void visitNew(NodeTraversal t, Node n) {
+    Node constructor = n.getFirstChild();
+    JSType type = getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType = type.toMaybeFunctionType();
+// start of generated patch
+if(fnType!=null&&fnType.isConstructor()){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}else {
+ensureTyped(t,n);
+}
+// end of generated patch
+/* start of original code
+      if (fnType != null) {
+        visitParameterList(t, n, fnType);
+        ensureTyped(t, n, fnType.getInstanceType());
+      } else {
+        ensureTyped(t, n);
+      }
+ end of original code*/
+    } else {
+      report(t, n, NOT_A_CONSTRUCTOR);
+      ensureTyped(t, n);
+    }
+  }

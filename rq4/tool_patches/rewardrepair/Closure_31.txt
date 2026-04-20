@@ -1,0 +1,5 @@
+Closure_31   src/com/google/javascript/jscomp/Compiler.java:1285
+Identical to human-written patches  replace line(s)
+-     !options.skipAllPasses    &&    
++     
+

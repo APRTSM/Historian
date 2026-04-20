@@ -1,0 +1,11 @@
+JacksonCore_8_TextBuffer_1_1
+src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java 307
+
+Buggy Line:
+if (!_hasSegments)  return _currentSegment;
+
+Developer's Fix:
+if (!_hasSegments && _currentSegment != null)  return _currentSegment;
+
+[success] RAP-Gen's Repair:
+if(_currentSegment!= null &&!_hasSegments)return _currentSegment;

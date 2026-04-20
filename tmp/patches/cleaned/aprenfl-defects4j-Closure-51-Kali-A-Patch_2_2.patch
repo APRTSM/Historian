@@ -1,0 +1,14 @@
+--- a/src/com/google/javascript/jscomp/CodeConsumer.java
++++ b/src/com/google/javascript/jscomp/CodeConsumer.java
+@@ -238,7 +238,7 @@
+       add(" ");
+     }
+ 
+-    if ((long) x == x) {
++    if (false) {
+       long value = (long) x;
+       long mantissa = value;
+       int exp = 0;
+
+
+

@@ -1,0 +1,9 @@
+--- a/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
++++ b/src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java
+@@ -591,2 +591,5 @@
+             }
++if (value == null ){
++return;
++}
+         }
+

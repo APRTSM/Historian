@@ -1,0 +1,12 @@
+--- a/src/java/org/apache/commons/lang/text/StrBuilder.java
++++ b/src/java/org/apache/commons/lang/text/StrBuilder.java
+@@ -1227,8 +1227,9 @@ 
+        if (width > 0) {
+            ensureCapacity(size + width);
+            String str = (obj == null ? getNullText() : obj.toString());
+            int strLen = str.length();
++       if  (str==  null  ){  str  =   " ";  } 
+            if (strLen >= width) {
+                str.getChars(0, width, buffer, size);
+            } else {
+                int padLen = width - strLen;

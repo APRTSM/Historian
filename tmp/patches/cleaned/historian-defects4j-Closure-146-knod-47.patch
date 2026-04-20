@@ -1,0 +1,8 @@
+--- a/src/com/google/javascript/rhino/jstype/JSType.java
++++ b/src/com/google/javascript/rhino/jstype/JSType.java
+@@ -705,3 +705,3 @@
+       case TRUE:
+-        return new TypePair(null, null);
++        return new TypePair(that.restrictByNotNullOrUndefined(),that.restrictByNotNullOrUndefined());
+ 
+
